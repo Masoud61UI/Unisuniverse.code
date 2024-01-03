@@ -1,0 +1,3375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unisuniverse</title>
+    <script
+      src="http://kit.fontawesome.com/7a4b62b0a4.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+          0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        --shadow-medium: 0 13px 30px 0 rgba(0, 0, 0, 0.048),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --color-text-black: #151515;
+        --color-text-grayblack: #636363;
+        --color-text-gray: #c7c7c7;
+        --color-background: #f4fcff;
+        --color-line: #dadada;
+        --color-white: #ffffff;
+        --primary-color: #002754;
+        --secondary-color: #f5aa1c;
+      }
+
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        list-style: none;
+        list-style-type: none;
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      html {
+        font-size: 100%;
+        box-sizing: inherit;
+        scroll-behavior: smooth;
+        height: -webkit-fill-available;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--color-text-black);
+        background-color: var(--color-background);
+      }
+
+      a,
+      button {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background: none;
+        box-shadow: none;
+      }
+
+      img,
+      video {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+
+      .container {
+        max-width: 82%;
+        height: auto;
+      }
+
+      .mx {
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-family: inherit;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.25;
+        color: var(--primary-color);
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: 100;
+        margin: 0 auto;
+        box-shadow: var(--shadow-medium);
+        background-color: var(--color-white);
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        -moz-column-gap: 1rem;
+        column-gap: 1rem;
+        row-gap: 2rem;
+        width: 100%;
+        height: 110px;
+        margin: 0 auto;
+      }
+
+      @media screen and (max-width: 992px) {
+        .navbar {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 75%;
+          height: 100%;
+          z-index: 10;
+          opacity: 0;
+          overflow-y: auto;
+          visibility: hidden;
+          box-shadow: var(--shadow-medium);
+          background-color: var(--color-white);
+          transition: all 0.5s ease;
+        }
+        .navbar.active {
+          left: 0rem;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      .menu-item {
+        position: relative;
+        display: inline-block;
+        margin-left: 2.4rem;
+      }
+
+      .resnav {
+        display: none;
+      }
+
+      .menu-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -moz-column-gap: 0.25rem;
+        column-gap: 0.25rem;
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: inherit;
+        cursor: pointer;
+        text-transform: capitalize;
+        color: var(--color-text-black);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .menu-link > i.fa {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--color-text-black);
+        margin-left: 2px;
+      }
+
+      .menu-link:hover {
+        outline: none;
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (min-width: 993px) {
+        .menu-dropdown:hover > .submenu {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+      @media only screen and (max-width: 992px) {
+        .menu {
+          width: 100%;
+          height: auto;
+          padding: 1rem 0;
+        }
+        .menu-item {
+          display: block;
+          margin: 0 auto;
+        }
+        .menu-link {
+          justify-content: space-between;
+          padding: 1rem 2rem;
+        }
+      }
+
+      .submenu {
+        position: absolute;
+        top: 3.2rem;
+        left: -2rem;
+        min-width: 13rem;
+        height: auto;
+        padding: 0 1rem 1rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(1rem);
+        border-radius: 0 0 0.25rem 0.25rem;
+        border-top: 2px solid var(--secondary-color);
+        box-shadow: var(--shadow-medium);
+        background-color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .submenu-item {
+        display: block;
+        margin-top: 0.75rem;
+      }
+
+      .submenu-link {
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: inherit;
+        cursor: pointer;
+        color: var(--color-text-black);
+        transition: all 0.35s ease;
+      }
+      .submenu-link:hover {
+        outline: none;
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (max-width: 992px) {
+        .submenu {
+          position: relative;
+          top: -0.5rem;
+          left: 2.5rem;
+          width: 100%;
+          max-height: 0;
+          padding: 0px;
+          border: none;
+          outline: none;
+          opacity: 1;
+          overflow: hidden;
+          visibility: visible;
+          transform: translateY(0px);
+          box-shadow: none;
+          background: transparent;
+        }
+      }
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-md {
+        width: 172px;
+        height: 49px;
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: inherit;
+        border-radius: 10px;
+        color: var(--color-white);
+        background-color: var(--primary-color);
+        transition: all 0.35s ease;
+      }
+      .btn-md:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .btn > a > i.fa {
+        margin-right: 22px;
+        color: var(--color-text-black);
+        transition: all 0.35s ease;
+      }
+      .btn > a > i.fa:hover {
+        color: var(--secondary-color);
+      }
+
+      .burger {
+        position: relative;
+        display: none;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 1.6rem;
+        height: 1.15rem;
+        opacity: 0;
+        visibility: hidden;
+        background: transparent;
+      }
+      .burger-line {
+        position: absolute;
+        display: block;
+        right: 0;
+        width: 100%;
+        height: 2.1px;
+        opacity: 1;
+        border: none;
+        outline: none;
+        border-radius: 1rem;
+        background: var(--color-text-black);
+      }
+      .burger-line:nth-child(1) {
+        top: 0px;
+      }
+      .burger-line:nth-child(2) {
+        top: 0.5rem;
+        width: 70%;
+      }
+      .burger-line:nth-child(3) {
+        top: 1rem;
+      }
+      @media only screen and (max-width: 992px) {
+        .burger {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+        .btn-md {
+          display: none;
+        }
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 9;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.65);
+      }
+      @media only screen and (max-width: 992px) {
+        .overlay.active {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      /* hero section */
+
+      .breadcrumb {
+        color: #c7c7c7;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 24px 0;
+      }
+
+      .breadcrumb > span {
+        color: var(--secondary-color);
+      }
+
+      .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-top: 34px;
+      }
+
+      .hero-title {
+        color: var(--primary-color);
+        font-size: 42px;
+        font-weight: 600;
+        letter-spacing: 0.84px;
+      }
+
+      .hero-desc {
+        color: #636363;
+        font-size: 17px;
+        line-height: 27px;
+        max-width: 540px;
+        padding-top: 10px;
+      }
+
+      @media only screen and (max-width: 450px) {
+        .logo {
+          font-size: 24px;
+        }
+
+        .hero-title {
+          font-size: 28px;
+        }
+
+        .hero-desc {
+          font-size: 14px;
+        }
+      }
+
+      /* login */
+
+      .modal-cont {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.47);
+        top: 0;
+        left: 0;
+        overflow: auto;
+        z-index: 1400;
+      }
+
+      .modal-box {
+        width: 33%;
+        margin: 105px auto;
+        padding: 24px 30px;
+        background-color: var(--color-white);
+      }
+
+      .modal-box h1 {
+        font-size: 21px;
+        font-weight: 500;
+      }
+
+      .modal-wlc {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--color-line);
+        padding-bottom: 18px;
+        color: var(--color-text-black);
+      }
+
+      .modal-box .close {
+        width: 44px;
+        height: 44px;
+        background-color: var(--color-background);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .modal-box .close:hover,
+      .modal-box .close:focus {
+        color: var(--secondary-color);
+      }
+
+      .useremail,
+      .userpass {
+        margin: 28px 0 7px 0;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+      }
+
+      .email,
+      .password {
+        padding-left: 16px;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .login-box input[type="email"],
+      .login-box input[type="password"] {
+        width: 100%;
+        border: 1px solid var(--color-line);
+        display: block;
+        margin-bottom: 10px;
+        height: 48px;
+        border-radius: 10px;
+        outline: none;
+      }
+
+      .login-box input[type="email"]:focus,
+      .login-box input[type="password"]:focus {
+        border: 1.5px solid var(--primary-color);
+      }
+
+      .rememberlost {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 22px 0 30px 0;
+      }
+
+      .useremail,
+      .userpass,
+      .modal-box .login-button,
+      .modal-box .email,
+      .password {
+        width: 100%;
+        display: block;
+      }
+
+      .checkboxContainer {
+        display: flex;
+        align-items: center;
+      }
+
+      .checkboxContainer label {
+        padding-left: 10px;
+        color: var(--color-text-black);
+        font-weight: 500;
+        font-size: 15px;
+      }
+
+      .checkboxContainer input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+      }
+      .checkbox:checked {
+        accent-color: var(--primary-color);
+      }
+
+      .lostpass {
+        color: var(--secondary-color);
+        font-weight: 500;
+        font-size: 15px;
+      }
+
+      .modal-box .login-button {
+        height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        display: block;
+        width: 100%;
+        color: var(--color-white);
+        background-color: var(--primary-color);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .modal-box .login-button:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .or {
+        position: relative;
+        text-align: center;
+        margin: 22px 0 22px 0;
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .or::before,
+      .or::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 40%;
+        height: 1px;
+        background: var(--color-line);
+      }
+
+      .or::before {
+        left: 0;
+      }
+
+      .or::after {
+        right: 0;
+      }
+
+      .Google {
+        height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        color: var(--primary-color);
+        background-color: transparent;
+        border-radius: 10px;
+        padding-left: 12px;
+        border: 1.5px solid var(--primary-color);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .Google:hover {
+        background-color: var(--secondary-color);
+        border: none;
+        color: var(--color-white);
+      }
+      .Google svg {
+        fill: var(--primary-color);
+        transition: all 0.3s ease-in-out;
+      }
+      .Google:hover svg {
+        fill: var(--color-white);
+      }
+
+      .Google p {
+        width: 100%;
+        margin-right: 26px;
+      }
+
+      .Facebook {
+        height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        color: var(--color-white);
+        background-color: #1778f2;
+        border-radius: 10px;
+        padding-left: 12px;
+        margin-top: 17px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .Facebook:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .Facebook p {
+        width: 100%;
+        margin-right: 26px;
+      }
+
+      .Apple {
+        height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        color: var(--color-white);
+        background-color: var(--color-text-black);
+        border-radius: 10px;
+        padding-left: 12px;
+        margin-top: 17px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .Apple:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .Apple p {
+        width: 100%;
+        margin-right: 26px;
+      }
+
+      .signup-text {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+        text-align: center;
+        margin-top: 22px;
+      }
+
+      .signup-text a {
+        padding-left: 6px;
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .modal-cont {
+        display: none;
+      }
+      .modal-box {
+        animation-name: zoom;
+        animation-duration: 0.7s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease;
+        border: 1px solid #b7b7b7;
+        border-radius: 24px;
+      }
+      @keyframes zoom {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+
+      @media only screen and (max-width: 993px) {
+        .modal-box {
+          width: 55%;
+        }
+      }
+      @media only screen and (max-width: 630px) {
+        .modal-box {
+          width: 82%;
+          padding: 16px 16px;
+        }
+      }
+      @media only screen and (max-width: 435px) {
+        .modal-wlc h1 {
+          font-size: 17px;
+        }
+        .modal-box .close {
+          font-size: 20px;
+          width: 30px;
+          height: 30px;
+        }
+      }
+      @media only screen and (max-width: 374px) {
+        .rememberlost {
+          flex-direction: column;
+        }
+        .checkboxContainer {
+          margin: 8px 0 10px 0;
+        }
+      }
+
+      /* Popup boxs */
+
+      .popup-boxs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 240px;
+      }
+
+      .box {
+        background-color: var(--color-white);
+        padding: 36px 30px 26px 30px;
+        border-radius: 20px;
+      }
+
+      .btn-sm {
+        width: 153px;
+        height: 49px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        border-radius: 10px;
+        margin-top: 34px;
+        font-size: 17px;
+        font-weight: 500;
+        transition: all 0.3s ease-in;
+      }
+      .btn-sm:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .btn-smb {
+        width: 153px;
+        height: 49px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1.5px solid var(--primary-color);
+        color: var(--primary-color);
+        border-radius: 10px;
+        margin-top: 34px;
+        font-size: 17px;
+        font-weight: 500;
+        transition: all 0.3s ease-in;
+      }
+
+      .btn-smb svg {
+        fill: var(--primary-color);
+        margin-right: 7px;
+        transition: all 0.3s ease-in;
+      }
+
+      .btn-smb:hover {
+        background-color: var(--secondary-color);
+        color: var(--color-white);
+        border: none;
+      }
+      .btn-smb:hover svg {
+        fill: var(--color-white);
+      }
+
+      .image-box {
+        margin: 0 auto;
+      }
+
+      .popup-boxs {
+        display: none;
+      }
+
+      @media only screen and (max-width: 576px) {
+        .popup-boxs {
+          margin: 100px 0 100px 0;
+        }
+      }
+
+      /* messages */
+
+      .window {
+        background: var(--color-white);
+        width: 230px;
+        height: 375px;
+        padding: 0px 8px;
+        border-radius: 8px 8px 0px 0px;
+        box-shadow: -10px -1px 30px 0px rgba(0, 0, 0, 0.08);
+        margin-right: 5px;
+        margin-left: 5px;
+        margin-top: 16.5vh;
+        position: fixed;
+        right: 5px;
+        bottom: 0px;
+        transition: all 0.2s;
+        text-align: center;
+        z-index: 50;
+      }
+
+      #check {
+        display: none;
+      }
+
+      #check:checked + .window {
+        bottom: -330px;
+      }
+
+      #check:checked + .window::-webkit-scrollbar {
+        display: none;
+      }
+
+      .kapsayici {
+        width: 100%;
+        height: 45px;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 22px;
+      }
+
+      .kapsayici:hover {
+        background-color: #f9f9f9;
+        cursor: pointer;
+      }
+
+      .back-inner {
+        margin: -50px 0 37px -18px;
+        width: 16px;
+        height: 16px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+        background-color: var(--color-white);
+        box-shadow: -4px 3px 24px 0px rgba(0, 0, 0, 0.253);
+        font-size: 12px;
+        color: var(--color-text-grayblack);
+        display: none;
+      }
+      .back-inner:hover {
+        cursor: pointer;
+      }
+
+      .profile-bar {
+        display: flex;
+        align-items: center;
+        user-select: none;
+      }
+
+      .profile-bar a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--color-text-black);
+        margin-left: 10px;
+      }
+
+      .online {
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        border: 2px solid #fff;
+        left: 39px;
+        top: 35px;
+        border-radius: 50%;
+        background: green;
+      }
+
+      .img-profile-bar,
+      .userimage {
+        width: 36px;
+        height: 36px;
+      }
+
+      .icons-bar p {
+        font-size: 14px;
+        color: var(--color-text-black);
+        margin-right: 10px;
+        transition-property: background;
+        border-radius: 50%;
+        transition-duration: 0.3s;
+        transform: rotate(+90deg);
+      }
+
+      .form-group {
+        margin: 10px 0;
+      }
+
+      .form-group input.empty {
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: 400;
+        text-decoration: inherit;
+        padding: 5px 11px;
+        font-size: 14px;
+        line-height: 20px;
+        outline: none;
+        background-color: var(--color-background);
+        border: 1px solid var(--color-line);
+        border-radius: 6px;
+        letter-spacing: 1px;
+        width: 100%;
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+      }
+
+      .chats {
+        padding: 14px 0px;
+        overflow: auto;
+        height: 100%;
+      }
+      .chats::-webkit-scrollbar {
+        width: 4px;
+        display: block;
+      }
+
+      .chats::-webkit-scrollbar-thumb {
+        background: var(--color-line);
+        border-radius: 10px;
+      }
+
+      #check:checked + .chats::-webkit-scrollbar {
+        display: none;
+      }
+
+      .userchat {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid var(--color-line);
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+      }
+
+      .userchat:hover {
+        cursor: pointer;
+      }
+
+      .user-online {
+        width: 10px;
+        height: 10px;
+        transform: translate(-6px, 16px);
+        border: 2px solid #fff;
+        border-radius: 50%;
+        background: green;
+        margin-right: -9px;
+      }
+
+      .usertext {
+        width: 75%;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 10px;
+      }
+
+      .username-pm {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .username-pm h5,
+      .inner-username-pm h5 {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--color-text-black);
+      }
+
+      .username-pm p,
+      .inner-pm {
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .inner-pm {
+        text-align: left;
+        width: 92%;
+        padding-top: 4px;
+        overflow-wrap: anywhere;
+      }
+
+      .chat-date p,
+      .inner-username-pm p {
+        font-size: 11px;
+        font-weight: 400;
+        color: var(--color-text-gray);
+      }
+
+      .inner-user-chat {
+        height: 215px;
+        overflow-y: scroll;
+      }
+
+      .inner-user-chat::-webkit-scrollbar {
+        width: 4px;
+        display: block;
+      }
+
+      .inner-user-chat::-webkit-scrollbar-thumb {
+        background: var(--color-line);
+        border-radius: 10px;
+      }
+
+      #check:checked + .inner-user-chat::-webkit-scrollbar {
+        display: none;
+      }
+
+      .inner-chat {
+        display: none;
+      }
+
+      .inner-date {
+        position: relative;
+        text-align: center;
+        margin: 0 0 22px 0;
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--color-text-gray);
+      }
+
+      .inner-date::before,
+      .inner-date::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 33%;
+        height: 1px;
+        background: var(--color-line);
+      }
+
+      .inner-date::before {
+        left: 0;
+      }
+
+      .inner-date::after {
+        right: 0;
+      }
+
+      .inner-userchat {
+        display: flex;
+        padding-bottom: 10px;
+      }
+
+      .inner-usertext {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10px;
+        width: 100%;
+      }
+
+      .inner-username-pm {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .send-box {
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 8px;
+        gap: 9px;
+        display: none;
+      }
+
+      .send-box svg:hover {
+        cursor: pointer;
+        color: var(--primary-color);
+      }
+
+      .form-control {
+        width: 144px;
+        height: 34px;
+        outline: none;
+        border: none;
+        background-color: var(--color-background);
+        padding-left: 7px;
+        border-radius: 6px;
+      }
+      .form-control::placeholder {
+        color: var(--color-text-gray);
+        font-size: 13px;
+      }
+      .form-control:focus {
+        border: 1.5px solid var(--primary-color);
+      }
+
+      .send-btn {
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        background: var(--primary-color);
+      }
+      .send-btn:hover {
+        cursor: pointer;
+      }
+
+      .toggle-display {
+        display: flex;
+      }
+
+      /* Profile */
+
+      .background-img img {
+        width: 100%;
+      }
+
+      .profile-items {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
+
+      .item-left {
+        flex-basis: 30.5%;
+        margin-top: -80px;
+      }
+
+      .profile-info {
+        background-color: var(--color-white);
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 28px 30px 28px;
+        border-radius: 24px;
+        box-shadow: var(--shadow-medium);
+      }
+
+      .profile-img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .uni-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 1.5px solid var(--secondary-color);
+      }
+
+      .uni-name {
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--primary-color);
+        margin: 20px 0 14px 0;
+      }
+
+      .information {
+        display: flex;
+        align-items: center;
+        padding: 9px 0;
+      }
+
+      .information svg {
+        width: 21px;
+        height: 21px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .information p,
+      .information a {
+        margin-left: 12px;
+        color: var(--color-text-black);
+      }
+      .information a {
+        color: #36c;
+      }
+
+      .info-frist {
+        align-items: flex-start;
+      }
+      .info-frist svg {
+        margin: 3px 0 0 2px;
+      }
+
+      .btns {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .btn-follow {
+        width: 45%;
+        height: 49px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        border-radius: 10px;
+        margin-top: 34px;
+        font-size: 17px;
+        font-weight: 500;
+        transition: all 0.3s ease-in;
+      }
+      .btn-follow:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .btn-message {
+        width: 45%;
+        height: 49px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1.5px solid var(--primary-color);
+        color: var(--primary-color);
+        border-radius: 10px;
+        margin-top: 34px;
+        font-size: 17px;
+        font-weight: 500;
+        transition: all 0.3s ease-in;
+      }
+
+      .btn-message svg {
+        fill: var(--primary-color);
+        margin-right: 7px;
+        transition: all 0.3s ease-in;
+      }
+
+      .btn-message:hover {
+        background-color: var(--secondary-color);
+        color: var(--color-white);
+        border: none;
+      }
+      .btn-message:hover svg {
+        fill: var(--color-white);
+      }
+
+      .item-right {
+        flex-basis: 65.5%;
+        margin-top: 22px;
+      }
+
+      .menu-tabs {
+        min-width: 290px;
+        max-width: 100%;
+        background: var(--color-white);
+        border-radius: 20px;
+        padding: 0 20px;
+      }
+
+      .contents {
+        display: none;
+        padding: 37px 0;
+        border-top: 1px solid var(--color-line);
+      }
+
+      .menu-tabs input {
+        display: none;
+      }
+
+      .menu-tabs label {
+        display: inline-block;
+        font-size: 18px;
+        color: var(--color-text-grayblack);
+        font-weight: 400;
+        padding: 17px 10px;
+        text-align: center;
+        border-bottom: 1px solid transparent;
+        transition: all 0.2s ease-in;
+      }
+
+      .marg-label {
+        padding-left: 24px;
+      }
+
+      .menu-tabs label:hover {
+        color: var(--secondary-color);
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .menu-tabs input:checked + label {
+        color: var(--secondary-color);
+        font-weight: 500;
+        border-bottom: 1.5px solid var(--secondary-color);
+      }
+
+      .item-right #tab1:checked ~ #content1,
+      .item-right #tab2:checked ~ #content2,
+      .item-right #tab3:checked ~ #content3,
+      .item-right #tab4:checked ~ #content4,
+      .item-right #tab5:checked ~ #content5 {
+        display: block;
+      }
+
+      .contents h2 {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      #content1 p {
+        padding-top: 15px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 25px;
+        color: var(--color-text-grayblack);
+      }
+
+      @media only screen and (max-width: 1280px) {
+        .profile-info {
+          padding: 35px 20px 25px 20px;
+        }
+        .menu-tabs {
+          padding: 0 16px;
+        }
+        .menu-tabs label {
+          font-size: 16px;
+          padding: 12px 6px;
+        }
+      }
+
+      @media only screen and (max-width: 1024px) {
+        .information p, .information a {
+          font-size: 14px;
+        }
+        .profile-info {
+          padding: 35px 20px 25px 20px;
+        }
+        .uni-name {
+          font-size: 18px;
+        }
+        .uni-img {
+          width: 85px;
+          height: 85px;
+        }
+        .btn-follow, .btn-message {
+          width: 100%;
+        }
+        .btn-message {
+          margin-top: 20px;
+        }
+        .menu-tabs {
+          padding: 0 13px;
+        }
+        .menu-tabs label {
+          font-size: 14px;
+          padding: 12px 3px;
+        }
+        .information svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      @media only screen and (max-width: 934px) {
+        .profile-items {
+          flex-direction: column;
+          align-items: center;
+        }
+        .profile-info {
+          align-items: flex-start;
+          padding: 30px 25px 30px 25px;
+          
+        }
+        .profile-img {
+          flex-direction: row;
+          align-items: center;
+        }
+        .uni-info {
+          margin-top: 20px;
+        }
+        .uni-name {
+          padding-left: 20px;
+        }
+        .uni-info {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .information {
+          margin: 10px 35px 0 0;
+        }
+        .uni-name{
+          font-size: 22px;
+          margin: 0;
+        }
+        .btn-follow, .btn-message {
+          width: 46%;
+        }
+        .btn-message {
+          margin-top: 34px;
+        }
+        .item-right {
+          margin-top: 75px;
+        }
+        .menu-tabs {
+          padding: 8px 24px;
+        }
+        .menu-tabs label {
+          font-size: 17px;
+          padding: 12px 8px;
+        }
+      }
+
+      @media only screen and (max-width: 812px) {
+        .menu-tabs {
+          padding: 8px 12px;
+        }
+        .menu-tabs label {
+          font-size: 14px;
+          padding: 12px 6px;
+        }
+        #content1 p {
+          font-size: 14px;
+        }
+        .background-img {
+          height: 340px;
+        }
+        .background-img img {
+          height: inherit;
+        }
+      }
+
+      @media only screen and (max-width: 646px) {
+        .menu-tabs label {
+          border: 1.5px solid transparent;
+          width: 100%;
+        }
+
+        .menu-tabs input:checked + label {
+          color: var(--secondary-color);
+          font-weight: 500;
+          border: 1.5px solid var(--secondary-color);
+          border-radius: 10px;
+        }
+        .contents {
+           margin-top: 20px;
+        }
+        .menu-tabs label {
+          font-size: 18px;
+        }
+      }
+
+      @media only screen and (max-width: 450px) {
+        .profile-img {
+          flex-direction: column;
+          margin: 0 auto;
+        }
+        .uni-name {
+          font-size: 20px;
+          padding: 16px 0 0 0;
+        }
+        .menu-tabs label {
+          font-size: 16px;
+        }
+        .information {
+          margin: 0;
+        }
+      }
+
+      /* Campus */
+
+      .capmus-cards, .recruiter-cards, .courses-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(276px, 1fr));
+        align-items: stretch;
+        justify-items: center;
+        width: 100%;
+        margin: 24px auto 5px auto;
+      }
+
+      @media (max-width: 922px) and (min-width: 601px) {
+        .capmus-cards, .recruiter-cards, .courses-cards {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .capmus-cards, .recruiter-cards, .courses-cards {
+          flex-direction: column;
+        }
+      }
+
+      .campus-card, .courses-card {
+        position: relative;
+        flex: 1;
+        padding: 16px 16px 24px;
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%23DADADAFF' stroke-width='2' stroke-dasharray='12' stroke-dashoffset='22' stroke-linecap='round'/%3e%3c/svg%3e");
+        border-radius: 24px;
+        margin: 16px;
+        transition: all ease 0.3s;
+        overflow: hidden;
+        animation: fadeInLeft 1.5s backwards;
+      }
+      .campus-card:nth-child(2), .recruiter-card:nth-child(2), .courses-card:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      .campus-card:nth-child(3), .recruiter-card:nth-child(3), .courses-card:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+
+      .campus-card:hover, .recruiter-card:hover, .courses-card:hover {
+        transform: translateY(-6px);
+        -webkit-transform: translateY(-6px);
+      }
+
+      .campus-card img, .courses-img {
+        aspect-ratio: 500 / 320;
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        position: relative;
+        max-height: 184px;
+        object-fit: cover;
+        box-shadow: var(--shadow-small);
+      }
+
+      .campus-card-body {
+        color: var(--color-text-black);
+        width: 100%;
+        margin-bottom: 30px;
+        padding: 0 2px 0 2px;
+        position: relative;
+      }
+
+      .title-card{
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 10px;
+        transition: all 0.3s ease-in-out;
+      }
+      .title-card:hover{
+        cursor: pointer;
+        color: var(--primary-color);
+      }
+
+      .campus-card-body p {
+        color: var(--color-text-grayblack);
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 400;
+      }
+
+      .card-btn {
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        bottom: 0;
+        width: calc(100% - 1rem);
+      }
+
+      .card-btn a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        text-shadow: 0px 1px 5px rgba(0,0,0,0.08);
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        width: 20%;
+        height: 44px;
+        border-top-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+      }
+
+      @media only screen and (max-width: 385px) {
+        .campus-card {
+          margin: 16px 6px;
+        }
+        .campus-card-body {
+          margin-bottom: 14;
+        }
+      }
+
+      /*    Recruiter contact details    */
+
+      .recruiter-card {
+        position: relative;
+        flex: 1;
+        padding: 18px 18px 26px;
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%23DADADAFF' stroke-width='2' stroke-dasharray='12' stroke-dashoffset='22' stroke-linecap='round'/%3e%3c/svg%3e");
+        border-radius: 24px;
+        min-width: 270px;
+        width: -webkit-fill-available;
+        margin: 16px;
+        transition: all ease 0.3s;
+        overflow: hidden;
+        animation: fadeInLeft 1.5s backwards;
+      }
+
+      .recruiter-card-body {
+        color: var(--color-text-black);
+      }
+
+      .img-title-card {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid var(--color-line);
+        padding-bottom: 24px;
+      }
+
+      .img-title-card img {
+        width: 72px;
+        height: 72px;
+      }
+
+      .recruiter-title-card {
+        margin-left: 18px;
+      }
+      
+      .recruiter-title-card h4 {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .recruiter-title-card p {
+        font-size: 16px;
+        margin-top: 2px;
+        color: var(--color-text-grayblack);
+      }
+
+      .recruiter-contact {
+        margin-top: 24px;
+      }
+
+      .recruiter-phone, .recruiter-email {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .recruiter-email {
+        margin-top: 18px;
+      }
+
+      .recruiter-contact svg {
+        width: 21px;
+        height: 21px;
+      }
+      .recruiter-contact p {
+        padding-left: 10px;
+        font-size: 16px;
+      }
+
+      @media only screen and (max-width: 440px) {
+        .img-title-card img {
+          width: 60px;
+          height: 60px;
+        }
+        .recruiter-title-card h4 {
+          font-size: 16px;
+          font-weight: 600;
+        }
+        .recruiter-title-card p {
+          font-size: 14px;
+          margin-top: 2px;
+          color: var(--color-text-grayblack);
+        }
+      }
+
+      /* courses */ 
+
+      .heart-icon {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: rgba(21, 21, 21, 0.40);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: right;
+        margin: -182px 10px 0 0;
+        z-index: 52;
+      }
+
+      .heart-icon:hover {
+        cursor: pointer;
+      }
+
+      .prof-stars {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 0 25px 0;
+        border-bottom: 1px solid var(--color-line);
+      }
+
+      .prof-info {
+        display: flex;
+      }
+
+      .prof-info img {
+        width: 42px;
+        height: 42px;
+        margin-right: 13px;
+      }
+      .prof-info img:hover {
+        cursor: pointer;
+      }
+
+      .prof-name h5 {
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .prof-name p {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .star {
+        display: flex;
+        width: 33%;
+      }
+
+      .stu-join {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 24px;
+      }
+
+      .students, .join-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .students p {
+        padding-left: 6px;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .join-btn p {
+        padding-right: 6px;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--primary-color);
+        transition: all 0.3s ease-in-out;
+      }
+      .join-btn p:hover {
+        font-weight: 600;
+      }
+      .join-btn:hover {
+        cursor: pointer;
+      }
+
+      .courses-card-body {
+        padding: 0 2px 0 2px;
+      }
+
+      /* Jobs */ 
+
+      .jobs-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 24px auto 5px auto;
+        gap: 35px;
+      }
+
+      .jobs-card {
+        position: relative;
+        flex: 1;
+        padding: 24px;
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%23DADADAFF' stroke-width='2' stroke-dasharray='12' stroke-dashoffset='22' stroke-linecap='round'/%3e%3c/svg%3e");
+        border-radius: 24px;
+        width: -webkit-fill-available;
+        transition: all ease 0.3s;
+        overflow: hidden;
+        animation: fadeInLeft 1.5s backwards;
+      }
+
+      .job-company {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .job-company h6, .job-company p {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+      .job-company p {
+        color: var(--color-text-gray);
+        font-weight: 400;
+      }
+      
+      .job-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--color-text-black);
+        padding-top: 3px;
+        cursor: pointer;
+      }
+
+      .job-information {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .job-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 17px;
+        margin-right: 46px;
+      }
+
+      .job-info p {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+        padding-left: 7px;
+      }
+
+      .job-desc {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+        margin-top: 18px;
+      }
+
+      .read-btn {
+        font-weight: 600;
+        color: var(--primary-color);
+        transition: all 0.3s ease-in-out;
+      }
+      .read-btn:hover {
+        color: var(--secondary-color);
+      }
+
+      .btn-suggest {
+        width: 25%;
+        height: 49px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        border-radius: 10px;
+        margin-top: 28px;
+        font-size: 17px;
+        font-weight: 500;
+        transition: all 0.3s ease-in;
+      }
+      .btn-suggest:hover {
+        background-color: var(--secondary-color);
+      }
+
+      @media only screen and (max-width: 812px) {
+        .btn-suggest {
+          width: 42%;
+        }
+      }
+
+      @media only screen and (max-width: 440px) {
+        .btn-suggest {
+          width: 100%;
+        }        
+        .job-title {
+          margin-top: 6px;
+        }
+        .job-company h6, .job-company p {
+          font-size: 12px;
+        }
+      }
+      @media only screen and (max-width: 357px) {
+        .job-info {
+          margin-right: 10px;
+        }
+      }
+
+
+
+
+      /*footer*/
+
+      .col-6 {
+        width: 100%;
+        text-align: center;
+      }
+
+      .col-3 > h4 {
+        padding: 20px 0 20px 0;
+      }
+
+      .desc a {
+        display: flex;
+        align-items: center;
+      }
+
+      .desc a > h2 {
+        font-size: 20px;
+        margin-left: 10px;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      .desc > p {
+        margin-top: 10px;
+        font-size: 17px;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+        width: 85%;
+      }
+
+      .row-fot {
+        border-bottom: 1px solid var(--color-line);
+        border-top: 1px solid var(--color-line);
+        margin: 7em 0 2em 0;
+        padding: 2.5em 0 2.5em 0;
+      }
+
+      footer .row {
+        position: relative;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        grid-gap: 30px;
+        align-items: center;
+      }
+
+      footer ul {
+        padding: 0;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+
+      footer ul li {
+        list-style-type: none;
+        padding: 0;
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        line-height: 2;
+      }
+
+      .footer-cat-links a {
+        color: var(--color-text-grayblack);
+        font-size: 17px;
+        font-weight: 500;
+        text-decoration: none;
+        position: relative;
+      }
+
+      .footer-cat-links.active > li a {
+        pointer-events: auto;
+      }
+
+      .footer-cat-links a:after {
+        top: 21px;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        width: 0;
+        background: var(--secondary-color);
+        -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      }
+
+      .footer-cat-links a:hover:after,
+      .footer-cat-links a:focus:after {
+        width: 100%;
+        left: 0;
+      }
+
+      .social-links {
+        margin-top: 65px;
+      }
+
+      .social-links a {
+        color: var(--color-text-grayblack);
+        font-size: 20px;
+        border: 1px solid;
+        border-radius: 20px;
+        padding: 6px;
+        -webkit-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+      }
+
+      .social-links a:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      .social-links a:hover,
+      .social-links a:focus {
+        background-color: var(--secondary-color);
+        color: var(--color-white);
+      }
+
+      .social-links a i {
+        width: 25px;
+        height: 25px;
+        text-align: center;
+      }
+
+      .copyowner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--color-text-gray);
+        font-size: 14px;
+        padding-bottom: 30px;
+      }
+
+      .contact {
+        padding-bottom: 5px;
+      }
+
+      .contact > ul > li {
+        display: flex;
+      }
+
+      .contact > ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 6px;
+      }
+
+      .lineheightfot {
+        line-height: 1.5;
+        margin-left: 12px;
+      }
+
+      .iconfo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: var(--secondary-color);
+      }
+
+      .Emailfot {
+        padding-top: 20px;
+      }
+
+      @media only screen and (max-width: 992px) {
+        footer .row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media only screen and (max-width: 576px) {
+        footer .row {
+          display: block;
+        }
+        .col-3 {
+          margin-bottom: 28px;
+        }
+      }
+
+      @media only screen and (max-width: 450px) {
+        .copyowner {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <section class="wrapper container">
+        <a href="./index.html" class="logo">Unisuniverse</a>
+        <span class="overlay"></span>
+        <nav class="navbar" id="navbar">
+          <ul class="menu" id="menu">
+            <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Students</a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Academics</a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Universities</a>
+            </li>
+            <li class="menu-item menu-dropdown">
+              <span class="menu-link" data-toggle="submenu"
+                >Our Services<i class="fa fa-angle-down"></i
+              ></span>
+              <ul class="submenu">
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item resnav">
+              <a href="#" class="menu-link" id="btn-md">Sign Up / Log In</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="btn">
+          <a href="#"><i class="fa fa-search"></i></a>
+          <div class="burger" id="burger">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </div>
+          <button class="btn-md" id="test">Sign Up / Log In</button>
+          <div class="modal-cont">
+            <div class="modal-box">
+              <div class="modal-wlc">
+                <h1>Welcome to Unisuniverse</h1>
+                <span class="close">&times;</span>
+              </div>
+              <form action="" class="login-box">
+                <label for="useremail" class="useremail">Email</label>
+                <input
+                  type="email"
+                  class="email"
+                  placeholder="Enter Your Email"
+                  required
+                />
+                <label for="Password" class="userpass">Password</label>
+                <input
+                  type="password"
+                  class="password"
+                  placeholder="Enter Your Password"
+                  required
+                />
+                <div class="rememberlost">
+                  <div class="checkboxContainer">
+                    <input type="checkbox" id="rememberme" class="checkbox" />
+                    <label for="RememberMe">Remember me </label>
+                  </div>
+                  <a href="#" class="lostpass">Lost your password?</a>
+                </div>
+                <button class="login-button">Login</button>
+                <div class="or">OR</div>
+                <button class="Google">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_24_2365)">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M10.9994 5.04166C9.87998 5.04191 8.78332 5.35747 7.83501 5.95219C6.8867 6.54691 6.1251 7.39674 5.63746 8.4043C5.14981 9.41187 4.95586 10.5364 5.07781 11.6491C5.19976 12.7618 5.63268 13.8177 6.32698 14.6957C7.02129 15.5737 7.94888 16.2384 9.00349 16.6136C10.0581 16.9888 11.1971 17.0594 12.2899 16.8172C13.3828 16.575 14.3853 16.0298 15.1826 15.2442C15.98 14.4585 16.5399 13.4641 16.7982 12.375H11.916C11.5513 12.375 11.2016 12.2301 10.9437 11.9723C10.6859 11.7144 10.541 11.3647 10.541 11C10.541 10.6353 10.6859 10.2856 10.9437 10.0277C11.2016 9.76986 11.5513 9.62499 11.916 9.62499H18.3327C18.6974 9.62499 19.0471 9.76986 19.305 10.0277C19.5628 10.2856 19.7077 10.6353 19.7077 11C19.7077 13.0137 19.0098 14.9651 17.7329 16.5222C16.4559 18.0792 14.6789 19.1456 12.7041 19.5398C10.7294 19.934 8.67908 19.6317 6.90219 18.6843C5.1253 17.7368 3.73165 16.2029 2.95849 14.3436C2.18533 12.4842 2.08043 10.4144 2.66166 8.48641C3.24289 6.55843 4.47432 4.89146 6.14633 3.76926C7.81834 2.64706 9.82758 2.13899 11.832 2.33154C13.8365 2.52409 15.7123 3.40536 17.1401 4.82533C17.2681 4.95269 17.3698 5.10402 17.4393 5.27067C17.5089 5.43733 17.5449 5.61605 17.5454 5.79664C17.5459 5.97722 17.5107 6.15613 17.4421 6.32314C17.3734 6.49016 17.2725 6.64201 17.1451 6.77003C17.0178 6.89806 16.8665 6.99974 16.6998 7.06928C16.5331 7.13882 16.3544 7.17485 16.1738 7.17532C15.8091 7.17626 15.459 7.03229 15.2004 6.77508C14.6484 6.22434 13.9932 5.78779 13.2724 5.49036C12.5515 5.19293 11.7791 5.04046 10.9994 5.04166Z"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_24_2365">
+                        <rect width="22" height="22" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <p>Continue Google</p>
+                </button>
+                <button class="Facebook">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.99935 1.69995C5.41602 1.69995 1.66602 5.44162 1.66602 10.05C1.66602 14.2166 4.71602 17.6749 8.69935 18.2999V12.4666H6.58268V10.05H8.69935V8.20828C8.69935 6.11662 9.94102 4.96662 11.8493 4.96662C12.7577 4.96662 13.7077 5.12495 13.7077 5.12495V7.18328H12.6577C11.6243 7.18328 11.2994 7.82495 11.2994 8.48328V10.05H13.616L13.241 12.4666H11.2994V18.2999C13.2631 17.9898 15.0512 16.9879 16.341 15.475C17.6307 13.9621 18.3371 12.038 18.3327 10.05C18.3327 5.44162 14.5827 1.69995 9.99935 1.69995Z"
+                      fill="white"
+                    />
+                  </svg>
+                  <p>Continue Facebook</p>
+                </button>
+                <button class="Apple">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.0492 20.28C16.0692 21.23 14.9992 21.08 13.9692 20.63C12.8792 20.17 11.8792 20.15 10.7292 20.63C9.28919 21.25 8.52919 21.07 7.66919 20.28C2.78919 15.25 3.50919 7.59 9.04919 7.31C10.3992 7.38 11.3392 8.05 12.1292 8.11C13.3092 7.87 14.4392 7.18 15.6992 7.27C17.2092 7.39 18.3492 7.99 19.0992 9.07C15.9792 10.94 16.7192 15.05 19.5792 16.2C19.0092 17.7 18.2692 19.19 17.0392 20.29L17.0492 20.28ZM12.0292 7.25C11.8792 5.02 13.6892 3.18 15.7692 3C16.0592 5.58 13.4292 7.5 12.0292 7.25Z"
+                      fill="white"
+                    />
+                  </svg>
+                  <p>Continue Apple</p>
+                </button>
+                <p class="signup-text">
+                  Don't you have an account?<a href="#" class="new-acc"
+                    >Create an account.</a
+                  >
+                </p>
+              </form>
+            </div>
+            <div class="popup-boxs">
+              <div class="box">
+                <img
+                  class="image-box"
+                  src="../../images/student popup.png"
+                  alt="Student Image"
+                />
+                <a href="../../Signup/Student/index.html" class="btn-sm"
+                  >Student</a
+                >
+              </div>
+              <div class="box">
+                <img
+                  class="image-box"
+                  src="../../images/Academic popup.png"
+                  alt="Academic Image"
+                />
+                <a href="../../Signup/Academic/index.html" class="btn-sm"
+                  >Academic</a
+                >
+              </div>
+              <div class="box">
+                <img
+                  class="image-box"
+                  src="../../images/Recruiter popup.png"
+                  alt="Recruiter Image"
+                />
+                <a href="../../Signup/Recruiter/index.html" class="btn-sm"
+                  >Recruiter</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <div class="mx container">
+      <p class="breadcrumb">Home / <span>University Profile</span></p>
+    </div>
+
+    <input type="checkbox" id="check" checked />
+    <div class="window">
+      <label for="check" class="top-bar">
+        <div class="kapsayici" id="top-bar-box">
+          <div class="profile-bar">
+            <img
+              src="../../images/avatar 1.png"
+              alt="Profile chats Image"
+              class="img-profile-bar"
+            />
+            <div class="online"></div>
+            <a>Messages</a>
+          </div>
+          <div class="icons-bar">
+            <p class="symbol">❮</p>
+          </div>
+        </div>
+      </label>
+
+      <form role="form" class="search-form">
+        <div class="form-group">
+          <input
+            onkeyup="search_chat()"
+            name="search"
+            type="text"
+            class="form-control empty"
+            id="searchbar"
+            placeholder="&#xF002; serach"
+          />
+        </div>
+      </form>
+
+      <div class="chats" id="chats">
+        <div class="userchat" id="userchat">
+          <img
+            class="userimage"
+            src="../../images/avatar 2.png"
+            alt="User Profile Chat Image"
+          />
+          <div class="usertext">
+            <div class="username-pm">
+              <h5>Jordan Cutler</h5>
+              <p>Chat: Hi Mr.Evans...</p>
+            </div>
+            <div class="chat-date">
+              <p>Oct 9</p>
+            </div>
+          </div>
+        </div>
+        <div class="userchat" id="userchat">
+          <img
+            class="userimage"
+            src="../../images/avatar 2.png"
+            alt="User Profile Chat Image"
+          />
+          <div class="user-online"></div>
+          <div class="usertext">
+            <div class="username-pm">
+              <h5>Jordan Cutler</h5>
+              <p>Chat: Hi Mr.Evans...</p>
+            </div>
+            <div class="chat-date">
+              <p>Oct 9</p>
+            </div>
+          </div>
+        </div>
+        <div class="userchat" id="userchat">
+          <img
+            class="userimage"
+            src="../../images/avatar 2.png"
+            alt="User Profile Chat Image"
+          />
+          <div class="usertext">
+            <div class="username-pm">
+              <h5>Jordan Cutler</h5>
+              <p>Chat: Hi Mr.Evans...</p>
+            </div>
+            <div class="chat-date">
+              <p>Oct 9</p>
+            </div>
+          </div>
+        </div>
+        <div class="userchat" id="userchat">
+          <img
+            class="userimage"
+            src="../../images/avatar 2.png"
+            alt="User Profile Chat Image"
+          />
+          <div class="usertext">
+            <div class="username-pm">
+              <h5>Jordan Cutler</h5>
+              <p>Chat: Hi Mr.Evans...</p>
+            </div>
+            <div class="chat-date">
+              <p>Oct 9</p>
+            </div>
+          </div>
+        </div>
+        <div class="userchat" id="userchat">
+          <img
+            class="userimage"
+            src="../../images/avatar 2.png"
+            alt="User Profile Chat Image"
+          />
+          <div class="usertext">
+            <div class="username-pm">
+              <h5>Jordan Cutler</h5>
+              <p>Chat: Hi Mr.Evans...</p>
+            </div>
+            <div class="chat-date">
+              <p>Oct 9</p>
+            </div>
+          </div>
+        </div>
+        <div class="userchat" id="userchat">
+          <img
+            class="userimage"
+            src="../../images/avatar 2.png"
+            alt="User Profile Chat Image"
+          />
+          <div class="usertext">
+            <div class="username-pm">
+              <h5>Jordan Cutler</h5>
+              <p>Chat: Hi Mr.Evans...</p>
+            </div>
+            <div class="chat-date">
+              <p>Oct 9</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inner-chat" id="inner-chat">
+        <div class="back-inner">
+          <i class="fa fa-angle-left"></i>
+        </div>
+        <div class="inner-date">Monday</div>
+        <div class="inner-user-chat" id="inner-user-chat">
+          <div class="inner-userchat">
+            <img
+              class="userimage"
+              src="../../images/avatar 2.png"
+              alt="User Profile Chat Image"
+            />
+            <div class="inner-usertext">
+              <div class="inner-username-pm">
+                <h5>Jordan Cutler</h5>
+                <p>5:18 PM</p>
+              </div>
+              <p class="inner-pm">
+                User : Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do.
+              </p>
+            </div>
+          </div>
+          <div class="inner-userchat">
+            <img
+              class="userimage"
+              src="../../images/avatar 1.png"
+              alt="User Profile Chat Image"
+            />
+            <div class="inner-usertext" id="chat-send">
+              <div class="inner-username-pm">
+                <h5>Gregor Abrodi</h5>
+                <p>5:28 PM</p>
+              </div>
+              <p class="inner-pm">You : Lorem ipsum dolor sit amet.</p>
+            </div>
+          </div>
+        </div>
+        <div class="send-box">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4.75235 9.54811L9.52595 4.77451C9.75583 4.54469 10.0287 4.3624 10.3291 4.23804C10.6294 4.11369 10.9513 4.0497 11.2763 4.04974C11.6014 4.04979 11.9232 4.11385 12.2235 4.23828C12.5238 4.36272 12.7967 4.54508 13.0265 4.77496C13.2563 5.00484 13.4386 5.27773 13.563 5.57806C13.6873 5.87839 13.7513 6.20027 13.7513 6.52532C13.7512 6.85038 13.6872 7.17225 13.5627 7.47254C13.4383 7.77284 13.2559 8.04569 13.026 8.27551L7.29845 14.0031C7.08732 14.2142 6.80098 14.3328 6.5024 14.3328C6.20382 14.3328 5.91748 14.2142 5.70635 14.0031C5.49522 13.792 5.37662 13.5056 5.37662 13.2071C5.37662 12.9085 5.49522 12.6221 5.70635 12.411L10.7977 7.31971C10.9169 7.19175 10.9818 7.02251 10.9787 6.84764C10.9756 6.67277 10.9048 6.50592 10.7811 6.38225C10.6574 6.25858 10.4906 6.18773 10.3157 6.18465C10.1408 6.18156 9.97161 6.24647 9.84365 6.36571L4.75235 11.457C4.28809 11.9213 4.02727 12.5509 4.02727 13.2075C4.02727 13.8641 4.28809 14.4937 4.75235 14.958C5.21661 15.4223 5.84629 15.6831 6.50285 15.6831C7.15942 15.6831 7.78909 15.4223 8.25335 14.958L13.9801 9.22951C14.6836 8.50939 15.0748 7.54095 15.069 6.53423C15.0631 5.52751 14.6606 4.56369 13.9487 3.85182C13.2369 3.13995 12.273 2.73743 11.2663 2.73157C10.2596 2.72571 9.29116 3.11697 8.57105 3.82051L3.79835 8.59321C3.67912 8.72116 3.61421 8.89041 3.61729 9.06528C3.62038 9.24015 3.69122 9.40699 3.81489 9.53067C3.93856 9.65434 4.10541 9.72518 4.28028 9.72826C4.45515 9.73135 4.62439 9.66644 4.75235 9.54721V9.54811Z"
+              fill="#636363"
+            />
+          </svg>
+          <div class="text-box">
+            <div class="input-group with-icon">
+              <input
+                class="form-control rounded"
+                id="user-input"
+                name="suche"
+                type="text"
+                onkeypress="handleKeyPress(event)"
+                placeholder="Message..."
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <div class="send-btn" onclick="sendMessage()">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_24_770)">
+                <path
+                  d="M11.9736 0.514538C12.0008 0.44639 12.0075 0.371735 11.9928 0.299827C11.978 0.22792 11.9425 0.161923 11.8906 0.110018C11.8387 0.0581133 11.7727 0.0225832 11.7008 0.00783262C11.6289 -0.00691797 11.5542 -0.00024034 11.4861 0.0270377L0.575812 4.39129H0.575062L0.236062 4.52629C0.171855 4.5519 0.115976 4.59476 0.0745991 4.65014C0.0332217 4.70551 0.00795582 4.77125 0.00159241 4.84008C-0.00477099 4.90891 0.00801571 4.97817 0.0385401 5.04019C0.0690644 5.10221 0.116138 5.15459 0.174562 5.19154L0.482062 5.38654L0.482812 5.38804L4.22906 7.77154L6.61256 11.5178L6.61406 11.5193L6.80906 11.8268C6.84613 11.885 6.89854 11.9318 6.96051 11.9622C7.02249 11.9925 7.09163 12.0051 7.16033 11.9987C7.22903 11.9923 7.29463 11.967 7.34989 11.9257C7.40515 11.8844 7.44795 11.8286 7.47356 11.7645L11.9736 0.514538ZM10.5988 1.93204L4.97831 7.55254L4.81706 7.29904C4.78752 7.25252 4.74808 7.21308 4.70156 7.18354L4.44806 7.02229L10.0686 1.40179L10.9521 1.04854L10.5996 1.93204H10.5988Z"
+                  fill="white"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_24_770">
+                  <rect width="12" height="12" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="background-img">
+      <img src="../images/Profile background.png" alt="Profile Background" />
+    </div>
+
+    <main class="uni-Profile container mx">
+      <section class="profile-items">
+        <div class="item-left">
+          <div class="profile-info">
+            <div class="profile-img">
+              <img
+                src="../images/Uni-img.png"
+                alt="Uni Images"
+                class="uni-img"
+              />
+              <h2 class="uni-name">Arden University</h2>
+            </div>
+            <div class="uni-info">
+              <div class="information info-frist">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.0006 1.76758C13.0323 1.76758 14.9808 2.57469 16.4175 4.01135C17.8542 5.44801 18.6613 7.39655 18.6613 9.42829C18.6613 12.6654 16.3866 16.1933 11.8963 20.0496C11.6466 20.2641 11.3282 20.3819 10.9991 20.3816C10.6699 20.3813 10.3518 20.2629 10.1025 20.048L9.80549 19.7903C5.51392 16.0346 3.33984 12.5932 3.33984 9.42829C3.33984 7.39655 4.14695 5.44801 5.58362 4.01135C7.02028 2.57469 8.96881 1.76758 11.0006 1.76758ZM11.0006 2.94615C9.28139 2.94615 7.63263 3.62909 6.41699 4.84473C5.20135 6.06036 4.51842 7.70912 4.51842 9.42829C4.51842 12.1799 6.52042 15.3502 10.5794 18.9017L10.8725 19.1554C10.9081 19.1861 10.9536 19.2029 11.0006 19.2029C11.0476 19.2029 11.093 19.1861 11.1286 19.1554C15.3841 15.5003 17.4827 12.2451 17.4827 9.42829C17.4827 8.57705 17.315 7.73414 16.9893 6.94769C16.6635 6.16124 16.1861 5.44665 15.5841 4.84473C14.9822 4.2428 14.2676 3.76533 13.4812 3.43957C12.6947 3.11382 11.8518 2.94615 11.0006 2.94615ZM11.0006 6.48186C11.782 6.48186 12.5314 6.79229 13.084 7.34485C13.6366 7.89742 13.947 8.64685 13.947 9.42829C13.947 10.2097 13.6366 10.9592 13.084 11.5117C12.5314 12.0643 11.782 12.3747 11.0006 12.3747C10.2191 12.3747 9.46968 12.0643 8.91712 11.5117C8.36456 10.9592 8.05413 10.2097 8.05413 9.42829C8.05413 8.64685 8.36456 7.89742 8.91712 7.34485C9.46968 6.79229 10.2191 6.48186 11.0006 6.48186ZM11.0006 7.66044C10.5317 7.66044 10.082 7.84669 9.7505 8.17823C9.41896 8.50977 9.2327 8.95943 9.2327 9.42829C9.2327 9.89716 9.41896 10.3468 9.7505 10.6784C10.082 11.0099 10.5317 11.1962 11.0006 11.1962C11.4694 11.1962 11.9191 11.0099 12.2506 10.6784C12.5822 10.3468 12.7684 9.89716 12.7684 9.42829C12.7684 8.95943 12.5822 8.50977 12.2506 8.17823C11.9191 7.84669 11.4694 7.66044 11.0006 7.66044Z"
+                    fill="#F5AA1C"
+                  />
+                </svg>
+                <p>110 SW Frank Phillips ,Chicago , USA</p>
+              </div>
+              <div class="information">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M1.5 10C1.5 11.1162 1.71986 12.2215 2.14702 13.2528C2.57419 14.2841 3.20029 15.2211 3.98959 16.0104C4.77889 16.7997 5.71592 17.4258 6.74719 17.853C7.77846 18.2801 8.88376 18.5 10 18.5C11.1162 18.5 12.2215 18.2801 13.2528 17.853C14.2841 17.4258 15.2211 16.7997 16.0104 16.0104C16.7997 15.2211 17.4258 14.2841 17.853 13.2528C18.2801 12.2215 18.5 11.1162 18.5 10C18.5 7.74566 17.6045 5.58365 16.0104 3.98959C14.4163 2.39553 12.2543 1.5 10 1.5C7.74566 1.5 5.58365 2.39553 3.98959 3.98959C2.39553 5.58365 1.5 7.74566 1.5 10ZM17.5 10C17.5 11.9891 16.7098 13.8968 15.3033 15.3033C13.8968 16.7098 11.9891 17.5 10 17.5C8.01088 17.5 6.10322 16.7098 4.6967 15.3033C3.29018 13.8968 2.5 11.9891 2.5 10C2.5 8.01088 3.29018 6.10322 4.6967 4.6967C6.10322 3.29018 8.01088 2.5 10 2.5C11.9891 2.5 13.8968 3.29018 15.3033 4.6967C16.7098 6.10322 17.5 8.01088 17.5 10Z"
+                    fill="#F5AA1C"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M6.5 10C6.5 14.396 7.942 18 10 18C12.058 18 13.5 14.396 13.5 10C13.5 5.604 12.058 2 10 2C7.942 2 6.5 5.604 6.5 10ZM12.5 10C12.5 13.889 11.255 17 10 17C8.745 17 7.5 13.889 7.5 10C7.5 6.111 8.745 3 10 3C11.255 3 12.5 6.111 12.5 10Z"
+                    fill="#F5AA1C"
+                  />
+                  <path
+                    d="M3.735 5.31231L4.405 4.57031C4.512 4.66631 4.626 4.76031 4.748 4.85131C6.066 5.83931 8.146 6.44131 10.413 6.44131C12.346 6.44131 14.15 6.00431 15.468 5.25131C15.7717 5.07949 16.0586 4.87962 16.325 4.65431L16.975 5.41431C16.677 5.66931 16.339 5.90431 15.965 6.11831C14.488 6.96331 12.513 7.44131 10.413 7.44131C7.943 7.44131 5.651 6.77831 4.148 5.65131C4.00519 5.54438 3.86737 5.43193 3.735 5.31231ZM3.735 14.7003L4.405 15.4403C4.512 15.3443 4.626 15.2503 4.748 15.1603C6.066 14.1723 8.146 13.5703 10.413 13.5703C12.346 13.5703 14.15 14.0063 15.468 14.7603C15.789 14.9443 16.076 15.1443 16.325 15.3563L16.975 14.5963C16.6611 14.3306 16.3229 14.0949 15.965 13.8923C14.488 13.0483 12.513 12.5703 10.413 12.5703C7.943 12.5703 5.651 13.2333 4.148 14.3593C4.002 14.4693 3.864 14.5833 3.735 14.7003ZM2 10.5003V9.50031H18V10.5003H2Z"
+                    fill="#F5AA1C"
+                  />
+                </svg>
+                <a href="#">Arden-University.co</a>
+              </div>
+              <div class="information">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.0469 3.0033C12.0628 2.94378 12.0902 2.88796 12.1277 2.83906C12.1651 2.79015 12.2118 2.7491 12.2652 2.71826C12.3185 2.68743 12.3774 2.6674 12.4385 2.65934C12.4995 2.65128 12.5616 2.65533 12.6211 2.67127C13.7533 2.9666 14.7863 3.55843 15.6136 4.38579C16.441 5.21315 17.0328 6.24612 17.3281 7.3783C17.3441 7.43781 17.3481 7.49987 17.3401 7.56095C17.332 7.62202 17.312 7.6809 17.2811 7.73423C17.2503 7.78756 17.2093 7.83429 17.1603 7.87175C17.1114 7.9092 17.0556 7.93665 16.9961 7.95252C16.9566 7.96304 16.9159 7.96829 16.875 7.96815C16.7717 7.96821 16.6713 7.93416 16.5894 7.87129C16.5074 7.80843 16.4486 7.72026 16.4219 7.62049C16.1683 6.64798 15.66 5.76067 14.9494 5.05002C14.2387 4.33936 13.3514 3.83107 12.3789 3.57752C12.3194 3.56165 12.2636 3.5342 12.2147 3.49675C12.1658 3.45929 12.1247 3.41256 12.0939 3.35923C12.063 3.3059 12.043 3.24702 12.035 3.18595C12.0269 3.12487 12.0309 3.06281 12.0469 3.0033ZM11.7539 6.07752C12.8906 6.38065 13.6188 7.10877 13.9219 8.24549C13.9486 8.34526 14.0074 8.43343 14.0894 8.49629C14.1713 8.55916 14.2717 8.59321 14.375 8.59315C14.4159 8.59329 14.4566 8.58804 14.4961 8.57752C14.5556 8.56165 14.6114 8.5342 14.6603 8.49675C14.7093 8.45929 14.7503 8.41256 14.7811 8.35923C14.812 8.3059 14.832 8.24702 14.8401 8.18595C14.8481 8.12487 14.8441 8.06281 14.8281 8.0033C14.4375 6.54158 13.4578 5.5619 11.9961 5.17127C11.9366 5.15537 11.8745 5.15134 11.8135 5.15942C11.7524 5.1675 11.6935 5.18753 11.6402 5.21836C11.5325 5.28063 11.454 5.38313 11.4219 5.5033C11.3898 5.62348 11.4067 5.75149 11.469 5.85918C11.5312 5.96686 11.6337 6.0454 11.7539 6.07752ZM17.9602 13.6556C17.8263 14.6769 17.3251 15.6145 16.5503 16.2931C15.7755 16.9718 14.78 17.345 13.75 17.3431C7.63282 17.3431 2.65626 12.3666 2.65626 6.2494C2.65428 5.21974 3.02721 4.22458 3.70538 3.4498C4.38354 2.67502 5.32056 2.17361 6.34141 2.03924C6.57641 2.01068 6.81433 2.05914 7.01944 2.17733C7.22456 2.29552 7.38578 2.47707 7.47891 2.69471L9.12735 6.3744C9.20014 6.54098 9.23025 6.72308 9.21497 6.90423C9.1997 7.08537 9.13951 7.25985 9.03985 7.4119C9.0298 7.42737 9.01884 7.44224 9.00704 7.45643L7.36095 9.41424C7.35095 9.43453 7.34575 9.45685 7.34575 9.47947C7.34575 9.5021 7.35095 9.52441 7.36095 9.54471C7.95938 10.7697 9.24376 12.0447 10.4859 12.6424C10.5067 12.6518 10.5293 12.6563 10.5521 12.6555C10.5749 12.6547 10.5972 12.6486 10.6172 12.6377L12.5461 10.9971C12.5599 10.9851 12.5745 10.9741 12.5899 10.9642C12.7412 10.8633 12.9154 10.8018 13.0965 10.7851C13.2777 10.7685 13.4601 10.7973 13.6274 10.8689L17.318 12.5228C17.5327 12.618 17.7111 12.7798 17.8268 12.9842C17.9424 13.1887 17.9892 13.4249 17.9602 13.658V13.6556ZM17.0313 13.54C17.0339 13.5074 17.0262 13.4747 17.0092 13.4466C16.9922 13.4186 16.9669 13.3966 16.9367 13.3838L13.2453 11.7299C13.2252 11.7221 13.2035 11.7188 13.182 11.7201C13.1604 11.7214 13.1394 11.7274 13.1203 11.7377L11.1922 13.3783C11.1781 13.39 11.1633 13.401 11.1484 13.4111C10.9912 13.516 10.8094 13.5783 10.6209 13.592C10.4323 13.6057 10.2434 13.5703 10.0727 13.4892C8.63829 12.7963 7.2086 11.3799 6.51563 9.95877C6.43413 9.78898 6.39785 9.60103 6.4103 9.41311C6.42276 9.22518 6.48353 9.04366 6.58673 8.88611C6.59679 8.87045 6.60802 8.85556 6.62032 8.84158L8.26563 6.88377C8.27503 6.86331 8.2799 6.84106 8.2799 6.81854C8.2799 6.79602 8.27503 6.77376 8.26563 6.7533L6.62032 3.07049C6.60946 3.04093 6.58993 3.01535 6.56428 2.99708C6.53862 2.97882 6.50805 2.96873 6.47657 2.96815H6.4586C5.66403 3.07384 4.93508 3.46513 4.40789 4.06895C3.8807 4.67277 3.59131 5.44782 3.59376 6.2494C3.59376 11.8494 8.15001 16.4056 13.75 16.4056C14.5517 16.4081 15.3269 16.1186 15.9307 15.5912C16.5345 15.0639 16.9257 14.3347 17.0313 13.54Z"
+                    fill="#F5AA1C"
+                  />
+                </svg>
+                <p>Phone: +1 (949) 354-2574</p>
+              </div>
+              <div class="information">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8.25 3.4375V6.875H6.875V5.5H2.75V17.875H4.125V18.5625C4.125 19.6934 5.05656 20.625 6.1875 20.625C7.31844 20.625 8.25 19.6934 8.25 18.5625V17.875H19.25V6.875H16.5V3.4375H8.25ZM9.625 4.8125H15.125V8.25H9.625V4.8125ZM4.125 6.875H5.5V16.5H4.125V6.875ZM6.875 8.25H8.25V9.625H16.5V8.25H17.875V16.5H6.875V8.25ZM8.9375 11V12.375H10.3125V11H8.9375ZM11.6875 11V12.375H13.0625V11H11.6875ZM14.4375 11V12.375H15.8125V11H14.4375ZM8.9375 13.75V15.125H10.3125V13.75H8.9375ZM11.6875 13.75V15.125H13.0625V13.75H11.6875ZM14.4375 13.75V15.125H15.8125V13.75H14.4375ZM5.5 17.875H6.875V18.5625C6.875 18.9441 6.56906 19.25 6.1875 19.25C5.80594 19.25 5.5 18.9441 5.5 18.5625V17.875Z"
+                    fill="#F5AA1C"
+                  />
+                </svg>
+                <p>Fax: 610-646-0814</p>
+              </div>
+              <div class="information">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_24_245)">
+                    <path
+                      d="M19.556 3.66602H2.44488C2.12072 3.66602 1.80985 3.79479 1.58064 4.024C1.35143 4.25321 1.22266 4.56408 1.22266 4.88824V17.1105C1.22266 17.4346 1.35143 17.7455 1.58064 17.9747C1.80985 18.2039 2.12072 18.3327 2.44488 18.3327H19.556C19.8801 18.3327 20.191 18.2039 20.4202 17.9747C20.6494 17.7455 20.7782 17.4346 20.7782 17.1105V4.88824C20.7782 4.56408 20.6494 4.25321 20.4202 4.024C20.191 3.79479 19.8801 3.66602 19.556 3.66602ZM18.6149 17.1105H3.45932L7.7371 12.686L6.8571 11.8366L2.44488 16.4016V5.81713L10.041 13.3766C10.27 13.6042 10.5798 13.732 10.9027 13.732C11.2255 13.732 11.5353 13.6042 11.7643 13.3766L19.556 5.62768V16.3221L15.0582 11.8243L14.1965 12.686L18.6149 17.1105ZM3.24543 4.88824H18.566L10.9027 12.5088L3.24543 4.88824Z"
+                      fill="#F5AA1C"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_24_245">
+                      <rect width="22" height="22" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <p>Email: info@AerdenUni.com</p>
+              </div>
+            </div>
+          </div>
+          <div class="btns">
+            <button class="btn-follow">+ Follow</button>
+            <button class="btn-message">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.82952 14.9613C6.80519 15.481 7.89401 15.7519 8.99945 15.7501C12.7274 15.7501 15.7494 12.728 15.7494 9.00005C15.7494 5.27212 12.7274 2.25005 8.99945 2.25005C5.27152 2.25005 2.24945 5.27212 2.24945 9.00005C2.24945 10.1476 2.53552 11.2269 3.03952 12.1719C3.15711 12.3921 3.18476 12.6492 3.11666 12.8893L2.32338 15.6774L5.11209 14.8848C5.35212 14.8165 5.60929 14.8439 5.82952 14.9613ZM8.99945 16.7143C7.73567 16.7161 6.49096 16.4061 5.37566 15.8118L2.30924 16.6841C2.17158 16.7232 2.02599 16.7249 1.88749 16.6889C1.749 16.6529 1.62263 16.5805 1.52144 16.4794C1.42026 16.3782 1.34793 16.2518 1.31193 16.1133C1.27593 15.9748 1.27756 15.8292 1.31666 15.6916L2.18838 12.6251C1.5936 11.5095 1.28335 10.2643 1.28516 9.00005C1.28516 4.73984 4.73924 1.28577 8.99945 1.28577C13.2597 1.28577 16.7137 4.73984 16.7137 9.00005C16.7137 13.2603 13.2597 16.7143 8.99945 16.7143ZM6.10659 7.55362C6.10659 7.42575 6.15739 7.30312 6.24781 7.2127C6.33823 7.12228 6.46086 7.07148 6.58874 7.07148H11.4102C11.538 7.07148 11.6607 7.12228 11.7511 7.2127C11.8415 7.30312 11.8923 7.42575 11.8923 7.55362C11.8923 7.6815 11.8415 7.80413 11.7511 7.89455C11.6607 7.98497 11.538 8.03577 11.4102 8.03577H6.58874C6.46086 8.03577 6.33823 7.98497 6.24781 7.89455C6.15739 7.80413 6.10659 7.6815 6.10659 7.55362ZM6.10659 10.4465C6.10659 10.3186 6.15739 10.196 6.24781 10.1056C6.33823 10.0151 6.46086 9.96434 6.58874 9.96434H9.48159C9.60946 9.96434 9.7321 10.0151 9.82252 10.1056C9.91294 10.196 9.96373 10.3186 9.96373 10.4465C9.96373 10.5744 9.91294 10.697 9.82252 10.7874C9.7321 10.8778 9.60946 10.9286 9.48159 10.9286H6.58874C6.46086 10.9286 6.33823 10.8778 6.24781 10.7874C6.15739 10.697 6.10659 10.5744 6.10659 10.4465Z"
+                />
+              </svg>
+              Message
+            </button>
+          </div>
+        </div>
+        <div class="item-right">
+          <div class="menu-tabs">
+            <input id="tab1" type="radio" name="tabs" checked />
+            <label for="tab1">About</label>
+
+            <input id="tab2" type="radio" name="tabs" />
+            <label for="tab2" class="marg-label">Capmus</label>
+
+            <input id="tab3" type="radio" name="tabs" />
+            <label for="tab3" class="marg-label"
+              >Recruiter contact details</label
+            >
+
+            <input id="tab4" type="radio" name="tabs" />
+            <label for="tab4" class="marg-label">Courses</label>
+
+            <input id="tab5" type="radio" name="tabs" />
+            <label for="tab5" class="marg-label">Jobs and opportunities</label>
+
+            <div id="content1" class="contents">
+              <h2>About University</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
+                congue mauris rhoncus aenean vel elit scelerisque. In egestas
+                erat imperdiet sed euismod nisi porta lorem mollis. Morbi
+                tristique senectus et netus. Mattis pellentesque id nibh tortor
+                id aliquet lectus proin. Sapien faucibus et molestie ac feugiat
+                sed lectus vestibulum. Ullamcorper velit sed ullamcorper morbi
+                tincidunt ornare massa eget. Dictum varius duis at consectetur
+                lorem. Nisi vitae suscipit tellus mauris a diam maecenas sed
+                enim. Velit ut tortor pretium viverra suspendisse potenti
+                nullam. Et molestie ac feugiat sed lectus. Non nisi est sit amet
+                facilisis magna. Dignissim diam quis enim lobortis scelerisque
+                fermentum. Odio ut enim blandit volutpat maecenas volutpat.
+                Ornare lectus sit amet est placerat in egestas erat. Nisi vitae
+                suscipit tellus mauris a diam maecenas sed.
+              </p>
+            </div>
+
+            <div id="content2" class="contents">
+              <h2>Capmus</h2>
+              <div class="capmus-cards">
+                <div class="campus-card">
+                  <img src="../images/Hill.png" alt="University Campus" title="card image">
+                  <div class="campus-card-body">
+                    <h4 class="title-card">
+                      Avery Hill Campus
+                    </h4>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Egestas purus...
+                    </p>
+                  </div>
+                  <div class="card-btn">
+                    <a href="#">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/    svg">
+                        <path d="M11.5156 17.1875L17.7031 11L11.5156 4.8125M16.8438 11H4.29688" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>  
+                    </a>
+                  </div>
+                </div>
+                <div class="campus-card">
+                  <img src="../images/Medway.png" alt="University Campus" title="card image">
+                  <div class="campus-card-body">
+                    <h4 class="title-card">
+                      Medway Campus
+                    </h4>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Egestas purus...
+                    </p>
+                  </div>
+                  <div class="card-btn">
+                    <a href="#">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/    svg">
+                        <path d="M11.5156 17.1875L17.7031 11L11.5156 4.8125M16.8438 11H4.29688" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>  
+                    </a>
+                  </div>
+                </div>
+                <div class="campus-card">
+                  <img src="../images/Medway.png" alt="University Campus" title="card image">
+                  <div class="campus-card-body">
+                    <h4 class="title-card">
+                      Medway Campus
+                    </h4>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Egestas purus...
+                    </p>
+                  </div>
+                  <div class="card-btn">
+                    <a href="#">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/    svg">
+                        <path d="M11.5156 17.1875L17.7031 11L11.5156 4.8125M16.8438 11H4.29688" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>  
+                    </a>
+                  </div>
+                </div>
+                <div class="campus-card">
+                  <img src="../images/Hill.png" alt="University Campus" title="card image">
+                  <div class="campus-card-body">
+                    <h4 class="title-card">
+                      Avery Hill Campus
+                    </h4>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Egestas purus...
+                    </p>
+                  </div>
+                  <div class="card-btn">
+                    <a href="#">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/    svg">
+                        <path d="M11.5156 17.1875L17.7031 11L11.5156 4.8125M16.8438 11H4.29688" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>  
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="content3" class="contents">
+              <h2>Recruiter contact details</h2>
+                <div class="recruiter-cards">
+                  <div class="recruiter-card">
+                    <div class="recruiter-card-body">
+                      <div class="img-title-card">
+                        <img src="../../images/avatar 1 medium.png" alt="University Recruiter">
+                        <div class="recruiter-title-card">
+                          <h4>Anderson Cooper</h4>
+                          <p>Recruiter</p>
+                        </div>
+                      </div>
+                      <div class="recruiter-contact">
+                        <div class="recruiter-phone">
+                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.0469 3.0033C12.0628 2.94378 12.0902 2.88796 12.1277 2.83906C12.1651 2.79015 12.2118 2.7491 12.2652 2.71826C12.3185 2.68743 12.3774 2.6674 12.4385 2.65934C12.4995 2.65128 12.5616 2.65533 12.6211 2.67127C13.7533 2.9666 14.7863 3.55843 15.6136 4.38579C16.441 5.21315 17.0328 6.24612 17.3281 7.3783C17.3441 7.43781 17.3481 7.49987 17.3401 7.56095C17.332 7.62202 17.312 7.6809 17.2811 7.73423C17.2503 7.78756 17.2093 7.83429 17.1603 7.87175C17.1114 7.9092 17.0556 7.93665 16.9961 7.95252C16.9566 7.96304 16.9159 7.96829 16.875 7.96815C16.7717 7.96821 16.6713 7.93416 16.5894 7.87129C16.5074 7.80843 16.4486 7.72026 16.4219 7.62049C16.1683 6.64798 15.66 5.76067 14.9494 5.05002C14.2387 4.33936 13.3514 3.83107 12.3789 3.57752C12.3194 3.56165 12.2636 3.5342 12.2147 3.49675C12.1658 3.45929 12.1247 3.41256 12.0939 3.35923C12.063 3.3059 12.043 3.24702 12.035 3.18595C12.0269 3.12487 12.0309 3.06281 12.0469 3.0033ZM11.7539 6.07752C12.8906 6.38065 13.6188 7.10877 13.9219 8.24549C13.9486 8.34526 14.0074 8.43343 14.0894 8.49629C14.1713 8.55916 14.2717 8.59321 14.375 8.59315C14.4159 8.59329 14.4566 8.58804 14.4961 8.57752C14.5556 8.56165 14.6114 8.5342 14.6603 8.49675C14.7093 8.45929 14.7503 8.41256 14.7811 8.35923C14.812 8.3059 14.832 8.24702 14.8401 8.18595C14.8481 8.12487 14.8441 8.06281 14.8281 8.0033C14.4375 6.54158 13.4578 5.5619 11.9961 5.17127C11.9366 5.15537 11.8745 5.15134 11.8135 5.15942C11.7524 5.1675 11.6935 5.18753 11.6402 5.21836C11.5325 5.28063 11.454 5.38313 11.4219 5.5033C11.3898 5.62348 11.4067 5.75149 11.469 5.85918C11.5312 5.96686 11.6337 6.0454 11.7539 6.07752ZM17.9602 13.6556C17.8263 14.6769 17.3251 15.6145 16.5503 16.2931C15.7755 16.9718 14.78 17.345 13.75 17.3431C7.63282 17.3431 2.65626 12.3666 2.65626 6.2494C2.65428 5.21974 3.02721 4.22458 3.70538 3.4498C4.38354 2.67502 5.32056 2.17361 6.34141 2.03924C6.57641 2.01068 6.81433 2.05914 7.01944 2.17733C7.22456 2.29552 7.38578 2.47707 7.47891 2.69471L9.12735 6.3744C9.20014 6.54098 9.23025 6.72308 9.21497 6.90423C9.1997 7.08537 9.13951 7.25985 9.03985 7.4119C9.0298 7.42737 9.01884 7.44224 9.00704 7.45643L7.36095 9.41424C7.35095 9.43453 7.34575 9.45685 7.34575 9.47947C7.34575 9.5021 7.35095 9.52441 7.36095 9.54471C7.95938 10.7697 9.24376 12.0447 10.4859 12.6424C10.5067 12.6518 10.5293 12.6563 10.5521 12.6555C10.5749 12.6547 10.5972 12.6486 10.6172 12.6377L12.5461 10.9971C12.5599 10.9851 12.5745 10.9741 12.5899 10.9642C12.7412 10.8633 12.9154 10.8018 13.0965 10.7851C13.2777 10.7685 13.4601 10.7973 13.6274 10.8689L17.318 12.5228C17.5327 12.618 17.7111 12.7798 17.8268 12.9842C17.9424 13.1887 17.9892 13.4249 17.9602 13.658V13.6556ZM17.0313 13.54C17.0339 13.5074 17.0262 13.4747 17.0092 13.4466C16.9922 13.4186 16.9669 13.3966 16.9367 13.3838L13.2453 11.7299C13.2252 11.7221 13.2035 11.7188 13.182 11.7201C13.1604 11.7214 13.1394 11.7274 13.1203 11.7377L11.1922 13.3783C11.1781 13.39 11.1633 13.401 11.1484 13.4111C10.9912 13.516 10.8094 13.5783 10.6209 13.592C10.4323 13.6057 10.2434 13.5703 10.0727 13.4892C8.63829 12.7963 7.2086 11.3799 6.51563 9.95877C6.43413 9.78898 6.39785 9.60103 6.4103 9.41311C6.42276 9.22518 6.48353 9.04366 6.58673 8.88611C6.59679 8.87045 6.60802 8.85556 6.62032 8.84158L8.26563 6.88377C8.27503 6.86331 8.2799 6.84106 8.2799 6.81854C8.2799 6.79602 8.27503 6.77376 8.26563 6.7533L6.62032 3.07049C6.60946 3.04093 6.58993 3.01535 6.56428 2.99708C6.53862 2.97882 6.50805 2.96873 6.47657 2.96815H6.4586C5.66403 3.07384 4.93508 3.46513 4.40789 4.06895C3.8807 4.67277 3.59131 5.44782 3.59376 6.2494C3.59376 11.8494 8.15001 16.4056 13.75 16.4056C14.5517 16.4081 15.3269 16.1186 15.9307 15.5912C16.5345 15.0639 16.9257 14.3347 17.0313 13.54Z" fill="#F5AA1C"/>
+                          </svg>
+                          <p>Phone: +1 (949) 354-2574</p> 
+                        </div>
+                        <div class="recruiter-email">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_24_981)">
+                            <path d="M19.556 3.66602H2.44488C2.12072 3.66602 1.80985 3.79479 1.58064 4.024C1.35143 4.25321 1.22266 4.56408 1.22266 4.88824V17.1105C1.22266 17.4346 1.35143 17.7455 1.58064 17.9747C1.80985 18.2039 2.12072 18.3327 2.44488 18.3327H19.556C19.8801 18.3327 20.191 18.2039 20.4202 17.9747C20.6494 17.7455 20.7782 17.4346 20.7782 17.1105V4.88824C20.7782 4.56408 20.6494 4.25321 20.4202 4.024C20.191 3.79479 19.8801 3.66602 19.556 3.66602ZM18.6149 17.1105H3.45932L7.7371 12.686L6.8571 11.8366L2.44488 16.4016V5.81713L10.041 13.3766C10.27 13.6042 10.5798 13.732 10.9027 13.732C11.2255 13.732 11.5353 13.6042 11.7643 13.3766L19.556 5.62768V16.3221L15.0582 11.8243L14.1965 12.686L18.6149 17.1105ZM3.24543 4.88824H18.566L10.9027 12.5088L3.24543 4.88824Z" fill="#F5AA1C"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_24_981">
+                            <rect width="22" height="22" fill="white"/>
+                            </clipPath>
+                            </defs>
+                          </svg>
+                          <p>Email: info@Recruiter.com</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="recruiter-card">
+                    <div class="recruiter-card-body">
+                      <div class="img-title-card">
+                        <img src="../../images/avatar 1 medium.png" alt="University Recruiter">
+                        <div class="recruiter-title-card">
+                          <h4>Anderson Cooper</h4>
+                          <p>Recruiter</p>
+                        </div>
+                      </div>
+                      <div class="recruiter-contact">
+                        <div class="recruiter-phone">
+                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.0469 3.0033C12.0628 2.94378 12.0902 2.88796 12.1277 2.83906C12.1651 2.79015 12.2118 2.7491 12.2652 2.71826C12.3185 2.68743 12.3774 2.6674 12.4385 2.65934C12.4995 2.65128 12.5616 2.65533 12.6211 2.67127C13.7533 2.9666 14.7863 3.55843 15.6136 4.38579C16.441 5.21315 17.0328 6.24612 17.3281 7.3783C17.3441 7.43781 17.3481 7.49987 17.3401 7.56095C17.332 7.62202 17.312 7.6809 17.2811 7.73423C17.2503 7.78756 17.2093 7.83429 17.1603 7.87175C17.1114 7.9092 17.0556 7.93665 16.9961 7.95252C16.9566 7.96304 16.9159 7.96829 16.875 7.96815C16.7717 7.96821 16.6713 7.93416 16.5894 7.87129C16.5074 7.80843 16.4486 7.72026 16.4219 7.62049C16.1683 6.64798 15.66 5.76067 14.9494 5.05002C14.2387 4.33936 13.3514 3.83107 12.3789 3.57752C12.3194 3.56165 12.2636 3.5342 12.2147 3.49675C12.1658 3.45929 12.1247 3.41256 12.0939 3.35923C12.063 3.3059 12.043 3.24702 12.035 3.18595C12.0269 3.12487 12.0309 3.06281 12.0469 3.0033ZM11.7539 6.07752C12.8906 6.38065 13.6188 7.10877 13.9219 8.24549C13.9486 8.34526 14.0074 8.43343 14.0894 8.49629C14.1713 8.55916 14.2717 8.59321 14.375 8.59315C14.4159 8.59329 14.4566 8.58804 14.4961 8.57752C14.5556 8.56165 14.6114 8.5342 14.6603 8.49675C14.7093 8.45929 14.7503 8.41256 14.7811 8.35923C14.812 8.3059 14.832 8.24702 14.8401 8.18595C14.8481 8.12487 14.8441 8.06281 14.8281 8.0033C14.4375 6.54158 13.4578 5.5619 11.9961 5.17127C11.9366 5.15537 11.8745 5.15134 11.8135 5.15942C11.7524 5.1675 11.6935 5.18753 11.6402 5.21836C11.5325 5.28063 11.454 5.38313 11.4219 5.5033C11.3898 5.62348 11.4067 5.75149 11.469 5.85918C11.5312 5.96686 11.6337 6.0454 11.7539 6.07752ZM17.9602 13.6556C17.8263 14.6769 17.3251 15.6145 16.5503 16.2931C15.7755 16.9718 14.78 17.345 13.75 17.3431C7.63282 17.3431 2.65626 12.3666 2.65626 6.2494C2.65428 5.21974 3.02721 4.22458 3.70538 3.4498C4.38354 2.67502 5.32056 2.17361 6.34141 2.03924C6.57641 2.01068 6.81433 2.05914 7.01944 2.17733C7.22456 2.29552 7.38578 2.47707 7.47891 2.69471L9.12735 6.3744C9.20014 6.54098 9.23025 6.72308 9.21497 6.90423C9.1997 7.08537 9.13951 7.25985 9.03985 7.4119C9.0298 7.42737 9.01884 7.44224 9.00704 7.45643L7.36095 9.41424C7.35095 9.43453 7.34575 9.45685 7.34575 9.47947C7.34575 9.5021 7.35095 9.52441 7.36095 9.54471C7.95938 10.7697 9.24376 12.0447 10.4859 12.6424C10.5067 12.6518 10.5293 12.6563 10.5521 12.6555C10.5749 12.6547 10.5972 12.6486 10.6172 12.6377L12.5461 10.9971C12.5599 10.9851 12.5745 10.9741 12.5899 10.9642C12.7412 10.8633 12.9154 10.8018 13.0965 10.7851C13.2777 10.7685 13.4601 10.7973 13.6274 10.8689L17.318 12.5228C17.5327 12.618 17.7111 12.7798 17.8268 12.9842C17.9424 13.1887 17.9892 13.4249 17.9602 13.658V13.6556ZM17.0313 13.54C17.0339 13.5074 17.0262 13.4747 17.0092 13.4466C16.9922 13.4186 16.9669 13.3966 16.9367 13.3838L13.2453 11.7299C13.2252 11.7221 13.2035 11.7188 13.182 11.7201C13.1604 11.7214 13.1394 11.7274 13.1203 11.7377L11.1922 13.3783C11.1781 13.39 11.1633 13.401 11.1484 13.4111C10.9912 13.516 10.8094 13.5783 10.6209 13.592C10.4323 13.6057 10.2434 13.5703 10.0727 13.4892C8.63829 12.7963 7.2086 11.3799 6.51563 9.95877C6.43413 9.78898 6.39785 9.60103 6.4103 9.41311C6.42276 9.22518 6.48353 9.04366 6.58673 8.88611C6.59679 8.87045 6.60802 8.85556 6.62032 8.84158L8.26563 6.88377C8.27503 6.86331 8.2799 6.84106 8.2799 6.81854C8.2799 6.79602 8.27503 6.77376 8.26563 6.7533L6.62032 3.07049C6.60946 3.04093 6.58993 3.01535 6.56428 2.99708C6.53862 2.97882 6.50805 2.96873 6.47657 2.96815H6.4586C5.66403 3.07384 4.93508 3.46513 4.40789 4.06895C3.8807 4.67277 3.59131 5.44782 3.59376 6.2494C3.59376 11.8494 8.15001 16.4056 13.75 16.4056C14.5517 16.4081 15.3269 16.1186 15.9307 15.5912C16.5345 15.0639 16.9257 14.3347 17.0313 13.54Z" fill="#F5AA1C"/>
+                          </svg>
+                          <p>Phone: +1 (949) 354-2574</p> 
+                        </div>
+                        <div class="recruiter-email">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_24_981)">
+                            <path d="M19.556 3.66602H2.44488C2.12072 3.66602 1.80985 3.79479 1.58064 4.024C1.35143 4.25321 1.22266 4.56408 1.22266 4.88824V17.1105C1.22266 17.4346 1.35143 17.7455 1.58064 17.9747C1.80985 18.2039 2.12072 18.3327 2.44488 18.3327H19.556C19.8801 18.3327 20.191 18.2039 20.4202 17.9747C20.6494 17.7455 20.7782 17.4346 20.7782 17.1105V4.88824C20.7782 4.56408 20.6494 4.25321 20.4202 4.024C20.191 3.79479 19.8801 3.66602 19.556 3.66602ZM18.6149 17.1105H3.45932L7.7371 12.686L6.8571 11.8366L2.44488 16.4016V5.81713L10.041 13.3766C10.27 13.6042 10.5798 13.732 10.9027 13.732C11.2255 13.732 11.5353 13.6042 11.7643 13.3766L19.556 5.62768V16.3221L15.0582 11.8243L14.1965 12.686L18.6149 17.1105ZM3.24543 4.88824H18.566L10.9027 12.5088L3.24543 4.88824Z" fill="#F5AA1C"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_24_981">
+                            <rect width="22" height="22" fill="white"/>
+                            </clipPath>
+                            </defs>
+                          </svg>
+                          <p>Email: info@Recruiter.com</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="recruiter-card">
+                    <div class="recruiter-card-body">
+                      <div class="img-title-card">
+                        <img src="../../images/avatar 1 medium.png" alt="University Recruiter">
+                        <div class="recruiter-title-card">
+                          <h4>Anderson Cooper</h4>
+                          <p>Recruiter</p>
+                        </div>
+                      </div>
+                      <div class="recruiter-contact">
+                        <div class="recruiter-phone">
+                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.0469 3.0033C12.0628 2.94378 12.0902 2.88796 12.1277 2.83906C12.1651 2.79015 12.2118 2.7491 12.2652 2.71826C12.3185 2.68743 12.3774 2.6674 12.4385 2.65934C12.4995 2.65128 12.5616 2.65533 12.6211 2.67127C13.7533 2.9666 14.7863 3.55843 15.6136 4.38579C16.441 5.21315 17.0328 6.24612 17.3281 7.3783C17.3441 7.43781 17.3481 7.49987 17.3401 7.56095C17.332 7.62202 17.312 7.6809 17.2811 7.73423C17.2503 7.78756 17.2093 7.83429 17.1603 7.87175C17.1114 7.9092 17.0556 7.93665 16.9961 7.95252C16.9566 7.96304 16.9159 7.96829 16.875 7.96815C16.7717 7.96821 16.6713 7.93416 16.5894 7.87129C16.5074 7.80843 16.4486 7.72026 16.4219 7.62049C16.1683 6.64798 15.66 5.76067 14.9494 5.05002C14.2387 4.33936 13.3514 3.83107 12.3789 3.57752C12.3194 3.56165 12.2636 3.5342 12.2147 3.49675C12.1658 3.45929 12.1247 3.41256 12.0939 3.35923C12.063 3.3059 12.043 3.24702 12.035 3.18595C12.0269 3.12487 12.0309 3.06281 12.0469 3.0033ZM11.7539 6.07752C12.8906 6.38065 13.6188 7.10877 13.9219 8.24549C13.9486 8.34526 14.0074 8.43343 14.0894 8.49629C14.1713 8.55916 14.2717 8.59321 14.375 8.59315C14.4159 8.59329 14.4566 8.58804 14.4961 8.57752C14.5556 8.56165 14.6114 8.5342 14.6603 8.49675C14.7093 8.45929 14.7503 8.41256 14.7811 8.35923C14.812 8.3059 14.832 8.24702 14.8401 8.18595C14.8481 8.12487 14.8441 8.06281 14.8281 8.0033C14.4375 6.54158 13.4578 5.5619 11.9961 5.17127C11.9366 5.15537 11.8745 5.15134 11.8135 5.15942C11.7524 5.1675 11.6935 5.18753 11.6402 5.21836C11.5325 5.28063 11.454 5.38313 11.4219 5.5033C11.3898 5.62348 11.4067 5.75149 11.469 5.85918C11.5312 5.96686 11.6337 6.0454 11.7539 6.07752ZM17.9602 13.6556C17.8263 14.6769 17.3251 15.6145 16.5503 16.2931C15.7755 16.9718 14.78 17.345 13.75 17.3431C7.63282 17.3431 2.65626 12.3666 2.65626 6.2494C2.65428 5.21974 3.02721 4.22458 3.70538 3.4498C4.38354 2.67502 5.32056 2.17361 6.34141 2.03924C6.57641 2.01068 6.81433 2.05914 7.01944 2.17733C7.22456 2.29552 7.38578 2.47707 7.47891 2.69471L9.12735 6.3744C9.20014 6.54098 9.23025 6.72308 9.21497 6.90423C9.1997 7.08537 9.13951 7.25985 9.03985 7.4119C9.0298 7.42737 9.01884 7.44224 9.00704 7.45643L7.36095 9.41424C7.35095 9.43453 7.34575 9.45685 7.34575 9.47947C7.34575 9.5021 7.35095 9.52441 7.36095 9.54471C7.95938 10.7697 9.24376 12.0447 10.4859 12.6424C10.5067 12.6518 10.5293 12.6563 10.5521 12.6555C10.5749 12.6547 10.5972 12.6486 10.6172 12.6377L12.5461 10.9971C12.5599 10.9851 12.5745 10.9741 12.5899 10.9642C12.7412 10.8633 12.9154 10.8018 13.0965 10.7851C13.2777 10.7685 13.4601 10.7973 13.6274 10.8689L17.318 12.5228C17.5327 12.618 17.7111 12.7798 17.8268 12.9842C17.9424 13.1887 17.9892 13.4249 17.9602 13.658V13.6556ZM17.0313 13.54C17.0339 13.5074 17.0262 13.4747 17.0092 13.4466C16.9922 13.4186 16.9669 13.3966 16.9367 13.3838L13.2453 11.7299C13.2252 11.7221 13.2035 11.7188 13.182 11.7201C13.1604 11.7214 13.1394 11.7274 13.1203 11.7377L11.1922 13.3783C11.1781 13.39 11.1633 13.401 11.1484 13.4111C10.9912 13.516 10.8094 13.5783 10.6209 13.592C10.4323 13.6057 10.2434 13.5703 10.0727 13.4892C8.63829 12.7963 7.2086 11.3799 6.51563 9.95877C6.43413 9.78898 6.39785 9.60103 6.4103 9.41311C6.42276 9.22518 6.48353 9.04366 6.58673 8.88611C6.59679 8.87045 6.60802 8.85556 6.62032 8.84158L8.26563 6.88377C8.27503 6.86331 8.2799 6.84106 8.2799 6.81854C8.2799 6.79602 8.27503 6.77376 8.26563 6.7533L6.62032 3.07049C6.60946 3.04093 6.58993 3.01535 6.56428 2.99708C6.53862 2.97882 6.50805 2.96873 6.47657 2.96815H6.4586C5.66403 3.07384 4.93508 3.46513 4.40789 4.06895C3.8807 4.67277 3.59131 5.44782 3.59376 6.2494C3.59376 11.8494 8.15001 16.4056 13.75 16.4056C14.5517 16.4081 15.3269 16.1186 15.9307 15.5912C16.5345 15.0639 16.9257 14.3347 17.0313 13.54Z" fill="#F5AA1C"/>
+                          </svg>
+                          <p>Phone: +1 (949) 354-2574</p> 
+                        </div>
+                        <div class="recruiter-email">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_24_981)">
+                            <path d="M19.556 3.66602H2.44488C2.12072 3.66602 1.80985 3.79479 1.58064 4.024C1.35143 4.25321 1.22266 4.56408 1.22266 4.88824V17.1105C1.22266 17.4346 1.35143 17.7455 1.58064 17.9747C1.80985 18.2039 2.12072 18.3327 2.44488 18.3327H19.556C19.8801 18.3327 20.191 18.2039 20.4202 17.9747C20.6494 17.7455 20.7782 17.4346 20.7782 17.1105V4.88824C20.7782 4.56408 20.6494 4.25321 20.4202 4.024C20.191 3.79479 19.8801 3.66602 19.556 3.66602ZM18.6149 17.1105H3.45932L7.7371 12.686L6.8571 11.8366L2.44488 16.4016V5.81713L10.041 13.3766C10.27 13.6042 10.5798 13.732 10.9027 13.732C11.2255 13.732 11.5353 13.6042 11.7643 13.3766L19.556 5.62768V16.3221L15.0582 11.8243L14.1965 12.686L18.6149 17.1105ZM3.24543 4.88824H18.566L10.9027 12.5088L3.24543 4.88824Z" fill="#F5AA1C"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_24_981">
+                            <rect width="22" height="22" fill="white"/>
+                            </clipPath>
+                            </defs>
+                          </svg>
+                          <p>Email: info@Recruiter.com</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="recruiter-card">
+                    <div class="recruiter-card-body">
+                      <div class="img-title-card">
+                        <img src="../../images/avatar 1 medium.png" alt="University Recruiter">
+                        <div class="recruiter-title-card">
+                          <h4>Anderson Cooper</h4>
+                          <p>Recruiter</p>
+                        </div>
+                      </div>
+                      <div class="recruiter-contact">
+                        <div class="recruiter-phone">
+                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.0469 3.0033C12.0628 2.94378 12.0902 2.88796 12.1277 2.83906C12.1651 2.79015 12.2118 2.7491 12.2652 2.71826C12.3185 2.68743 12.3774 2.6674 12.4385 2.65934C12.4995 2.65128 12.5616 2.65533 12.6211 2.67127C13.7533 2.9666 14.7863 3.55843 15.6136 4.38579C16.441 5.21315 17.0328 6.24612 17.3281 7.3783C17.3441 7.43781 17.3481 7.49987 17.3401 7.56095C17.332 7.62202 17.312 7.6809 17.2811 7.73423C17.2503 7.78756 17.2093 7.83429 17.1603 7.87175C17.1114 7.9092 17.0556 7.93665 16.9961 7.95252C16.9566 7.96304 16.9159 7.96829 16.875 7.96815C16.7717 7.96821 16.6713 7.93416 16.5894 7.87129C16.5074 7.80843 16.4486 7.72026 16.4219 7.62049C16.1683 6.64798 15.66 5.76067 14.9494 5.05002C14.2387 4.33936 13.3514 3.83107 12.3789 3.57752C12.3194 3.56165 12.2636 3.5342 12.2147 3.49675C12.1658 3.45929 12.1247 3.41256 12.0939 3.35923C12.063 3.3059 12.043 3.24702 12.035 3.18595C12.0269 3.12487 12.0309 3.06281 12.0469 3.0033ZM11.7539 6.07752C12.8906 6.38065 13.6188 7.10877 13.9219 8.24549C13.9486 8.34526 14.0074 8.43343 14.0894 8.49629C14.1713 8.55916 14.2717 8.59321 14.375 8.59315C14.4159 8.59329 14.4566 8.58804 14.4961 8.57752C14.5556 8.56165 14.6114 8.5342 14.6603 8.49675C14.7093 8.45929 14.7503 8.41256 14.7811 8.35923C14.812 8.3059 14.832 8.24702 14.8401 8.18595C14.8481 8.12487 14.8441 8.06281 14.8281 8.0033C14.4375 6.54158 13.4578 5.5619 11.9961 5.17127C11.9366 5.15537 11.8745 5.15134 11.8135 5.15942C11.7524 5.1675 11.6935 5.18753 11.6402 5.21836C11.5325 5.28063 11.454 5.38313 11.4219 5.5033C11.3898 5.62348 11.4067 5.75149 11.469 5.85918C11.5312 5.96686 11.6337 6.0454 11.7539 6.07752ZM17.9602 13.6556C17.8263 14.6769 17.3251 15.6145 16.5503 16.2931C15.7755 16.9718 14.78 17.345 13.75 17.3431C7.63282 17.3431 2.65626 12.3666 2.65626 6.2494C2.65428 5.21974 3.02721 4.22458 3.70538 3.4498C4.38354 2.67502 5.32056 2.17361 6.34141 2.03924C6.57641 2.01068 6.81433 2.05914 7.01944 2.17733C7.22456 2.29552 7.38578 2.47707 7.47891 2.69471L9.12735 6.3744C9.20014 6.54098 9.23025 6.72308 9.21497 6.90423C9.1997 7.08537 9.13951 7.25985 9.03985 7.4119C9.0298 7.42737 9.01884 7.44224 9.00704 7.45643L7.36095 9.41424C7.35095 9.43453 7.34575 9.45685 7.34575 9.47947C7.34575 9.5021 7.35095 9.52441 7.36095 9.54471C7.95938 10.7697 9.24376 12.0447 10.4859 12.6424C10.5067 12.6518 10.5293 12.6563 10.5521 12.6555C10.5749 12.6547 10.5972 12.6486 10.6172 12.6377L12.5461 10.9971C12.5599 10.9851 12.5745 10.9741 12.5899 10.9642C12.7412 10.8633 12.9154 10.8018 13.0965 10.7851C13.2777 10.7685 13.4601 10.7973 13.6274 10.8689L17.318 12.5228C17.5327 12.618 17.7111 12.7798 17.8268 12.9842C17.9424 13.1887 17.9892 13.4249 17.9602 13.658V13.6556ZM17.0313 13.54C17.0339 13.5074 17.0262 13.4747 17.0092 13.4466C16.9922 13.4186 16.9669 13.3966 16.9367 13.3838L13.2453 11.7299C13.2252 11.7221 13.2035 11.7188 13.182 11.7201C13.1604 11.7214 13.1394 11.7274 13.1203 11.7377L11.1922 13.3783C11.1781 13.39 11.1633 13.401 11.1484 13.4111C10.9912 13.516 10.8094 13.5783 10.6209 13.592C10.4323 13.6057 10.2434 13.5703 10.0727 13.4892C8.63829 12.7963 7.2086 11.3799 6.51563 9.95877C6.43413 9.78898 6.39785 9.60103 6.4103 9.41311C6.42276 9.22518 6.48353 9.04366 6.58673 8.88611C6.59679 8.87045 6.60802 8.85556 6.62032 8.84158L8.26563 6.88377C8.27503 6.86331 8.2799 6.84106 8.2799 6.81854C8.2799 6.79602 8.27503 6.77376 8.26563 6.7533L6.62032 3.07049C6.60946 3.04093 6.58993 3.01535 6.56428 2.99708C6.53862 2.97882 6.50805 2.96873 6.47657 2.96815H6.4586C5.66403 3.07384 4.93508 3.46513 4.40789 4.06895C3.8807 4.67277 3.59131 5.44782 3.59376 6.2494C3.59376 11.8494 8.15001 16.4056 13.75 16.4056C14.5517 16.4081 15.3269 16.1186 15.9307 15.5912C16.5345 15.0639 16.9257 14.3347 17.0313 13.54Z" fill="#F5AA1C"/>
+                          </svg>
+                          <p>Phone: +1 (949) 354-2574</p> 
+                        </div>
+                        <div class="recruiter-email">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_24_981)">
+                            <path d="M19.556 3.66602H2.44488C2.12072 3.66602 1.80985 3.79479 1.58064 4.024C1.35143 4.25321 1.22266 4.56408 1.22266 4.88824V17.1105C1.22266 17.4346 1.35143 17.7455 1.58064 17.9747C1.80985 18.2039 2.12072 18.3327 2.44488 18.3327H19.556C19.8801 18.3327 20.191 18.2039 20.4202 17.9747C20.6494 17.7455 20.7782 17.4346 20.7782 17.1105V4.88824C20.7782 4.56408 20.6494 4.25321 20.4202 4.024C20.191 3.79479 19.8801 3.66602 19.556 3.66602ZM18.6149 17.1105H3.45932L7.7371 12.686L6.8571 11.8366L2.44488 16.4016V5.81713L10.041 13.3766C10.27 13.6042 10.5798 13.732 10.9027 13.732C11.2255 13.732 11.5353 13.6042 11.7643 13.3766L19.556 5.62768V16.3221L15.0582 11.8243L14.1965 12.686L18.6149 17.1105ZM3.24543 4.88824H18.566L10.9027 12.5088L3.24543 4.88824Z" fill="#F5AA1C"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_24_981">
+                            <rect width="22" height="22" fill="white"/>
+                            </clipPath>
+                            </defs>
+                          </svg>
+                          <p>Email: info@Recruiter.com</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div id="content4" class="contents">
+              <h2>Courses</h2>
+              <div class="courses-cards">
+                <div class="courses-card">
+                  <img src="../images/image 60.png" alt="University Courses" class="courses-img">
+                  <div class="heart-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11.125 2C9.83438 2 8.70438 2.555 8 3.49313C7.29562 2.555 6.16563 2 4.875 2C3.84764 2.00116 2.86269 2.40979 2.13624 3.13624C1.40979 3.86269 1.00116 4.84764 1 5.875C1 10.25 7.48688 13.7913 7.76312 13.9375C7.83594 13.9767 7.91732 13.9972 8 13.9972C8.08268 13.9972 8.16406 13.9767 8.23687 13.9375C8.51312 13.7913 15 10.25 15 5.875C14.9988 4.84764 14.5902 3.86269 13.8638 3.13624C13.1373 2.40979 12.1524 2.00116 11.125 2ZM8 12.925C6.85875 12.26 2 9.23063 2 5.875C2.00099 5.11281 2.30421 4.38212 2.84316 3.84316C3.38212 3.30421 4.11281 3.00099 4.875 3C6.09062 3 7.11125 3.6475 7.5375 4.6875C7.57517 4.77921 7.63925 4.85764 7.7216 4.91284C7.80396 4.96804 7.90086 4.99752 8 4.99752C8.09914 4.99752 8.19604 4.96804 8.2784 4.91284C8.36075 4.85764 8.42483 4.77921 8.4625 4.6875C8.88875 3.64563 9.90938 3 11.125 3C11.8872 3.00099 12.6179 3.30421 13.1568 3.84316C13.6958 4.38212 13.999 5.11281 14 5.875C14 9.22563 9.14 12.2594 8 12.925Z" fill="white"/>
+                    </svg>
+                  </div>
+                  <div class="courses-card-body">
+                    <h4 class="title-card">
+                      Effective Classroom Management Techniques Job.
+                    </h4>
+                    <div class="prof-stars">
+                      <div class="prof-info">
+                        <img src="../images/avatar 3.png" alt="University Professor">
+                        <div class="prof-name">
+                          <h5>Alison Scott</h5>
+                          <p>Lecturer</p>
+                        </div>
+                      </div>
+                      <div class="star">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="24" viewBox="0 0 100 24" fill="none">
+                          <path d="M10.0979 5.8541C10.6966 4.01148 13.3034 4.01148 13.9021 5.8541L14.2451 6.90983C14.5129 7.73387 15.2808 8.2918 16.1473 8.2918H17.2573C19.1948 8.2918 20.0003 10.771 18.4329 11.9098L17.5348 12.5623C16.8339 13.0716 16.5405 13.9743 16.8083 14.7984L17.1513 15.8541C17.75 17.6967 15.6411 19.229 14.0736 18.0902L13.1756 17.4377C12.4746 16.9284 11.5254 16.9284 10.8244 17.4377L9.92638 18.0902C8.35895 19.229 6.24999 17.6967 6.84869 15.8541L7.19172 14.7984C7.45947 13.9743 7.16615 13.0716 6.46517 12.5623L5.56712 11.9098C3.99969 10.771 4.80524 8.2918 6.74269 8.2918H7.85275C8.7192 8.2918 9.48711 7.73387 9.75486 6.90983L10.0979 5.8541Z" fill="#FBBC1E"/>
+                          <path d="M29.0979 5.8541C29.6966 4.01148 32.3034 4.01148 32.9021 5.8541L33.2451 6.90983C33.5129 7.73387 34.2808 8.2918 35.1473 8.2918H36.2573C38.1948 8.2918 39.0003 10.771 37.4329 11.9098L36.5348 12.5623C35.8339 13.0716 35.5405 13.9743 35.8083 14.7984L36.1513 15.8541C36.75 17.6967 34.6411 19.229 33.0736 18.0902L32.1756 17.4377C31.4746 16.9284 30.5254 16.9284 29.8244 17.4377L28.9264 18.0902C27.3589 19.229 25.25 17.6967 25.8487 15.8541L26.1917 14.7984C26.4595 13.9743 26.1661 13.0716 25.4652 12.5623L24.5671 11.9098C22.9997 10.771 23.8052 8.2918 25.7427 8.2918H26.8527C27.7192 8.2918 28.4871 7.73387 28.7549 6.90983L29.0979 5.8541Z" fill="#FBBC1E"/>
+                          <path d="M48.0979 5.8541C48.6966 4.01148 51.3034 4.01148 51.9021 5.8541L52.2451 6.90983C52.5129 7.73387 53.2808 8.2918 54.1473 8.2918H55.2573C57.1948 8.2918 58.0003 10.771 56.4329 11.9098L55.5348 12.5623C54.8339 13.0716 54.5405 13.9743 54.8083 14.7984L55.1513 15.8541C55.75 17.6967 53.6411 19.229 52.0736 18.0902L51.1756 17.4377C50.4746 16.9284 49.5254 16.9284 48.8244 17.4377L47.9264 18.0902C46.3589 19.229 44.25 17.6967 44.8487 15.8541L45.1917 14.7984C45.4595 13.9743 45.1661 13.0716 44.4652 12.5623L43.5671 11.9098C41.9997 10.771 42.8052 8.2918 44.7427 8.2918H45.8527C46.7192 8.2918 47.4871 7.73387 47.7549 6.90983L48.0979 5.8541Z" fill="#FBBC1E"/>
+                          <path d="M67.0979 5.8541C67.6966 4.01148 70.3034 4.01148 70.9021 5.8541L71.2451 6.90983C71.5129 7.73387 72.2808 8.2918 73.1473 8.2918H74.2573C76.1948 8.2918 77.0003 10.771 75.4329 11.9098L74.5348 12.5623C73.8339 13.0716 73.5405 13.9743 73.8083 14.7984L74.1513 15.8541C74.75 17.6967 72.6411 19.229 71.0736 18.0902L70.1756 17.4377C69.4746 16.9284 68.5254 16.9284 67.8244 17.4377L66.9264 18.0902C65.3589 19.229 63.25 17.6967 63.8487 15.8541L64.1917 14.7984C64.4595 13.9743 64.1661 13.0716 63.4652 12.5623L62.5671 11.9098C60.9997 10.771 61.8052 8.2918 63.7427 8.2918H64.8527C65.7192 8.2918 66.4871 7.73387 66.7549 6.90983L67.0979 5.8541Z" fill="#FBBC1E"/>
+                          <path d="M86.0979 5.8541C86.6966 4.01148 89.3034 4.01148 89.9021 5.8541L90.2451 6.90983C90.5129 7.73387 91.2808 8.2918 92.1473 8.2918H93.2573C95.1948 8.2918 96.0003 10.771 94.4329 11.9098L93.5348 12.5623C92.8339 13.0716 92.5405 13.9743 92.8083 14.7984L93.1513 15.8541C93.75 17.6967 91.6411 19.229 90.0736 18.0902L89.1756 17.4377C88.4746 16.9284 87.5254 16.9284 86.8244 17.4377L85.9264 18.0902C84.3589 19.229 82.25 17.6967 82.8487 15.8541L83.1917 14.7984C83.4595 13.9743 83.1661 13.0716 82.4652 12.5623L81.5671 11.9098C79.9997 10.771 80.8052 8.2918 82.7427 8.2918H83.8527C84.7192 8.2918 85.4871 7.73387 85.7549 6.90983L86.0979 5.8541Z" fill="#FBBC1E"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="stu-join">
+                      <div class="students">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M19.25 18.334C19.25 16.7372 17.7192 15.3796 15.5833 14.8754M13.75 18.334C13.75 16.3082 11.2878 14.6673 8.25 14.6673C5.21217 14.6673 2.75 16.3082 2.75 18.334M13.75 11.9173C14.7225 11.9173 15.6551 11.531 16.3427 10.8434C17.0304 10.1557 17.4167 9.22311 17.4167 8.25065C17.4167 7.27819 17.0304 6.34556 16.3427 5.65793C15.6551 4.97029 14.7225 4.58398 13.75 4.58398M8.25 11.9173C7.27754 11.9173 6.34491 11.531 5.65728 10.8434C4.96964 10.1557 4.58333 9.22311 4.58333 8.25065C4.58333 7.27819 4.96964 6.34556 5.65728 5.65793C6.34491 4.97029 7.27754 4.58398 8.25 4.58398C9.22246 4.58398 10.1551 4.97029 10.8427 5.65793C11.5304 6.34556 11.9167 7.27819 11.9167 8.25065C11.9167 9.22311 11.5304 10.1557 10.8427 10.8434C10.1551 11.531 9.22246 11.9173 8.25 11.9173Z" stroke="#F5AA1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p>50+ Students</p>
+                      </div>
+                      <div class="join-btn">
+                        <p>Join Now</p>
+                        <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777" stroke="#F5AA1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="courses-card">
+                  <img src="../images/image 61.png" alt="University Courses" class="courses-img">
+                  <div class="heart-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11.125 2C9.83438 2 8.70438 2.555 8 3.49313C7.29562 2.555 6.16563 2 4.875 2C3.84764 2.00116 2.86269 2.40979 2.13624 3.13624C1.40979 3.86269 1.00116 4.84764 1 5.875C1 10.25 7.48688 13.7913 7.76312 13.9375C7.83594 13.9767 7.91732 13.9972 8 13.9972C8.08268 13.9972 8.16406 13.9767 8.23687 13.9375C8.51312 13.7913 15 10.25 15 5.875C14.9988 4.84764 14.5902 3.86269 13.8638 3.13624C13.1373 2.40979 12.1524 2.00116 11.125 2ZM8 12.925C6.85875 12.26 2 9.23063 2 5.875C2.00099 5.11281 2.30421 4.38212 2.84316 3.84316C3.38212 3.30421 4.11281 3.00099 4.875 3C6.09062 3 7.11125 3.6475 7.5375 4.6875C7.57517 4.77921 7.63925 4.85764 7.7216 4.91284C7.80396 4.96804 7.90086 4.99752 8 4.99752C8.09914 4.99752 8.19604 4.96804 8.2784 4.91284C8.36075 4.85764 8.42483 4.77921 8.4625 4.6875C8.88875 3.64563 9.90938 3 11.125 3C11.8872 3.00099 12.6179 3.30421 13.1568 3.84316C13.6958 4.38212 13.999 5.11281 14 5.875C14 9.22563 9.14 12.2594 8 12.925Z" fill="white"/>
+                    </svg>
+                  </div>
+                  <div class="courses-card-body">
+                    <h4 class="title-card">
+                      Effective Classroom Management Techniques Job.
+                    </h4>
+                    <div class="prof-stars">
+                      <div class="prof-info">
+                        <img src="../images/avatar 2.png" alt="University Professor">
+                        <div class="prof-name">
+                          <h5>John Smith</h5>
+                          <p>Professor</p>
+                        </div>
+                      </div>
+                      <div class="star">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="24" viewBox="0 0 100 24" fill="none">
+                          <path d="M10.0979 5.8541C10.6966 4.01148 13.3034 4.01148 13.9021 5.8541L14.2451 6.90983C14.5129 7.73387 15.2808 8.2918 16.1473 8.2918H17.2573C19.1948 8.2918 20.0003 10.771 18.4329 11.9098L17.5348 12.5623C16.8339 13.0716 16.5405 13.9743 16.8083 14.7984L17.1513 15.8541C17.75 17.6967 15.6411 19.229 14.0736 18.0902L13.1756 17.4377C12.4746 16.9284 11.5254 16.9284 10.8244 17.4377L9.92638 18.0902C8.35895 19.229 6.24999 17.6967 6.84869 15.8541L7.19172 14.7984C7.45947 13.9743 7.16615 13.0716 6.46517 12.5623L5.56712 11.9098C3.99969 10.771 4.80524 8.2918 6.74269 8.2918H7.85275C8.7192 8.2918 9.48711 7.73387 9.75486 6.90983L10.0979 5.8541Z" fill="#FBBC1E"/>
+                          <path d="M29.0979 5.8541C29.6966 4.01148 32.3034 4.01148 32.9021 5.8541L33.2451 6.90983C33.5129 7.73387 34.2808 8.2918 35.1473 8.2918H36.2573C38.1948 8.2918 39.0003 10.771 37.4329 11.9098L36.5348 12.5623C35.8339 13.0716 35.5405 13.9743 35.8083 14.7984L36.1513 15.8541C36.75 17.6967 34.6411 19.229 33.0736 18.0902L32.1756 17.4377C31.4746 16.9284 30.5254 16.9284 29.8244 17.4377L28.9264 18.0902C27.3589 19.229 25.25 17.6967 25.8487 15.8541L26.1917 14.7984C26.4595 13.9743 26.1661 13.0716 25.4652 12.5623L24.5671 11.9098C22.9997 10.771 23.8052 8.2918 25.7427 8.2918H26.8527C27.7192 8.2918 28.4871 7.73387 28.7549 6.90983L29.0979 5.8541Z" fill="#FBBC1E"/>
+                          <path d="M48.0979 5.8541C48.6966 4.01148 51.3034 4.01148 51.9021 5.8541L52.2451 6.90983C52.5129 7.73387 53.2808 8.2918 54.1473 8.2918H55.2573C57.1948 8.2918 58.0003 10.771 56.4329 11.9098L55.5348 12.5623C54.8339 13.0716 54.5405 13.9743 54.8083 14.7984L55.1513 15.8541C55.75 17.6967 53.6411 19.229 52.0736 18.0902L51.1756 17.4377C50.4746 16.9284 49.5254 16.9284 48.8244 17.4377L47.9264 18.0902C46.3589 19.229 44.25 17.6967 44.8487 15.8541L45.1917 14.7984C45.4595 13.9743 45.1661 13.0716 44.4652 12.5623L43.5671 11.9098C41.9997 10.771 42.8052 8.2918 44.7427 8.2918H45.8527C46.7192 8.2918 47.4871 7.73387 47.7549 6.90983L48.0979 5.8541Z" fill="#FBBC1E"/>
+                          <path d="M67.0979 5.8541C67.6966 4.01148 70.3034 4.01148 70.9021 5.8541L71.2451 6.90983C71.5129 7.73387 72.2808 8.2918 73.1473 8.2918H74.2573C76.1948 8.2918 77.0003 10.771 75.4329 11.9098L74.5348 12.5623C73.8339 13.0716 73.5405 13.9743 73.8083 14.7984L74.1513 15.8541C74.75 17.6967 72.6411 19.229 71.0736 18.0902L70.1756 17.4377C69.4746 16.9284 68.5254 16.9284 67.8244 17.4377L66.9264 18.0902C65.3589 19.229 63.25 17.6967 63.8487 15.8541L64.1917 14.7984C64.4595 13.9743 64.1661 13.0716 63.4652 12.5623L62.5671 11.9098C60.9997 10.771 61.8052 8.2918 63.7427 8.2918H64.8527C65.7192 8.2918 66.4871 7.73387 66.7549 6.90983L67.0979 5.8541Z" fill="#FBBC1E"/>
+                          <path d="M86.0979 5.8541C86.6966 4.01148 89.3034 4.01148 89.9021 5.8541L90.2451 6.90983C90.5129 7.73387 91.2808 8.2918 92.1473 8.2918H93.2573C95.1948 8.2918 96.0003 10.771 94.4329 11.9098L93.5348 12.5623C92.8339 13.0716 92.5405 13.9743 92.8083 14.7984L93.1513 15.8541C93.75 17.6967 91.6411 19.229 90.0736 18.0902L89.1756 17.4377C88.4746 16.9284 87.5254 16.9284 86.8244 17.4377L85.9264 18.0902C84.3589 19.229 82.25 17.6967 82.8487 15.8541L83.1917 14.7984C83.4595 13.9743 83.1661 13.0716 82.4652 12.5623L81.5671 11.9098C79.9997 10.771 80.8052 8.2918 82.7427 8.2918H83.8527C84.7192 8.2918 85.4871 7.73387 85.7549 6.90983L86.0979 5.8541Z" fill="#FBBC1E"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="stu-join">
+                      <div class="students">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M19.25 18.334C19.25 16.7372 17.7192 15.3796 15.5833 14.8754M13.75 18.334C13.75 16.3082 11.2878 14.6673 8.25 14.6673C5.21217 14.6673 2.75 16.3082 2.75 18.334M13.75 11.9173C14.7225 11.9173 15.6551 11.531 16.3427 10.8434C17.0304 10.1557 17.4167 9.22311 17.4167 8.25065C17.4167 7.27819 17.0304 6.34556 16.3427 5.65793C15.6551 4.97029 14.7225 4.58398 13.75 4.58398M8.25 11.9173C7.27754 11.9173 6.34491 11.531 5.65728 10.8434C4.96964 10.1557 4.58333 9.22311 4.58333 8.25065C4.58333 7.27819 4.96964 6.34556 5.65728 5.65793C6.34491 4.97029 7.27754 4.58398 8.25 4.58398C9.22246 4.58398 10.1551 4.97029 10.8427 5.65793C11.5304 6.34556 11.9167 7.27819 11.9167 8.25065C11.9167 9.22311 11.5304 10.1557 10.8427 10.8434C10.1551 11.531 9.22246 11.9173 8.25 11.9173Z" stroke="#F5AA1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p>50+ Students</p>
+                      </div>
+                      <div class="join-btn">
+                        <p>Join Now</p>
+                        <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777" stroke="#F5AA1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="content5" class="contents">
+              <h2>Jobs and opportunities</h2>
+              <div class="jobs-cards">
+                <div class="jobs-card">
+                  <div class="job-company">
+                    <h6>Microsoft</h6>
+                    <p>10 Days ago</p>
+                  </div>
+                  <h4 class="job-title">Product Designer</h4>
+                  <div class="job-information">
+                    <div class="job-info">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.668 4.16602H3.33464C2.41416 4.16602 1.66797 4.91221 1.66797 5.83268V14.166C1.66797 15.0865 2.41416 15.8327 3.33464 15.8327H16.668C17.5884 15.8327 18.3346 15.0865 18.3346 14.166V5.83268C18.3346 4.91221 17.5884 4.16602 16.668 4.16602Z" stroke="#F5AA1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M1.66797 8.33203H18.3346" stroke="#F5AA1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      <p>$80,000 / year</p>
+                    </div>
+                    <div class="job-info">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.875 5H13.75C13.75 4.00544 13.3549 3.05161 12.6517 2.34835C11.9484 1.64509 10.9946 1.25 10 1.25C9.00544 1.25 8.05161 1.64509 7.34835 2.34835C6.64509 3.05161 6.25 4.00544 6.25 5H3.125C2.79348 5 2.47554 5.1317 2.24112 5.36612C2.0067 5.60054 1.875 5.91848 1.875 6.25V15.625C1.875 15.9565 2.0067 16.2745 2.24112 16.5089C2.47554 16.7433 2.79348 16.875 3.125 16.875H16.875C17.2065 16.875 17.5245 16.7433 17.7589 16.5089C17.9933 16.2745 18.125 15.9565 18.125 15.625V6.25C18.125 5.91848 17.9933 5.60054 17.7589 5.36612C17.5245 5.1317 17.2065 5 16.875 5ZM10 2.5C10.663 2.5 11.2989 2.76339 11.7678 3.23223C12.2366 3.70107 12.5 4.33696 12.5 5H7.5C7.5 4.33696 7.76339 3.70107 8.23223 3.23223C8.70107 2.76339 9.33696 2.5 10 2.5ZM16.875 15.625H3.125V6.25H16.875V15.625Z" fill="#F5AA1C"/>
+                        </svg>                        
+                      <p>Full Time</p>
+                    </div>
+                    <div class="job-info">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.00223 1.44531C10.6646 1.44531 12.2588 2.10567 13.4343 3.28113C14.6097 4.45658 15.2701 6.05083 15.2701 7.71317C15.2701 10.3617 13.409 13.2482 9.73509 16.4033C9.53081 16.5788 9.27034 16.6752 9.00103 16.675C8.73172 16.6747 8.47143 16.5779 8.26745 16.402L8.02445 16.1912C4.51316 13.1183 2.73438 10.3026 2.73438 7.71317C2.73438 6.05083 3.39474 4.45658 4.57019 3.28113C5.74564 2.10567 7.33989 1.44531 9.00223 1.44531ZM9.00223 2.4096C7.59564 2.4096 6.24665 2.96837 5.25204 3.96298C4.25743 4.95759 3.69866 6.30658 3.69866 7.71317C3.69866 9.96446 5.33666 12.5584 8.65766 15.4641L8.89745 15.6717C8.9266 15.6968 8.96378 15.7106 9.00223 15.7106C9.04069 15.7106 9.07786 15.6968 9.10702 15.6717C12.5887 12.6812 14.3058 10.0178 14.3058 7.71317C14.3058 7.0167 14.1686 6.32704 13.9021 5.68358C13.6356 5.04012 13.2449 4.45546 12.7524 3.96298C12.2599 3.4705 11.6753 3.07984 11.0318 2.81331C10.3884 2.54678 9.69871 2.4096 9.00223 2.4096ZM9.00223 5.30246C9.64159 5.30246 10.2548 5.55644 10.7069 6.00854C11.159 6.46064 11.4129 7.07381 11.4129 7.71317C11.4129 8.35253 11.159 8.96571 10.7069 9.4178C10.2548 9.8699 9.64159 10.1239 9.00223 10.1239C8.36287 10.1239 7.7497 9.8699 7.2976 9.4178C6.8455 8.96571 6.59152 8.35253 6.59152 7.71317C6.59152 7.07381 6.8455 6.46064 7.2976 6.00854C7.7497 5.55644 8.36287 5.30246 9.00223 5.30246ZM9.00223 6.26674C8.61862 6.26674 8.25071 6.41913 7.97945 6.69039C7.7082 6.96165 7.5558 7.32955 7.5558 7.71317C7.5558 8.09679 7.7082 8.46469 7.97945 8.73595C8.25071 9.00721 8.61862 9.1596 9.00223 9.1596C9.38585 9.1596 9.75375 9.00721 10.025 8.73595C10.2963 8.46469 10.4487 8.09679 10.4487 7.71317C10.4487 7.32955 10.2963 6.96165 10.025 6.69039C9.75375 6.41913 9.38585 6.26674 9.00223 6.26674Z" fill="#F5AA1C"/>
+                      </svg>                                               
+                      <p>New York ,United States</p>
+                    </div>
+                  </div>
+                  <p class="job-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan Arcu curs...<a href="#" class="read-btn">read more</a>
+                  </p>
+                  <a href="#" class="btn-suggest">Suggest</a>
+                </div>
+                <div class="jobs-card">
+                  <div class="job-company">
+                    <h6>Microsoft</h6>
+                    <p>10 Days ago</p>
+                  </div>
+                  <h4 class="job-title">Product Designer</h4>
+                  <div class="job-information">
+                    <div class="job-info">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.668 4.16602H3.33464C2.41416 4.16602 1.66797 4.91221 1.66797 5.83268V14.166C1.66797 15.0865 2.41416 15.8327 3.33464 15.8327H16.668C17.5884 15.8327 18.3346 15.0865 18.3346 14.166V5.83268C18.3346 4.91221 17.5884 4.16602 16.668 4.16602Z" stroke="#F5AA1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M1.66797 8.33203H18.3346" stroke="#F5AA1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      <p>$80,000 / year</p>
+                    </div>
+                    <div class="job-info">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.875 5H13.75C13.75 4.00544 13.3549 3.05161 12.6517 2.34835C11.9484 1.64509 10.9946 1.25 10 1.25C9.00544 1.25 8.05161 1.64509 7.34835 2.34835C6.64509 3.05161 6.25 4.00544 6.25 5H3.125C2.79348 5 2.47554 5.1317 2.24112 5.36612C2.0067 5.60054 1.875 5.91848 1.875 6.25V15.625C1.875 15.9565 2.0067 16.2745 2.24112 16.5089C2.47554 16.7433 2.79348 16.875 3.125 16.875H16.875C17.2065 16.875 17.5245 16.7433 17.7589 16.5089C17.9933 16.2745 18.125 15.9565 18.125 15.625V6.25C18.125 5.91848 17.9933 5.60054 17.7589 5.36612C17.5245 5.1317 17.2065 5 16.875 5ZM10 2.5C10.663 2.5 11.2989 2.76339 11.7678 3.23223C12.2366 3.70107 12.5 4.33696 12.5 5H7.5C7.5 4.33696 7.76339 3.70107 8.23223 3.23223C8.70107 2.76339 9.33696 2.5 10 2.5ZM16.875 15.625H3.125V6.25H16.875V15.625Z" fill="#F5AA1C"/>
+                        </svg>                        
+                      <p>Full Time</p>
+                    </div>
+                    <div class="job-info">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.00223 1.44531C10.6646 1.44531 12.2588 2.10567 13.4343 3.28113C14.6097 4.45658 15.2701 6.05083 15.2701 7.71317C15.2701 10.3617 13.409 13.2482 9.73509 16.4033C9.53081 16.5788 9.27034 16.6752 9.00103 16.675C8.73172 16.6747 8.47143 16.5779 8.26745 16.402L8.02445 16.1912C4.51316 13.1183 2.73438 10.3026 2.73438 7.71317C2.73438 6.05083 3.39474 4.45658 4.57019 3.28113C5.74564 2.10567 7.33989 1.44531 9.00223 1.44531ZM9.00223 2.4096C7.59564 2.4096 6.24665 2.96837 5.25204 3.96298C4.25743 4.95759 3.69866 6.30658 3.69866 7.71317C3.69866 9.96446 5.33666 12.5584 8.65766 15.4641L8.89745 15.6717C8.9266 15.6968 8.96378 15.7106 9.00223 15.7106C9.04069 15.7106 9.07786 15.6968 9.10702 15.6717C12.5887 12.6812 14.3058 10.0178 14.3058 7.71317C14.3058 7.0167 14.1686 6.32704 13.9021 5.68358C13.6356 5.04012 13.2449 4.45546 12.7524 3.96298C12.2599 3.4705 11.6753 3.07984 11.0318 2.81331C10.3884 2.54678 9.69871 2.4096 9.00223 2.4096ZM9.00223 5.30246C9.64159 5.30246 10.2548 5.55644 10.7069 6.00854C11.159 6.46064 11.4129 7.07381 11.4129 7.71317C11.4129 8.35253 11.159 8.96571 10.7069 9.4178C10.2548 9.8699 9.64159 10.1239 9.00223 10.1239C8.36287 10.1239 7.7497 9.8699 7.2976 9.4178C6.8455 8.96571 6.59152 8.35253 6.59152 7.71317C6.59152 7.07381 6.8455 6.46064 7.2976 6.00854C7.7497 5.55644 8.36287 5.30246 9.00223 5.30246ZM9.00223 6.26674C8.61862 6.26674 8.25071 6.41913 7.97945 6.69039C7.7082 6.96165 7.5558 7.32955 7.5558 7.71317C7.5558 8.09679 7.7082 8.46469 7.97945 8.73595C8.25071 9.00721 8.61862 9.1596 9.00223 9.1596C9.38585 9.1596 9.75375 9.00721 10.025 8.73595C10.2963 8.46469 10.4487 8.09679 10.4487 7.71317C10.4487 7.32955 10.2963 6.96165 10.025 6.69039C9.75375 6.41913 9.38585 6.26674 9.00223 6.26674Z" fill="#F5AA1C"/>
+                      </svg>                                               
+                      <p>New York ,United States</p>
+                    </div>
+                  </div>
+                  <p class="job-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan Arcu curs...<a href="#" class="read-btn">read more</a>
+                  </p>
+                  <a href="#" class="btn-suggest">Suggest</a>
+                </div>
+                <div class="jobs-card">
+                  <div class="job-company">
+                    <h6>Microsoft</h6>
+                    <p>10 Days ago</p>
+                  </div>
+                  <h4 class="job-title">Product Designer</h4>
+                  <div class="job-information">
+                    <div class="job-info">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.668 4.16602H3.33464C2.41416 4.16602 1.66797 4.91221 1.66797 5.83268V14.166C1.66797 15.0865 2.41416 15.8327 3.33464 15.8327H16.668C17.5884 15.8327 18.3346 15.0865 18.3346 14.166V5.83268C18.3346 4.91221 17.5884 4.16602 16.668 4.16602Z" stroke="#F5AA1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M1.66797 8.33203H18.3346" stroke="#F5AA1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      <p>$80,000 / year</p>
+                    </div>
+                    <div class="job-info">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.875 5H13.75C13.75 4.00544 13.3549 3.05161 12.6517 2.34835C11.9484 1.64509 10.9946 1.25 10 1.25C9.00544 1.25 8.05161 1.64509 7.34835 2.34835C6.64509 3.05161 6.25 4.00544 6.25 5H3.125C2.79348 5 2.47554 5.1317 2.24112 5.36612C2.0067 5.60054 1.875 5.91848 1.875 6.25V15.625C1.875 15.9565 2.0067 16.2745 2.24112 16.5089C2.47554 16.7433 2.79348 16.875 3.125 16.875H16.875C17.2065 16.875 17.5245 16.7433 17.7589 16.5089C17.9933 16.2745 18.125 15.9565 18.125 15.625V6.25C18.125 5.91848 17.9933 5.60054 17.7589 5.36612C17.5245 5.1317 17.2065 5 16.875 5ZM10 2.5C10.663 2.5 11.2989 2.76339 11.7678 3.23223C12.2366 3.70107 12.5 4.33696 12.5 5H7.5C7.5 4.33696 7.76339 3.70107 8.23223 3.23223C8.70107 2.76339 9.33696 2.5 10 2.5ZM16.875 15.625H3.125V6.25H16.875V15.625Z" fill="#F5AA1C"/>
+                        </svg>                        
+                      <p>Full Time</p>
+                    </div>
+                    <div class="job-info">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.00223 1.44531C10.6646 1.44531 12.2588 2.10567 13.4343 3.28113C14.6097 4.45658 15.2701 6.05083 15.2701 7.71317C15.2701 10.3617 13.409 13.2482 9.73509 16.4033C9.53081 16.5788 9.27034 16.6752 9.00103 16.675C8.73172 16.6747 8.47143 16.5779 8.26745 16.402L8.02445 16.1912C4.51316 13.1183 2.73438 10.3026 2.73438 7.71317C2.73438 6.05083 3.39474 4.45658 4.57019 3.28113C5.74564 2.10567 7.33989 1.44531 9.00223 1.44531ZM9.00223 2.4096C7.59564 2.4096 6.24665 2.96837 5.25204 3.96298C4.25743 4.95759 3.69866 6.30658 3.69866 7.71317C3.69866 9.96446 5.33666 12.5584 8.65766 15.4641L8.89745 15.6717C8.9266 15.6968 8.96378 15.7106 9.00223 15.7106C9.04069 15.7106 9.07786 15.6968 9.10702 15.6717C12.5887 12.6812 14.3058 10.0178 14.3058 7.71317C14.3058 7.0167 14.1686 6.32704 13.9021 5.68358C13.6356 5.04012 13.2449 4.45546 12.7524 3.96298C12.2599 3.4705 11.6753 3.07984 11.0318 2.81331C10.3884 2.54678 9.69871 2.4096 9.00223 2.4096ZM9.00223 5.30246C9.64159 5.30246 10.2548 5.55644 10.7069 6.00854C11.159 6.46064 11.4129 7.07381 11.4129 7.71317C11.4129 8.35253 11.159 8.96571 10.7069 9.4178C10.2548 9.8699 9.64159 10.1239 9.00223 10.1239C8.36287 10.1239 7.7497 9.8699 7.2976 9.4178C6.8455 8.96571 6.59152 8.35253 6.59152 7.71317C6.59152 7.07381 6.8455 6.46064 7.2976 6.00854C7.7497 5.55644 8.36287 5.30246 9.00223 5.30246ZM9.00223 6.26674C8.61862 6.26674 8.25071 6.41913 7.97945 6.69039C7.7082 6.96165 7.5558 7.32955 7.5558 7.71317C7.5558 8.09679 7.7082 8.46469 7.97945 8.73595C8.25071 9.00721 8.61862 9.1596 9.00223 9.1596C9.38585 9.1596 9.75375 9.00721 10.025 8.73595C10.2963 8.46469 10.4487 8.09679 10.4487 7.71317C10.4487 7.32955 10.2963 6.96165 10.025 6.69039C9.75375 6.41913 9.38585 6.26674 9.00223 6.26674Z" fill="#F5AA1C"/>
+                      </svg>                                               
+                      <p>New York ,United States</p>
+                    </div>
+                  </div>
+                  <p class="job-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan Arcu curs...<a href="#" class="read-btn">read more</a>
+                  </p>
+                  <a href="#" class="btn-suggest">Suggest</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container mx">
+        <div class="row-fot">
+          <div class="row">
+            <div class="desc col-3">
+              <a href="/index.html">
+                <img
+                  src="../../images/image_59-removebg-preview (1) 1.png"
+                  alt=""
+                />
+                <h2>Unisuniverse</h2>
+              </a>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
+                congu.
+              </p>
+            </div>
+            <div class="col-3">
+              <h4>Short Links</h4>
+              <ul class="footer-cat-links">
+                <li>
+                  <a href=""><span>Home</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Academics</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Students</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Universities</span></a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-3">
+              <h4>Quick links</h4>
+              <ul class="footer-cat-links">
+                <li>
+                  <a href="../../Aboutus/index.html"><span>About us</span></a>
+                </li>
+                <li>
+                  <a href="../../FAQ/index.html"><span>FAQ</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Contact us</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Privacy policy</span></a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-3 contact">
+              <h4>Contact us</h4>
+              <ul>
+                <li>
+                  <div class="iconfo">
+                    <i
+                      class="fa fa-phone fa-flip-horizontal"
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+                  <div class="lineheightfot">
+                    Phone:<br />
+                    +971-580580580
+                  </div>
+                </li>
+                <li class="Emailfot">
+                  <div class="iconfo">
+                    <i class="fa fa-envelope-o"></i>
+                  </div>
+                  <div class="lineheightfot">
+                    Email:<br />
+                    info@Unisuniverse@gmail.com
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="social-links social-2 col-6">
+            <a href=""><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-linkedin-in"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-reddit-alien"></i></a>
+          </div>
+        </div>
+        <div class="copyowner">
+          <div id="copyright">&copy; 2023 Attio Ltd. All rights reserved.</div>
+          <div id="owner">
+            <span> Terms & Conditions </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const navbarMenu = document.getElementById("navbar");
+      const burgerMenu = document.getElementById("burger");
+      const overlayMenu = document.querySelector(".overlay");
+
+      const toggleMenu = () => {
+        navbarMenu.classList.toggle("active");
+        overlayMenu.classList.toggle("active");
+      };
+
+      const collapseSubMenu = () => {
+        navbarMenu
+          .querySelector(".menu-dropdown.active .submenu")
+          .removeAttribute("style");
+        navbarMenu
+          .querySelector(".menu-dropdown.active")
+          .classList.remove("active");
+      };
+
+      const toggleSubMenu = (e) => {
+        if (e.target.hasAttribute("data-toggle") && window.innerWidth <= 992) {
+          e.preventDefault();
+          const menuDropdown = e.target.parentElement;
+
+          if (menuDropdown.classList.contains("active")) {
+            collapseSubMenu();
+          } else {
+            if (navbarMenu.querySelector(".menu-dropdown.active")) {
+              collapseSubMenu();
+            }
+
+            menuDropdown.classList.add("active");
+            const subMenu = menuDropdown.querySelector(".submenu");
+            subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+          }
+        }
+      };
+
+      const resizeWindow = () => {
+        if (window.innerWidth > 992) {
+          if (navbarMenu.classList.contains("active")) {
+            toggleMenu();
+          }
+          if (navbarMenu.querySelector(".menu-dropdown.active")) {
+            collapseSubMenu();
+          }
+        }
+      };
+
+      burgerMenu.addEventListener("click", toggleMenu);
+      overlayMenu.addEventListener("click", toggleMenu);
+      navbarMenu.addEventListener("click", toggleSubMenu);
+      window.addEventListener("resize", resizeWindow);
+
+      // log in
+
+      let closeBut = document.getElementsByClassName("close")[0],
+        modal = document.getElementsByClassName("modal-cont")[0],
+        loginBut = document.getElementsByClassName("btn-md")[0],
+        loginRes = document.querySelector("#btn-md");
+
+      //close
+
+      function x() {
+        modal.style.display = "none";
+      }
+      closeBut.onclick = x;
+
+      loginBut.onclick = function () {
+        modal.style.display = "block";
+      };
+      loginRes.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      window.onclick = function (e) {
+        if (e.target.className === "modal-cont") {
+          e.target.style.display = "none";
+        }
+      };
+
+      // new acc
+
+      let newAcc = document.getElementsByClassName("new-acc")[0],
+        popupBoxs = document.getElementsByClassName("popup-boxs")[0],
+        modalBox = document.getElementsByClassName("modal-box")[0];
+
+      newAcc.onclick = function () {
+        popupBoxs.style.display = "flex";
+        modalBox.style.display = "none";
+      };
+
+      // search chat
+
+      function search_chat() {
+        let searchInput = document.getElementById("searchbar").value;
+        searchInput = searchInput.toLowerCase();
+        let x = document.getElementsByClassName("userchat");
+
+        for (i = 0; i < x.length; i++) {
+          if (!x[i].innerHTML.toLowerCase().includes(searchInput)) {
+            x[i].style.display = "none";
+          } else {
+            x[i].style.display = "flex";
+          }
+        }
+      }
+
+      // send pm
+
+      const chatMessages = document.getElementById("chat-send");
+      const userInput = document.getElementById("user-input");
+
+      function sendMessage() {
+        const userMessage = userInput.value;
+        if (userMessage.trim() !== "") {
+          displayMessage("You ", userMessage);
+          userInput.value = "";
+        }
+      }
+
+      function displayMessage(sender, message) {
+        const messageElement = document.createElement("p");
+        messageElement.classList.add("inner-pm");
+        messageElement.textContent = `${sender}: ${message}`;
+        chatMessages.appendChild(messageElement);
+        scrollToBottom();
+      }
+
+      function handleKeyPress(event) {
+        if (event.key === "Enter") {
+          sendMessage();
+        }
+      }
+
+      let chatHistory = document.getElementById("inner-user-chat");
+      chatHistory.scrollTop = chatHistory.scrollHeight;
+
+      function scrollToBottom() {
+        let chatHistory = document.getElementById("inner-user-chat");
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      }
+
+      // show hide box
+      
+      let topBar = document.getElementsByClassName("top-bar")[0];
+
+      topBar.addEventListener('click', function() {
+      const sendBox = document.getElementsByClassName("send-box")[0];
+      sendBox.classList.toggle('toggle-display');
+      });
+
+      // show hide inner chat
+
+      let chats = document.getElementById('chats');
+      let innerChat = document.getElementById('inner-chat');
+      let userChat = document.querySelectorAll('#userchat');
+      let backInner = document.getElementsByClassName('back-inner')[0];
+      let searchForm = document.getElementsByClassName('search-form')[0];
+      let topBox = document.getElementById('top-bar-box');
+
+      document.querySelector(".kapsayici").onclick = function () {
+        backInner.classList.toggle('toggle-display');
+        if (document.getElementById("check").checked) {
+          document.querySelector(".symbol").style.transform = "rotate(-90deg)";
+        } else {
+          document.querySelector(".symbol").style.transform = "rotate(90deg)";
+        }
+      };
+
+      function backchat() {
+        innerChat.style.display = "none";
+        chats.style.display = "block";
+        searchForm.style.display = "block";
+      }
+      backInner.addEventListener('click', function () {
+        backchat();
+      });
+
+      function chatsFun() {
+        chats.style.display = "none";
+        searchForm.style.display = "none";
+        innerChat.style.display = "block";
+      }
+      
+      userChat.forEach(pm => {
+        pm.addEventListener('click', function() {
+          chatsFun();
+        })
+      });
+
+
+
+   
+    </script>
+  </body>
+</html>
