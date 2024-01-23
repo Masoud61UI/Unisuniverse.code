@@ -773,6 +773,7 @@
       .user-logo img {
         width: 64px;
         height: 64px;
+        object-fit: cover;
         border-radius: 50%;
         border: 1.5px solid var(--secondary-color);
       }
@@ -845,6 +846,8 @@
 
       .uni-bg {
         width: 100%;
+        height: 151px;
+        object-fit: cover;
         border-radius: 24px 24px 0px 0px;
       }
 
@@ -880,11 +883,22 @@
         justify-content: center;
       }
 
-      .uni-profile {
-        width: 13%;
-        border: 2px solid var(--secondary-color);
+      .uni-profile-wrapper {
+        width: 94px;
+        height: 94px;
         border-radius: 50%;
+        border: 2px solid var(--secondary-color);
         margin-top: -40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .uni-profile {
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        object-fit: cover;
       }
 
       .icon-chng {
@@ -1019,8 +1033,13 @@
       }
 
       @media (max-width: 640px) {
+        .uni-profile-wrapper {
+          width: 80px;
+          height: 80px;
+        }
         .uni-profile {
-          width: 28%;
+          width: 70px;
+          height: 70px;
         }
         .btn-chng-bg {
           margin: -137px 12px 0 0;
@@ -1114,6 +1133,8 @@
 
       .recruiter-card-body {
         color: var(--color-text-black);
+        display: flex;
+        flex-direction: column;
       }
 
       .img-title-card {
@@ -1126,6 +1147,8 @@
       .img-title-card img {
         width: 72px;
         height: 72px;
+        object-fit: cover;
+        border-radius: 12px;
       }
 
       .recruiter-title-card {
@@ -1153,7 +1176,7 @@
       }
 
       .recruiter-email {
-        margin-top: 18px;
+        margin-top: 6px;
       }
 
       .recruiter-contact svg {
@@ -1163,6 +1186,25 @@
       .recruiter-contact p {
         padding-left: 10px;
         font-size: 16px;
+      }
+
+      .btn-admin {
+        width: 100%;
+        height: 47px;
+        border: 1px solid var(--primary-color);
+        border-radius: 12px;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .btn-admin:hover {
+        background-color: var(--secondary-color);
+        color: var(--color-white);
+        border: none;
       }
 
       @media only screen and (max-width: 440px) {
@@ -1743,11 +1785,13 @@
               </label>
             </div>
             <div class="user-img-name">
-              <img
+              <div class="uni-profile-wrapper">
+                <img
                 src="../../images/Uni-img.png"
                 alt="User Image"
                 class="uni-profile"
-              />
+                />
+              </div>
               <div class="icon-chng">
                 <label class="prof-file-upload">
                   <svg
@@ -1815,6 +1859,7 @@
                         <p>Email: info@Recruiter.com</p>
                       </div>
                     </div>
+                    <a href="../Admins management/indexAddorEditadmin.html" class="btn-admin">Edit Admin</a>
                   </div>
                 </div>
                 <div class="recruiter-card">
@@ -1853,6 +1898,7 @@
                         <p>Email: info@Recruiter.com</p>
                       </div>
                     </div>
+                    <a href="../Admins management/indexAddorEditadmin.html" class="btn-admin">Edit Admin</a>
                   </div>
                 </div>
               </div>

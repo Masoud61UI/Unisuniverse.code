@@ -926,146 +926,10 @@
         margin-top: 17px;
       }
 
-      .edit-main {
-        margin: 32px 28px;
-        padding: 30px;
-        background-color: var(--color-background);
-        border-radius: 24px;
+      .chat-content {
         color: var(--color-text-black);
-      }
-
-      .information-edit {
-        margin-bottom: 56px;
-      }
-
-      .information-title {
-        font-size: 17px;
-        font-weight: 600;
-      }
-
-      .user_details {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-top: 10px;
-      }
-
-      .input_pox {
-        margin-bottom: 15px;
-        margin: 18px 0 18px 0;
-        width: calc(100% / 2 - 20px);
-      }
-
-      .datails {
-        display: block;
-        font-weight: 500;
-        font-size: 16px;
-        margin-bottom: 5px;
-        color: var(--color-text-grayblack);
-      }
-
-      .input_pox input,
-      .selection {
-        height: 49px;
-        width: 100%;
-        outline: none;
-        border-radius: 10px;
-        font-weight: 500;
-        border: 1px solid var(--color-line);
-        padding-left: 12px;
-        font-size: 16px;
-        transition: all 0.3s ease;
-      }
-
-      .selection {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        cursor: pointer;
-      }
-      .selection {
-        background-image: linear-gradient(45deg, transparent 50%, #151515 50%),
-          linear-gradient(135deg, #151515 50%, transparent 50%),
-          linear-gradient(to right, #ccc, #ccc);
-        background-position: calc(100% - 20px) calc(1em + 5px),
-          calc(100% - 15px) calc(1em + 5px), calc(100% - 2.5em) 0.68em;
-        background-size: 5px 5px, 5px 5px, 1px 1.5em;
-        background-repeat: no-repeat;
-      }
-
-      .selection:focus {
-        background-image: linear-gradient(45deg, gray 50%, transparent 50%),
-          linear-gradient(135deg, transparent 50%, gray 50%),
-          linear-gradient(to right, #ccc, #ccc);
-        background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-          calc(100% - 2.5em) 0.5em;
-        background-size: 5px 5px, 5px 5px, 1px 1.5em;
-        background-repeat: no-repeat;
-        border-color: var(--primary-color);
-        outline: 0;
-      }
-
-      .input_pox select option {
-        background-color: #f6f6f6;
-      }
-
-      select:-moz-focusring {
-        color: transparent;
-        text-shadow: 0 0 0 #000;
-      }
-
-      .input_pox textarea {
-        width: 100%;
-        height: 200px;
-        outline: none;
-        font-weight: 500;
-        border-radius: 10px;
-        border: 1px solid var(--color-line);
-        padding: 8px 0 0 12px;
-        font-size: 16px;
-        transition: all 0.3s ease;
-      }
-
-      .user_details .input_pox input:focus,
-      .user_details .input_pox input:valid,
-      .user_details .input_pox select:focus,
-      .input_pox textarea:focus,
-      .input_pox textarea:valid {
-        border-color: var(--primary-color);
-      }
-
-      .user_details input::-webkit-outer-spin-button,
-      .user_details input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-
-      .user_details input[type="number"] {
-        -moz-appearance: textfield;
-      }
-
-      .wf {
-        width: 100%;
-      }
-
-      .btn-save {
-        width: 153px;
-        height: 49px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--primary-color);
-        color: var(--color-white);
-        border-radius: 10px;
-        margin-top: 34px;
-        font-size: 17px;
-        font-weight: 500;
-        transition: all 0.3s ease-in;
-      }
-      .btn-save:hover {
-        background-color: var(--secondary-color);
+        justify-content: space-evenly;
       }
 
       @media (max-width: 1200px) {
@@ -1082,9 +946,6 @@
       }
 
       @media (max-width: 1064px) {
-        .edit-main {
-          padding: 20px;
-        }
         .side-nav {
           padding: 12px;
         }
@@ -1111,18 +972,6 @@
           padding-left: 19px;
           margin-left: -11px;
         }
-        .information-title {
-          font-size: 15px;
-        }
-        .input_pox input::placeholder {
-          font-size: 14px;
-        }
-        .input_pox {
-          width: calc(100% / 2 - 8px);
-        }
-        .wf {
-          width: 100%;
-        }
         .uni-bg {
           height: 150px;
         }
@@ -1135,7 +984,7 @@
         }
       }
 
-      @media (max-width: 850px) {
+      @media (max-width: 920px) {
         .edit-acc {
           flex-direction: column;
           gap: 35px;
@@ -1162,9 +1011,6 @@
           width: 22px;
           height: 22px;
         }
-        .information-title {
-          font-size: 17px;
-        }
       }
 
       @media (max-width: 640px) {
@@ -1181,30 +1027,6 @@
         }
       }
 
-      @media (max-width: 584px) {
-        .input_pox {
-          margin-bottom: 15px;
-          width: 100%;
-        }
-        .btn-save {
-          width: 100%;
-          margin-top: 1px;
-        }
-        .information-edit {
-          margin-bottom: 42px;
-        }
-      }
-
-      @media (max-width: 440px) {
-        .edit-main {
-          margin: 30px 10px;
-          padding: 10px;
-        }
-        .information-title {
-          font-size: 15px;
-        }
-      }
-
       @media (max-width: 358px) {
         .user-name {
           margin: 0;
@@ -1214,97 +1036,446 @@
         }
       }
 
-      /* Drop Zoon */
+      /* chat */
 
-      .photo-upld {
-        height: 220px;
+      .content-sidebar {
+        flex-basis: 33.7%;
+        padding: 30px 7px;
+      }
+
+      .content-sidebar-title {
+        font-size: 18px;
+        font-weight: 600;
+        padding-left: 12px;
+      }
+
+      .search-form {
+        margin: 15px 0 16px 0;
+        padding: 0 10px 0 10px;
+      }
+
+      .form-group {
+        margin: 10px 0;
+      }
+
+      .form-group input.empty {
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: 400;
+        text-decoration: inherit;
+        padding: 9px 11px;
+        font-size: 14px;
+        line-height: 20px;
+        outline: none;
+        background-color: var(--color-background);
+        border: 1px solid var(--color-line);
+        border-radius: 6px;
+        letter-spacing: 1px;
+        width: 100%;
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+      }
+
+      .message-list {
+        padding: 8px 10px;
+        transition: all 0.3s ease-in-out;
+      }
+      .message-list:hover {
+        background-color: var(--color-background);
+        border-radius: 10px;
+      }
+
+      .active-chat {
+        background-color: var(--color-background);
+        border-radius: 10px;
+        border: 1px solid var(--primary-color);
+      }
+
+      .content-messages-list {
+        border-bottom: 1px solid var(--color-line);
+        padding: 6px 0;
+      }
+
+      .content-messages-list > * > div {
+        display: flex;
+        align-items: center;
+        color: var(--color-text-black);
+        cursor: pointer;
+      }
+
+      .content-message-image {
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        object-fit: cover;
+        flex-shrink: 0;
+        margin-right: 12px;
+      }
+
+      .content-message-name {
+        display: block;
+        font-size: 15px;
+        font-weight: 500;
+      }
+      .content-message-text {
+        font-size: 14px;
+        color: var(--color-text-grayblack);
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .content-message-info {
+        display: grid;
+        margin-right: 12px;
+        gap: 2px;
+        width: 100%;
+      }
+
+      .content-message-time {
+        font-size: 12px;
+        color: var(--color-text-gray);
+        font-weight: 500;
+      }
+
+      .content-message-new {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--color-white);
+        background-color: var(--secondary-color);
+        padding: 2px 6.5px;
+        border-radius: 4px;
+      }
+
+      .content-message-info-time {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 3px;
+      }
+
+      /* converstion */
+
+      .conversation {
+        background-color: var(--color-background);
+        flex-basis: 63.5%;
+        margin: 30px 0 15px 0;
+        padding: 16px;
+        max-height: 490px;
+        border-radius: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 7px;
+      }
+
+      .conversation-top {
+        display: flex;
+        align-items: center;
+      }
+
+      .conversation-user {
+        display: flex;
+        align-items: center;
+      }
+
+      .conversation-user-image {
+        width: 44px;
+        height: 44px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 10px;
+      }
+
+      .conversation-user-name {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .conversation-user-status {
+        color: var(--color-text-grayblack);
+        font-size: 13px;
+      }
+      .conversation-user-status::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        background-color: #00bf00;
+        border-radius: 50%;
+        vertical-align: middle;
+        display: inline-block;
+        margin-right: 5px;
+      }
+
+      .conversation-back {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        color: var(--color-text-black);
+        transition: all 0.3s ease-in-out;
+        margin-right: 12px;
+        display: none;
+      }
+      .conversation-back:hover {
+        cursor: pointer;
+        background-color: var(--secondary-color);
+        color: var(--color-white);
+      }
+
+      .conversation-user-call {
+        cursor: pointer;
+        margin-left: auto;
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
-        margin: 20px 0;
-        border-radius: 10px;
-        cursor: pointer;
-        border: 1.5px dashed var(--secondary-color);
       }
 
-      .photo-upld :where(i, p) {
+      .conversation-main {
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 272px;
+      }
+      .conversation-main::-webkit-scrollbar {
+        width: 5px;
+        display: block;
+      }
+
+      .conversation-main::-webkit-scrollbar-thumb {
+        background: var(--color-line);
+        border-radius: 10px;
+      }
+
+      .inner-date {
+        position: relative;
+        text-align: center;
+        margin: 28px 0 26px 0;
+        font-size: 13px;
+        font-weight: 400;
         color: var(--color-text-gray);
       }
-      .photo-upld i {
-        font-size: 34px;
+
+      .inner-date::before,
+      .inner-date::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 37%;
+        height: 1px;
+        background: var(--color-line);
       }
 
-      .photo-upld p {
-        font-size: 16px;
-        margin-top: 12px;
+      .inner-date::before {
+        left: 0;
       }
 
-      section .row {
-        background: var(--color-white);
-        margin-bottom: 10px;
-        list-style: none;
-        padding: 15px 20px;
-        border-radius: 5px;
+      .inner-date::after {
+        right: 0;
+      }
+
+      .conversation-item {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        align-items: flex-end;
+        flex-direction: row-reverse;
+        margin-bottom: 26px;
+      }
+      .conversation-item.me {
+        flex-direction: row;
       }
 
-      section .row i {
-        font-size: 28px;
-        color: var(--primary-color);
-      }
-
-      section .details span {
-        font-size: 14px;
-      }
-
-      .progress-area .row .content {
+      .conversation-item-content {
         width: 100%;
-        margin-left: 15px;
       }
 
-      .progress-area .details {
-        display: flex;
-        align-items: center;
-        margin-bottom: 7px;
-        justify-content: space-between;
+      .conversation-item-box {
+        max-width: 400px;
+        margin-left: auto;
+      }
+      .conversation-item.me .conversation-item-box {
+        margin-left: unset;
       }
 
-      .progress-area .progress-bar {
-        height: 5px;
-        width: 100%;
-        background: var(--color-background);
-        margin-bottom: 4px;
-        border-radius: 30px;
+      .conversation-item-text {
+        font-size: 15px;
+        font-weight: 400;
+        width: fit-content;
+        margin-left: auto;
+        color: var(--color-white);
+        background-color: var(--primary-color);
+        padding: 12px 15px;
+        border-radius: 12px 12px 0px 12px;
+        line-height: 23px;
+        margin-bottom: 9px;
       }
-
-      .progress-bar .progress {
-        height: 100%;
-        width: 50%;
-        background: var(--primary-color);
-        border-radius: inherit;
-      }
-
-      .uploaded-area .row .content {
-        display: flex;
-        align-items: center;
-      }
-      .uploaded-area .row .details {
-        display: flex;
-        margin-left: 15px;
-        flex-direction: column;
-      }
-
-      .img-size {
-        font-size: 12px;
+      .conversation-item.me .conversation-item-text {
+        font-size: 15px;
+        font-weight: 400;
         color: var(--color-text-grayblack);
+        background-color: var(--color-white);
+        padding: 12px 15px;
+        border-radius: 0px 12px 12px 12px;
+        line-height: 23px;
       }
 
-      .uploaded-area .fa-check {
-        color: var(--primary-color);
+      .conversation-item-text-time {
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--color-text-gray);
+        margin-top: 8px;
+        text-align: right;
+      }
+      .conversation-item.me .conversation-item-text-time {
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--color-text-gray);
+        margin-top: 8px;
+        text-align: left;
+      }
+
+      .conversation-form {
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 9px;
+        background-color: var(--color-white);
+        border-radius: 12px;
+      }
+
+      .conversation-form-button input[type="file"] {
+        display: none;
+      }
+      .fa-paperclip {
+        cursor: pointer;
         font-size: 16px;
+        color: var(--color-text-black);
+      }
+
+      .conversation-form-input {
+        background-color: var(--color-background);
+        border: 1px solid var(--color-line);
+        border-radius: 10px;
+        outline: transparent;
+        padding: 10px 11px;
+        font: inherit;
+        font-size: 16px;
+        width: 80%;
+        resize: none;
+        line-height: 1.5;
+      }
+      .conversation-form-input:focus {
+        border-color: var(--primary-color);
+      }
+
+      .conversation-form-submit {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        border: none;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+      }
+      .conversation-form-submit:hover {
+        background-color: var(--secondary-color);
+      }
+      .conversation-form-submit:active {
+        background-color: var(--primary-color);
+      }
+
+      @media (max-width: 1064px) {
+        .content-sidebar {
+          flex-basis: 42%;
+        }
+        .conversation-item {
+          margin-bottom: 20px;
+        }
+        .inner-date {
+          margin: 18px 0 18px 0;
+        }
+        .conversation-form {
+          gap: 7px;
+          padding: 9x;
+        }
+      }
+
+      @media (max-width: 920px) {
+        .content-sidebar {
+          flex-basis: 35%;
+        }
+      }
+
+      @media (max-width: 710px) {
+        .chat-content {
+          flex-direction: column;
+          position: relative;
+          padding-bottom: 40px;
+        }
+        .content-sidebar {
+          left: unset;
+          z-index: 10;
+          width: 100%;
+          flex-basis: 100%;
+        }
+        .conversation {
+          display: none;
+          margin: 30px 12px;
+        }
+      }
+
+      @media (max-width: 440px) {
+        .conversation-item.me .conversation-item-text-time {
+          font-size: 11px;
+        }
+        .conversation-item-text-time {
+          font-size: 11px;
+        }
+        .conversation-item.me .conversation-item-text {
+          font-size: 13px;
+        }
+        .conversation-item-text {
+          font-size: 13px;
+        }
+        .conversation-form-input {
+          width: 70%;
+        }
+      }
+      @media (max-width: 360px) {
+        .conversation-user-image {
+          width: 39px;
+          height: 39px;
+        }
+        .conversation-user-name {
+          font-size: 14px;
+        }
+        .conversation-user-status {
+          font-size: 11px;
+        }
+        .conversation-user-call {
+          width: 17px;
+          height: 17px;
+        }
+        .conversation-form-input {
+          width: 65%;
+          padding: 8px 9px;
+          font-size: 13px;
+        }
+        .fa-paperclip {
+          font-size: 14px;
+        }
+        .conversation-form-submit {
+          width: 37px;
+          height: 37px;
+        }
+      }
+
+      .toggle-display {
+        display: flex;
       }
 
       /*footer*/
@@ -1748,7 +1919,7 @@
                   </svg>
                   <p>Courses</p>
                 </a>
-                <a href="../Messaging/inde.xhtml" class="tab-nav">
+                <a href="../Messaging/inde.xhtml" class="checked-tab tab-nav">
                   <svg
                     width="19"
                     height="19"
@@ -1762,7 +1933,7 @@
                   </svg>
                   <p>Messaging</p>
                 </a>
-                <a href="../Jobs/index.html" class="checked-tab tab-nav">
+                <a href="../Jobs/index.html" class="tab-nav">
                   <svg
                     width="22"
                     height="22"
@@ -1863,66 +2034,171 @@
               <h3 class="uni-title">Arden University</h3>
             </div>
           </div>
-          <div class="edit-main">
-            <div class="information-edit">
-              <h4 class="information-title">Complete the information :</h4>
-              <form>
-                <div class="user_details">
-                  <div class="input_pox">
-                    <label class="datails">Company Name</label>
-                    <input
-                      type="text"
-                      placeholder="Enter your company name"
-                      required
+          <div class="chat-content">
+            <div class="content-sidebar">
+              <h4 class="content-sidebar-title">Messages</h4>
+              <form role="form" class="search-form">
+                <div class="form-group">
+                  <input
+                    onkeyup="search_chat()"
+                    name="search"
+                    type="text"
+                    class="form-control empty"
+                    id="searchbar"
+                    placeholder="&#xF002; serach"
+                  />
+                </div>
+              </form>
+              <div class="content-messages">
+                <ul class="content-messages-list">
+                  <li class="message-list">
+                    <div data-conversation="#conversation-1">
+                      <img
+                        src="../../../images/avatar 1.png"
+                        class="content-message-image"
+                        alt="User Profile"
+                      />
+                      <span class="content-message-info">
+                        <div class="content-message-name">Someone</div>
+                        <div class="content-message-text">
+                          Lorem ipsum dolor sit amet consectetur.
+                        </div>
+                      </span>
+                      <span class="content-message-info-time">
+                        <div class="content-message-time">10:45</div>
+                        <div class="content-message-new">3</div>
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="content-messages-list">
+                  <li class="message-list">
+                    <div data-conversation="#conversation-1">
+                      <img
+                        src="../../../images/avatar 1.png"
+                        class="content-message-image"
+                        alt="User Profile"
+                      />
+                      <span class="content-message-info">
+                        <div class="content-message-name">Someone</div>
+                        <div class="content-message-text">
+                          Lorem ipsum dolor sit amet consectetur.
+                        </div>
+                      </span>
+                      <span class="content-message-info-time">
+                        <div class="content-message-time">10:45</div>
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="content-messages-list">
+                  <li class="message-list">
+                    <div data-conversation="#conversation-1">
+                      <img
+                        src="../../../images/avatar 1.png"
+                        class="content-message-image"
+                        alt="User Profile"
+                      />
+                      <span class="content-message-info">
+                        <div class="content-message-name">Someone</div>
+                        <div class="content-message-text">
+                          Lorem ipsum dolor sit amet consectetur.
+                        </div>
+                      </span>
+                      <span class="content-message-info-time">
+                        <div class="content-message-time">10:45</div>
+                        <div class="content-message-new">3</div>
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="conversation" id="conversation-1">
+              <div class="conversation-user-chat">
+                <div class="conversation-top">
+                  <button type="button" class="conversation-back">
+                    <i class="fa fa-arrow-left"></i>
+                  </button>
+                  <div class="conversation-user">
+                    <img
+                      src="../../../images/avatar 1.png"
+                      class="conversation-user-image"
+                      alt="User Profile"
                     />
+                    <div>
+                      <div class="conversation-user-name">Someone</div>
+                      <div class="conversation-user-status online">Online</div>
+                    </div>
                   </div>
-                  <div class="input_pox">
-                    <label class="datails">Title</label>
-                    <input
-                      type="text"
-                      placeholder="Enter your job title"
-                      required
-                    />
-                  </div>
-                  <div class="input_pox">
-                    <label class="datails">Salary (Per Year)</label>
-                    <input type="text" placeholder="Eg: $80,000" required />
-                  </div>
-                  <div class="input_pox">
-                    <label class="datails">Part time or Full time</label>
-                    <select
-                      name="time"
-                      class="selection"
-                      onblur="this.size=0"
-                      onchange="this.size=1; this.blur()"
+                  <div class="conversation-user-call">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <option value="full name">Full time</option>
-                      <option value="part time">Part time</option>
-                    </select>
+                      <path
+                        d="M13.334 3.33398C13.555 3.33398 13.767 3.42178 13.9232 3.57806C14.0795 3.73434 14.1673 3.9463 14.1673 4.16732V7.66732L18.5115 4.62565C18.5739 4.58186 18.6472 4.55607 18.7234 4.55107C18.7995 4.54607 18.8755 4.56207 18.9432 4.59731C19.0108 4.63256 19.0675 4.6857 19.107 4.75094C19.1465 4.81619 19.1674 4.89103 19.1673 4.96732V15.034C19.1674 15.1103 19.1465 15.1851 19.107 15.2504C19.0675 15.3156 19.0108 15.3687 18.9432 15.404C18.8755 15.4392 18.7995 15.4552 18.7234 15.4502C18.6472 15.4452 18.5739 15.4194 18.5115 15.3757L14.1673 12.334V15.834C14.1673 16.055 14.0795 16.267 13.9232 16.4232C13.767 16.5795 13.555 16.6673 13.334 16.6673H1.66732C1.4463 16.6673 1.23434 16.5795 1.07806 16.4232C0.921782 16.267 0.833984 16.055 0.833984 15.834V4.16732C0.833984 3.9463 0.921782 3.73434 1.07806 3.57806C1.23434 3.42178 1.4463 3.33398 1.66732 3.33398H13.334ZM6.66732 6.66732V9.16732H4.16732V10.834H6.66648L6.66732 13.334H8.33398L8.33315 10.834H10.834V9.16732H8.33398V6.66732H6.66732Z"
+                        fill="#151515"
+                      />
+                    </svg>
                   </div>
-                  <div class="input_pox wf">
-                    <label class="datails">Address</label>
+                </div>
+                <div class="inner-date">Monday</div>
+                <div class="conversation-main" id="chat-conversation">
+                  <ul class="conversation-wrapper">
+                    <li class="conversation-item me">
+                      <div class="conversation-item-content">
+                        <div class="conversation-item-box">
+                          <p class="conversation-item-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
+                          </p>
+                          <p class="conversation-item-text-time">5:40 PM</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="conversation-item">
+                      <div class="conversation-item-content">
+                        <div class="conversation-item-box">
+                          <div class="conversation-chat-send" id="chat-send">
+                            <p class="conversation-item-text">
+                              Lorem ipsum dolor sit amet, consectetur.
+                            </p>
+                          </div>
+                          <div class="conversation-item-text-time">5:41 PM</div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="conversation-form">
+                <button class="conversation-form-button">
+                  <label class="conversation-file-upload">
+                    <i class="fa fa-paperclip"></i>
                     <input
-                      type="text"
-                      placeholder="New York ,United States"
-                      required
+                      type="file"
+                      name="myFile"
+                      accept="file_extension|audio/*|video/*|image/*"
                     />
-                  </div>
-                </div>
-              </form>
+                  </label>
+                </button>
+                <input
+                  id="user-input"
+                  rows="1"
+                  onkeypress="handleKeyPress(event)"
+                  class="conversation-form-input"
+                  placeholder="Message..."
+                ></input>
+                <button type="button" onclick="sendMessage()" class="conversation-form-submit">
+                  <i class="fa fa-paper-plane"></i>
+                </button>
+              </div>
             </div>
-            <div class="information-edit">
-              <h4 class="information-title">Other detail :</h4>
-              <form>
-                <div class="user_details">
-                  <div class="input_pox wf">
-                    <label class="datails">Description</label>
-                    <textarea placeholder="Text" required></textarea>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <button class="btn-save">Save</button>
           </div>
         </div>
       </div>
@@ -2116,24 +2392,103 @@
         modalBox.style.display = "none";
       };
 
-      // upload photo
+      // search chat
 
-      const form = document.querySelector(".photo-upld"),
-        fileInput = form.querySelector(".file-input"),
-        progressArea = document.querySelector(".progress-area"),
-        uploadedArea = document.querySelector(".uploaded-area");
+      function search_chat() {
+        let searchInput = document.getElementById("searchbar").value;
+        searchInput = searchInput.toLowerCase();
+        let x = document.querySelectorAll(".content-messages-list");
 
-      form.addEventListener("click", () => {
-        fileInput.click();
+        for (i = 0; i < x.length; i++) {
+          if (!x[i].innerHTML.toLowerCase().includes(searchInput)) {
+            x[i].style.display = "none";
+          } else {
+            x[i].style.display = "flex";
+          }
+        }
+      }
+
+      // send pm 
+
+      const chatMessages = document.getElementById("chat-send");
+      const userInput = document.getElementById("user-input");
+      
+      function sendMessage() {
+        const userMessage = userInput.value;
+        if (userMessage.trim() !== "") {
+          displayMessage(userMessage);
+          userInput.value = "";
+        }
+      }
+
+      function displayMessage(message) {
+        const messageElement = document.createElement("p");
+        messageElement.classList.add("conversation-item-text");
+        messageElement.textContent = `${message}`;
+        chatMessages.appendChild(messageElement);
+        let chatHistory = document.querySelector('#chat-conversation');
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      }
+
+      function handleKeyPress(event) {
+        if (event.key === "Enter") {
+          sendMessage();
+        }
+      }
+
+      // inner chat
+
+      if (matchMedia("(max-width: 710px)").matches) {
+        let chats = document.getElementsByClassName("content-sidebar")[0];
+        let innerChat = document.getElementById("conversation-1");
+        let userChat = document.querySelectorAll(".content-messages-list");
+        let backInner = document.getElementsByClassName("conversation-back")[0];
+
+        function backchat() {
+          innerChat.style.display = "none";
+          chats.style.display = "block";
+        }
+        backInner.addEventListener("click", function () {
+          backchat();
+        });
+
+        function chatsFun() {
+          chats.style.display = "none";
+          innerChat.style.display = "block";
+          backInner.style.display = "block";
+        }
+
+        userChat.forEach((pm) => {
+          pm.addEventListener("click", function () {
+            chatsFun();
+          });
+        });
+      }
+
+      // back to list chat
+
+      document.querySelectorAll(".conversation-back").forEach(function (item) {
+        item.addEventListener("click", function (e) {
+          this.closest(".conversation").classList.remove("active");
+        });
       });
 
-      fileInput.onchange = ({ target }) => {
-        let file = target.files[0];
-        if (file) {
-          let fileName = file.name;
-          console.log(fileName);
-        }
-      };
+      // clicked user chat
+
+      var lastClick;
+      var userClick = document.getElementsByClassName("message-list");
+
+      for (var i = 0; i < userClick.length; i++) {
+        userClick[i].addEventListener("click", myFunction);
+      }
+
+      function myFunction() {
+        if (lastClick) lastClick.classList.remove("active-chat");
+
+        this.classList.add("active-chat");
+
+        lastClick = this;
+      }
     </script>
   </body>
 </html>

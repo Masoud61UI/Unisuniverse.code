@@ -1143,6 +1143,8 @@
 
       .background-img img {
         width: 100%;
+        height: 390px;
+        object-fit: cover;
       }
 
       .profile-items {
@@ -1174,11 +1176,21 @@
         flex-direction: column;
       }
 
-      .uni-img {
+      .user-profile-img {
+        border: 1.5px solid var(--secondary-color);
+        border-radius: 50%;
         width: 100px;
         height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .uni-img {
+        width: 92px;
+        height: 92px;
+        object-fit: cover;
         border-radius: 50%;
-        border: 1.5px solid var(--secondary-color);
       }
 
       .uni-name {
@@ -1465,7 +1477,7 @@
           font-size: 14px;
         }
         .background-img {
-          height: 340px;
+          height: 314px;
         }
         .background-img img {
           height: inherit;
@@ -1673,6 +1685,8 @@
       .img-title-card img {
         width: 72px;
         height: 72px;
+        border-radius: 12px;
+        object-fit: cover;
       }
 
       .recruiter-title-card {
@@ -1829,7 +1843,8 @@
         padding: 0 2px 0 2px;
       }
 
-      @media only screen and (max-width: 440px) {}
+      @media only screen and (max-width: 440px) {
+      }
 
       /* Jobs */
 
@@ -2559,11 +2574,13 @@
         <div class="item-left">
           <div class="profile-info">
             <div class="profile-img">
-              <img
-                src="../images/Uni-img.png"
+              <div class="user-profile-img">
+                <img
+                src="../../UniversityProfile/images/Uni-img.png"
                 alt="Uni Images"
                 class="uni-img"
               />
+              </div>
               <h2 class="uni-name">Arden University</h2>
             </div>
             <div class="uni-info">
@@ -3796,7 +3813,7 @@
         let searchInput = document.getElementById("searchbar").value;
         searchInput = searchInput.toLowerCase();
         let x = document.getElementsByClassName("userchat");
-
+        console.log(x);
         for (i = 0; i < x.length; i++) {
           if (!x[i].innerHTML.toLowerCase().includes(searchInput)) {
             x[i].style.display = "none";

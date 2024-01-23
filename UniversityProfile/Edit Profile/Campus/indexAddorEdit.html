@@ -773,6 +773,7 @@
       .user-logo img {
         width: 64px;
         height: 64px;
+        object-fit: cover;
         border-radius: 50%;
         border: 1.5px solid var(--secondary-color);
       }
@@ -845,6 +846,8 @@
 
       .uni-bg {
         width: 100%;
+        height: 151px;
+        object-fit: cover;
         border-radius: 24px 24px 0px 0px;
       }
 
@@ -880,11 +883,22 @@
         justify-content: center;
       }
 
-      .uni-profile {
-        width: 13%;
-        border: 2px solid var(--secondary-color);
+      .uni-profile-wrapper {
+        width: 94px;
+        height: 94px;
         border-radius: 50%;
+        border: 2px solid var(--secondary-color);
         margin-top: -40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .uni-profile {
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        object-fit: cover;
       }
 
       .icon-chng {
@@ -1021,8 +1035,13 @@
       }
 
       @media (max-width: 640px) {
+        .uni-profile-wrapper {
+          width: 80px;
+          height: 80px;
+        }
         .uni-profile {
-          width: 28%;
+          width: 70px;
+          height: 70px;
         }
         .btn-chng-bg {
           margin: -137px 12px 0 0;
@@ -1785,11 +1804,13 @@
               </label>
             </div>
             <div class="user-img-name">
-              <img
+              <div class="uni-profile-wrapper">
+                <img
                 src="../../images/Uni-img.png"
                 alt="User Image"
                 class="uni-profile"
-              />
+                />
+              </div>
               <div class="icon-chng">
                 <label class="prof-file-upload">
                   <svg

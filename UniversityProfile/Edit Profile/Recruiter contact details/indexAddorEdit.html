@@ -900,6 +900,22 @@
         border-radius: 50%;
         object-fit: cover;
       }
+      .uni-profile-admin {
+        width: 82px;
+        height: 82px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .admin-img {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px dashed var(--color-line);
+        border-radius: 50%;
+        margin-top: 47px;
+      }
 
       .icon-chng {
         margin: -20px -72px 0 0;
@@ -947,7 +963,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin-top: 10px;
+        margin-top: 26px;
       }
 
       .input_pox {
@@ -1212,99 +1228,12 @@
           text-align: center;
           margin-top: 10px;
         }
-      }
-
-      /* Drop Zoon */
-
-      .photo-upld {
-        height: 220px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        margin: 20px 0;
-        border-radius: 10px;
-        cursor: pointer;
-        border: 1.5px dashed var(--secondary-color);
-      }
-
-      .photo-upld :where(i, p) {
-        color: var(--color-text-gray);
-      }
-      .photo-upld i {
-        font-size: 34px;
-      }
-
-      .photo-upld p {
-        font-size: 16px;
-        margin-top: 12px;
-      }
-
-      section .row {
-        background: var(--color-white);
-        margin-bottom: 10px;
-        list-style: none;
-        padding: 15px 20px;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      section .row i {
-        font-size: 28px;
-        color: var(--primary-color);
-      }
-
-      section .details span {
-        font-size: 14px;
-      }
-
-      .progress-area .row .content {
-        width: 100%;
-        margin-left: 15px;
-      }
-
-      .progress-area .details {
-        display: flex;
-        align-items: center;
-        margin-bottom: 7px;
-        justify-content: space-between;
-      }
-
-      .progress-area .progress-bar {
-        height: 5px;
-        width: 100%;
-        background: var(--color-background);
-        margin-bottom: 4px;
-        border-radius: 30px;
-      }
-
-      .progress-bar .progress {
-        height: 100%;
-        width: 50%;
-        background: var(--primary-color);
-        border-radius: inherit;
-      }
-
-      .uploaded-area .row .content {
-        display: flex;
-        align-items: center;
-      }
-      .uploaded-area .row .details {
-        display: flex;
-        margin-left: 15px;
-        flex-direction: column;
-      }
-
-      .img-size {
-        font-size: 12px;
-        color: var(--color-text-grayblack);
-      }
-
-      .uploaded-area .fa-check {
-        color: var(--primary-color);
-        font-size: 16px;
+        .user_details {
+          margin-top: 8px;
+        }
+        .admin-img {
+          margin-top: 25px;
+        }
       }
 
       /*footer*/
@@ -1710,7 +1639,7 @@
                 </a>
                 <a
                   href="../Recruiter contact details/index.html"
-                  class="tab-nav"
+                  class="checked-tab tab-nav"
                 >
                   <svg
                     width="20"
@@ -1762,7 +1691,7 @@
                   </svg>
                   <p>Messaging</p>
                 </a>
-                <a href="../Jobs/index.html" class="checked-tab tab-nav">
+                <a href="../Jobs/index.html" class="tab-nav">
                   <svg
                     width="22"
                     height="22"
@@ -1838,9 +1767,9 @@
             <div class="user-img-name">
               <div class="uni-profile-wrapper">
                 <img
-                src="../../images/Uni-img.png"
-                alt="User Image"
-                class="uni-profile"
+                  src="../../images/Uni-img.png"
+                  alt="User Image"
+                  class="uni-profile"
                 />
               </div>
               <div class="icon-chng">
@@ -1865,59 +1794,60 @@
           </div>
           <div class="edit-main">
             <div class="information-edit">
-              <h4 class="information-title">Complete the information :</h4>
-              <form>
-                <div class="user_details">
-                  <div class="input_pox">
-                    <label class="datails">Company Name</label>
-                    <input
-                      type="text"
-                      placeholder="Enter your company name"
-                      required
-                    />
-                  </div>
-                  <div class="input_pox">
-                    <label class="datails">Title</label>
-                    <input
-                      type="text"
-                      placeholder="Enter your job title"
-                      required
-                    />
-                  </div>
-                  <div class="input_pox">
-                    <label class="datails">Salary (Per Year)</label>
-                    <input type="text" placeholder="Eg: $80,000" required />
-                  </div>
-                  <div class="input_pox">
-                    <label class="datails">Part time or Full time</label>
-                    <select
-                      name="time"
-                      class="selection"
-                      onblur="this.size=0"
-                      onchange="this.size=1; this.blur()"
-                    >
-                      <option value="full name">Full time</option>
-                      <option value="part time">Part time</option>
-                    </select>
-                  </div>
-                  <div class="input_pox wf">
-                    <label class="datails">Address</label>
-                    <input
-                      type="text"
-                      placeholder="New York ,United States"
-                      required
-                    />
-                  </div>
+              <h4 class="information-title">
+                Edit Your Recruiter contact details :
+              </h4>
+              <div class="user-img-name">
+                <div class="admin-img">
+                  <img
+                    src="../../images/image 5.png"
+                    alt="User Image"
+                    class="uni-profile-admin"
+                  />
                 </div>
-              </form>
-            </div>
-            <div class="information-edit">
-              <h4 class="information-title">Other detail :</h4>
+                <div class="icon-chng">
+                  <label class="prof-file-upload">
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 13 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.70833 10.2923H3.46667L8.13854 5.62044L7.38021 4.86211L2.70833 9.53398V10.2923ZM10.4542 4.83503L8.15208 2.56003L8.91042 1.80169C9.11806 1.59405 9.37318 1.49023 9.67579 1.49023C9.9784 1.49023 10.2333 1.59405 10.4406 1.80169L11.199 2.56003C11.4066 2.76766 11.5149 3.01828 11.524 3.31186C11.533 3.60544 11.4337 3.85587 11.226 4.06315L10.4542 4.83503ZM9.66875 5.63398L3.92708 11.3756H1.625V9.07357L7.36667 3.3319L9.66875 5.63398ZM7.75938 5.24128L7.38021 4.86211L8.13854 5.62044L7.75938 5.24128Z"
+                        fill="white"
+                      />
+                    </svg>
+                    <input type="file" name="myImage" accept="image/*" />
+                  </label>
+                </div>
+              </div>
               <form>
                 <div class="user_details">
+                  <div class="input_pox">
+                    <label class="datails">Full Name</label>
+                    <input
+                      type="text"
+                      placeholder="Enter your full name"
+                      required
+                    />
+                  </div>
+                  <div class="input_pox">
+                    <label class="datails">Phone Number</label>
+                    <input
+                      type="number"
+                      placeholder="Enter your phone number"
+                      required
+                    />
+                  </div>
                   <div class="input_pox wf">
-                    <label class="datails">Description</label>
-                    <textarea placeholder="Text" required></textarea>
+                    <label class="datails">Email</label>
+                    <input
+                      type="email"
+                      placeholder="Enter your email address"
+                      required
+                    />
                   </div>
                 </div>
               </form>
@@ -2114,25 +2044,6 @@
       newAcc.onclick = function () {
         popupBoxs.style.display = "flex";
         modalBox.style.display = "none";
-      };
-
-      // upload photo
-
-      const form = document.querySelector(".photo-upld"),
-        fileInput = form.querySelector(".file-input"),
-        progressArea = document.querySelector(".progress-area"),
-        uploadedArea = document.querySelector(".uploaded-area");
-
-      form.addEventListener("click", () => {
-        fileInput.click();
-      });
-
-      fileInput.onchange = ({ target }) => {
-        let file = target.files[0];
-        if (file) {
-          let fileName = file.name;
-          console.log(fileName);
-        }
       };
     </script>
   </body>
