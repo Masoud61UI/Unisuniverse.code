@@ -903,11 +903,60 @@
         color: var(--color-text-grayblack);
       }
 
-      .user-information-btn {
+      .user-information-btn-all {
         display: flex;
         padding-bottom: 6px;
         align-items: flex-start;
         gap: 12px;
+      }
+
+      .btn-sm-more-clicked {
+        position: absolute;
+        margin-left: -104px;
+        display: inline-flex;
+        padding: 18px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        z-index: 60;
+        border-radius: 12px;
+        border: 1px solid var(--color-line);
+        background: var(--color-white);
+        box-shadow: var(--shadow-medium);
+        display: none;
+      }
+
+      .more-clicked-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .more-clicked-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+      }
+
+      .more-clicked-item > i {
+        width: 18px;
+        height: 18px;
+        text-align: center;
+        color: var(--color-text-black);
+        transition: all 0.1s ease-in-out;
+      }
+
+      .more-clicked-item > h4 {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--color-text-black);
+        transition: all 0.1s ease-in-out;
+      }
+
+      .more-clicked-item:hover > i,
+      .more-clicked-item:hover > h4 {
+        color: var(--secondary-color);
       }
 
       .user-out-btn {
@@ -960,6 +1009,9 @@
         }
         .user-out-btn {
           width: 100%;
+        }
+        .btn-sm-more-clicked {
+          margin-left: 0;
         }
         .user-btn-sm-more {
           width: inherit;
@@ -1385,6 +1437,13 @@
         gap: 18px;
         width: inherit;
       }
+      .user-information-languages hr, .user-information-certifications hr {
+        width: 100%;
+        background-color: var(--color-line);
+        height: 1px;
+        color: var(--color-line);
+        border: none;
+      }
 
       .user-information-language {
         display: flex;
@@ -1404,11 +1463,6 @@
         font-size: 14px;
         font-weight: 400;
         color: var(--color-text-grayblack);
-      }
-
-      .border-new {
-        border-top: 1px solid var(--color-line);
-        padding-top: 16px;
       }
 
       .btn-publications {
@@ -1672,6 +1726,10 @@
         .user-information-skills-endorse {
           flex-direction: column-reverse;
         }
+      }
+
+      .toggle-display {
+        display: flex;
       }
 
       /*footer*/
@@ -2118,8 +2176,24 @@
             </div>
           </div>
           <div class="user-information-btn">
-            <div class="user-out-btn">
-              <button type="button" class="user-btn-sm-more">more</button>
+            <div class="user-information-btn-all">
+              <div class="user-out-btn">
+                <button type="button" class="user-btn-sm-more" id="btn-more">
+                  more
+                </button>
+              </div>
+            </div>
+            <div class="btn-sm-more-clicked">
+              <div class="more-clicked-wrapper">
+                <div class="more-clicked-item">
+                  <i class="fa fa-commenting-o"></i>
+                  <h4>Save to PDF</h4>
+                </div>
+                <div class="more-clicked-item">
+                  <i class="fa fa-minus-square-o"></i>
+                  <h4>About this profile</h4>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -2423,7 +2497,8 @@
                             <h4>English</h4>
                             <h5>Professional Working</h5>
                           </div>
-                          <div class="user-information-language border-new">
+                          <hr>
+                          <div class="user-information-language">
                             <h4>German</h4>
                             <h5>Elementary</h5>
                           </div>
@@ -2551,8 +2626,9 @@
                               </h5>
                             </div>
                           </div>
+                          <hr>
                           <div
-                            class="user-information-certification border-new"
+                            class="user-information-certification"
                           >
                             <img
                               src="../images/js.png"
@@ -2838,6 +2914,18 @@
         popupBoxs.style.display = "flex";
         modalBox.style.display = "none";
       };
+
+      // Click More btn
+
+      let moreBtn = document.getElementById("btn-more");
+
+      moreBtn.addEventListener("click", function () {
+        const moreModal = document.getElementsByClassName(
+          "btn-sm-more-clicked"
+        )[0];
+        console.log(moreModal);
+        moreModal.classList.toggle("toggle-display");
+      });
     </script>
   </body>
 </html>
