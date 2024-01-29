@@ -808,6 +808,346 @@
         }
       }
 
+      /* messages */
+
+      .window {
+        background: var(--color-white);
+        width: 230px;
+        height: 375px;
+        padding: 0px 8px;
+        border-radius: 8px 8px 0px 0px;
+        box-shadow: -10px -1px 30px 0px rgba(0, 0, 0, 0.08);
+        margin-right: 5px;
+        margin-left: 5px;
+        margin-top: 16.5vh;
+        position: fixed;
+        right: 5px;
+        bottom: 0px;
+        transition: all 0.2s;
+        text-align: center;
+        z-index: 50;
+      }
+      @media only screen and (min-width: 1600px) {
+        .window {
+          width: 300px;
+        }
+      }
+
+      #check {
+        display: none;
+      }
+
+      #check:checked + .window {
+        bottom: -330px;
+      }
+
+      #check:checked + .window::-webkit-scrollbar {
+        display: none;
+      }
+
+      .kapsayici {
+        width: 100%;
+        height: 45px;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 22px;
+      }
+
+      .kapsayici:hover {
+        background-color: #f9f9f9;
+        cursor: pointer;
+      }
+
+      .back-inner {
+        margin: -50px 0 37px -18px;
+        width: 16px;
+        height: 16px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+        background-color: var(--color-white);
+        box-shadow: -4px 3px 24px 0px rgba(0, 0, 0, 0.253);
+        font-size: 12px;
+        color: var(--color-text-grayblack);
+        display: none;
+      }
+      .back-inner:hover {
+        cursor: pointer;
+      }
+
+      .profile-bar {
+        display: flex;
+        align-items: center;
+        user-select: none;
+      }
+
+      .profile-bar a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--color-text-black);
+        margin-left: 10px;
+      }
+
+      .online {
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        border: 2px solid #fff;
+        left: 39px;
+        top: 35px;
+        border-radius: 50%;
+        background: green;
+      }
+
+      .img-profile-bar,
+      .userimage {
+        width: 36px;
+        height: 36px;
+      }
+
+      .icons-bar p {
+        font-size: 14px;
+        color: var(--color-text-black);
+        margin-right: 10px;
+        transition-property: background;
+        border-radius: 50%;
+        transition-duration: 0.3s;
+        transform: rotate(+90deg);
+      }
+
+      .form-group {
+        margin: 10px 0;
+      }
+
+      .form-group input.empty {
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: 400;
+        text-decoration: inherit;
+        padding: 5px 11px;
+        font-size: 14px;
+        line-height: 20px;
+        outline: none;
+        background-color: var(--color-background);
+        border: 1px solid var(--color-line);
+        border-radius: 6px;
+        letter-spacing: 1px;
+        width: 100%;
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+      }
+
+      .chats {
+        padding: 14px 0px;
+        overflow: auto;
+        height: 100%;
+      }
+      .chats::-webkit-scrollbar {
+        width: 4px;
+        display: block;
+      }
+
+      .chats::-webkit-scrollbar-thumb {
+        background: var(--color-line);
+        border-radius: 10px;
+      }
+
+      #check:checked + .chats::-webkit-scrollbar {
+        display: none;
+      }
+
+      .userchat {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid var(--color-line);
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+      }
+
+      .userchat:hover {
+        cursor: pointer;
+      }
+
+      .user-online {
+        width: 10px;
+        height: 10px;
+        transform: translate(-6px, 16px);
+        border: 2px solid #fff;
+        border-radius: 50%;
+        background: green;
+        margin-right: -9px;
+      }
+
+      .usertext {
+        width: 75%;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 10px;
+      }
+
+      .username-pm {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .username-pm h5,
+      .inner-username-pm h5 {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--color-text-black);
+      }
+
+      .username-pm p,
+      .inner-pm {
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .inner-pm {
+        text-align: left;
+        width: 92%;
+        padding-top: 4px;
+        overflow-wrap: anywhere;
+      }
+
+      .chat-date p,
+      .inner-username-pm p {
+        font-size: 11px;
+        font-weight: 400;
+        color: var(--color-text-gray);
+      }
+
+      .inner-user-chat {
+        height: 215px;
+        overflow-y: scroll;
+      }
+
+      .inner-user-chat::-webkit-scrollbar {
+        width: 4px;
+        display: block;
+      }
+
+      .inner-user-chat::-webkit-scrollbar-thumb {
+        background: var(--color-line);
+        border-radius: 10px;
+      }
+
+      #check:checked + .inner-user-chat::-webkit-scrollbar {
+        display: none;
+      }
+
+      .inner-chat {
+        display: none;
+      }
+
+      .inner-date {
+        position: relative;
+        text-align: center;
+        margin: 0 0 22px 0;
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--color-text-gray);
+      }
+
+      .inner-date::before,
+      .inner-date::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 33%;
+        height: 1px;
+        background: var(--color-line);
+      }
+
+      .inner-date::before {
+        left: 0;
+      }
+
+      .inner-date::after {
+        right: 0;
+      }
+
+      .inner-userchat {
+        display: flex;
+        padding-bottom: 10px;
+      }
+
+      .inner-usertext {
+        display: flex;
+        flex-direction: column;
+        padding-left: 10px;
+        width: 100%;
+      }
+
+      .inner-username-pm {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .send-box {
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 8px;
+        gap: 9px;
+        display: none;
+      }
+
+      .send-box svg:hover {
+        cursor: pointer;
+        color: var(--primary-color);
+      }
+
+      .form-control {
+        width: 144px;
+        height: 34px;
+        outline: none;
+        border: none;
+        background-color: var(--color-background);
+        padding-left: 7px;
+        border-radius: 6px;
+      }
+      .form-control::placeholder {
+        color: var(--color-text-gray);
+        font-size: 13px;
+      }
+      .form-control:focus {
+        border: 1.5px solid var(--primary-color);
+      }
+      @media only screen and (min-width: 1600px) {
+        .form-control {
+          width: 214px;
+        }
+        .usertext {
+          width: -webkit-fill-available;
+        }
+      }
+
+      .send-btn {
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        background: var(--primary-color);
+      }
+      .send-btn:hover {
+        cursor: pointer;
+      }
+
+      .toggle-display {
+        display: flex;
+      }
+
       /*  background img */
 
       .background-img img {
@@ -4068,6 +4408,227 @@
       <p class="breadcrumb">Home / <span>Student Profile</span></p>
     </div>
 
+    <input type="checkbox" id="check" checked />
+    <div class="window">
+      <label for="check" class="top-bar">
+        <div class="kapsayici" id="top-bar-box">
+          <div class="profile-bar">
+            <img
+              src="../../images/avatar 1.png"
+              alt="Profile chats Image"
+              class="img-profile-bar"
+            />
+            <div class="online"></div>
+            <a>Messages</a>
+          </div>
+          <div class="icons-bar">
+            <p class="symbol">❮</p>
+          </div>
+        </div>
+      </label>
+
+      <form role="form" class="search-form">
+        <div class="form-group">
+          <input
+            onkeyup="search_chat()"
+            name="search"
+            type="text"
+            class="form-control empty"
+            id="searchbar"
+            placeholder="&#xF002; serach"
+          />
+        </div>
+      </form>
+
+      <div class="chats" id="chats">
+        <div class="userchat" id="userchat">
+          <img
+            class="userimage"
+            src="../../images/avatar 2.png"
+            alt="User Profile Chat Image"
+          />
+          <div class="usertext">
+            <div class="username-pm">
+              <h5>Jordan Cutler</h5>
+              <p>Chat: Hi Mr.Evans...</p>
+            </div>
+            <div class="chat-date">
+              <p>Oct 9</p>
+            </div>
+          </div>
+        </div>
+        <div class="userchat" id="userchat">
+          <img
+            class="userimage"
+            src="../../images/avatar 2.png"
+            alt="User Profile Chat Image"
+          />
+          <div class="user-online"></div>
+          <div class="usertext">
+            <div class="username-pm">
+              <h5>Jordan Cutler</h5>
+              <p>Chat: Hi Mr.Evans...</p>
+            </div>
+            <div class="chat-date">
+              <p>Oct 9</p>
+            </div>
+          </div>
+        </div>
+        <div class="userchat" id="userchat">
+          <img
+            class="userimage"
+            src="../../images/avatar 2.png"
+            alt="User Profile Chat Image"
+          />
+          <div class="usertext">
+            <div class="username-pm">
+              <h5>Jordan Cutler</h5>
+              <p>Chat: Hi Mr.Evans...</p>
+            </div>
+            <div class="chat-date">
+              <p>Oct 9</p>
+            </div>
+          </div>
+        </div>
+        <div class="userchat" id="userchat">
+          <img
+            class="userimage"
+            src="../../images/avatar 2.png"
+            alt="User Profile Chat Image"
+          />
+          <div class="usertext">
+            <div class="username-pm">
+              <h5>Jordan Cutler</h5>
+              <p>Chat: Hi Mr.Evans...</p>
+            </div>
+            <div class="chat-date">
+              <p>Oct 9</p>
+            </div>
+          </div>
+        </div>
+        <div class="userchat" id="userchat">
+          <img
+            class="userimage"
+            src="../../images/avatar 2.png"
+            alt="User Profile Chat Image"
+          />
+          <div class="usertext">
+            <div class="username-pm">
+              <h5>Jordan Cutler</h5>
+              <p>Chat: Hi Mr.Evans...</p>
+            </div>
+            <div class="chat-date">
+              <p>Oct 9</p>
+            </div>
+          </div>
+        </div>
+        <div class="userchat" id="userchat">
+          <img
+            class="userimage"
+            src="../../images/avatar 2.png"
+            alt="User Profile Chat Image"
+          />
+          <div class="usertext">
+            <div class="username-pm">
+              <h5>Jordan Cutler</h5>
+              <p>Chat: Hi Mr.Evans...</p>
+            </div>
+            <div class="chat-date">
+              <p>Oct 9</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inner-chat" id="inner-chat">
+        <div class="back-inner">
+          <i class="fa fa-angle-left"></i>
+        </div>
+        <div class="inner-date">Monday</div>
+        <div class="inner-user-chat" id="inner-user-chat">
+          <div class="inner-userchat">
+            <img
+              class="userimage"
+              src="../../images/avatar 2.png"
+              alt="User Profile Chat Image"
+            />
+            <div class="inner-usertext">
+              <div class="inner-username-pm">
+                <h5>Jordan Cutler</h5>
+                <p>5:18 PM</p>
+              </div>
+              <p class="inner-pm">
+                User : Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do.
+              </p>
+            </div>
+          </div>
+          <div class="inner-userchat">
+            <img
+              class="userimage"
+              src="../../images/avatar 1.png"
+              alt="User Profile Chat Image"
+            />
+            <div class="inner-usertext" id="chat-send">
+              <div class="inner-username-pm">
+                <h5>Gregor Abrodi</h5>
+                <p>5:28 PM</p>
+              </div>
+              <p class="inner-pm">You : Lorem ipsum dolor sit amet.</p>
+            </div>
+          </div>
+        </div>
+        <div class="send-box">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4.75235 9.54811L9.52595 4.77451C9.75583 4.54469 10.0287 4.3624 10.3291 4.23804C10.6294 4.11369 10.9513 4.0497 11.2763 4.04974C11.6014 4.04979 11.9232 4.11385 12.2235 4.23828C12.5238 4.36272 12.7967 4.54508 13.0265 4.77496C13.2563 5.00484 13.4386 5.27773 13.563 5.57806C13.6873 5.87839 13.7513 6.20027 13.7513 6.52532C13.7512 6.85038 13.6872 7.17225 13.5627 7.47254C13.4383 7.77284 13.2559 8.04569 13.026 8.27551L7.29845 14.0031C7.08732 14.2142 6.80098 14.3328 6.5024 14.3328C6.20382 14.3328 5.91748 14.2142 5.70635 14.0031C5.49522 13.792 5.37662 13.5056 5.37662 13.2071C5.37662 12.9085 5.49522 12.6221 5.70635 12.411L10.7977 7.31971C10.9169 7.19175 10.9818 7.02251 10.9787 6.84764C10.9756 6.67277 10.9048 6.50592 10.7811 6.38225C10.6574 6.25858 10.4906 6.18773 10.3157 6.18465C10.1408 6.18156 9.97161 6.24647 9.84365 6.36571L4.75235 11.457C4.28809 11.9213 4.02727 12.5509 4.02727 13.2075C4.02727 13.8641 4.28809 14.4937 4.75235 14.958C5.21661 15.4223 5.84629 15.6831 6.50285 15.6831C7.15942 15.6831 7.78909 15.4223 8.25335 14.958L13.9801 9.22951C14.6836 8.50939 15.0748 7.54095 15.069 6.53423C15.0631 5.52751 14.6606 4.56369 13.9487 3.85182C13.2369 3.13995 12.273 2.73743 11.2663 2.73157C10.2596 2.72571 9.29116 3.11697 8.57105 3.82051L3.79835 8.59321C3.67912 8.72116 3.61421 8.89041 3.61729 9.06528C3.62038 9.24015 3.69122 9.40699 3.81489 9.53067C3.93856 9.65434 4.10541 9.72518 4.28028 9.72826C4.45515 9.73135 4.62439 9.66644 4.75235 9.54721V9.54811Z"
+              fill="#636363"
+            />
+          </svg>
+          <div class="text-box">
+            <div class="input-group with-icon">
+              <input
+                class="form-control rounded"
+                id="user-input"
+                name="suche"
+                type="text"
+                onkeypress="handleKeyPress(event)"
+                placeholder="Message..."
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <div class="send-btn" onclick="sendMessage()">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_24_770)">
+                <path
+                  d="M11.9736 0.514538C12.0008 0.44639 12.0075 0.371735 11.9928 0.299827C11.978 0.22792 11.9425 0.161923 11.8906 0.110018C11.8387 0.0581133 11.7727 0.0225832 11.7008 0.00783262C11.6289 -0.00691797 11.5542 -0.00024034 11.4861 0.0270377L0.575812 4.39129H0.575062L0.236062 4.52629C0.171855 4.5519 0.115976 4.59476 0.0745991 4.65014C0.0332217 4.70551 0.00795582 4.77125 0.00159241 4.84008C-0.00477099 4.90891 0.00801571 4.97817 0.0385401 5.04019C0.0690644 5.10221 0.116138 5.15459 0.174562 5.19154L0.482062 5.38654L0.482812 5.38804L4.22906 7.77154L6.61256 11.5178L6.61406 11.5193L6.80906 11.8268C6.84613 11.885 6.89854 11.9318 6.96051 11.9622C7.02249 11.9925 7.09163 12.0051 7.16033 11.9987C7.22903 11.9923 7.29463 11.967 7.34989 11.9257C7.40515 11.8844 7.44795 11.8286 7.47356 11.7645L11.9736 0.514538ZM10.5988 1.93204L4.97831 7.55254L4.81706 7.29904C4.78752 7.25252 4.74808 7.21308 4.70156 7.18354L4.44806 7.02229L10.0686 1.40179L10.9521 1.04854L10.5996 1.93204H10.5988Z"
+                  fill="white"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_24_770">
+                  <rect width="12" height="12" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="background-img">
       <img src="../images/student background.png" alt="Profile Background" />
     </div>
@@ -4639,11 +5200,11 @@
                         <form role="form" class="search-form">
                           <div class="form-group">
                             <input
-                              onkeyup="search_chat()"
+                              onkeyup="search_product()"
                               name="search"
                               type="text"
                               class="form-control empty"
-                              id="searchbar"
+                              id="searchproduct"
                               placeholder="&#xF002; Search Product..."
                             />
                           </div>
@@ -6529,13 +7090,14 @@
         modal = document.getElementsByClassName("modal-cont")[0],
         loginBut = document.getElementsByClassName("btn-md")[0],
         loginRes = document.querySelector("#btn-md");
+      console.log(closeBut);
 
       //close
 
-      function x() {
+      function closeLogin() {
         modal.style.display = "none";
       }
-      closeBut.onclick = x;
+      closeBut.onclick = closeLogin;
 
       loginBut.onclick = function () {
         modal.style.display = "block";
@@ -6561,6 +7123,104 @@
         modalBox.style.display = "none";
       };
 
+      // search chat
+
+      function search_chat() {
+        let searchInput = document.getElementById("searchbar").value;
+        searchInput = searchInput.toLowerCase();
+        let x = document.getElementsByClassName("userchat");
+        for (i = 0; i < x.length; i++) {
+          if (!x[i].innerHTML.toLowerCase().includes(searchInput)) {
+            x[i].style.display = "none";
+          } else {
+            x[i].style.display = "flex";
+          }
+        }
+      }
+
+      // send pm
+
+      const chatMessages = document.getElementById("chat-send");
+      const userInput = document.getElementById("user-input");
+
+      function sendMessage() {
+        const userMessage = userInput.value;
+        if (userMessage.trim() !== "") {
+          displayMessage("You ", userMessage);
+          userInput.value = "";
+        }
+      }
+
+      function displayMessage(sender, message) {
+        const messageElement = document.createElement("p");
+        messageElement.classList.add("inner-pm");
+        messageElement.textContent = `${sender}: ${message}`;
+        chatMessages.appendChild(messageElement);
+        scrollToBottom();
+      }
+
+      function handleKeyPress(event) {
+        if (event.key === "Enter") {
+          sendMessage();
+        }
+      }
+
+      let chatHistory = document.getElementById("inner-user-chat");
+      chatHistory.scrollTop = chatHistory.scrollHeight;
+
+      function scrollToBottom() {
+        let chatHistory = document.getElementById("inner-user-chat");
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      }
+
+      // show hide box
+
+      let topBar = document.getElementsByClassName("top-bar")[0];
+
+      topBar.addEventListener("click", function () {
+        const sendBox = document.getElementsByClassName("send-box")[0];
+        sendBox.classList.toggle("toggle-display");
+      });
+
+      // show hide inner chat
+
+      let chats = document.getElementById("chats");
+      let innerChat = document.getElementById("inner-chat");
+      let userChat = document.querySelectorAll("#userchat");
+      let backInner = document.getElementsByClassName("back-inner")[0];
+      let searchForm = document.getElementsByClassName("search-form")[0];
+      let topBox = document.getElementById("top-bar-box");
+
+      document.querySelector(".kapsayici").onclick = function () {
+        backInner.classList.toggle("toggle-display");
+        if (document.getElementById("check").checked) {
+          document.querySelector(".symbol").style.transform = "rotate(-90deg)";
+        } else {
+          document.querySelector(".symbol").style.transform = "rotate(90deg)";
+        }
+      };
+
+      function backchat() {
+        innerChat.style.display = "none";
+        chats.style.display = "block";
+        searchForm.style.display = "block";
+      }
+      backInner.addEventListener("click", function () {
+        backchat();
+      });
+
+      function chatsFun() {
+        chats.style.display = "none";
+        searchForm.style.display = "none";
+        innerChat.style.display = "block";
+      }
+
+      userChat.forEach((pm) => {
+        pm.addEventListener("click", function () {
+          chatsFun();
+        });
+      });
+
       // Click More btn
 
       let moreBtn = document.getElementById("btn-more");
@@ -6574,16 +7234,16 @@
 
       // search Product
 
-      function search_chat() {
-        let searchInput = document.getElementById("searchbar").value;
-        searchInput = searchInput.toLowerCase();
-        let x = document.querySelectorAll("#products");
+      function search_product() {
+        let searchProduct = document.getElementById("searchproduct").value;
+        searchProduct = searchProduct.toLowerCase();
+        let productsBox = document.querySelectorAll("#products");
 
-        for (i = 0; i < x.length; i++) {
-          if (!x[i].innerHTML.toLowerCase().includes(searchInput)) {
-            x[i].style.display = "none";
+        for (i = 0; i < productsBox.length; i++) {
+          if (!productsBox[i].innerHTML.toLowerCase().includes(searchProduct)) {
+            productsBox[i].style.display = "none";
           } else {
-            x[i].style.display = "flex";
+            productsBox[i].style.display = "flex";
           }
         }
       }
@@ -6653,10 +7313,10 @@
 
       //close
 
-      function x() {
+      function closeModal_people() {
         modalPeople.style.display = "none";
       }
-      closeModal.onclick = x;
+      closeModal.onclick = closeModal_people;
 
       showBut.onclick = function () {
         modalPeople.style.display = "block";
