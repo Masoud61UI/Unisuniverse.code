@@ -720,7 +720,7 @@
         }
       }
 
-      /* Popup boxs */ 
+      /* Popup boxs */
 
       .popup-boxs {
         display: flex;
@@ -775,7 +775,6 @@
         display: inline-flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 52px;
         width: 100%;
         margin-top: 80px;
       }
@@ -825,9 +824,14 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        height: 100vh;
         gap: 18px;
+        padding-top: 132px;
         width: inherit;
+      }
+      #service,
+      #content,
+      #problems {
+        padding-top: 132px;
       }
 
       .terms-title {
@@ -844,7 +848,8 @@
         width: 100%;
       }
 
-      .terms-content-desc, .terms-middle-text {
+      .terms-content-desc,
+      .terms-middle-text {
         font-size: 16px;
         font-weight: 500;
         color: var(--color-text-grayblack);
@@ -871,11 +876,34 @@
         gap: 28px;
       }
 
+      @media only screen and (max-width: 560px) {
+        .terms-container {
+          padding-left: 0;
+        }
+      }
 
+      @media only screen and (max-width: 450px) {
+        .terms-list > h4 {
+          font-size: 14px;
+        }
+        .terms-list > nav > ul {
+          gap: 12px;
+        }
+        .terms-list > nav > ul > a {
+          font-size: 16px;
+        }
+        .terms-title {
+          font-size: 22px;
+        }
+        .terms-middle-head {
+          font-size: 18px;
+        }
+        .terms-content-desc,
+        .terms-middle-text {
+          font-size: 14px;
+        }
+      }
 
-
-
-      
       /* footer */
 
       .col-6 {
@@ -1192,22 +1220,42 @@
                   <p>Continue Apple</p>
                 </button>
                 <p class="signup-text">
-                  Don't you have an account?<a href="#" class="new-acc">Create an account.</a>
+                  Don't you have an account?<a href="#" class="new-acc"
+                    >Create an account.</a
+                  >
                 </p>
               </form>
             </div>
             <div class="popup-boxs">
               <div class="box">
-                <img class="image-box" src="../../images/student popup.png" alt="Student Image">
-                <a href="../../Signup/Student/index.html" class="btn-sm">Student</a>
+                <img
+                  class="image-box"
+                  src="../../images/student popup.png"
+                  alt="Student Image"
+                />
+                <a href="../../Signup/Student/index.html" class="btn-sm"
+                  >Student</a
+                >
               </div>
               <div class="box">
-                <img class="image-box" src="../../images/Academic popup.png" alt="Academic Image">
-                <a href="../../Signup/Academic/index.html" class="btn-sm">Academic</a>
+                <img
+                  class="image-box"
+                  src="../../images/Academic popup.png"
+                  alt="Academic Image"
+                />
+                <a href="../../Signup/Academic/index.html" class="btn-sm"
+                  >Academic</a
+                >
               </div>
               <div class="box">
-                <img class="image-box" src="../../images/Recruiter popup.png" alt="Recruiter Image">
-                <a href="../../Signup/Recruiter/index.html" class="btn-sm">Recruiter</a>
+                <img
+                  class="image-box"
+                  src="../../images/Recruiter popup.png"
+                  alt="Recruiter Image"
+                />
+                <a href="../../Signup/Recruiter/index.html" class="btn-sm"
+                  >Recruiter</a
+                >
               </div>
             </div>
           </div>
@@ -1230,98 +1278,213 @@
 
       <section>
         <div class="container mx">
-            <div class="terms-wrapper">
-                <div class="terms-list">
-                    <h4>Effective as of: March 24, 2023</h4>
-                    <nav>
-                        <ul>
-                            <a href="#introduction">1. Introduction</a>
-                            <a href="#service">2. The Unisuniverse Service</a>
-                            <a href="#content">3. Content and Intellectual Property Rights</a>
-                            <a href="#problems">4. Problems and Disputes</a>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="terms-container">
-                    <div id="introduction" class="terms">
-                        <h2 class="terms-title">1 . Introduction</h2>
-                        <div class="terms-content">
-                            <p class="terms-content-desc">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et molestie ac feugiat sed lectus vestibulum. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Dictum varius duis at consectetur lorem. Nisi vitae suscipit tellus mauris a diam maecenas sed enim. Velit ut tortor pretium viverra suspendisse potenti nullam. Et molestie ac feugiat sed lectus. Non nisi est sit amet facilisis magna. Dignissim diam quis enim lobortis scelerisque fermentum. Odio ut enim blandit volutpat maecenas volutpat. Ornare lectus sit amet est placerat in egestas erat. Nisi vitae suscipit tellus mauris a diam maecenas sed.
-                            </p>
-                            <div class="terms-middle-head-text">
-                                <h3 class="terms-middle-head">Age and eligibility requirements</h3>
-                                <p class="terms-middle-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et molestie ac feugiat sed lectus vestibulum. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Dictum varius duis at consectetur lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div id="service" class="terms">
-                        <h2 class="terms-title">2 . The Unisuniverse Service</h2>
-                        <div class="terms-content">
-                            <p class="terms-content-desc">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et molestie ac feugiat sed lectus vestibulum. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget.
-                            </p>
-                            <div class="terms-middle-head-text">
-                                <h3 class="terms-middle-head">Service limitations and modifications</h3>
-                                <p class="terms-middle-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin.
-                                </p>
-                            </div>
-                            <p class="terms-content-desc">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et molestie ac feugiat sed lectus vestibulum. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Dictum varius duis at consectetur lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi.
-                            </p>
-                        </div>
-                    </div>
-    
-                    <div id="content" class="terms">
-                        <h2 class="terms-title">3 . Content and Intellectual Property Rights</h2>
-                        <div class="terms-content">
-                            <p class="terms-content-desc">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis.
-                            </p>
-                            <div class="terms-content-desc-secound">
-                                <div class="terms-middle-head-text">
-                                    <h3 class="terms-middle-head">User Content</h3>
-                                    <p class="terms-middle-text">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque.
-                                    </p>
-                                </div>
-                                <p class="terms-content-desc">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque.
-                                </p>
-                                <div class="terms-middle-head-text">
-                                    <h3 class="terms-middle-head">Feedback</h3>
-                                    <p class="terms-middle-text">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et molestie ac feugiat sed lectus vestibulum.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div id="problems" class="terms">
-                        <h2 class="terms-title">4. Problems and Disputes</h2>
-                        <div class="terms-content">
-                            <div class="terms-middle-head-text">
-                                <h3 class="terms-middle-head">Third-party rights</h3>
-                                <p class="terms-middle-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et molestie ac feugiat sed lectus vestibulum. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et molestie ac feugiat sed lectus vestibulum. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget.
-                                </p>
-                            </div>
-                            <div class="terms-middle-head-text">
-                                <h3 class="terms-middle-head">Indemnification</h3>
-                                <p class="terms-middle-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et molestie ac feugiat sed lectus vestibulum. Ullamcorper.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
+          <div class="terms-wrapper">
+            <div class="terms-list">
+              <h4>Effective as of: March 24, 2023</h4>
+              <nav>
+                <ul>
+                  <a href="#introduction">1. Introduction</a>
+                  <a href="#service">2. The Unisuniverse Service</a>
+                  <a href="#content"
+                    >3. Content and Intellectual Property Rights</a
+                  >
+                  <a href="#problems">4. Problems and Disputes</a>
+                </ul>
+              </nav>
             </div>
+            <div class="terms-container">
+              <div id="introduction" class="terms">
+                <h2 class="terms-title">1 . Introduction</h2>
+                <div class="terms-content">
+                  <p class="terms-content-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
+                    cursus vitae congue mauris rhoncus aenean vel elit
+                    scelerisque. In egestas erat imperdiet sed euismod nisi
+                    porta lorem mollis. Morbi tristique senectus et netus.
+                    Mattis pellentesque id nibh tortor id aliquet lectus proin.
+                    Sapien faucibus et molestie ac feugiat sed lectus
+                    vestibulum. Ullamcorper velit sed ullamcorper morbi
+                    tincidunt ornare massa eget. Dictum varius duis at
+                    consectetur lorem. Nisi vitae suscipit tellus mauris a diam
+                    maecenas sed enim. Velit ut tortor pretium viverra
+                    suspendisse potenti nullam. Et molestie ac feugiat sed
+                    lectus. Non nisi est sit amet facilisis magna. Dignissim
+                    diam quis enim lobortis scelerisque fermentum. Odio ut enim
+                    blandit volutpat maecenas volutpat. Ornare lectus sit amet
+                    est placerat in egestas erat. Nisi vitae suscipit tellus
+                    mauris a diam maecenas sed.
+                  </p>
+                  <div class="terms-middle-head-text">
+                    <h3 class="terms-middle-head">
+                      Age and eligibility requirements
+                    </h3>
+                    <p class="terms-middle-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
+                      cursus vitae congue mauris rhoncus aenean vel elit
+                      scelerisque. In egestas erat imperdiet sed euismod nisi
+                      porta lorem mollis. Morbi tristique senectus et netus.
+                      Mattis pellentesque id nibh tortor id aliquet lectus
+                      proin. Sapien faucibus et molestie ac feugiat sed lectus
+                      vestibulum. Ullamcorper velit sed ullamcorper morbi
+                      tincidunt ornare massa eget. Dictum varius duis at
+                      consectetur lorem.Lorem ipsum dolor sit amet, consectetur
+                      adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore et dolore magna aliqua. Egestas purus viverra
+                      accumsan in nisl nisi. Arcu cursus vitae congue mauris
+                      rhoncus aenean vel elit scelerisque. In egestas erat
+                      imperdiet sed euismod nisi porta lorem mollis.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div id="service" class="terms">
+                <h2 class="terms-title">2 . The Unisuniverse Service</h2>
+                <div class="terms-content">
+                  <p class="terms-content-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
+                    cursus vitae congue mauris rhoncus aenean vel elit
+                    scelerisque. In egestas erat imperdiet sed euismod nisi
+                    porta lorem mollis. Morbi tristique senectus et netus.
+                    Mattis pellentesque id nibh tortor id aliquet lectus proin.
+                    Sapien faucibus et molestie ac feugiat sed lectus
+                    vestibulum. Ullamcorper velit sed ullamcorper morbi
+                    tincidunt ornare massa eget.
+                  </p>
+                  <div class="terms-middle-head-text">
+                    <h3 class="terms-middle-head">
+                      Service limitations and modifications
+                    </h3>
+                    <p class="terms-middle-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
+                      cursus vitae congue mauris rhoncus aenean vel elit
+                      scelerisque. In egestas erat imperdiet sed euismod nisi
+                      porta lorem mollis. Morbi tristique senectus et netus.
+                      Mattis pellentesque id nibh tortor id aliquet lectus
+                      proin.
+                    </p>
+                  </div>
+                  <p class="terms-content-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
+                    cursus vitae congue mauris rhoncus aenean vel elit
+                    scelerisque. In egestas erat imperdiet sed euismod nisi
+                    porta lorem mollis. Morbi tristique senectus et netus.
+                    Mattis pellentesque id nibh tortor id aliquet lectus proin.
+                    Sapien faucibus et molestie ac feugiat sed lectus
+                    vestibulum. Ullamcorper velit sed ullamcorper morbi
+                    tincidunt ornare massa eget. Dictum varius duis at
+                    consectetur lorem.Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Egestas purus viverra accumsan in
+                    nisl nisi.
+                  </p>
+                </div>
+              </div>
+
+              <div id="content" class="terms">
+                <h2 class="terms-title">
+                  3 . Content and Intellectual Property Rights
+                </h2>
+                <div class="terms-content">
+                  <p class="terms-content-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
+                    cursus vitae congue mauris rhoncus aenean vel elit
+                    scelerisque. In egestas erat imperdiet sed euismod nisi
+                    porta lorem mollis.
+                  </p>
+                  <div class="terms-content-desc-secound">
+                    <div class="terms-middle-head-text">
+                      <h3 class="terms-middle-head">User Content</h3>
+                      <p class="terms-middle-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Egestas purus viverra accumsan in nisl
+                        nisi. Arcu cursus vitae congue mauris rhoncus aenean vel
+                        elit scelerisque.
+                      </p>
+                    </div>
+                    <p class="terms-content-desc">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
+                      cursus vitae congue mauris rhoncus aenean vel elit
+                      scelerisque.
+                    </p>
+                    <div class="terms-middle-head-text">
+                      <h3 class="terms-middle-head">Feedback</h3>
+                      <p class="terms-middle-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Egestas purus viverra accumsan in nisl
+                        nisi. Arcu cursus vitae congue mauris rhoncus aenean vel
+                        elit scelerisque. In egestas erat imperdiet sed euismod
+                        nisi porta lorem mollis. Morbi tristique senectus et
+                        netus. Mattis pellentesque id nibh tortor id aliquet
+                        lectus proin. Sapien faucibus et molestie ac feugiat sed
+                        lectus vestibulum.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="problems" class="terms">
+                <h2 class="terms-title">4. Problems and Disputes</h2>
+                <div class="terms-content">
+                  <div class="terms-middle-head-text">
+                    <h3 class="terms-middle-head">Third-party rights</h3>
+                    <p class="terms-middle-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
+                      cursus vitae congue mauris rhoncus aenean vel elit
+                      scelerisque. In egestas erat imperdiet sed euismod nisi
+                      porta lorem mollis. Morbi tristique senectus et netus.
+                      Mattis pellentesque id nibh tortor id aliquet lectus
+                      proin. Sapien faucibus et molestie ac feugiat sed lectus
+                      vestibulum. Ullamcorper velit sed ullamcorper morbi
+                      tincidunt ornare massa eget.Lorem ipsum dolor sit amet,
+                      consectetur adipiscing elit, sed do eiusmod tempor
+                      incididunt ut labore et dolore magna aliqua. Egestas purus
+                      viverra accumsan in nisl nisi. Arcu cursus vitae congue
+                      mauris rhoncus aenean vel elit scelerisque. In egestas
+                      erat imperdiet sed euismod nisi porta lorem mollis. Morbi
+                      tristique senectus et netus. Mattis pellentesque id nibh
+                      tortor id aliquet lectus proin. Sapien faucibus et
+                      molestie ac feugiat sed lectus vestibulum. Ullamcorper
+                      velit sed ullamcorper morbi tincidunt ornare massa eget.
+                    </p>
+                  </div>
+                  <div class="terms-middle-head-text">
+                    <h3 class="terms-middle-head">Indemnification</h3>
+                    <p class="terms-middle-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
+                      cursus vitae congue mauris rhoncus aenean vel elit
+                      scelerisque. In egestas erat imperdiet sed euismod nisi
+                      porta lorem mollis. Morbi tristique senectus et netus.
+                      Mattis pellentesque id nibh tortor id aliquet lectus
+                      proin. Sapien faucibus et molestie ac feugiat sed lectus
+                      vestibulum. Ullamcorper.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -1506,16 +1669,13 @@
       // new acc
 
       let newAcc = document.getElementsByClassName("new-acc")[0],
-      popupBoxs = document.getElementsByClassName("popup-boxs")[0],
-      modalBox = document.getElementsByClassName("modal-box")[0];
-      
+        popupBoxs = document.getElementsByClassName("popup-boxs")[0],
+        modalBox = document.getElementsByClassName("modal-box")[0];
+
       newAcc.onclick = function () {
         popupBoxs.style.display = "flex";
         modalBox.style.display = "none";
       };
-      
-
-
     </script>
   </body>
 </html>
