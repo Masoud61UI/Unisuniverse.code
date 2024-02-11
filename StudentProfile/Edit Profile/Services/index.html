@@ -393,7 +393,8 @@
         flex-basis: 30.5%;
       }
 
-      .side-menu-wrapper {
+      .side-menu-wrapper,
+      .edit-section-items {
         display: flex;
         flex-direction: column;
         padding: 20px;
@@ -472,12 +473,13 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 70px;
+        gap: 58px;
       }
 
       .edit-section-title-add {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
+        justify-content: space-between;
         width: 100%;
       }
 
@@ -487,143 +489,7 @@
         color: var(--color-text-black);
       }
 
-      .edit-section-item-title-wrapper {
-        width: 100%;
-      }
-
-      .edit-section-item-title {
-        font-size: 20px;
-        font-weight: 600;
-        color: var(--color-text-black);
-        border-bottom: 1px solid var(--color-line);
-        padding-bottom: 8px;
-      }
-
-      .edit-section-items {
-        width: 100%;
-      }
-
-      .edit-section-forms {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 60px;
-        width: inherit;
-      }
-      .edit-section-forms > form {
-        width: 100%;
-      }
-
-      .user_details {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-top: 22px;
-      }
-
-      .input_pox {
-        margin: 18px 0 28px 0;
-        width: calc(100% / 2 - 20px);
-      }
-
-      .datails,
-      .information-title {
-        display: block;
-        font-weight: 500;
-        font-size: 16px;
-        margin-bottom: 5px;
-        color: var(--color-text-grayblack);
-      }
-
-      .input_pox input,
-      .select-input {
-        height: 49px;
-        width: 100%;
-        outline: none;
-        border-radius: 10px;
-        border: 1px solid var(--color-line);
-        padding-left: 15px;
-        font-size: 16px;
-        transition: all 0.3s ease;
-      }
-      .input_pox textarea {
-        width: 100%;
-        height: 160px;
-        outline: none;
-        border-radius: 10px;
-        border: 1px solid var(--color-line);
-        padding: 8px 0 0 12px;
-        font-size: 16px;
-        transition: all 0.3s ease;
-        resize: none;
-        font-family: inherit;
-      }
-
-      .select-input {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        cursor: pointer;
-      }
-
-      .select-input {
-        background-image: linear-gradient(45deg, transparent 50%, #151515 50%),
-          linear-gradient(135deg, #151515 50%, transparent 50%),
-          linear-gradient(to right, #ccc, #ccc);
-        background-position: calc(100% - 20px) calc(1em + 5px),
-          calc(100% - 15px) calc(1em + 5px), calc(100% - 2.5em) 0.68em;
-        background-size: 5px 5px, 5px 5px, 1px 1.5em;
-        background-repeat: no-repeat;
-      }
-
-      .select-input:focus {
-        background-image: linear-gradient(45deg, gray 50%, transparent 50%),
-          linear-gradient(135deg, transparent 50%, gray 50%),
-          linear-gradient(to right, #ccc, #ccc);
-        background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-          calc(100% - 2.5em) 0.5em;
-        background-size: 5px 5px, 5px 5px, 1px 1.5em;
-        background-repeat: no-repeat;
-        border-color: var(--primary-color);
-        outline: 0;
-      }
-
-      .input_pox select option {
-        background-color: #f6f6f6;
-      }
-
-      select:-moz-focusring {
-        color: transparent;
-        text-shadow: 0 0 0 #000;
-      }
-
-      .user_details .input_pox input:focus,
-      .user_details .input_pox input:valid,
-      .user_details .input_pox select:focus,
-      .input_pox textarea:focus,
-      .input_pox textarea:valid {
-        border-color: var(--primary-color);
-      }
-
-      .user_details input::-webkit-outer-spin-button,
-      .user_details input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-
-      .user_details input[type="number"] {
-        -moz-appearance: textfield;
-      }
-
-      .inner-inputs-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .edit-section-forms > button {
+      .edit-section-title-add > a {
         width: 153px;
         height: 49px;
         background-color: var(--primary-color);
@@ -635,159 +501,277 @@
         font-weight: 500;
         border-radius: 10px;
         transition: all 0.3s ease-in-out;
-        margin-left: auto;
       }
-      .edit-section-forms > button:hover {
+      .edit-section-title-add > a:hover {
         background-color: var(--secondary-color);
       }
 
-      .optional-lng::placeholder {
-        font-size: 14px;
-      }
+      /* products */
 
-      .checkboxContainer {
-        display: flex;
-        align-items: center;
+      .edit-section-items {
         width: 100%;
-        margin: 36px 0;
       }
 
-      .checkboxContainer label {
-        padding-left: 10px;
+      .products-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+        align-items: stretch;
+        justify-items: center;
+        gap: 32px;
+        width: 100%;
+      }
+
+      @media (max-width: 600px) {
+        .products-cards {
+          flex-direction: column;
+        }
+      }
+
+      .product-card-body {
         color: var(--color-text-black);
-        font-weight: 500;
-        font-size: 16px;
-      }
-
-      .checkboxContainer input[type="checkbox"] {
-        width: 15px;
-        height: 15px;
-      }
-      .checkbox:checked {
-        accent-color: var(--primary-color);
-      }
-
-      .information-edit {
-        margin: 18px 0 28px 0;
-      }
-
-      /* Drop Zoon */
-
-      .photo-upld {
         width: 100%;
-        height: 220px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        margin: 20px 0;
-        border-radius: 10px;
+        padding: 0 2px 0 2px;
+        position: relative;
+      }
+
+      .product-card-body hr {
+        width: 100%;
+        height: 1px;
+        border: none;
+        background-color: var(--color-line);
+        margin: 16px 0;
+      }
+
+      .title-card {
+        font-size: 18px;
+        font-weight: 600;
+        transition: all 0.3s ease-in-out;
+      }
+      .title-card:hover {
         cursor: pointer;
-        border: 1.5px dashed var(--secondary-color);
-      }
-
-      .photo-upld :where(i, p) {
-        color: var(--color-text-gray);
-      }
-      .photo-upld i {
-        font-size: 34px;
-      }
-
-      .photo-upld p {
-        font-size: 16px;
-        margin-top: 12px;
-      }
-
-      .row-upload {
-        background: var(--color-white);
-        margin-bottom: 10px;
-        list-style: none;
-        padding: 15px 20px;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .row-upload i {
-        font-size: 28px;
         color: var(--primary-color);
       }
 
-      .details span {
-        font-size: 14px;
-      }
-
-      .progress-area .row-upload .content {
-        width: 100%;
-        margin-left: 15px;
-      }
-
-      .progress-area .details {
-        display: flex;
-        align-items: center;
-        margin-bottom: 7px;
-        justify-content: space-between;
-      }
-
-      .progress-area .progress-bar {
-        height: 5px;
-        width: 100%;
-        background: var(--color-background);
-        margin-bottom: 4px;
-        border-radius: 30px;
-      }
-
-      .progress-bar .progress {
-        height: 100%;
-        width: 50%;
-        background: var(--primary-color);
-        border-radius: inherit;
-      }
-
-      .uploaded-area .row-upload .content {
-        display: flex;
-        align-items: center;
-      }
-      .uploaded-area .row-upload .details {
-        display: flex;
-        margin-left: 15px;
-        flex-direction: column;
-      }
-
-      .img-size {
-        font-size: 12px;
+      .product-card-body p {
         color: var(--color-text-grayblack);
-      }
-
-      .uploaded-area .fa-check {
-        color: var(--primary-color);
         font-size: 16px;
+        line-height: 22px;
+        font-weight: 400;
       }
 
-      @media only screen and (min-width: 1670px) {
-        .edit-section-item-tab > .marg-label {
-          margin-left: 24px;
+      @media only screen and (max-width: 385px) {
+        .product-card {
+          margin: 14px 0px;
         }
-        .label-tab {
-          font-size: 17px;
+        .product-card-body {
+          margin-bottom: 14;
         }
-      }
-
-      @media only screen and (max-width: 1290px) {
-        .label-tab {
+        .products-cards {
+          gap: 4px;
+        }
+        .title-card {
+          font-size: 16px;
+        }
+        .product-card-body p {
           font-size: 14px;
         }
       }
 
-      @media only screen and (max-width: 1157px) {
-        .label-tab {
-          font-size: 13px;
-          padding: 16px 2px;
+      @media only screen and (max-width: 350px) {
+        .products-cards {
+          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
         }
       }
 
-      @media only screen and (max-width: 970px) {
+      /* products */
+
+      .prof-info {
+        display: flex;
+        align-items: center;
+        margin: 18px 0;
+      }
+
+      .prof-info img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        margin-right: 12px;
+        border-radius: 50%;
+        border: 1px solid var(--secondary-color);
+      }
+      .prof-info img:hover {
+        cursor: pointer;
+      }
+
+      .prof-info h5 {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+        cursor: pointer;
+      }
+
+      .card-price h5 {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .inner-price {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      .card-price {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .icon-price {
+        width: 22px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .stu-join {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .students,
+      .join-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        gap: 4px;
+      }
+      .students p {
+        padding-left: 2px;
+      }
+
+      .card-service-price {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+      .card-service-price > span {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--primary-color);
+      }
+
+      .join-btn p {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--primary-color);
+        transition: all 0.3s ease-in-out;
+      }
+      .join-btn p:hover {
+        font-weight: 600;
+      }
+
+      .product-card-body {
+        padding: 0 2px 0 2px;
+      }
+
+      @media only screen and (max-width: 350px) {
+        .prof-info img {
+          width: 30px;
+          height: 30px;
+          margin-right: 10px;
+        }
+        .prof-info h5 {
+          font-size: 14px;
+        }
+        .prof-name p {
+          font-size: 12px;
+        }
+        .students p,
+        .join-btn p {
+          font-size: 13px;
+        }
+        .join-btn p {
+          padding-right: 4px;
+        }
+        .students svg,
+        .join-btn svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      .service-card {
+        position: relative;
+        width: 100%;
+        padding: 16px 16px 24px;
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%23DADADAFF' stroke-width='2' stroke-dasharray='12' stroke-dashoffset='22' stroke-linecap='round'/%3e%3c/svg%3e");
+        border-radius: 24px;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+        animation: fadeInLeft 1.5s backwards;
+      }
+      .service-card:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      .service-card:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-6px);
+        -webkit-transform: translateY(-6px);
+      }
+
+      .service-card-item-img {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .service-card-item-img > img {
+        aspect-ratio: 500 / 320;
+        position: relative;
+        width: 100%;
+        max-height: 184px;
+        margin-bottom: 15px;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+
+      @media only screen and (max-width: 350px) {
+        .service-card {
+          margin: 14px 0px;
+        }
+      }
+
+      .wishlist-icon {
+        width: 28px;
+        height: 28px;
+        position: absolute;
+        z-index: 52;
+        cursor: pointer;
+        margin: 6px 8px 0 0;
+      }
+
+      .wishlist-icon i {
+        width: 28px;
+        height: 28px;
+        font-size: 15px;
+        color: var(--color-white);
+        background-color: rgba(21, 21, 21, 0.4);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media only screen and (max-width: 900px) {
         .edit-acc {
           flex-direction: column;
           gap: 70px;
@@ -800,61 +784,6 @@
           flex-basis: 100%;
           width: -webkit-fill-available;
         }
-        .label-tab {
-          font-size: 15px;
-          padding: 16px 6px;
-        }
-        .input_pox input::placeholder {
-          font-size: 14px;
-        }
-        .input_pox {
-          width: calc(100% / 2 - 10px);
-        }
-      }
-
-      @media only screen and (max-width: 802px) {
-        .label-tab {
-          font-size: 13px;
-          padding: 16px 4px;
-        }
-      }
-
-      @media only screen and (max-width: 675px) {
-        .label-tab {
-          font-size: 13px;
-          padding: 16px 4px;
-        }
-        .contents {
-          margin-top: 20px;
-        }
-        .label-tab {
-          font-size: 17px;
-          background-color: var(--color-white);
-          border: 1.5px solid transparent;
-          width: 100%;
-        }
-        .edit-section-item-tab input:checked + .label-tab {
-          color: var(--secondary-color);
-          font-weight: 500;
-          border: 1.5px solid var(--secondary-color);
-          border-radius: 10px;
-        }
-        .inner-inputs-wrapper {
-          gap: 6px;
-        }
-      }
-
-      @media only screen and (max-width: 540px) {
-        .input_pox {
-          margin-bottom: 15px;
-          width: 100%;
-        }
-        .information-edit {
-          margin-bottom: 15px;
-        }
-        .edit-section-forms > button {
-          width: 100%;
-        }
       }
 
       @media only screen and (max-width: 420px) {
@@ -866,37 +795,6 @@
         .edit-section-title-add > a {
           width: 100%;
         }
-        .edit-section-title {
-          font-size: 22px;
-        }
-        .edit-section-item-title {
-          font-size: 18px;
-        }
-      }
-
-      @media only screen and (max-width: 410px) {
-        .label-tab {
-          font-size: 14px;
-        }
-        .custom-file-upload {
-          font-size: 14px;
-        }
-        .edit-section-photo {
-          width: 68px;
-          height: 68px;
-          margin: -10px 0 0 10px;
-        }
-        .btn-chng-img {
-          left: 22px;
-        }
-        .custom-file-upload-photo {
-          font-size: 12px;
-          padding: 5px;
-        }
-      }
-
-      .wf {
-        width: 100%;
       }
 
       /*footer*/
@@ -1155,7 +1053,7 @@
                   <h4>My Account</h4>
                 </a>
 
-                <a href="../Products/index.html" class="side-menu-item-profile checked-tab">
+                <a href="../Products/index.html" class="side-menu-item-profile">
                   <div class="side-menu-item-profile-icon">
                     <svg
                       width="22"
@@ -1174,7 +1072,10 @@
                   <h4>Products</h4>
                 </a>
 
-                <a href="../Services/index.html" class="side-menu-item-profile">
+                <a
+                  href="../Services/index.html"
+                  class="side-menu-item-profile checked-tab"
+                >
                   <div class="side-menu-item-profile-icon">
                     <svg
                       width="22"
@@ -1222,154 +1123,107 @@
 
         <div class="edit-section-wrapper">
           <div class="edit-section-title-add">
-            <h2 class="edit-section-title">Add Product</h2>
+            <h2 class="edit-section-title">My Services</h2>
+            <a href="../Services/newService.html">Add Service</a>
           </div>
 
           <div class="edit-section-items">
-            <div class="edit-section-forms">
-              <form>
-                <div class="edit-section-item-title-wrapper">
-                  <h3 class="edit-section-item-title">Basic information</h3>
+            <div class="products-cards">
+              <div class="service-card">
+                <div class="service-card-item-img">
+                  <img src="../../images/list view.png" alt="User Product" />
+                  <div class="wishlist-icon">
+                    <i class="fa fa-heart-o"></i>
+                  </div>
                 </div>
-                <div class="user_details">
-                  <div class="input_pox">
-                    <label class="datails">Product Name :</label>
-                    <input
-                      type="text"
-                      placeholder="Academic writing"
-                      required
+                <div class="product-card-body">
+                  <h4 class="title-card">Create Character</h4>
+                  <div class="prof-info">
+                    <img
+                      src="../../images/avatar product.png"
+                      alt="User Photo"
                     />
+                    <h5>Dr. Anderson Cooper</h5>
                   </div>
-                  <div class="input_pox">
-                    <label class="datails">Greade Levelsy :</label>
-                    <select
-                      name="greade"
-                      class="select-input"
-                      onblur="this.size=0"
-                      onchange="this.size=1; this.blur()"
-                    >
-                      <option value="under graduate">Under Graduate</option>
-                      <option value="graduate">Graduate</option>
-                      <option value="ph.d.">Ph.D.</option>
-                    </select>
-                  </div>
-                  <div class="input_pox">
-                    <label class="datails">Subjects :</label>
-                    <input
-                      type="text"
-                      placeholder="English Language Arts"
-                      required
-                    />
-                  </div>
-                  <div class="input_pox">
-                    <label class="datails">Price :</label>
-                    <input type="text" placeholder="$ 15" required />
-                  </div>
-                  <div class="input_pox">
-                    <label class="datails">Formats Include :</label>
-                    <input type="text" placeholder="e-Book" required />
-                  </div>
-                  <div class="input_pox">
-                    <label class="datails">Publisher :</label>
-                    <input
-                      type="text"
-                      placeholder="Independently published"
-                      required
-                    />
-                  </div>
-                  <div class="input_pox">
-                    <label class="datails">Pages/Slides :</label>
-                    <input type="text" placeholder="5 pages" required />
-                  </div>
-
-                  <div class="information-edit wf">
-                    <h4 class="information-title">Product images :</h4>
-                    <div class="photo-upld">
-                      <i class="fa fa-picture-o"></i>
-                      <p>Browse file to upload</p>
-                      <input type="file" class="file-input" hidden />
+                  <p class="service-desc">
+                    Lorem ipsum dolor consectetur lorem adipiscing elit
+                  </p>
+                  <hr />
+                  <div class="stu-join">
+                    <div class="students">
+                      <h4 class="card-service-price">
+                        Price : <span>$18</span>
+                      </h4>
                     </div>
-                    <section class="progress-area">
-                      <li class="row-upload">
-                        <i class="fa fa-file-image-o"></i>
-                        <div class="content">
-                          <div class="details">
-                            <span class="name">image.01 - Uploading</span>
-                            <span class="percent">50%</span>
-                          </div>
-                          <div class="progress-bar">
-                            <div class="progress"></div>
-                          </div>
-                        </div>
-                      </li>
-                    </section>
-                    <section class="uploaded-area">
-                      <li class="row-upload">
-                        <div class="content">
-                          <i class="fa fa-file-image-o"></i>
-                          <div class="details">
-                            <span class="name">image.01 - Uploaded</span>
-                            <span class="img-size">70 KB</span>
-                          </div>
-                        </div>
-                        <i class="fa fa-check"></i>
-                      </li>
-                    </section>
+                    <a href="../Services/editService.html" class="join-btn">
+                      <p>Edit Service</p>
+                      <svg
+                        width="19"
+                        height="17"
+                        viewBox="0 0 19 17"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                          stroke="#F5AA1C"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
                   </div>
                 </div>
-              </form>
-              <form>
-                <div class="edit-section-item-title-wrapper">
-                  <h3 class="edit-section-item-title">About the author</h3>
-                </div>
-                <div class="user_details">
-                  <div class="input_pox">
-                    <label class="datails">Full Name :</label>
-                    <input type="text" placeholder="Jack Mano" required />
-                  </div>
-                  <div class="input_pox">
-                    <label class="datails">Affiliation :</label>
-                    <input
-                      type="text"
-                      placeholder="Oxford University"
-                      required
-                    />
-                  </div>
-                  <div class="input_pox">
-                    <label class="datails">Title :</label>
-                    <input
-                      type="text"
-                      placeholder="Full Professor in Management"
-                      required
-                    />
-                  </div>
-                  <div class="input_pox">
-                    <label class="datails">Field :</label>
-                    <input type="text" placeholder="Management" required />
-                  </div>
-                  <div class="input_pox">
-                    <label class="datails">Languages :</label>
-                    <input type="text" placeholder="English" required />
-                  </div>
-                </div>
-              </form>
-              <form>
-                <div class="edit-section-item-title-wrapper">
-                  <h3 class="edit-section-item-title">More info</h3>
-                </div>
-                <div class="user_details">
-                  <div class="input_pox wf">
-                    <label class="datails">General description : </label>
-                    <textarea placeholder="Text" required></textarea>
-                  </div>
-                  <div class="input_pox wf">
-                    <label class="datails">How to use :</label>
-                    <textarea placeholder="Text" required></textarea>
-                  </div>
-                </div>
-              </form>
+              </div>
 
-              <button>Add Product</button>
+              <div class="service-card">
+                <div class="service-card-item-img">
+                  <img src="../../images/list view.png" alt="User Product" />
+                  <div class="wishlist-icon">
+                    <i class="fa fa-heart-o"></i>
+                  </div>
+                </div>
+                <div class="product-card-body">
+                  <h4 class="title-card">Proofreading</h4>
+                  <div class="prof-info">
+                    <img
+                      src="../../images/avatar product.png"
+                      alt="User Photo"
+                    />
+                    <h5>Dr. Anderson Cooper</h5>
+                  </div>
+                  <p class="service-desc">
+                    Lorem ipsum dolor consectetur lorem adipiscing elit
+                  </p>
+                  <hr />
+                  <div class="stu-join">
+                    <div class="students">
+                      <h4 class="card-service-price">
+                        Price : <span>$18</span>
+                      </h4>
+                    </div>
+                    <a href="../Services/editService.html" class="join-btn">
+                      <p>Edit Service</p>
+                      <svg
+                        width="19"
+                        height="17"
+                        viewBox="0 0 19 17"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                          stroke="#F5AA1C"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1526,24 +1380,6 @@
       overlayMenu.addEventListener("click", toggleMenu);
       navbarMenu.addEventListener("click", toggleSubMenu);
       window.addEventListener("resize", resizeWindow);
-
-      // upload photo
-
-      const form = document.querySelector(".photo-upld"),
-        fileInput = form.querySelector(".file-input"),
-        progressArea = document.querySelector(".progress-area"),
-        uploadedArea = document.querySelector(".uploaded-area");
-
-      form.addEventListener("click", () => {
-        fileInput.click();
-      });
-
-      fileInput.onchange = ({ target }) => {
-        let file = target.files[0];
-        if (file) {
-          let fileName = file.name;
-        }
-      };
     </script>
   </body>
 </html>

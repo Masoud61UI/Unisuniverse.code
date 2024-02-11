@@ -1579,9 +1579,31 @@
         gap: 22px;
       }
 
+      .modal-user-skill-text-wrapper,
+      .modal-user-language-text-wrapper {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .edit-info-skill-title,
+      .edit-info-language-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .edit-info-skill-degree,
+      .edit-info-language-degree {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
       .modal-user-information-photo {
-        width: 72px;
-        max-height: 72px;
+        width: 68px;
+        height: 68px;
         object-fit: contain;
       }
 
@@ -1604,6 +1626,12 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 2px;
+      }
+
+      .certification-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--color-text-black);
       }
 
       .modal-details-center-top-head > h5 {
@@ -1660,10 +1688,6 @@
       }
 
       @media only screen and (max-width: 480px) {
-        .modal-user-information-photo {
-          width: 90px;
-          max-height: 90px;
-        }
         .modal-user-information-edit-info {
           flex-direction: column;
         }
@@ -1677,6 +1701,13 @@
         }
         .details-center-title-info,
         .modal-details-center-top-desc > h4 {
+          font-size: 14px;
+        }
+        .edit-info-skill-title {
+          font-size: 16px;
+        }
+
+        .edit-info-skill-degree {
           font-size: 14px;
         }
       }
@@ -1716,6 +1747,31 @@
         font-size: 16px;
         margin-bottom: 5px;
         color: var(--color-text-grayblack);
+      }
+
+      .input_pox > button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 500;
+        width: 153px;
+        height: 49px;
+        border: 1.5px solid var(--secondary-color);
+        color: var(--secondary-color);
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .input_pox > button:hover {
+        border: none;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+      }
+
+      .add-author {
+        display: flex;
+        align-items: flex-end;
       }
 
       .input_pox input,
@@ -1790,6 +1846,28 @@
       .input_pox textarea:focus,
       .input_pox textarea:valid {
         border-color: var(--primary-color);
+      }
+
+      .checkboxContainer {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: 36px 0;
+      }
+
+      .checkboxContainer label {
+        padding-left: 10px;
+        color: var(--color-text-black);
+        font-weight: 500;
+        font-size: 16px;
+      }
+
+      .checkboxContainer input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+      }
+      .checkbox:checked {
+        accent-color: var(--primary-color);
       }
 
       .user_details input::-webkit-outer-spin-button,
@@ -1899,7 +1977,14 @@
         }
       }
 
-      #inner-edit-modal {
+      #inner-edit-modal,
+      #inner-education-modal,
+      #inner-experience-modal,
+      #inner-skill-modal,
+      #inner-languages-modal,
+      #inner-language-modal,
+      #inner-publication-modal,
+      #inner-certification-modal {
         display: none;
       }
 
@@ -3702,6 +3787,10 @@
         width: 100%;
       }
 
+      .all-people-wrapper-down > form {
+        width: 100%;
+      }
+
       .user-view {
         display: flex;
         align-items: center;
@@ -3822,7 +3911,7 @@
           margin-top: 11px;
         }
         .all-people-wrapper-down {
-          gap: 46px;
+          gap: 42px;
         }
         .user-view {
           gap: 16px;
@@ -4144,7 +4233,9 @@
             <span class="burger-line"></span>
             <span class="burger-line"></span>
           </div>
-          <a href="../My account/index.html" class="btn-md" id="test">My profile</a>
+          <a href="../My account/index.html" class="btn-md" id="test"
+            >My profile</a
+          >
         </div>
       </section>
     </header>
@@ -4596,7 +4687,10 @@
                       </div>
                     </div>
                     <div class="modal-user-information-wrapper">
-                      <div class="modal-user-information" id="edit-modal">
+                      <div
+                        class="modal-user-information"
+                        id="edit-modal-education"
+                      >
                         <div class="all-people-wrapper-head">
                           <h2>Edit Education</h2>
                           <span
@@ -4674,7 +4768,7 @@
 
                             <div
                               class="modal-user-information-edit-icon"
-                              id="open-inner-edit-modal"
+                              id="open-inner-edit-modal-education"
                             >
                               <i class="fa fa-pencil"></i>
                             </div>
@@ -4746,7 +4840,7 @@
 
                             <div
                               class="modal-user-information-edit-icon"
-                              id="open-inner-edit-modal"
+                              id="open-inner-edit-modal-education"
                             >
                               <i class="fa fa-pencil"></i>
                             </div>
@@ -4754,13 +4848,16 @@
                         </div>
                       </div>
 
-                      <div class="modal-user-information" id="inner-edit-modal">
+                      <div
+                        class="modal-user-information"
+                        id="inner-education-modal"
+                      >
                         <div class="all-people-wrapper-head">
                           <h2>Edit Education</h2>
                           <span
                             class="close-modal-user-information"
-                            onclick="closeModal_public()"
-                            id="close-inner-modal-edit"
+                            onclick="closeModal_education()"
+                            id="close-inner-modal-edit-education"
                             >&times;</span
                           >
                         </div>
@@ -4910,7 +5007,11 @@
                               Delete Education
                             </h4>
                             <div class="modal-user-information-editbtn">
-                              <h4><a href="">Add more +</a></h4>
+                              <h4>
+                                <a href="../My account/index.html"
+                                  >Add more +</a
+                                >
+                              </h4>
                               <button type="button">Save Changes</button>
                             </div>
                           </div>
@@ -4978,8 +5079,337 @@
                           </div>
                         </div>
                       </div>
-                      <div class="user-information-edit">
+                      <div class="user-information-edit" id="experience-modal">
                         <i class="fa fa-pencil"></i>
+                      </div>
+                    </div>
+                    <div class="modal-user-information-wrapper">
+                      <div
+                        class="modal-user-information"
+                        id="edit-modal-experience"
+                      >
+                        <div class="all-people-wrapper-head">
+                          <h2>Edit Experience</h2>
+                          <span
+                            class="close-modal-user-information"
+                            onclick="closeModal_experience()"
+                            id="close-modal-experience"
+                            >&times;</span
+                          >
+                        </div>
+
+                        <hr class="all-people-wrapper-line" />
+
+                        <div class="all-people-wrapper-down">
+                          <div class="modal-user-information-edit">
+                            <div class="modal-user-information-edit-info">
+                              <img
+                                src="../../images/logos_microsoft-windows-icon.png"
+                                alt="University Photo"
+                                class="modal-user-information-photo"
+                              />
+                              <div class="modal-details-center">
+                                <div class="modal-details-center-top">
+                                  <div class="modal-details-center-top-head">
+                                    <h5>Jan 2000 - Sep 2004</h5>
+                                    <div class="modal-details-center-title">
+                                      <h4 class="details-center-title">
+                                        Co-Founder
+                                      </h4>
+                                      <svg
+                                        width="5"
+                                        height="5"
+                                        viewBox="0 0 5 5"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <circle
+                                          cx="2.12378"
+                                          cy="2.5"
+                                          r="2"
+                                          fill="#F5AA1C"
+                                        />
+                                      </svg>
+                                      <h4 class="details-center-title-info">
+                                        United States
+                                      </h4>
+                                    </div>
+                                  </div>
+
+                                  <div class="modal-details-center-top-desc">
+                                    <h4>Microsoft</h4>
+                                    <svg
+                                      width="5"
+                                      height="5"
+                                      viewBox="0 0 5 5"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <circle
+                                        cx="2.12378"
+                                        cy="2.5"
+                                        r="2"
+                                        fill="#F5AA1C"
+                                      />
+                                    </svg>
+                                    <h4>Part time</h4>
+                                  </div>
+                                </div>
+                                <p class="modal-details-center-description">
+                                  Lorem ipsum dolor sit amet, consectetur
+                                  adipiscing elit, sed do eiusmod tempor
+                                  incididunt ut labore et dolore magna aliqua
+                                </p>
+                              </div>
+                            </div>
+
+                            <div
+                              class="modal-user-information-edit-icon"
+                              id="open-inner-edit-modal-experience"
+                            >
+                              <i class="fa fa-pencil"></i>
+                            </div>
+                          </div>
+
+                          <hr class="all-people-wrapper-line" />
+
+                          <div class="modal-user-information-edit">
+                            <div class="modal-user-information-edit-info">
+                              <img
+                                src="../../images/logos_microsoft-windows-icon.png"
+                                alt="University Photo"
+                                class="modal-user-information-photo"
+                              />
+                              <div class="modal-details-center">
+                                <div class="modal-details-center-top">
+                                  <div class="modal-details-center-top-head">
+                                    <h5>Jan 2000 - Sep 2004</h5>
+                                    <div class="modal-details-center-title">
+                                      <h4 class="details-center-title">
+                                        Co-Founder
+                                      </h4>
+                                      <svg
+                                        width="5"
+                                        height="5"
+                                        viewBox="0 0 5 5"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <circle
+                                          cx="2.12378"
+                                          cy="2.5"
+                                          r="2"
+                                          fill="#F5AA1C"
+                                        />
+                                      </svg>
+                                      <h4 class="details-center-title-info">
+                                        United States
+                                      </h4>
+                                    </div>
+                                  </div>
+
+                                  <div class="modal-details-center-top-desc">
+                                    <h4>Microsoft</h4>
+                                    <svg
+                                      width="5"
+                                      height="5"
+                                      viewBox="0 0 5 5"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <circle
+                                        cx="2.12378"
+                                        cy="2.5"
+                                        r="2"
+                                        fill="#F5AA1C"
+                                      />
+                                    </svg>
+                                    <h4>Part time</h4>
+                                  </div>
+                                </div>
+                                <p class="modal-details-center-description">
+                                  Keas 69 Str. 15234, Chalandri Athens, Greece.
+                                </p>
+                              </div>
+                            </div>
+
+                            <div
+                              class="modal-user-information-edit-icon"
+                              id="open-inner-edit-modal-experience"
+                            >
+                              <i class="fa fa-pencil"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="modal-user-information"
+                        id="inner-experience-modal"
+                      >
+                        <div class="all-people-wrapper-head">
+                          <h2>Edit Experience</h2>
+                          <span
+                            class="close-modal-user-information"
+                            onclick="closeModal_experience()"
+                            id="close-inner-modal-edit-experience"
+                            >&times;</span
+                          >
+                        </div>
+
+                        <hr class="all-people-wrapper-line" />
+
+                        <div class="all-people-wrapper-down">
+                          <h4>* Indicates required</h4>
+
+                          <form>
+                            <div class="user_details">
+                              <div class="input_pox">
+                                <label class="datails">Title : *</label>
+                                <input type="text" required />
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails">Type of work :</label>
+                                <select
+                                  name="greade"
+                                  class="select-input"
+                                  onblur="this.size=0"
+                                  onchange="this.size=1; this.blur()"
+                                >
+                                  <option value="part time">Part time</option>
+                                  <option value="full time">Full time</option>
+                                </select>
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails">Employer : *</label>
+                                <input type="text" required />
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails">Industry :</label>
+                                <input type="text" required />
+                              </div>
+                              <div class="input_pox wf">
+                                <label class="datails">Location :</label>
+                                <input type="text" required />
+                              </div>
+                              <div class="checkboxContainer">
+                                <input
+                                  type="checkbox"
+                                  id="current-job"
+                                  class="checkbox"
+                                />
+                                <label for="currentjob"
+                                  >This is my current job.</label
+                                >
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails">Start date : *</label>
+                                <div class="select-inputs-wrapper">
+                                  <select
+                                    name="degree"
+                                    class="select-input"
+                                    onblur="this.size=0"
+                                    onchange="this.size=1; this.blur()"
+                                  >
+                                    <option value="" disabled selected>
+                                      Month
+                                    </option>
+                                    <option value="january">January</option>
+                                    <option value="february">February</option>
+                                    <option value="march">March</option>
+                                    <option value="april">April</option>
+                                    <option value="may">May</option>
+                                    <option value="june">June</option>
+                                    <option value="july">July</option>
+                                    <option value="august">August</option>
+                                    <option value="september">September</option>
+                                    <option value="october">October</option>
+                                    <option value="november">November</option>
+                                    <option value="december">December</option>
+                                  </select>
+                                  <select
+                                    name="degree"
+                                    class="select-input"
+                                    onblur="this.size=0"
+                                    onchange="this.size=1; this.blur()"
+                                  >
+                                    <option value="" disabled selected>
+                                      Year
+                                    </option>
+                                    <option value="2020">2017</option>
+                                    <option value="2020">2018</option>
+                                    <option value="2020">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2023">2024</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails">End date : *</label>
+                                <div class="select-inputs-wrapper">
+                                  <select
+                                    name="degree"
+                                    class="select-input"
+                                    onblur="this.size=0"
+                                    onchange="this.size=1; this.blur()"
+                                  >
+                                    <option value="" disabled selected>
+                                      Month
+                                    </option>
+                                    <option value="january">January</option>
+                                    <option value="february">February</option>
+                                    <option value="march">March</option>
+                                    <option value="april">April</option>
+                                    <option value="may">May</option>
+                                    <option value="june">June</option>
+                                    <option value="july">July</option>
+                                    <option value="august">August</option>
+                                    <option value="september">September</option>
+                                    <option value="october">October</option>
+                                    <option value="november">November</option>
+                                    <option value="december">December</option>
+                                  </select>
+                                  <select
+                                    name="degree"
+                                    class="select-input"
+                                    onblur="this.size=0"
+                                    onchange="this.size=1; this.blur()"
+                                  >
+                                    <option value="" disabled selected>
+                                      Year
+                                    </option>
+                                    <option value="2020">2017</option>
+                                    <option value="2020">2018</option>
+                                    <option value="2020">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+
+                          <hr class="all-people-wrapper-line" />
+
+                          <div class="modal-user-information-editbtns">
+                            <h4 class="modal-user-information-deletebtn">
+                              Delete Education
+                            </h4>
+                            <div class="modal-user-information-editbtn">
+                              <h4>
+                                <a href="../My account/index.html"
+                                  >Add more +</a
+                                >
+                              </h4>
+                              <button type="button">Save Changes</button>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -5089,8 +5519,136 @@
                           </div>
                         </div>
                       </div>
-                      <div class="user-information-edit">
+                      <div class="user-information-edit" id="skill-modal">
                         <i class="fa fa-pencil"></i>
+                      </div>
+                    </div>
+                    <div class="modal-user-information-wrapper">
+                      <div class="modal-user-information" id="edit-modal-skill">
+                        <div class="all-people-wrapper-head">
+                          <h2>Edit Skills</h2>
+                          <span
+                            class="close-modal-user-information"
+                            onclick="closeModal_skill()"
+                            id="close-modal-skill"
+                            >&times;</span
+                          >
+                        </div>
+
+                        <hr class="all-people-wrapper-line" />
+
+                        <div class="all-people-wrapper-down">
+                          <div class="modal-user-information-edit">
+                            <div class="modal-user-information-edit-info">
+                              <div class="modal-user-skill-text-wrapper">
+                                <h3 class="edit-info-skill-title">
+                                  Social Media Marketing
+                                </h3>
+                                <h4 class="edit-info-skill-degree">
+                                  Limited experience
+                                </h4>
+                              </div>
+                            </div>
+
+                            <div
+                              class="modal-user-information-edit-icon"
+                              id="open-inner-edit-modal-skill"
+                            >
+                              <i class="fa fa-pencil"></i>
+                            </div>
+                          </div>
+
+                          <hr class="all-people-wrapper-line" />
+
+                          <div class="modal-user-information-edit">
+                            <div class="modal-user-information-edit-info">
+                              <div class="modal-user-skill-text-wrapper">
+                                <h3 class="edit-info-skill-title">
+                                  Social Media Marketing
+                                </h3>
+                                <h4 class="edit-info-skill-degree">
+                                  Limited experience
+                                </h4>
+                              </div>
+                            </div>
+
+                            <div
+                              class="modal-user-information-edit-icon"
+                              id="open-inner-edit-modal-skill"
+                            >
+                              <i class="fa fa-pencil"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="modal-user-information"
+                        id="inner-skill-modal"
+                      >
+                        <div class="all-people-wrapper-head">
+                          <h2>Edit Skills</h2>
+                          <span
+                            class="close-modal-user-information"
+                            onclick="closeModal_skill()"
+                            id="close-inner-modal-edit-skill"
+                            >&times;</span
+                          >
+                        </div>
+
+                        <hr class="all-people-wrapper-line" />
+
+                        <div class="all-people-wrapper-down">
+                          <h4>* Indicates required</h4>
+
+                          <form>
+                            <div class="user_details">
+                              <div class="input_pox">
+                                <label class="datails">Skill name : *</label>
+                                <input type="text" required />
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails"
+                                  >Level of profeciency : *</label
+                                >
+                                <select
+                                  name="profeciency"
+                                  class="select-input"
+                                  onblur="this.size=0"
+                                  onchange="this.size=1; this.blur()"
+                                >
+                                  <option value="basic knowledge">
+                                    Basic knowledge
+                                  </option>
+                                  <option value="limited experience">
+                                    Limited experience
+                                  </option>
+                                  <option value="intermediate">
+                                    Intermediate
+                                  </option>
+                                  <option value="advanced">Advanced</option>
+                                  <option value="expert">Expert</option>
+                                </select>
+                              </div>
+                            </div>
+                          </form>
+
+                          <hr class="all-people-wrapper-line" />
+
+                          <div class="modal-user-information-editbtns">
+                            <h4 class="modal-user-information-deletebtn">
+                              Delete Education
+                            </h4>
+                            <div class="modal-user-information-editbtn">
+                              <h4>
+                                <a href="../My account/index.html"
+                                  >Add more +</a
+                                >
+                              </h4>
+                              <button type="button">Save Changes</button>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -5128,8 +5686,139 @@
                           </div>
                         </div>
                       </div>
-                      <div class="user-information-edit">
+                      <div class="user-information-edit" id="language-modal">
                         <i class="fa fa-pencil"></i>
+                      </div>
+                    </div>
+                    <div class="modal-user-information-wrapper">
+                      <div
+                        class="modal-user-information"
+                        id="edit-modal-language"
+                      >
+                        <div class="all-people-wrapper-head">
+                          <h2>Edit Languages</h2>
+                          <span
+                            class="close-modal-user-information"
+                            onclick="closeModal_language()"
+                            id="close-modal-language"
+                            >&times;</span
+                          >
+                        </div>
+
+                        <hr class="all-people-wrapper-line" />
+
+                        <div class="all-people-wrapper-down">
+                          <div class="modal-user-information-edit">
+                            <div class="modal-user-information-edit-info">
+                              <div class="modal-user-language-text-wrapper">
+                                <h3 class="edit-info-language-title">
+                                  English
+                                </h3>
+                                <h4 class="edit-info-language-degree">
+                                  Limited experience
+                                </h4>
+                              </div>
+                            </div>
+
+                            <div
+                              class="modal-user-information-edit-icon"
+                              id="open-inner-edit-modal-language"
+                            >
+                              <i class="fa fa-pencil"></i>
+                            </div>
+                          </div>
+
+                          <hr class="all-people-wrapper-line" />
+
+                          <div class="modal-user-information-edit">
+                            <div class="modal-user-information-edit-info">
+                              <div class="modal-user-language-text-wrapper">
+                                <h3 class="edit-info-language-title">German</h3>
+                                <h4 class="edit-info-language-degree">
+                                  Elementary
+                                </h4>
+                              </div>
+                            </div>
+
+                            <div
+                              class="modal-user-information-edit-icon"
+                              id="open-inner-edit-modal-language"
+                            >
+                              <i class="fa fa-pencil"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="modal-user-information"
+                        id="inner-language-modal"
+                      >
+                        <div class="all-people-wrapper-head">
+                          <h2>Edit Languages</h2>
+                          <span
+                            class="close-modal-user-information"
+                            onclick="closeModal_language()"
+                            id="close-inner-modal-edit-language"
+                            >&times;</span
+                          >
+                        </div>
+
+                        <hr class="all-people-wrapper-line" />
+
+                        <div class="all-people-wrapper-down">
+                          <h4>* Indicates required</h4>
+
+                          <form>
+                            <div class="user_details">
+                              <div class="input_pox">
+                                <label class="datails">Language name : *</label>
+                                <input type="text" required />
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails"
+                                  >Level of profeciency : *</label
+                                >
+                                <select
+                                  name="profeciency"
+                                  class="select-input"
+                                  onblur="this.size=0"
+                                  onchange="this.size=1; this.blur()"
+                                >
+                                  <option value="elementary">Elementary</option>
+                                  <option value="limited working">
+                                    Limited Working
+                                  </option>
+                                  <option value="professional working">
+                                    Professional Working
+                                  </option>
+                                  <option value="full professional">
+                                    Full Professional
+                                  </option>
+                                  <option value="native / bilingual">
+                                    Native / Bilingual
+                                  </option>
+                                </select>
+                              </div>
+                            </div>
+                          </form>
+
+                          <hr class="all-people-wrapper-line" />
+
+                          <div class="modal-user-information-editbtns">
+                            <h4 class="modal-user-information-deletebtn">
+                              Delete Education
+                            </h4>
+                            <div class="modal-user-information-editbtn">
+                              <h4>
+                                <a href="../My account/index.html"
+                                  >Add more +</a
+                                >
+                              </h4>
+                              <button type="button">Save Changes</button>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -5210,8 +5899,270 @@
                           </div>
                         </div>
                       </div>
-                      <div class="user-information-edit">
+                      <div class="user-information-edit" id="publication-modal">
                         <i class="fa fa-pencil"></i>
+                      </div>
+                    </div>
+                    <div class="modal-user-information-wrapper">
+                      <div
+                        class="modal-user-information"
+                        id="edit-modal-publication"
+                      >
+                        <div class="all-people-wrapper-head">
+                          <h2>Edit Publications</h2>
+                          <span
+                            class="close-modal-user-information"
+                            onclick="closeModal_publication()"
+                            id="close-modal-publication"
+                            >&times;</span
+                          >
+                        </div>
+
+                        <hr class="all-people-wrapper-line" />
+
+                        <div class="all-people-wrapper-down">
+                          <div class="modal-user-information-edit">
+                            <div class="modal-user-information-edit-info">
+                              <div class="modal-details-center">
+                                <div class="modal-details-center-top">
+                                  <div class="modal-details-center-top-head">
+                                    <h5>Feb 2020</h5>
+                                    <div class="modal-details-center-title">
+                                      <h4 class="details-center-title">
+                                        NX Angular monorepo and shared NgRx
+                                        store
+                                      </h4>
+                                    </div>
+                                  </div>
+
+                                  <div class="modal-details-center-top-desc">
+                                    <h4>GreenOn Software</h4>
+                                    <svg
+                                      width="5"
+                                      height="5"
+                                      viewBox="0 0 5 5"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <circle
+                                        cx="2.12378"
+                                        cy="2.5"
+                                        r="2"
+                                        fill="#F5AA1C"
+                                      />
+                                    </svg>
+                                    <h4>Peer review journal paper</h4>
+                                  </div>
+                                </div>
+                                <p class="modal-details-center-description">
+                                  Lorem ipsum dolor sit amet, consectetur
+                                  adipiscing elit, sed do eiusmod tempor
+                                  incididunt ut labore et dolore magna aliqua.
+                                  Egestas purus viverra accumsan in nisl nisi.
+                                  Arcu cursus vitae congue mauris rhoncus aenean
+                                  vel elit scelerisque.
+                                </p>
+                              </div>
+                            </div>
+
+                            <div
+                              class="modal-user-information-edit-icon"
+                              id="open-inner-edit-modal-publication"
+                            >
+                              <i class="fa fa-pencil"></i>
+                            </div>
+                          </div>
+
+                          <hr class="all-people-wrapper-line" />
+
+                          <div class="modal-user-information-edit">
+                            <div class="modal-user-information-edit-info">
+                              <div class="modal-details-center">
+                                <div class="modal-details-center-top">
+                                  <div class="modal-details-center-top-head">
+                                    <h5>Feb 2020</h5>
+                                    <div class="modal-details-center-title">
+                                      <h4 class="details-center-title">
+                                        Removing server warnings for
+                                        useLayoutEffect with custom hook
+                                      </h4>
+                                    </div>
+                                  </div>
+
+                                  <div class="modal-details-center-top-desc">
+                                    <h4>GreenOn Software</h4>
+                                    <svg
+                                      width="5"
+                                      height="5"
+                                      viewBox="0 0 5 5"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <circle
+                                        cx="2.12378"
+                                        cy="2.5"
+                                        r="2"
+                                        fill="#F5AA1C"
+                                      />
+                                    </svg>
+                                    <h4>Peer review journal paper</h4>
+                                  </div>
+                                </div>
+                                <p class="modal-details-center-description">
+                                  Lorem ipsum dolor sit amet.
+                                </p>
+                              </div>
+                            </div>
+
+                            <div
+                              class="modal-user-information-edit-icon"
+                              id="open-inner-edit-modal-publication"
+                            >
+                              <i class="fa fa-pencil"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="modal-user-information"
+                        id="inner-publication-modal"
+                      >
+                        <div class="all-people-wrapper-head">
+                          <h2>Edit Publications</h2>
+                          <span
+                            class="close-modal-user-information"
+                            onclick="closeModal_publication()"
+                            id="close-inner-modal-edit-publication"
+                            >&times;</span
+                          >
+                        </div>
+
+                        <hr class="all-people-wrapper-line" />
+
+                        <div class="all-people-wrapper-down">
+                          <h4>* Indicates required</h4>
+
+                          <form>
+                            <div class="user_details">
+                              <div class="input_pox">
+                                <label class="datails">Title : *</label>
+                                <input type="text" required />
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails"
+                                  >Publication type : *</label
+                                >
+                                <select
+                                  name="Publication"
+                                  class="select-input"
+                                  onblur="this.size=0"
+                                  onchange="this.size=1; this.blur()"
+                                >
+                                  <option value="book">Book</option>
+                                  <option value="book chapter">
+                                    Book Chapter
+                                  </option>
+                                  <option value="peer review">
+                                    Peer Review Journal Paper
+                                  </option>
+                                  <option value="scholarly paper">
+                                    Scholarly Paper
+                                  </option>
+                                  <option value="case study">Case Study</option>
+                                </select>
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails">Author : *</label>
+                                <input type="text" required />
+                              </div>
+                              <div class="input_pox add-author">
+                                <button>+ Add Author</button>
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails"
+                                  >Date of publication : *</label
+                                >
+                                <div class="select-inputs-wrapper">
+                                  <select
+                                    name="degree"
+                                    class="select-input"
+                                    onblur="this.size=0"
+                                    onchange="this.size=1; this.blur()"
+                                  >
+                                    <option value="" disabled selected>
+                                      Month
+                                    </option>
+                                    <option value="january">January</option>
+                                    <option value="february">February</option>
+                                    <option value="march">March</option>
+                                    <option value="april">April</option>
+                                    <option value="may">May</option>
+                                    <option value="june">June</option>
+                                    <option value="july">July</option>
+                                    <option value="august">August</option>
+                                    <option value="september">September</option>
+                                    <option value="october">October</option>
+                                    <option value="november">November</option>
+                                    <option value="december">December</option>
+                                  </select>
+                                  <select
+                                    name="degree"
+                                    class="select-input"
+                                    onblur="this.size=0"
+                                    onchange="this.size=1; this.blur()"
+                                  >
+                                    <option value="" disabled selected>
+                                      Year
+                                    </option>
+                                    <option value="2020">2017</option>
+                                    <option value="2020">2018</option>
+                                    <option value="2020">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2023">2024</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails"
+                                  >Place of publication : *</label
+                                >
+                                <input type="text" required />
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails">Volume/issue :</label>
+                                <input type="text" required />
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails">DOI/URL :</label>
+                                <input type="text" required />
+                              </div>
+                              <div class="input_pox wf">
+                                <label class="datails">Description :</label>
+                                <textarea required></textarea>
+                              </div>
+                            </div>
+                          </form>
+
+                          <hr class="all-people-wrapper-line" />
+
+                          <div class="modal-user-information-editbtns">
+                            <h4 class="modal-user-information-deletebtn">
+                              Delete Education
+                            </h4>
+                            <div class="modal-user-information-editbtn">
+                              <h4>
+                                <a href="../My account/index.html"
+                                  >Add more +</a
+                                >
+                              </h4>
+                              <button type="button">Save Changes</button>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -5276,8 +6227,234 @@
                           </div>
                         </div>
                       </div>
-                      <div class="user-information-edit">
+                      <div
+                        class="user-information-edit"
+                        id="certification-modal"
+                      >
                         <i class="fa fa-pencil"></i>
+                      </div>
+                    </div>
+                    <div class="modal-user-information-wrapper">
+                      <div
+                        class="modal-user-information"
+                        id="edit-modal-certification"
+                      >
+                        <div class="all-people-wrapper-head">
+                          <h2>Edit Certifications</h2>
+                          <span
+                            class="close-modal-user-information"
+                            onclick="closeModal_certification()"
+                            id="close-modal-certification"
+                            >&times;</span
+                          >
+                        </div>
+
+                        <hr class="all-people-wrapper-line" />
+
+                        <div class="all-people-wrapper-down">
+                          <div class="modal-user-information-edit">
+                            <div class="modal-user-information-edit-info">
+                              <img
+                                src="../../images/linkedin.png"
+                                alt="Certification Logo"
+                                class="modal-user-information-photo"
+                              />
+                              <div class="modal-details-center">
+                                <div class="modal-details-center-top">
+                                  <div class="modal-details-center-top-head">
+                                    <h4 class="certification-title">
+                                      Learning RxJS
+                                    </h4>
+                                    <h5 class="certification-company">
+                                      LinkedIn
+                                    </h5>
+                                    <h5 class="certification-date">
+                                      Issued Jan 2023
+                                    </h5>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div
+                              class="modal-user-information-edit-icon"
+                              id="open-inner-edit-modal-certification"
+                            >
+                              <i class="fa fa-pencil"></i>
+                            </div>
+                          </div>
+
+                          <hr class="all-people-wrapper-line" />
+
+                          <div class="modal-user-information-edit">
+                            <div class="modal-user-information-edit-info">
+                              <img
+                                src="../../images/js.png"
+                                alt="Certification Logo"
+                                class="modal-user-information-photo"
+                              />
+                              <div class="modal-details-center">
+                                <div class="modal-details-center-top">
+                                  <div class="modal-details-center-top-head">
+                                    <h4 class="certification-title">Node.js</h4>
+                                    <h5 class="certification-company">
+                                      Javascript.info
+                                    </h5>
+                                    <h5 class="certification-date">
+                                      Issued Jan 2023
+                                    </h5>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div
+                              class="modal-user-information-edit-icon"
+                              id="open-inner-edit-modal-certification"
+                            >
+                              <i class="fa fa-pencil"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="modal-user-information"
+                        id="inner-certification-modal"
+                      >
+                        <div class="all-people-wrapper-head">
+                          <h2>Edit Certifications</h2>
+                          <span
+                            class="close-modal-user-information"
+                            onclick="closeModal_certification()"
+                            id="close-inner-modal-edit-certification"
+                            >&times;</span
+                          >
+                        </div>
+
+                        <hr class="all-people-wrapper-line" />
+
+                        <div class="all-people-wrapper-down">
+                          <h4>* Indicates required</h4>
+
+                          <form>
+                            <div class="user_details">
+                              <div class="input_pox">
+                                <label class="datails">Name : *</label>
+                                <input type="text" required />
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails">Issued by : *</label>
+                                <input type="text" required />
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails">Issue date : *</label>
+                                <div class="select-inputs-wrapper">
+                                  <select
+                                    name="degree"
+                                    class="select-input"
+                                    onblur="this.size=0"
+                                    onchange="this.size=1; this.blur()"
+                                  >
+                                    <option value="" disabled selected>
+                                      Month
+                                    </option>
+                                    <option value="january">January</option>
+                                    <option value="february">February</option>
+                                    <option value="march">March</option>
+                                    <option value="april">April</option>
+                                    <option value="may">May</option>
+                                    <option value="june">June</option>
+                                    <option value="july">July</option>
+                                    <option value="august">August</option>
+                                    <option value="september">September</option>
+                                    <option value="october">October</option>
+                                    <option value="november">November</option>
+                                    <option value="december">December</option>
+                                  </select>
+                                  <select
+                                    name="degree"
+                                    class="select-input"
+                                    onblur="this.size=0"
+                                    onchange="this.size=1; this.blur()"
+                                  >
+                                    <option value="" disabled selected>
+                                      Year
+                                    </option>
+                                    <option value="2020">2017</option>
+                                    <option value="2020">2018</option>
+                                    <option value="2020">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2023">2024</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="input_pox">
+                                <label class="datails">Expiration date :</label>
+                                <div class="select-inputs-wrapper">
+                                  <select
+                                    name="degree"
+                                    class="select-input"
+                                    onblur="this.size=0"
+                                    onchange="this.size=1; this.blur()"
+                                  >
+                                    <option value="" disabled selected>
+                                      Month
+                                    </option>
+                                    <option value="january">January</option>
+                                    <option value="february">February</option>
+                                    <option value="march">March</option>
+                                    <option value="april">April</option>
+                                    <option value="may">May</option>
+                                    <option value="june">June</option>
+                                    <option value="july">July</option>
+                                    <option value="august">August</option>
+                                    <option value="september">September</option>
+                                    <option value="october">October</option>
+                                    <option value="november">November</option>
+                                    <option value="december">December</option>
+                                  </select>
+                                  <select
+                                    name="degree"
+                                    class="select-input"
+                                    onblur="this.size=0"
+                                    onchange="this.size=1; this.blur()"
+                                  >
+                                    <option value="" disabled selected>
+                                      Year
+                                    </option>
+                                    <option value="2020">2017</option>
+                                    <option value="2020">2018</option>
+                                    <option value="2020">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+
+                          <hr class="all-people-wrapper-line" />
+
+                          <div class="modal-user-information-editbtns">
+                            <h4 class="modal-user-information-deletebtn">
+                              Delete Education
+                            </h4>
+                            <div class="modal-user-information-editbtn">
+                              <h4>
+                                <a href="../My account/index.html"
+                                  >Add more +</a
+                                >
+                              </h4>
+                              <button type="button">Save Changes</button>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -7324,7 +8501,6 @@
         showBut = document.getElementsByClassName(
           "user-information-showbtn"
         )[0];
-      console.log(closeModal, modalPeople, showBut);
 
       //close Modal People
 
@@ -7342,20 +8518,22 @@
         }
       };
 
-      // Show Modal Public Edit
+      // Show Modal Education Edit
 
-      let closePublicedit = document.getElementById("close-modal-education")[0],
-        modalPublicedit = document.getElementsByClassName(
+      let closeEducationedit = document.getElementById(
+          "close-modal-education"
+        )[0],
+        modalEducationedit = document.getElementsByClassName(
           "modal-user-information-wrapper"
         )[0],
-        showModal = document.getElementById("education-modal");
+        educationModal = document.getElementById("education-modal");
 
       function closeModal_education() {
-        modalPublicedit.style.display = "none";
+        modalEducationedit.style.display = "none";
       }
 
-      showModal.onclick = function () {
-        modalPublicedit.style.display = "block";
+      educationModal.onclick = function () {
+        modalEducationedit.style.display = "block";
       };
 
       window.onclick = function (e) {
@@ -7364,21 +8542,269 @@
         }
       };
 
-      // open inner modal
+      // open inner modal Education
 
-      let innerOpen = document.querySelectorAll("#open-inner-edit-modal"),
-        innerModal = document.getElementById("inner-edit-modal"),
-        closeInner = document.getElementById("close-inner-modal-edit"),
-        previousModal = document.querySelectorAll("#edit-modal")[0];
+      let innerEducationopen = document.querySelectorAll(
+          "#open-inner-edit-modal-education"
+        ),
+        innerEducationmodal = document.getElementById("inner-education-modal"),
+        closeEducationinner = document.getElementById(
+          "close-inner-modal-edit-education"
+        ),
+        previousEducationmodal = document.getElementById(
+          "edit-modal-education"
+        );
 
-      function closeModal_public() {
-        modalPublicedit.style.display = "none";
+      function closeModal_education() {
+        modalEducationedit.style.display = "none";
       }
 
-      for (var i = 0; i < innerOpen.length; i++) {
-        innerOpen[i].addEventListener("click", function () {
-          innerModal.style.display = "flex";
-          previousModal.style.display = "none";
+      for (var i = 0; i < innerEducationopen.length; i++) {
+        innerEducationopen[i].addEventListener("click", function () {
+          innerEducationmodal.style.display = "flex";
+          previousEducationmodal.style.display = "none";
+        });
+      }
+
+      // Show Modal Experience Edit
+
+      let closeExperienceedit = document.getElementById(
+          "close-modal-experience"
+        )[0],
+        modalExperienceedit = document.getElementsByClassName(
+          "modal-user-information-wrapper"
+        )[1],
+        experienceModal = document.getElementById("experience-modal");
+
+      function closeModal_experience() {
+        modalExperienceedit.style.display = "none";
+      }
+
+      experienceModal.onclick = function () {
+        modalExperienceedit.style.display = "block";
+      };
+
+      window.onclick = function (e) {
+        if (e.target.className === "modal-user-information-wrapper") {
+          e.target.style.display = "none";
+        }
+      };
+
+      // open inner modal Experience
+
+      let innerExperienceopen = document.querySelectorAll(
+          "#open-inner-edit-modal-experience"
+        ),
+        innerExperiencemodal = document.getElementById(
+          "inner-experience-modal"
+        ),
+        closeExperienceinner = document.getElementById(
+          "close-inner-modal-edit-experience"
+        ),
+        previousExperiencemodal = document.querySelectorAll(
+          "#edit-modal-experience"
+        )[0];
+
+      function closeModal_experience() {
+        modalExperienceedit.style.display = "none";
+      }
+
+      for (var i = 0; i < innerExperienceopen.length; i++) {
+        innerExperienceopen[i].addEventListener("click", function () {
+          innerExperiencemodal.style.display = "flex";
+          previousExperiencemodal.style.display = "none";
+        });
+      }
+
+      // Show Modal Skill Edit
+
+      let closeSkilledit = document.getElementById("close-modal-skill")[0],
+        modalSkilledit = document.getElementsByClassName(
+          "modal-user-information-wrapper"
+        )[2],
+        skillModal = document.getElementById("skill-modal");
+
+      function closeModal_skill() {
+        modalSkilledit.style.display = "none";
+      }
+
+      skillModal.onclick = function () {
+        modalSkilledit.style.display = "block";
+      };
+
+      window.onclick = function (e) {
+        if (e.target.className === "modal-user-information-wrapper") {
+          e.target.style.display = "none";
+        }
+      };
+
+      // open inner modal Skill
+
+      let innerSkillopen = document.querySelectorAll(
+          "#open-inner-edit-modal-skill"
+        ),
+        innerSkillmodal = document.getElementById("inner-skill-modal"),
+        closeSkillinner = document.getElementById(
+          "close-inner-modal-edit-skill"
+        ),
+        previousSkillmodal = document.querySelectorAll("#edit-modal-skill")[0];
+
+      function closeModal_skill() {
+        modalSkilledit.style.display = "none";
+      }
+
+      for (var i = 0; i < innerSkillopen.length; i++) {
+        innerSkillopen[i].addEventListener("click", function () {
+          innerSkillmodal.style.display = "flex";
+          previousSkillmodal.style.display = "none";
+        });
+      }
+
+      // Show Modal Language Edit
+
+      let closeLanguageedit = document.getElementById(
+          "close-modal-language"
+        )[0],
+        modalLanguageedit = document.getElementsByClassName(
+          "modal-user-information-wrapper"
+        )[3],
+        languageModal = document.getElementById("language-modal");
+
+      function closeModal_language() {
+        modalLanguageedit.style.display = "none";
+      }
+
+      languageModal.onclick = function () {
+        modalLanguageedit.style.display = "block";
+      };
+
+      window.onclick = function (e) {
+        if (e.target.className === "modal-user-information-wrapper") {
+          e.target.style.display = "none";
+        }
+      };
+
+      // open inner modal Language
+
+      let innerLanguageopen = document.querySelectorAll(
+          "#open-inner-edit-modal-language"
+        ),
+        innerLanguagemodal = document.getElementById("inner-language-modal"),
+        closeLanguageinner = document.getElementById(
+          "close-inner-modal-edit-language"
+        ),
+        previousLanguagemodal = document.querySelectorAll(
+          "#edit-modal-language"
+        )[0];
+
+      function closeModal_language() {
+        modalLanguageedit.style.display = "none";
+      }
+
+      for (var i = 0; i < innerLanguageopen.length; i++) {
+        innerLanguageopen[i].addEventListener("click", function () {
+          innerLanguagemodal.style.display = "flex";
+          previousLanguagemodal.style.display = "none";
+        });
+      }
+
+      // Show Modal Publication Edit
+
+      let closePublicationedit = document.getElementById(
+          "close-modal-publication"
+        )[0],
+        modalPublicationedit = document.getElementsByClassName(
+          "modal-user-information-wrapper"
+        )[4],
+        publicationModal = document.getElementById("publication-modal");
+
+      function closeModal_publication() {
+        modalPublicationedit.style.display = "none";
+      }
+
+      publicationModal.onclick = function () {
+        modalPublicationedit.style.display = "block";
+      };
+
+      window.onclick = function (e) {
+        if (e.target.className === "modal-user-information-wrapper") {
+          e.target.style.display = "none";
+        }
+      };
+
+      // open inner modal publication
+
+      let innerPublicationopen = document.querySelectorAll(
+          "#open-inner-edit-modal-publication"
+        ),
+        innerPublicationmodal = document.getElementById(
+          "inner-publication-modal"
+        ),
+        closePublicationinner = document.getElementById(
+          "close-inner-modal-edit-publication"
+        ),
+        previousPublicationmodal = document.querySelectorAll(
+          "#edit-modal-publication"
+        )[0];
+
+      function closeModal_publication() {
+        modalPublicationedit.style.display = "none";
+      }
+
+      for (var i = 0; i < innerPublicationopen.length; i++) {
+        innerPublicationopen[i].addEventListener("click", function () {
+          innerPublicationmodal.style.display = "flex";
+          previousPublicationmodal.style.display = "none";
+        });
+      }
+
+      // Show Modal Certification Edit
+
+      let closeCertificationedit = document.getElementById(
+          "close-modal-certification"
+        )[0],
+        modalCertificationedit = document.getElementsByClassName(
+          "modal-user-information-wrapper"
+        )[5],
+        certificationModal = document.getElementById("certification-modal");
+
+      function closeModal_certification() {
+        modalCertificationedit.style.display = "none";
+      }
+
+      certificationModal.onclick = function () {
+        modalCertificationedit.style.display = "block";
+      };
+
+      window.onclick = function (e) {
+        if (e.target.className === "modal-user-information-wrapper") {
+          e.target.style.display = "none";
+        }
+      };
+
+      // open inner modal Certification
+
+      let innerCertificationopen = document.querySelectorAll(
+          "#open-inner-edit-modal-certification"
+        ),
+        innerCertificationmodal = document.getElementById(
+          "inner-certification-modal"
+        ),
+        closeCertificationinner = document.getElementById(
+          "close-inner-modal-edit-certification"
+        ),
+        previousCertificationmodal = document.querySelectorAll(
+          "#edit-modal-certification"
+        )[0];
+
+      function closeModal_certification() {
+        modalCertificationedit.style.display = "none";
+      }
+
+      for (var i = 0; i < innerCertificationopen.length; i++) {
+        innerCertificationopen[i].addEventListener("click", function () {
+          innerCertificationmodal.style.display = "flex";
+          previousCertificationmodal.style.display = "none";
         });
       }
     </script>

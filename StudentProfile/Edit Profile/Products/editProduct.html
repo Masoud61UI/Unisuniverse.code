@@ -716,7 +716,7 @@
         margin-top: 12px;
       }
 
-      .row {
+      .row-upload {
         background: var(--color-white);
         margin-bottom: 10px;
         list-style: none;
@@ -727,7 +727,7 @@
         justify-content: space-between;
       }
 
-      .row i {
+      .row-upload i {
         font-size: 28px;
         color: var(--primary-color);
       }
@@ -736,7 +736,7 @@
         font-size: 14px;
       }
 
-      .progress-area .row .content {
+      .progress-area .row-upload .content {
         width: 100%;
         margin-left: 15px;
       }
@@ -763,11 +763,11 @@
         border-radius: inherit;
       }
 
-      .uploaded-area .row .content {
+      .uploaded-area .row-upload .content {
         display: flex;
         align-items: center;
       }
-      .uploaded-area .row .details {
+      .uploaded-area .row-upload .details {
         display: flex;
         margin-left: 15px;
         flex-direction: column;
@@ -1173,7 +1173,7 @@
                   <h4>My Account</h4>
                 </a>
 
-                <a class="side-menu-item-profile checked-tab">
+                <a href="../Products/index.html" class="side-menu-item-profile checked-tab">
                   <div class="side-menu-item-profile-icon">
                     <svg
                       width="22"
@@ -1192,7 +1192,7 @@
                   <h4>Products</h4>
                 </a>
 
-                <a class="side-menu-item-profile">
+                <a href="../Services/index.html" class="side-menu-item-profile">
                   <div class="side-menu-item-profile-icon">
                     <svg
                       width="22"
@@ -1211,7 +1211,7 @@
                   <h4>Services</h4>
                 </a>
 
-                <a class="side-menu-item-profile">
+                <a href="../Message/index.html" class="side-menu-item-profile">
                   <div class="side-menu-item-profile-icon">
                     <i class="fa fa-commenting-o"></i>
                   </div>
@@ -1240,7 +1240,7 @@
 
         <div class="edit-section-wrapper">
           <div class="edit-section-title-add">
-            <h2 class="edit-section-title">My Products</h2>
+            <h2 class="edit-section-title">Edit Product</h2>
             <a href="../Products/newProduct.html">Add Product</a>
           </div>
 
@@ -1297,7 +1297,7 @@
                       <input type="file" class="file-input" hidden />
                     </div>
                     <section class="progress-area">
-                      <li class="row">
+                      <li class="row-upload">
                         <i class="fa fa-file-image-o"></i>
                         <div class="content">
                           <div class="details">
@@ -1311,7 +1311,7 @@
                       </li>
                     </section>
                     <section class="uploaded-area">
-                      <li class="row">
+                      <li class="row-upload">
                         <div class="content">
                           <i class="fa fa-file-image-o"></i>
                           <div class="details">
