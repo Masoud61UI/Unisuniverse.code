@@ -1,0 +1,3397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unisuniverse</title>
+    <script
+      src="http://kit.fontawesome.com/7a4b62b0a4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+          0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        --shadow-medium: 0 13px 30px 0 rgba(0, 0, 0, 0.048),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --color-text-black: #151515;
+        --color-text-grayblack: #636363;
+        --color-text-gray: #c7c7c7;
+        --color-background: #f4fcff;
+        --color-line: #dadada;
+        --color-white: #ffffff;
+        --primary-color: #002754;
+        --secondary-color: #f5aa1c;
+      }
+
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        list-style: none;
+        list-style-type: none;
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      html {
+        font-size: 100%;
+        box-sizing: inherit;
+        scroll-behavior: smooth;
+        height: -webkit-fill-available;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--color-text-black);
+        background-color: var(--color-background);
+      }
+
+      a,
+      button {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background: none;
+        box-shadow: none;
+        font-family: inherit;
+        letter-spacing: 0.5px;
+      }
+
+      select {
+        font-family: inherit;
+      }
+
+      img,
+      video {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+
+      .container {
+        max-width: 82%;
+        height: auto;
+      }
+
+      .mx {
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-family: inherit;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.25;
+        color: var(--primary-color);
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: 1000;
+        margin: 0 auto;
+        box-shadow: var(--shadow-medium);
+        background-color: var(--color-white);
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        -moz-column-gap: 1rem;
+        column-gap: 1rem;
+        row-gap: 2rem;
+        width: 100%;
+        height: 110px;
+        margin: 0 auto;
+      }
+
+      @media screen and (max-width: 992px) {
+        .navbar {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 75%;
+          height: 100%;
+          z-index: 10;
+          opacity: 0;
+          overflow-y: auto;
+          visibility: hidden;
+          box-shadow: var(--shadow-medium);
+          background-color: var(--color-white);
+          transition: all 0.5s ease;
+        }
+        .navbar.active {
+          left: 0rem;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      .menu-item {
+        position: relative;
+        display: inline-block;
+        margin-left: 2.4rem;
+      }
+
+      .resnav {
+        display: none;
+      }
+
+      .menu-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -moz-column-gap: 0.25rem;
+        column-gap: 0.25rem;
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: inherit;
+        cursor: pointer;
+        text-transform: capitalize;
+        color: var(--color-text-black);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .menu-link > i.fa {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--color-text-black);
+        margin-left: 2px;
+      }
+
+      .menu-link:hover {
+        outline: none;
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (min-width: 993px) {
+        .menu-dropdown:hover > .submenu {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+      @media only screen and (max-width: 992px) {
+        .menu {
+          width: 100%;
+          height: auto;
+          padding: 1rem 0;
+        }
+        .menu-item {
+          display: block;
+          margin: 0 auto;
+        }
+        .menu-link {
+          justify-content: space-between;
+          padding: 1rem 2rem;
+        }
+      }
+
+      .submenu {
+        position: absolute;
+        top: 3.2rem;
+        left: -2rem;
+        min-width: 13rem;
+        height: auto;
+        padding: 0 1rem 1rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(1rem);
+        border-radius: 0 0 0.25rem 0.25rem;
+        border-top: 2px solid var(--secondary-color);
+        box-shadow: var(--shadow-medium);
+        background-color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .submenu-item {
+        display: block;
+        margin-top: 0.75rem;
+      }
+
+      .submenu-link {
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: inherit;
+        cursor: pointer;
+        color: var(--color-text-black);
+        transition: all 0.35s ease;
+      }
+      .submenu-link:hover {
+        outline: none;
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (max-width: 992px) {
+        .submenu {
+          position: relative;
+          top: -0.5rem;
+          left: 2.5rem;
+          width: 100%;
+          max-height: 0;
+          padding: 0px;
+          border: none;
+          outline: none;
+          opacity: 1;
+          overflow: hidden;
+          visibility: visible;
+          transform: translateY(0px);
+          box-shadow: none;
+          background: transparent;
+        }
+      }
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-md {
+        width: 172px;
+        height: 49px;
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: inherit;
+        border-radius: 10px;
+        color: var(--color-white);
+        background-color: var(--primary-color);
+        transition: all 0.35s ease;
+      }
+      .btn-md:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .btn > a > i.fa {
+        margin-right: 22px;
+        color: var(--color-text-black);
+        transition: all 0.35s ease;
+      }
+      .btn > a > i.fa:hover {
+        color: var(--secondary-color);
+      }
+
+      .burger {
+        position: relative;
+        display: none;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 1.6rem;
+        height: 1.15rem;
+        opacity: 0;
+        visibility: hidden;
+        background: transparent;
+      }
+      .burger-line {
+        position: absolute;
+        display: block;
+        right: 0;
+        width: 100%;
+        height: 2.1px;
+        opacity: 1;
+        border: none;
+        outline: none;
+        border-radius: 1rem;
+        background: var(--color-text-black);
+      }
+      .burger-line:nth-child(1) {
+        top: 0px;
+      }
+      .burger-line:nth-child(2) {
+        top: 0.5rem;
+        width: 70%;
+      }
+      .burger-line:nth-child(3) {
+        top: 1rem;
+      }
+      @media only screen and (max-width: 992px) {
+        .burger {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+        .btn-md {
+          display: none;
+        }
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 9;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.65);
+      }
+      @media only screen and (max-width: 992px) {
+        .overlay.active {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      /* hero section */
+
+      .breadcrumb {
+        color: #c7c7c7;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 24px 0;
+      }
+
+      .breadcrumb > span {
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (max-width: 450px) {
+        .logo {
+          font-size: 24px;
+        }
+      }
+
+      /* login */
+
+      .modal-cont {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.47);
+        top: 0;
+        left: 0;
+        overflow: auto;
+        z-index: 1400;
+      }
+
+      .modal-box {
+        width: 33%;
+        margin: 105px auto;
+        padding: 24px 30px;
+        background-color: var(--color-white);
+      }
+
+      .modal-box h1 {
+        font-size: 21px;
+        font-weight: 500;
+      }
+
+      .modal-wlc {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--color-line);
+        padding-bottom: 18px;
+        color: var(--color-text-black);
+      }
+
+      .modal-box .close {
+        width: 44px;
+        height: 44px;
+        background-color: var(--color-background);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .modal-box .close:hover,
+      .modal-box .close:focus {
+        color: var(--secondary-color);
+      }
+
+      .useremail,
+      .userpass {
+        margin: 28px 0 7px 0;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+      }
+
+      .email,
+      .password {
+        padding-left: 16px;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .login-box input[type="email"],
+      .login-box input[type="password"] {
+        width: 100%;
+        border: 1px solid var(--color-line);
+        display: block;
+        margin-bottom: 10px;
+        height: 48px;
+        border-radius: 10px;
+        outline: none;
+      }
+
+      .login-box input[type="email"]:focus,
+      .login-box input[type="password"]:focus {
+        border: 1.5px solid var(--primary-color);
+      }
+
+      .rememberlost {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 22px 0 30px 0;
+      }
+
+      .useremail,
+      .userpass,
+      .modal-box .login-button,
+      .modal-box .email,
+      .password {
+        width: 100%;
+        display: block;
+      }
+
+      .checkboxContainer {
+        display: flex;
+        align-items: center;
+      }
+
+      .checkboxContainer label {
+        padding-left: 10px;
+        color: var(--color-text-black);
+        font-weight: 500;
+        font-size: 15px;
+      }
+
+      .checkboxContainer input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+      }
+      .checkbox:checked {
+        accent-color: var(--primary-color);
+      }
+
+      .lostpass {
+        color: var(--secondary-color);
+        font-weight: 500;
+        font-size: 15px;
+      }
+
+      .modal-box .login-button {
+        height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        display: block;
+        width: 100%;
+        color: var(--color-white);
+        background-color: var(--primary-color);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .modal-box .login-button:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .or {
+        position: relative;
+        text-align: center;
+        margin: 22px 0 22px 0;
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .or::before,
+      .or::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 40%;
+        height: 1px;
+        background: var(--color-line);
+      }
+
+      .or::before {
+        left: 0;
+      }
+
+      .or::after {
+        right: 0;
+      }
+
+      .Google {
+        height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        color: var(--primary-color);
+        background-color: transparent;
+        border-radius: 10px;
+        padding-left: 12px;
+        border: 1.5px solid var(--primary-color);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .Google:hover {
+        background-color: var(--secondary-color);
+        border: none;
+        color: var(--color-white);
+      }
+      .Google svg {
+        fill: var(--primary-color);
+        transition: all 0.3s ease-in-out;
+      }
+      .Google:hover svg {
+        fill: var(--color-white);
+      }
+
+      .Google p {
+        width: 100%;
+        margin-right: 26px;
+      }
+
+      .Facebook {
+        height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        color: var(--color-white);
+        background-color: #1778f2;
+        border-radius: 10px;
+        padding-left: 12px;
+        margin-top: 17px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .Facebook:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .Facebook p {
+        width: 100%;
+        margin-right: 26px;
+      }
+
+      .Apple {
+        height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        color: var(--color-white);
+        background-color: var(--color-text-black);
+        border-radius: 10px;
+        padding-left: 12px;
+        margin-top: 17px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .Apple:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .Apple p {
+        width: 100%;
+        margin-right: 26px;
+      }
+
+      .signup-text {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+        text-align: center;
+        margin-top: 22px;
+      }
+
+      .signup-text a {
+        padding-left: 6px;
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .modal-cont {
+        display: none;
+      }
+      .modal-box {
+        animation-name: zoom;
+        animation-duration: 0.7s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease;
+        border: 1px solid #b7b7b7;
+        border-radius: 24px;
+      }
+      @keyframes zoom {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+
+      @media only screen and (max-width: 993px) {
+        .modal-box {
+          width: 55%;
+        }
+      }
+      @media only screen and (max-width: 630px) {
+        .modal-box {
+          width: 82%;
+          padding: 16px 16px;
+        }
+      }
+      @media only screen and (max-width: 435px) {
+        .modal-wlc h1 {
+          font-size: 17px;
+        }
+        .modal-box .close {
+          font-size: 20px;
+          width: 30px;
+          height: 30px;
+        }
+      }
+      @media only screen and (max-width: 374px) {
+        .rememberlost {
+          flex-direction: column;
+        }
+        .checkboxContainer {
+          margin: 8px 0 10px 0;
+        }
+      }
+
+      /* Popup boxs */
+
+      .popup-boxs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 240px;
+      }
+
+      .box {
+        background-color: var(--color-white);
+        padding: 36px 30px 26px 30px;
+        border-radius: 20px;
+      }
+
+      .btn-sm {
+        width: 153px;
+        height: 49px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        border-radius: 10px;
+        margin-top: 34px;
+        font-size: 17px;
+        font-weight: 500;
+        transition: all 0.3s ease-in;
+      }
+      .btn-sm:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .image-box {
+        margin: 0 auto;
+      }
+
+      .popup-boxs {
+        display: none;
+      }
+
+      @media only screen and (max-width: 576px) {
+        .popup-boxs {
+          margin: 100px 0 100px 0;
+        }
+      }
+
+      /* search top */
+
+      .search-wrapper {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        width: 100%;
+      }
+
+      .search-img-top {
+        width: 100%;
+      }
+
+      .search-img {
+        width: inherit;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+
+      .search-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        position: absolute;
+        top: 50px;
+      }
+
+      .search-content-title {
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--color-white);
+        text-align: center;
+        letter-spacing: 0.56px;
+        width: 62%;
+      }
+
+      .search-content-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        position: relative;
+        z-index: 185;
+      }
+
+      .search-content-items-continents {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 18px;
+      }
+
+      .search-content-items-continent {
+        width: 121px;
+        height: 48px;
+        background-color: var(--color-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--color-text-black);
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+      }
+      .search-content-items-continent:hover {
+        background-color: var(--secondary-color);
+        color: var(--color-white);
+      }
+      .active-continent {
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        border: 2px solid var(--color-white);
+      }
+
+      .search-content-items-box-wrapper {
+        display: flex;
+        padding: 26px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        border-radius: 24px;
+        background: var(--color-white);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .search-content-items-box {
+        display: flex;
+        align-items: flex-end;
+        gap: 22px;
+      }
+
+      .search-content-items-box-inputs {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .items-box-input-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .items-box-input-label {
+        color: var(--color-text-grayblack);
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .items-box-input {
+        display: flex;
+        padding: 14px 16px;
+        align-items: center;
+        justify-content: space-between;
+        width: 232px;
+        border-radius: 8px;
+        border: 1px solid var(--color-line);
+        cursor: pointer;
+      }
+
+      .items-box-input-placeholder {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-text-gray);
+      }
+
+      .datails {
+        display: block;
+        font-weight: 500;
+        font-size: 16px;
+        margin-bottom: 8px;
+        color: var(--color-text-grayblack);
+      }
+
+      #select-input {
+        height: 54px;
+        width: 244px;
+        outline: none;
+        border-radius: 8px;
+        font-weight: 500;
+        border: 1px solid var(--color-line);
+        padding-left: 12px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .input_pox input:focus,
+      .input_pox input:valid {
+        border-color: var(--primary-color);
+      }
+
+      .search-content-items-box-btns {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .search-content-items-box-filter {
+        display: flex;
+        width: 54px;
+        height: 54px;
+        font-size: 16px;
+        color: var(--color-text-grayblack);
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        background: var(--color-background);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .search-content-items-box-filter:hover {
+        opacity: 0.75;
+      }
+      .search-content-items-box-filter:focus {
+        background: var(--secondary-color);
+        color: var(--color-white);
+      }
+
+      .search-content-items-box-btn {
+        display: flex;
+        width: 54px;
+        height: 54px;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-white);
+        border-radius: 8px;
+        background-color: var(--primary-color);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .search-content-items-box-btn:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .university-list-wrapper {
+        padding-top: 160px;
+        display: inline-flex;
+        align-items: flex-start;
+        gap: 36px;
+        width: 100%;
+      }
+
+      .university-list-view {
+        flex-basis: 56%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 36px;
+      }
+
+      .university-list-view-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        position: relative;
+      }
+
+      .university-list-view-title {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .university-list-view-title > h2 {
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .university-list-view-title > h5 {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .university-list-view-filters {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .university-list-view-filter {
+        width: 49px;
+        height: 49px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        color: var(--color-text-grayblack);
+        border-radius: 8px;
+        background-color: var(--color-white);
+        border: 1px solid var(--color-line);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .university-list-view-filter:hover,
+      .item-top-sort-by-box:hover {
+        opacity: 0.8;
+      }
+      .university-list-view-filter:focus {
+        background-color: var(--secondary-color);
+        color: var(--color-white);
+      }
+
+      .item-top-sort-by-box {
+        transition: all 0.3s ease-in-out;
+      }
+
+      .selection,
+      .selection-srot {
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        cursor: pointer;
+        outline: none;
+        font-weight: 500;
+        padding: 14px 50px 14px 12px;
+        border: 1px solid var(--color-line);
+        font-size: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .selection,
+      .selection-srot {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+      }
+      .selection {
+        background-image: linear-gradient(45deg, transparent 50%, #151515 50%),
+          linear-gradient(135deg, #151515 50%, transparent 50%),
+          linear-gradient(to right, #ccc, #ccc);
+        background-position: calc(100% - 20px) calc(1em + 9px),
+          calc(100% - 15px) calc(1em + 9px), calc(100% - 2.5em);
+        background-size: 5px 5px, 5px 5px, 1px 0em;
+        background-repeat: no-repeat;
+      }
+
+      .selection-srot {
+        background-image: linear-gradient(45deg, transparent 50%, #151515 50%),
+          linear-gradient(135deg, #151515 50%, transparent 50%),
+          linear-gradient(to right, #ccc, #ccc);
+        background-position: calc(100% - 20px) calc(1em + 6px),
+          calc(100% - 15px) calc(1em + 6px), calc(100% - 2.5em);
+        background-size: 5px 5px, 5px 5px, 1px 0em;
+        background-repeat: no-repeat;
+      }
+
+      .input-arrow-icon {
+        font-size: 15px;
+        color: var(--color-text-black);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 14px;
+        height: 14px;
+      }
+
+      .country-input-clicked-wrapper {
+        display: flex;
+        width: 232px;
+        padding: 18px;
+        align-items: flex-start;
+        border-radius: 8px;
+        border: 1px solid var(--color-line);
+        background: var(--color-white);
+        box-shadow: var(--shadow-medium);
+        position: absolute;
+        top: 186px;
+        left: 26px;
+        z-index: 100;
+        display: none;
+      }
+
+      .field-input-clicked-wrapper {
+        display: flex;
+        width: 232px;
+        padding: 18px;
+        align-items: flex-start;
+        border-radius: 8px;
+        border: 1px solid var(--color-line);
+        background: var(--color-white);
+        box-shadow: var(--shadow-medium);
+        position: absolute;
+        top: 186px;
+        right: 168px;
+        z-index: 100;
+        display: none;
+      }
+
+      .country-input-clicked,
+      .field-input-clicked {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .country,
+      .field {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .country > h4,
+      .field > h4 {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--color-text-black);
+      }
+
+      .checkbox {
+        width: 15px;
+        height: 15px;
+      }
+      .checkbox:checked {
+        accent-color: var(--primary-color);
+      }
+
+      .university-list-view-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 34px;
+        width: 100%;
+      }
+
+      .university-box-wrapper {
+        display: flex;
+        padding: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 24px;
+        background: var(--color-white);
+        box-shadow: var(--shadow-medium);
+        width: inherit;
+      }
+
+      .university-box {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: inherit;
+      }
+
+      .university-box-items {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .university-box-items-img {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+      }
+
+      .university-box-img {
+        width: 234px;
+        height: 226px;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+
+      .wishlist-icon {
+        width: 30px;
+        height: 30px;
+        background-color: rgba(21, 21, 21, 0.4);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        font-size: 15px;
+        color: var(--color-white);
+        left: 8px;
+        top: 8px;
+        cursor: pointer;
+      }
+
+      .university-box-items-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .university-box-name {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .box-items-content-location {
+        display: flex;
+        align-items: flex-start;
+        gap: 5px;
+      }
+
+      .box-items-content-icon {
+        width: 18px;
+        height: 18px;
+      }
+
+      .box-items-content-location > h5 {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .university-box-course {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .university-box-course > span {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .box-items-content-infos {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .box-items-content-info {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .box-items-content-icon {
+        width: 16px;
+        height: 16px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      .box-items-content-info > h5 {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--color-text-black);
+      }
+
+      .box-items-content-info > h5 > span {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--secondary-color);
+      }
+
+      .university-box-share {
+        width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 12px 2px;
+        cursor: pointer;
+      }
+
+      .pagination-wrapper {
+        width: 100%;
+        margin-top: 50px;
+      }
+
+      #pagination {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      #pagination li {
+        display: inline;
+      }
+
+      #pagination li a {
+        display: inline-block;
+        text-decoration: none;
+        padding: 5px 12px;
+        color: var(--color-text-black);
+      }
+
+      #pagination li a {
+        border-radius: 5px;
+        -webkit-transition: background-color 0.3s;
+        transition: background-color 0.3s;
+      }
+
+      #pagination li a.active {
+        background-color: var(--primary-color);
+        color: var(--color-white);
+      }
+
+      #pagination li a:hover:not(.active) {
+        background-color: var(--secondary-color);
+        color: var(--color-white);
+      }
+
+      .university-map-view {
+        flex-basis: 44%;
+        position: sticky;
+        top: 0;
+      }
+
+      #map {
+        height: 500px;
+        width: 100%;
+      }
+
+      /* filter search box */ 
+
+      .filter-btn-clicked-wrapper {
+        display: inline-flex;
+        padding: 26px;
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 24px;
+        border: 1.5px solid var(--color-line);
+        background: var(--color-white);
+        box-shadow: var(--shadow-medium);
+        width: 90%;
+        display: none;
+      }
+
+      .filter-btn-clicked {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 26px;
+        width: 100%;
+      }
+
+      .filter-btn-clicked-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .filter-btn-clicked-inputs {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 42px;
+        width: 100%;
+      }
+
+      .filter-btn-clicked-inputs > hr {
+        width: 100%;
+        border: none;
+        height: 1px;
+        background-color: var(--color-line);
+      }
+
+      .filter-btn-clicked-input {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        width: 100%;
+      }
+
+      .filter-btn-clicked-input-main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: 20px;
+      }
+
+      .filter-btn-clicked-input-other {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      #select-input-language {
+        height: 54px;
+        width: 100%;
+        outline: none;
+        border-radius: 8px;
+        font-weight: 500;
+        border: 1px solid var(--color-line);
+        padding-left: 12px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .input-score {
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .input-score > select {
+        width: 100%;
+      }
+
+      .input-score:hover, #select-input-language:hover {
+        opacity: 0.8;
+      }
+
+      /* filter uni list */ 
+
+      .filter-unibtn-clicked-wrapper {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        padding: 28px;
+        border-radius: 24px;
+        border: 1.5px solid var(--color-line);
+        background: var(--color-white);
+        box-shadow: var(--shadow-medium);
+        z-index: 99;
+        display: none;
+      }
+
+      .filter-unibtn-clicked {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+        width: 100%;
+      }
+
+      .wf {
+        width: 100%;
+      }
+
+      .toggle-display {
+        display: flex;
+      }
+
+      @media only screen and (min-width: 1700px) {
+        .search-content {
+          top: 80px;
+        }
+      }
+
+      @media only screen and (max-width: 1142px) {
+        .search-content-items-box {
+          flex-direction: column;
+        }
+        .university-list-wrapper {
+          gap: 80px;
+        }
+        .search-content-items-box-btns {
+          width: 100%;
+        }
+        .search-content-items-box-btn {
+          width: 91%;
+        }
+        .university-list-wrapper {
+          padding-top: 300px;
+        }
+        .field-input-clicked-wrapper {
+          right: 26px;
+        }
+        .university-list-wrapper {
+          flex-direction: column;
+        }
+        .university-map-view,
+        .university-list-view {
+          width: 100%;
+          flex-basis: 100%;
+        }
+        .filter-btn-clicked-input-other {
+          flex-wrap: wrap;
+        }
+      }
+
+      @media only screen and (max-width: 992px) {
+        .search-content {
+          top: 30px;
+          gap: 30px;
+        }
+        .search-content-items-box-wrapper {
+          width: 100%;
+        }
+        .search-content-items-box-inputs {
+          flex-direction: column;
+        }
+        .search-content-items-box,
+        .search-content-items-box-inputs,
+        .items-box-input-wrapper,
+        .items-box-input,
+        .input_pox,
+        #select-input {
+          width: inherit;
+        }
+        .search-content-title {
+          font-size: 22px;
+        }
+        .university-list-wrapper {
+          padding-top: 460px;
+        }
+        .country-input-clicked-wrapper {
+          width: 290px;
+        }
+        .field-input-clicked-wrapper {
+          width: 290px;
+          top: 390px;
+          right: 26px;
+        }
+        .search-content-items-continents {
+          flex-wrap: wrap;
+        }
+        .search-img-top,
+        .search-img {
+          height: 350px;
+        }
+      }
+
+      @media only screen and (max-width: 826px) {
+        .country-input-clicked-wrapper {
+          top: 250px;
+        }
+        .field-input-clicked-wrapper {
+          top: 450px;
+        }
+      }
+
+      @media only screen and (max-width: 726px) {
+        .university-list-view-top {
+          flex-direction: column;
+          gap: 20px;
+          align-items: flex-start;
+        }
+        .university-list-view-filters {
+          margin-left: auto;
+        }
+        .search-content-title {
+          width: 88%;
+        }
+        .filter-unibtn-clicked-wrapper {
+          top: 142px;
+        }
+      }
+
+      @media only screen and (max-width: 580px) {
+        .university-box {
+          flex-direction: column;
+          align-items: flex-end;
+        }
+        .university-box-items {
+          flex-direction: column;
+          width: 100%;
+          align-items: flex-start;
+        }
+        .university-box-items-img {
+          width: inherit;
+        }
+        .university-box-img {
+          width: 100%;
+        }
+        .filter-btn-clicked-input-main {
+          flex-wrap: wrap;
+        }
+        .filter-btn-clicked-wrapper {
+          width: 100%;
+        }
+      }
+
+      @media only screen and (max-width: 450px) {
+        .country-input-clicked-wrapper {
+          top: 318px;
+        }
+        .field-input-clicked-wrapper {
+          top: 518px;
+        }
+        .country > h4,
+        .field > h4 {
+          font-size: 14px;
+        }
+        .country-input-clicked-wrapper,
+        .field-input-clicked-wrapper {
+          width: 210px;
+        }
+        .search-content-items-box-btns {
+          justify-content: space-between;
+        }
+        .search-content-items-box-btn {
+          width: 72%;
+        }
+        .filter-unibtn-clicked-wrapper {
+          padding: 18px;
+        }
+      }
+
+      @media only screen and (max-width: 370px) {
+        .search-content-title {
+          font-size: 18px;
+        }
+        .selection,
+        .selection-srot {
+          font-size: 14px;
+        }
+        .university-list-view-title > h2 {
+          font-size: 20px;
+        }
+        .university-list-view-title > h5 {
+          font-size: 12px;
+        }
+        #pagination li a {
+          padding: 2px 8px;
+          font-size: 13px;
+        }
+        .filter-btn-clicked-title {
+          font-size: 18px;
+        }
+      }
+
+      /* footer */
+
+      .col-6 {
+        width: 100%;
+        text-align: center;
+      }
+
+      .col-3 > h4 {
+        padding: 20px 0 20px 0;
+      }
+
+      .desc a {
+        display: flex;
+        align-items: center;
+      }
+
+      .desc a > h2 {
+        font-size: 20px;
+        margin-left: 10px;
+        font-weight: 600;
+      }
+
+      .desc > p {
+        margin-top: 10px;
+        font-size: 17px;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+        width: 85%;
+      }
+
+      .row-fot {
+        border-bottom: 1px solid #dadada;
+        border-top: 1px solid #dadada;
+        margin: 7em 0 2em 0;
+        padding: 2.5em 0 2.5em 0;
+      }
+
+      footer .row {
+        position: relative;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        grid-gap: 30px;
+        align-items: center;
+      }
+
+      footer ul {
+        padding: 0;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+
+      footer ul li {
+        list-style-type: none;
+        padding: 0;
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        line-height: 2;
+      }
+
+      .footer-cat-links a {
+        color: var(--color-text-grayblack);
+        font-size: 17px;
+        font-weight: 500;
+        text-decoration: none;
+        position: relative;
+      }
+
+      .footer-cat-links.active > li a {
+        pointer-events: auto;
+      }
+
+      .footer-cat-links a:after {
+        top: 21px;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        width: 0;
+        background: var(--secondary-color);
+        -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      }
+
+      .footer-cat-links a:hover:after,
+      .footer-cat-links a:focus:after {
+        width: 100%;
+        left: 0;
+      }
+
+      .social-links {
+        margin-top: 65px;
+      }
+
+      .social-links a {
+        color: var(--color-text-grayblack);
+        font-size: 20px;
+        border: 1px solid;
+        border-radius: 20px;
+        padding: 6px;
+        -webkit-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+      }
+
+      .social-links a:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      .social-links a:hover,
+      .social-links a:focus {
+        background-color: var(--secondary-color);
+        color: var(--color-white);
+      }
+
+      .social-links a i {
+        width: 25px;
+        height: 25px;
+        text-align: center;
+      }
+
+      .copyowner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--color-text-gray);
+        font-size: 14px;
+        padding-bottom: 30px;
+      }
+
+      .contact {
+        padding-bottom: 5px;
+      }
+
+      .contact > ul > li {
+        display: flex;
+      }
+
+      .contact > ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 6px;
+      }
+
+      .lineheightfot {
+        line-height: 1.5;
+        margin-left: 12px;
+      }
+
+      .iconfo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: var(--secondary-color);
+      }
+
+      .Emailfot {
+        padding-top: 20px;
+      }
+
+      @media only screen and (max-width: 992px) {
+        footer .row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media only screen and (max-width: 576px) {
+        footer .row {
+          display: block;
+        }
+        .col-3 {
+          margin-bottom: 28px;
+        }
+      }
+
+      @media only screen and (max-width: 450px) {
+        .accordion-title {
+          font-size: 18px;
+        }
+        .accordion .accordion-content p {
+          font-size: 14px;
+        }
+        .copyowner {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <section class="wrapper container">
+        <a href="./index.html" class="logo">Unisuniverse</a>
+        <span class="overlay"></span>
+        <nav class="navbar" id="navbar">
+          <ul class="menu" id="menu">
+            <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Students</a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Academics</a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Universities</a>
+            </li>
+            <li class="menu-item menu-dropdown">
+              <span class="menu-link" data-toggle="submenu"
+                >Our Services<i class="fa fa-angle-down"></i
+              ></span>
+              <ul class="submenu">
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item resnav">
+              <a href="#" class="menu-link" id="btn-md">Sign Up / Log In</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="btn">
+          <a href="#"><i class="fa fa-search"></i></a>
+          <div class="burger" id="burger">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </div>
+          <button class="btn-md" id="test">Sign Up / Log In</button>
+          <div class="modal-cont">
+            <div class="modal-box">
+              <div class="modal-wlc">
+                <h1>Welcome to Unisuniverse</h1>
+                <span class="close">&times;</span>
+              </div>
+              <form action="" class="login-box">
+                <label for="useremail" class="useremail">Email</label>
+                <input
+                  type="email"
+                  class="email"
+                  placeholder="Enter Your Email"
+                  required
+                />
+                <label for="Password" class="userpass">Password</label>
+                <input
+                  type="password"
+                  class="password"
+                  placeholder="Enter Your Password"
+                  required
+                />
+                <div class="rememberlost">
+                  <div class="checkboxContainer">
+                    <input type="checkbox" id="rememberme" class="checkbox" />
+                    <label for="RememberMe">Remember me </label>
+                  </div>
+                  <a href="#" class="lostpass">Lost your password?</a>
+                </div>
+                <button class="login-button">Login</button>
+                <div class="or">OR</div>
+                <button class="Google">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_24_2365)">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M10.9994 5.04166C9.87998 5.04191 8.78332 5.35747 7.83501 5.95219C6.8867 6.54691 6.1251 7.39674 5.63746 8.4043C5.14981 9.41187 4.95586 10.5364 5.07781 11.6491C5.19976 12.7618 5.63268 13.8177 6.32698 14.6957C7.02129 15.5737 7.94888 16.2384 9.00349 16.6136C10.0581 16.9888 11.1971 17.0594 12.2899 16.8172C13.3828 16.575 14.3853 16.0298 15.1826 15.2442C15.98 14.4585 16.5399 13.4641 16.7982 12.375H11.916C11.5513 12.375 11.2016 12.2301 10.9437 11.9723C10.6859 11.7144 10.541 11.3647 10.541 11C10.541 10.6353 10.6859 10.2856 10.9437 10.0277C11.2016 9.76986 11.5513 9.62499 11.916 9.62499H18.3327C18.6974 9.62499 19.0471 9.76986 19.305 10.0277C19.5628 10.2856 19.7077 10.6353 19.7077 11C19.7077 13.0137 19.0098 14.9651 17.7329 16.5222C16.4559 18.0792 14.6789 19.1456 12.7041 19.5398C10.7294 19.934 8.67908 19.6317 6.90219 18.6843C5.1253 17.7368 3.73165 16.2029 2.95849 14.3436C2.18533 12.4842 2.08043 10.4144 2.66166 8.48641C3.24289 6.55843 4.47432 4.89146 6.14633 3.76926C7.81834 2.64706 9.82758 2.13899 11.832 2.33154C13.8365 2.52409 15.7123 3.40536 17.1401 4.82533C17.2681 4.95269 17.3698 5.10402 17.4393 5.27067C17.5089 5.43733 17.5449 5.61605 17.5454 5.79664C17.5459 5.97722 17.5107 6.15613 17.4421 6.32314C17.3734 6.49016 17.2725 6.64201 17.1451 6.77003C17.0178 6.89806 16.8665 6.99974 16.6998 7.06928C16.5331 7.13882 16.3544 7.17485 16.1738 7.17532C15.8091 7.17626 15.459 7.03229 15.2004 6.77508C14.6484 6.22434 13.9932 5.78779 13.2724 5.49036C12.5515 5.19293 11.7791 5.04046 10.9994 5.04166Z"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_24_2365">
+                        <rect width="22" height="22" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <p>Continue Google</p>
+                </button>
+                <button class="Facebook">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.99935 1.69995C5.41602 1.69995 1.66602 5.44162 1.66602 10.05C1.66602 14.2166 4.71602 17.6749 8.69935 18.2999V12.4666H6.58268V10.05H8.69935V8.20828C8.69935 6.11662 9.94102 4.96662 11.8493 4.96662C12.7577 4.96662 13.7077 5.12495 13.7077 5.12495V7.18328H12.6577C11.6243 7.18328 11.2994 7.82495 11.2994 8.48328V10.05H13.616L13.241 12.4666H11.2994V18.2999C13.2631 17.9898 15.0512 16.9879 16.341 15.475C17.6307 13.9621 18.3371 12.038 18.3327 10.05C18.3327 5.44162 14.5827 1.69995 9.99935 1.69995Z"
+                      fill="white"
+                    />
+                  </svg>
+                  <p>Continue Facebook</p>
+                </button>
+                <button class="Apple">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.0492 20.28C16.0692 21.23 14.9992 21.08 13.9692 20.63C12.8792 20.17 11.8792 20.15 10.7292 20.63C9.28919 21.25 8.52919 21.07 7.66919 20.28C2.78919 15.25 3.50919 7.59 9.04919 7.31C10.3992 7.38 11.3392 8.05 12.1292 8.11C13.3092 7.87 14.4392 7.18 15.6992 7.27C17.2092 7.39 18.3492 7.99 19.0992 9.07C15.9792 10.94 16.7192 15.05 19.5792 16.2C19.0092 17.7 18.2692 19.19 17.0392 20.29L17.0492 20.28ZM12.0292 7.25C11.8792 5.02 13.6892 3.18 15.7692 3C16.0592 5.58 13.4292 7.5 12.0292 7.25Z"
+                      fill="white"
+                    />
+                  </svg>
+                  <p>Continue Apple</p>
+                </button>
+                <p class="signup-text">
+                  Don't you have an account?<a href="#" class="new-acc"
+                    >Create an account.</a
+                  >
+                </p>
+              </form>
+            </div>
+            <div class="popup-boxs">
+              <div class="box">
+                <img
+                  class="image-box"
+                  src="../../images/student popup.png"
+                  alt="Student Image"
+                />
+                <a href="../../Signup/Student/index.html" class="btn-sm"
+                  >Student</a
+                >
+              </div>
+              <div class="box">
+                <img
+                  class="image-box"
+                  src="../../images/Academic popup.png"
+                  alt="Academic Image"
+                />
+                <a href="../../Signup/Academic/index.html" class="btn-sm"
+                  >Academic</a
+                >
+              </div>
+              <div class="box">
+                <img
+                  class="image-box"
+                  src="../../images/Recruiter popup.png"
+                  alt="Recruiter Image"
+                />
+                <a href="../../Signup/Recruiter/index.html" class="btn-sm"
+                  >Recruiter</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <div class="mx container">
+      <p class="breadcrumb">Home / <span>Search</span></p>
+    </div>
+
+    <main>
+      <div class="container mx">
+        <section class="search-wrapper">
+          <div class="search-img-top">
+            <img
+              src="../images/Search Background Photo.png"
+              alt="Search Photo"
+              class="search-img"
+            />
+          </div>
+
+          <div class="search-content">
+            <h2 class="search-content-title">
+              Search your desired continent, country, degree and field to study
+            </h2>
+
+            <div class="search-content-items">
+              <div class="search-content-items-continents">
+                <button class="search-content-items-continent">Europe</button>
+
+                <button class="search-content-items-continent">America</button>
+
+                <button class="search-content-items-continent">Asia</button>
+
+                <button class="search-content-items-continent">
+                  Australia
+                </button>
+
+                <button class="search-content-items-continent">Africa</button>
+              </div>
+
+              <div class="search-content-items-box-wrapper">
+                <div class="search-content-items-box">
+                  <div class="search-content-items-box-inputs">
+                    <div class="items-box-input-wrapper">
+                      <h3 class="items-box-input-label">Country</h3>
+                      <div class="items-box-input" id="country">
+                        <h3 class="items-box-input-placeholder">
+                          Select country
+                        </h3>
+                        <div class="input-arrow-icon">
+                          <i class="fa fa-caret-down"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="items-box-input-wrapper">
+                      <div class="input_pox">
+                        <label class="datails">Degree</label>
+                        <select
+                          name="degree"
+                          class="selection"
+                          onblur="this.size=0"
+                          onchange="this.size=1; this.blur()"
+                          id="select-input"
+                        >
+                          <option value="bachelor">Bachelor</option>
+                          <option value="m.sc.">M.SC.</option>
+                          <option value="mphil">Mphil</option>
+                          <option value="doctorate">Doctorate</option>
+                          <option value="ph.d.">Ph.D.</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="items-box-input-wrapper">
+                      <h3 class="items-box-input-label">Field</h3>
+                      <div class="items-box-input" id="field">
+                        <h3 class="items-box-input-placeholder">
+                          Select field
+                        </h3>
+                        <div class="input-arrow-icon">
+                          <i class="fa fa-caret-down"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="search-content-items-box-btns">
+                    <button class="search-content-items-box-filter" id="filter-searchbox">
+                      <i class="fa fa-filter"></i>
+                    </button>
+                    <div class="search-content-items-box-btn">
+                      <i class="fa fa-search"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="country-input-clicked-wrapper">
+                <div class="country-input-clicked">
+                  <div class="country">
+                    <input class="checkbox" type="checkbox" />
+                    <h4>Germany</h4>
+                  </div>
+                  <div class="country">
+                    <input class="checkbox" type="checkbox" />
+                    <h4>New Zealand</h4>
+                  </div>
+                  <div class="country">
+                    <input class="checkbox" type="checkbox" />
+                    <h4>France</h4>
+                  </div>
+                  <div class="country">
+                    <input class="checkbox" type="checkbox" />
+                    <h4>Portugal</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field-input-clicked-wrapper">
+                <div class="field-input-clicked">
+                  <div class="field">
+                    <input class="checkbox" type="checkbox" />
+                    <h4>Electrical Engineering</h4>
+                  </div>
+                  <div class="field">
+                    <input class="checkbox" type="checkbox" />
+                    <h4>Computer Engineering</h4>
+                  </div>
+                  <div class="field">
+                    <input class="checkbox" type="checkbox" />
+                    <h4>Medical</h4>
+                  </div>
+                  <div class="field">
+                    <input class="checkbox" type="checkbox" />
+                    <h4>Management</h4>
+                  </div>
+                  <div class="field">
+                    <input class="checkbox" type="checkbox" />
+                    <h4>Pharmacology</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="filter-btn-clicked-wrapper">
+                <div class="filter-btn-clicked">
+                  <h3 class="filter-btn-clicked-title">Language skills</h3>
+                  <div class="filter-btn-clicked-inputs">
+                    <div class="filter-btn-clicked-input">
+                      <div class="filter-btn-clicked-input-main">
+                        <div class="input_pox wf">
+                          <label class="datails">First Language :</label>
+                          <select
+                            name="Language"
+                            class="selection"
+                            onblur="this.size=0"
+                            onchange="this.size=1; this.blur()"
+                            id="select-input-language"
+                          >
+                            <option disabled selected >Select your desired language(s)</option>
+                            <option value="english">English</option>
+                            <option value="german">German</option>
+                            <option value="french">French</option>
+                            <option value="spanish">Spanish</option>
+                            <option value="italian">Italian</option>
+                          </select>
+                        </div>
+                        <div class="input_pox wf">
+                          <label class="datails">Type Of Certificate :</label>
+                          <select
+                            name="Certificate"
+                            class="selection"
+                            onblur="this.size=0"
+                            onchange="this.size=1; this.blur()"
+                            id="select-input-language"
+                          >
+                            <option value="ielts">Ielts</option>
+                            <option value="toefl">Toefl</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="filter-btn-clicked-input-other">
+                        <div class="input-score">
+                          <select
+                            name="sort"
+                            class="selection-srot"
+                            onblur="this.size=0"
+                            onchange="this.size=1; this.blur()"
+                          >
+                            <option disabled selected>Reading Score</option>
+                            <option value="0 - 31">
+                              0 - 31
+                            </option>
+                            <option value="32 - 34">
+                              32 - 34
+                            </option>
+                            <option value="35 - 45">
+                              35 - 45
+                            </option>
+                            <option value="46 - 59">
+                              46 - 59
+                            </option>
+                            <option value="60 - 78">
+                              60 - 78
+                            </option>
+                          </select>
+                        </div>
+                        <div class="input-score">
+                          <select
+                            name="sort"
+                            class="selection-srot"
+                            onblur="this.size=0"
+                            onchange="this.size=1; this.blur()"
+                          >
+                            <option disabled selected>Listening Score</option>
+                            <option value="0 - 31">
+                              0 - 31
+                            </option>
+                            <option value="32 - 34">
+                              32 - 34
+                            </option>
+                            <option value="35 - 45">
+                              35 - 45
+                            </option>
+                            <option value="46 - 59">
+                              46 - 59
+                            </option>
+                            <option value="60 - 78">
+                              60 - 78
+                            </option>
+                          </select>
+                        </div>
+                        <div class="input-score">
+                          <select
+                            name="sort"
+                            class="selection-srot"
+                            onblur="this.size=0"
+                            onchange="this.size=1; this.blur()"
+                          >
+                            <option disabled selected>Writing Score</option>
+                            <option value="0 - 31">
+                              0 - 31
+                            </option>
+                            <option value="32 - 34">
+                              32 - 34
+                            </option>
+                            <option value="35 - 45">
+                              35 - 45
+                            </option>
+                            <option value="46 - 59">
+                              46 - 59
+                            </option>
+                            <option value="60 - 78">
+                              60 - 78
+                            </option>
+                          </select>
+                        </div>
+                        <div class="input-score">
+                          <select
+                            name="sort"
+                            class="selection-srot"
+                            onblur="this.size=0"
+                            onchange="this.size=1; this.blur()"
+                          >
+                            <option disabled selected>Speaking Score</option>
+                            <option value="0 - 31">
+                              0 - 31
+                            </option>
+                            <option value="32 - 34">
+                              32 - 34
+                            </option>
+                            <option value="35 - 45">
+                              35 - 45
+                            </option>
+                            <option value="46 - 59">
+                              46 - 59
+                            </option>
+                            <option value="60 - 78">
+                              60 - 78
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <hr>
+                    
+                    <div class="filter-btn-clicked-input">
+                      <div class="filter-btn-clicked-input-main">
+                        <div class="input_pox wf">
+                          <label class="datails">Second Language :</label>
+                          <select
+                            name="Language"
+                            class="selection"
+                            onblur="this.size=0"
+                            onchange="this.size=1; this.blur()"
+                            id="select-input-language"
+                          >
+                            <option disabled selected >Select your desired language(s)</option>
+                            <option value="english">English</option>
+                            <option value="german">German</option>
+                            <option value="french">French</option>
+                            <option value="spanish">Spanish</option>
+                            <option value="italian">Italian</option>
+                          </select>
+                        </div>
+                        <div class="input_pox wf">
+                          <label class="datails">Type Of Certificate :</label>
+                          <select
+                            name="Certificate"
+                            class="selection"
+                            onblur="this.size=0"
+                            onchange="this.size=1; this.blur()"
+                            id="select-input-language"
+                          >
+                            <option value="ielts">Ielts</option>
+                            <option value="toefl">Toefl</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="filter-btn-clicked-input-other">
+                        <div class="input-score">
+                          <select
+                            name="sort"
+                            class="selection-srot"
+                            onblur="this.size=0"
+                            onchange="this.size=1; this.blur()"
+                          >
+                            <option disabled selected>Reading Score</option>
+                            <option value="0 - 31">
+                              0 - 31
+                            </option>
+                            <option value="32 - 34">
+                              32 - 34
+                            </option>
+                            <option value="35 - 45">
+                              35 - 45
+                            </option>
+                            <option value="46 - 59">
+                              46 - 59
+                            </option>
+                            <option value="60 - 78">
+                              60 - 78
+                            </option>
+                          </select>
+                        </div>
+                        <div class="input-score">
+                          <select
+                            name="sort"
+                            class="selection-srot"
+                            onblur="this.size=0"
+                            onchange="this.size=1; this.blur()"
+                          >
+                            <option disabled selected>Listening Score</option>
+                            <option value="0 - 31">
+                              0 - 31
+                            </option>
+                            <option value="32 - 34">
+                              32 - 34
+                            </option>
+                            <option value="35 - 45">
+                              35 - 45
+                            </option>
+                            <option value="46 - 59">
+                              46 - 59
+                            </option>
+                            <option value="60 - 78">
+                              60 - 78
+                            </option>
+                          </select>
+                        </div>
+                        <div class="input-score">
+                          <select
+                            name="sort"
+                            class="selection-srot"
+                            onblur="this.size=0"
+                            onchange="this.size=1; this.blur()"
+                          >
+                            <option disabled selected>Writing Score</option>
+                            <option value="0 - 31">
+                              0 - 31
+                            </option>
+                            <option value="32 - 34">
+                              32 - 34
+                            </option>
+                            <option value="35 - 45">
+                              35 - 45
+                            </option>
+                            <option value="46 - 59">
+                              46 - 59
+                            </option>
+                            <option value="60 - 78">
+                              60 - 78
+                            </option>
+                          </select>
+                        </div>
+                        <div class="input-score">
+                          <select
+                            name="sort"
+                            class="selection-srot"
+                            onblur="this.size=0"
+                            onchange="this.size=1; this.blur()"
+                          >
+                            <option disabled selected>Speaking Score</option>
+                            <option value="0 - 31">
+                              0 - 31
+                            </option>
+                            <option value="32 - 34">
+                              32 - 34
+                            </option>
+                            <option value="35 - 45">
+                              35 - 45
+                            </option>
+                            <option value="46 - 59">
+                              46 - 59
+                            </option>
+                            <option value="60 - 78">
+                              60 - 78
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="university-list-wrapper">
+          <div class="university-list-view">
+            <div class="university-list-view-top">
+              <div class="university-list-view-title">
+                <h2>University Listing</h2>
+                <h5>There are currently 814 Universities</h5>
+              </div>
+
+              <div class="university-list-view-filters">
+                <button class="university-list-view-filter" id="filter-university">
+                  <i class="fa fa-filter"></i>
+                </button>
+                <div class="item-top-sort-by-box">
+                  <select
+                    name="sort"
+                    class="selection-srot"
+                    onblur="this.size=0"
+                    onchange="this.size=1; this.blur()"
+                  >
+                    <option disabled selected>Tuition fee order</option>
+                    <option value="From lowest to highest">
+                      From lowest to highest
+                    </option>
+                    <option value="From highest to lowest">
+                      From highest to lowest
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="filter-unibtn-clicked-wrapper">
+                <div class="filter-unibtn-clicked">
+                  <div class="input_pox wf">
+                    <label class="datails">City of university :</label>
+                    <select
+                      name="City"
+                      class="selection"
+                      onblur="this.size=0"
+                      onchange="this.size=1; this.blur()"
+                      id="select-input-language"
+                    >
+                      <option disabled selected >Select which city you are planning to study in</option>
+                      <option value="chicago ">Chicago </option>
+                    </select>
+                  </div>
+                  <div class="input_pox wf">
+                    <label class="datails">University name :</label>
+                    <select
+                      name="University name"
+                      class="selection"
+                      onblur="this.size=0"
+                      onchange="this.size=1; this.blur()"
+                      id="select-input-language"
+                    >
+                      <option disabled selected >Select the name of university you want to study at.</option>
+                      <option value="chicago ">Harvard University</option>
+                    </select>
+                  </div>
+                  <div class="input_pox wf">
+                    <label class="datails">Study duration :</label>
+                    <select
+                      name="Study duration"
+                      class="selection"
+                      onblur="this.size=0"
+                      onchange="this.size=1; this.blur()"
+                      id="select-input-language"
+                    >
+                      <option disabled selected >Select the duration of your study</option>
+                      <option value="chicago ">1 year</option>
+                    </select>
+                  </div>
+                  <div class="input_pox wf">
+                    <label class="datails">Admission time :</label>
+                    <select
+                      name="Admission"
+                      class="selection"
+                      onblur="this.size=0"
+                      onchange="this.size=1; this.blur()"
+                      id="select-input-language"
+                    >
+                      <option disabled selected >Select your desired season for study</option>
+                      <option value="autumn ">Autumn</option>
+                      <option value="winter ">Winter</option>
+                      <option value="spring ">Spring</option>
+                      <option value="summer ">Summer</option>
+                      <option value="anytime ">Anytime</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="university-list-view-wrapper">
+              <div class="university-box-wrapper">
+                <div class="university-box">
+                  <div class="university-box-items">
+                    <div class="university-box-items-img">
+                      <img
+                        src="../images/university.png"
+                        alt="University Photo"
+                        class="university-box-img"
+                      />
+                      <div class="wishlist-icon">
+                        <i class="fa fa-heart-o"></i>
+                      </div>
+                    </div>
+                    <div class="university-box-items-content">
+                      <h3 class="university-box-name">Harvard University</h3>
+                      <div class="box-items-content-location">
+                        <div class="box-items-content-icon">
+                          <svg
+                            width="18"
+                            height="19"
+                            viewBox="0 0 18 19"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8.99833 1.94531C10.6607 1.94531 12.2549 2.60567 13.4304 3.78113C14.6058 4.95658 15.2662 6.55083 15.2662 8.21317C15.2662 10.8617 13.4051 13.7482 9.73118 16.9033C9.5269 17.0788 9.26644 17.1752 8.99712 17.175C8.72781 17.1747 8.46752 17.0779 8.26354 16.902L8.02054 16.6912C4.50925 13.6183 2.73047 10.8026 2.73047 8.21317C2.73047 6.55083 3.39083 4.95658 4.56628 3.78113C5.74173 2.60567 7.33599 1.94531 8.99833 1.94531ZM8.99833 2.9096C7.59173 2.9096 6.24275 3.46837 5.24814 4.46298C4.25352 5.45759 3.69475 6.80658 3.69475 8.21317C3.69475 10.4645 5.33275 13.0584 8.65376 15.9641L8.89354 16.1717C8.9227 16.1968 8.95987 16.2106 8.99833 16.2106C9.03678 16.2106 9.07396 16.1968 9.10311 16.1717C12.5848 13.1812 14.3019 10.5178 14.3019 8.21317C14.3019 7.5167 14.1647 6.82704 13.8982 6.18358C13.6317 5.54012 13.241 4.95546 12.7485 4.46298C12.256 3.9705 11.6714 3.57984 11.0279 3.31331C10.3845 3.04678 9.6948 2.9096 8.99833 2.9096ZM8.99833 5.80246C9.63769 5.80246 10.2509 6.05644 10.703 6.50854C11.1551 6.96064 11.409 7.57381 11.409 8.21317C11.409 8.85253 11.1551 9.46571 10.703 9.9178C10.2509 10.3699 9.63769 10.6239 8.99833 10.6239C8.35897 10.6239 7.74579 10.3699 7.29369 9.9178C6.8416 9.46571 6.58761 8.85253 6.58761 8.21317C6.58761 7.57381 6.8416 6.96064 7.29369 6.50854C7.74579 6.05644 8.35897 5.80246 8.99833 5.80246ZM8.99833 6.76674C8.61471 6.76674 8.24681 6.91913 7.97555 7.19039C7.70429 7.46165 7.5519 7.82955 7.5519 8.21317C7.5519 8.59679 7.70429 8.96469 7.97555 9.23595C8.24681 9.50721 8.61471 9.6596 8.99833 9.6596C9.38194 9.6596 9.74985 9.50721 10.0211 9.23595C10.2924 8.96469 10.4448 8.59679 10.4448 8.21317C10.4448 7.82955 10.2924 7.46165 10.0211 7.19039C9.74985 6.91913 9.38194 6.76674 8.99833 6.76674Z"
+                              fill="#F5AA1C"
+                            />
+                          </svg>
+                        </div>
+                        <h5>110 SW Frank Phillips ,Chicago ,United States</h5>
+                      </div>
+                      <h5 class="university-box-course">
+                        <span>Course Name :</span> Mastering Mathematics
+                      </h5>
+                      <div class="box-items-content-infos">
+                        <div class="box-items-content-info">
+                          <div class="box-items-content-icon">
+                            <svg
+                              width="16"
+                              height="17"
+                              viewBox="0 0 16 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7.92016 10.1719H7.95516C8.70516 10.1919 9.30516 10.8019 9.30516 11.5519C9.30516 12.1919 8.87016 12.7269 8.28016 12.8869V13.4469C8.28016 13.6469 8.12016 13.8069 7.92016 13.8069C7.72016 13.8069 7.56016 13.6469 7.56016 13.4469V12.8869C7.26637 12.8079 7.00677 12.6343 6.8215 12.393C6.63623 12.1517 6.5356 11.8561 6.53516 11.5519C6.53516 11.3519 6.69516 11.1919 6.89516 11.1919C7.09516 11.1919 7.25516 11.3519 7.25516 11.5519C7.25516 11.9219 7.55016 12.2169 7.91516 12.2169C8.28016 12.2169 8.58016 11.9169 8.58016 11.5519C8.58016 11.1869 8.28016 10.8869 7.91516 10.8869H7.88016C7.52047 10.8771 7.17875 10.7275 6.92761 10.4698C6.67646 10.2121 6.53567 9.86668 6.53516 9.50686C6.53516 8.86686 6.97016 8.33186 7.56016 8.17186V7.61186C7.56016 7.41186 7.72016 7.25186 7.92016 7.25186C8.12016 7.25186 8.28016 7.41186 8.28016 7.61186V8.17186C8.87016 8.33186 9.30516 8.86686 9.30516 9.50686C9.30516 9.70686 9.14516 9.86686 8.94516 9.86686C8.74516 9.86686 8.58516 9.70686 8.58516 9.50686C8.58516 9.14186 8.28516 8.84186 7.92016 8.84186C7.55516 8.84186 7.25516 9.14186 7.25516 9.50686C7.25516 9.87186 7.55516 10.1719 7.92016 10.1719Z"
+                                fill="#F5AA1C"
+                              />
+                              <path
+                                d="M5.266 3.05L6.659 4.68L6.5085 4.848C3.6415 5.491 1.5 8.0515 1.5 11.1125C1.5 13.8035 3.684 15.9875 6.375 15.9875H9.46C12.151 15.9875 14.335 13.804 14.335 11.113C14.34 8.0515 12.1985 5.491 9.3315 4.848C9.34316 4.74234 9.32406 4.63557 9.2765 4.5405L10.4615 3.184L10.538 3.066C10.6273 2.87117 10.6502 2.65238 10.603 2.44329C10.5559 2.2342 10.4414 2.04639 10.2771 1.90874C10.1128 1.77109 9.90781 1.69122 9.6937 1.68142C9.47959 1.67162 9.26818 1.73243 9.092 1.8545L8.6705 1.3545C8.57595 1.24869 8.46016 1.16399 8.33069 1.10593C8.20121 1.04786 8.06096 1.01772 7.91906 1.01749C7.77716 1.01725 7.6368 1.04692 7.50714 1.10456C7.37747 1.16219 7.2614 1.24651 7.1665 1.352L6.725 1.845C6.54927 1.72039 6.33739 1.65716 6.12211 1.66508C5.90683 1.67299 5.70016 1.75162 5.53407 1.8888C5.36797 2.02599 5.2517 2.21407 5.20325 2.42397C5.15479 2.63387 5.17684 2.85389 5.266 3.05ZM7.1655 3.7425L6.3175 2.7625C6.51451 2.85743 6.73742 2.88439 6.95138 2.83915C7.16534 2.79392 7.35827 2.67905 7.5 2.5125L7.9 1.9935L8.344 2.5195C8.48244 2.68049 8.66919 2.79244 8.87642 2.83866C9.08365 2.88488 9.30027 2.8629 9.494 2.776L8.65 3.7425H7.1655ZM2.5 11.1125C2.5 8.1185 4.926 5.6925 7.92 5.6925C10.914 5.6925 13.34 8.1185 13.335 11.1115V11.1125C13.3346 12.1401 12.9262 13.1255 12.1996 13.8521C11.473 14.5787 10.4876 14.9871 9.46 14.9875H6.375C5.34741 14.9871 4.36202 14.5787 3.6354 13.8521C2.90878 13.1255 2.5004 12.1401 2.5 11.1125Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>Tuition fee : <span>$10,000</span></h5>
+                        </div>
+                        <div class="box-items-content-info">
+                          <div class="box-items-content-icon">
+                            <svg
+                              width="14"
+                              height="17"
+                              viewBox="0 0 14 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_46_133)">
+                                <path
+                                  d="M9.74653 0.585938C9.68362 0.533854 9.59498 0.5 9.50776 0.5C9.48918 0.5 9.47059 0.5 9.45057 0.505208H0.792075C0.579044 0.505208 0.377451 0.585938 0.233047 0.717448C0.0886438 0.848958 0 1.02604 0 1.22656V15.7786C0 15.9792 0.0886438 16.1563 0.233047 16.2878C0.377451 16.4193 0.571895 16.5 0.792075 16.5C4.8268 16.5 9.18178 16.5 13.1965 16.5C13.4167 16.5 13.6111 16.4193 13.7555 16.2878C13.8999 16.1563 13.9886 15.9792 13.9886 15.7786V4.70573C13.9943 4.67708 14.0014 4.65365 14.0014 4.625C14.0014 4.52734 13.9514 4.44141 13.8813 4.37891L9.78942 0.609375C9.77655 0.597656 9.77083 0.592448 9.75797 0.585938H9.74653ZM2.93525 3.0625C2.74081 3.0625 2.57782 3.20573 2.57782 3.38932C2.57782 3.56641 2.73509 3.71484 2.93525 3.71484H5.38726C5.5817 3.71484 5.74612 3.57161 5.74612 3.38932C5.74612 3.21224 5.58885 3.0625 5.38726 3.0625H2.93525ZM5.59457 11.3529H4.32496V11.1615C4.32496 10.957 4.30923 10.8242 4.28064 10.7617C4.25204 10.6979 4.18913 10.6667 4.09334 10.6667C4.01614 10.6667 3.95752 10.694 3.91891 10.7474C3.88031 10.8034 3.86029 10.8841 3.86029 10.9935C3.86029 11.1745 3.90033 11.3021 3.97896 11.3737C4.05617 11.4466 4.28493 11.5872 4.66381 11.7969C4.9855 11.9753 5.20568 12.1107 5.32292 12.2044C5.44016 12.2995 5.53881 12.4323 5.61887 12.6055C5.69894 12.7786 5.7404 12.9935 5.7404 13.2513C5.7404 13.6628 5.63174 13.987 5.41442 14.2214C5.1971 14.4557 4.86826 14.6003 4.43362 14.6563V15.0898H3.84743V14.6445C3.50858 14.6146 3.21119 14.4948 2.95813 14.2878C2.70507 14.082 2.57782 13.7201 2.57782 13.2044V12.9779H3.84743V13.2604C3.84743 13.5716 3.86029 13.7643 3.88746 13.8398C3.91319 13.9154 3.9761 13.9518 4.07619 13.9518C4.16197 13.9518 4.22631 13.9258 4.26777 13.8737C4.30923 13.8203 4.33068 13.7422 4.33068 13.6393C4.33068 13.3802 4.31066 13.194 4.27063 13.0833C4.2306 12.9714 4.0962 12.849 3.86315 12.7188C3.47569 12.4974 3.21262 12.3346 3.07251 12.2305C2.93382 12.1263 2.8123 11.9805 2.71221 11.7904C2.6107 11.6016 2.55923 11.388 2.55923 11.1497C2.55923 10.8047 2.66646 10.5339 2.88092 10.3372C3.09538 10.1406 3.41851 10.0195 3.84743 9.97396V9.60417H4.43362V9.97396C4.82537 10.0195 5.11846 10.1393 5.31434 10.3333C5.50878 10.5273 5.60601 10.7956 5.60601 11.1367C5.60744 11.1836 5.60315 11.2565 5.59457 11.3529ZM9.1489 1.15234V3.97396C9.1489 4.24349 9.269 4.48958 9.46344 4.66667C9.65789 4.84375 9.92811 4.95313 10.2241 4.95313H13.2651V15.7799C13.2651 15.7969 13.2594 15.8203 13.2394 15.832C13.2265 15.8438 13.2079 15.8555 13.1822 15.8555C9.98815 15.8555 3.89175 15.8555 0.784927 15.8555C0.76634 15.8555 0.740605 15.8503 0.727737 15.832C0.714869 15.8203 0.702002 15.7982 0.702002 15.7799V1.22656C0.702002 1.20313 0.707721 1.1862 0.727737 1.17448C0.740605 1.16276 0.759191 1.15104 0.784927 1.15104H9.14175H9.1489V1.15234ZM9.85948 3.97396V1.61068L12.7819 4.30599H10.2241C10.124 4.30599 10.0353 4.26563 9.96671 4.20833C9.90237 4.15104 9.85948 4.0651 9.85948 3.97396ZM2.93382 5.3125C2.73938 5.3125 2.57639 5.45573 2.57639 5.63932C2.57639 5.81641 2.73366 5.96615 2.93382 5.96615H9.20466C9.3991 5.96615 9.56352 5.82292 9.56352 5.63932C9.56352 5.46224 9.40625 5.3125 9.20466 5.3125H2.93382ZM7.00572 9.66146C6.81128 9.66146 6.64828 9.80469 6.64828 9.98828C6.64828 10.1654 6.80556 10.3151 7.00572 10.3151H11.0404C11.2349 10.3151 11.3993 10.1719 11.3993 9.98828C11.3993 9.8112 11.242 9.66146 11.0404 9.66146H7.00572ZM2.93382 7.48698C2.73938 7.48698 2.57639 7.63021 2.57639 7.8138C2.57639 7.99089 2.73366 8.14063 2.93382 8.14063H11.039C11.2335 8.14063 11.3979 7.9974 11.3979 7.8138C11.3979 7.63672 11.2406 7.48698 11.039 7.48698H2.93382Z"
+                                  fill="#F5AA1C"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_46_133">
+                                  <rect
+                                    width="14"
+                                    height="16"
+                                    fill="white"
+                                    transform="translate(0 0.5)"
+                                  />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                          <h5>Application fee : <span>$7,000</span></h5>
+                        </div>
+                        <div class="box-items-content-info">
+                          <div class="box-items-content-icon">
+                            <svg
+                              width="16"
+                              height="17"
+                              viewBox="0 0 16 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_46_122)">
+                                <path
+                                  d="M8 0.5C10.2093 0.5 12.2091 1.39518 13.6566 2.84335C15.1042 4.29086 16 6.29136 16 8.5C16 10.7086 15.1048 12.7091 13.6566 14.1566C12.2091 15.6042 10.2086 16.5 8 16.5C5.79069 16.5 3.79086 15.6048 2.34335 14.1566C0.895176 12.7091 0 10.7086 0 8.5C0 6.29136 0.895176 4.29086 2.34335 2.84335C3.79086 1.39518 5.79069 0.5 8 0.5ZM7.34596 4.5549C7.34596 4.31308 7.54197 4.11708 7.78378 4.11708C8.0256 4.11708 8.2216 4.31308 8.2216 4.5549V8.59632L11.2621 10.3988C11.4696 10.5214 11.5389 10.7895 11.4164 10.9976C11.2938 11.2051 11.0257 11.2744 10.8175 11.1518L7.58508 9.23554C7.44296 9.16279 7.34596 9.01528 7.34596 8.84554V4.5549ZM13.0376 3.46236C11.7484 2.17315 9.9675 1.37564 8 1.37564C6.0325 1.37564 4.25158 2.17315 2.96236 3.46236C1.67315 4.75158 0.875642 6.5325 0.875642 8.5C0.875642 10.4675 1.67315 12.2484 2.96236 13.5376C4.25158 14.8268 6.0325 15.6244 8 15.6244C9.9675 15.6244 11.7484 14.8268 13.0376 13.5376C14.3268 12.2484 15.1244 10.4675 15.1244 8.5C15.1244 6.5325 14.3268 4.75158 13.0376 3.46236Z"
+                                  fill="#F5AA1C"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_46_122">
+                                  <rect
+                                    width="16"
+                                    height="16"
+                                    fill="white"
+                                    transform="translate(0 0.5)"
+                                  />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                          <h5>Study duration : <span>1 Year</span></h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="university-box-share">
+                    <svg
+                      width="17"
+                      height="18"
+                      viewBox="0 0 17 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M10.0832 2.97889C10.0832 2.28286 10.327 1.60881 10.7722 1.07376C11.2173 0.538696 11.8358 0.176397 12.5202 0.0497429C13.2046 -0.0769116 13.9118 0.0400733 14.519 0.380393C15.1261 0.720713 15.595 1.26288 15.8441 1.9128C16.0933 2.56272 16.107 3.27936 15.8829 3.93834C15.6588 4.59731 15.211 5.15702 14.6173 5.52032C14.0236 5.88362 13.3215 6.02757 12.6327 5.9272C11.9439 5.82682 11.3121 5.48845 10.8467 4.97081L8.35616 6.32931L5.5695 7.92156C5.95909 8.60728 6.06126 9.41938 5.85366 10.1802L10.8467 12.9036C11.3352 12.3609 12.0061 12.0165 12.7318 11.9358C13.4575 11.855 14.1876 12.0437 14.7834 12.4658C15.3793 12.888 15.7993 13.5143 15.9637 14.2257C16.1282 14.9372 16.0256 15.6842 15.6755 16.3251C15.3254 16.9659 14.7521 17.4558 14.0646 17.7017C13.3771 17.9477 12.6231 17.9326 11.946 17.6593C11.2689 17.386 10.7157 16.8735 10.3915 16.2192C10.0674 15.5648 9.99484 14.8143 10.1877 14.11L5.19458 11.3875C4.81405 11.8107 4.32024 12.1161 3.77158 12.2675C3.22293 12.4189 2.64239 12.4099 2.09866 12.2417C1.55493 12.0735 1.07076 11.753 0.703447 11.3183C0.336135 10.8835 0.10105 10.3526 0.0260092 9.78843C-0.0490319 9.22425 0.0391113 8.65037 0.280009 8.1347C0.520907 7.61904 0.904478 7.18317 1.38533 6.87868C1.86619 6.57418 2.42421 6.4138 2.99336 6.41651C3.56251 6.41922 4.11898 6.58491 4.59691 6.89398L7.68608 5.12848L10.1877 3.76356C10.1181 3.50781 10.083 3.24393 10.0832 2.97889ZM13.0623 1.37473C12.8517 1.37473 12.6431 1.41622 12.4484 1.49684C12.2538 1.57745 12.077 1.69562 11.928 1.84458C11.7791 1.99354 11.6609 2.17038 11.5803 2.36501C11.4997 2.55963 11.4582 2.76823 11.4582 2.97889C11.4582 3.18956 11.4997 3.39816 11.5803 3.59278C11.6609 3.78741 11.7791 3.96425 11.928 4.11321C12.077 4.26217 12.2538 4.38033 12.4484 4.46095C12.6431 4.54157 12.8517 4.58306 13.0623 4.58306C13.4878 4.58306 13.8958 4.41405 14.1966 4.11321C14.4975 3.81237 14.6665 3.40435 14.6665 2.97889C14.6665 2.55344 14.4975 2.14542 14.1966 1.84458C13.8958 1.54374 13.4878 1.37473 13.0623 1.37473ZM2.97899 7.79139C2.55354 7.79139 2.14552 7.9604 1.84468 8.26124C1.54384 8.56208 1.37483 8.97011 1.37483 9.39556C1.37483 9.82101 1.54384 10.229 1.84468 10.5299C2.14552 10.8307 2.55354 10.9997 2.97899 10.9997C3.40445 10.9997 3.81247 10.8307 4.11331 10.5299C4.41415 10.229 4.58316 9.82101 4.58316 9.39556C4.58316 8.97011 4.41415 8.56208 4.11331 8.26124C3.81247 7.9604 3.40445 7.79139 2.97899 7.79139ZM11.4582 14.8956C11.4582 14.4701 11.6272 14.0621 11.928 13.7612C12.2289 13.4604 12.6369 13.2914 13.0623 13.2914C13.4878 13.2914 13.8958 13.4604 14.1966 13.7612C14.4975 14.0621 14.6665 14.4701 14.6665 14.8956C14.6665 15.321 14.4975 15.729 14.1966 16.0299C13.8958 16.3307 13.4878 16.4997 13.0623 16.4997C12.6369 16.4997 12.2289 16.3307 11.928 16.0299C11.6272 15.729 11.4582 15.321 11.4582 14.8956Z"
+                        fill="#F5AA1C"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="university-box-wrapper">
+                <div class="university-box">
+                  <div class="university-box-items">
+                    <div class="university-box-items-img">
+                      <img
+                        src="../images/university.png"
+                        alt="University Photo"
+                        class="university-box-img"
+                      />
+                      <div class="wishlist-icon">
+                        <i class="fa fa-heart-o"></i>
+                      </div>
+                    </div>
+                    <div class="university-box-items-content">
+                      <h3 class="university-box-name">Harvard University</h3>
+                      <div class="box-items-content-location">
+                        <div class="box-items-content-icon">
+                          <svg
+                            width="18"
+                            height="19"
+                            viewBox="0 0 18 19"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8.99833 1.94531C10.6607 1.94531 12.2549 2.60567 13.4304 3.78113C14.6058 4.95658 15.2662 6.55083 15.2662 8.21317C15.2662 10.8617 13.4051 13.7482 9.73118 16.9033C9.5269 17.0788 9.26644 17.1752 8.99712 17.175C8.72781 17.1747 8.46752 17.0779 8.26354 16.902L8.02054 16.6912C4.50925 13.6183 2.73047 10.8026 2.73047 8.21317C2.73047 6.55083 3.39083 4.95658 4.56628 3.78113C5.74173 2.60567 7.33599 1.94531 8.99833 1.94531ZM8.99833 2.9096C7.59173 2.9096 6.24275 3.46837 5.24814 4.46298C4.25352 5.45759 3.69475 6.80658 3.69475 8.21317C3.69475 10.4645 5.33275 13.0584 8.65376 15.9641L8.89354 16.1717C8.9227 16.1968 8.95987 16.2106 8.99833 16.2106C9.03678 16.2106 9.07396 16.1968 9.10311 16.1717C12.5848 13.1812 14.3019 10.5178 14.3019 8.21317C14.3019 7.5167 14.1647 6.82704 13.8982 6.18358C13.6317 5.54012 13.241 4.95546 12.7485 4.46298C12.256 3.9705 11.6714 3.57984 11.0279 3.31331C10.3845 3.04678 9.6948 2.9096 8.99833 2.9096ZM8.99833 5.80246C9.63769 5.80246 10.2509 6.05644 10.703 6.50854C11.1551 6.96064 11.409 7.57381 11.409 8.21317C11.409 8.85253 11.1551 9.46571 10.703 9.9178C10.2509 10.3699 9.63769 10.6239 8.99833 10.6239C8.35897 10.6239 7.74579 10.3699 7.29369 9.9178C6.8416 9.46571 6.58761 8.85253 6.58761 8.21317C6.58761 7.57381 6.8416 6.96064 7.29369 6.50854C7.74579 6.05644 8.35897 5.80246 8.99833 5.80246ZM8.99833 6.76674C8.61471 6.76674 8.24681 6.91913 7.97555 7.19039C7.70429 7.46165 7.5519 7.82955 7.5519 8.21317C7.5519 8.59679 7.70429 8.96469 7.97555 9.23595C8.24681 9.50721 8.61471 9.6596 8.99833 9.6596C9.38194 9.6596 9.74985 9.50721 10.0211 9.23595C10.2924 8.96469 10.4448 8.59679 10.4448 8.21317C10.4448 7.82955 10.2924 7.46165 10.0211 7.19039C9.74985 6.91913 9.38194 6.76674 8.99833 6.76674Z"
+                              fill="#F5AA1C"
+                            />
+                          </svg>
+                        </div>
+                        <h5>110 SW Frank Phillips ,Chicago ,United States</h5>
+                      </div>
+                      <h5 class="university-box-course">
+                        <span>Course Name :</span> Mastering Mathematics
+                      </h5>
+                      <div class="box-items-content-infos">
+                        <div class="box-items-content-info">
+                          <div class="box-items-content-icon">
+                            <svg
+                              width="16"
+                              height="17"
+                              viewBox="0 0 16 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7.92016 10.1719H7.95516C8.70516 10.1919 9.30516 10.8019 9.30516 11.5519C9.30516 12.1919 8.87016 12.7269 8.28016 12.8869V13.4469C8.28016 13.6469 8.12016 13.8069 7.92016 13.8069C7.72016 13.8069 7.56016 13.6469 7.56016 13.4469V12.8869C7.26637 12.8079 7.00677 12.6343 6.8215 12.393C6.63623 12.1517 6.5356 11.8561 6.53516 11.5519C6.53516 11.3519 6.69516 11.1919 6.89516 11.1919C7.09516 11.1919 7.25516 11.3519 7.25516 11.5519C7.25516 11.9219 7.55016 12.2169 7.91516 12.2169C8.28016 12.2169 8.58016 11.9169 8.58016 11.5519C8.58016 11.1869 8.28016 10.8869 7.91516 10.8869H7.88016C7.52047 10.8771 7.17875 10.7275 6.92761 10.4698C6.67646 10.2121 6.53567 9.86668 6.53516 9.50686C6.53516 8.86686 6.97016 8.33186 7.56016 8.17186V7.61186C7.56016 7.41186 7.72016 7.25186 7.92016 7.25186C8.12016 7.25186 8.28016 7.41186 8.28016 7.61186V8.17186C8.87016 8.33186 9.30516 8.86686 9.30516 9.50686C9.30516 9.70686 9.14516 9.86686 8.94516 9.86686C8.74516 9.86686 8.58516 9.70686 8.58516 9.50686C8.58516 9.14186 8.28516 8.84186 7.92016 8.84186C7.55516 8.84186 7.25516 9.14186 7.25516 9.50686C7.25516 9.87186 7.55516 10.1719 7.92016 10.1719Z"
+                                fill="#F5AA1C"
+                              />
+                              <path
+                                d="M5.266 3.05L6.659 4.68L6.5085 4.848C3.6415 5.491 1.5 8.0515 1.5 11.1125C1.5 13.8035 3.684 15.9875 6.375 15.9875H9.46C12.151 15.9875 14.335 13.804 14.335 11.113C14.34 8.0515 12.1985 5.491 9.3315 4.848C9.34316 4.74234 9.32406 4.63557 9.2765 4.5405L10.4615 3.184L10.538 3.066C10.6273 2.87117 10.6502 2.65238 10.603 2.44329C10.5559 2.2342 10.4414 2.04639 10.2771 1.90874C10.1128 1.77109 9.90781 1.69122 9.6937 1.68142C9.47959 1.67162 9.26818 1.73243 9.092 1.8545L8.6705 1.3545C8.57595 1.24869 8.46016 1.16399 8.33069 1.10593C8.20121 1.04786 8.06096 1.01772 7.91906 1.01749C7.77716 1.01725 7.6368 1.04692 7.50714 1.10456C7.37747 1.16219 7.2614 1.24651 7.1665 1.352L6.725 1.845C6.54927 1.72039 6.33739 1.65716 6.12211 1.66508C5.90683 1.67299 5.70016 1.75162 5.53407 1.8888C5.36797 2.02599 5.2517 2.21407 5.20325 2.42397C5.15479 2.63387 5.17684 2.85389 5.266 3.05ZM7.1655 3.7425L6.3175 2.7625C6.51451 2.85743 6.73742 2.88439 6.95138 2.83915C7.16534 2.79392 7.35827 2.67905 7.5 2.5125L7.9 1.9935L8.344 2.5195C8.48244 2.68049 8.66919 2.79244 8.87642 2.83866C9.08365 2.88488 9.30027 2.8629 9.494 2.776L8.65 3.7425H7.1655ZM2.5 11.1125C2.5 8.1185 4.926 5.6925 7.92 5.6925C10.914 5.6925 13.34 8.1185 13.335 11.1115V11.1125C13.3346 12.1401 12.9262 13.1255 12.1996 13.8521C11.473 14.5787 10.4876 14.9871 9.46 14.9875H6.375C5.34741 14.9871 4.36202 14.5787 3.6354 13.8521C2.90878 13.1255 2.5004 12.1401 2.5 11.1125Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>Tuition fee : <span>$10,000</span></h5>
+                        </div>
+                        <div class="box-items-content-info">
+                          <div class="box-items-content-icon">
+                            <svg
+                              width="14"
+                              height="17"
+                              viewBox="0 0 14 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_46_133)">
+                                <path
+                                  d="M9.74653 0.585938C9.68362 0.533854 9.59498 0.5 9.50776 0.5C9.48918 0.5 9.47059 0.5 9.45057 0.505208H0.792075C0.579044 0.505208 0.377451 0.585938 0.233047 0.717448C0.0886438 0.848958 0 1.02604 0 1.22656V15.7786C0 15.9792 0.0886438 16.1563 0.233047 16.2878C0.377451 16.4193 0.571895 16.5 0.792075 16.5C4.8268 16.5 9.18178 16.5 13.1965 16.5C13.4167 16.5 13.6111 16.4193 13.7555 16.2878C13.8999 16.1563 13.9886 15.9792 13.9886 15.7786V4.70573C13.9943 4.67708 14.0014 4.65365 14.0014 4.625C14.0014 4.52734 13.9514 4.44141 13.8813 4.37891L9.78942 0.609375C9.77655 0.597656 9.77083 0.592448 9.75797 0.585938H9.74653ZM2.93525 3.0625C2.74081 3.0625 2.57782 3.20573 2.57782 3.38932C2.57782 3.56641 2.73509 3.71484 2.93525 3.71484H5.38726C5.5817 3.71484 5.74612 3.57161 5.74612 3.38932C5.74612 3.21224 5.58885 3.0625 5.38726 3.0625H2.93525ZM5.59457 11.3529H4.32496V11.1615C4.32496 10.957 4.30923 10.8242 4.28064 10.7617C4.25204 10.6979 4.18913 10.6667 4.09334 10.6667C4.01614 10.6667 3.95752 10.694 3.91891 10.7474C3.88031 10.8034 3.86029 10.8841 3.86029 10.9935C3.86029 11.1745 3.90033 11.3021 3.97896 11.3737C4.05617 11.4466 4.28493 11.5872 4.66381 11.7969C4.9855 11.9753 5.20568 12.1107 5.32292 12.2044C5.44016 12.2995 5.53881 12.4323 5.61887 12.6055C5.69894 12.7786 5.7404 12.9935 5.7404 13.2513C5.7404 13.6628 5.63174 13.987 5.41442 14.2214C5.1971 14.4557 4.86826 14.6003 4.43362 14.6563V15.0898H3.84743V14.6445C3.50858 14.6146 3.21119 14.4948 2.95813 14.2878C2.70507 14.082 2.57782 13.7201 2.57782 13.2044V12.9779H3.84743V13.2604C3.84743 13.5716 3.86029 13.7643 3.88746 13.8398C3.91319 13.9154 3.9761 13.9518 4.07619 13.9518C4.16197 13.9518 4.22631 13.9258 4.26777 13.8737C4.30923 13.8203 4.33068 13.7422 4.33068 13.6393C4.33068 13.3802 4.31066 13.194 4.27063 13.0833C4.2306 12.9714 4.0962 12.849 3.86315 12.7188C3.47569 12.4974 3.21262 12.3346 3.07251 12.2305C2.93382 12.1263 2.8123 11.9805 2.71221 11.7904C2.6107 11.6016 2.55923 11.388 2.55923 11.1497C2.55923 10.8047 2.66646 10.5339 2.88092 10.3372C3.09538 10.1406 3.41851 10.0195 3.84743 9.97396V9.60417H4.43362V9.97396C4.82537 10.0195 5.11846 10.1393 5.31434 10.3333C5.50878 10.5273 5.60601 10.7956 5.60601 11.1367C5.60744 11.1836 5.60315 11.2565 5.59457 11.3529ZM9.1489 1.15234V3.97396C9.1489 4.24349 9.269 4.48958 9.46344 4.66667C9.65789 4.84375 9.92811 4.95313 10.2241 4.95313H13.2651V15.7799C13.2651 15.7969 13.2594 15.8203 13.2394 15.832C13.2265 15.8438 13.2079 15.8555 13.1822 15.8555C9.98815 15.8555 3.89175 15.8555 0.784927 15.8555C0.76634 15.8555 0.740605 15.8503 0.727737 15.832C0.714869 15.8203 0.702002 15.7982 0.702002 15.7799V1.22656C0.702002 1.20313 0.707721 1.1862 0.727737 1.17448C0.740605 1.16276 0.759191 1.15104 0.784927 1.15104H9.14175H9.1489V1.15234ZM9.85948 3.97396V1.61068L12.7819 4.30599H10.2241C10.124 4.30599 10.0353 4.26563 9.96671 4.20833C9.90237 4.15104 9.85948 4.0651 9.85948 3.97396ZM2.93382 5.3125C2.73938 5.3125 2.57639 5.45573 2.57639 5.63932C2.57639 5.81641 2.73366 5.96615 2.93382 5.96615H9.20466C9.3991 5.96615 9.56352 5.82292 9.56352 5.63932C9.56352 5.46224 9.40625 5.3125 9.20466 5.3125H2.93382ZM7.00572 9.66146C6.81128 9.66146 6.64828 9.80469 6.64828 9.98828C6.64828 10.1654 6.80556 10.3151 7.00572 10.3151H11.0404C11.2349 10.3151 11.3993 10.1719 11.3993 9.98828C11.3993 9.8112 11.242 9.66146 11.0404 9.66146H7.00572ZM2.93382 7.48698C2.73938 7.48698 2.57639 7.63021 2.57639 7.8138C2.57639 7.99089 2.73366 8.14063 2.93382 8.14063H11.039C11.2335 8.14063 11.3979 7.9974 11.3979 7.8138C11.3979 7.63672 11.2406 7.48698 11.039 7.48698H2.93382Z"
+                                  fill="#F5AA1C"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_46_133">
+                                  <rect
+                                    width="14"
+                                    height="16"
+                                    fill="white"
+                                    transform="translate(0 0.5)"
+                                  />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                          <h5>Application fee : <span>$7,000</span></h5>
+                        </div>
+                        <div class="box-items-content-info">
+                          <div class="box-items-content-icon">
+                            <svg
+                              width="16"
+                              height="17"
+                              viewBox="0 0 16 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_46_122)">
+                                <path
+                                  d="M8 0.5C10.2093 0.5 12.2091 1.39518 13.6566 2.84335C15.1042 4.29086 16 6.29136 16 8.5C16 10.7086 15.1048 12.7091 13.6566 14.1566C12.2091 15.6042 10.2086 16.5 8 16.5C5.79069 16.5 3.79086 15.6048 2.34335 14.1566C0.895176 12.7091 0 10.7086 0 8.5C0 6.29136 0.895176 4.29086 2.34335 2.84335C3.79086 1.39518 5.79069 0.5 8 0.5ZM7.34596 4.5549C7.34596 4.31308 7.54197 4.11708 7.78378 4.11708C8.0256 4.11708 8.2216 4.31308 8.2216 4.5549V8.59632L11.2621 10.3988C11.4696 10.5214 11.5389 10.7895 11.4164 10.9976C11.2938 11.2051 11.0257 11.2744 10.8175 11.1518L7.58508 9.23554C7.44296 9.16279 7.34596 9.01528 7.34596 8.84554V4.5549ZM13.0376 3.46236C11.7484 2.17315 9.9675 1.37564 8 1.37564C6.0325 1.37564 4.25158 2.17315 2.96236 3.46236C1.67315 4.75158 0.875642 6.5325 0.875642 8.5C0.875642 10.4675 1.67315 12.2484 2.96236 13.5376C4.25158 14.8268 6.0325 15.6244 8 15.6244C9.9675 15.6244 11.7484 14.8268 13.0376 13.5376C14.3268 12.2484 15.1244 10.4675 15.1244 8.5C15.1244 6.5325 14.3268 4.75158 13.0376 3.46236Z"
+                                  fill="#F5AA1C"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_46_122">
+                                  <rect
+                                    width="16"
+                                    height="16"
+                                    fill="white"
+                                    transform="translate(0 0.5)"
+                                  />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                          <h5>Study duration : <span>1 Year</span></h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="university-box-share">
+                    <svg
+                      width="17"
+                      height="18"
+                      viewBox="0 0 17 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M10.0832 2.97889C10.0832 2.28286 10.327 1.60881 10.7722 1.07376C11.2173 0.538696 11.8358 0.176397 12.5202 0.0497429C13.2046 -0.0769116 13.9118 0.0400733 14.519 0.380393C15.1261 0.720713 15.595 1.26288 15.8441 1.9128C16.0933 2.56272 16.107 3.27936 15.8829 3.93834C15.6588 4.59731 15.211 5.15702 14.6173 5.52032C14.0236 5.88362 13.3215 6.02757 12.6327 5.9272C11.9439 5.82682 11.3121 5.48845 10.8467 4.97081L8.35616 6.32931L5.5695 7.92156C5.95909 8.60728 6.06126 9.41938 5.85366 10.1802L10.8467 12.9036C11.3352 12.3609 12.0061 12.0165 12.7318 11.9358C13.4575 11.855 14.1876 12.0437 14.7834 12.4658C15.3793 12.888 15.7993 13.5143 15.9637 14.2257C16.1282 14.9372 16.0256 15.6842 15.6755 16.3251C15.3254 16.9659 14.7521 17.4558 14.0646 17.7017C13.3771 17.9477 12.6231 17.9326 11.946 17.6593C11.2689 17.386 10.7157 16.8735 10.3915 16.2192C10.0674 15.5648 9.99484 14.8143 10.1877 14.11L5.19458 11.3875C4.81405 11.8107 4.32024 12.1161 3.77158 12.2675C3.22293 12.4189 2.64239 12.4099 2.09866 12.2417C1.55493 12.0735 1.07076 11.753 0.703447 11.3183C0.336135 10.8835 0.10105 10.3526 0.0260092 9.78843C-0.0490319 9.22425 0.0391113 8.65037 0.280009 8.1347C0.520907 7.61904 0.904478 7.18317 1.38533 6.87868C1.86619 6.57418 2.42421 6.4138 2.99336 6.41651C3.56251 6.41922 4.11898 6.58491 4.59691 6.89398L7.68608 5.12848L10.1877 3.76356C10.1181 3.50781 10.083 3.24393 10.0832 2.97889ZM13.0623 1.37473C12.8517 1.37473 12.6431 1.41622 12.4484 1.49684C12.2538 1.57745 12.077 1.69562 11.928 1.84458C11.7791 1.99354 11.6609 2.17038 11.5803 2.36501C11.4997 2.55963 11.4582 2.76823 11.4582 2.97889C11.4582 3.18956 11.4997 3.39816 11.5803 3.59278C11.6609 3.78741 11.7791 3.96425 11.928 4.11321C12.077 4.26217 12.2538 4.38033 12.4484 4.46095C12.6431 4.54157 12.8517 4.58306 13.0623 4.58306C13.4878 4.58306 13.8958 4.41405 14.1966 4.11321C14.4975 3.81237 14.6665 3.40435 14.6665 2.97889C14.6665 2.55344 14.4975 2.14542 14.1966 1.84458C13.8958 1.54374 13.4878 1.37473 13.0623 1.37473ZM2.97899 7.79139C2.55354 7.79139 2.14552 7.9604 1.84468 8.26124C1.54384 8.56208 1.37483 8.97011 1.37483 9.39556C1.37483 9.82101 1.54384 10.229 1.84468 10.5299C2.14552 10.8307 2.55354 10.9997 2.97899 10.9997C3.40445 10.9997 3.81247 10.8307 4.11331 10.5299C4.41415 10.229 4.58316 9.82101 4.58316 9.39556C4.58316 8.97011 4.41415 8.56208 4.11331 8.26124C3.81247 7.9604 3.40445 7.79139 2.97899 7.79139ZM11.4582 14.8956C11.4582 14.4701 11.6272 14.0621 11.928 13.7612C12.2289 13.4604 12.6369 13.2914 13.0623 13.2914C13.4878 13.2914 13.8958 13.4604 14.1966 13.7612C14.4975 14.0621 14.6665 14.4701 14.6665 14.8956C14.6665 15.321 14.4975 15.729 14.1966 16.0299C13.8958 16.3307 13.4878 16.4997 13.0623 16.4997C12.6369 16.4997 12.2289 16.3307 11.928 16.0299C11.6272 15.729 11.4582 15.321 11.4582 14.8956Z"
+                        fill="#F5AA1C"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="university-box-wrapper">
+                <div class="university-box">
+                  <div class="university-box-items">
+                    <div class="university-box-items-img">
+                      <img
+                        src="../images/university.png"
+                        alt="University Photo"
+                        class="university-box-img"
+                      />
+                      <div class="wishlist-icon">
+                        <i class="fa fa-heart-o"></i>
+                      </div>
+                    </div>
+                    <div class="university-box-items-content">
+                      <h3 class="university-box-name">Harvard University</h3>
+                      <div class="box-items-content-location">
+                        <div class="box-items-content-icon">
+                          <svg
+                            width="18"
+                            height="19"
+                            viewBox="0 0 18 19"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8.99833 1.94531C10.6607 1.94531 12.2549 2.60567 13.4304 3.78113C14.6058 4.95658 15.2662 6.55083 15.2662 8.21317C15.2662 10.8617 13.4051 13.7482 9.73118 16.9033C9.5269 17.0788 9.26644 17.1752 8.99712 17.175C8.72781 17.1747 8.46752 17.0779 8.26354 16.902L8.02054 16.6912C4.50925 13.6183 2.73047 10.8026 2.73047 8.21317C2.73047 6.55083 3.39083 4.95658 4.56628 3.78113C5.74173 2.60567 7.33599 1.94531 8.99833 1.94531ZM8.99833 2.9096C7.59173 2.9096 6.24275 3.46837 5.24814 4.46298C4.25352 5.45759 3.69475 6.80658 3.69475 8.21317C3.69475 10.4645 5.33275 13.0584 8.65376 15.9641L8.89354 16.1717C8.9227 16.1968 8.95987 16.2106 8.99833 16.2106C9.03678 16.2106 9.07396 16.1968 9.10311 16.1717C12.5848 13.1812 14.3019 10.5178 14.3019 8.21317C14.3019 7.5167 14.1647 6.82704 13.8982 6.18358C13.6317 5.54012 13.241 4.95546 12.7485 4.46298C12.256 3.9705 11.6714 3.57984 11.0279 3.31331C10.3845 3.04678 9.6948 2.9096 8.99833 2.9096ZM8.99833 5.80246C9.63769 5.80246 10.2509 6.05644 10.703 6.50854C11.1551 6.96064 11.409 7.57381 11.409 8.21317C11.409 8.85253 11.1551 9.46571 10.703 9.9178C10.2509 10.3699 9.63769 10.6239 8.99833 10.6239C8.35897 10.6239 7.74579 10.3699 7.29369 9.9178C6.8416 9.46571 6.58761 8.85253 6.58761 8.21317C6.58761 7.57381 6.8416 6.96064 7.29369 6.50854C7.74579 6.05644 8.35897 5.80246 8.99833 5.80246ZM8.99833 6.76674C8.61471 6.76674 8.24681 6.91913 7.97555 7.19039C7.70429 7.46165 7.5519 7.82955 7.5519 8.21317C7.5519 8.59679 7.70429 8.96469 7.97555 9.23595C8.24681 9.50721 8.61471 9.6596 8.99833 9.6596C9.38194 9.6596 9.74985 9.50721 10.0211 9.23595C10.2924 8.96469 10.4448 8.59679 10.4448 8.21317C10.4448 7.82955 10.2924 7.46165 10.0211 7.19039C9.74985 6.91913 9.38194 6.76674 8.99833 6.76674Z"
+                              fill="#F5AA1C"
+                            />
+                          </svg>
+                        </div>
+                        <h5>110 SW Frank Phillips ,Chicago ,United States</h5>
+                      </div>
+                      <h5 class="university-box-course">
+                        <span>Course Name :</span> Mastering Mathematics
+                      </h5>
+                      <div class="box-items-content-infos">
+                        <div class="box-items-content-info">
+                          <div class="box-items-content-icon">
+                            <svg
+                              width="16"
+                              height="17"
+                              viewBox="0 0 16 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7.92016 10.1719H7.95516C8.70516 10.1919 9.30516 10.8019 9.30516 11.5519C9.30516 12.1919 8.87016 12.7269 8.28016 12.8869V13.4469C8.28016 13.6469 8.12016 13.8069 7.92016 13.8069C7.72016 13.8069 7.56016 13.6469 7.56016 13.4469V12.8869C7.26637 12.8079 7.00677 12.6343 6.8215 12.393C6.63623 12.1517 6.5356 11.8561 6.53516 11.5519C6.53516 11.3519 6.69516 11.1919 6.89516 11.1919C7.09516 11.1919 7.25516 11.3519 7.25516 11.5519C7.25516 11.9219 7.55016 12.2169 7.91516 12.2169C8.28016 12.2169 8.58016 11.9169 8.58016 11.5519C8.58016 11.1869 8.28016 10.8869 7.91516 10.8869H7.88016C7.52047 10.8771 7.17875 10.7275 6.92761 10.4698C6.67646 10.2121 6.53567 9.86668 6.53516 9.50686C6.53516 8.86686 6.97016 8.33186 7.56016 8.17186V7.61186C7.56016 7.41186 7.72016 7.25186 7.92016 7.25186C8.12016 7.25186 8.28016 7.41186 8.28016 7.61186V8.17186C8.87016 8.33186 9.30516 8.86686 9.30516 9.50686C9.30516 9.70686 9.14516 9.86686 8.94516 9.86686C8.74516 9.86686 8.58516 9.70686 8.58516 9.50686C8.58516 9.14186 8.28516 8.84186 7.92016 8.84186C7.55516 8.84186 7.25516 9.14186 7.25516 9.50686C7.25516 9.87186 7.55516 10.1719 7.92016 10.1719Z"
+                                fill="#F5AA1C"
+                              />
+                              <path
+                                d="M5.266 3.05L6.659 4.68L6.5085 4.848C3.6415 5.491 1.5 8.0515 1.5 11.1125C1.5 13.8035 3.684 15.9875 6.375 15.9875H9.46C12.151 15.9875 14.335 13.804 14.335 11.113C14.34 8.0515 12.1985 5.491 9.3315 4.848C9.34316 4.74234 9.32406 4.63557 9.2765 4.5405L10.4615 3.184L10.538 3.066C10.6273 2.87117 10.6502 2.65238 10.603 2.44329C10.5559 2.2342 10.4414 2.04639 10.2771 1.90874C10.1128 1.77109 9.90781 1.69122 9.6937 1.68142C9.47959 1.67162 9.26818 1.73243 9.092 1.8545L8.6705 1.3545C8.57595 1.24869 8.46016 1.16399 8.33069 1.10593C8.20121 1.04786 8.06096 1.01772 7.91906 1.01749C7.77716 1.01725 7.6368 1.04692 7.50714 1.10456C7.37747 1.16219 7.2614 1.24651 7.1665 1.352L6.725 1.845C6.54927 1.72039 6.33739 1.65716 6.12211 1.66508C5.90683 1.67299 5.70016 1.75162 5.53407 1.8888C5.36797 2.02599 5.2517 2.21407 5.20325 2.42397C5.15479 2.63387 5.17684 2.85389 5.266 3.05ZM7.1655 3.7425L6.3175 2.7625C6.51451 2.85743 6.73742 2.88439 6.95138 2.83915C7.16534 2.79392 7.35827 2.67905 7.5 2.5125L7.9 1.9935L8.344 2.5195C8.48244 2.68049 8.66919 2.79244 8.87642 2.83866C9.08365 2.88488 9.30027 2.8629 9.494 2.776L8.65 3.7425H7.1655ZM2.5 11.1125C2.5 8.1185 4.926 5.6925 7.92 5.6925C10.914 5.6925 13.34 8.1185 13.335 11.1115V11.1125C13.3346 12.1401 12.9262 13.1255 12.1996 13.8521C11.473 14.5787 10.4876 14.9871 9.46 14.9875H6.375C5.34741 14.9871 4.36202 14.5787 3.6354 13.8521C2.90878 13.1255 2.5004 12.1401 2.5 11.1125Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>Tuition fee : <span>$10,000</span></h5>
+                        </div>
+                        <div class="box-items-content-info">
+                          <div class="box-items-content-icon">
+                            <svg
+                              width="14"
+                              height="17"
+                              viewBox="0 0 14 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_46_133)">
+                                <path
+                                  d="M9.74653 0.585938C9.68362 0.533854 9.59498 0.5 9.50776 0.5C9.48918 0.5 9.47059 0.5 9.45057 0.505208H0.792075C0.579044 0.505208 0.377451 0.585938 0.233047 0.717448C0.0886438 0.848958 0 1.02604 0 1.22656V15.7786C0 15.9792 0.0886438 16.1563 0.233047 16.2878C0.377451 16.4193 0.571895 16.5 0.792075 16.5C4.8268 16.5 9.18178 16.5 13.1965 16.5C13.4167 16.5 13.6111 16.4193 13.7555 16.2878C13.8999 16.1563 13.9886 15.9792 13.9886 15.7786V4.70573C13.9943 4.67708 14.0014 4.65365 14.0014 4.625C14.0014 4.52734 13.9514 4.44141 13.8813 4.37891L9.78942 0.609375C9.77655 0.597656 9.77083 0.592448 9.75797 0.585938H9.74653ZM2.93525 3.0625C2.74081 3.0625 2.57782 3.20573 2.57782 3.38932C2.57782 3.56641 2.73509 3.71484 2.93525 3.71484H5.38726C5.5817 3.71484 5.74612 3.57161 5.74612 3.38932C5.74612 3.21224 5.58885 3.0625 5.38726 3.0625H2.93525ZM5.59457 11.3529H4.32496V11.1615C4.32496 10.957 4.30923 10.8242 4.28064 10.7617C4.25204 10.6979 4.18913 10.6667 4.09334 10.6667C4.01614 10.6667 3.95752 10.694 3.91891 10.7474C3.88031 10.8034 3.86029 10.8841 3.86029 10.9935C3.86029 11.1745 3.90033 11.3021 3.97896 11.3737C4.05617 11.4466 4.28493 11.5872 4.66381 11.7969C4.9855 11.9753 5.20568 12.1107 5.32292 12.2044C5.44016 12.2995 5.53881 12.4323 5.61887 12.6055C5.69894 12.7786 5.7404 12.9935 5.7404 13.2513C5.7404 13.6628 5.63174 13.987 5.41442 14.2214C5.1971 14.4557 4.86826 14.6003 4.43362 14.6563V15.0898H3.84743V14.6445C3.50858 14.6146 3.21119 14.4948 2.95813 14.2878C2.70507 14.082 2.57782 13.7201 2.57782 13.2044V12.9779H3.84743V13.2604C3.84743 13.5716 3.86029 13.7643 3.88746 13.8398C3.91319 13.9154 3.9761 13.9518 4.07619 13.9518C4.16197 13.9518 4.22631 13.9258 4.26777 13.8737C4.30923 13.8203 4.33068 13.7422 4.33068 13.6393C4.33068 13.3802 4.31066 13.194 4.27063 13.0833C4.2306 12.9714 4.0962 12.849 3.86315 12.7188C3.47569 12.4974 3.21262 12.3346 3.07251 12.2305C2.93382 12.1263 2.8123 11.9805 2.71221 11.7904C2.6107 11.6016 2.55923 11.388 2.55923 11.1497C2.55923 10.8047 2.66646 10.5339 2.88092 10.3372C3.09538 10.1406 3.41851 10.0195 3.84743 9.97396V9.60417H4.43362V9.97396C4.82537 10.0195 5.11846 10.1393 5.31434 10.3333C5.50878 10.5273 5.60601 10.7956 5.60601 11.1367C5.60744 11.1836 5.60315 11.2565 5.59457 11.3529ZM9.1489 1.15234V3.97396C9.1489 4.24349 9.269 4.48958 9.46344 4.66667C9.65789 4.84375 9.92811 4.95313 10.2241 4.95313H13.2651V15.7799C13.2651 15.7969 13.2594 15.8203 13.2394 15.832C13.2265 15.8438 13.2079 15.8555 13.1822 15.8555C9.98815 15.8555 3.89175 15.8555 0.784927 15.8555C0.76634 15.8555 0.740605 15.8503 0.727737 15.832C0.714869 15.8203 0.702002 15.7982 0.702002 15.7799V1.22656C0.702002 1.20313 0.707721 1.1862 0.727737 1.17448C0.740605 1.16276 0.759191 1.15104 0.784927 1.15104H9.14175H9.1489V1.15234ZM9.85948 3.97396V1.61068L12.7819 4.30599H10.2241C10.124 4.30599 10.0353 4.26563 9.96671 4.20833C9.90237 4.15104 9.85948 4.0651 9.85948 3.97396ZM2.93382 5.3125C2.73938 5.3125 2.57639 5.45573 2.57639 5.63932C2.57639 5.81641 2.73366 5.96615 2.93382 5.96615H9.20466C9.3991 5.96615 9.56352 5.82292 9.56352 5.63932C9.56352 5.46224 9.40625 5.3125 9.20466 5.3125H2.93382ZM7.00572 9.66146C6.81128 9.66146 6.64828 9.80469 6.64828 9.98828C6.64828 10.1654 6.80556 10.3151 7.00572 10.3151H11.0404C11.2349 10.3151 11.3993 10.1719 11.3993 9.98828C11.3993 9.8112 11.242 9.66146 11.0404 9.66146H7.00572ZM2.93382 7.48698C2.73938 7.48698 2.57639 7.63021 2.57639 7.8138C2.57639 7.99089 2.73366 8.14063 2.93382 8.14063H11.039C11.2335 8.14063 11.3979 7.9974 11.3979 7.8138C11.3979 7.63672 11.2406 7.48698 11.039 7.48698H2.93382Z"
+                                  fill="#F5AA1C"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_46_133">
+                                  <rect
+                                    width="14"
+                                    height="16"
+                                    fill="white"
+                                    transform="translate(0 0.5)"
+                                  />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                          <h5>Application fee : <span>$7,000</span></h5>
+                        </div>
+                        <div class="box-items-content-info">
+                          <div class="box-items-content-icon">
+                            <svg
+                              width="16"
+                              height="17"
+                              viewBox="0 0 16 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_46_122)">
+                                <path
+                                  d="M8 0.5C10.2093 0.5 12.2091 1.39518 13.6566 2.84335C15.1042 4.29086 16 6.29136 16 8.5C16 10.7086 15.1048 12.7091 13.6566 14.1566C12.2091 15.6042 10.2086 16.5 8 16.5C5.79069 16.5 3.79086 15.6048 2.34335 14.1566C0.895176 12.7091 0 10.7086 0 8.5C0 6.29136 0.895176 4.29086 2.34335 2.84335C3.79086 1.39518 5.79069 0.5 8 0.5ZM7.34596 4.5549C7.34596 4.31308 7.54197 4.11708 7.78378 4.11708C8.0256 4.11708 8.2216 4.31308 8.2216 4.5549V8.59632L11.2621 10.3988C11.4696 10.5214 11.5389 10.7895 11.4164 10.9976C11.2938 11.2051 11.0257 11.2744 10.8175 11.1518L7.58508 9.23554C7.44296 9.16279 7.34596 9.01528 7.34596 8.84554V4.5549ZM13.0376 3.46236C11.7484 2.17315 9.9675 1.37564 8 1.37564C6.0325 1.37564 4.25158 2.17315 2.96236 3.46236C1.67315 4.75158 0.875642 6.5325 0.875642 8.5C0.875642 10.4675 1.67315 12.2484 2.96236 13.5376C4.25158 14.8268 6.0325 15.6244 8 15.6244C9.9675 15.6244 11.7484 14.8268 13.0376 13.5376C14.3268 12.2484 15.1244 10.4675 15.1244 8.5C15.1244 6.5325 14.3268 4.75158 13.0376 3.46236Z"
+                                  fill="#F5AA1C"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_46_122">
+                                  <rect
+                                    width="16"
+                                    height="16"
+                                    fill="white"
+                                    transform="translate(0 0.5)"
+                                  />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                          <h5>Study duration : <span>1 Year</span></h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="university-box-share">
+                    <svg
+                      width="17"
+                      height="18"
+                      viewBox="0 0 17 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M10.0832 2.97889C10.0832 2.28286 10.327 1.60881 10.7722 1.07376C11.2173 0.538696 11.8358 0.176397 12.5202 0.0497429C13.2046 -0.0769116 13.9118 0.0400733 14.519 0.380393C15.1261 0.720713 15.595 1.26288 15.8441 1.9128C16.0933 2.56272 16.107 3.27936 15.8829 3.93834C15.6588 4.59731 15.211 5.15702 14.6173 5.52032C14.0236 5.88362 13.3215 6.02757 12.6327 5.9272C11.9439 5.82682 11.3121 5.48845 10.8467 4.97081L8.35616 6.32931L5.5695 7.92156C5.95909 8.60728 6.06126 9.41938 5.85366 10.1802L10.8467 12.9036C11.3352 12.3609 12.0061 12.0165 12.7318 11.9358C13.4575 11.855 14.1876 12.0437 14.7834 12.4658C15.3793 12.888 15.7993 13.5143 15.9637 14.2257C16.1282 14.9372 16.0256 15.6842 15.6755 16.3251C15.3254 16.9659 14.7521 17.4558 14.0646 17.7017C13.3771 17.9477 12.6231 17.9326 11.946 17.6593C11.2689 17.386 10.7157 16.8735 10.3915 16.2192C10.0674 15.5648 9.99484 14.8143 10.1877 14.11L5.19458 11.3875C4.81405 11.8107 4.32024 12.1161 3.77158 12.2675C3.22293 12.4189 2.64239 12.4099 2.09866 12.2417C1.55493 12.0735 1.07076 11.753 0.703447 11.3183C0.336135 10.8835 0.10105 10.3526 0.0260092 9.78843C-0.0490319 9.22425 0.0391113 8.65037 0.280009 8.1347C0.520907 7.61904 0.904478 7.18317 1.38533 6.87868C1.86619 6.57418 2.42421 6.4138 2.99336 6.41651C3.56251 6.41922 4.11898 6.58491 4.59691 6.89398L7.68608 5.12848L10.1877 3.76356C10.1181 3.50781 10.083 3.24393 10.0832 2.97889ZM13.0623 1.37473C12.8517 1.37473 12.6431 1.41622 12.4484 1.49684C12.2538 1.57745 12.077 1.69562 11.928 1.84458C11.7791 1.99354 11.6609 2.17038 11.5803 2.36501C11.4997 2.55963 11.4582 2.76823 11.4582 2.97889C11.4582 3.18956 11.4997 3.39816 11.5803 3.59278C11.6609 3.78741 11.7791 3.96425 11.928 4.11321C12.077 4.26217 12.2538 4.38033 12.4484 4.46095C12.6431 4.54157 12.8517 4.58306 13.0623 4.58306C13.4878 4.58306 13.8958 4.41405 14.1966 4.11321C14.4975 3.81237 14.6665 3.40435 14.6665 2.97889C14.6665 2.55344 14.4975 2.14542 14.1966 1.84458C13.8958 1.54374 13.4878 1.37473 13.0623 1.37473ZM2.97899 7.79139C2.55354 7.79139 2.14552 7.9604 1.84468 8.26124C1.54384 8.56208 1.37483 8.97011 1.37483 9.39556C1.37483 9.82101 1.54384 10.229 1.84468 10.5299C2.14552 10.8307 2.55354 10.9997 2.97899 10.9997C3.40445 10.9997 3.81247 10.8307 4.11331 10.5299C4.41415 10.229 4.58316 9.82101 4.58316 9.39556C4.58316 8.97011 4.41415 8.56208 4.11331 8.26124C3.81247 7.9604 3.40445 7.79139 2.97899 7.79139ZM11.4582 14.8956C11.4582 14.4701 11.6272 14.0621 11.928 13.7612C12.2289 13.4604 12.6369 13.2914 13.0623 13.2914C13.4878 13.2914 13.8958 13.4604 14.1966 13.7612C14.4975 14.0621 14.6665 14.4701 14.6665 14.8956C14.6665 15.321 14.4975 15.729 14.1966 16.0299C13.8958 16.3307 13.4878 16.4997 13.0623 16.4997C12.6369 16.4997 12.2289 16.3307 11.928 16.0299C11.6272 15.729 11.4582 15.321 11.4582 14.8956Z"
+                        fill="#F5AA1C"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="university-box-wrapper">
+                <div class="university-box">
+                  <div class="university-box-items">
+                    <div class="university-box-items-img">
+                      <img
+                        src="../images/university.png"
+                        alt="University Photo"
+                        class="university-box-img"
+                      />
+                      <div class="wishlist-icon">
+                        <i class="fa fa-heart-o"></i>
+                      </div>
+                    </div>
+                    <div class="university-box-items-content">
+                      <h3 class="university-box-name">Harvard University</h3>
+                      <div class="box-items-content-location">
+                        <div class="box-items-content-icon">
+                          <svg
+                            width="18"
+                            height="19"
+                            viewBox="0 0 18 19"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8.99833 1.94531C10.6607 1.94531 12.2549 2.60567 13.4304 3.78113C14.6058 4.95658 15.2662 6.55083 15.2662 8.21317C15.2662 10.8617 13.4051 13.7482 9.73118 16.9033C9.5269 17.0788 9.26644 17.1752 8.99712 17.175C8.72781 17.1747 8.46752 17.0779 8.26354 16.902L8.02054 16.6912C4.50925 13.6183 2.73047 10.8026 2.73047 8.21317C2.73047 6.55083 3.39083 4.95658 4.56628 3.78113C5.74173 2.60567 7.33599 1.94531 8.99833 1.94531ZM8.99833 2.9096C7.59173 2.9096 6.24275 3.46837 5.24814 4.46298C4.25352 5.45759 3.69475 6.80658 3.69475 8.21317C3.69475 10.4645 5.33275 13.0584 8.65376 15.9641L8.89354 16.1717C8.9227 16.1968 8.95987 16.2106 8.99833 16.2106C9.03678 16.2106 9.07396 16.1968 9.10311 16.1717C12.5848 13.1812 14.3019 10.5178 14.3019 8.21317C14.3019 7.5167 14.1647 6.82704 13.8982 6.18358C13.6317 5.54012 13.241 4.95546 12.7485 4.46298C12.256 3.9705 11.6714 3.57984 11.0279 3.31331C10.3845 3.04678 9.6948 2.9096 8.99833 2.9096ZM8.99833 5.80246C9.63769 5.80246 10.2509 6.05644 10.703 6.50854C11.1551 6.96064 11.409 7.57381 11.409 8.21317C11.409 8.85253 11.1551 9.46571 10.703 9.9178C10.2509 10.3699 9.63769 10.6239 8.99833 10.6239C8.35897 10.6239 7.74579 10.3699 7.29369 9.9178C6.8416 9.46571 6.58761 8.85253 6.58761 8.21317C6.58761 7.57381 6.8416 6.96064 7.29369 6.50854C7.74579 6.05644 8.35897 5.80246 8.99833 5.80246ZM8.99833 6.76674C8.61471 6.76674 8.24681 6.91913 7.97555 7.19039C7.70429 7.46165 7.5519 7.82955 7.5519 8.21317C7.5519 8.59679 7.70429 8.96469 7.97555 9.23595C8.24681 9.50721 8.61471 9.6596 8.99833 9.6596C9.38194 9.6596 9.74985 9.50721 10.0211 9.23595C10.2924 8.96469 10.4448 8.59679 10.4448 8.21317C10.4448 7.82955 10.2924 7.46165 10.0211 7.19039C9.74985 6.91913 9.38194 6.76674 8.99833 6.76674Z"
+                              fill="#F5AA1C"
+                            />
+                          </svg>
+                        </div>
+                        <h5>110 SW Frank Phillips ,Chicago ,United States</h5>
+                      </div>
+                      <h5 class="university-box-course">
+                        <span>Course Name :</span> Mastering Mathematics
+                      </h5>
+                      <div class="box-items-content-infos">
+                        <div class="box-items-content-info">
+                          <div class="box-items-content-icon">
+                            <svg
+                              width="16"
+                              height="17"
+                              viewBox="0 0 16 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7.92016 10.1719H7.95516C8.70516 10.1919 9.30516 10.8019 9.30516 11.5519C9.30516 12.1919 8.87016 12.7269 8.28016 12.8869V13.4469C8.28016 13.6469 8.12016 13.8069 7.92016 13.8069C7.72016 13.8069 7.56016 13.6469 7.56016 13.4469V12.8869C7.26637 12.8079 7.00677 12.6343 6.8215 12.393C6.63623 12.1517 6.5356 11.8561 6.53516 11.5519C6.53516 11.3519 6.69516 11.1919 6.89516 11.1919C7.09516 11.1919 7.25516 11.3519 7.25516 11.5519C7.25516 11.9219 7.55016 12.2169 7.91516 12.2169C8.28016 12.2169 8.58016 11.9169 8.58016 11.5519C8.58016 11.1869 8.28016 10.8869 7.91516 10.8869H7.88016C7.52047 10.8771 7.17875 10.7275 6.92761 10.4698C6.67646 10.2121 6.53567 9.86668 6.53516 9.50686C6.53516 8.86686 6.97016 8.33186 7.56016 8.17186V7.61186C7.56016 7.41186 7.72016 7.25186 7.92016 7.25186C8.12016 7.25186 8.28016 7.41186 8.28016 7.61186V8.17186C8.87016 8.33186 9.30516 8.86686 9.30516 9.50686C9.30516 9.70686 9.14516 9.86686 8.94516 9.86686C8.74516 9.86686 8.58516 9.70686 8.58516 9.50686C8.58516 9.14186 8.28516 8.84186 7.92016 8.84186C7.55516 8.84186 7.25516 9.14186 7.25516 9.50686C7.25516 9.87186 7.55516 10.1719 7.92016 10.1719Z"
+                                fill="#F5AA1C"
+                              />
+                              <path
+                                d="M5.266 3.05L6.659 4.68L6.5085 4.848C3.6415 5.491 1.5 8.0515 1.5 11.1125C1.5 13.8035 3.684 15.9875 6.375 15.9875H9.46C12.151 15.9875 14.335 13.804 14.335 11.113C14.34 8.0515 12.1985 5.491 9.3315 4.848C9.34316 4.74234 9.32406 4.63557 9.2765 4.5405L10.4615 3.184L10.538 3.066C10.6273 2.87117 10.6502 2.65238 10.603 2.44329C10.5559 2.2342 10.4414 2.04639 10.2771 1.90874C10.1128 1.77109 9.90781 1.69122 9.6937 1.68142C9.47959 1.67162 9.26818 1.73243 9.092 1.8545L8.6705 1.3545C8.57595 1.24869 8.46016 1.16399 8.33069 1.10593C8.20121 1.04786 8.06096 1.01772 7.91906 1.01749C7.77716 1.01725 7.6368 1.04692 7.50714 1.10456C7.37747 1.16219 7.2614 1.24651 7.1665 1.352L6.725 1.845C6.54927 1.72039 6.33739 1.65716 6.12211 1.66508C5.90683 1.67299 5.70016 1.75162 5.53407 1.8888C5.36797 2.02599 5.2517 2.21407 5.20325 2.42397C5.15479 2.63387 5.17684 2.85389 5.266 3.05ZM7.1655 3.7425L6.3175 2.7625C6.51451 2.85743 6.73742 2.88439 6.95138 2.83915C7.16534 2.79392 7.35827 2.67905 7.5 2.5125L7.9 1.9935L8.344 2.5195C8.48244 2.68049 8.66919 2.79244 8.87642 2.83866C9.08365 2.88488 9.30027 2.8629 9.494 2.776L8.65 3.7425H7.1655ZM2.5 11.1125C2.5 8.1185 4.926 5.6925 7.92 5.6925C10.914 5.6925 13.34 8.1185 13.335 11.1115V11.1125C13.3346 12.1401 12.9262 13.1255 12.1996 13.8521C11.473 14.5787 10.4876 14.9871 9.46 14.9875H6.375C5.34741 14.9871 4.36202 14.5787 3.6354 13.8521C2.90878 13.1255 2.5004 12.1401 2.5 11.1125Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>Tuition fee : <span>$10,000</span></h5>
+                        </div>
+                        <div class="box-items-content-info">
+                          <div class="box-items-content-icon">
+                            <svg
+                              width="14"
+                              height="17"
+                              viewBox="0 0 14 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_46_133)">
+                                <path
+                                  d="M9.74653 0.585938C9.68362 0.533854 9.59498 0.5 9.50776 0.5C9.48918 0.5 9.47059 0.5 9.45057 0.505208H0.792075C0.579044 0.505208 0.377451 0.585938 0.233047 0.717448C0.0886438 0.848958 0 1.02604 0 1.22656V15.7786C0 15.9792 0.0886438 16.1563 0.233047 16.2878C0.377451 16.4193 0.571895 16.5 0.792075 16.5C4.8268 16.5 9.18178 16.5 13.1965 16.5C13.4167 16.5 13.6111 16.4193 13.7555 16.2878C13.8999 16.1563 13.9886 15.9792 13.9886 15.7786V4.70573C13.9943 4.67708 14.0014 4.65365 14.0014 4.625C14.0014 4.52734 13.9514 4.44141 13.8813 4.37891L9.78942 0.609375C9.77655 0.597656 9.77083 0.592448 9.75797 0.585938H9.74653ZM2.93525 3.0625C2.74081 3.0625 2.57782 3.20573 2.57782 3.38932C2.57782 3.56641 2.73509 3.71484 2.93525 3.71484H5.38726C5.5817 3.71484 5.74612 3.57161 5.74612 3.38932C5.74612 3.21224 5.58885 3.0625 5.38726 3.0625H2.93525ZM5.59457 11.3529H4.32496V11.1615C4.32496 10.957 4.30923 10.8242 4.28064 10.7617C4.25204 10.6979 4.18913 10.6667 4.09334 10.6667C4.01614 10.6667 3.95752 10.694 3.91891 10.7474C3.88031 10.8034 3.86029 10.8841 3.86029 10.9935C3.86029 11.1745 3.90033 11.3021 3.97896 11.3737C4.05617 11.4466 4.28493 11.5872 4.66381 11.7969C4.9855 11.9753 5.20568 12.1107 5.32292 12.2044C5.44016 12.2995 5.53881 12.4323 5.61887 12.6055C5.69894 12.7786 5.7404 12.9935 5.7404 13.2513C5.7404 13.6628 5.63174 13.987 5.41442 14.2214C5.1971 14.4557 4.86826 14.6003 4.43362 14.6563V15.0898H3.84743V14.6445C3.50858 14.6146 3.21119 14.4948 2.95813 14.2878C2.70507 14.082 2.57782 13.7201 2.57782 13.2044V12.9779H3.84743V13.2604C3.84743 13.5716 3.86029 13.7643 3.88746 13.8398C3.91319 13.9154 3.9761 13.9518 4.07619 13.9518C4.16197 13.9518 4.22631 13.9258 4.26777 13.8737C4.30923 13.8203 4.33068 13.7422 4.33068 13.6393C4.33068 13.3802 4.31066 13.194 4.27063 13.0833C4.2306 12.9714 4.0962 12.849 3.86315 12.7188C3.47569 12.4974 3.21262 12.3346 3.07251 12.2305C2.93382 12.1263 2.8123 11.9805 2.71221 11.7904C2.6107 11.6016 2.55923 11.388 2.55923 11.1497C2.55923 10.8047 2.66646 10.5339 2.88092 10.3372C3.09538 10.1406 3.41851 10.0195 3.84743 9.97396V9.60417H4.43362V9.97396C4.82537 10.0195 5.11846 10.1393 5.31434 10.3333C5.50878 10.5273 5.60601 10.7956 5.60601 11.1367C5.60744 11.1836 5.60315 11.2565 5.59457 11.3529ZM9.1489 1.15234V3.97396C9.1489 4.24349 9.269 4.48958 9.46344 4.66667C9.65789 4.84375 9.92811 4.95313 10.2241 4.95313H13.2651V15.7799C13.2651 15.7969 13.2594 15.8203 13.2394 15.832C13.2265 15.8438 13.2079 15.8555 13.1822 15.8555C9.98815 15.8555 3.89175 15.8555 0.784927 15.8555C0.76634 15.8555 0.740605 15.8503 0.727737 15.832C0.714869 15.8203 0.702002 15.7982 0.702002 15.7799V1.22656C0.702002 1.20313 0.707721 1.1862 0.727737 1.17448C0.740605 1.16276 0.759191 1.15104 0.784927 1.15104H9.14175H9.1489V1.15234ZM9.85948 3.97396V1.61068L12.7819 4.30599H10.2241C10.124 4.30599 10.0353 4.26563 9.96671 4.20833C9.90237 4.15104 9.85948 4.0651 9.85948 3.97396ZM2.93382 5.3125C2.73938 5.3125 2.57639 5.45573 2.57639 5.63932C2.57639 5.81641 2.73366 5.96615 2.93382 5.96615H9.20466C9.3991 5.96615 9.56352 5.82292 9.56352 5.63932C9.56352 5.46224 9.40625 5.3125 9.20466 5.3125H2.93382ZM7.00572 9.66146C6.81128 9.66146 6.64828 9.80469 6.64828 9.98828C6.64828 10.1654 6.80556 10.3151 7.00572 10.3151H11.0404C11.2349 10.3151 11.3993 10.1719 11.3993 9.98828C11.3993 9.8112 11.242 9.66146 11.0404 9.66146H7.00572ZM2.93382 7.48698C2.73938 7.48698 2.57639 7.63021 2.57639 7.8138C2.57639 7.99089 2.73366 8.14063 2.93382 8.14063H11.039C11.2335 8.14063 11.3979 7.9974 11.3979 7.8138C11.3979 7.63672 11.2406 7.48698 11.039 7.48698H2.93382Z"
+                                  fill="#F5AA1C"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_46_133">
+                                  <rect
+                                    width="14"
+                                    height="16"
+                                    fill="white"
+                                    transform="translate(0 0.5)"
+                                  />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                          <h5>Application fee : <span>$7,000</span></h5>
+                        </div>
+                        <div class="box-items-content-info">
+                          <div class="box-items-content-icon">
+                            <svg
+                              width="16"
+                              height="17"
+                              viewBox="0 0 16 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_46_122)">
+                                <path
+                                  d="M8 0.5C10.2093 0.5 12.2091 1.39518 13.6566 2.84335C15.1042 4.29086 16 6.29136 16 8.5C16 10.7086 15.1048 12.7091 13.6566 14.1566C12.2091 15.6042 10.2086 16.5 8 16.5C5.79069 16.5 3.79086 15.6048 2.34335 14.1566C0.895176 12.7091 0 10.7086 0 8.5C0 6.29136 0.895176 4.29086 2.34335 2.84335C3.79086 1.39518 5.79069 0.5 8 0.5ZM7.34596 4.5549C7.34596 4.31308 7.54197 4.11708 7.78378 4.11708C8.0256 4.11708 8.2216 4.31308 8.2216 4.5549V8.59632L11.2621 10.3988C11.4696 10.5214 11.5389 10.7895 11.4164 10.9976C11.2938 11.2051 11.0257 11.2744 10.8175 11.1518L7.58508 9.23554C7.44296 9.16279 7.34596 9.01528 7.34596 8.84554V4.5549ZM13.0376 3.46236C11.7484 2.17315 9.9675 1.37564 8 1.37564C6.0325 1.37564 4.25158 2.17315 2.96236 3.46236C1.67315 4.75158 0.875642 6.5325 0.875642 8.5C0.875642 10.4675 1.67315 12.2484 2.96236 13.5376C4.25158 14.8268 6.0325 15.6244 8 15.6244C9.9675 15.6244 11.7484 14.8268 13.0376 13.5376C14.3268 12.2484 15.1244 10.4675 15.1244 8.5C15.1244 6.5325 14.3268 4.75158 13.0376 3.46236Z"
+                                  fill="#F5AA1C"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_46_122">
+                                  <rect
+                                    width="16"
+                                    height="16"
+                                    fill="white"
+                                    transform="translate(0 0.5)"
+                                  />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                          <h5>Study duration : <span>1 Year</span></h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="university-box-share">
+                    <svg
+                      width="17"
+                      height="18"
+                      viewBox="0 0 17 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M10.0832 2.97889C10.0832 2.28286 10.327 1.60881 10.7722 1.07376C11.2173 0.538696 11.8358 0.176397 12.5202 0.0497429C13.2046 -0.0769116 13.9118 0.0400733 14.519 0.380393C15.1261 0.720713 15.595 1.26288 15.8441 1.9128C16.0933 2.56272 16.107 3.27936 15.8829 3.93834C15.6588 4.59731 15.211 5.15702 14.6173 5.52032C14.0236 5.88362 13.3215 6.02757 12.6327 5.9272C11.9439 5.82682 11.3121 5.48845 10.8467 4.97081L8.35616 6.32931L5.5695 7.92156C5.95909 8.60728 6.06126 9.41938 5.85366 10.1802L10.8467 12.9036C11.3352 12.3609 12.0061 12.0165 12.7318 11.9358C13.4575 11.855 14.1876 12.0437 14.7834 12.4658C15.3793 12.888 15.7993 13.5143 15.9637 14.2257C16.1282 14.9372 16.0256 15.6842 15.6755 16.3251C15.3254 16.9659 14.7521 17.4558 14.0646 17.7017C13.3771 17.9477 12.6231 17.9326 11.946 17.6593C11.2689 17.386 10.7157 16.8735 10.3915 16.2192C10.0674 15.5648 9.99484 14.8143 10.1877 14.11L5.19458 11.3875C4.81405 11.8107 4.32024 12.1161 3.77158 12.2675C3.22293 12.4189 2.64239 12.4099 2.09866 12.2417C1.55493 12.0735 1.07076 11.753 0.703447 11.3183C0.336135 10.8835 0.10105 10.3526 0.0260092 9.78843C-0.0490319 9.22425 0.0391113 8.65037 0.280009 8.1347C0.520907 7.61904 0.904478 7.18317 1.38533 6.87868C1.86619 6.57418 2.42421 6.4138 2.99336 6.41651C3.56251 6.41922 4.11898 6.58491 4.59691 6.89398L7.68608 5.12848L10.1877 3.76356C10.1181 3.50781 10.083 3.24393 10.0832 2.97889ZM13.0623 1.37473C12.8517 1.37473 12.6431 1.41622 12.4484 1.49684C12.2538 1.57745 12.077 1.69562 11.928 1.84458C11.7791 1.99354 11.6609 2.17038 11.5803 2.36501C11.4997 2.55963 11.4582 2.76823 11.4582 2.97889C11.4582 3.18956 11.4997 3.39816 11.5803 3.59278C11.6609 3.78741 11.7791 3.96425 11.928 4.11321C12.077 4.26217 12.2538 4.38033 12.4484 4.46095C12.6431 4.54157 12.8517 4.58306 13.0623 4.58306C13.4878 4.58306 13.8958 4.41405 14.1966 4.11321C14.4975 3.81237 14.6665 3.40435 14.6665 2.97889C14.6665 2.55344 14.4975 2.14542 14.1966 1.84458C13.8958 1.54374 13.4878 1.37473 13.0623 1.37473ZM2.97899 7.79139C2.55354 7.79139 2.14552 7.9604 1.84468 8.26124C1.54384 8.56208 1.37483 8.97011 1.37483 9.39556C1.37483 9.82101 1.54384 10.229 1.84468 10.5299C2.14552 10.8307 2.55354 10.9997 2.97899 10.9997C3.40445 10.9997 3.81247 10.8307 4.11331 10.5299C4.41415 10.229 4.58316 9.82101 4.58316 9.39556C4.58316 8.97011 4.41415 8.56208 4.11331 8.26124C3.81247 7.9604 3.40445 7.79139 2.97899 7.79139ZM11.4582 14.8956C11.4582 14.4701 11.6272 14.0621 11.928 13.7612C12.2289 13.4604 12.6369 13.2914 13.0623 13.2914C13.4878 13.2914 13.8958 13.4604 14.1966 13.7612C14.4975 14.0621 14.6665 14.4701 14.6665 14.8956C14.6665 15.321 14.4975 15.729 14.1966 16.0299C13.8958 16.3307 13.4878 16.4997 13.0623 16.4997C12.6369 16.4997 12.2289 16.3307 11.928 16.0299C11.6272 15.729 11.4582 15.321 11.4582 14.8956Z"
+                        fill="#F5AA1C"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pagination-wrapper">
+              <ul id="pagination">
+                <li><a class="" href="#">«</a></li>
+                <li><a href="#" class="active">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">7</a></li>
+                <li><a href="#">»</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="university-map-view">
+            <div id="map"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container mx">
+        <div class="row-fot">
+          <div class="row">
+            <div class="desc col-3">
+              <a href="/index.html">
+                <img
+                  src="../../images/image_59-removebg-preview (1) 1.png"
+                  alt=""
+                />
+                <h2>Unisuniverse</h2>
+              </a>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
+                congu.
+              </p>
+            </div>
+            <div class="col-3">
+              <h4>Short Links</h4>
+              <ul class="footer-cat-links">
+                <li>
+                  <a href=""><span>Home</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Academics</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Students</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Universities</span></a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-3">
+              <h4>Quick links</h4>
+              <ul class="footer-cat-links">
+                <li>
+                  <a href="../../Aboutus/index.html"><span>About us</span></a>
+                </li>
+                <li>
+                  <a href="../../FAQ/index.html"><span>FAQ</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Contact us</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Privacy policy</span></a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-3 contact">
+              <h4>Contact us</h4>
+              <ul>
+                <li>
+                  <div class="iconfo">
+                    <i
+                      class="fa fa-phone fa-flip-horizontal"
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+                  <div class="lineheightfot">
+                    Phone:<br />
+                    +971-580580580
+                  </div>
+                </li>
+                <li class="Emailfot">
+                  <div class="iconfo">
+                    <i class="fa fa-envelope-o"></i>
+                  </div>
+                  <div class="lineheightfot">
+                    Email:<br />
+                    info@Unisuniverse@gmail.com
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="social-links social-2 col-6">
+            <a href=""><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-linkedin-in"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-reddit-alien"></i></a>
+          </div>
+        </div>
+        <div class="copyowner">
+          <div id="copyright">&copy; 2023 Attio Ltd. All rights reserved.</div>
+          <div id="owner">
+            <span> Terms & Conditions </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const navbarMenu = document.getElementById("navbar");
+      const burgerMenu = document.getElementById("burger");
+      const overlayMenu = document.querySelector(".overlay");
+
+      const toggleMenu = () => {
+        navbarMenu.classList.toggle("active");
+        overlayMenu.classList.toggle("active");
+      };
+
+      const collapseSubMenu = () => {
+        navbarMenu
+          .querySelector(".menu-dropdown.active .submenu")
+          .removeAttribute("style");
+        navbarMenu
+          .querySelector(".menu-dropdown.active")
+          .classList.remove("active");
+      };
+
+      const toggleSubMenu = (e) => {
+        if (e.target.hasAttribute("data-toggle") && window.innerWidth <= 992) {
+          e.preventDefault();
+          const menuDropdown = e.target.parentElement;
+
+          if (menuDropdown.classList.contains("active")) {
+            collapseSubMenu();
+          } else {
+            if (navbarMenu.querySelector(".menu-dropdown.active")) {
+              collapseSubMenu();
+            }
+
+            menuDropdown.classList.add("active");
+            const subMenu = menuDropdown.querySelector(".submenu");
+            subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+          }
+        }
+      };
+
+      const resizeWindow = () => {
+        if (window.innerWidth > 992) {
+          if (navbarMenu.classList.contains("active")) {
+            toggleMenu();
+          }
+          if (navbarMenu.querySelector(".menu-dropdown.active")) {
+            collapseSubMenu();
+          }
+        }
+      };
+
+      burgerMenu.addEventListener("click", toggleMenu);
+      overlayMenu.addEventListener("click", toggleMenu);
+      navbarMenu.addEventListener("click", toggleSubMenu);
+      window.addEventListener("resize", resizeWindow);
+
+      // log in
+
+      let closeBut = document.getElementsByClassName("close")[0],
+        modal = document.getElementsByClassName("modal-cont")[0],
+        loginBut = document.getElementsByClassName("btn-md")[0],
+        loginRes = document.querySelector("#btn-md");
+
+      //close
+      function x() {
+        modal.style.display = "none";
+      }
+      closeBut.onclick = x;
+
+      loginBut.onclick = function () {
+        modal.style.display = "block";
+      };
+      loginRes.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      window.onclick = function (e) {
+        if (e.target.className === "modal-cont") {
+          e.target.style.display = "none";
+        }
+      };
+
+      // new acc
+
+      let newAcc = document.getElementsByClassName("new-acc")[0],
+        popupBoxs = document.getElementsByClassName("popup-boxs")[0],
+        modalBox = document.getElementsByClassName("modal-box")[0];
+
+      newAcc.onclick = function () {
+        popupBoxs.style.display = "flex";
+        modalBox.style.display = "none";
+      };
+
+      // continent
+
+      const buttons = document.querySelectorAll(
+        ".search-content-items-continent"
+      );
+
+      for (const button of buttons) {
+        button.addEventListener("click", function () {
+          this.classList.toggle("active-continent");
+        });
+      }
+
+      // country
+
+      const countryInput = document.getElementById("country");
+      const countryClickedWrapper = document.getElementsByClassName(
+        "country-input-clicked-wrapper"
+      )[0];
+
+      countryInput.addEventListener("click", function () {
+        countryClickedWrapper.classList.toggle("toggle-display");
+      });
+
+      window.addEventListener("click", function (event) {
+        if (
+          !countryInput.contains(event.target) &&
+          !countryClickedWrapper.contains(event.target)
+        ) {
+          countryClickedWrapper.classList.remove("toggle-display");
+        }
+      });
+
+      // Field
+
+      const fieldInput = document.getElementById("field");
+      const fieldClickedWrapper = document.getElementsByClassName(
+        "field-input-clicked-wrapper"
+        )[0];
+
+        fieldInput.addEventListener("click", function () {
+        fieldClickedWrapper.classList.toggle("toggle-display");
+      });
+
+      window.addEventListener("click", function (event) {
+        if (
+          !fieldInput.contains(event.target) &&
+          !fieldClickedWrapper.contains(event.target)
+        ) {
+          fieldClickedWrapper.classList.remove("toggle-display");
+        }
+      });
+
+      // Filter Search box
+      
+      const filterSearchBox = document.getElementById("filter-searchbox");
+      const filterSearchBoxClicked = document.getElementsByClassName(
+        "filter-btn-clicked-wrapper"
+      )[0];
+
+      filterSearchBox.addEventListener("click", function () {
+        filterSearchBoxClicked.classList.toggle("toggle-display");
+      });
+
+      window.addEventListener("click", function (event) {
+        if (
+          !filterSearchBox.contains(event.target) &&
+          !filterSearchBoxClicked.contains(event.target)
+        ) {
+          filterSearchBoxClicked.classList.remove("toggle-display");
+        }
+      });
+
+       // Filter University List
+      
+       const filterUniversity = document.getElementById("filter-university");
+      const filterUniversityClicked = document.getElementsByClassName(
+        "filter-unibtn-clicked-wrapper"
+      )[0];
+
+      filterUniversity.addEventListener("click", function () {
+        filterUniversityClicked.classList.toggle("toggle-display");
+      });
+
+      window.addEventListener("click", function (event) {
+        if (
+          !filterUniversity.contains(event.target) &&
+          !filterUniversityClicked.contains(event.target)
+        ) {
+          filterUniversityClicked.classList.remove("toggle-display");
+        }
+      });
+
+      // map
+
+      function initMap() {
+        var location = { lat: 51.246014, lng: 10.622021 };
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 4,
+          center: location,
+        });
+
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map,
+        });
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRmEWSflD-7Q8ulURoUyOYnORz_MCbkL0&callback=initMap"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unisuniverse</title>
+    <script
+      src="http://kit.fontawesome.com/7a4b62b0a4.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+          0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        --shadow-medium: 0 13px 30px 0 rgba(0, 0, 0, 0.048),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --color-text-black: #151515;
+        --color-text-grayblack: #636363;
+        --color-text-gray: #c7c7c7;
+        --color-background: #f4fcff;
+        --color-line: #dadada;
+        --color-white: #ffffff;
+        --primary-color: #002754;
+        --secondary-color: #f5aa1c;
+      }
+
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        list-style: none;
+        list-style-type: none;
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      html {
+        font-size: 100%;
+        box-sizing: inherit;
+        scroll-behavior: smooth;
+        height: -webkit-fill-available;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--color-text-black);
+        background-color: var(--color-background);
+      }
+
+      a,
+      button {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background: none;
+        box-shadow: none;
+        font-family: inherit;
+      }
+
+      ::placeholder {
+        color: var(--color-text-gray);
+        letter-spacing: 0.5px;
+      }
+
+      img,
+      video {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+
+      .container {
+        max-width: 82%;
+        height: auto;
+      }
+
+      .mx {
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-family: inherit;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.25;
+        color: var(--primary-color);
+      }
+      @media only screen and (max-width: 450px) {
+        .logo {
+          font-size: 24px;
+        }
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: 100;
+        margin: 0 auto;
+        box-shadow: var(--shadow-medium);
+        background-color: var(--color-white);
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        -moz-column-gap: 1rem;
+        column-gap: 1rem;
+        row-gap: 2rem;
+        width: 100%;
+        height: 110px;
+        margin: 0 auto;
+      }
+
+      @media screen and (max-width: 992px) {
+        .navbar {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 75%;
+          height: 100%;
+          z-index: 10;
+          opacity: 0;
+          overflow-y: auto;
+          visibility: hidden;
+          box-shadow: var(--shadow-medium);
+          background-color: var(--color-white);
+          transition: all 0.5s ease;
+        }
+        .navbar.active {
+          left: 0rem;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      .menu-item {
+        position: relative;
+        display: inline-block;
+        margin-left: 2.4rem;
+      }
+
+      .resnav {
+        display: none;
+      }
+
+      .menu-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -moz-column-gap: 0.25rem;
+        column-gap: 0.25rem;
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: inherit;
+        cursor: pointer;
+        text-transform: capitalize;
+        color: var(--color-text-black);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .menu-link > i.fa {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--color-text-black);
+        margin-left: 2px;
+      }
+
+      .menu-link:hover {
+        outline: none;
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (min-width: 993px) {
+        .menu-dropdown:hover > .submenu {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+      @media only screen and (max-width: 992px) {
+        .menu {
+          width: 100%;
+          height: auto;
+          padding: 1rem 0;
+        }
+        .menu-item {
+          display: block;
+          margin: 0 auto;
+        }
+        .menu-link {
+          justify-content: space-between;
+          padding: 1rem 2rem;
+        }
+      }
+
+      .submenu {
+        position: absolute;
+        top: 3.2rem;
+        left: -2rem;
+        min-width: 13rem;
+        height: auto;
+        padding: 0 1rem 1rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(1rem);
+        border-radius: 0 0 0.25rem 0.25rem;
+        border-top: 2px solid var(--secondary-color);
+        box-shadow: var(--shadow-medium);
+        background-color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .submenu-item {
+        display: block;
+        margin-top: 0.75rem;
+      }
+
+      .submenu-link {
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: inherit;
+        cursor: pointer;
+        color: var(--color-text-black);
+        transition: all 0.35s ease;
+      }
+      .submenu-link:hover {
+        outline: none;
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (max-width: 992px) {
+        .submenu {
+          position: relative;
+          top: -0.5rem;
+          left: 2.5rem;
+          width: 100%;
+          max-height: 0;
+          padding: 0px;
+          border: none;
+          outline: none;
+          opacity: 1;
+          overflow: hidden;
+          visibility: visible;
+          transform: translateY(0px);
+          box-shadow: none;
+          background: transparent;
+        }
+      }
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-md {
+        width: 172px;
+        height: 49px;
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: inherit;
+        border-radius: 10px;
+        color: var(--color-white);
+        background-color: var(--primary-color);
+        transition: all 0.35s ease;
+      }
+      .btn-md:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .btn > a > i.fa {
+        margin-right: 22px;
+        color: var(--color-text-black);
+        transition: all 0.35s ease;
+      }
+      .btn > a > i.fa:hover {
+        color: var(--secondary-color);
+      }
+
+      .burger {
+        position: relative;
+        display: none;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 1.6rem;
+        height: 1.15rem;
+        opacity: 0;
+        visibility: hidden;
+        background: transparent;
+      }
+      .burger-line {
+        position: absolute;
+        display: block;
+        right: 0;
+        width: 100%;
+        height: 2.1px;
+        opacity: 1;
+        border: none;
+        outline: none;
+        border-radius: 1rem;
+        background: var(--color-text-black);
+      }
+      .burger-line:nth-child(1) {
+        top: 0px;
+      }
+      .burger-line:nth-child(2) {
+        top: 0.5rem;
+        width: 70%;
+      }
+      .burger-line:nth-child(3) {
+        top: 1rem;
+      }
+      @media only screen and (max-width: 992px) {
+        .burger {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+        .btn-md {
+          display: none;
+        }
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 9;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.65);
+      }
+      @media only screen and (max-width: 992px) {
+        .overlay.active {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      /* breadcrumb */
+
+      .breadcrumb {
+        color: #c7c7c7;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 24px 0;
+      }
+
+      .breadcrumb > span {
+        color: var(--secondary-color);
+      }
+
+      /* main section aside */
+
+      .edit-acc {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .edit-acc aside {
+        flex-basis: 30.5%;
+      }
+
+      .side-menu-wrapper,
+      .edit-section-items {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background-color: var(--color-white);
+        border-radius: 24px;
+        box-shadow: var(--shadow-medium);
+      }
+
+      .side-menu-wrapper nav,
+      ul {
+        width: 100%;
+      }
+
+      .side-menu-items {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 118px;
+      }
+
+      .side-menu-items-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+
+      .side-menu-item-profile {
+        display: flex;
+        width: 100%;
+        padding: 14px 14px;
+        align-items: center;
+        gap: 12px;
+        border-radius: 12px;
+      }
+
+      .side-menu-item-profile > h4 {
+        font-size: 17px;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+      }
+
+      .side-menu-item-profile-icon {
+        width: 22px;
+        height: 22px;
+        font-size: 18px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--color-text-grayblack);
+      }
+      .side-menu-item-profile-icon > svg {
+        fill: var(--color-text-grayblack);
+      }
+
+      .checked-tab {
+        background: rgba(245, 170, 28, 0.08);
+      }
+      .checked-tab > h4,
+      .checked-tab .side-menu-item-profile-icon {
+        color: var(--secondary-color);
+      }
+      .checked-tab .side-menu-item-profile-icon > svg {
+        fill: var(--secondary-color);
+      }
+
+      .log-out > h4,
+      .log-out .side-menu-item-profile-icon {
+        color: #f42e17;
+      }
+
+      .edit-section-wrapper {
+        flex-basis: 65.5%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 58px;
+      }
+
+      .edit-section-title {
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      /* products */
+
+      .edit-section-items {
+        width: 100%;
+      }
+
+      .products-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+        align-items: stretch;
+        justify-items: center;
+        gap: 32px;
+        width: 100%;
+      }
+
+      @media (max-width: 600px) {
+        .products-cards {
+          flex-direction: column;
+        }
+      }
+
+      .product-card {
+        position: relative;
+        flex: 1;
+        padding: 16px 16px 24px;
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%23DADADAFF' stroke-width='2' stroke-dasharray='12' stroke-dashoffset='22' stroke-linecap='round'/%3e%3c/svg%3e");
+        border-radius: 24px;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+        animation: fadeInLeft 1.5s backwards;
+      }
+      .product-card:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      .product-card:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-6px);
+        -webkit-transform: translateY(-6px);
+      }
+
+      .courses-img {
+        aspect-ratio: 500 / 320;
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        position: relative;
+        max-height: 184px;
+        object-fit: cover;
+        box-shadow: var(--shadow-small);
+      }
+
+      .product-card-body {
+        color: var(--color-text-black);
+        width: 100%;
+        padding: 0 2px 0 2px;
+        position: relative;
+      }
+
+      .product-card-body hr {
+        width: 100%;
+        height: 1px;
+        border: none;
+        background-color: var(--color-line);
+        margin: 16px 0;
+      }
+
+      .title-card {
+        font-size: 18px;
+        font-weight: 600;
+        transition: all 0.3s ease-in-out;
+      }
+      .title-card:hover {
+        cursor: pointer;
+        color: var(--primary-color);
+      }
+
+      .product-card-body p {
+        color: var(--color-text-grayblack);
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 400;
+      }
+
+      @media only screen and (max-width: 385px) {
+        .product-card {
+          margin: 14px 0px;
+        }
+        .product-card-body {
+          margin-bottom: 14;
+        }
+        .products-cards {
+          gap: 4px;
+        }
+        .title-card {
+          font-size: 16px;
+        }
+        .product-card-body p {
+          font-size: 14px;
+        }
+      }
+
+      @media only screen and (max-width: 350px) {
+        .products-cards {
+          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        }
+      }
+
+      /* products */
+
+      .prof-info {
+        display: flex;
+        align-items: center;
+        margin: 18px 0;
+      }
+
+      .prof-info img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        margin-right: 12px;
+        border-radius: 50%;
+        border: 1px solid var(--secondary-color);
+      }
+      .prof-info img:hover {
+        cursor: pointer;
+      }
+
+      .prof-info h5 {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+        cursor: pointer;
+      }
+
+      .card-price h5 {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .inner-price {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      .card-price {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .icon-price {
+        width: 22px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .stu-join {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .students,
+      .join-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        gap: 4px;
+      }
+      .students p {
+        padding-left: 2px;
+      }
+
+      .card-service-price {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+      .card-service-price > span {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--primary-color);
+      }
+
+      .join-btn p {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--primary-color);
+        transition: all 0.3s ease-in-out;
+      }
+      .join-btn p:hover {
+        font-weight: 600;
+      }
+      .join-btn:hover {
+        cursor: pointer;
+      }
+
+      .product-card-body {
+        padding: 0 2px 0 2px;
+      }
+
+      @media only screen and (max-width: 350px) {
+        .prof-info img {
+          width: 30px;
+          height: 30px;
+          margin-right: 10px;
+        }
+        .prof-info h5 {
+          font-size: 14px;
+        }
+        .prof-name p {
+          font-size: 12px;
+        }
+        .students p,
+        .join-btn p {
+          font-size: 13px;
+        }
+        .join-btn p {
+          padding-right: 4px;
+        }
+        .students svg,
+        .join-btn svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      .service-card {
+        position: relative;
+        width: 100%;
+        padding: 16px 16px 24px;
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%23DADADAFF' stroke-width='2' stroke-dasharray='12' stroke-dashoffset='22' stroke-linecap='round'/%3e%3c/svg%3e");
+        border-radius: 24px;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+        animation: fadeInLeft 1.5s backwards;
+      }
+      .service-card:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      .service-card:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-6px);
+        -webkit-transform: translateY(-6px);
+      }
+
+      .service-card-item-img {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .service-card-item-img > img {
+        aspect-ratio: 500 / 320;
+        position: relative;
+        width: 100%;
+        max-height: 184px;
+        margin-bottom: 15px;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+
+      @media only screen and (max-width: 350px) {
+        .service-card {
+          margin: 14px 0px;
+        }
+      }
+
+      .wishlist-icon {
+        width: 28px;
+        height: 28px;
+        position: absolute;
+        z-index: 52;
+        cursor: pointer;
+        margin: 6px 8px 0 0;
+      }
+
+      .wishlist-icon i {
+        width: 28px;
+        height: 28px;
+        font-size: 15px;
+        color: var(--color-white);
+        background-color: rgba(21, 21, 21, 0.4);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media only screen and (max-width: 900px) {
+        .edit-acc {
+          flex-direction: column;
+          gap: 70px;
+        }
+        .edit-section-items {
+          flex-basis: 100%;
+          width: -webkit-fill-available;
+        }
+        .edit-acc aside {
+          flex-basis: 100%;
+          width: -webkit-fill-available;
+        }
+      }
+
+      /*footer*/
+
+      .col-6 {
+        width: 100%;
+        text-align: center;
+      }
+
+      .col-3 > h4 {
+        padding: 20px 0 20px 0;
+      }
+
+      .desc a {
+        display: flex;
+        align-items: center;
+      }
+
+      .desc a > h2 {
+        font-size: 20px;
+        margin-left: 10px;
+        font-weight: 600;
+      }
+
+      .desc > p {
+        margin-top: 10px;
+        font-size: 17px;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+        width: 85%;
+      }
+
+      .row-fot {
+        border-bottom: 1px solid #dadada;
+        border-top: 1px solid #dadada;
+        margin: 7em 0 2em 0;
+        padding: 2.5em 0 2.5em 0;
+      }
+
+      footer .row {
+        position: relative;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        grid-gap: 30px;
+        align-items: center;
+      }
+
+      footer ul {
+        padding: 0;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+
+      footer ul li {
+        list-style-type: none;
+        padding: 0;
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        line-height: 2;
+      }
+
+      .footer-cat-links a {
+        color: var(--color-text-grayblack);
+        font-size: 17px;
+        font-weight: 500;
+        text-decoration: none;
+        position: relative;
+      }
+
+      .footer-cat-links.active > li a {
+        pointer-events: auto;
+      }
+
+      .footer-cat-links a:after {
+        top: 21px;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        width: 0;
+        background: var(--secondary-color);
+        -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      }
+
+      .footer-cat-links a:hover:after,
+      .footer-cat-links a:focus:after {
+        width: 100%;
+        left: 0;
+      }
+
+      .social-links {
+        margin-top: 65px;
+      }
+
+      .social-links a {
+        color: var(--color-text-grayblack);
+        font-size: 20px;
+        border: 1px solid;
+        border-radius: 20px;
+        padding: 6px;
+        -webkit-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+      }
+
+      .social-links a:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      .social-links a:hover,
+      .social-links a:focus {
+        background-color: var(--secondary-color);
+        color: var(--color-white);
+      }
+
+      .social-links a i {
+        width: 25px;
+        height: 25px;
+        text-align: center;
+      }
+
+      .copyowner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--color-text-gray);
+        font-size: 14px;
+        padding-bottom: 30px;
+      }
+
+      .contact {
+        padding-bottom: 5px;
+      }
+
+      .contact > ul > li {
+        display: flex;
+      }
+
+      .contact > ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 6px;
+      }
+
+      .lineheightfot {
+        line-height: 1.5;
+        margin-left: 12px;
+      }
+
+      .iconfo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: var(--secondary-color);
+      }
+
+      .Emailfot {
+        padding-top: 20px;
+      }
+
+      @media only screen and (max-width: 992px) {
+        footer .row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media only screen and (max-width: 576px) {
+        footer .row {
+          display: block;
+        }
+        .col-3 {
+          margin-bottom: 28px;
+        }
+      }
+
+      @media only screen and (max-width: 450px) {
+        .copyowner {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <section class="wrapper container">
+        <a href="./index.html" class="logo">Unisuniverse</a>
+        <span class="overlay"></span>
+        <nav class="navbar" id="navbar">
+          <ul class="menu" id="menu">
+            <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Students</a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Academics</a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Universities</a>
+            </li>
+            <li class="menu-item menu-dropdown">
+              <span class="menu-link" data-toggle="submenu"
+                >Our Services<i class="fa fa-angle-down"></i
+              ></span>
+              <ul class="submenu">
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item resnav">
+              <a href="#" class="menu-link" id="btn-md">My profile</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="btn">
+          <a href="#"><i class="fa fa-search"></i></a>
+          <div class="burger" id="burger">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </div>
+          <button class="btn-md" id="test">My profile</button>
+        </div>
+      </section>
+    </header>
+
+    <div class="mx container">
+      <p class="breadcrumb">Home / <span>Edit Profile</span></p>
+    </div>
+
+    <main>
+      <div class="edit-acc mx container">
+        <aside>
+          <div class="side-menu-wrapper">
+            <nav class="side-menu-items">
+              <ul class="side-menu-items-profile">
+                <a
+                  href="../My account/index.html"
+                  class="side-menu-item-profile"
+                >
+                  <div class="side-menu-item-profile-icon">
+                    <i class="fa fa-user-o"></i>
+                  </div>
+                  <h4>My Account</h4>
+                </a>
+
+                <a href="../Products/index.html" class="side-menu-item-profile">
+                  <div class="side-menu-item-profile-icon">
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M6.70295 1.14648C5.9687 1.14648 5.46545 1.14648 5.01628 1.2684C4.55141 1.39598 4.11857 1.61992 3.74587 1.92566C3.37317 2.2314 3.06894 2.61211 2.85295 3.04307C2.64486 3.4574 2.54678 3.95148 2.40286 4.67198L1.83453 7.51182C1.73388 8.00964 1.7436 8.52349 1.86302 9.01715C1.98243 9.51081 2.20864 9.97228 2.5257 10.3691V12.8853C2.5257 14.5702 2.5257 15.9048 2.66595 16.9489C2.81078 18.0232 3.11511 18.8931 3.80078 19.5797C4.48645 20.2654 5.35636 20.5697 6.43161 20.7146C7.4757 20.8548 8.81036 20.8548 10.4943 20.8548H11.5145C13.1994 20.8548 14.534 20.8548 15.5781 20.7146C16.6524 20.5697 17.5224 20.2654 18.2089 19.5797C18.8946 18.8931 19.1989 18.0232 19.3438 16.9489C19.484 15.9039 19.484 14.5702 19.484 12.8853V10.37C19.8011 9.97302 20.0272 9.51135 20.1464 9.01752C20.2657 8.52369 20.2752 8.00972 20.1743 7.51182L19.6059 4.67198C19.4629 3.95148 19.3639 3.4574 19.1568 3.04307C18.9407 2.61201 18.6363 2.23124 18.2634 1.9255C17.8906 1.61975 17.4576 1.39587 16.9925 1.2684C16.5443 1.14648 16.041 1.14648 15.3059 1.14648H6.70295ZM16.7505 11.6882C17.2171 11.689 17.6791 11.5961 18.109 11.415V12.834C18.109 14.5821 18.1072 15.8242 17.9807 16.7665C17.8569 17.6877 17.6241 18.2194 17.2364 18.6072C16.8486 18.9949 16.3169 19.2277 15.3939 19.3515C14.9259 19.4095 14.4554 19.4444 13.984 19.456V16.9297C13.984 16.5263 13.984 16.178 13.9584 15.8938C13.9309 15.5913 13.8704 15.2925 13.7072 15.0111C13.5264 14.6974 13.2662 14.4369 12.9528 14.2557C12.6714 14.0935 12.3725 14.033 12.07 14.0055C11.7859 13.9798 11.4375 13.9798 11.0342 13.9798H10.9746C10.5713 13.9798 10.2239 13.9798 9.93878 14.0055C9.63628 14.033 9.33836 14.0935 9.05695 14.2557C8.7432 14.4368 8.48269 14.6973 8.30161 15.0111C8.13936 15.2925 8.07886 15.5913 8.05136 15.8929C8.0257 16.1789 8.0257 16.5263 8.0257 16.9287V19.456C7.5537 19.4445 7.08257 19.4096 6.61403 19.3515C5.69278 19.2277 5.16111 18.9949 4.77336 18.6072C4.3847 18.2194 4.15278 17.6877 4.02903 16.7656C3.90161 15.8242 3.9007 14.5821 3.9007 12.834V11.415C4.63321 11.7245 5.44946 11.7745 6.21428 11.5568C6.97911 11.3391 7.64665 10.8667 8.10636 10.2178C8.43937 10.6741 8.87554 11.0451 9.37927 11.3006C9.883 11.5561 10.44 11.6889 11.0049 11.6882C11.5697 11.6889 12.1267 11.5561 12.6305 11.3006C13.1342 11.0451 13.5704 10.6741 13.9034 10.2178C14.226 10.6725 14.6528 11.0433 15.1482 11.2991C15.6436 11.5549 16.193 11.6883 16.7505 11.6882ZM9.4007 19.478C9.75636 19.4798 10.1377 19.4798 10.5465 19.4798H11.4632C11.872 19.4798 12.2524 19.4798 12.609 19.478V16.959C12.609 16.5181 12.6081 16.233 12.5889 16.0176C12.5705 15.8113 12.5384 15.7362 12.5164 15.6986C12.4562 15.5943 12.3696 15.5077 12.2653 15.4474C12.2277 15.4254 12.1525 15.3942 11.9463 15.375C11.6329 15.3557 11.3188 15.349 11.0049 15.3548C10.5639 15.3548 10.2789 15.3548 10.0634 15.375C9.85628 15.3933 9.78203 15.4254 9.74445 15.4474C9.63983 15.5075 9.55289 15.5942 9.49236 15.6986C9.47128 15.7352 9.4392 15.8113 9.42086 16.0176C9.40161 16.233 9.4007 16.5181 9.4007 16.959V19.478ZM7.95236 2.52148H6.8047C5.9302 2.52148 5.62678 2.5279 5.38111 2.59482C5.10224 2.67131 4.84257 2.80558 4.61895 2.98893C4.39534 3.17227 4.21277 3.40059 4.08311 3.65907C3.96853 3.88732 3.90345 4.18248 3.73203 5.04048L3.18386 7.78132C3.12544 8.06332 3.12516 8.35429 3.18303 8.63641C3.24091 8.91852 3.35573 9.18587 3.52046 9.4221C3.6852 9.65833 3.89639 9.85847 4.14113 10.0103C4.38586 10.1621 4.65899 10.2624 4.94381 10.305C5.22863 10.3477 5.51915 10.3318 5.79762 10.2583C6.07608 10.1848 6.33663 10.0553 6.56332 9.87766C6.79002 9.70004 6.9781 9.47804 7.11606 9.22524C7.25402 8.97244 7.33897 8.69415 7.3657 8.4074L7.42895 7.77857L7.43261 7.74007L7.9542 2.52148H7.95236ZM8.79661 7.9069L9.33561 2.52148H12.6741L13.2094 7.87665C13.2394 8.18307 13.2053 8.49237 13.1091 8.78483C13.0128 9.0773 12.8567 9.3465 12.6507 9.57527C12.4447 9.80404 12.1932 9.98736 11.9124 10.1135C11.6315 10.2397 11.3275 10.306 11.0196 10.3081C10.7117 10.3102 10.4068 10.2481 10.1242 10.1258C9.8417 10.0035 9.58775 9.82363 9.37859 9.5977C9.16943 9.37178 9.00965 9.10474 8.90945 8.81362C8.80925 8.5225 8.77082 8.2137 8.79661 7.9069ZM16.6286 2.59482C16.3829 2.5279 16.0795 2.52148 15.205 2.52148H14.0555L14.6449 8.40648C14.6725 8.69241 14.7581 8.96973 14.8963 9.22154C15.0345 9.47336 15.2225 9.69441 15.4489 9.87123C15.6753 10.048 15.9353 10.1769 16.2131 10.25C16.4909 10.3231 16.7807 10.3389 17.0647 10.2965C17.3488 10.254 17.6213 10.1541 17.8656 10.0029C18.1098 9.85177 18.3208 9.65247 18.4855 9.41716C18.6503 9.18186 18.7654 8.91548 18.824 8.63424C18.8825 8.35301 18.8831 8.06281 18.8259 7.78132L18.2786 5.04048C18.1063 4.18248 18.0412 3.88732 17.9275 3.65907C17.7978 3.4005 17.6151 3.17212 17.3913 2.98877C17.1675 2.80541 16.9077 2.67119 16.6286 2.59482Z"
+                      />
+                    </svg>
+                  </div>
+                  <h4>Products</h4>
+                </a>
+
+                <a href="../Services/index.html" class="side-menu-item-profile">
+                  <div class="side-menu-item-profile-icon">
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M6.70295 1.14648C5.9687 1.14648 5.46545 1.14648 5.01628 1.2684C4.55141 1.39598 4.11857 1.61992 3.74587 1.92566C3.37317 2.2314 3.06894 2.61211 2.85295 3.04307C2.64486 3.4574 2.54678 3.95148 2.40286 4.67198L1.83453 7.51182C1.73388 8.00964 1.7436 8.52349 1.86302 9.01715C1.98243 9.51081 2.20864 9.97228 2.5257 10.3691V12.8853C2.5257 14.5702 2.5257 15.9048 2.66595 16.9489C2.81078 18.0232 3.11511 18.8931 3.80078 19.5797C4.48645 20.2654 5.35636 20.5697 6.43161 20.7146C7.4757 20.8548 8.81036 20.8548 10.4943 20.8548H11.5145C13.1994 20.8548 14.534 20.8548 15.5781 20.7146C16.6524 20.5697 17.5224 20.2654 18.2089 19.5797C18.8946 18.8931 19.1989 18.0232 19.3438 16.9489C19.484 15.9039 19.484 14.5702 19.484 12.8853V10.37C19.8011 9.97302 20.0272 9.51135 20.1464 9.01752C20.2657 8.52369 20.2752 8.00972 20.1743 7.51182L19.6059 4.67198C19.4629 3.95148 19.3639 3.4574 19.1568 3.04307C18.9407 2.61201 18.6363 2.23124 18.2634 1.9255C17.8906 1.61975 17.4576 1.39587 16.9925 1.2684C16.5443 1.14648 16.041 1.14648 15.3059 1.14648H6.70295ZM16.7505 11.6882C17.2171 11.689 17.6791 11.5961 18.109 11.415V12.834C18.109 14.5821 18.1072 15.8242 17.9807 16.7665C17.8569 17.6877 17.6241 18.2194 17.2364 18.6072C16.8486 18.9949 16.3169 19.2277 15.3939 19.3515C14.9259 19.4095 14.4554 19.4444 13.984 19.456V16.9297C13.984 16.5263 13.984 16.178 13.9584 15.8938C13.9309 15.5913 13.8704 15.2925 13.7072 15.0111C13.5264 14.6974 13.2662 14.4369 12.9528 14.2557C12.6714 14.0935 12.3725 14.033 12.07 14.0055C11.7859 13.9798 11.4375 13.9798 11.0342 13.9798H10.9746C10.5713 13.9798 10.2239 13.9798 9.93878 14.0055C9.63628 14.033 9.33836 14.0935 9.05695 14.2557C8.7432 14.4368 8.48269 14.6973 8.30161 15.0111C8.13936 15.2925 8.07886 15.5913 8.05136 15.8929C8.0257 16.1789 8.0257 16.5263 8.0257 16.9287V19.456C7.5537 19.4445 7.08257 19.4096 6.61403 19.3515C5.69278 19.2277 5.16111 18.9949 4.77336 18.6072C4.3847 18.2194 4.15278 17.6877 4.02903 16.7656C3.90161 15.8242 3.9007 14.5821 3.9007 12.834V11.415C4.63321 11.7245 5.44946 11.7745 6.21428 11.5568C6.97911 11.3391 7.64665 10.8667 8.10636 10.2178C8.43937 10.6741 8.87554 11.0451 9.37927 11.3006C9.883 11.5561 10.44 11.6889 11.0049 11.6882C11.5697 11.6889 12.1267 11.5561 12.6305 11.3006C13.1342 11.0451 13.5704 10.6741 13.9034 10.2178C14.226 10.6725 14.6528 11.0433 15.1482 11.2991C15.6436 11.5549 16.193 11.6883 16.7505 11.6882ZM9.4007 19.478C9.75636 19.4798 10.1377 19.4798 10.5465 19.4798H11.4632C11.872 19.4798 12.2524 19.4798 12.609 19.478V16.959C12.609 16.5181 12.6081 16.233 12.5889 16.0176C12.5705 15.8113 12.5384 15.7362 12.5164 15.6986C12.4562 15.5943 12.3696 15.5077 12.2653 15.4474C12.2277 15.4254 12.1525 15.3942 11.9463 15.375C11.6329 15.3557 11.3188 15.349 11.0049 15.3548C10.5639 15.3548 10.2789 15.3548 10.0634 15.375C9.85628 15.3933 9.78203 15.4254 9.74445 15.4474C9.63983 15.5075 9.55289 15.5942 9.49236 15.6986C9.47128 15.7352 9.4392 15.8113 9.42086 16.0176C9.40161 16.233 9.4007 16.5181 9.4007 16.959V19.478ZM7.95236 2.52148H6.8047C5.9302 2.52148 5.62678 2.5279 5.38111 2.59482C5.10224 2.67131 4.84257 2.80558 4.61895 2.98893C4.39534 3.17227 4.21277 3.40059 4.08311 3.65907C3.96853 3.88732 3.90345 4.18248 3.73203 5.04048L3.18386 7.78132C3.12544 8.06332 3.12516 8.35429 3.18303 8.63641C3.24091 8.91852 3.35573 9.18587 3.52046 9.4221C3.6852 9.65833 3.89639 9.85847 4.14113 10.0103C4.38586 10.1621 4.65899 10.2624 4.94381 10.305C5.22863 10.3477 5.51915 10.3318 5.79762 10.2583C6.07608 10.1848 6.33663 10.0553 6.56332 9.87766C6.79002 9.70004 6.9781 9.47804 7.11606 9.22524C7.25402 8.97244 7.33897 8.69415 7.3657 8.4074L7.42895 7.77857L7.43261 7.74007L7.9542 2.52148H7.95236ZM8.79661 7.9069L9.33561 2.52148H12.6741L13.2094 7.87665C13.2394 8.18307 13.2053 8.49237 13.1091 8.78483C13.0128 9.0773 12.8567 9.3465 12.6507 9.57527C12.4447 9.80404 12.1932 9.98736 11.9124 10.1135C11.6315 10.2397 11.3275 10.306 11.0196 10.3081C10.7117 10.3102 10.4068 10.2481 10.1242 10.1258C9.8417 10.0035 9.58775 9.82363 9.37859 9.5977C9.16943 9.37178 9.00965 9.10474 8.90945 8.81362C8.80925 8.5225 8.77082 8.2137 8.79661 7.9069ZM16.6286 2.59482C16.3829 2.5279 16.0795 2.52148 15.205 2.52148H14.0555L14.6449 8.40648C14.6725 8.69241 14.7581 8.96973 14.8963 9.22154C15.0345 9.47336 15.2225 9.69441 15.4489 9.87123C15.6753 10.048 15.9353 10.1769 16.2131 10.25C16.4909 10.3231 16.7807 10.3389 17.0647 10.2965C17.3488 10.254 17.6213 10.1541 17.8656 10.0029C18.1098 9.85177 18.3208 9.65247 18.4855 9.41716C18.6503 9.18186 18.7654 8.91548 18.824 8.63424C18.8825 8.35301 18.8831 8.06281 18.8259 7.78132L18.2786 5.04048C18.1063 4.18248 18.0412 3.88732 17.9275 3.65907C17.7978 3.4005 17.6151 3.17212 17.3913 2.98877C17.1675 2.80541 16.9077 2.67119 16.6286 2.59482Z"
+                      />
+                    </svg>
+                  </div>
+                  <h4>Services</h4>
+                </a>
+
+                <a href="../Message/index.html" class="side-menu-item-profile">
+                  <div class="side-menu-item-profile-icon">
+                    <i class="fa fa-commenting-o"></i>
+                  </div>
+                  <h4>Messages</h4>
+                </a>
+
+                <a
+                  href="../Wishlist/index.html"
+                  class="side-menu-item-profile checked-tab"
+                >
+                  <div class="side-menu-item-profile-icon">
+                    <i class="fa fa-heart-o"></i>
+                  </div>
+                  <h4>Wishlist</h4>
+                </a>
+              </ul>
+
+              <ul class="side-menu-logout-profile">
+                <a class="side-menu-item-profile log-out">
+                  <div class="side-menu-item-profile-icon">
+                    <i class="fa fa-power-off"></i>
+                  </div>
+                  <h4>Log Out</h4>
+                </a>
+              </ul>
+            </nav>
+          </div>
+        </aside>
+
+        <div class="edit-section-wrapper">
+          <h2 class="edit-section-title">Wishlist</h2>
+
+          <div class="edit-section-items">
+            <div class="products-cards">
+              <div class="product-card">
+                <div class="card-front">
+                  <div class="service-card-item-img">
+                    <img
+                      src="../../images/product img.png"
+                      alt="User Product"
+                    />
+                    <div class="wishlist-icon">
+                      <i class="fa fa-heart"></i>
+                    </div>
+                  </div>
+                  <div class="product-card-body">
+                    <h4 class="title-card">
+                      Editable Lesson Plan Templates Bundle - Digital
+                    </h4>
+                    <div class="prof-info">
+                      <img
+                        src="../../images/avatar product.png"
+                        alt="User Photo"
+                      />
+                      <h5>Dr. Anderson Cooper</h5>
+                    </div>
+                    <div class="card-price">
+                      <div class="icon-price">
+                        <svg
+                          width="23"
+                          height="22"
+                          viewBox="0 0 23 22"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M13.6859 11.3057C13.5594 10.9482 13.3253 10.6387 13.0157 10.4198C12.7061 10.2009 12.3362 10.0833 11.957 10.0833V9.625H11.0404V10.0833C10.5541 10.0833 10.0878 10.2765 9.744 10.6203C9.40019 10.9641 9.20703 11.4304 9.20703 11.9167C9.20703 12.4029 9.40019 12.8692 9.744 13.213C10.0878 13.5568 10.5541 13.75 11.0404 13.75V15.5833C10.6416 15.5833 10.302 15.329 10.1755 14.9724C10.1567 14.914 10.1264 14.8601 10.0864 14.8136C10.0465 14.7672 9.99755 14.7292 9.94264 14.702C9.88772 14.6748 9.82791 14.6589 9.76674 14.6552C9.70557 14.6516 9.64428 14.6602 9.58649 14.6806C9.52871 14.701 9.47561 14.7328 9.43033 14.7741C9.38505 14.8154 9.34851 14.8653 9.32287 14.921C9.29724 14.9767 9.28303 15.0369 9.28108 15.0982C9.27913 15.1594 9.28948 15.2204 9.31153 15.2776C9.43796 15.6351 9.6721 15.9446 9.98171 16.1635C10.2913 16.3824 10.6612 16.5 11.0404 16.5V16.9583H11.957V16.5C12.4433 16.5 12.9096 16.3068 13.2534 15.963C13.5972 15.6192 13.7904 15.1529 13.7904 14.6667C13.7904 14.1804 13.5972 13.7141 13.2534 13.3703C12.9096 13.0265 12.4433 12.8333 11.957 12.8333V11C12.1466 11 12.3315 11.0587 12.4863 11.1681C12.6411 11.2775 12.7582 11.4322 12.8214 11.611C12.8619 11.7256 12.9463 11.8194 13.056 11.8719C13.1103 11.8978 13.1692 11.9128 13.2293 11.916C13.2894 11.9193 13.3495 11.9106 13.4063 11.8905C13.463 11.8705 13.5153 11.8395 13.5601 11.7992C13.6048 11.759 13.6412 11.7103 13.6672 11.656C13.6932 11.6017 13.7082 11.5428 13.7114 11.4827C13.7146 11.4226 13.7059 11.3625 13.6859 11.3057ZM11.0404 11C10.7972 11 10.5641 11.0966 10.3922 11.2685C10.2203 11.4404 10.1237 11.6736 10.1237 11.9167C10.1237 12.1598 10.2203 12.3929 10.3922 12.5648C10.5641 12.7368 10.7972 12.8333 11.0404 12.8333V11ZM11.957 15.5833C12.2001 15.5833 12.4333 15.4868 12.6052 15.3148C12.7771 15.1429 12.8737 14.9098 12.8737 14.6667C12.8737 14.4236 12.7771 14.1904 12.6052 14.0185C12.4333 13.8466 12.2001 13.75 11.957 13.75V15.5833Z"
+                            fill="#F5AA1C"
+                          />
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M6.5291 3.95129C7.65385 3.40083 9.4991 2.75 11.5185 2.75C13.4958 2.75 15.2924 3.37379 16.4112 3.91692L16.4745 3.94763C16.8118 4.11446 17.0841 4.27213 17.2756 4.4L15.5826 6.875C19.4857 10.8653 22.5006 19.2486 11.5185 19.2486C0.536392 19.2486 3.47018 11.0174 7.40727 6.875L5.72518 4.4C5.85489 4.31521 6.01943 4.21667 6.2156 4.11217C6.31277 4.05992 6.41727 4.00583 6.5291 3.95129ZM14.4945 6.842L15.8498 4.86063C14.5893 4.95138 13.0897 5.24746 11.6459 5.66546C10.6147 5.96338 9.46885 5.918 8.40781 5.72229C8.14043 5.67272 7.87489 5.61371 7.61168 5.54538L8.49168 6.84108C10.3777 7.51254 12.608 7.51254 14.4945 6.842ZM7.96231 7.62208C10.1692 8.47458 12.8216 8.47458 15.0284 7.62117C15.9496 8.59224 16.7202 9.69576 17.3146 10.895C17.9343 12.1591 18.2716 13.4228 18.2166 14.5118C18.1634 15.5627 17.75 16.4606 16.8059 17.1279C15.8218 17.8232 14.1668 18.332 11.5181 18.332C8.8666 18.332 7.20377 17.8319 6.21056 17.1444C5.25952 16.4853 4.84198 15.5998 4.78285 14.5631C4.72098 13.486 5.05098 12.2288 5.66835 10.956C6.25731 9.74233 7.0791 8.57404 7.96231 7.62208ZM7.43523 4.54483C7.80189 4.65392 8.18506 4.74879 8.57373 4.82075C9.55914 5.00225 10.5473 5.02883 11.3906 4.78454C12.3734 4.49824 13.373 4.27307 14.3836 4.11033C13.5402 3.85642 12.5539 3.66667 11.5181 3.66667C9.9391 3.66667 8.46648 4.10713 7.43523 4.54483Z"
+                            fill="#F5AA1C"
+                          />
+                        </svg>
+                      </div>
+                      <h5>Price : <span class="inner-price">Free</span></h5>
+                    </div>
+                    <hr />
+                    <div class="stu-join">
+                      <div class="students">
+                        <svg
+                          width="19"
+                          height="18"
+                          viewBox="0 0 19 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M11.1874 4.12478C11.1874 3.55529 11.3869 3.0038 11.7511 2.56603C12.1153 2.12825 12.6213 1.83183 13.1813 1.7282C13.7413 1.62457 14.3199 1.72029 14.8166 1.99873C15.3134 2.27717 15.697 2.72077 15.9009 3.25252C16.1047 3.78427 16.1159 4.37061 15.9326 4.90977C15.7492 5.44894 15.3829 5.90688 14.8971 6.20413C14.4114 6.50137 13.8369 6.61915 13.2733 6.53702C12.7098 6.4549 12.1928 6.17805 11.8121 5.75453L9.77436 6.86603L7.49436 8.16878C7.81312 8.72982 7.89671 9.39426 7.72686 10.0168L11.8121 12.245C12.2118 11.801 12.7606 11.5191 13.3544 11.4531C13.9482 11.3871 14.5456 11.5414 15.033 11.8868C15.5205 12.2322 15.8642 12.7446 15.9987 13.3267C16.1333 13.9088 16.0494 14.5201 15.7629 15.0444C15.4765 15.5687 15.0074 15.9695 14.4449 16.1707C13.8824 16.372 13.2655 16.3596 12.7115 16.136C12.1575 15.9124 11.7049 15.4931 11.4397 14.9577C11.1745 14.4224 11.1151 13.8083 11.2729 13.232L7.18761 11.0045C6.87626 11.3508 6.47224 11.6007 6.02334 11.7245C5.57444 11.8484 5.09945 11.8411 4.65458 11.7035C4.20971 11.5658 3.81358 11.3036 3.51305 10.9479C3.21252 10.5922 3.02018 10.1578 2.95878 9.69622C2.89738 9.23461 2.9695 8.76507 3.1666 8.34317C3.3637 7.92126 3.67753 7.56464 4.07096 7.31551C4.46438 7.06637 4.92094 6.93515 5.38661 6.93737C5.85228 6.93959 6.30757 7.07516 6.69861 7.32803L9.22611 5.88353L11.2729 4.76678C11.216 4.55753 11.1872 4.34162 11.1874 4.12478ZM13.6249 2.81228C13.4525 2.81228 13.2818 2.84623 13.1226 2.91218C12.9633 2.97814 12.8187 3.07482 12.6968 3.1967C12.5749 3.31858 12.4782 3.46327 12.4123 3.6225C12.3463 3.78174 12.3124 3.95242 12.3124 4.12478C12.3124 4.29714 12.3463 4.46781 12.4123 4.62705C12.4782 4.78629 12.5749 4.93098 12.6968 5.05285C12.8187 5.17473 12.9633 5.27141 13.1226 5.33737C13.2818 5.40333 13.4525 5.43728 13.6249 5.43728C13.973 5.43728 14.3068 5.299 14.5529 5.05285C14.7991 4.80671 14.9374 4.47287 14.9374 4.12478C14.9374 3.77668 14.7991 3.44284 14.5529 3.1967C14.3068 2.95056 13.973 2.81228 13.6249 2.81228ZM5.37486 8.06228C5.02676 8.06228 4.69292 8.20056 4.44678 8.4467C4.20064 8.69284 4.06236 9.02668 4.06236 9.37478C4.06236 9.72287 4.20064 10.0567 4.44678 10.3029C4.69292 10.549 5.02676 10.6873 5.37486 10.6873C5.72296 10.6873 6.0568 10.549 6.30294 10.3029C6.54908 10.0567 6.68736 9.72287 6.68736 9.37478C6.68736 9.02668 6.54908 8.69284 6.30294 8.4467C6.0568 8.20056 5.72296 8.06228 5.37486 8.06228ZM12.3124 13.8748C12.3124 13.5267 12.4506 13.1928 12.6968 12.9467C12.9429 12.7006 13.2768 12.5623 13.6249 12.5623C13.973 12.5623 14.3068 12.7006 14.5529 12.9467C14.7991 13.1928 14.9374 13.5267 14.9374 13.8748C14.9374 14.2229 14.7991 14.5567 14.5529 14.8029C14.3068 15.049 13.973 15.1873 13.6249 15.1873C13.2768 15.1873 12.9429 15.049 12.6968 14.8029C12.4506 14.5567 12.3124 14.2229 12.3124 13.8748Z"
+                            fill="#F5AA1C"
+                          />
+                        </svg>
+                        <p>Share</p>
+                      </div>
+                      <div class="join-btn">
+                        <p>Read More</p>
+                        <svg
+                          width="19"
+                          height="17"
+                          viewBox="0 0 19 17"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                            stroke="#F5AA1C"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="service-card">
+                <div class="service-card-item-img">
+                  <img src="../../images/product img.png" alt="User Product" />
+                  <div class="wishlist-icon">
+                    <i class="fa fa-heart"></i>
+                  </div>
+                </div>
+                <div class="product-card-body">
+                  <h4 class="title-card">Create Character</h4>
+                  <div class="prof-info">
+                    <img
+                      src="../../images/avatar product.png"
+                      alt="User Photo"
+                    />
+                    <h5>Dr. Anderson Cooper</h5>
+                  </div>
+                  <p class="service-desc">
+                    Lorem ipsum dolor consectetur lorem adipiscing elit
+                  </p>
+                  <hr />
+                  <div class="stu-join">
+                    <div class="students">
+                      <h4 class="card-service-price">
+                        Price : <span>$18</span>
+                      </h4>
+                    </div>
+                    <div class="join-btn">
+                      <p>Read More</p>
+                      <svg
+                        width="19"
+                        height="17"
+                        viewBox="0 0 19 17"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                          stroke="#F5AA1C"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container mx">
+        <div class="row-fot">
+          <div class="row">
+            <div class="desc col-3">
+              <a href="/index.html">
+                <img
+                  src="../../../images/image_59-removebg-preview (1) 1.png"
+                  alt=""
+                />
+                <h2>Unisuniverse</h2>
+              </a>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
+                congu.
+              </p>
+            </div>
+            <div class="col-3">
+              <h4>Short Links</h4>
+              <ul class="footer-cat-links">
+                <li>
+                  <a href=""><span>Home</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Academics</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Students</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Universities</span></a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-3">
+              <h4>Quick links</h4>
+              <ul class="footer-cat-links">
+                <li>
+                  <a href="../Aboutus/index.html"><span>About us</span></a>
+                </li>
+                <li>
+                  <a href="../FAQ/index.html"><span>FAQ</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Contact us</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Privacy policy</span></a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-3 contact">
+              <h4>Contact us</h4>
+              <ul>
+                <li>
+                  <div class="iconfo">
+                    <i
+                      class="fa fa-phone fa-flip-horizontal"
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+                  <div class="lineheightfot">
+                    Phone:<br />
+                    +971-580580580
+                  </div>
+                </li>
+                <li class="Emailfot">
+                  <div class="iconfo">
+                    <i class="fa fa-envelope-o"></i>
+                  </div>
+                  <div class="lineheightfot">
+                    Email:<br />
+                    info@Unisuniverse@gmail.com
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="social-links social-2 col-6">
+            <a href=""><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-linkedin-in"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-reddit-alien"></i></a>
+          </div>
+        </div>
+        <div class="copyowner">
+          <div id="copyright">&copy; 2023 Attio Ltd. All rights reserved.</div>
+          <div id="owner">
+            <span> Terms & Conditions </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const navbarMenu = document.getElementById("navbar");
+      const burgerMenu = document.getElementById("burger");
+      const overlayMenu = document.querySelector(".overlay");
+
+      const toggleMenu = () => {
+        navbarMenu.classList.toggle("active");
+        overlayMenu.classList.toggle("active");
+      };
+
+      const collapseSubMenu = () => {
+        navbarMenu
+          .querySelector(".menu-dropdown.active .submenu")
+          .removeAttribute("style");
+        navbarMenu
+          .querySelector(".menu-dropdown.active")
+          .classList.remove("active");
+      };
+
+      const toggleSubMenu = (e) => {
+        if (e.target.hasAttribute("data-toggle") && window.innerWidth <= 992) {
+          e.preventDefault();
+          const menuDropdown = e.target.parentElement;
+
+          if (menuDropdown.classList.contains("active")) {
+            collapseSubMenu();
+          } else {
+            if (navbarMenu.querySelector(".menu-dropdown.active")) {
+              collapseSubMenu();
+            }
+
+            menuDropdown.classList.add("active");
+            const subMenu = menuDropdown.querySelector(".submenu");
+            subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+          }
+        }
+      };
+
+      const resizeWindow = () => {
+        if (window.innerWidth > 992) {
+          if (navbarMenu.classList.contains("active")) {
+            toggleMenu();
+          }
+          if (navbarMenu.querySelector(".menu-dropdown.active")) {
+            collapseSubMenu();
+          }
+        }
+      };
+
+      burgerMenu.addEventListener("click", toggleMenu);
+      overlayMenu.addEventListener("click", toggleMenu);
+      navbarMenu.addEventListener("click", toggleSubMenu);
+      window.addEventListener("resize", resizeWindow);
+    </script>
+  </body>
+</html>

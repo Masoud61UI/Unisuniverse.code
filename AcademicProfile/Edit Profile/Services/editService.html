@@ -472,7 +472,14 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 58px;
+        gap: 70px;
+      }
+
+      .edit-section-title-add {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
       }
 
       .edit-section-title {
@@ -481,78 +488,36 @@
         color: var(--color-text-black);
       }
 
-      .edit-section-item-tab {
-        max-width: 100%;
-        width: -webkit-fill-available;
-      }
-
-      .edit-section-item-tab input[type="radio"] {
-        display: none;
-      }
-
-      .label-tab {
-        display: inline-block;
+      .edit-section-title-add > a {
+        width: 153px;
+        height: 49px;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 16px;
-        color: var(--color-text-grayblack);
-        font-weight: 400;
-        padding: 16px 6px;
-        text-align: center;
-        border-bottom: 1px solid transparent;
-        transition: all 0.2s ease-in;
-      }
-      .label-tab:hover {
-        color: var(--secondary-color);
         font-weight: 500;
-        cursor: pointer;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+      }
+      .edit-section-title-add > a:hover {
+        background-color: var(--secondary-color);
       }
 
-      .edit-section-item-tab input:checked + .label-tab {
-        color: var(--secondary-color);
-        font-weight: 500;
-        border-bottom: 1.5px solid var(--secondary-color);
-      }
-
-      .contents {
-        display: none;
-        padding: 48px 0 0 0;
-        border-top: 1px solid var(--color-line);
+      .edit-section-item-title-wrapper {
         width: 100%;
+      }
+
+      .edit-section-item-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--color-text-black);
+        border-bottom: 1px solid var(--color-line);
+        padding-bottom: 8px;
       }
 
       .edit-section-items {
-        width: 100%;
-      }
-
-      .edit-section-items #tab1:checked ~ #content1,
-      .edit-section-items #tab2:checked ~ #content2,
-      .edit-section-items #tab3:checked ~ #content3,
-      .edit-section-items #tab4:checked ~ #content4,
-      .edit-section-items #tab5:checked ~ #content5,
-      .edit-section-items #tab6:checked ~ #content6,
-      .edit-section-items #tab7:checked ~ #content7,
-      .edit-section-items #tab8:checked ~ #content8 {
-        display: block;
-      }
-
-      .edit-section-content {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: inherit;
-      }
-
-      .edit-section-photo-cover {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: inherit;
-      }
-
-      .edit-section-cover {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 10px;
         width: 100%;
       }
 
@@ -567,95 +532,20 @@
         width: 100%;
       }
 
-      .edit-section-cover-img {
-        width: 100%;
-        height: 200px;
-        border-radius: 16px;
-        object-fit: cover;
-      }
-
-      .btn-chng-bg {
-        position: relative;
-        float: right;
-        margin: -54px 10px 0 0;
-        z-index: 50;
-      }
-      .btn-chng-bg input[type="file"] {
-        display: none;
-      }
-
-      .custom-file-upload {
-        background-color: var(--color-white);
-        color: var(--color-text-black);
-        display: flex;
-        font-size: 16px;
-        font-weight: 500;
-        align-items: center;
-        padding: 6px 14px;
-        border-radius: 8px;
-        cursor: pointer;
-      }
-      .custom-file-upload svg {
-        margin-right: 6px;
-      }
-
-      .edit-section-photo {
-        display: flex;
-        align-items: center;
-        width: 96px;
-        height: 96px;
-        position: relative;
-        margin: -38px 0 0 30px;
-      }
-
-      .edit-section-photo-img {
-        width: inherit;
-        height: inherit;
-        border-radius: 10px;
-        object-fit: cover;
-        border: 2px solid var(--secondary-color);
-        padding: 4px;
-      }
-
-      .btn-chng-img {
-        position: absolute;
-        left: 33px;
-        z-index: 50;
-      }
-      .btn-chng-img input[type="file"] {
-        display: none;
-      }
-
-      .custom-file-upload-photo {
-        background: rgba(21, 21, 21, 0.4);
-        color: var(--color-text-black);
-        display: flex;
-        font-size: 15px;
-        font-weight: 500;
-        align-items: center;
-        padding: 7px;
-        border-radius: 6px;
-        cursor: pointer;
-      }
-
-      .custom-file-upload-photo > i {
-        color: var(--color-background);
-      }
-
       .user_details {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin-top: 10px;
+        margin-top: 22px;
       }
 
       .input_pox {
-        margin-bottom: 15px;
-        margin: 18px 0 18px 0;
+        margin: 18px 0 28px 0;
         width: calc(100% / 2 - 20px);
       }
 
-      .datails {
+      .datails,
+      .information-title {
         display: block;
         font-weight: 500;
         font-size: 16px;
@@ -795,6 +685,104 @@
         accent-color: var(--primary-color);
       }
 
+      .information-edit {
+        margin: 18px 0 28px 0;
+      }
+
+      /* Drop Zoon */
+
+      .photo-upld {
+        width: 100%;
+        height: 220px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 20px 0;
+        border-radius: 10px;
+        cursor: pointer;
+        border: 1.5px dashed var(--secondary-color);
+      }
+
+      .photo-upld :where(i, p) {
+        color: var(--color-text-gray);
+      }
+      .photo-upld i {
+        font-size: 34px;
+      }
+
+      .photo-upld p {
+        font-size: 16px;
+        margin-top: 12px;
+      }
+
+      .row-upload {
+        background: var(--color-white);
+        margin-bottom: 10px;
+        list-style: none;
+        padding: 15px 20px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .row-upload i {
+        font-size: 28px;
+        color: var(--primary-color);
+      }
+
+      .details span {
+        font-size: 14px;
+      }
+
+      .progress-area .row-upload .content {
+        width: 100%;
+        margin-left: 15px;
+      }
+
+      .progress-area .details {
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+        justify-content: space-between;
+      }
+
+      .progress-area .progress-bar {
+        height: 5px;
+        width: 100%;
+        background: var(--color-background);
+        margin-bottom: 4px;
+        border-radius: 30px;
+      }
+
+      .progress-bar .progress {
+        height: 100%;
+        width: 50%;
+        background: var(--primary-color);
+        border-radius: inherit;
+      }
+
+      .uploaded-area .row-upload .content {
+        display: flex;
+        align-items: center;
+      }
+      .uploaded-area .row-upload .details {
+        display: flex;
+        margin-left: 15px;
+        flex-direction: column;
+      }
+
+      .img-size {
+        font-size: 12px;
+        color: var(--color-text-grayblack);
+      }
+
+      .uploaded-area .fa-check {
+        color: var(--primary-color);
+        font-size: 16px;
+      }
+
       @media only screen and (min-width: 1670px) {
         .edit-section-item-tab > .marg-label {
           margin-left: 24px;
@@ -879,8 +867,28 @@
           margin-bottom: 15px;
           width: 100%;
         }
+        .information-edit {
+          margin-bottom: 15px;
+        }
         .edit-section-forms > button {
           width: 100%;
+        }
+      }
+
+      @media only screen and (max-width: 420px) {
+        .edit-section-title-add {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+        }
+        .edit-section-title-add > a {
+          width: 100%;
+        }
+        .edit-section-title {
+          font-size: 22px;
+        }
+        .edit-section-item-title {
+          font-size: 18px;
         }
       }
 
@@ -1155,7 +1163,10 @@
           <div class="side-menu-wrapper">
             <nav class="side-menu-items">
               <ul class="side-menu-items-profile">
-                <a href="../My account/index.html" class="side-menu-item-profile checked-tab">
+                <a
+                  href="../My account/index.html"
+                  class="side-menu-item-profile"
+                >
                   <div class="side-menu-item-profile-icon">
                     <i class="fa fa-user-o"></i>
                   </div>
@@ -1181,7 +1192,10 @@
                   <h4>Products</h4>
                 </a>
 
-                <a href="../Services/index.html" class="side-menu-item-profile">
+                <a
+                  href="../Services/index.html"
+                  class="side-menu-item-profile checked-tab"
+                >
                   <div class="side-menu-item-profile-icon">
                     <svg
                       width="22"
@@ -1228,762 +1242,132 @@
         </aside>
 
         <div class="edit-section-wrapper">
-          <h2 class="edit-section-title">My Account</h2>
+          <div class="edit-section-title-add">
+            <h2 class="edit-section-title">Edit Service</h2>
+            <a href="../Services/newService.html">Add Service</a>
+          </div>
 
           <div class="edit-section-items">
-            <div class="edit-section-item-tab">
-              <input id="tab1" type="radio" name="tabs" checked />
-              <label for="tab1" class="label-tab">Personal info</label>
+            <div class="edit-section-forms">
+              <form>
+                <div class="edit-section-item-title-wrapper">
+                  <h3 class="edit-section-item-title">Basic information</h3>
+                </div>
+                <div class="user_details">
+                  <div class="input_pox">
+                    <label class="datails">Service Name :</label>
+                    <input type="text" required />
+                  </div>
+                  <div class="input_pox">
+                    <label class="datails">Greade Levelsy :</label>
+                    <select
+                      name="greade"
+                      class="select-input"
+                      onblur="this.size=0"
+                      onchange="this.size=1; this.blur()"
+                    >
+                      <option value="under graduate">Under Graduate</option>
+                      <option value="graduate">Graduate</option>
+                      <option value="ph.d.">Ph.D.</option>
+                    </select>
+                  </div>
+                  <div class="input_pox wf">
+                    <label class="datails">Description :</label>
+                    <textarea required></textarea>
+                  </div>
+                  <div class="input_pox">
+                    <label class="datails">Field :</label>
+                    <input type="text" required />
+                  </div>
+                  <div class="input_pox">
+                    <label class="datails">Price :</label>
+                    <input type="text" required />
+                  </div>
+                  <div class="input_pox">
+                    <label class="datails">Languages :</label>
+                    <input type="text" required />
+                  </div>
 
-              <input id="tab2" type="radio" name="tabs" />
-              <label for="tab2" class="marg-label label-tab">Education</label>
-
-              <input id="tab3" type="radio" name="tabs" />
-              <label for="tab3" class="marg-label label-tab">Experience</label>
-
-              <input id="tab4" type="radio" name="tabs" />
-              <label for="tab4" class="marg-label label-tab">Skills</label>
-
-              <input id="tab5" type="radio" name="tabs" />
-              <label for="tab5" class="marg-label label-tab">Languages</label>
-
-              <input id="tab6" type="radio" name="tabs" />
-              <label for="tab6" class="marg-label label-tab"
-                >Publications</label
-              >
-
-              <input id="tab7" type="radio" name="tabs" />
-              <label for="tab7" class="marg-label label-tab"
-                >Certificates</label
-              >
-
-              <input id="tab8" type="radio" name="tabs" />
-              <label for="tab8" class="marg-label label-tab">Others</label>
-
-              <div id="content1" class="contents">
-                <div class="edit-section-content">
-                  <div class="edit-section-photo-cover">
-                    <div class="edit-section-cover">
-                      <img
-                        src="../../images/student background.png"
-                        alt="Cover Image"
-                        class="edit-section-cover-img"
-                      />
-                      <div class="btn-chng-bg">
-                        <label class="custom-file-upload">
-                          <svg
-                            width="18"
-                            height="18"
-                            viewBox="0 0 18 18"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M9 12C10.2426 12 11.25 10.9926 11.25 9.75C11.25 8.50736 10.2426 7.5 9 7.5C7.75736 7.5 6.75 8.50736 6.75 9.75C6.75 10.9926 7.75736 12 9 12Z"
-                              stroke="#151515"
-                              stroke-width="1.5"
-                            />
-                            <path
-                              opacity="0.5"
-                              d="M7.3335 15.75H10.6665C13.0072 15.75 14.178 15.75 15.0187 15.1988C15.3815 14.961 15.694 14.6542 15.9382 14.2958C16.5 13.4708 16.5 12.321 16.5 10.023C16.5 7.72429 16.5 6.57528 15.9382 5.75028C15.694 5.39187 15.3815 5.08504 15.0187 4.84728C14.4787 4.49253 13.8022 4.36578 12.7665 4.32078C12.2722 4.32078 11.847 3.95328 11.7502 3.47703C11.6763 3.12819 11.4842 2.81556 11.2064 2.592C10.9286 2.36843 10.5821 2.24764 10.2255 2.25003H7.7745C7.0335 2.25003 6.39525 2.76379 6.24975 3.47703C6.153 3.95328 5.72775 4.32078 5.2335 4.32078C4.1985 4.36578 3.522 4.49328 2.98125 4.84728C2.61871 5.08508 2.30653 5.39191 2.0625 5.75028C1.5 6.57528 1.5 7.72429 1.5 10.023C1.5 12.321 1.5 13.47 2.06175 14.2958C2.30475 14.6528 2.61675 14.9595 2.98125 15.1988C3.822 15.75 4.99275 15.75 7.3335 15.75Z"
-                              stroke="#151515"
-                              stroke-width="1.5"
-                            />
-                            <path
-                              d="M14.25 7.5H13.5"
-                              stroke="#151515"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                            />
-                          </svg>
-                          <input type="file" name="myImage" accept="image/*" />
-                          Update Cover
-                        </label>
-                      </div>
+                  <div class="information-edit wf">
+                    <h4 class="information-title">Service images :</h4>
+                    <div class="photo-upld">
+                      <i class="fa fa-picture-o"></i>
+                      <p>Browse file to upload</p>
+                      <input type="file" class="file-input" hidden />
                     </div>
-
-                    <div class="edit-section-photo">
-                      <img
-                        src="../../images/review photo.png"
-                        alt="User Image"
-                        class="edit-section-photo-img"
-                      />
-                      <div class="btn-chng-img">
-                        <label class="custom-file-upload-photo">
-                          <i class="fa fa-camera"></i>
-                          <input type="file" name="myImage" accept="image/*" />
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="edit-section-forms">
-                    <form>
-                      <div class="user_details">
-                        <div class="input_pox">
-                          <label class="datails">Title :</label>
-                          <input type="text" required />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Full Name : *</label>
-                          <input
-                            type="text"
-                            placeholder="Anderson Cooper"
-                            required
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Email : *</label>
-                          <input
-                            type="email"
-                            placeholder="info@Anderson.com"
-                            required
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Phone Number :</label>
-                          <input
-                            type="number"
-                            placeholder="+1 (949) 354-2574"
-                            required
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Gender :</label>
-                          <select
-                            name="gender"
-                            class="select-input"
-                            onblur="this.size=0"
-                            onchange="this.size=1; this.blur()"
-                          >
-                            <option value="january">Male</option>
-                            <option value="february">Female</option>
-                          </select>
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Date of birth :</label>
-                          <div class="inner-inputs-wrapper">
-                            <input type="number" placeholder="Day" required />
-                            <input type="number" placeholder="Month" required />
-                            <input type="number" placeholder="Year" required />
+                    <section class="progress-area">
+                      <li class="row-upload">
+                        <i class="fa fa-file-image-o"></i>
+                        <div class="content">
+                          <div class="details">
+                            <span class="name">image.01 - Uploading</span>
+                            <span class="percent">50%</span>
+                          </div>
+                          <div class="progress-bar">
+                            <div class="progress"></div>
                           </div>
                         </div>
-                        <div class="input_pox">
-                          <label class="datails">Nationality :</label>
-                          <input
-                            type="text"
-                            placeholder="Australian"
-                            required
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Country of residence :</label>
-                          <input type="text" placeholder="Australia" required />
-                        </div>
-                        <div class="input_pox wf">
-                          <label class="datails">Summary :</label>
-                          <textarea placeholder="Text" required></textarea>
-                        </div>
-                      </div>
-                    </form>
-                    <button>Save Changes</button>
-                  </div>
-                </div>
-              </div>
-
-              <div id="content2" class="contents">
-                <div class="edit-section-content">
-                  <div class="edit-section-forms">
-                    <form>
-                      <div class="user_details">
-                        <div class="input_pox">
-                          <label class="datails">School : *</label>
-                          <input
-                            type="text"
-                            placeholder="Harvard University"
-                            required
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Level of education : *</label>
-                          <input type="text" placeholder="Bachelor" required />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Field : *</label>
-                          <input
-                            type="text"
-                            placeholder="Computer Science"
-                            required
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Country of study :</label>
-                          <input
-                            type="text"
-                            placeholder="United State"
-                            required
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Start date :</label>
-                          <div class="inner-inputs-wrapper">
-                            <select
-                              name="Month"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Month</option>
-                              <option value="january">January</option>
-                              <option value="february">February</option>
-                              <option value="march">March</option>
-                              <option value="april">April</option>
-                              <option value="may">May</option>
-                              <option value="june">June</option>
-                              <option value="july">July</option>
-                              <option value="august">August</option>
-                              <option value="september">September</option>
-                              <option value="october">October</option>
-                              <option value="november">November</option>
-                              <option value="december">December</option>
-                            </select>
-                            <select
-                              name="Year"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Year</option>
-                              <option value="2020">2017</option>
-                              <option value="2020">2018</option>
-                              <option value="2020">2019</option>
-                              <option value="2020">2020</option>
-                              <option value="2021">2021</option>
-                              <option value="2022">2022</option>
-                              <option value="2023">2023</option>
-                              <option value="2023">2024</option>
-                            </select>
+                      </li>
+                    </section>
+                    <section class="uploaded-area">
+                      <li class="row-upload">
+                        <div class="content">
+                          <i class="fa fa-file-image-o"></i>
+                          <div class="details">
+                            <span class="name">image.01 - Uploaded</span>
+                            <span class="img-size">70 KB</span>
                           </div>
                         </div>
-                        <div class="input_pox">
-                          <label class="datails"
-                            >Graduation date (or expected) :</label
-                          >
-                          <div class="inner-inputs-wrapper">
-                            <select
-                              name="Month"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Month</option>
-                              <option value="january">January</option>
-                              <option value="february">February</option>
-                              <option value="march">March</option>
-                              <option value="april">April</option>
-                              <option value="may">May</option>
-                              <option value="june">June</option>
-                              <option value="july">July</option>
-                              <option value="august">August</option>
-                              <option value="september">September</option>
-                              <option value="october">October</option>
-                              <option value="november">November</option>
-                              <option value="december">December</option>
-                            </select>
-                            <select
-                              name="Year"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Year</option>
-                              <option value="2020">2017</option>
-                              <option value="2020">2018</option>
-                              <option value="2020">2019</option>
-                              <option value="2020">2020</option>
-                              <option value="2021">2021</option>
-                              <option value="2022">2022</option>
-                              <option value="2023">2023</option>
-                              <option value="2023">2024</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Study language : *</label>
-                          <div class="inner-inputs-wrapper">
-                            <input
-                              type="text"
-                              placeholder="language 1"
-                              required
-                            />
-                            <input
-                              type="text"
-                              placeholder="language 2 [optional]"
-                              class="optional-lng"
-                              required
-                            />
-                          </div>
-                        </div>
-                        <div class="input_pox wf">
-                          <label class="datails">Description :</label>
-                          <textarea placeholder="Text" required></textarea>
-                        </div>
-                      </div>
-                    </form>
-                    <button>Add Education</button>
+                        <i class="fa fa-check"></i>
+                      </li>
+                    </section>
                   </div>
                 </div>
-              </div>
-
-              <div id="content3" class="contents">
-                <div class="edit-section-content">
-                  <div class="edit-section-forms">
-                    <form>
-                      <div class="user_details">
-                        <div class="input_pox">
-                          <label class="datails">Title : *</label>
-                          <input
-                            type="text"
-                            placeholder="Co-Founder, Employee"
-                            required
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Type of work :</label>
-                          <select
-                            name="work"
-                            class="select-input"
-                            onblur="this.size=0"
-                            onchange="this.size=1; this.blur()"
-                          >
-                            <option value="part time">Part time</option>
-                            <option value="full time">Full time</option>
-                          </select>
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Employer : *</label>
-                          <input type="text" placeholder="Microsoft" required />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Industry :</label>
-                          <input type="text" required />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Location :</label>
-                          <input
-                            type="text"
-                            placeholder="Keas 69 Str. , Chalandri Athens, Greece"
-                            required
-                          />
-                        </div>
-                        <div class="checkboxContainer">
-                          <input
-                            type="checkbox"
-                            id="current-job"
-                            class="checkbox"
-                          />
-                          <label for="currentjob"
-                            >This is my current job.</label
-                          >
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Start date : *</label>
-                          <div class="inner-inputs-wrapper">
-                            <select
-                              name="Month"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Month</option>
-                              <option value="january">January</option>
-                              <option value="february">February</option>
-                              <option value="march">March</option>
-                              <option value="april">April</option>
-                              <option value="may">May</option>
-                              <option value="june">June</option>
-                              <option value="july">July</option>
-                              <option value="august">August</option>
-                              <option value="september">September</option>
-                              <option value="october">October</option>
-                              <option value="november">November</option>
-                              <option value="december">December</option>
-                            </select>
-                            <select
-                              name="Year"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Year</option>
-                              <option value="2020">2017</option>
-                              <option value="2020">2018</option>
-                              <option value="2020">2019</option>
-                              <option value="2020">2020</option>
-                              <option value="2021">2021</option>
-                              <option value="2022">2022</option>
-                              <option value="2023">2023</option>
-                              <option value="2023">2024</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">End date : *</label>
-                          <div class="inner-inputs-wrapper">
-                            <select
-                              name="Month"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Month</option>
-                              <option value="january">January</option>
-                              <option value="february">February</option>
-                              <option value="march">March</option>
-                              <option value="april">April</option>
-                              <option value="may">May</option>
-                              <option value="june">June</option>
-                              <option value="july">July</option>
-                              <option value="august">August</option>
-                              <option value="september">September</option>
-                              <option value="october">October</option>
-                              <option value="november">November</option>
-                              <option value="december">December</option>
-                            </select>
-                            <select
-                              name="Year"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Year</option>
-                              <option value="2020">2017</option>
-                              <option value="2020">2018</option>
-                              <option value="2020">2019</option>
-                              <option value="2020">2020</option>
-                              <option value="2021">2021</option>
-                              <option value="2022">2022</option>
-                              <option value="2023">2023</option>
-                              <option value="2023">2024</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                    <button>Add Experience</button>
+              </form>
+              <form>
+                <div class="edit-section-item-title-wrapper">
+                  <h3 class="edit-section-item-title">About the author</h3>
+                </div>
+                <div class="user_details">
+                  <div class="input_pox">
+                    <label class="datails">Full Name :</label>
+                    <input type="text" required />
+                  </div>
+                  <div class="input_pox">
+                    <label class="datails">Affiliation :</label>
+                    <input type="text" required />
+                  </div>
+                  <div class="input_pox">
+                    <label class="datails">Title :</label>
+                    <input type="text" required />
+                  </div>
+                  <div class="input_pox">
+                    <label class="datails">Field :</label>
+                    <input type="text" required />
+                  </div>
+                  <div class="input_pox">
+                    <label class="datails">Languages :</label>
+                    <input type="text" required />
                   </div>
                 </div>
-              </div>
-
-              <div id="content4" class="contents">
-                <div class="edit-section-content">
-                  <div class="edit-section-forms">
-                    <form>
-                      <div class="user_details">
-                        <div class="input_pox">
-                          <label class="datails">Skill name : *</label>
-                          <input
-                            type="text"
-                            placeholder="Social Media Marketing"
-                            required
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails"
-                            >Level of profeciency : *</label
-                          >
-                          <select
-                            name="profeciency"
-                            class="select-input"
-                            onblur="this.size=0"
-                            onchange="this.size=1; this.blur()"
-                          >
-                            <option value="basic knowledge">
-                              Basic knowledge
-                            </option>
-                            <option value="limited experience">
-                              Limited experience
-                            </option>
-                            <option value="intermediate">Intermediate</option>
-                            <option value="advanced">Advanced</option>
-                            <option value="expert">Expert</option>
-                          </select>
-                        </div>
-                      </div>
-                    </form>
-                    <button>Add Skill</button>
+              </form>
+              <form>
+                <div class="edit-section-item-title-wrapper">
+                  <h3 class="edit-section-item-title">More info</h3>
+                </div>
+                <div class="user_details">
+                  <div class="input_pox wf">
+                    <label class="datails">General description : </label>
+                    <textarea placeholder="Text" required></textarea>
+                  </div>
+                  <div class="input_pox wf">
+                    <label class="datails">How to use :</label>
+                    <textarea placeholder="Text" required></textarea>
                   </div>
                 </div>
-              </div>
+              </form>
 
-              <div id="content5" class="contents">
-                <div class="edit-section-content">
-                  <div class="edit-section-forms">
-                    <form>
-                      <div class="user_details">
-                        <div class="input_pox">
-                          <label class="datails">Language name : *</label>
-                          <input type="text" placeholder="English" required />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails"
-                            >Level of profeciency : *</label
-                          >
-                          <select
-                            name="profeciency"
-                            class="select-input"
-                            onblur="this.size=0"
-                            onchange="this.size=1; this.blur()"
-                          >
-                            <option value="elementary">Elementary</option>
-                            <option value="limited working">
-                              Limited Working
-                            </option>
-                            <option value="professional working">
-                              Professional Working
-                            </option>
-                            <option value="full professional">
-                              Full Professional
-                            </option>
-                            <option value="native / bilingual">
-                              Native / Bilingual
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                    </form>
-                    <button>Add Language</button>
-                  </div>
-                </div>
-              </div>
-
-              <div id="content6" class="contents">
-                <div class="edit-section-content">
-                  <div class="edit-section-forms">
-                    <form>
-                      <div class="user_details">
-                        <div class="input_pox wf">
-                          <label class="datails">Title : *</label>
-                          <input
-                            type="text"
-                            placeholder="Giving and receiving feedback"
-                            required
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Publication type : *</label>
-                          <select
-                            name="Publication"
-                            class="select-input"
-                            onblur="this.size=0"
-                            onchange="this.size=1; this.blur()"
-                          >
-                            <option value="book">Book</option>
-                            <option value="book chapter">Book Chapter</option>
-                            <option value="peer review">
-                              Peer Review Journal Paper
-                            </option>
-                            <option value="scholarly paper">
-                              Scholarly Paper
-                            </option>
-                            <option value="case study">Case Study</option>
-                          </select>
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Author : *</label>
-                          <input
-                            type="text"
-                            placeholder="Eg : Jack Smith"
-                            required
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Date of publication : *</label>
-                          <div class="inner-inputs-wrapper">
-                            <select
-                              name="Month"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Month</option>
-                              <option value="january">January</option>
-                              <option value="february">February</option>
-                              <option value="march">March</option>
-                              <option value="april">April</option>
-                              <option value="may">May</option>
-                              <option value="june">June</option>
-                              <option value="july">July</option>
-                              <option value="august">August</option>
-                              <option value="september">September</option>
-                              <option value="october">October</option>
-                              <option value="november">November</option>
-                              <option value="december">December</option>
-                            </select>
-                            <select
-                              name="Year"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Year</option>
-                              <option value="2020">2017</option>
-                              <option value="2020">2018</option>
-                              <option value="2020">2019</option>
-                              <option value="2020">2020</option>
-                              <option value="2021">2021</option>
-                              <option value="2022">2022</option>
-                              <option value="2023">2023</option>
-                              <option value="2023">2024</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails"
-                            >Place of publication : *</label
-                          >
-                          <input
-                            type="text"
-                            placeholder="GreenOn Software"
-                            required
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Volume/issue :</label>
-                          <input type="text" required />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">DOI/URL :</label>
-                          <input type="text" required />
-                        </div>
-                        <div class="input_pox wf">
-                          <label class="datails">Description :</label>
-                          <textarea placeholder="Text" required></textarea>
-                        </div>
-                      </div>
-                    </form>
-                    <button>Add Publications</button>
-                  </div>
-                </div>
-              </div>
-
-              <div id="content7" class="contents">
-                <div class="edit-section-content">
-                  <div class="edit-section-forms">
-                    <form>
-                      <div class="user_details">
-                        <div class="input_pox">
-                          <label class="datails">Name : *</label>
-                          <input type="text" placeholder="Node Js" required />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Issued by : *</label>
-                          <input
-                            type="text"
-                            placeholder="Javascript.info"
-                            required
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Issue date : *</label>
-                          <div class="inner-inputs-wrapper">
-                            <select
-                              name="Month"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Month</option>
-                              <option value="january">January</option>
-                              <option value="february">February</option>
-                              <option value="march">March</option>
-                              <option value="april">April</option>
-                              <option value="may">May</option>
-                              <option value="june">June</option>
-                              <option value="july">July</option>
-                              <option value="august">August</option>
-                              <option value="september">September</option>
-                              <option value="october">October</option>
-                              <option value="november">November</option>
-                              <option value="december">December</option>
-                            </select>
-                            <select
-                              name="Year"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Year</option>
-                              <option value="2020">2017</option>
-                              <option value="2020">2018</option>
-                              <option value="2020">2019</option>
-                              <option value="2020">2020</option>
-                              <option value="2021">2021</option>
-                              <option value="2022">2022</option>
-                              <option value="2023">2023</option>
-                              <option value="2023">2024</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Expiration date :</label>
-                          <input
-                            type="text"
-                            placeholder="GreenOn Software"
-                            required
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Volume/issue :</label>
-                          <input type="text" required />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">DOI/URL :</label>
-                          <input type="text" required />
-                        </div>
-                        <div class="input_pox wf">
-                          <label class="datails">Description :</label>
-                          <textarea placeholder="Text" required></textarea>
-                        </div>
-                      </div>
-                    </form>
-                    <button>Add Certifications</button>
-                  </div>
-                </div>
-              </div>
-
-              <div id="content8" class="contents">
-                <div class="edit-section-content">
-                  <div class="edit-section-forms">
-                    <form>
-                      <div class="user_details">
-                        <div class="input_pox wf">
-                          <label class="datails">Teaching experience :</label>
-                          <textarea placeholder="Text" required></textarea>
-                        </div>
-
-                        <div class="input_pox wf">
-                          <label class="datails">Honors/Awards :</label>
-                          <textarea placeholder="Text" required></textarea>
-                        </div>
-
-                        <div class="input_pox wf">
-                          <label class="datails"
-                            >My educational history :</label
-                          >
-                          <textarea placeholder="Text" required></textarea>
-                        </div>
-
-                        <div class="input_pox wf">
-                          <label class="datails">How I am related to products/servises :</label>
-                          <textarea placeholder="Text" required></textarea>
-                        </div>
-                      </div>
-                    </form>
-                    <button>Save Changes</button>
-                  </div>
-                </div>
-              </div>
+              <button>Save Changes</button>
             </div>
           </div>
         </div>
@@ -2140,6 +1524,24 @@
       overlayMenu.addEventListener("click", toggleMenu);
       navbarMenu.addEventListener("click", toggleSubMenu);
       window.addEventListener("resize", resizeWindow);
+
+      // upload photo
+
+      const form = document.querySelector(".photo-upld"),
+        fileInput = form.querySelector(".file-input"),
+        progressArea = document.querySelector(".progress-area"),
+        uploadedArea = document.querySelector(".uploaded-area");
+
+      form.addEventListener("click", () => {
+        fileInput.click();
+      });
+
+      fileInput.onchange = ({ target }) => {
+        let file = target.files[0];
+        if (file) {
+          let fileName = file.name;
+        }
+      };
     </script>
   </body>
 </html>
