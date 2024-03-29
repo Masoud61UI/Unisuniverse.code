@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unisuniverse</title>
+    <script
+      src="http://kit.fontawesome.com/7a4b62b0a4.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+          0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        --shadow-medium: 0 13px 30px 0 rgba(0, 0, 0, 0.048),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --color-text-black: #151515;
+        --color-text-grayblack: #636363;
+        --color-text-gray: #c7c7c7;
+        --color-background: #f4fcff;
+        --color-line: #dadada;
+        --color-white: #ffffff;
+        --primary-color: #002754;
+        --secondary-color: #f5aa1c;
+      }
+
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        list-style: none;
+        list-style-type: none;
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      html {
+        font-size: 100%;
+        box-sizing: inherit;
+        scroll-behavior: smooth;
+        height: -webkit-fill-available;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--color-text-black);
+        background-color: var(--color-white);
+      }
+
+      a,
+      button {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background: none;
+        box-shadow: none;
+        font-family: inherit;
+        letter-spacing: 0.5px;
+      }
+
+      img,
+      video {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+
+      .main {
+        padding: 54px 100px;
+        width: 720px;
+        background-color: var(--color-background);
+        margin: 0 auto;
+      }
+
+      .main-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 64px;
+      }
+
+      .main-wrapper hr {
+        width: 100%;
+        height: 1px;
+        border: none;
+        background-color: var(--color-line);
+      }
+
+      /* section-top */
+
+      .section-top-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .sections-title {
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      .section-top-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 48px;
+      }
+
+      .section-top-items-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 34px;
+      }
+
+      .section-top-items-content > h3 {
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .section-top-items-texts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 34px;
+      }
+
+      .section-top-items-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .section-top-items-text > h5,
+      .section-top-items-texts p {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--color-text-black);
+      }
+
+      .section-top-items-texts p > span {
+        color: var(--secondary-color);
+        cursor: pointer;
+      }
+
+      .section-top-items > button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 45px;
+        background-color: var(--primary-color);
+        font-size: 16px;
+        color: var(--color-white);
+        border-radius: 6px;
+        transition: all ease-in-out 0.3s;
+      }
+      .section-top-items > button:hover {
+        background-color: var(--secondary-color);
+      }
+
+      /* our-services */
+
+      .our-services {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .our-services > h4,
+      .services-items > h4,
+      .section-thanks-wrapper > h4 {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .our-services > p {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+        text-align: center;
+        width: 74%;
+      }
+
+      /* services-items */
+
+      .services-items-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 64px;
+      }
+
+      .services-items {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .services-items-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+      }
+
+      .services-items-content p,
+      .section-thanks-texts p {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .services-items-content p > a {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--primary-color);
+        text-decoration-line: underline;
+      }
+
+      .service-img {
+        width: 520px;
+        height: 304px;
+        object-fit: cover;
+      }
+
+      .section-thanks-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .section-thanks-texts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .list-social-media {
+        display: flex;
+        padding: 6px;
+        align-items: flex-end;
+        gap: 36px;
+      }
+
+      .list-social-media > i {
+        color: var(--color-text-grayblack);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .list-social-media > i:hover {
+        color: var(--secondary-color);
+      }
+
+      .footer > h6 {
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="main">
+      <div class="main-wrapper">
+        <section class="section-top-wrapper">
+          <h2 class="sections-title">Unisuniverse</h2>
+
+          <div class="section-top-items">
+            <div class="section-top-items-content">
+              <h3>Verify your email to finish signing up for Unisuniverse</h3>
+
+              <div class="section-top-items-texts">
+                <div class="section-top-items-text">
+                  <h5>Hey Smith,</h5>
+
+                  <p>Thank you for signing up for the Unisuniverse website</p>
+                </div>
+
+                <p>
+                  Please confirm that the email smith1234@gmail.com is yours by
+                  clicking on the button or use this link
+                  <span>https://Verification link</span> within 50 minutes.
+                </p>
+              </div>
+            </div>
+
+            <button>Verify</button>
+          </div>
+        </section>
+
+        <hr />
+
+        <section class="our-services">
+          <h4>Our services</h4>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor.
+          </p>
+        </section>
+
+        <section class="services-items-container">
+          <div class="services-items">
+            <h4>Universities :</h4>
+
+            <div class="services-items-content">
+              <p>
+                <a>Universities</a> dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus
+                vitae congue mauris rhoncus aenean vel elit scelerisque. In
+                egestas erat imperdiet sed euismod nisi porta lorem mollis.
+              </p>
+
+              <img
+                src="./images/Uni.png"
+                class="service-img"
+                alt="University Services"
+              />
+
+              <p>
+                Morbi tristique <a>Products</a> et netus. Mattis pellentesque id
+                nibh tortor id aliquet lectus proin. Sapien faucibus et molestie
+                ac feugiat sed lectus vestibulum.
+              </p>
+            </div>
+          </div>
+
+          <div class="services-items">
+            <h4>Academics :</h4>
+
+            <div class="services-items-content">
+              <p>
+                <a>Academics</a> dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus
+                vitae congue mauris rhoncus aenean vel elit scelerisque. In
+                egestas erat imperdiet sed euismod nisi porta lorem mollis.
+              </p>
+
+              <img
+                src="./images/Aca.png"
+                class="service-img"
+                alt="Academic Services"
+              />
+
+              <p>
+                Morbi tristique <a>Services</a> et netus. Mattis pellentesque id
+                nibh tortor id aliquet lectus proin. Sapien faucibus et molestie
+                ac feugiat sed lectus vestibulum.
+              </p>
+            </div>
+          </div>
+
+          <div class="services-items">
+            <h4>Students :</h4>
+
+            <div class="services-items-content">
+              <p>
+                <a>Students</a> dolor sit amet, consectetur adipiscing elit, sed
+                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
+                congue mauris rhoncus aenean vel elit scelerisque. In egestas
+                erat imperdiet sed euismod nisi porta lorem mollis.
+              </p>
+
+              <img
+                src="./images/Stu.png"
+                class="service-img"
+                alt="Student Services"
+              />
+
+              <p>
+                Morbi tristique <a>Unisuniverse</a> et netus. Mattis
+                pellentesque id nibh tortor id aliquet lectus proin. Sapien
+                faucibus et molestie ac feugiat sed lectus vestibulum.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <section class="section-thanks-wrapper">
+          <h4>Big Thank You 💚 🖤 💜️</h4>
+
+          <div class="section-thanks-texts">
+            <p>
+              Lorem dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Egestas purus
+              viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
+              rhoncus aenean vel elit scelerisque.
+            </p>
+
+            <p>
+              Lorem dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+        </section>
+
+        <hr />
+
+        <section class="footer">
+          <div class="list-social-media">
+            <i class="fa fa-instagram"></i>
+
+            <i class="fa fa-twitter"></i>
+
+            <i class="fa fa-linkedin"></i>
+
+            <i class="fa fa-facebook-square"></i>
+
+            <i class="fa fa-youtube-play"></i>
+          </div>
+
+          <h6>© 2024 Attio Ltd. All rights reserved.</h6>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

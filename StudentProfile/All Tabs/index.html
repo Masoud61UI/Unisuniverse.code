@@ -7325,6 +7325,28 @@
           e.target.style.display = "none";
         }
       };
+
+      // BTN contact me
+
+      const buttonContact = document.querySelector(".aside-profile-item-btn");
+      const innerUserChat = document.getElementById("inner-chat");
+      const checkboxInnerchat = document.getElementById("check");
+
+      buttonContact.addEventListener("click", () => {
+        const sendBox = document.getElementsByClassName("send-box")[0];
+        sendBox.classList.toggle("toggle-display");
+        backInner.classList.toggle("toggle-display");
+        if (document.getElementById("check").checked) {
+          document.querySelector(".symbol").style.transform = "rotate(-90deg)";
+        } else {
+          document.querySelector(".symbol").style.transform = "rotate(90deg)";
+        }
+
+        chats.style.display = "none";
+        searchForm.style.display = "none";
+        checkboxInnerchat.checked = false;
+        innerUserChat.style.display = "block";
+      });
     </script>
   </body>
 </html>

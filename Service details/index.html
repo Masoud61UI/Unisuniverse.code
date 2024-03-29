@@ -1,0 +1,5061 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unisuniverse</title>
+    <script
+      src="http://kit.fontawesome.com/7a4b62b0a4.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+          0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        --shadow-medium: 0 13px 30px 0 rgba(0, 0, 0, 0.048),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --color-text-black: #151515;
+        --color-text-grayblack: #636363;
+        --color-text-gray: #c7c7c7;
+        --color-background: #f4fcff;
+        --color-line: #dadada;
+        --color-white: #ffffff;
+        --primary-color: #002754;
+        --secondary-color: #f5aa1c;
+      }
+
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        list-style: none;
+        list-style-type: none;
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      html {
+        font-size: 100%;
+        box-sizing: inherit;
+        scroll-behavior: smooth;
+        height: -webkit-fill-available;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--color-text-black);
+        background-color: var(--color-background);
+      }
+
+      a,
+      button {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background: none;
+        box-shadow: none;
+        font-family: inherit;
+        letter-spacing: 0.5px;
+      }
+
+      img,
+      video {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+
+      .container {
+        max-width: 82%;
+        height: auto;
+      }
+
+      .mx {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 104px;
+      }
+
+      .logo {
+        font-family: inherit;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.25;
+        color: var(--primary-color);
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: 100;
+        margin: 0 auto;
+        box-shadow: var(--shadow-medium);
+        background-color: var(--color-white);
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        -moz-column-gap: 1rem;
+        column-gap: 1rem;
+        row-gap: 2rem;
+        width: 100%;
+        height: 110px;
+        margin: 0 auto;
+      }
+
+      @media screen and (max-width: 992px) {
+        .navbar {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 75%;
+          height: 100%;
+          z-index: 10;
+          opacity: 0;
+          overflow-y: auto;
+          visibility: hidden;
+          box-shadow: var(--shadow-medium);
+          background-color: var(--color-white);
+          transition: all 0.5s ease;
+        }
+        .navbar.active {
+          left: 0rem;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      .menu-item {
+        position: relative;
+        display: inline-block;
+        margin-left: 2.4rem;
+      }
+
+      .resnav {
+        display: none;
+      }
+
+      .menu-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -moz-column-gap: 0.25rem;
+        column-gap: 0.25rem;
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: inherit;
+        cursor: pointer;
+        text-transform: capitalize;
+        color: var(--color-text-black);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .menu-link > i.fa {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--color-text-black);
+        margin-left: 2px;
+      }
+
+      .menu-link:hover {
+        outline: none;
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (min-width: 993px) {
+        .menu-dropdown:hover > .submenu {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+      @media only screen and (max-width: 992px) {
+        .menu {
+          width: 100%;
+          height: auto;
+          padding: 1rem 0;
+        }
+        .menu-item {
+          display: block;
+          margin: 0 auto;
+        }
+        .menu-link {
+          justify-content: space-between;
+          padding: 1rem 2rem;
+        }
+      }
+
+      .submenu {
+        position: absolute;
+        top: 3.2rem;
+        left: -2rem;
+        min-width: 13rem;
+        height: auto;
+        padding: 0 1rem 1rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(1rem);
+        border-radius: 0 0 0.25rem 0.25rem;
+        border-top: 2px solid var(--secondary-color);
+        box-shadow: var(--shadow-medium);
+        background-color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .submenu-item {
+        display: block;
+        margin-top: 0.75rem;
+      }
+
+      .submenu-link {
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: inherit;
+        cursor: pointer;
+        color: var(--color-text-black);
+        transition: all 0.35s ease;
+      }
+      .submenu-link:hover {
+        outline: none;
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (max-width: 992px) {
+        .submenu {
+          position: relative;
+          top: -0.5rem;
+          left: 2.5rem;
+          width: 100%;
+          max-height: 0;
+          padding: 0px;
+          border: none;
+          outline: none;
+          opacity: 1;
+          overflow: hidden;
+          visibility: visible;
+          transform: translateY(0px);
+          box-shadow: none;
+          background: transparent;
+        }
+      }
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-md {
+        width: 172px;
+        height: 49px;
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: inherit;
+        border-radius: 10px;
+        color: var(--color-white);
+        background-color: var(--primary-color);
+        transition: all 0.35s ease;
+      }
+      .btn-md:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .btn > a > i.fa {
+        margin-right: 22px;
+        color: var(--color-text-black);
+        transition: all 0.35s ease;
+      }
+      .btn > a > i.fa:hover {
+        color: var(--secondary-color);
+      }
+
+      .burger {
+        position: relative;
+        display: none;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 1.6rem;
+        height: 1.15rem;
+        opacity: 0;
+        visibility: hidden;
+        background: transparent;
+      }
+      .burger-line {
+        position: absolute;
+        display: block;
+        right: 0;
+        width: 100%;
+        height: 2.1px;
+        opacity: 1;
+        border: none;
+        outline: none;
+        border-radius: 1rem;
+        background: var(--color-text-black);
+      }
+      .burger-line:nth-child(1) {
+        top: 0px;
+      }
+      .burger-line:nth-child(2) {
+        top: 0.5rem;
+        width: 70%;
+      }
+      .burger-line:nth-child(3) {
+        top: 1rem;
+      }
+      @media only screen and (max-width: 992px) {
+        .burger {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+        .btn-md {
+          display: none;
+        }
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 9;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.65);
+      }
+      @media only screen and (max-width: 992px) {
+        .overlay.active {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      /* hero section */
+
+      .breadcrumb {
+        color: #c7c7c7;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 24px 0;
+      }
+
+      .breadcrumb > span {
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (max-width: 450px) {
+        .logo {
+          font-size: 24px;
+        }
+      }
+
+      /* login */
+
+      .modal-cont {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.47);
+        top: 0;
+        left: 0;
+        overflow: auto;
+        z-index: 1400;
+      }
+
+      .modal-box {
+        width: 33%;
+        margin: 105px auto;
+        padding: 24px 30px;
+        background-color: var(--color-white);
+      }
+
+      .modal-box h1 {
+        font-size: 21px;
+        font-weight: 500;
+      }
+
+      .modal-wlc {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--color-line);
+        padding-bottom: 18px;
+        color: var(--color-text-black);
+      }
+
+      .modal-box .close {
+        width: 44px;
+        height: 44px;
+        background-color: var(--color-background);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .modal-box .close:hover,
+      .modal-box .close:focus {
+        color: var(--secondary-color);
+      }
+
+      .useremail,
+      .userpass {
+        margin: 28px 0 7px 0;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+      }
+
+      .email,
+      .password {
+        padding-left: 16px;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .login-box input[type="email"],
+      .login-box input[type="password"] {
+        width: 100%;
+        border: 1px solid var(--color-line);
+        display: block;
+        margin-bottom: 10px;
+        height: 48px;
+        border-radius: 10px;
+        outline: none;
+      }
+
+      .login-box input[type="email"]:focus,
+      .login-box input[type="password"]:focus {
+        border: 1.5px solid var(--primary-color);
+      }
+
+      .rememberlost {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 22px 0 30px 0;
+      }
+
+      .useremail,
+      .userpass,
+      .modal-box .login-button,
+      .modal-box .email,
+      .password {
+        width: 100%;
+        display: block;
+      }
+
+      .checkboxContainer {
+        display: flex;
+        align-items: center;
+      }
+
+      .checkboxContainer label {
+        padding-left: 10px;
+        color: var(--color-text-black);
+        font-weight: 500;
+        font-size: 15px;
+      }
+
+      .checkboxContainer input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+      }
+      .checkbox:checked {
+        accent-color: var(--primary-color);
+      }
+
+      .lostpass {
+        color: var(--secondary-color);
+        font-weight: 500;
+        font-size: 15px;
+      }
+
+      .modal-box .login-button {
+        height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        display: block;
+        width: 100%;
+        color: var(--color-white);
+        background-color: var(--primary-color);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .modal-box .login-button:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .or {
+        position: relative;
+        text-align: center;
+        margin: 22px 0 22px 0;
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .or::before,
+      .or::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 40%;
+        height: 1px;
+        background: var(--color-line);
+      }
+
+      .or::before {
+        left: 0;
+      }
+
+      .or::after {
+        right: 0;
+      }
+
+      .Google {
+        height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        color: var(--primary-color);
+        background-color: transparent;
+        border-radius: 10px;
+        padding-left: 12px;
+        border: 1.5px solid var(--primary-color);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .Google:hover {
+        background-color: var(--secondary-color);
+        border: none;
+        color: var(--color-white);
+      }
+      .Google svg {
+        fill: var(--primary-color);
+        transition: all 0.3s ease-in-out;
+      }
+      .Google:hover svg {
+        fill: var(--color-white);
+      }
+
+      .Google p {
+        width: 100%;
+        margin-right: 26px;
+      }
+
+      .Facebook {
+        height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        color: var(--color-white);
+        background-color: #1778f2;
+        border-radius: 10px;
+        padding-left: 12px;
+        margin-top: 17px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .Facebook:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .Facebook p {
+        width: 100%;
+        margin-right: 26px;
+      }
+
+      .Apple {
+        height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        color: var(--color-white);
+        background-color: var(--color-text-black);
+        border-radius: 10px;
+        padding-left: 12px;
+        margin-top: 17px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .Apple:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .Apple p {
+        width: 100%;
+        margin-right: 26px;
+      }
+
+      .signup-text {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+        text-align: center;
+        margin-top: 22px;
+      }
+
+      .signup-text a {
+        padding-left: 6px;
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .modal-cont {
+        display: none;
+      }
+      .modal-box {
+        animation-name: zoom;
+        animation-duration: 0.7s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease;
+        border: 1px solid #b7b7b7;
+        border-radius: 24px;
+      }
+      @keyframes zoom {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+
+      @media only screen and (max-width: 993px) {
+        .modal-box {
+          width: 55%;
+        }
+      }
+      @media only screen and (max-width: 630px) {
+        .modal-box {
+          width: 82%;
+          padding: 16px 16px;
+        }
+      }
+      @media only screen and (max-width: 435px) {
+        .modal-wlc h1 {
+          font-size: 17px;
+        }
+        .modal-box .close {
+          font-size: 20px;
+          width: 30px;
+          height: 30px;
+        }
+      }
+      @media only screen and (max-width: 374px) {
+        .rememberlost {
+          flex-direction: column;
+        }
+        .checkboxContainer {
+          margin: 8px 0 10px 0;
+        }
+      }
+
+      /* Popup boxs */
+
+      .popup-boxs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 240px;
+      }
+
+      .box {
+        background-color: var(--color-white);
+        padding: 36px 30px 26px 30px;
+        border-radius: 20px;
+      }
+
+      .btn-sm {
+        width: 153px;
+        height: 49px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        border-radius: 10px;
+        margin-top: 34px;
+        font-size: 17px;
+        font-weight: 500;
+        transition: all 0.3s ease-in;
+      }
+      .btn-sm:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .image-box {
+        margin: 0 auto;
+      }
+
+      .popup-boxs {
+        display: none;
+      }
+
+      @media only screen and (max-width: 576px) {
+        .popup-boxs {
+          margin: 100px 0 100px 0;
+        }
+      }
+
+      /* header product section */
+
+      .header-section-wrapper {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 70px;
+        width: 100%;
+      }
+
+      .header-section-imgs-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        flex-basis: 44%;
+      }
+
+      .product-img-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        width: 100%;
+      }
+
+      .product-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 24px;
+        box-shadow: var(--shadow-medium);
+      }
+
+      .heart-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-white);
+        background-color: rgba(21, 21, 21, 0.801);
+        width: 46px;
+        height: 46px;
+        font-size: 21px;
+        border-radius: 50%;
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        cursor: pointer;
+      }
+
+      .product-imgs-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 14px;
+        width: 100%;
+      }
+
+      .product-img-wrapper {
+        width: 82px;
+        height: 82px;
+        border-radius: 10px;
+        border: 1px solid var(--color-line);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .product-img-small {
+        width: 76px;
+        height: 76px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .active-img {
+        border: 1px solid var(--secondary-color);
+        border-radius: 10px;
+      }
+
+      .product-img-wrapper > h5 {
+        position: absolute;
+        top: 30px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--color-white);
+      }
+
+      .ovrly-img {
+        width: 76px;
+        height: 76px;
+        position: absolute;
+        border-radius: 10px;
+        background-color: var(--color-text-black);
+        opacity: 0.6;
+      }
+
+      .header-section-content-wrapper {
+        flex-basis: 56%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .product-informations-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 36px;
+      }
+
+      .product-information-head {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+      }
+
+      .product-title {
+        font-size: 42px;
+        font-weight: 600;
+        color: var(--color-text-black);
+        line-height: normal;
+      }
+
+      .product-information-price-rate {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .product-price {
+        display: flex;
+        width: 98px;
+        height: 44px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        border: 2px solid var(--secondary-color);
+      }
+
+      .product-price > h4 {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--primary-color);
+        letter-spacing: 0.68px;
+      }
+
+      .product-information-price-rate > hr {
+        width: 1px;
+        height: 32px;
+        background: var(--color-line);
+        border: none;
+      }
+
+      .product-rate-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .product-rate {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .product-rate > h4 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .product-rate-reviews {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .product-information-texts-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+      }
+
+      .product-information-texts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+      }
+
+      .product-information-text {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .product-information-text > hr {
+        width: 1px;
+        height: 22px;
+        border: none;
+        background: var(--color-line);
+      }
+
+      .product-information-texts > h3,
+      .product-information-text > h3 {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .product-information-texts > h3 > span,
+      .product-information-text > h3 > span {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .product-buttons-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        width: 100%;
+      }
+
+      .product-buttons {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 40px;
+        width: inherit;
+      }
+
+      .product-button-lg-out {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 50%;
+        height: 50px;
+        border-radius: 10px;
+        border: 1.5px solid var(--primary-color);
+        transition: all ease-in-out 0.3s;
+      }
+
+      .product-button-lg-icon {
+        width: 22px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .product-button-lg-out > h4 {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--primary-color);
+      }
+
+      .product-button-lg-out:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .product-button-lg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 50%;
+        height: 50px;
+        border-radius: 10px;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        transition: all ease-in-out 0.3s;
+      }
+
+      .product-button-lg > h4 {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .product-button-lg:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .product-buttons-container > hr {
+        width: 100%;
+        height: 1px;
+        border: none;
+        background-color: var(--color-line);
+      }
+
+      .product-buttons-share-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .product-buttons-share-wrapper > h4 {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .product-buttons-share {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .product-buttons-share-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        border: 1.5px solid var(--primary-color);
+        width: 42px;
+        height: 42px;
+        transition: all ease-in-out 0.3s;
+      }
+
+      .product-buttons-share-icon:hover {
+        background-color: var(--secondary-color);
+      }
+
+      /*  Tabs Section  */
+
+      .tabs-section-wrapper {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 62px;
+        width: 100%;
+      }
+
+      .tabs-section-items {
+        flex-basis: 72%;
+        max-width: 100%;
+        width: -webkit-fill-available;
+      }
+
+      .tabs-section-items input[type="radio"] {
+        display: none;
+      }
+
+      .label-tab {
+        display: inline-block;
+        font-size: 18px;
+        color: var(--color-text-grayblack);
+        font-weight: 400;
+        padding: 16px 10px;
+        text-align: center;
+        border-bottom: 1px solid transparent;
+        transition: all 0.2s ease-in;
+      }
+      .label-tab:hover {
+        color: var(--secondary-color);
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .tabs-section-items input:checked + .label-tab {
+        color: var(--secondary-color);
+        font-weight: 500;
+        border-bottom: 1.5px solid var(--secondary-color);
+      }
+
+      .contents {
+        display: none;
+        padding: 50px 0 0 0;
+        border-top: 1px solid var(--color-line);
+      }
+
+      .tabs-section-items #tab1:checked ~ #content1,
+      .tabs-section-items #tab2:checked ~ #content2,
+      .tabs-section-items #tab3:checked ~ #content3,
+      .tabs-section-items #tab4:checked ~ #content4,
+      .tabs-section-items #tab5:checked ~ #content5 {
+        display: block;
+      }
+
+      .tabs-section-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 60px;
+      }
+
+      @media only screen and (max-width: 1210px) {
+        .label-tab {
+          font-size: 16px;
+          padding: 12px 6px;
+        }
+      }
+      @media only screen and (max-width: 1090px) {
+        .label-tab {
+          font-size: 15px;
+          padding: 12px 3px;
+        }
+      }
+      @media only screen and (max-width: 934px) {
+        .label-tab {
+          font-size: 17px;
+          padding: 12px 8px;
+        }
+      }
+      @media only screen and (max-width: 812px) {
+        .label-tab {
+          font-size: 14px;
+          padding: 12px 6px;
+        }
+      }
+      @media only screen and (max-width: 660px) {
+        .label-tab {
+          font-size: 18px;
+          border: 1.5px solid transparent;
+          width: 100%;
+          background-color: var(--color-white);
+        }
+        .tabs-section-items input:checked + .label-tab {
+          color: var(--secondary-color);
+          font-weight: 500;
+          border: 1.5px solid var(--secondary-color);
+          border-radius: 10px;
+        }
+        .contents {
+          margin-top: 20px;
+        }
+      }
+      @media only screen and (max-width: 450px) {
+        .label-tab {
+          font-size: 16px;
+        }
+      }
+
+      .tabs-section-item-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 42px;
+      }
+
+      .tabs-section-item-text p {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+        line-height: 26px;
+      }
+
+      .tabs-section-item-other-text > h4 {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--color-text-black);
+        margin-bottom: 10px;
+      }
+
+      .tabs-section-item > hr {
+        width: 100%;
+        height: 1px;
+        border: none;
+        background-color: var(--color-line);
+      }
+
+      /*  products  */
+
+      .other-user-products {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 36px;
+        width: 100%;
+      }
+
+      .other-user-products-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: inherit;
+      }
+
+      .other-user-products-head > h3 {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .btn-text {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .btn-text > h3 {
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--secondary-color);
+      }
+
+      .head-btn-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+      }
+
+      .btn-text:hover {
+        opacity: 0.65;
+      }
+
+      .products-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+        align-items: stretch;
+        justify-items: center;
+        gap: 18px;
+        width: 100%;
+      }
+
+      @media (max-width: 600px) {
+        .products-cards {
+          flex-direction: column;
+        }
+      }
+
+      .product-card-body {
+        color: var(--color-text-black);
+        width: 100%;
+        padding: 0 2px 0 2px;
+        position: relative;
+      }
+
+      .product-card-body hr {
+        width: 100%;
+        height: 1px;
+        border: none;
+        background-color: var(--color-line);
+        margin: 16px 0;
+      }
+
+      .title-card {
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s ease-in-out;
+      }
+      .title-card:hover {
+        cursor: pointer;
+        color: var(--primary-color);
+      }
+
+      .service-desc {
+        color: var(--color-text-grayblack);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+      }
+
+      @media only screen and (max-width: 385px) {
+        .product-card-body {
+          margin-bottom: 14;
+        }
+        .products-cards {
+          gap: 4px;
+        }
+        .title-card {
+          font-size: 16px;
+        }
+      }
+
+      @media only screen and (max-width: 350px) {
+        .products-cards {
+          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        }
+      }
+
+      /* services */
+
+      .service-card {
+        position: relative;
+        width: 100%;
+        padding: 16px 16px 24px;
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%23DADADAFF' stroke-width='2' stroke-dasharray='12' stroke-dashoffset='22' stroke-linecap='round'/%3e%3c/svg%3e");
+        border-radius: 24px;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+        animation: fadeInLeft 1.5s backwards;
+      }
+      .service-card:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      .service-card:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-6px);
+        -webkit-transform: translateY(-6px);
+      }
+
+      .service-card-item-img {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .service-card-item-img > img {
+        aspect-ratio: 500 / 320;
+        position: relative;
+        width: 100%;
+        max-height: 184px;
+        margin-bottom: 15px;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+
+      .wishlist-icon {
+        width: 28px;
+        height: 28px;
+        position: absolute;
+        z-index: 52;
+        cursor: pointer;
+        margin: 6px 8px 0 0;
+      }
+
+      .wishlist-icon i {
+        width: 28px;
+        height: 28px;
+        font-size: 15px;
+        color: var(--color-white);
+        background-color: rgba(21, 21, 21, 0.4);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .title-card {
+        font-size: 18px;
+        font-weight: 600;
+        transition: all 0.3s ease-in-out;
+      }
+      .title-card:hover {
+        cursor: pointer;
+        color: var(--primary-color);
+      }
+
+      .prof-info {
+        display: flex;
+        align-items: center;
+        margin: 18px 0;
+      }
+
+      .prof-info img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        margin-right: 12px;
+        border-radius: 50%;
+        border: 1px solid var(--secondary-color);
+      }
+      .prof-info img:hover {
+        cursor: pointer;
+      }
+
+      .prof-info h5 {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+        cursor: pointer;
+      }
+
+      @media only screen and (max-width: 660px) {
+        .title-card {
+          font-size: 16px;
+        }
+      }
+
+      .stu-join {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .students,
+      .join-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        gap: 4px;
+      }
+
+      .card-service-price {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+      .card-service-price > span {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--primary-color);
+      }
+
+      .join-btn p {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--primary-color);
+        transition: all 0.3s ease-in-out;
+      }
+      .join-btn p:hover {
+        font-weight: 600;
+      }
+      .join-btn:hover {
+        cursor: pointer;
+      }
+
+      @media only screen and (max-width: 530px) {
+        .user-products-item-top-head {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 14px;
+        }
+        .user-products-item-top-sort-view {
+          flex-direction: column;
+          width: -webkit-fill-available;
+          align-items: flex-start;
+        }
+        .item-top-view {
+          margin-left: auto;
+        }
+        .item-top-head-search-box,
+        .search-form,
+        .form-group {
+          width: 100%;
+        }
+      }
+
+      @media only screen and (max-width: 440px) {
+        .user-products-wrapper {
+          gap: 18px;
+        }
+        .user-products-item-top-sort-view {
+          width: 100%;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 18px;
+        }
+        .item-top-view {
+          margin-left: auto;
+        }
+      }
+
+      @media only screen and (max-width: 350px) {
+        .prof-info img {
+          width: 30px;
+          height: 30px;
+          margin-right: 10px;
+        }
+        .prof-info h5 {
+          font-size: 14px;
+        }
+        .prof-name p {
+          font-size: 12px;
+        }
+        .students p,
+        .join-btn p {
+          font-size: 13px;
+        }
+        .join-btn p {
+          padding-right: 4px;
+        }
+        .students svg,
+        .join-btn svg {
+          width: 18px;
+          height: 18px;
+        }
+        .item-top-sort-by {
+          gap: 6px;
+        }
+      }
+
+      .tabs-section-wrapper > aside {
+        flex-basis: 28%;
+      }
+
+      .similar-products-wrapper {
+        display: flex;
+        padding: 22px;
+        align-items: flex-start;
+        border-radius: 24px;
+        background: var(--color-white);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .similar-products {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 34px;
+      }
+
+      .similar-products-head {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        margin-top: 8px;
+      }
+
+      .similar-products-head > h3 {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .similar-products-head > hr {
+        width: 46px;
+        height: 2px;
+        border: none;
+        background-color: var(--secondary-color);
+      }
+
+      .similar-products-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+      }
+
+      .btn-show {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 48px;
+        border-radius: 10px;
+        border: 1px solid var(--color-line);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .btn-show > button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--color-text-black);
+        gap: 6px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .icon-btn {
+        width: 12px;
+        height: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+      }
+
+      .btn-show:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .btn-show:hover > button {
+        color: var(--color-white);
+      }
+
+      @media only screen and (max-width: 1150px) {
+        .header-section-wrapper {
+          gap: 0;
+        }
+        .header-section-imgs-wrapper {
+          flex-basis: 30%;
+          width: 40%;
+        }
+        .product-img-wrapper {
+          width: 58px;
+          height: 58px;
+        }
+        .product-img-small,
+        .ovrly-img {
+          width: 48px;
+          height: 48px;
+        }
+        .product-img-wrapper > h5 {
+          top: 20px;
+        }
+        .product-title {
+          font-size: 28px;
+        }
+        .tabs-section-wrapper {
+          gap: 40px;
+        }
+        .tabs-section-items {
+          flex-basis: 68%;
+        }
+        .tabs-section-wrapper > aside {
+          flex-basis: 32%;
+        }
+      }
+
+      @media only screen and (max-width: 950px) {
+        .tabs-section-wrapper {
+          flex-direction: column;
+        }
+        .similar-products-cards {
+          flex-direction: row;
+        }
+      }
+
+      @media only screen and (max-width: 870px) {
+        .header-section-wrapper {
+          flex-direction: column-reverse;
+          align-items: center;
+          gap: 80px;
+          margin-top: 40px;
+        }
+        .header-section-imgs-wrapper {
+          width: 65%;
+        }
+      }
+
+      @media only screen and (max-width: 660px) {
+        .similar-products-cards {
+          flex-direction: column;
+        }
+        .header-section-imgs-wrapper {
+          width: 80%;
+        }
+        .tabs-section-item-text-step {
+          align-items: flex-start;
+        }
+      }
+
+      @media only screen and (max-width: 450px) {
+        .similar-products-cards {
+          flex-direction: column;
+        }
+        .header-section-imgs-wrapper {
+          width: 80%;
+        }
+        .product-buttons {
+          flex-direction: column;
+          gap: 22px;
+        }
+        .product-button-lg-out,
+        .product-button-lg {
+          width: 100%;
+        }
+        .product-buttons-share-wrapper {
+          flex-direction: column;
+          gap: 26px;
+        }
+        .header-section-imgs-wrapper {
+          width: 100%;
+        }
+      }
+
+      @media only screen and (max-width: 380px) {
+        .header-section-wrapper {
+          margin-top: 16px;
+        }
+        .product-title {
+          font-size: 24px;
+        }
+        .product-information-price-rate {
+          gap: 18px;
+        }
+        .product-information-text {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 16px;
+        }
+        .product-information-text > hr {
+          display: none;
+        }
+        .product-img-wrapper {
+          width: 44px;
+          height: 44px;
+        }
+        .product-img-small,
+        .ovrly-img {
+          width: 38px;
+          height: 38px;
+        }
+        .title-card {
+          font-size: 16px;
+        }
+      }
+
+      @media only screen and (min-width: 1600px) {
+        .product-img-container,
+        .product-imgs-container {
+          width: 90%;
+        }
+        .product-img-wrapper {
+          width: 92px;
+          height: 92px;
+        }
+        .product-img-small {
+          width: 84px;
+          height: 84px;
+        }
+        .header-section-content-wrapper {
+          gap: 90px;
+        }
+        .product-informations-container {
+          gap: 52px;
+        }
+        .product-information-texts-container,
+        .product-information-texts,
+        .product-buttons-container {
+          gap: 30px;
+        }
+        .product-price {
+          width: 120px;
+          height: 48px;
+        }
+        .product-price > h4,
+        .product-rate > h4,
+        .product-rate-reviews,
+        .product-button-lg-out > h4,
+        .product-buttons-share-wrapper > h4 {
+          font-size: 18px;
+        }
+        .product-information-texts > h3,
+        .product-information-text > h3,
+        .product-information-texts > h3 > span,
+        .product-information-text > h3 > span {
+          font-size: 20px;
+        }
+        .tabs-section-items {
+          flex-basis: 76%;
+        }
+        .tabs-section-wrapper > aside {
+          flex-basis: 24%;
+        }
+        .tabs-section-items > .marg-label {
+          margin-left: 34px;
+        }
+        .product-img-wrapper > h5 {
+          top: 36px;
+        }
+        .title-card {
+          font-size: 20px;
+        }
+        .prof-info h5 {
+          font-size: 15px;
+        }
+        .service-desc,
+        .card-service-price > span,
+        .join-btn p {
+          font-size: 17px;
+        }
+      }
+
+      /*   How to use   */
+
+      .tabs-section-item-text-other {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+
+      .tabs-section-item-text-other > h4 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .tabs-section-item-text-steps {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .tabs-section-item-text-step {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        border-radius: 50%;
+      }
+
+      .step-number > h5 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: inherit;
+      }
+
+      @media only screen and (max-width: 660px) {
+        .tabs-section-item-text-step {
+          align-items: flex-start;
+        }
+      }
+
+      /*  About the author   */
+
+      .tabs-section-author {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+        width: 100%;
+      }
+
+      .tabs-section-author-profile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: inherit;
+      }
+
+      .author-profile-content {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .author-profile-img {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .author-profile-head {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .author-profile-head > a {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--color-text-black);
+        transition: all 0.3s ease-in-out;
+      }
+      .author-profile-head > a:hover {
+        color: var(--primary-color);
+      }
+
+      .author-profile-rate-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .author-profile-rate {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .author-profile-rate > h4,
+      .author-info-item-sub {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .profile-vote-number,
+      .author-profile-flw > h4,
+      .author-info-item-head {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .author-profile-flw {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+      }
+
+      .reviews-item-top-btn {
+        display: flex;
+        width: 142px;
+        height: 42px;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--primary-color);
+        border-radius: 10px;
+        font-size: 14px;
+        color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .reviews-item-top-btn:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .tabs-section-author-info-wrapper {
+        display: flex;
+        padding: 26px;
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 24px;
+        background: var(--color-white);
+        box-shadow: var(--shadow-medium);
+        width: 100%;
+      }
+
+      .tabs-section-author-info {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: inherit;
+      }
+
+      .author-info-items {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+      }
+
+      .author-info-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+        align-self: stretch;
+      }
+
+      @media only screen and (max-width: 675px) {
+        .tabs-section-author-profile {
+          flex-direction: column;
+          gap: 30px;
+          align-items: flex-start;
+        }
+        .author-profile-flw {
+          margin-left: auto;
+          gap: 16px;
+        }
+        .author-info-items {
+          margin-bottom: 16px;
+        }
+        .tabs-section-author-info {
+          flex-wrap: wrap;
+        }
+      }
+
+      @media only screen and (min-width: 1600px) {
+        .tabs-section-author-info-wrapper {
+          padding: 32px;
+        }
+        .author-info-item-head,
+        .author-info-item-sub {
+          font-size: 18px;
+        }
+      }
+
+      /*  Questions & Answers   */
+
+      .tabs-section-QvA {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 90px;
+        width: 100%;
+      }
+
+      .tabs-section-QvA-field-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+        width: inherit;
+      }
+
+      .QvA-field-items {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        width: inherit;
+      }
+
+      .QvA-field-items > img,
+      .reviews-field-items-head > img {
+        width: 48px;
+        height: 48px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .QvA-field-items > input {
+        display: flex;
+        width: inherit;
+        padding: 14px 14px;
+        align-items: center;
+        border-radius: 10px;
+        border: 1px solid var(--color-line);
+        background: var(--color-white);
+        outline: none;
+      }
+      .QvA-field-items > input:focus {
+        border-color: var(--primary-color);
+      }
+
+      .QvA-field-items > input::placeholder {
+        color: var(--color-text-gray);
+      }
+
+      .answers-submit-btn {
+        display: flex;
+        width: 86px;
+        height: 34px;
+        font-size: 14px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        background: var(--primary-color);
+        color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+      }
+      .answers-submit-btn:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .user-questions-items-down {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .questions-answer-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 28px;
+      }
+
+      .questions-user-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        width: 100%;
+      }
+
+      .questions-user-photo,
+      .answered-user-item > img,
+      .answers-user-item-submit > img {
+        width: 48px;
+        height: 48px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .questions-user-name-text {
+        display: inline-flex;
+        padding: 2px 0px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        width: inherit;
+      }
+
+      .questions-user-name-text > h4,
+      .answered-user-item-name-text > h4 {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--color-text-black);
+        cursor: pointer;
+      }
+
+      .questions-user-text-box {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+        background-color: var(--color-background);
+        padding: 12px 18px;
+        border-radius: 10px;
+        background-color: var(--color-white);
+        width: inherit;
+      }
+
+      .answers-user-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+        width: 100%;
+        padding-left: 64px;
+      }
+
+      .answered-user-item,
+      .answers-user-item-submit {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        width: inherit;
+      }
+
+      .answered-user-item-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        width: inherit;
+      }
+
+      .answered-user-item-name-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+        width: inherit;
+      }
+
+      .answered-user-item-name-text > h4 {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      .answered-user-item-name-text > p {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--color-text-black);
+        width: inherit;
+      }
+
+      .answered-user-item-info > h5 {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-gray);
+      }
+
+      .answers-user-item-box {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+        width: 100%;
+      }
+
+      .answers-item-text {
+        display: flex;
+        width: 100%;
+        height: 100px;
+        padding: 12px 15px;
+        align-items: flex-start;
+        border-radius: 12px;
+        border: 1px solid var(--color-line);
+        background: var(--color-white);
+        font-family: inherit;
+        font-size: 16px;
+        resize: none;
+        outline: none;
+      }
+      .answers-item-text:focus {
+        border-color: var(--primary-color);
+      }
+
+      .answers-submit-btn {
+        display: flex;
+        width: 86px;
+        height: 34px;
+        font-size: 14px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        background: var(--primary-color);
+        color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+      }
+      .answers-submit-btn:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .questions-answers-line {
+        width: 100%;
+        height: 1px;
+        border: none;
+        background-color: var(--color-line);
+      }
+
+      @media only screen and (max-width: 470px) {
+        .user-questions-items-top,
+        .user-reviews-items-top {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 25px;
+        }
+        .questions-item-top-btn,
+        .reviews-item-top-btn {
+          width: 100%;
+        }
+        .questions-user-photo,
+        .answered-user-item > img,
+        .answers-user-item-submit > img {
+          width: 42px;
+          height: 42px;
+        }
+        .questions-user-name-text > h4,
+        .answered-user-item-name-text > h4 {
+          font-size: 16px;
+        }
+        .questions-user-text-box,
+        .answered-user-item-name-text > p {
+          font-size: 14px;
+        }
+        .answered-user-item,
+        .questions-user-item,
+        .answers-user-item-submit {
+          gap: 10px;
+        }
+        .answered-user-item-info > h5 {
+          font-size: 12px;
+          font-weight: 400;
+        }
+        .answers-item-text {
+          height: 200px;
+          font-size: 14px;
+        }
+      }
+
+      @media only screen and (max-width: 375px) {
+        .answers-user-item {
+          padding-left: 0;
+        }
+      }
+
+      /*  Reviews  */
+
+      .tabs-section-reviews {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 90px;
+        width: 100%;
+      }
+
+      .tabs-section-reviews-field-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        width: inherit;
+        flex-shrink: 0;
+      }
+
+      .reviews-field-items-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .reviews-field-items-rates {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .reviews-field-items-rates > h4 {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+      }
+
+      .reviews-field-items-rate {
+        display: flex;
+        align-items: flex-start;
+        gap: 4px;
+      }
+
+      .reviews-field-items-rate > i {
+        font-size: 18px;
+        color: var(--color-line);
+        opacity: 0.6;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+      }
+
+      .reviews-field-items-rate > i.active-star {
+        color: #fbbc1e;
+      }
+
+      .reviews-field-items {
+        display: flex;
+        padding-left: 64px;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 16px;
+        width: 100%;
+      }
+
+      .reviews-field-items textarea {
+        width: 100%;
+        height: 120px;
+        outline: none;
+        font-weight: 500;
+        border-radius: 10px;
+        border: 1px solid var(--color-line);
+        padding: 8px 12px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        resize: none;
+      }
+
+      .reviews-field-items textarea:focus,
+      .reviews-field-items textarea:valid {
+        border-color: var(--primary-color);
+      }
+
+      @media only screen and (max-width: 660px) {
+        .reviews-field-items {
+          padding-left: 0px;
+        }
+      }
+
+      .user-reviews-items-down-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 55px;
+        width: 100%;
+      }
+
+      .user-review-items-down {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+      }
+
+      .user-review-informations {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        flex-basis: 28%;
+        text-align: left;
+      }
+
+      .user-review-informations > img {
+        width: 68px;
+        height: 68px;
+        object-fit: cover;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .user-review-information {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1px;
+      }
+
+      .user-review-information > h3 {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--primary-color);
+        padding-left: 3px;
+        cursor: pointer;
+      }
+
+      .user-review-information > h5 {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+        padding-left: 3px;
+      }
+
+      .user-review-text-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        flex-basis: 70%;
+        text-align: left;
+      }
+
+      .review-text-section-top {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .review-text-section-top > h3,
+      .section-down-like-or-diss > h4 {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--color-text-black);
+      }
+
+      .review-text-section-top > h3 > span {
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .review-text-section-top > p,
+      .review-text-section-down > h4 {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .review-text-section-down {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .text-section-down-like-or-diss {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .section-down-like-or-diss {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      .section-down-like-or-diss:hover {
+        opacity: 0.7;
+      }
+
+      .reviews-separator-items-down-line {
+        width: 100%;
+        height: 1px;
+        border: none;
+        background-color: var(--color-line);
+      }
+
+      @media only screen and (max-width: 1600px) {
+        .user-review-text-section {
+          flex-basis: 60%;
+        }
+      }
+
+      @media only screen and (max-width: 1250px) {
+        .user-review-text-section {
+          flex-basis: 50%;
+        }
+      }
+
+      @media only screen and (max-width: 1050px) {
+        .user-review-text-section {
+          flex-basis: 45%;
+        }
+      }
+
+      @media only screen and (max-width: 992px) {
+        .user-review-text-section {
+          flex-basis: 40%;
+        }
+      }
+
+      @media only screen and (max-width: 970px) {
+        .user-review-text-section {
+          flex-basis: 50%;
+        }
+        .statistics-stars-bar {
+          margin: 0 auto;
+        }
+      }
+
+      @media only screen and (max-width: 730px) {
+        .user-review-items-down {
+          flex-direction: column;
+          gap: 24px;
+        }
+        .user-reviews-items-down-statistics > hr {
+          display: none;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .user-reviews-items-down-statistics {
+          flex-direction: column;
+          gap: 40px;
+        }
+        .statistics-stars-bar {
+          margin: 0;
+        }
+      }
+
+      @media only screen and (max-width: 370px) {
+        .statistics-total-rating > h3 {
+          font-size: 16px;
+        }
+        .statistics-total-rating > h1,
+        .statistics-total-rating-stars > h1 {
+          font-size: 22px;
+        }
+        .statistics-total-rating > h5 {
+          font-size: 12px;
+        }
+        .user-review-informations > img {
+          width: 52px;
+          height: 52px;
+        }
+        .user-review-information > h3 {
+          font-size: 15px;
+        }
+        .user-review-information > h5 {
+          font-size: 12px;
+        }
+        .review-text-section-top > p,
+        .review-text-section-down > h4,
+        .review-text-section-top > h3,
+        .section-down-like-or-diss > h4 {
+          font-size: 14px;
+        }
+      }
+
+      /* footer */
+
+      .col-6 {
+        width: 100%;
+        text-align: center;
+      }
+
+      .col-3 > h4 {
+        padding: 20px 0 20px 0;
+      }
+
+      .desc a {
+        display: flex;
+        align-items: center;
+      }
+
+      .desc a > h2 {
+        font-size: 20px;
+        margin-left: 10px;
+        font-weight: 600;
+      }
+
+      .desc > p {
+        margin-top: 10px;
+        font-size: 17px;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+        width: 85%;
+      }
+
+      .row-fot {
+        border-bottom: 1px solid #dadada;
+        border-top: 1px solid #dadada;
+        margin: 7em 0 2em 0;
+        padding: 2.5em 0 2.5em 0;
+      }
+
+      footer .row {
+        position: relative;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        grid-gap: 30px;
+        align-items: center;
+      }
+
+      footer ul {
+        padding: 0;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+
+      footer ul li {
+        list-style-type: none;
+        padding: 0;
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        line-height: 2;
+      }
+
+      .footer-cat-links a {
+        color: var(--color-text-grayblack);
+        font-size: 17px;
+        font-weight: 500;
+        text-decoration: none;
+        position: relative;
+      }
+
+      .footer-cat-links.active > li a {
+        pointer-events: auto;
+      }
+
+      .footer-cat-links a:after {
+        top: 21px;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        width: 0;
+        background: var(--secondary-color);
+        -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      }
+
+      .footer-cat-links a:hover:after,
+      .footer-cat-links a:focus:after {
+        width: 100%;
+        left: 0;
+      }
+
+      .social-links {
+        margin-top: 65px;
+      }
+
+      .social-links a {
+        color: var(--color-text-grayblack);
+        font-size: 20px;
+        border: 1px solid;
+        border-radius: 20px;
+        padding: 6px;
+        -webkit-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+      }
+
+      .social-links a:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      .social-links a:hover,
+      .social-links a:focus {
+        background-color: var(--secondary-color);
+        color: var(--color-white);
+      }
+
+      .social-links a i {
+        width: 25px;
+        height: 25px;
+        text-align: center;
+      }
+
+      .copyowner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--color-text-gray);
+        font-size: 14px;
+        padding-bottom: 30px;
+      }
+
+      .contact {
+        padding-bottom: 5px;
+      }
+
+      .contact > ul > li {
+        display: flex;
+      }
+
+      .contact > ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 6px;
+      }
+
+      .lineheightfot {
+        line-height: 1.5;
+        margin-left: 12px;
+      }
+
+      .iconfo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: var(--secondary-color);
+      }
+
+      .Emailfot {
+        padding-top: 20px;
+      }
+
+      @media only screen and (max-width: 992px) {
+        footer .row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media only screen and (max-width: 576px) {
+        footer .row {
+          display: block;
+        }
+        .col-3 {
+          margin-bottom: 28px;
+        }
+      }
+
+      @media only screen and (max-width: 450px) {
+        .copyowner {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <section class="wrapper container">
+        <a href="./index.html" class="logo">Unisuniverse</a>
+        <span class="overlay"></span>
+        <nav class="navbar" id="navbar">
+          <ul class="menu" id="menu">
+            <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Students</a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Academics</a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Universities</a>
+            </li>
+            <li class="menu-item menu-dropdown">
+              <span class="menu-link" data-toggle="submenu"
+                >Our Services<i class="fa fa-angle-down"></i
+              ></span>
+              <ul class="submenu">
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item resnav">
+              <a href="#" class="menu-link" id="btn-md">Sign Up / Log In</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="btn">
+          <a href="#"><i class="fa fa-search"></i></a>
+          <div class="burger" id="burger">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </div>
+          <button class="btn-md" id="test">Sign Up / Log In</button>
+          <div class="modal-cont">
+            <div class="modal-box">
+              <div class="modal-wlc">
+                <h1>Welcome to Unisuniverse</h1>
+                <span class="close">&times;</span>
+              </div>
+              <form action="" class="login-box">
+                <label for="useremail" class="useremail">Email</label>
+                <input
+                  type="email"
+                  class="email"
+                  placeholder="Enter Your Email"
+                  required
+                />
+                <label for="Password" class="userpass">Password</label>
+                <input
+                  type="password"
+                  class="password"
+                  placeholder="Enter Your Password"
+                  required
+                />
+                <div class="rememberlost">
+                  <div class="checkboxContainer">
+                    <input type="checkbox" id="rememberme" class="checkbox" />
+                    <label for="RememberMe">Remember me </label>
+                  </div>
+                  <a href="#" class="lostpass">Lost your password?</a>
+                </div>
+                <button class="login-button">Login</button>
+                <div class="or">OR</div>
+                <button class="Google">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_24_2365)">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M10.9994 5.04166C9.87998 5.04191 8.78332 5.35747 7.83501 5.95219C6.8867 6.54691 6.1251 7.39674 5.63746 8.4043C5.14981 9.41187 4.95586 10.5364 5.07781 11.6491C5.19976 12.7618 5.63268 13.8177 6.32698 14.6957C7.02129 15.5737 7.94888 16.2384 9.00349 16.6136C10.0581 16.9888 11.1971 17.0594 12.2899 16.8172C13.3828 16.575 14.3853 16.0298 15.1826 15.2442C15.98 14.4585 16.5399 13.4641 16.7982 12.375H11.916C11.5513 12.375 11.2016 12.2301 10.9437 11.9723C10.6859 11.7144 10.541 11.3647 10.541 11C10.541 10.6353 10.6859 10.2856 10.9437 10.0277C11.2016 9.76986 11.5513 9.62499 11.916 9.62499H18.3327C18.6974 9.62499 19.0471 9.76986 19.305 10.0277C19.5628 10.2856 19.7077 10.6353 19.7077 11C19.7077 13.0137 19.0098 14.9651 17.7329 16.5222C16.4559 18.0792 14.6789 19.1456 12.7041 19.5398C10.7294 19.934 8.67908 19.6317 6.90219 18.6843C5.1253 17.7368 3.73165 16.2029 2.95849 14.3436C2.18533 12.4842 2.08043 10.4144 2.66166 8.48641C3.24289 6.55843 4.47432 4.89146 6.14633 3.76926C7.81834 2.64706 9.82758 2.13899 11.832 2.33154C13.8365 2.52409 15.7123 3.40536 17.1401 4.82533C17.2681 4.95269 17.3698 5.10402 17.4393 5.27067C17.5089 5.43733 17.5449 5.61605 17.5454 5.79664C17.5459 5.97722 17.5107 6.15613 17.4421 6.32314C17.3734 6.49016 17.2725 6.64201 17.1451 6.77003C17.0178 6.89806 16.8665 6.99974 16.6998 7.06928C16.5331 7.13882 16.3544 7.17485 16.1738 7.17532C15.8091 7.17626 15.459 7.03229 15.2004 6.77508C14.6484 6.22434 13.9932 5.78779 13.2724 5.49036C12.5515 5.19293 11.7791 5.04046 10.9994 5.04166Z"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_24_2365">
+                        <rect width="22" height="22" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <p>Continue Google</p>
+                </button>
+                <button class="Facebook">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.99935 1.69995C5.41602 1.69995 1.66602 5.44162 1.66602 10.05C1.66602 14.2166 4.71602 17.6749 8.69935 18.2999V12.4666H6.58268V10.05H8.69935V8.20828C8.69935 6.11662 9.94102 4.96662 11.8493 4.96662C12.7577 4.96662 13.7077 5.12495 13.7077 5.12495V7.18328H12.6577C11.6243 7.18328 11.2994 7.82495 11.2994 8.48328V10.05H13.616L13.241 12.4666H11.2994V18.2999C13.2631 17.9898 15.0512 16.9879 16.341 15.475C17.6307 13.9621 18.3371 12.038 18.3327 10.05C18.3327 5.44162 14.5827 1.69995 9.99935 1.69995Z"
+                      fill="white"
+                    />
+                  </svg>
+                  <p>Continue Facebook</p>
+                </button>
+                <button class="Apple">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.0492 20.28C16.0692 21.23 14.9992 21.08 13.9692 20.63C12.8792 20.17 11.8792 20.15 10.7292 20.63C9.28919 21.25 8.52919 21.07 7.66919 20.28C2.78919 15.25 3.50919 7.59 9.04919 7.31C10.3992 7.38 11.3392 8.05 12.1292 8.11C13.3092 7.87 14.4392 7.18 15.6992 7.27C17.2092 7.39 18.3492 7.99 19.0992 9.07C15.9792 10.94 16.7192 15.05 19.5792 16.2C19.0092 17.7 18.2692 19.19 17.0392 20.29L17.0492 20.28ZM12.0292 7.25C11.8792 5.02 13.6892 3.18 15.7692 3C16.0592 5.58 13.4292 7.5 12.0292 7.25Z"
+                      fill="white"
+                    />
+                  </svg>
+                  <p>Continue Apple</p>
+                </button>
+                <p class="signup-text">
+                  Don't you have an account?<a href="#" class="new-acc"
+                    >Create an account.</a
+                  >
+                </p>
+              </form>
+            </div>
+            <div class="popup-boxs">
+              <div class="box">
+                <img
+                  class="image-box"
+                  src="../../images/student popup.png"
+                  alt="Student Image"
+                />
+                <a href="../../Signup/Student/index.html" class="btn-sm"
+                  >Student</a
+                >
+              </div>
+              <div class="box">
+                <img
+                  class="image-box"
+                  src="../../images/Academic popup.png"
+                  alt="Academic Image"
+                />
+                <a href="../../Signup/Academic/index.html" class="btn-sm"
+                  >Academic</a
+                >
+              </div>
+              <div class="box">
+                <img
+                  class="image-box"
+                  src="../../images/Recruiter popup.png"
+                  alt="Recruiter Image"
+                />
+                <a href="../../Signup/Recruiter/index.html" class="btn-sm"
+                  >Recruiter</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <div class="mx container">
+      <p class="breadcrumb">Home / <span>Service Details</span></p>
+    </div>
+
+    <main>
+      <div class="main-wrapper container mx">
+        <div class="header-section-wrapper">
+          <div class="header-section-imgs-wrapper">
+            <div class="product-img-container">
+              <img
+                src="./images/Product img.png"
+                class="product-img"
+                alt="Product Image"
+                id="grote_image"
+              />
+
+              <div class="heart-icon">
+                <i class="fa fa-heart-o"></i>
+              </div>
+            </div>
+
+            <div class="product-imgs-container">
+              <div class="product-img-wrapper active-img">
+                <img
+                  src="../Product details/images/Product img.png"
+                  class="product-img-small"
+                  alt="Product Image"
+                />
+              </div>
+
+              <div class="product-img-wrapper">
+                <img
+                  src="../Product details/images/Product img.png"
+                  class="product-img-small"
+                  alt="Product Image"
+                />
+              </div>
+
+              <div class="product-img-wrapper">
+                <img
+                  src="../Product details/images/Product img.png"
+                  class="product-img-small"
+                  alt="Product Image"
+                />
+              </div>
+
+              <div class="product-img-wrapper">
+                <img
+                  src="../Product details/images/Product img.png"
+                  class="product-img-small"
+                  alt="Product Image"
+                />
+              </div>
+
+              <div class="product-img-wrapper">
+                <img
+                  src="../Product details/images/Product img.png"
+                  class="product-img-small"
+                  id="others-product-img"
+                  alt="Product Image"
+                />
+                <div class="ovrly-img"></div>
+                <h5>+ 7</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="header-section-content-wrapper">
+            <div class="product-informations-container">
+              <div class="product-information-head">
+                <h1 class="product-title">
+                  I will draw a avatar cartoon for you profile
+                </h1>
+
+                <div class="product-information-price-rate">
+                  <div class="product-price">
+                    <h4>$4.95</h4>
+                  </div>
+
+                  <hr />
+
+                  <div class="product-rate-wrapper">
+                    <div class="product-rate">
+                      <svg
+                        width="16"
+                        height="15"
+                        viewBox="0 0 16 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6.57342 1.89057C7.02244 0.508607 8.97756 0.50861 9.42659 1.89058L10.1329 4.06434C10.3337 4.68237 10.9096 5.10081 11.5595 5.10081H13.8451C15.2982 5.10081 15.9023 6.96024 14.7268 7.81434L12.8777 9.1578C12.3519 9.53976 12.1319 10.2168 12.3328 10.8348L13.0391 13.0086C13.4881 14.3906 11.9064 15.5398 10.7308 14.6857L8.88168 13.3422C8.35595 12.9602 7.64405 12.9602 7.11832 13.3422L5.26921 14.6857C4.09364 15.5398 2.51192 14.3906 2.96095 13.0086L3.66725 10.8348C3.86806 10.2168 3.64807 9.53976 3.12234 9.1578L1.27322 7.81434C0.0976527 6.96023 0.701818 5.10081 2.1549 5.10081H4.44053C5.09037 5.10081 5.66631 4.68237 5.86712 4.06434L6.57342 1.89057Z"
+                          fill="#FBBC1E"
+                        />
+                      </svg>
+                      <h4>4.7</h4>
+                    </div>
+
+                    <svg
+                      width="4"
+                      height="5"
+                      viewBox="0 0 4 5"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle cx="2" cy="2.5" r="2" fill="#F5AA1C" />
+                    </svg>
+
+                    <h4 class="product-rate-reviews">218 Reviews</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-information-texts-container">
+                <div class="product-information-texts">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
+                    cursus vitae.
+                  </p>
+
+                  <div class="product-information-text">
+                    <h3>Greade Levels : <span>Ph.D.</span></h3>
+
+                    <hr />
+
+                    <h3>Language : <span>English</span></h3>
+                  </div>
+
+                  <h3>
+                    Field :
+                    <span>Project management</span>
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-buttons-container">
+              <div class="product-buttons">
+                <button type="button" class="product-button-lg-out">
+                  <div class="product-button-lg-icon">
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.16656 18.3327C8.68033 18.3327 8.21401 18.1395 7.8702 17.7957C7.52638 17.4519 7.33323 16.9856 7.33323 16.4993C7.33323 16.0131 7.52638 15.5468 7.8702 15.203C8.21401 14.8592 8.68033 14.666 9.16656 14.666C9.65279 14.666 10.1191 14.8592 10.4629 15.203C10.8067 15.5468 10.9999 16.0131 10.9999 16.4993C10.9999 16.9856 10.8067 17.4519 10.4629 17.7957C10.1191 18.1395 9.65279 18.3327 9.16656 18.3327ZM15.5832 18.3327C15.097 18.3327 14.6307 18.1395 14.2869 17.7957C13.943 17.4519 13.7499 16.9856 13.7499 16.4993C13.7499 16.0131 13.943 15.5468 14.2869 15.203C14.6307 14.8592 15.097 14.666 15.5832 14.666C16.0695 14.666 16.5358 14.8592 16.8796 15.203C17.2234 15.5468 17.4166 16.0131 17.4166 16.4993C17.4166 16.9856 17.2234 17.4519 16.8796 17.7957C16.5358 18.1395 16.0695 18.3327 15.5832 18.3327ZM3.63173 5.42877C3.40289 5.42138 3.1859 5.32529 3.02663 5.16081C2.86737 4.99632 2.77832 4.77634 2.77832 4.54739C2.77832 4.31844 2.86737 4.09846 3.02663 3.93397C3.1859 3.76949 3.40289 3.6734 3.63173 3.66602H4.68681C5.51364 3.66602 6.22864 4.23985 6.40831 5.04652L7.55689 10.2183C7.73656 11.025 8.45156 11.5988 9.27839 11.5988H16.1644L17.4862 6.30968H8.91998C8.69329 6.29934 8.47932 6.20201 8.32257 6.03794C8.16581 5.87387 8.07834 5.65568 8.07834 5.42877C8.07834 5.20185 8.16581 4.98366 8.32257 4.81959C8.47932 4.65552 8.69329 4.55819 8.91998 4.54785H17.4862C17.7542 4.54777 18.0187 4.60879 18.2595 4.72626C18.5004 4.84374 18.7113 5.01458 18.8762 5.2258C19.0411 5.43702 19.1557 5.68306 19.2112 5.94521C19.2668 6.20737 19.2618 6.47873 19.1967 6.73868L17.8749 12.026C17.7796 12.4075 17.5595 12.7462 17.2495 12.9882C16.9396 13.2302 16.5576 13.3617 16.1644 13.3616H9.27839C8.47612 13.3617 7.69781 13.0882 7.07199 12.5862C6.44617 12.0842 6.01028 11.3838 5.83631 10.6006L4.68681 5.42877H3.63173Z"
+                        fill="#002754"
+                      />
+                    </svg>
+                  </div>
+                  <h4>Add to basket</h4>
+                </button>
+                <button type="button" class="product-button-lg">
+                  <div class="product-button-lg-icon">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 1.125C4.65117 1.125 1.125 4.65117 1.125 9C1.125 13.3488 4.65117 16.875 9 16.875C13.3488 16.875 16.875 13.3488 16.875 9C16.875 4.65117 13.3488 1.125 9 1.125ZM9 15.5391C5.38945 15.5391 2.46094 12.6105 2.46094 9C2.46094 5.38945 5.38945 2.46094 9 2.46094C12.6105 2.46094 15.5391 5.38945 15.5391 9C15.5391 12.6105 12.6105 15.5391 9 15.5391ZM9.83848 8.59219L9.39199 8.48848V6.12773C10.06 6.21914 10.473 6.6375 10.5434 7.15078C10.5521 7.22109 10.6119 7.27207 10.6822 7.27207H11.4715C11.5541 7.27207 11.6191 7.2 11.6121 7.11738C11.5049 6.02227 10.6031 5.31914 9.39902 5.19785V4.62305C9.39902 4.5457 9.33574 4.48242 9.2584 4.48242H8.76445C8.68711 4.48242 8.62383 4.5457 8.62383 4.62305V5.20312C7.3793 5.32441 6.40547 6.01172 6.40547 7.29492C6.40547 8.4832 7.28086 9.05625 8.2002 9.27598L8.63438 9.38672V11.8951C7.85742 11.7914 7.42148 11.3766 7.33184 10.8176C7.32129 10.7508 7.26152 10.7016 7.19297 10.7016H6.38086C6.29824 10.7016 6.2332 10.7719 6.24023 10.8545C6.31934 11.8213 7.05234 12.7107 8.6168 12.825V13.377C8.6168 13.4543 8.68008 13.5176 8.75742 13.5176H9.25664C9.33398 13.5176 9.39727 13.4543 9.39727 13.3752L9.39375 12.818C10.7701 12.6967 11.7545 11.9602 11.7545 10.6383C11.7527 9.41836 10.9775 8.87344 9.83848 8.59219ZM8.63262 8.30742C8.53418 8.2793 8.45156 8.25293 8.36895 8.21953C7.7748 8.00508 7.49883 7.65879 7.49883 7.2123C7.49883 6.57422 7.98223 6.21035 8.63262 6.12773V8.30742ZM9.39199 11.9004V9.55019C9.44648 9.56602 9.4957 9.57832 9.54668 9.58887C10.3781 9.84199 10.6576 10.1936 10.6576 10.7332C10.6576 11.4205 10.1408 11.8336 9.39199 11.9004Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                  <h4>Buy</h4>
+                </button>
+              </div>
+
+              <hr />
+
+              <div class="product-buttons-share-wrapper">
+                <h4>Share this resource :</h4>
+
+                <div class="product-buttons-share">
+                  <a href="#" class="product-buttons-share-icon">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.875 8.75063C16.875 10.5139 16.2578 12.1256 15.1383 13.2905C14.093 14.3756 12.6758 15.0006 11.25 15.0006C9.85313 15.0006 8.92031 14.5428 8.32578 14.0631L7.48359 17.6436C7.45136 17.7808 7.3737 17.9031 7.26322 17.9906C7.15274 18.0781 7.01593 18.1257 6.875 18.1256C6.82662 18.1256 6.7784 18.1201 6.73125 18.1092C6.65104 18.0908 6.57525 18.0567 6.50824 18.009C6.44122 17.9612 6.38431 17.9006 6.34075 17.8308C6.2972 17.761 6.26787 17.6832 6.25444 17.602C6.24101 17.5208 6.24375 17.4378 6.2625 17.3577L8.7625 6.73266C8.80042 6.57125 8.9009 6.43152 9.04185 6.3442C9.18279 6.25687 9.35265 6.22912 9.51406 6.26704C9.67547 6.30496 9.81521 6.40544 9.90253 6.54638C9.98985 6.68733 10.0176 6.85719 9.97969 7.0186L8.65938 12.628C8.90625 12.9694 9.63281 13.7506 11.25 13.7506C13.4008 13.7506 15.625 11.8803 15.625 8.75063C15.6247 7.88803 15.4259 7.03705 15.0442 6.26351C14.6625 5.48997 14.1079 4.81459 13.4235 4.28959C12.739 3.7646 11.943 3.40405 11.097 3.23582C10.2509 3.0676 9.37753 3.09621 8.54431 3.31944C7.71109 3.54268 6.94037 3.95455 6.29175 4.52322C5.64313 5.09189 5.13399 5.80212 4.8037 6.59898C4.4734 7.39585 4.3308 8.258 4.38692 9.11878C4.44304 9.97956 4.69638 10.8159 5.12734 11.5631C5.20508 11.7063 5.22385 11.8742 5.17965 12.031C5.13545 12.1878 5.03177 12.3211 4.89071 12.4026C4.74964 12.4841 4.58233 12.5072 4.42442 12.4672C4.26651 12.4271 4.13048 12.327 4.04531 12.1881C3.51831 11.2749 3.20843 10.2526 3.13964 9.20043C3.07086 8.14826 3.24502 7.09436 3.64864 6.12025C4.05227 5.14614 4.67454 4.27793 5.46734 3.58275C6.26014 2.88758 7.20222 2.38408 8.22072 2.11119C9.23921 1.8383 10.3068 1.80334 11.341 2.009C12.3752 2.21467 13.3482 2.65546 14.1848 3.29728C15.0213 3.93909 15.6991 4.76474 16.1656 5.71035C16.6321 6.65597 16.8748 7.69621 16.875 8.75063Z"
+                        fill="#002754"
+                      />
+                    </svg>
+                  </a>
+
+                  <a href="#" class="product-buttons-share-icon">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M18.7165 5.00065C18.0749 5.29232 17.3832 5.48398 16.6665 5.57565C17.3999 5.13398 17.9665 4.43398 18.2332 3.59232C17.5415 4.00898 16.7749 4.30065 15.9665 4.46732C15.3082 3.75065 14.3832 3.33398 13.3332 3.33398C11.3749 3.33398 9.77487 4.93398 9.77487 6.90898C9.77487 7.19232 9.8082 7.46732 9.86654 7.72565C6.89987 7.57565 4.2582 6.15065 2.49987 3.99232C2.19154 4.51732 2.01654 5.13398 2.01654 5.78398C2.01654 7.02565 2.64154 8.12565 3.6082 8.75065C3.01654 8.75065 2.46654 8.58398 1.9832 8.33398V8.35898C1.9832 10.0923 3.21654 11.5423 4.84987 11.8673C4.32548 12.0108 3.77495 12.0308 3.24154 11.9257C3.46788 12.6361 3.91115 13.2577 4.50905 13.7031C5.10695 14.1485 5.82941 14.3954 6.57487 14.409C5.31123 15.4094 3.74487 15.9501 2.1332 15.9423C1.84987 15.9423 1.56654 15.9257 1.2832 15.8923C2.86654 16.909 4.74987 17.5007 6.76654 17.5007C13.3332 17.5007 16.9415 12.0507 16.9415 7.32565C16.9415 7.16732 16.9415 7.01732 16.9332 6.85898C17.6332 6.35898 18.2332 5.72565 18.7165 5.00065Z"
+                        fill="#002754"
+                      />
+                    </svg>
+                  </a>
+
+                  <a href="#" class="product-buttons-share-icon">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3.5625 1.40625C3.13981 1.40625 2.73443 1.57416 2.43555 1.87305C2.13666 2.17193 1.96875 2.57731 1.96875 3C1.96875 3.42269 2.13666 3.82807 2.43555 4.12695C2.73443 4.42584 3.13981 4.59375 3.5625 4.59375C3.98519 4.59375 4.39057 4.42584 4.68945 4.12695C4.98834 3.82807 5.15625 3.42269 5.15625 3C5.15625 2.57731 4.98834 2.17193 4.68945 1.87305C4.39057 1.57416 3.98519 1.40625 3.5625 1.40625ZM2.0625 5.90625C2.03764 5.90625 2.01379 5.91613 1.99621 5.93371C1.97863 5.95129 1.96875 5.97514 1.96875 6V15.75C1.96875 15.8018 2.01075 15.8438 2.0625 15.8438H5.0625C5.08736 15.8438 5.11121 15.8339 5.12879 15.8163C5.14637 15.7987 5.15625 15.7749 5.15625 15.75V6C5.15625 5.97514 5.14637 5.95129 5.12879 5.93371C5.11121 5.91613 5.08736 5.90625 5.0625 5.90625H2.0625ZM6.9375 5.90625C6.91264 5.90625 6.88879 5.91613 6.87121 5.93371C6.85363 5.95129 6.84375 5.97514 6.84375 6V15.75C6.84375 15.8018 6.88575 15.8438 6.9375 15.8438H9.9375C9.96236 15.8438 9.98621 15.8339 10.0038 15.8163C10.0214 15.7987 10.0312 15.7749 10.0312 15.75V10.5C10.0312 10.127 10.1794 9.76935 10.4431 9.50563C10.7069 9.24191 11.0645 9.09375 11.4375 9.09375C11.8105 9.09375 12.1681 9.24191 12.4319 9.50563C12.6956 9.76935 12.8438 10.127 12.8438 10.5V15.75C12.8438 15.8018 12.8857 15.8438 12.9375 15.8438H15.9375C15.9624 15.8438 15.9862 15.8339 16.0038 15.8163C16.0214 15.7987 16.0312 15.7749 16.0312 15.75V9.285C16.0312 7.46475 14.4488 6.04125 12.6375 6.2055C12.0771 6.25652 11.5281 6.3952 11.0107 6.6165L10.0312 7.0365V6C10.0312 5.97514 10.0214 5.95129 10.0038 5.93371C9.98621 5.91613 9.96236 5.90625 9.9375 5.90625H6.9375Z"
+                        fill="#002754"
+                      />
+                    </svg>
+                  </a>
+
+                  <a href="#" class="product-buttons-share-icon">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11.1645 17.4976V10.6676H13.4687L13.8112 7.99347H11.1645V6.29014C11.1645 5.51847 11.3795 4.99014 12.487 4.99014H13.8904V2.60597C13.2076 2.5328 12.5212 2.49747 11.8345 2.50014C9.79785 2.50014 8.39952 3.74347 8.39952 6.02597V7.98848H6.11035V10.6626H8.40452V17.4976H11.1645Z"
+                        fill="#002754"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs-section-wrapper">
+          <div class="tabs-section-items">
+            <input id="tab1" type="radio" name="tabs" checked />
+            <label for="tab1" class="label-tab">Description</label>
+
+            <input id="tab2" type="radio" name="tabs" />
+            <label for="tab2" class="marg-label label-tab">How to use</label>
+
+            <input id="tab3" type="radio" name="tabs" />
+            <label for="tab3" class="marg-label label-tab"
+              >About the author</label
+            >
+
+            <input id="tab4" type="radio" name="tabs" />
+            <label for="tab4" class="marg-label label-tab"
+              >Questions & Answers</label
+            >
+
+            <input id="tab5" type="radio" name="tabs" />
+            <label for="tab5" class="marg-label label-tab">Reviews</label>
+
+            <div id="content1" class="contents">
+              <div class="tabs-section-item">
+                <div class="tabs-section-item-text">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
+                    cursus vitae congue mauris rhoncus aenean vel elit
+                    scelerisque. In egestas erat imperdiet sed euismod nisi
+                    porta lorem mollis. Morbi tristique senectus et netus.
+                    Mattis pellentesque id nibh tortor id aliquet lectus proin.
+                    Sapien faucibus et molestie ac feugiat sed lectus
+                    vestibulum. Ullamcorper velit sed ullamcorper morbi
+                    tincidunt ornare massa eget. Dictum varius duis at
+                    consectetur lorem.
+                  </p>
+
+                  <div class="tabs-section-item-other-text">
+                    <h4>Teachers are saying...</h4>
+
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
+                      cursus vitae congue mauris rhoncus aenean vel elit
+                      scelerisque.
+                    </p>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div class="other-user-products">
+                  <div class="other-user-products-head">
+                    <h3>Other services</h3>
+
+                    <a href="#" class="btn-text">
+                      <h3>See All</h3>
+                      <div class="head-btn-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 18 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4.8 13.5L12 6.3V12.75H13.5V3.75H4.5V5.25H10.95L3.75 12.45L4.8 13.5Z"
+                            fill="#f5aa1c"
+                          />
+                        </svg>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="products-cards">
+                    <div class="service-card" id="services">
+                      <div class="service-card-item-img">
+                        <img
+                          src="../StudentProfile/images/list view.png"
+                          alt="User Service"
+                        />
+                        <div class="wishlist-icon">
+                          <i class="fa fa-heart-o"></i>
+                        </div>
+                      </div>
+                      <div class="product-card-body">
+                        <h4 class="title-card">Create Character</h4>
+                        <div class="prof-info">
+                          <img
+                            src="../StudentProfile/images/avatar product.png"
+                            alt="User Photo"
+                          />
+                          <h5>Dr. Anderson Cooper</h5>
+                        </div>
+                        <p class="service-desc">
+                          Lorem ipsum dolor consectetur lorem adipiscing elit
+                        </p>
+                        <hr />
+                        <div class="stu-join">
+                          <div class="students">
+                            <h4 class="card-service-price">
+                              Price : <span>$18</span>
+                            </h4>
+                          </div>
+                          <div class="join-btn">
+                            <p>Read More</p>
+                            <svg
+                              width="19"
+                              height="17"
+                              viewBox="0 0 19 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                                stroke="#F5AA1C"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="service-card" id="services">
+                      <div class="service-card-item-img">
+                        <img
+                          src="../StudentProfile/images/list view.png"
+                          alt="User Service"
+                        />
+                        <div class="wishlist-icon">
+                          <i class="fa fa-heart-o"></i>
+                        </div>
+                      </div>
+                      <div class="product-card-body">
+                        <h4 class="title-card">Proofreading</h4>
+                        <div class="prof-info">
+                          <img
+                            src="../StudentProfile/images/avatar product.png"
+                            alt="User Photo"
+                          />
+                          <h5>Dr. Anderson Cooper</h5>
+                        </div>
+                        <p class="service-desc">
+                          Lorem ipsum dolor consectetur lorem adipiscing elit
+                        </p>
+                        <hr />
+                        <div class="stu-join">
+                          <div class="students">
+                            <h4 class="card-service-price">
+                              Price : <span>$18</span>
+                            </h4>
+                          </div>
+                          <div class="join-btn">
+                            <p>Read More</p>
+                            <svg
+                              width="19"
+                              height="17"
+                              viewBox="0 0 19 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                                stroke="#F5AA1C"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="service-card" id="services">
+                      <div class="service-card-item-img">
+                        <img
+                          src="../StudentProfile/images/list view.png"
+                          alt="User Service"
+                        />
+                        <div class="wishlist-icon">
+                          <i class="fa fa-heart-o"></i>
+                        </div>
+                      </div>
+                      <div class="product-card-body">
+                        <h4 class="title-card">Proofreading</h4>
+                        <div class="prof-info">
+                          <img
+                            src="../StudentProfile/images/avatar product.png"
+                            alt="User Photo"
+                          />
+                          <h5>Dr. Anderson Cooper</h5>
+                        </div>
+                        <p class="service-desc">
+                          Lorem ipsum dolor consectetur lorem adipiscing elit
+                        </p>
+                        <hr />
+                        <div class="stu-join">
+                          <div class="students">
+                            <h4 class="card-service-price">
+                              Price : <span>$18</span>
+                            </h4>
+                          </div>
+                          <div class="join-btn">
+                            <p>Read More</p>
+                            <svg
+                              width="19"
+                              height="17"
+                              viewBox="0 0 19 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                                stroke="#F5AA1C"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="content2" class="contents">
+              <div class="tabs-section-item">
+                <div class="tabs-section-item-text">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
+                    cursus vitae congue mauris rhoncus aenean vel elit
+                    scelerisque.
+                  </p>
+
+                  <div class="tabs-section-item-text-other">
+                    <h4>How to use this resource :</h4>
+
+                    <div class="tabs-section-item-text-steps">
+                      <div class="tabs-section-item-text-step">
+                        <div class="step-number">
+                          <h5>1</h5>
+                        </div>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor.
+                        </p>
+                      </div>
+
+                      <div class="tabs-section-item-text-step">
+                        <div class="step-number">
+                          <h5>2</h5>
+                        </div>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua.
+                        </p>
+                      </div>
+
+                      <div class="tabs-section-item-text-step">
+                        <div class="step-number">
+                          <h5>3</h5>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur.</p>
+                      </div>
+
+                      <div class="tabs-section-item-text-step">
+                        <div class="step-number">
+                          <h5>4</h5>
+                        </div>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div class="other-user-products">
+                  <div class="other-user-products-head">
+                    <h3>Other products</h3>
+
+                    <a href="#" class="btn-text">
+                      <h3>See All</h3>
+                      <div class="head-btn-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 18 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4.8 13.5L12 6.3V12.75H13.5V3.75H4.5V5.25H10.95L3.75 12.45L4.8 13.5Z"
+                            fill="#f5aa1c"
+                          />
+                        </svg>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="products-cards">
+                    <div class="service-card" id="services">
+                      <div class="service-card-item-img">
+                        <img
+                          src="../StudentProfile/images/list view.png"
+                          alt="User Service"
+                        />
+                        <div class="wishlist-icon">
+                          <i class="fa fa-heart-o"></i>
+                        </div>
+                      </div>
+                      <div class="product-card-body">
+                        <h4 class="title-card">Create Character</h4>
+                        <div class="prof-info">
+                          <img
+                            src="../StudentProfile/images/avatar product.png"
+                            alt="User Photo"
+                          />
+                          <h5>Dr. Anderson Cooper</h5>
+                        </div>
+                        <p class="service-desc">
+                          Lorem ipsum dolor consectetur lorem adipiscing elit
+                        </p>
+                        <hr />
+                        <div class="stu-join">
+                          <div class="students">
+                            <h4 class="card-service-price">
+                              Price : <span>$18</span>
+                            </h4>
+                          </div>
+                          <div class="join-btn">
+                            <p>Read More</p>
+                            <svg
+                              width="19"
+                              height="17"
+                              viewBox="0 0 19 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                                stroke="#F5AA1C"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="service-card" id="services">
+                      <div class="service-card-item-img">
+                        <img
+                          src="../StudentProfile/images/list view.png"
+                          alt="User Service"
+                        />
+                        <div class="wishlist-icon">
+                          <i class="fa fa-heart-o"></i>
+                        </div>
+                      </div>
+                      <div class="product-card-body">
+                        <h4 class="title-card">Proofreading</h4>
+                        <div class="prof-info">
+                          <img
+                            src="../StudentProfile/images/avatar product.png"
+                            alt="User Photo"
+                          />
+                          <h5>Dr. Anderson Cooper</h5>
+                        </div>
+                        <p class="service-desc">
+                          Lorem ipsum dolor consectetur lorem adipiscing elit
+                        </p>
+                        <hr />
+                        <div class="stu-join">
+                          <div class="students">
+                            <h4 class="card-service-price">
+                              Price : <span>$18</span>
+                            </h4>
+                          </div>
+                          <div class="join-btn">
+                            <p>Read More</p>
+                            <svg
+                              width="19"
+                              height="17"
+                              viewBox="0 0 19 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                                stroke="#F5AA1C"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="service-card" id="services">
+                      <div class="service-card-item-img">
+                        <img
+                          src="../StudentProfile/images/list view.png"
+                          alt="User Service"
+                        />
+                        <div class="wishlist-icon">
+                          <i class="fa fa-heart-o"></i>
+                        </div>
+                      </div>
+                      <div class="product-card-body">
+                        <h4 class="title-card">Proofreading</h4>
+                        <div class="prof-info">
+                          <img
+                            src="../StudentProfile/images/avatar product.png"
+                            alt="User Photo"
+                          />
+                          <h5>Dr. Anderson Cooper</h5>
+                        </div>
+                        <p class="service-desc">
+                          Lorem ipsum dolor consectetur lorem adipiscing elit
+                        </p>
+                        <hr />
+                        <div class="stu-join">
+                          <div class="students">
+                            <h4 class="card-service-price">
+                              Price : <span>$18</span>
+                            </h4>
+                          </div>
+                          <div class="join-btn">
+                            <p>Read More</p>
+                            <svg
+                              width="19"
+                              height="17"
+                              viewBox="0 0 19 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                                stroke="#F5AA1C"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="content3" class="contents">
+              <div class="tabs-section-item">
+                <div class="tabs-section-author">
+                  <div class="tabs-section-author-profile">
+                    <div class="author-profile-content">
+                      <img
+                        src="./images/author.png"
+                        class="author-profile-img"
+                        alt="Author Image"
+                      />
+
+                      <div class="author-profile-head">
+                        <a href="#">Anderson Cooper</a>
+
+                        <div class="author-profile-rate-wrapper">
+                          <div class="author-profile-rate">
+                            <svg
+                              width="16"
+                              height="15"
+                              viewBox="0 0 16 15"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M6.57342 1.39057C7.02244 0.00860715 8.97756 0.00861025 9.42659 1.39058L10.1329 3.56434C10.3337 4.18237 10.9096 4.60081 11.5595 4.60081H13.8451C15.2982 4.60081 15.9023 6.46024 14.7268 7.31434L12.8777 8.6578C12.3519 9.03976 12.1319 9.71681 12.3328 10.3348L13.0391 12.5086C13.4881 13.8906 11.9064 15.0398 10.7308 14.1857L8.88168 12.8422C8.35595 12.4602 7.64405 12.4602 7.11832 12.8422L5.26921 14.1857C4.09364 15.0398 2.51192 13.8906 2.96095 12.5086L3.66725 10.3348C3.86806 9.71681 3.64807 9.03976 3.12234 8.6578L1.27322 7.31434C0.0976527 6.46023 0.701818 4.60081 2.1549 4.60081H4.44053C5.09037 4.60081 5.66631 4.18237 5.86712 3.56434L6.57342 1.39057Z"
+                                fill="#FBBC1E"
+                              />
+                            </svg>
+                            <h4>4.9</h4>
+                          </div>
+
+                          <svg
+                            width="4"
+                            height="4"
+                            viewBox="0 0 4 4"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle cx="2" cy="2" r="2" fill="#F5AA1C" />
+                          </svg>
+
+                          <h4 class="profile-vote-number">1,420 Votes</h4>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="author-profile-flw">
+                      <h4>9.4k Followers</h4>
+
+                      <button class="reviews-item-top-btn" type="button">
+                        + Follow
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="tabs-section-author-info-wrapper">
+                    <div class="tabs-section-author-info">
+                      <div class="author-info-items">
+                        <div class="author-info-item">
+                          <h4 class="author-info-item-head">From :</h4>
+                          <h4 class="author-info-item-sub">United States</h4>
+                        </div>
+
+                        <div class="author-info-item">
+                          <h4 class="author-info-item-head">Affiliation :</h4>
+                          <h4 class="author-info-item-sub">
+                            Oxford University
+                          </h4>
+                        </div>
+                      </div>
+
+                      <div class="author-info-items">
+                        <div class="author-info-item">
+                          <h4 class="author-info-item-head">Languages :</h4>
+                          <h4 class="author-info-item-sub">English</h4>
+                        </div>
+
+                        <div class="author-info-item">
+                          <h4 class="author-info-item-head">Field :</h4>
+                          <h4 class="author-info-item-sub">Management</h4>
+                        </div>
+                      </div>
+
+                      <div class="author-info-items">
+                        <div class="author-info-item">
+                          <h4 class="author-info-item-head">Member since :</h4>
+                          <h4 class="author-info-item-sub">Oct 2021</h4>
+                        </div>
+
+                        <div class="author-info-item">
+                          <h4 class="author-info-item-head">Title :</h4>
+                          <h4 class="author-info-item-sub">
+                            Full Professor in Management
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div class="other-user-products">
+                  <div class="other-user-products-head">
+                    <h3>Other products</h3>
+
+                    <a href="#" class="btn-text">
+                      <h3>See All</h3>
+                      <div class="head-btn-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 18 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4.8 13.5L12 6.3V12.75H13.5V3.75H4.5V5.25H10.95L3.75 12.45L4.8 13.5Z"
+                            fill="#f5aa1c"
+                          />
+                        </svg>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="products-cards">
+                    <div class="service-card" id="services">
+                      <div class="service-card-item-img">
+                        <img
+                          src="../StudentProfile/images/list view.png"
+                          alt="User Service"
+                        />
+                        <div class="wishlist-icon">
+                          <i class="fa fa-heart-o"></i>
+                        </div>
+                      </div>
+                      <div class="product-card-body">
+                        <h4 class="title-card">Create Character</h4>
+                        <div class="prof-info">
+                          <img
+                            src="../StudentProfile/images/avatar product.png"
+                            alt="User Photo"
+                          />
+                          <h5>Dr. Anderson Cooper</h5>
+                        </div>
+                        <p class="service-desc">
+                          Lorem ipsum dolor consectetur lorem adipiscing elit
+                        </p>
+                        <hr />
+                        <div class="stu-join">
+                          <div class="students">
+                            <h4 class="card-service-price">
+                              Price : <span>$18</span>
+                            </h4>
+                          </div>
+                          <div class="join-btn">
+                            <p>Read More</p>
+                            <svg
+                              width="19"
+                              height="17"
+                              viewBox="0 0 19 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                                stroke="#F5AA1C"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="service-card" id="services">
+                      <div class="service-card-item-img">
+                        <img
+                          src="../StudentProfile/images/list view.png"
+                          alt="User Service"
+                        />
+                        <div class="wishlist-icon">
+                          <i class="fa fa-heart-o"></i>
+                        </div>
+                      </div>
+                      <div class="product-card-body">
+                        <h4 class="title-card">Proofreading</h4>
+                        <div class="prof-info">
+                          <img
+                            src="../StudentProfile/images/avatar product.png"
+                            alt="User Photo"
+                          />
+                          <h5>Dr. Anderson Cooper</h5>
+                        </div>
+                        <p class="service-desc">
+                          Lorem ipsum dolor consectetur lorem adipiscing elit
+                        </p>
+                        <hr />
+                        <div class="stu-join">
+                          <div class="students">
+                            <h4 class="card-service-price">
+                              Price : <span>$18</span>
+                            </h4>
+                          </div>
+                          <div class="join-btn">
+                            <p>Read More</p>
+                            <svg
+                              width="19"
+                              height="17"
+                              viewBox="0 0 19 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                                stroke="#F5AA1C"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="service-card" id="services">
+                      <div class="service-card-item-img">
+                        <img
+                          src="../StudentProfile/images/list view.png"
+                          alt="User Service"
+                        />
+                        <div class="wishlist-icon">
+                          <i class="fa fa-heart-o"></i>
+                        </div>
+                      </div>
+                      <div class="product-card-body">
+                        <h4 class="title-card">Proofreading</h4>
+                        <div class="prof-info">
+                          <img
+                            src="../StudentProfile/images/avatar product.png"
+                            alt="User Photo"
+                          />
+                          <h5>Dr. Anderson Cooper</h5>
+                        </div>
+                        <p class="service-desc">
+                          Lorem ipsum dolor consectetur lorem adipiscing elit
+                        </p>
+                        <hr />
+                        <div class="stu-join">
+                          <div class="students">
+                            <h4 class="card-service-price">
+                              Price : <span>$18</span>
+                            </h4>
+                          </div>
+                          <div class="join-btn">
+                            <p>Read More</p>
+                            <svg
+                              width="19"
+                              height="17"
+                              viewBox="0 0 19 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                                stroke="#F5AA1C"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="content4" class="contents">
+              <div class="tabs-section-item">
+                <div class="tabs-section-QvA">
+                  <div class="tabs-section-QvA-field-wrapper">
+                    <div class="QvA-field-items">
+                      <img src="../images/avatar 2.png" alt="User Image" />
+                      <input type="text" placeholder="Write your question..." />
+                    </div>
+
+                    <button class="answers-submit-btn" type="button">
+                      Post
+                    </button>
+                  </div>
+
+                  <div class="user-questions-items-down">
+                    <div class="questions-answer-item">
+                      <div class="questions-user-item">
+                        <img
+                          src="../images/avatar 2 medium.png"
+                          alt="User Photo"
+                          class="questions-user-photo"
+                        />
+                        <div class="questions-user-name-text">
+                          <h4>Zahir Mays</h4>
+                          <div class="questions-user-text-box">
+                            <p class="questions-user-text">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing
+                              elit, sed do eiusmod tempor incididunt ut labore
+                              et dolore magna aliqua. Egestas purus viverra
+                              accumsan in nisl nisi. Arcu cursus vitae congue
+                              mauris rhoncus aenean vel elit scelerisque. In
+                              egestas erat imperdiet sed euismod nisi porta
+                              lorem mollis. Morbi tristique senectus et netus.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="answers-user-item">
+                        <div class="answered-user-item">
+                          <img src="../images/avatar 1.png" alt="User Photo" />
+                          <div class="answered-user-item-info">
+                            <div class="answered-user-item-name-text">
+                              <h4>Anderson Cooper</h4>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua.
+                                Egestas purus viverra accumsan in nisl nisi.
+                              </p>
+                            </div>
+                            <h5>October 26, 2023</h5>
+                          </div>
+                        </div>
+
+                        <div class="answers-user-item-submit">
+                          <img src="../images/avatar 1.png" alt="User Photo" />
+                          <div class="answers-user-item-box">
+                            <textarea
+                              class="answers-item-text"
+                              rows="2"
+                              placeholder="Write Answer..."
+                            ></textarea>
+                            <button type="button" class="answers-submit-btn">
+                              Post
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <hr class="questions-answers-line" />
+
+                    <div class="questions-answer-item">
+                      <div class="questions-user-item">
+                        <img
+                          src="../images/avatar 2.png"
+                          alt="User Photo"
+                          class="questions-user-photo"
+                        />
+                        <div class="questions-user-name-text">
+                          <h4>Zahir Mays</h4>
+                          <div class="questions-user-text-box">
+                            <p class="questions-user-text">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing
+                              elit, sed do eiusmod tempor incididunt ut labore
+                              et dolore magna aliqua. Egestas purus viverra
+                              accumsan in nisl nisi. Arcu cursus vitae congue
+                              mauris rhoncus aenean vel elit scelerisque. In
+                              egestas erat imperdiet sed euismod nisi porta
+                              lorem mollis. Morbi tristique senectus et netus.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="answers-user-item">
+                        <div class="answered-user-item">
+                          <img src="../images/avatar 1.png" alt="User Photo" />
+                          <div class="answered-user-item-info">
+                            <div class="answered-user-item-name-text">
+                              <h4>Anderson Cooper</h4>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua.
+                                Egestas purus viverra accumsan in nisl nisi.
+                              </p>
+                            </div>
+                            <h5>October 26, 2023</h5>
+                          </div>
+                        </div>
+
+                        <div class="answers-user-item-submit">
+                          <img src="../images/avatar 1.png" alt="User Photo" />
+                          <div class="answers-user-item-box">
+                            <textarea
+                              class="answers-item-text"
+                              rows="2"
+                              placeholder="Write Answer..."
+                            ></textarea>
+                            <button type="button" class="answers-submit-btn">
+                              Post
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div class="other-user-products">
+                  <div class="other-user-products-head">
+                    <h3>Other products</h3>
+
+                    <a href="#" class="btn-text">
+                      <h3>See All</h3>
+                      <div class="head-btn-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 18 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4.8 13.5L12 6.3V12.75H13.5V3.75H4.5V5.25H10.95L3.75 12.45L4.8 13.5Z"
+                            fill="#f5aa1c"
+                          />
+                        </svg>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="products-cards">
+                    <div class="service-card" id="services">
+                      <div class="service-card-item-img">
+                        <img
+                          src="../StudentProfile/images/list view.png"
+                          alt="User Service"
+                        />
+                        <div class="wishlist-icon">
+                          <i class="fa fa-heart-o"></i>
+                        </div>
+                      </div>
+                      <div class="product-card-body">
+                        <h4 class="title-card">Create Character</h4>
+                        <div class="prof-info">
+                          <img
+                            src="../StudentProfile/images/avatar product.png"
+                            alt="User Photo"
+                          />
+                          <h5>Dr. Anderson Cooper</h5>
+                        </div>
+                        <p class="service-desc">
+                          Lorem ipsum dolor consectetur lorem adipiscing elit
+                        </p>
+                        <hr />
+                        <div class="stu-join">
+                          <div class="students">
+                            <h4 class="card-service-price">
+                              Price : <span>$18</span>
+                            </h4>
+                          </div>
+                          <div class="join-btn">
+                            <p>Read More</p>
+                            <svg
+                              width="19"
+                              height="17"
+                              viewBox="0 0 19 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                                stroke="#F5AA1C"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="service-card" id="services">
+                      <div class="service-card-item-img">
+                        <img
+                          src="../StudentProfile/images/list view.png"
+                          alt="User Service"
+                        />
+                        <div class="wishlist-icon">
+                          <i class="fa fa-heart-o"></i>
+                        </div>
+                      </div>
+                      <div class="product-card-body">
+                        <h4 class="title-card">Proofreading</h4>
+                        <div class="prof-info">
+                          <img
+                            src="../StudentProfile/images/avatar product.png"
+                            alt="User Photo"
+                          />
+                          <h5>Dr. Anderson Cooper</h5>
+                        </div>
+                        <p class="service-desc">
+                          Lorem ipsum dolor consectetur lorem adipiscing elit
+                        </p>
+                        <hr />
+                        <div class="stu-join">
+                          <div class="students">
+                            <h4 class="card-service-price">
+                              Price : <span>$18</span>
+                            </h4>
+                          </div>
+                          <div class="join-btn">
+                            <p>Read More</p>
+                            <svg
+                              width="19"
+                              height="17"
+                              viewBox="0 0 19 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                                stroke="#F5AA1C"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="service-card" id="services">
+                      <div class="service-card-item-img">
+                        <img
+                          src="../StudentProfile/images/list view.png"
+                          alt="User Service"
+                        />
+                        <div class="wishlist-icon">
+                          <i class="fa fa-heart-o"></i>
+                        </div>
+                      </div>
+                      <div class="product-card-body">
+                        <h4 class="title-card">Proofreading</h4>
+                        <div class="prof-info">
+                          <img
+                            src="../StudentProfile/images/avatar product.png"
+                            alt="User Photo"
+                          />
+                          <h5>Dr. Anderson Cooper</h5>
+                        </div>
+                        <p class="service-desc">
+                          Lorem ipsum dolor consectetur lorem adipiscing elit
+                        </p>
+                        <hr />
+                        <div class="stu-join">
+                          <div class="students">
+                            <h4 class="card-service-price">
+                              Price : <span>$18</span>
+                            </h4>
+                          </div>
+                          <div class="join-btn">
+                            <p>Read More</p>
+                            <svg
+                              width="19"
+                              height="17"
+                              viewBox="0 0 19 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                                stroke="#F5AA1C"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="content5" class="contents">
+              <div class="tabs-section-item">
+                <div class="tabs-section-reviews">
+                  <div class="tabs-section-reviews-field-wrapper">
+                    <div class="reviews-field-items-head">
+                      <img src="../images/avatar 2.png" alt="User Image" />
+                      <div class="reviews-field-items-rates">
+                        <h4>Give overall rating :</h4>
+                        <div class="reviews-field-items-rate">
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="reviews-field-items">
+                      <textarea
+                        placeholder="Write your question..."
+                        required
+                      ></textarea>
+
+                      <button class="answers-submit-btn" type="button">
+                        Post
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="user-reviews-items-down-wrapper">
+                    <div class="user-review-items-down">
+                      <div class="user-review-informations">
+                        <img
+                          src="../StudentProfile/images/review photo.png"
+                          alt="User Photo"
+                        />
+                        <div class="user-review-information">
+                          <h3>Zahir Mays</h3>
+                          <div class="user-review-information-stars">
+                            <svg
+                              width="114"
+                              height="23"
+                              viewBox="0 0 114 23"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M9.57342 4.89057C10.0224 3.50861 11.9776 3.50861 12.4266 4.89058L13.1329 7.06434C13.3337 7.68237 13.9096 8.10081 14.5595 8.10081H16.8451C18.2982 8.10081 18.9023 9.96024 17.7268 10.8143L15.8777 12.1578C15.3519 12.5398 15.1319 13.2168 15.3328 13.8348L16.0391 16.0086C16.4881 17.3906 14.9064 18.5398 13.7308 17.6857L11.8817 16.3422C11.3559 15.9602 10.6441 15.9602 10.1183 16.3422L8.26921 17.6857C7.09364 18.5398 5.51192 17.3906 5.96095 16.0086L6.66725 13.8348C6.86806 13.2168 6.64807 12.5398 6.12234 12.1578L4.27322 10.8143C3.09765 9.96023 3.70182 8.10081 5.1549 8.10081H7.44053C8.09037 8.10081 8.66631 7.68237 8.86712 7.06434L9.57342 4.89057Z"
+                                fill="#FBBC1E"
+                              />
+                              <path
+                                d="M32.5734 4.89057C33.0224 3.50861 34.9776 3.50861 35.4266 4.89058L36.1329 7.06434C36.3337 7.68237 36.9096 8.10081 37.5595 8.10081H39.8451C41.2982 8.10081 41.9023 9.96024 40.7268 10.8143L38.8777 12.1578C38.3519 12.5398 38.1319 13.2168 38.3328 13.8348L39.0391 16.0086C39.4881 17.3906 37.9064 18.5398 36.7308 17.6857L34.8817 16.3422C34.3559 15.9602 33.6441 15.9602 33.1183 16.3422L31.2692 17.6857C30.0936 18.5398 28.5119 17.3906 28.9609 16.0086L29.6672 13.8348C29.8681 13.2168 29.6481 12.5398 29.1223 12.1578L27.2732 10.8143C26.0977 9.96023 26.7018 8.10081 28.1549 8.10081H30.4405C31.0904 8.10081 31.6663 7.68237 31.8671 7.06434L32.5734 4.89057Z"
+                                fill="#FBBC1E"
+                              />
+                              <path
+                                d="M55.5734 4.89057C56.0224 3.50861 57.9776 3.50861 58.4266 4.89058L59.1329 7.06434C59.3337 7.68237 59.9096 8.10081 60.5595 8.10081H62.8451C64.2982 8.10081 64.9023 9.96024 63.7268 10.8143L61.8777 12.1578C61.3519 12.5398 61.1319 13.2168 61.3328 13.8348L62.0391 16.0086C62.4881 17.3906 60.9064 18.5398 59.7308 17.6857L57.8817 16.3422C57.3559 15.9602 56.6441 15.9602 56.1183 16.3422L54.2692 17.6857C53.0936 18.5398 51.5119 17.3906 51.9609 16.0086L52.6672 13.8348C52.8681 13.2168 52.6481 12.5398 52.1223 12.1578L50.2732 10.8143C49.0977 9.96023 49.7018 8.10081 51.1549 8.10081H53.4405C54.0904 8.10081 54.6663 7.68237 54.8671 7.06434L55.5734 4.89057Z"
+                                fill="#FBBC1E"
+                              />
+                              <path
+                                d="M78.5734 4.89057C79.0224 3.50861 80.9776 3.50861 81.4266 4.89058L82.1329 7.06434C82.3337 7.68237 82.9096 8.10081 83.5595 8.10081H85.8451C87.2982 8.10081 87.9023 9.96024 86.7268 10.8143L84.8777 12.1578C84.3519 12.5398 84.1319 13.2168 84.3328 13.8348L85.0391 16.0086C85.4881 17.3906 83.9064 18.5398 82.7308 17.6857L80.8817 16.3422C80.3559 15.9602 79.6441 15.9602 79.1183 16.3422L77.2692 17.6857C76.0936 18.5398 74.5119 17.3906 74.9609 16.0086L75.6672 13.8348C75.8681 13.2168 75.6481 12.5398 75.1223 12.1578L73.2732 10.8143C72.0977 9.96023 72.7018 8.10081 74.1549 8.10081H76.4405C77.0904 8.10081 77.6663 7.68237 77.8671 7.06434L78.5734 4.89057Z"
+                                fill="#FBBC1E"
+                              />
+                              <path
+                                d="M101.573 4.89057C102.022 3.50861 103.978 3.50861 104.427 4.89058L105.133 7.06434C105.334 7.68237 105.91 8.10081 106.559 8.10081H108.845C110.298 8.10081 110.902 9.96024 109.727 10.8143L107.878 12.1578C107.352 12.5398 107.132 13.2168 107.333 13.8348L108.039 16.0086C108.488 17.3906 106.906 18.5398 105.731 17.6857L103.882 16.3422C103.356 15.9602 102.644 15.9602 102.118 16.3422L100.269 17.6857C99.0936 18.5398 97.5119 17.3906 97.9609 16.0086L98.6672 13.8348C98.8681 13.2168 98.6481 12.5398 98.1223 12.1578L96.2732 10.8143C95.0977 9.96023 95.7018 8.10081 97.1549 8.10081H99.4405C100.09 8.10081 100.666 7.68237 100.867 7.06434L101.573 4.89057Z"
+                                fill="#DADADA"
+                              />
+                            </svg>
+                          </div>
+                          <h5>11/1/2023</h5>
+                        </div>
+                      </div>
+                      <div class="user-review-text-section">
+                        <div class="review-text-section-top">
+                          <h3>
+                            <span>Purchased :</span> Scientific Writing - Basics
+                          </h3>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Egestas purus viverra accumsan
+                            in nisl nisi. Arcu cursus vitae congue mauris
+                            rhoncus aenean vel elit scelerisque.
+                          </p>
+                        </div>
+                        <div class="review-text-section-down">
+                          <h4>Helpful ?</h4>
+                          <div class="text-section-down-like-or-diss">
+                            <div class="section-down-like-or-diss">
+                              <svg
+                                width="14"
+                                height="15"
+                                viewBox="0 0 14 15"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g clip-path="url(#clip0_1545_62)">
+                                  <path
+                                    d="M0.951865 7.14651V12.1564H3.07286L3.17997 12.169C5.14907 12.6282 6.45387 12.9593 7.10417 13.1644C7.96797 13.4367 8.28997 13.5032 8.87586 13.5424C9.31406 13.5725 9.81176 13.4038 10.0386 13.1728C10.1639 13.0454 10.2577 12.7836 10.2948 12.3776C10.3024 12.2925 10.3329 12.211 10.3829 12.1416C10.4329 12.0723 10.5006 12.0177 10.579 11.9835C10.7533 11.9079 10.8982 11.7847 11.0193 11.6055C11.1313 11.4417 11.2041 11.1365 11.2174 10.6948C11.2197 10.6136 11.2427 10.5343 11.2843 10.4645C11.3258 10.3947 11.3844 10.3366 11.4547 10.2958C11.8621 10.0599 12.0637 9.79391 12.1057 9.48171C12.1519 9.13661 12.0399 8.74811 11.7466 8.30571C11.6777 8.20196 11.6521 8.07545 11.6751 7.9531C11.6981 7.83074 11.768 7.72218 11.8698 7.65051C12.1505 7.45311 12.3045 7.17871 12.343 6.78951C12.4046 6.16931 12.0091 5.71081 11.1138 5.61911C10.3164 5.54025 9.51128 5.60738 8.73796 5.81721C8.65024 5.84014 8.5578 5.83753 8.47151 5.8097C8.38521 5.78187 8.30866 5.72997 8.25087 5.66011C8.19307 5.59026 8.15642 5.50534 8.14524 5.41537C8.13407 5.32539 8.14882 5.23409 8.18777 5.15221C8.53776 4.41161 8.73236 3.80051 8.77787 3.32731C8.83737 2.69941 8.69246 2.24441 8.35367 1.86921C8.09676 1.58501 7.68587 1.42261 7.53187 1.45621C7.32887 1.49961 7.19657 1.61721 7.02436 2.02881C6.92286 2.27241 6.87387 2.47961 6.78987 2.96331C6.70936 3.42251 6.66527 3.62971 6.57357 3.90131C6.29706 4.72451 5.61876 5.57781 4.70806 6.16651C4.0698 6.57861 3.37806 6.90128 2.65216 7.12551C2.60682 7.13949 2.55962 7.14657 2.51216 7.14651H0.951865ZM0.922465 13.1105C0.696365 13.1168 0.493365 13.0664 0.323265 12.9474C0.106265 12.7955 0.00406488 12.5561 0.00196488 12.2803L0.00406488 7.15421C-0.0197351 6.88121 0.0607649 6.63061 0.251165 6.44441C0.429665 6.26941 0.662765 6.18681 0.909165 6.19241H2.43866C3.05736 5.99527 3.64723 5.71706 4.19286 5.36501C4.92646 4.89041 5.46686 4.21001 5.67336 3.59681C5.74406 3.38541 5.78187 3.21041 5.85327 2.79881C5.94987 2.24651 6.01007 1.98961 6.14867 1.65921C6.43567 0.971813 6.81226 0.635813 7.33167 0.523113C7.84267 0.412513 8.58677 0.707213 9.05717 1.22801C9.57866 1.80481 9.80896 2.52651 9.72357 3.41831C9.68717 3.80191 9.58076 4.23101 9.40577 4.70911C10.0034 4.62202 10.6095 4.60885 11.2104 4.66991C12.6153 4.81341 13.4042 5.72831 13.2894 6.88471C13.239 7.38311 13.0584 7.80661 12.7511 8.13911C13.0094 8.63681 13.1123 9.12891 13.0479 9.60911C12.9737 10.1621 12.6657 10.6227 12.1533 10.9804C12.1134 11.4655 12.0021 11.8526 11.8047 12.1424C11.6491 12.3765 11.4462 12.5754 11.209 12.7262C11.1334 13.205 10.9745 13.5795 10.7148 13.8427C10.2843 14.2809 9.51497 14.542 8.81217 14.4944C8.14506 14.4496 7.75026 14.3684 6.81926 14.0744C6.20536 13.8805 4.93416 13.5585 3.01826 13.1105H0.922465ZM2.11316 6.92881C2.11298 6.86619 2.12516 6.80414 2.149 6.74623C2.17283 6.68831 2.20787 6.63567 2.25209 6.59132C2.29631 6.54698 2.34884 6.51179 2.40668 6.48778C2.46453 6.46377 2.52654 6.45141 2.58916 6.45141C2.65167 6.4516 2.71354 6.46409 2.77122 6.48818C2.8289 6.51227 2.88127 6.54749 2.92534 6.59182C2.96941 6.63615 3.00432 6.68873 3.02807 6.74655C3.05182 6.80437 3.06395 6.8663 3.06376 6.92881V12.3034C3.06386 12.3659 3.05164 12.4278 3.0278 12.4856C3.00396 12.5434 2.96898 12.5959 2.92484 12.6402C2.88071 12.6845 2.82828 12.7196 2.77057 12.7436C2.71285 12.7676 2.65097 12.78 2.58846 12.7801C2.52596 12.78 2.46408 12.7676 2.40636 12.7436C2.34864 12.7196 2.29622 12.6845 2.25209 12.6402C2.20795 12.5959 2.17297 12.5434 2.14913 12.4856C2.12529 12.4278 2.11307 12.3659 2.11316 12.3034V6.92881Z"
+                                    fill="#151515"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_1545_62">
+                                    <rect
+                                      width="14"
+                                      height="14"
+                                      fill="white"
+                                      transform="translate(0 0.5)"
+                                    />
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                              <h4>Yes</h4>
+                            </div>
+                            <div class="section-down-like-or-diss">
+                              <svg
+                                width="14"
+                                height="15"
+                                viewBox="0 0 14 15"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g clip-path="url(#clip0_1545_69)">
+                                  <path
+                                    d="M13.0481 7.85349V2.84359H10.9271L10.82 2.83099C8.85093 2.37179 7.54613 2.04069 6.89583 1.83559C6.03203 1.56329 5.71003 1.49679 5.12414 1.45759C4.68594 1.42749 4.18824 1.59619 3.96144 1.82719C3.83613 1.95459 3.74234 2.21639 3.70524 2.62239C3.69755 2.70752 3.66712 2.78903 3.61712 2.85836C3.56711 2.9277 3.49939 2.98231 3.42103 3.01649C3.24673 3.09209 3.10184 3.21529 2.98073 3.39449C2.86874 3.55829 2.79594 3.86349 2.78264 4.30519C2.7803 4.38639 2.75728 4.46565 2.71575 4.53547C2.67422 4.6053 2.61557 4.66336 2.54533 4.70419C2.13793 4.94009 1.93633 5.20609 1.89433 5.51829C1.84813 5.86339 1.96013 6.25189 2.25344 6.69429C2.32225 6.79804 2.34788 6.92455 2.32487 7.0469C2.30187 7.16926 2.23204 7.27782 2.13023 7.34949C1.84953 7.54689 1.69554 7.82129 1.65704 8.21049C1.59544 8.83069 1.99094 9.28919 2.88624 9.38089C3.68363 9.45975 4.48872 9.39262 5.26204 9.18279C5.34976 9.15986 5.4422 9.16247 5.52849 9.1903C5.61479 9.21813 5.69134 9.27003 5.74913 9.33989C5.80693 9.40974 5.84358 9.49466 5.85476 9.58463C5.86593 9.67461 5.85118 9.76591 5.81223 9.84779C5.46224 10.5884 5.26764 11.1995 5.22213 11.6727C5.16263 12.3006 5.30754 12.7556 5.64633 13.1308C5.90324 13.415 6.31413 13.5774 6.46813 13.5438C6.67113 13.5004 6.80343 13.3828 6.97564 12.9712C7.07714 12.7276 7.12613 12.5204 7.21013 12.0367C7.29064 11.5775 7.33473 11.3703 7.42643 11.0987C7.70294 10.2755 8.38124 9.42219 9.29194 8.83349C9.9302 8.42139 10.6219 8.09872 11.3478 7.87449C11.3932 7.86051 11.4404 7.85343 11.4878 7.85349H13.0481ZM13.0775 1.88949C13.3036 1.88319 13.5066 1.93359 13.6767 2.05259C13.8937 2.20449 13.9959 2.44389 13.998 2.71969L13.9959 7.84579C14.0197 8.11879 13.9392 8.36939 13.7488 8.55559C13.5703 8.73059 13.3372 8.81319 13.0908 8.80759H11.5613C10.9426 9.00473 10.3528 9.28294 9.80714 9.63499C9.07354 10.1096 8.53314 10.79 8.32664 11.4032C8.25594 11.6146 8.21813 11.7896 8.14673 12.2012C8.05013 12.7535 7.98993 13.0104 7.85133 13.3408C7.56433 14.0282 7.18774 14.3642 6.66833 14.4769C6.15733 14.5875 5.41323 14.2928 4.94283 13.772C4.42134 13.1952 4.19104 12.4735 4.27643 11.5817C4.31283 11.1981 4.41924 10.769 4.59423 10.2909C3.99659 10.378 3.3905 10.3911 2.78964 10.3301C1.38474 10.1866 0.595835 9.27169 0.710634 8.11529C0.761035 7.61689 0.941635 7.19339 1.24894 6.86089C0.990635 6.36319 0.887735 5.87109 0.952135 5.39089C1.02634 4.83789 1.33434 4.37729 1.84674 4.01959C1.88664 3.53449 1.99794 3.14739 2.19533 2.85759C2.35087 2.62346 2.55381 2.42457 2.79103 2.27379C2.86663 1.79499 3.02553 1.42049 3.28523 1.15729C3.71573 0.719087 4.48503 0.457987 5.18783 0.505587C5.85494 0.550386 6.24974 0.631587 7.18074 0.925587C7.79464 1.11949 9.06584 1.44149 10.9817 1.88949H13.0775ZM11.8868 8.07119C11.887 8.13381 11.8748 8.19586 11.851 8.25377C11.8272 8.31169 11.7921 8.36433 11.7479 8.40868C11.7037 8.45302 11.6512 8.48821 11.5933 8.51222C11.5355 8.53623 11.4735 8.54859 11.4108 8.54859C11.3483 8.5484 11.2865 8.53591 11.2288 8.51182C11.1711 8.48773 11.1187 8.45251 11.0747 8.40818C11.0306 8.36385 10.9957 8.31127 10.9719 8.25345C10.9482 8.19563 10.9361 8.1337 10.9362 8.07119V2.69659C10.9361 2.63408 10.9484 2.57216 10.9722 2.51438C10.996 2.45659 11.031 2.40406 11.0752 2.3598C11.1193 2.31553 11.1717 2.28039 11.2294 2.25639C11.2871 2.23238 11.349 2.21998 11.4115 2.21989C11.474 2.21998 11.5359 2.23238 11.5936 2.25639C11.6514 2.28039 11.7038 2.31553 11.7479 2.3598C11.792 2.40406 11.827 2.45659 11.8509 2.51438C11.8747 2.57216 11.8869 2.63408 11.8868 2.69659V8.07119Z"
+                                    fill="#151515"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_1545_69">
+                                    <rect
+                                      width="14"
+                                      height="14"
+                                      fill="white"
+                                      transform="matrix(-1 0 0 -1 14 14.5)"
+                                    />
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                              <h4>No</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <hr class="reviews-separator-items-down-line" />
+
+                    <div class="user-review-items-down">
+                      <div class="user-review-informations">
+                        <img
+                          src="../StudentProfile/images/review photo.png"
+                          alt="User Photo"
+                        />
+                        <div class="user-review-information">
+                          <h3>Zahir Mays</h3>
+                          <div class="user-review-information-stars">
+                            <svg
+                              width="114"
+                              height="23"
+                              viewBox="0 0 114 23"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M9.57342 4.89057C10.0224 3.50861 11.9776 3.50861 12.4266 4.89058L13.1329 7.06434C13.3337 7.68237 13.9096 8.10081 14.5595 8.10081H16.8451C18.2982 8.10081 18.9023 9.96024 17.7268 10.8143L15.8777 12.1578C15.3519 12.5398 15.1319 13.2168 15.3328 13.8348L16.0391 16.0086C16.4881 17.3906 14.9064 18.5398 13.7308 17.6857L11.8817 16.3422C11.3559 15.9602 10.6441 15.9602 10.1183 16.3422L8.26921 17.6857C7.09364 18.5398 5.51192 17.3906 5.96095 16.0086L6.66725 13.8348C6.86806 13.2168 6.64807 12.5398 6.12234 12.1578L4.27322 10.8143C3.09765 9.96023 3.70182 8.10081 5.1549 8.10081H7.44053C8.09037 8.10081 8.66631 7.68237 8.86712 7.06434L9.57342 4.89057Z"
+                                fill="#FBBC1E"
+                              />
+                              <path
+                                d="M32.5734 4.89057C33.0224 3.50861 34.9776 3.50861 35.4266 4.89058L36.1329 7.06434C36.3337 7.68237 36.9096 8.10081 37.5595 8.10081H39.8451C41.2982 8.10081 41.9023 9.96024 40.7268 10.8143L38.8777 12.1578C38.3519 12.5398 38.1319 13.2168 38.3328 13.8348L39.0391 16.0086C39.4881 17.3906 37.9064 18.5398 36.7308 17.6857L34.8817 16.3422C34.3559 15.9602 33.6441 15.9602 33.1183 16.3422L31.2692 17.6857C30.0936 18.5398 28.5119 17.3906 28.9609 16.0086L29.6672 13.8348C29.8681 13.2168 29.6481 12.5398 29.1223 12.1578L27.2732 10.8143C26.0977 9.96023 26.7018 8.10081 28.1549 8.10081H30.4405C31.0904 8.10081 31.6663 7.68237 31.8671 7.06434L32.5734 4.89057Z"
+                                fill="#FBBC1E"
+                              />
+                              <path
+                                d="M55.5734 4.89057C56.0224 3.50861 57.9776 3.50861 58.4266 4.89058L59.1329 7.06434C59.3337 7.68237 59.9096 8.10081 60.5595 8.10081H62.8451C64.2982 8.10081 64.9023 9.96024 63.7268 10.8143L61.8777 12.1578C61.3519 12.5398 61.1319 13.2168 61.3328 13.8348L62.0391 16.0086C62.4881 17.3906 60.9064 18.5398 59.7308 17.6857L57.8817 16.3422C57.3559 15.9602 56.6441 15.9602 56.1183 16.3422L54.2692 17.6857C53.0936 18.5398 51.5119 17.3906 51.9609 16.0086L52.6672 13.8348C52.8681 13.2168 52.6481 12.5398 52.1223 12.1578L50.2732 10.8143C49.0977 9.96023 49.7018 8.10081 51.1549 8.10081H53.4405C54.0904 8.10081 54.6663 7.68237 54.8671 7.06434L55.5734 4.89057Z"
+                                fill="#FBBC1E"
+                              />
+                              <path
+                                d="M78.5734 4.89057C79.0224 3.50861 80.9776 3.50861 81.4266 4.89058L82.1329 7.06434C82.3337 7.68237 82.9096 8.10081 83.5595 8.10081H85.8451C87.2982 8.10081 87.9023 9.96024 86.7268 10.8143L84.8777 12.1578C84.3519 12.5398 84.1319 13.2168 84.3328 13.8348L85.0391 16.0086C85.4881 17.3906 83.9064 18.5398 82.7308 17.6857L80.8817 16.3422C80.3559 15.9602 79.6441 15.9602 79.1183 16.3422L77.2692 17.6857C76.0936 18.5398 74.5119 17.3906 74.9609 16.0086L75.6672 13.8348C75.8681 13.2168 75.6481 12.5398 75.1223 12.1578L73.2732 10.8143C72.0977 9.96023 72.7018 8.10081 74.1549 8.10081H76.4405C77.0904 8.10081 77.6663 7.68237 77.8671 7.06434L78.5734 4.89057Z"
+                                fill="#FBBC1E"
+                              />
+                              <path
+                                d="M101.573 4.89057C102.022 3.50861 103.978 3.50861 104.427 4.89058L105.133 7.06434C105.334 7.68237 105.91 8.10081 106.559 8.10081H108.845C110.298 8.10081 110.902 9.96024 109.727 10.8143L107.878 12.1578C107.352 12.5398 107.132 13.2168 107.333 13.8348L108.039 16.0086C108.488 17.3906 106.906 18.5398 105.731 17.6857L103.882 16.3422C103.356 15.9602 102.644 15.9602 102.118 16.3422L100.269 17.6857C99.0936 18.5398 97.5119 17.3906 97.9609 16.0086L98.6672 13.8348C98.8681 13.2168 98.6481 12.5398 98.1223 12.1578L96.2732 10.8143C95.0977 9.96023 95.7018 8.10081 97.1549 8.10081H99.4405C100.09 8.10081 100.666 7.68237 100.867 7.06434L101.573 4.89057Z"
+                                fill="#DADADA"
+                              />
+                            </svg>
+                          </div>
+                          <h5>11/1/2023</h5>
+                        </div>
+                      </div>
+                      <div class="user-review-text-section">
+                        <div class="review-text-section-top">
+                          <h3>
+                            <span>Purchased :</span> Scientific Writing - Basics
+                          </h3>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Egestas purus viverra accumsan
+                            in nisl nisi. Arcu cursus vitae congue mauris
+                            rhoncus aenean vel elit scelerisque.
+                          </p>
+                        </div>
+                        <div class="review-text-section-down">
+                          <h4>Helpful ?</h4>
+                          <div class="text-section-down-like-or-diss">
+                            <div class="section-down-like-or-diss">
+                              <svg
+                                width="14"
+                                height="15"
+                                viewBox="0 0 14 15"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g clip-path="url(#clip0_1545_62)">
+                                  <path
+                                    d="M0.951865 7.14651V12.1564H3.07286L3.17997 12.169C5.14907 12.6282 6.45387 12.9593 7.10417 13.1644C7.96797 13.4367 8.28997 13.5032 8.87586 13.5424C9.31406 13.5725 9.81176 13.4038 10.0386 13.1728C10.1639 13.0454 10.2577 12.7836 10.2948 12.3776C10.3024 12.2925 10.3329 12.211 10.3829 12.1416C10.4329 12.0723 10.5006 12.0177 10.579 11.9835C10.7533 11.9079 10.8982 11.7847 11.0193 11.6055C11.1313 11.4417 11.2041 11.1365 11.2174 10.6948C11.2197 10.6136 11.2427 10.5343 11.2843 10.4645C11.3258 10.3947 11.3844 10.3366 11.4547 10.2958C11.8621 10.0599 12.0637 9.79391 12.1057 9.48171C12.1519 9.13661 12.0399 8.74811 11.7466 8.30571C11.6777 8.20196 11.6521 8.07545 11.6751 7.9531C11.6981 7.83074 11.768 7.72218 11.8698 7.65051C12.1505 7.45311 12.3045 7.17871 12.343 6.78951C12.4046 6.16931 12.0091 5.71081 11.1138 5.61911C10.3164 5.54025 9.51128 5.60738 8.73796 5.81721C8.65024 5.84014 8.5578 5.83753 8.47151 5.8097C8.38521 5.78187 8.30866 5.72997 8.25087 5.66011C8.19307 5.59026 8.15642 5.50534 8.14524 5.41537C8.13407 5.32539 8.14882 5.23409 8.18777 5.15221C8.53776 4.41161 8.73236 3.80051 8.77787 3.32731C8.83737 2.69941 8.69246 2.24441 8.35367 1.86921C8.09676 1.58501 7.68587 1.42261 7.53187 1.45621C7.32887 1.49961 7.19657 1.61721 7.02436 2.02881C6.92286 2.27241 6.87387 2.47961 6.78987 2.96331C6.70936 3.42251 6.66527 3.62971 6.57357 3.90131C6.29706 4.72451 5.61876 5.57781 4.70806 6.16651C4.0698 6.57861 3.37806 6.90128 2.65216 7.12551C2.60682 7.13949 2.55962 7.14657 2.51216 7.14651H0.951865ZM0.922465 13.1105C0.696365 13.1168 0.493365 13.0664 0.323265 12.9474C0.106265 12.7955 0.00406488 12.5561 0.00196488 12.2803L0.00406488 7.15421C-0.0197351 6.88121 0.0607649 6.63061 0.251165 6.44441C0.429665 6.26941 0.662765 6.18681 0.909165 6.19241H2.43866C3.05736 5.99527 3.64723 5.71706 4.19286 5.36501C4.92646 4.89041 5.46686 4.21001 5.67336 3.59681C5.74406 3.38541 5.78187 3.21041 5.85327 2.79881C5.94987 2.24651 6.01007 1.98961 6.14867 1.65921C6.43567 0.971813 6.81226 0.635813 7.33167 0.523113C7.84267 0.412513 8.58677 0.707213 9.05717 1.22801C9.57866 1.80481 9.80896 2.52651 9.72357 3.41831C9.68717 3.80191 9.58076 4.23101 9.40577 4.70911C10.0034 4.62202 10.6095 4.60885 11.2104 4.66991C12.6153 4.81341 13.4042 5.72831 13.2894 6.88471C13.239 7.38311 13.0584 7.80661 12.7511 8.13911C13.0094 8.63681 13.1123 9.12891 13.0479 9.60911C12.9737 10.1621 12.6657 10.6227 12.1533 10.9804C12.1134 11.4655 12.0021 11.8526 11.8047 12.1424C11.6491 12.3765 11.4462 12.5754 11.209 12.7262C11.1334 13.205 10.9745 13.5795 10.7148 13.8427C10.2843 14.2809 9.51497 14.542 8.81217 14.4944C8.14506 14.4496 7.75026 14.3684 6.81926 14.0744C6.20536 13.8805 4.93416 13.5585 3.01826 13.1105H0.922465ZM2.11316 6.92881C2.11298 6.86619 2.12516 6.80414 2.149 6.74623C2.17283 6.68831 2.20787 6.63567 2.25209 6.59132C2.29631 6.54698 2.34884 6.51179 2.40668 6.48778C2.46453 6.46377 2.52654 6.45141 2.58916 6.45141C2.65167 6.4516 2.71354 6.46409 2.77122 6.48818C2.8289 6.51227 2.88127 6.54749 2.92534 6.59182C2.96941 6.63615 3.00432 6.68873 3.02807 6.74655C3.05182 6.80437 3.06395 6.8663 3.06376 6.92881V12.3034C3.06386 12.3659 3.05164 12.4278 3.0278 12.4856C3.00396 12.5434 2.96898 12.5959 2.92484 12.6402C2.88071 12.6845 2.82828 12.7196 2.77057 12.7436C2.71285 12.7676 2.65097 12.78 2.58846 12.7801C2.52596 12.78 2.46408 12.7676 2.40636 12.7436C2.34864 12.7196 2.29622 12.6845 2.25209 12.6402C2.20795 12.5959 2.17297 12.5434 2.14913 12.4856C2.12529 12.4278 2.11307 12.3659 2.11316 12.3034V6.92881Z"
+                                    fill="#151515"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_1545_62">
+                                    <rect
+                                      width="14"
+                                      height="14"
+                                      fill="white"
+                                      transform="translate(0 0.5)"
+                                    />
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                              <h4>Yes</h4>
+                            </div>
+                            <div class="section-down-like-or-diss">
+                              <svg
+                                width="14"
+                                height="15"
+                                viewBox="0 0 14 15"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g clip-path="url(#clip0_1545_69)">
+                                  <path
+                                    d="M13.0481 7.85349V2.84359H10.9271L10.82 2.83099C8.85093 2.37179 7.54613 2.04069 6.89583 1.83559C6.03203 1.56329 5.71003 1.49679 5.12414 1.45759C4.68594 1.42749 4.18824 1.59619 3.96144 1.82719C3.83613 1.95459 3.74234 2.21639 3.70524 2.62239C3.69755 2.70752 3.66712 2.78903 3.61712 2.85836C3.56711 2.9277 3.49939 2.98231 3.42103 3.01649C3.24673 3.09209 3.10184 3.21529 2.98073 3.39449C2.86874 3.55829 2.79594 3.86349 2.78264 4.30519C2.7803 4.38639 2.75728 4.46565 2.71575 4.53547C2.67422 4.6053 2.61557 4.66336 2.54533 4.70419C2.13793 4.94009 1.93633 5.20609 1.89433 5.51829C1.84813 5.86339 1.96013 6.25189 2.25344 6.69429C2.32225 6.79804 2.34788 6.92455 2.32487 7.0469C2.30187 7.16926 2.23204 7.27782 2.13023 7.34949C1.84953 7.54689 1.69554 7.82129 1.65704 8.21049C1.59544 8.83069 1.99094 9.28919 2.88624 9.38089C3.68363 9.45975 4.48872 9.39262 5.26204 9.18279C5.34976 9.15986 5.4422 9.16247 5.52849 9.1903C5.61479 9.21813 5.69134 9.27003 5.74913 9.33989C5.80693 9.40974 5.84358 9.49466 5.85476 9.58463C5.86593 9.67461 5.85118 9.76591 5.81223 9.84779C5.46224 10.5884 5.26764 11.1995 5.22213 11.6727C5.16263 12.3006 5.30754 12.7556 5.64633 13.1308C5.90324 13.415 6.31413 13.5774 6.46813 13.5438C6.67113 13.5004 6.80343 13.3828 6.97564 12.9712C7.07714 12.7276 7.12613 12.5204 7.21013 12.0367C7.29064 11.5775 7.33473 11.3703 7.42643 11.0987C7.70294 10.2755 8.38124 9.42219 9.29194 8.83349C9.9302 8.42139 10.6219 8.09872 11.3478 7.87449C11.3932 7.86051 11.4404 7.85343 11.4878 7.85349H13.0481ZM13.0775 1.88949C13.3036 1.88319 13.5066 1.93359 13.6767 2.05259C13.8937 2.20449 13.9959 2.44389 13.998 2.71969L13.9959 7.84579C14.0197 8.11879 13.9392 8.36939 13.7488 8.55559C13.5703 8.73059 13.3372 8.81319 13.0908 8.80759H11.5613C10.9426 9.00473 10.3528 9.28294 9.80714 9.63499C9.07354 10.1096 8.53314 10.79 8.32664 11.4032C8.25594 11.6146 8.21813 11.7896 8.14673 12.2012C8.05013 12.7535 7.98993 13.0104 7.85133 13.3408C7.56433 14.0282 7.18774 14.3642 6.66833 14.4769C6.15733 14.5875 5.41323 14.2928 4.94283 13.772C4.42134 13.1952 4.19104 12.4735 4.27643 11.5817C4.31283 11.1981 4.41924 10.769 4.59423 10.2909C3.99659 10.378 3.3905 10.3911 2.78964 10.3301C1.38474 10.1866 0.595835 9.27169 0.710634 8.11529C0.761035 7.61689 0.941635 7.19339 1.24894 6.86089C0.990635 6.36319 0.887735 5.87109 0.952135 5.39089C1.02634 4.83789 1.33434 4.37729 1.84674 4.01959C1.88664 3.53449 1.99794 3.14739 2.19533 2.85759C2.35087 2.62346 2.55381 2.42457 2.79103 2.27379C2.86663 1.79499 3.02553 1.42049 3.28523 1.15729C3.71573 0.719087 4.48503 0.457987 5.18783 0.505587C5.85494 0.550386 6.24974 0.631587 7.18074 0.925587C7.79464 1.11949 9.06584 1.44149 10.9817 1.88949H13.0775ZM11.8868 8.07119C11.887 8.13381 11.8748 8.19586 11.851 8.25377C11.8272 8.31169 11.7921 8.36433 11.7479 8.40868C11.7037 8.45302 11.6512 8.48821 11.5933 8.51222C11.5355 8.53623 11.4735 8.54859 11.4108 8.54859C11.3483 8.5484 11.2865 8.53591 11.2288 8.51182C11.1711 8.48773 11.1187 8.45251 11.0747 8.40818C11.0306 8.36385 10.9957 8.31127 10.9719 8.25345C10.9482 8.19563 10.9361 8.1337 10.9362 8.07119V2.69659C10.9361 2.63408 10.9484 2.57216 10.9722 2.51438C10.996 2.45659 11.031 2.40406 11.0752 2.3598C11.1193 2.31553 11.1717 2.28039 11.2294 2.25639C11.2871 2.23238 11.349 2.21998 11.4115 2.21989C11.474 2.21998 11.5359 2.23238 11.5936 2.25639C11.6514 2.28039 11.7038 2.31553 11.7479 2.3598C11.792 2.40406 11.827 2.45659 11.8509 2.51438C11.8747 2.57216 11.8869 2.63408 11.8868 2.69659V8.07119Z"
+                                    fill="#151515"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_1545_69">
+                                    <rect
+                                      width="14"
+                                      height="14"
+                                      fill="white"
+                                      transform="matrix(-1 0 0 -1 14 14.5)"
+                                    />
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                              <h4>No</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div class="other-user-products">
+                  <div class="other-user-products-head">
+                    <h3>Other products</h3>
+
+                    <a href="#" class="btn-text">
+                      <h3>See All</h3>
+                      <div class="head-btn-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 18 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4.8 13.5L12 6.3V12.75H13.5V3.75H4.5V5.25H10.95L3.75 12.45L4.8 13.5Z"
+                            fill="#f5aa1c"
+                          />
+                        </svg>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="products-cards">
+                    <div class="service-card" id="services">
+                      <div class="service-card-item-img">
+                        <img
+                          src="../StudentProfile/images/list view.png"
+                          alt="User Service"
+                        />
+                        <div class="wishlist-icon">
+                          <i class="fa fa-heart-o"></i>
+                        </div>
+                      </div>
+                      <div class="product-card-body">
+                        <h4 class="title-card">Create Character</h4>
+                        <div class="prof-info">
+                          <img
+                            src="../StudentProfile/images/avatar product.png"
+                            alt="User Photo"
+                          />
+                          <h5>Dr. Anderson Cooper</h5>
+                        </div>
+                        <p class="service-desc">
+                          Lorem ipsum dolor consectetur lorem adipiscing elit
+                        </p>
+                        <hr />
+                        <div class="stu-join">
+                          <div class="students">
+                            <h4 class="card-service-price">
+                              Price : <span>$18</span>
+                            </h4>
+                          </div>
+                          <div class="join-btn">
+                            <p>Read More</p>
+                            <svg
+                              width="19"
+                              height="17"
+                              viewBox="0 0 19 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                                stroke="#F5AA1C"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="service-card" id="services">
+                      <div class="service-card-item-img">
+                        <img
+                          src="../StudentProfile/images/list view.png"
+                          alt="User Service"
+                        />
+                        <div class="wishlist-icon">
+                          <i class="fa fa-heart-o"></i>
+                        </div>
+                      </div>
+                      <div class="product-card-body">
+                        <h4 class="title-card">Proofreading</h4>
+                        <div class="prof-info">
+                          <img
+                            src="../StudentProfile/images/avatar product.png"
+                            alt="User Photo"
+                          />
+                          <h5>Dr. Anderson Cooper</h5>
+                        </div>
+                        <p class="service-desc">
+                          Lorem ipsum dolor consectetur lorem adipiscing elit
+                        </p>
+                        <hr />
+                        <div class="stu-join">
+                          <div class="students">
+                            <h4 class="card-service-price">
+                              Price : <span>$18</span>
+                            </h4>
+                          </div>
+                          <div class="join-btn">
+                            <p>Read More</p>
+                            <svg
+                              width="19"
+                              height="17"
+                              viewBox="0 0 19 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                                stroke="#F5AA1C"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="service-card" id="services">
+                      <div class="service-card-item-img">
+                        <img
+                          src="../StudentProfile/images/list view.png"
+                          alt="User Service"
+                        />
+                        <div class="wishlist-icon">
+                          <i class="fa fa-heart-o"></i>
+                        </div>
+                      </div>
+                      <div class="product-card-body">
+                        <h4 class="title-card">Proofreading</h4>
+                        <div class="prof-info">
+                          <img
+                            src="../StudentProfile/images/avatar product.png"
+                            alt="User Photo"
+                          />
+                          <h5>Dr. Anderson Cooper</h5>
+                        </div>
+                        <p class="service-desc">
+                          Lorem ipsum dolor consectetur lorem adipiscing elit
+                        </p>
+                        <hr />
+                        <div class="stu-join">
+                          <div class="students">
+                            <h4 class="card-service-price">
+                              Price : <span>$18</span>
+                            </h4>
+                          </div>
+                          <div class="join-btn">
+                            <p>Read More</p>
+                            <svg
+                              width="19"
+                              height="17"
+                              viewBox="0 0 19 17"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                                stroke="#F5AA1C"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside>
+            <div class="similar-products-wrapper">
+              <div class="similar-products">
+                <div class="similar-products-head">
+                  <h3>Related Services</h3>
+
+                  <hr />
+                </div>
+
+                <div class="similar-products-cards">
+                  <div class="service-card" id="services">
+                    <div class="service-card-item-img">
+                      <img
+                        src="../StudentProfile/images/list view.png"
+                        alt="User Service"
+                      />
+                      <div class="wishlist-icon">
+                        <i class="fa fa-heart-o"></i>
+                      </div>
+                    </div>
+                    <div class="product-card-body">
+                      <h4 class="title-card">Proofreading</h4>
+                      <div class="prof-info">
+                        <img
+                          src="../StudentProfile/images/user 2.png"
+                          alt="User Photo"
+                        />
+                        <h5>Dr. Anderson Cooper</h5>
+                      </div>
+                      <p class="service-desc">
+                        Lorem ipsum dolor consectetur lorem adipiscing elit
+                      </p>
+                      <hr />
+                      <div class="stu-join">
+                        <div class="students">
+                          <h4 class="card-service-price">
+                            Price : <span>$18</span>
+                          </h4>
+                        </div>
+                        <div class="join-btn">
+                          <p>Read More</p>
+                          <svg
+                            width="19"
+                            height="17"
+                            viewBox="0 0 19 17"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                              stroke="#F5AA1C"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="service-card" id="services">
+                    <div class="service-card-item-img">
+                      <img
+                        src="../StudentProfile/images/list view.png"
+                        alt="User Service"
+                      />
+                      <div class="wishlist-icon">
+                        <i class="fa fa-heart-o"></i>
+                      </div>
+                    </div>
+                    <div class="product-card-body">
+                      <h4 class="title-card">Proofreading</h4>
+                      <div class="prof-info">
+                        <img
+                          src="../StudentProfile/images/user 2.png"
+                          alt="User Photo"
+                        />
+                        <h5>Dr. Anderson Cooper</h5>
+                      </div>
+                      <p class="service-desc">
+                        Lorem ipsum dolor consectetur lorem adipiscing elit
+                      </p>
+                      <hr />
+                      <div class="stu-join">
+                        <div class="students">
+                          <h4 class="card-service-price">
+                            Price : <span>$18</span>
+                          </h4>
+                        </div>
+                        <div class="join-btn">
+                          <p>Read More</p>
+                          <svg
+                            width="19"
+                            height="17"
+                            viewBox="0 0 19 17"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M10.163 13.2812L15.3789 8.5L10.163 3.71875M14.6545 8.5H4.07777"
+                              stroke="#F5AA1C"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <a class="btn-show" href="#">
+                  <button type="button">
+                    Show More
+                    <div class="icon-btn">
+                      <i class="fa fa-angle-down"></i>
+                    </div>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container mx">
+        <div class="row-fot">
+          <div class="row">
+            <div class="desc col-3">
+              <a href="/index.html">
+                <img
+                  src="../images/image_59-removebg-preview (1) 1.png"
+                  alt=""
+                />
+                <h2>Unisuniverse</h2>
+              </a>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
+                congu.
+              </p>
+            </div>
+            <div class="col-3">
+              <h4>Short Links</h4>
+              <ul class="footer-cat-links">
+                <li>
+                  <a href=""><span>Home</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Academics</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Students</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Universities</span></a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-3">
+              <h4>Quick links</h4>
+              <ul class="footer-cat-links">
+                <li>
+                  <a href="../../Aboutus/index.html"><span>About us</span></a>
+                </li>
+                <li>
+                  <a href="../../FAQ/index.html"><span>FAQ</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Contact us</span></a>
+                </li>
+                <li>
+                  <a href=""><span>Privacy policy</span></a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-3 contact">
+              <h4>Contact us</h4>
+              <ul>
+                <li>
+                  <div class="iconfo">
+                    <i
+                      class="fa fa-phone fa-flip-horizontal"
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+                  <div class="lineheightfot">
+                    Phone:<br />
+                    +971-580580580
+                  </div>
+                </li>
+                <li class="Emailfot">
+                  <div class="iconfo">
+                    <i class="fa fa-envelope-o"></i>
+                  </div>
+                  <div class="lineheightfot">
+                    Email:<br />
+                    info@Unisuniverse@gmail.com
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="social-links social-2 col-6">
+            <a href=""><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-linkedin-in"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-reddit-alien"></i></a>
+          </div>
+        </div>
+        <div class="copyowner">
+          <div id="copyright">&copy; 2023 Attio Ltd. All rights reserved.</div>
+          <div id="owner">
+            <span> Terms & Conditions </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const navbarMenu = document.getElementById("navbar");
+      const burgerMenu = document.getElementById("burger");
+      const overlayMenu = document.querySelector(".overlay");
+
+      const toggleMenu = () => {
+        navbarMenu.classList.toggle("active");
+        overlayMenu.classList.toggle("active");
+      };
+
+      const collapseSubMenu = () => {
+        navbarMenu
+          .querySelector(".menu-dropdown.active .submenu")
+          .removeAttribute("style");
+        navbarMenu
+          .querySelector(".menu-dropdown.active")
+          .classList.remove("active");
+      };
+
+      const toggleSubMenu = (e) => {
+        if (e.target.hasAttribute("data-toggle") && window.innerWidth <= 992) {
+          e.preventDefault();
+          const menuDropdown = e.target.parentElement;
+
+          if (menuDropdown.classList.contains("active")) {
+            collapseSubMenu();
+          } else {
+            if (navbarMenu.querySelector(".menu-dropdown.active")) {
+              collapseSubMenu();
+            }
+
+            menuDropdown.classList.add("active");
+            const subMenu = menuDropdown.querySelector(".submenu");
+            subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+          }
+        }
+      };
+
+      const resizeWindow = () => {
+        if (window.innerWidth > 992) {
+          if (navbarMenu.classList.contains("active")) {
+            toggleMenu();
+          }
+          if (navbarMenu.querySelector(".menu-dropdown.active")) {
+            collapseSubMenu();
+          }
+        }
+      };
+
+      burgerMenu.addEventListener("click", toggleMenu);
+      overlayMenu.addEventListener("click", toggleMenu);
+      navbarMenu.addEventListener("click", toggleSubMenu);
+      window.addEventListener("resize", resizeWindow);
+
+      // log in
+
+      let closeBut = document.getElementsByClassName("close")[0],
+        modal = document.getElementsByClassName("modal-cont")[0],
+        loginBut = document.getElementsByClassName("btn-md")[0],
+        loginRes = document.querySelector("#btn-md");
+
+      //close
+      function x() {
+        modal.style.display = "none";
+      }
+      closeBut.onclick = x;
+
+      loginBut.onclick = function () {
+        modal.style.display = "block";
+      };
+      loginRes.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      window.onclick = function (e) {
+        if (e.target.className === "modal-cont") {
+          e.target.style.display = "none";
+        }
+      };
+
+      // new acc
+
+      let newAcc = document.getElementsByClassName("new-acc")[0],
+        popupBoxs = document.getElementsByClassName("popup-boxs")[0],
+        modalBox = document.getElementsByClassName("modal-box")[0];
+
+      newAcc.onclick = function () {
+        popupBoxs.style.display = "flex";
+        modalBox.style.display = "none";
+      };
+
+      // stars
+
+      const stars = document.querySelectorAll(".reviews-field-items-rate i");
+
+      stars.forEach((star, index1) => {
+        star.addEventListener("click", () => {
+          stars.forEach((star, index2) => {
+            index1 >= index2
+              ? star.classList.add("active-star")
+              : star.classList.remove("active-star");
+          });
+        });
+      });
+
+      // img replace
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const thumbnailImages = document.querySelectorAll(
+          ".product-img-wrapper img"
+        );
+        console.log(thumbnailImages);
+
+        thumbnailImages.forEach(function (thumbnailImage) {
+          thumbnailImage.addEventListener("click", function () {
+            const imageSource = this.getAttribute("src");
+            const largeImage = document.getElementById("grote_image");
+            largeImage.setAttribute("src", imageSource);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
