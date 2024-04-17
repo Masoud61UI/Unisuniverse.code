@@ -72,6 +72,11 @@
         font-family: inherit;
       }
 
+      input,
+      select {
+        font-family: inherit;
+      }
+
       ::placeholder {
         color: var(--color-text-gray);
         letter-spacing: 0.5px;
@@ -1233,12 +1238,67 @@
                 </div>
                 <div class="user_details">
                   <div class="input_pox">
-                    <label class="datails">Product Name :</label>
-                    <input
-                      type="text"
-                      placeholder="Academic writing"
-                      required
-                    />
+                    <label class="datails">Select Product Category :</label>
+                    <select
+                      name="Category"
+                      id="main-category"
+                      class="select-input"
+                      onblur="this.size=0"
+                      onchange="this.size=1; this.blur()"
+                    >
+                      <option disabled selected>Select category</option>
+                      <option value="e-book">E-Book</option>
+                      <option value="lecture notes">Lecture Notes</option>
+                      <option value="workbook">Workbook</option>
+                      <option value="study guide">Study Guide</option>
+                      <option value="case study">Case Study</option>
+                      <option value="online course">Online Course</option>
+                      <option value="academic journal">Academic Journal</option>
+                      <option value="research paper">
+                        Research Paper
+                      </option>
+                      <option value="educational posters">
+                        Educational Posters
+                      </option>
+                      <option value="scientific models and kits">
+                        Scientific Models and Kits
+                      </option>
+                      <option value="teaching materials">
+                        Teaching Materials
+                      </option>
+                      <option value="educational software">
+                        Educational Software
+                      </option>
+                      <option value="assessment tools">Assessment Tools</option>
+                      <option value="audio book">Audio Book</option>
+                      <option value="e-learning platform">
+                        E-learning Platform
+                      </option>
+                      <option value="educational videos">
+                        Educational Videos
+                      </option>
+                      <option value="educational game">
+                        Educational Game
+                      </option>
+                      <option value="other products">Other Products</option>
+                    </select>
+                  </div>
+                  <div class="input_pox">
+                    <label class="datails">Select Product Subcategory :</label>
+                    <select
+                      name="Subcategory"
+                      class="select-input"
+                      id="sub-category"
+                      onblur="this.size=0"
+                      onchange="this.size=1; this.blur()"
+                      disabled
+                    >
+                      <option value="">Select subcategory</option>
+                    </select>
+                  </div>
+                  <div class="input_pox">
+                    <label class="datails">Enter keyword : </label>
+                    <input type="text" placeholder="Eg: Math Tutor" required />
                   </div>
                   <div class="input_pox">
                     <label class="datails">Greade Levelsy :</label>
@@ -1544,6 +1604,80 @@
           let fileName = file.name;
         }
       };
+
+      // category
+
+      const mainCategorySelect = document.getElementById("main-category");
+      const subCategorySelect = document.getElementById("sub-category");
+
+      const subCategories = {
+        "e-book": ["E-Book"],
+        "lecture notes": ["Lecture Notes"],
+        "workbook": ["Workbook"],
+        "study guide": ["Study Guide"],
+        "case study": ["Case Study"],
+        "online course": [
+          "Online Course"
+        ],
+        "academic journal": ["Academic Journal"],
+        "research paper": [
+          "Research Paper"
+        ],
+        "educational posters": ["Educational Posters"],
+        "scientific models and kits": [
+          "Scientific Models and Kits"
+        ],
+        "teaching materials": [
+          "Lesson plans", "Lecture slide", "Classroom activities"
+        ],
+        "educational software": [
+          "Educational Software"
+        ],
+        "assessment tools": [
+          "Tests", "Quizzes", "Grading rubrics"
+        ],
+        "audio book": [
+          "Audio Book"
+        ],
+        "e-learning platform": [
+          "E-learning Platform"
+        ],
+        "educational videos": [
+          "Educational Videos"
+        ],
+        "educational game": [
+          "Educational Game"
+        ],
+        "other products": ["Other"],
+      };
+
+      function updateSubcategories() {
+        const selectedCategory = mainCategorySelect.value;
+        subCategorySelect.disabled = !selectedCategory;
+
+        subCategorySelect.innerHTML = "";
+
+        if (selectedCategory) {
+          const availableSubCategories = subCategories[selectedCategory];
+          if (availableSubCategories) {
+            availableSubCategories.forEach((subCategory) => {
+              const option = document.createElement("option");
+              option.value = subCategory;
+              option.text = subCategory;
+              subCategorySelect.appendChild(option);
+            });
+          } else {
+            const option = document.createElement("option");
+            option.value = "";
+            option.text = "Select subcategory";
+            subCategorySelect.appendChild(option);
+          }
+        }
+      }
+
+      mainCategorySelect.addEventListener("change", updateSubcategories);
+
+      updateSubcategories();
     </script>
   </body>
 </html>

@@ -72,6 +72,11 @@
         font-family: inherit;
       }
 
+      input,
+      select {
+        font-family: inherit;
+      }
+
       ::placeholder {
         color: var(--color-text-gray);
         letter-spacing: 0.5px;
@@ -552,7 +557,7 @@
         outline: none;
         border-radius: 10px;
         border: 1px solid var(--color-line);
-        padding: 8px 0 0 12px;
+        padding: 8px 0 12px 12px;
         font-size: 16px;
         transition: all 0.3s ease;
         resize: none;
@@ -1233,12 +1238,70 @@
                 </div>
                 <div class="user_details">
                   <div class="input_pox">
-                    <label class="datails">Service Name :</label>
-                    <input
-                      type="text"
-                      placeholder="I can proofread your articles"
-                      required
-                    />
+                    <label class="datails">Select Service Category :</label>
+                    <select
+                      name="Category"
+                      id="main-category"
+                      class="select-input"
+                      onblur="this.size=0"
+                      onchange="this.size=1; this.blur()"
+                    >
+                      <option disabled selected>Select category</option>
+                      <option value="tutoring services">
+                        Tutoring Services
+                      </option>
+                      <option value="writing assistance">
+                        Writing Assistance
+                      </option>
+                      <option value="teaching assistance">
+                        Teaching Assistance
+                      </option>
+                      <option value="research assistance">
+                        Research Assistance
+                      </option>
+                      <option value="language services">
+                        Language Services
+                      </option>
+                      <option value="academic coaching">
+                        Academic Coaching
+                      </option>
+                      <option value="career services">Career Services</option>
+                      <option value="workshops and seminars">
+                        Workshops and Seminars
+                      </option>
+                      <option value="conferences and symposia">
+                        Conferences and Symposia
+                      </option>
+                      <option value="academic publishing">
+                        Academic Publishing
+                      </option>
+                      <option value="applying mentor">Applying Mentor</option>
+                      <option value="educational technology support">
+                        Educational Technology Support
+                      </option>
+                      <option value="social marketing">Social Marketing</option>
+                      <option value="data handling services">
+                        Data Handling Services
+                      </option>
+                      <option value="other services">Other Services</option>
+                    </select>
+                  </div>
+                  <div class="input_pox">
+                    <label class="datails">Select Service Subcategory :</label>
+                    <select
+                      name="greade"
+                      class="select-input"
+                      id="sub-category"
+                      onblur="this.size=0"
+                      onchange="this.size=1; this.blur()"
+                      disabled
+                    >
+                      <option value="">Select subcategory</option>
+                    </select>
+                  </div>
+                  <div class="input_pox">
+                    <label class="datails">Enter keyword : </label>
+                    <input type="text" placeholder="Eg: Math Tutor" required />
                   </div>
                   <div class="input_pox">
                     <label class="datails">Greade Levelsy :</label>
@@ -1536,6 +1599,96 @@
           let fileName = file.name;
         }
       };
+
+      // category
+
+      const mainCategorySelect = document.getElementById("main-category");
+      const subCategorySelect = document.getElementById("sub-category");
+
+      const subCategories = {
+        "tutoring services": ["Tutor Finding", "Lecturer Finding"],
+        "writing assistance": ["Proofreading", "Content Developing"],
+        "teaching assistance": ["Classroom Support", "Assignment Support"],
+        "research assistance": ["Guidance On Research", "Analysis"],
+        "language services": ["Language Courses And Tutoring", "Translation"],
+        "academic coaching": [
+          "Academic Workshops",
+          "One-on-one Coaching",
+          "Dissertation Guidance",
+        ],
+        "career services": ["Job Seeking", "Career Coach"],
+        "workshops and seminars": [
+          "Career Development",
+          "Professional development",
+          "Other",
+        ],
+        "conferences and symposia": ["Conferences And Symposia"],
+        "academic publishing": [
+          "Researcher",
+          "Co-author And Reviser",
+          "Peer Reviewer",
+          "Other",
+        ],
+        "applying mentor": [
+          "Further Education",
+          "Academic Positions",
+          "Scholarship Opportunities",
+          "Financial Aid Resources",
+          "Etc",
+        ],
+        "educational technology support": [
+          "Digital Learning",
+          "Academic Software",
+        ],
+        "social marketing": [
+          "Content Creation",
+          "Social Media Management",
+          "Community Engagement",
+          "Event Promotion",
+          "Student Success Stories",
+          "Etc",
+        ],
+        "data handling services": [
+          "Data Collection And Entry",
+          "Data Cleaning And Management",
+          "Data Analysis And Visualization",
+          "Data Interpretation And Reporting",
+          "Data Privacy And Security",
+          "Data Sharing And Collaboration",
+          "Metadata Creation And Documentation",
+          "Training And Workshops. ",
+          "Etc",
+        ],
+        "other services": ["Other"],
+      };
+
+      function updateSubcategories() {
+        const selectedCategory = mainCategorySelect.value;
+        subCategorySelect.disabled = !selectedCategory;
+
+        subCategorySelect.innerHTML = "";
+
+        if (selectedCategory) {
+          const availableSubCategories = subCategories[selectedCategory];
+          if (availableSubCategories) {
+            availableSubCategories.forEach((subCategory) => {
+              const option = document.createElement("option");
+              option.value = subCategory;
+              option.text = subCategory;
+              subCategorySelect.appendChild(option);
+            });
+          } else {
+            const option = document.createElement("option");
+            option.value = "";
+            option.text = "Select subcategory";
+            subCategorySelect.appendChild(option);
+          }
+        }
+      }
+
+      mainCategorySelect.addEventListener("change", updateSubcategories);
+
+      updateSubcategories();
     </script>
   </body>
 </html>
