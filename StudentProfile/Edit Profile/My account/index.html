@@ -18,14 +18,14 @@
           0 2px 4px -1px rgba(0, 0, 0, 0.06);
         --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
           0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        --color-text-black: #151515;
-        --color-text-grayblack: #636363;
-        --color-text-gray: #c7c7c7;
-        --color-background: #f4fcff;
-        --color-line: #dadada;
+        --color-text-black: #333333;
+        --color-text-grayblack: #666666;
+        --color-text-gray: #dcdcdc;
+        --color-background: #f7f9fb;
+        --color-line: #dcdcdc;
         --color-white: #ffffff;
-        --primary-color: #002754;
-        --secondary-color: #f5aa1c;
+        --primary-color: #003366;
+        --secondary-color: #ffd700;
       }
 
       *,
@@ -55,7 +55,7 @@
         font-weight: 400;
         line-height: 1.5;
         color: var(--color-text-black);
-        background-color: var(--color-background);
+        background-color: var(--color-white);
       }
 
       a,
@@ -75,6 +75,11 @@
       ::placeholder {
         color: var(--color-text-gray);
         letter-spacing: 0.5px;
+      }
+
+      button {
+        font-family: inherit;
+        letter-spacing: 0.25px;
       }
 
       img,
@@ -98,9 +103,9 @@
       .logo {
         font-family: inherit;
         font-size: 28px;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 1.25;
-        color: var(--primary-color);
+        color: var(--color-white);
       }
       @media only screen and (max-width: 450px) {
         .logo {
@@ -116,8 +121,8 @@
         height: auto;
         z-index: 100;
         margin: 0 auto;
-        box-shadow: var(--shadow-medium);
-        background-color: var(--color-white);
+        background-color: var(--primary-color);
+        border-bottom: 1px solid var(--color-white);
       }
 
       .wrapper {
@@ -144,7 +149,7 @@
           overflow-y: auto;
           visibility: hidden;
           box-shadow: var(--shadow-medium);
-          background-color: var(--color-white);
+          background-color: var(--primary-color);
           transition: all 0.5s ease;
         }
         .navbar.active {
@@ -176,14 +181,14 @@
         line-height: inherit;
         cursor: pointer;
         text-transform: capitalize;
-        color: var(--color-text-black);
+        color: var(--color-white);
         transition: all 0.3s ease-in-out;
       }
 
       .menu-link > i.fa {
         font-size: 14px;
         line-height: 1.5;
-        color: var(--color-text-black);
+        color: var(--color-background);
         margin-left: 2px;
       }
 
@@ -244,7 +249,7 @@
         font-weight: 500;
         line-height: inherit;
         cursor: pointer;
-        color: var(--color-text-black);
+        color: var(--color-text-grayblack);
         transition: all 0.35s ease;
       }
       .submenu-link:hover {
@@ -269,6 +274,9 @@
           box-shadow: none;
           background: transparent;
         }
+        .submenu-link {
+          color: var(--color-text-gray);
+        }
       }
 
       .btn {
@@ -285,8 +293,8 @@
         font-weight: 500;
         line-height: inherit;
         border-radius: 10px;
-        color: var(--color-white);
-        background-color: var(--primary-color);
+        color: var(--primary-color);
+        background-color: var(--color-white);
         transition: all 0.35s ease;
       }
       .btn-md:hover {
@@ -295,7 +303,7 @@
 
       .btn > a > i.fa {
         margin-right: 22px;
-        color: var(--color-text-black);
+        color: var(--color-background);
         transition: all 0.35s ease;
       }
       .btn > a > i.fa:hover {
@@ -326,7 +334,7 @@
         border: none;
         outline: none;
         border-radius: 1rem;
-        background: var(--color-text-black);
+        background: var(--color-white);
       }
       .burger-line:nth-child(1) {
         top: 0px;
@@ -372,7 +380,7 @@
       /* breadcrumb */
 
       .breadcrumb {
-        color: #c7c7c7;
+        color: var(--color-text-gray);
         font-size: 14px;
         font-weight: 500;
         padding: 24px 0;
@@ -452,7 +460,7 @@
       }
 
       .checked-tab {
-        background: rgba(245, 170, 28, 0.08);
+        background: #ffd90015;
       }
       .checked-tab > h4,
       .checked-tab .side-menu-item-profile-icon {
@@ -911,6 +919,11 @@
 
       /*footer*/
 
+      .footer-background {
+        background-color: var(--primary-color);
+        margin-top: 90px;
+      }
+
       .col-6 {
         width: 100%;
         text-align: center;
@@ -918,6 +931,8 @@
 
       .col-3 > h4 {
         padding: 20px 0 20px 0;
+        color: var(--color-white);
+        font-weight: 500;
       }
 
       .desc a {
@@ -929,21 +944,20 @@
         font-size: 20px;
         margin-left: 10px;
         font-weight: 600;
+        color: var(--color-white);
       }
 
       .desc > p {
         margin-top: 10px;
-        font-size: 17px;
-        font-weight: 500;
-        color: var(--color-text-grayblack);
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-white);
         width: 85%;
       }
 
       .row-fot {
-        border-bottom: 1px solid #dadada;
-        border-top: 1px solid #dadada;
-        margin: 7em 0 2em 0;
-        padding: 2.5em 0 2.5em 0;
+        border-bottom: 1px solid var(--color-line);
+        padding: 2em 0 2.5em 0;
       }
 
       footer .row {
@@ -969,9 +983,9 @@
       }
 
       .footer-cat-links a {
-        color: var(--color-text-grayblack);
-        font-size: 17px;
-        font-weight: 500;
+        color: var(--color-text-gray);
+        font-size: 16px;
+        font-weight: 400;
         text-decoration: none;
         position: relative;
       }
@@ -1004,7 +1018,7 @@
       }
 
       .social-links a {
-        color: var(--color-text-grayblack);
+        color: var(--color-white);
         font-size: 20px;
         border: 1px solid;
         border-radius: 20px;
@@ -1020,7 +1034,7 @@
       .social-links a:hover,
       .social-links a:focus {
         background-color: var(--secondary-color);
-        color: var(--color-white);
+        color: var(--primary-color);
       }
 
       .social-links a i {
@@ -1035,11 +1049,11 @@
         justify-content: space-between;
         color: var(--color-text-gray);
         font-size: 14px;
-        padding-bottom: 30px;
+        padding: 24px 0 30px 0;
       }
 
       .contact {
-        padding-bottom: 5px;
+        padding-bottom: 13px;
       }
 
       .contact > ul > li {
@@ -1054,8 +1068,10 @@
       }
 
       .lineheightfot {
+        font-size: 16px;
         line-height: 1.5;
         margin-left: 12px;
+        color: var(--color-text-gray);
       }
 
       .iconfo {
@@ -1155,7 +1171,10 @@
           <div class="side-menu-wrapper">
             <nav class="side-menu-items">
               <ul class="side-menu-items-profile">
-                <a href="../My account/index.html" class="side-menu-item-profile checked-tab">
+                <a
+                  href="../My account/index.html"
+                  class="side-menu-item-profile checked-tab"
+                >
                   <div class="side-menu-item-profile-icon">
                     <i class="fa fa-user-o"></i>
                   </div>
@@ -1428,40 +1447,13 @@
                           <label class="datails">Start date :</label>
                           <div class="inner-inputs-wrapper">
                             <select
-                              name="Month"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Month</option>
-                              <option value="january">January</option>
-                              <option value="february">February</option>
-                              <option value="march">March</option>
-                              <option value="april">April</option>
-                              <option value="may">May</option>
-                              <option value="june">June</option>
-                              <option value="july">July</option>
-                              <option value="august">August</option>
-                              <option value="september">September</option>
-                              <option value="october">October</option>
-                              <option value="november">November</option>
-                              <option value="december">December</option>
-                            </select>
-                            <select
                               name="Year"
+                              id="yearSelect1"
                               class="select-input"
                               onblur="this.size=0"
                               onchange="this.size=1; this.blur()"
                             >
                               <option value="" disabled selected>Year</option>
-                              <option value="2020">2017</option>
-                              <option value="2020">2018</option>
-                              <option value="2020">2019</option>
-                              <option value="2020">2020</option>
-                              <option value="2021">2021</option>
-                              <option value="2022">2022</option>
-                              <option value="2023">2023</option>
-                              <option value="2023">2024</option>
                             </select>
                           </div>
                         </div>
@@ -1471,40 +1463,13 @@
                           >
                           <div class="inner-inputs-wrapper">
                             <select
-                              name="Month"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Month</option>
-                              <option value="january">January</option>
-                              <option value="february">February</option>
-                              <option value="march">March</option>
-                              <option value="april">April</option>
-                              <option value="may">May</option>
-                              <option value="june">June</option>
-                              <option value="july">July</option>
-                              <option value="august">August</option>
-                              <option value="september">September</option>
-                              <option value="october">October</option>
-                              <option value="november">November</option>
-                              <option value="december">December</option>
-                            </select>
-                            <select
                               name="Year"
+                              id="yearSelect2"
                               class="select-input"
                               onblur="this.size=0"
                               onchange="this.size=1; this.blur()"
                             >
                               <option value="" disabled selected>Year</option>
-                              <option value="2020">2017</option>
-                              <option value="2020">2018</option>
-                              <option value="2020">2019</option>
-                              <option value="2020">2020</option>
-                              <option value="2021">2021</option>
-                              <option value="2022">2022</option>
-                              <option value="2023">2023</option>
-                              <option value="2023">2024</option>
                             </select>
                           </div>
                         </div>
@@ -1590,40 +1555,13 @@
                           <label class="datails">Start date : *</label>
                           <div class="inner-inputs-wrapper">
                             <select
-                              name="Month"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Month</option>
-                              <option value="january">January</option>
-                              <option value="february">February</option>
-                              <option value="march">March</option>
-                              <option value="april">April</option>
-                              <option value="may">May</option>
-                              <option value="june">June</option>
-                              <option value="july">July</option>
-                              <option value="august">August</option>
-                              <option value="september">September</option>
-                              <option value="october">October</option>
-                              <option value="november">November</option>
-                              <option value="december">December</option>
-                            </select>
-                            <select
                               name="Year"
+                              id="yearSelect3"
                               class="select-input"
                               onblur="this.size=0"
                               onchange="this.size=1; this.blur()"
                             >
                               <option value="" disabled selected>Year</option>
-                              <option value="2020">2017</option>
-                              <option value="2020">2018</option>
-                              <option value="2020">2019</option>
-                              <option value="2020">2020</option>
-                              <option value="2021">2021</option>
-                              <option value="2022">2022</option>
-                              <option value="2023">2023</option>
-                              <option value="2023">2024</option>
                             </select>
                           </div>
                         </div>
@@ -1631,40 +1569,13 @@
                           <label class="datails">End date : *</label>
                           <div class="inner-inputs-wrapper">
                             <select
-                              name="Month"
-                              class="select-input"
-                              onblur="this.size=0"
-                              onchange="this.size=1; this.blur()"
-                            >
-                              <option value="" disabled selected>Month</option>
-                              <option value="january">January</option>
-                              <option value="february">February</option>
-                              <option value="march">March</option>
-                              <option value="april">April</option>
-                              <option value="may">May</option>
-                              <option value="june">June</option>
-                              <option value="july">July</option>
-                              <option value="august">August</option>
-                              <option value="september">September</option>
-                              <option value="october">October</option>
-                              <option value="november">November</option>
-                              <option value="december">December</option>
-                            </select>
-                            <select
                               name="Year"
+                              id="yearSelect4"
                               class="select-input"
                               onblur="this.size=0"
                               onchange="this.size=1; this.blur()"
                             >
                               <option value="" disabled selected>Year</option>
-                              <option value="2020">2017</option>
-                              <option value="2020">2018</option>
-                              <option value="2020">2019</option>
-                              <option value="2020">2020</option>
-                              <option value="2021">2021</option>
-                              <option value="2022">2022</option>
-                              <option value="2023">2023</option>
-                              <option value="2023">2024</option>
                             </select>
                           </div>
                         </div>
@@ -1985,98 +1896,102 @@
       </div>
     </main>
 
-    <footer>
+    <footer class="footer-background">
       <div class="container mx">
-        <div class="row-fot">
-          <div class="row">
-            <div class="desc col-3">
-              <a href="/index.html">
-                <img
-                  src="../../../images/image_59-removebg-preview (1) 1.png"
-                  alt=""
-                />
-                <h2>Unisuniverse</h2>
-              </a>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
-                congu.
-              </p>
+        <div>
+          <div class="row-fot">
+            <div class="row">
+              <div class="desc col-3">
+                <a href="/index.html">
+                  <img
+                    src="../../../images/image_59-removebg-preview (1) 1.png"
+                    alt=""
+                  />
+                  <h2>Unisuniverse</h2>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
+                  congu.
+                </p>
+              </div>
+              <div class="col-3">
+                <h4>Short Links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href=""><span>Home</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Academics</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Students</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Universities</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3">
+                <h4>Quick links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href="../Aboutus/index.html"><span>About us</span></a>
+                  </li>
+                  <li>
+                    <a href="../FAQ/index.html"><span>FAQ</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Contact us</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Privacy policy</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3 contact">
+                <h4>Contact us</h4>
+                <ul>
+                  <li>
+                    <div class="iconfo">
+                      <i
+                        class="fa fa-phone fa-flip-horizontal"
+                        aria-hidden="true"
+                      ></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Phone:<br />
+                      +971-580580580
+                    </div>
+                  </li>
+                  <li class="Emailfot">
+                    <div class="iconfo">
+                      <i class="fa fa-envelope-o"></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Email:<br />
+                      info@Unisuniverse@gmail.com
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div class="col-3">
-              <h4>Short Links</h4>
-              <ul class="footer-cat-links">
-                <li>
-                  <a href=""><span>Home</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Academics</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Students</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Universities</span></a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-3">
-              <h4>Quick links</h4>
-              <ul class="footer-cat-links">
-                <li>
-                  <a href="../Aboutus/index.html"><span>About us</span></a>
-                </li>
-                <li>
-                  <a href="../FAQ/index.html"><span>FAQ</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Contact us</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Privacy policy</span></a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-3 contact">
-              <h4>Contact us</h4>
-              <ul>
-                <li>
-                  <div class="iconfo">
-                    <i
-                      class="fa fa-phone fa-flip-horizontal"
-                      aria-hidden="true"
-                    ></i>
-                  </div>
-                  <div class="lineheightfot">
-                    Phone:<br />
-                    +971-580580580
-                  </div>
-                </li>
-                <li class="Emailfot">
-                  <div class="iconfo">
-                    <i class="fa fa-envelope-o"></i>
-                  </div>
-                  <div class="lineheightfot">
-                    Email:<br />
-                    info@Unisuniverse@gmail.com
-                  </div>
-                </li>
-              </ul>
+            <div class="social-links social-2 col-6">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-linkedin-in"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-reddit-alien"></i></a>
             </div>
           </div>
-          <div class="social-links social-2 col-6">
-            <a href=""><i class="fab fa-facebook-f"></i></a>
-            <a href=""><i class="fab fa-twitter"></i></a>
-            <a href=""><i class="fab fa-linkedin-in"></i></a>
-            <a href=""><i class="fab fa-instagram"></i></a>
-            <a href=""><i class="fab fa-reddit-alien"></i></a>
-          </div>
-        </div>
-        <div class="copyowner">
-          <div id="copyright">&copy; 2023 Attio Ltd. All rights reserved.</div>
-          <div id="owner">
-            <span> Terms & Conditions </span>
+          <div class="copyowner">
+            <div id="copyright">
+              &copy; 2023 Attio Ltd. All rights reserved.
+            </div>
+            <div id="owner">
+              <span> Terms & Conditions </span>
+            </div>
           </div>
         </div>
       </div>
@@ -2135,6 +2050,42 @@
       overlayMenu.addEventListener("click", toggleMenu);
       navbarMenu.addEventListener("click", toggleSubMenu);
       window.addEventListener("resize", resizeWindow);
+
+      // Year Select
+
+      function createYearOptions(selectId) {
+        const selectElement = document.getElementById(selectId);
+
+        for (let year = 1950; year <= 2024; year++) {
+          const option = document.createElement("option");
+          option.value = year;
+          option.text = year;
+          selectElement.appendChild(option);
+        }
+      }
+
+      function validateDates(startId, endId) {
+        const startYear = document.getElementById(startId).value;
+        const endYear = document.getElementById(endId).value;
+
+        if (endYear && startYear && parseInt(endYear) < parseInt(startYear)) {
+          document.getElementById(endId).value = startYear;
+        }
+      }
+
+      createYearOptions("yearSelect1");
+      createYearOptions("yearSelect2");
+      createYearOptions("yearSelect3");
+      createYearOptions("yearSelect4");
+
+      document.getElementById("yearSelect1").onchange = () =>
+        validateDates("yearSelect1", "yearSelect2");
+      document.getElementById("yearSelect2").onchange = () =>
+        validateDates("yearSelect1", "yearSelect2");
+      document.getElementById("yearSelect3").onchange = () =>
+        validateDates("yearSelect3", "yearSelect4");
+      document.getElementById("yearSelect4").onchange = () =>
+        validateDates("yearSelect3", "yearSelect4");
     </script>
   </body>
 </html>

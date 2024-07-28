@@ -18,14 +18,14 @@
           0 2px 4px -1px rgba(0, 0, 0, 0.06);
         --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
           0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        --color-text-black: #151515;
-        --color-text-grayblack: #636363;
-        --color-text-gray: #c7c7c7;
-        --color-background: #f4fcff;
-        --color-line: #dadada;
+        --color-text-black: #333333;
+        --color-text-grayblack: #666666;
+        --color-text-gray: #dcdcdc;
+        --color-background: #f7f9fb;
+        --color-line: #dcdcdc;
         --color-white: #ffffff;
-        --primary-color: #002754;
-        --secondary-color: #f5aa1c;
+        --primary-color: #003366;
+        --secondary-color: #ffd700;
       }
 
       *,
@@ -55,7 +55,7 @@
         font-weight: 400;
         line-height: 1.5;
         color: var(--color-text-black);
-        background-color: var(--color-background);
+        background-color: var(--color-white);
       }
 
       a,
@@ -69,6 +69,17 @@
         user-select: none;
         background: none;
         box-shadow: none;
+        font-family: inherit;
+      }
+
+      ::placeholder {
+        color: var(--color-text-gray);
+        letter-spacing: 0.5px;
+      }
+
+      button {
+        font-family: inherit;
+        letter-spacing: 0.25px;
       }
 
       img,
@@ -92,9 +103,9 @@
       .logo {
         font-family: inherit;
         font-size: 28px;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 1.25;
-        color: var(--primary-color);
+        color: var(--color-white);
       }
       @media only screen and (max-width: 450px) {
         .logo {
@@ -110,8 +121,8 @@
         height: auto;
         z-index: 100;
         margin: 0 auto;
-        box-shadow: var(--shadow-medium);
-        background-color: var(--color-white);
+        background-color: var(--primary-color);
+        border-bottom: 1px solid var(--color-white);
       }
 
       .wrapper {
@@ -138,7 +149,7 @@
           overflow-y: auto;
           visibility: hidden;
           box-shadow: var(--shadow-medium);
-          background-color: var(--color-white);
+          background-color: var(--primary-color);
           transition: all 0.5s ease;
         }
         .navbar.active {
@@ -170,14 +181,14 @@
         line-height: inherit;
         cursor: pointer;
         text-transform: capitalize;
-        color: var(--color-text-black);
+        color: var(--color-white);
         transition: all 0.3s ease-in-out;
       }
 
       .menu-link > i.fa {
         font-size: 14px;
         line-height: 1.5;
-        color: var(--color-text-black);
+        color: var(--color-background);
         margin-left: 2px;
       }
 
@@ -238,7 +249,7 @@
         font-weight: 500;
         line-height: inherit;
         cursor: pointer;
-        color: var(--color-text-black);
+        color: var(--color-text-grayblack);
         transition: all 0.35s ease;
       }
       .submenu-link:hover {
@@ -263,6 +274,9 @@
           box-shadow: none;
           background: transparent;
         }
+        .submenu-link {
+          color: var(--color-text-gray);
+        }
       }
 
       .btn {
@@ -279,8 +293,8 @@
         font-weight: 500;
         line-height: inherit;
         border-radius: 10px;
-        color: var(--color-white);
-        background-color: var(--primary-color);
+        color: var(--primary-color);
+        background-color: var(--color-white);
         transition: all 0.35s ease;
       }
       .btn-md:hover {
@@ -289,7 +303,7 @@
 
       .btn > a > i.fa {
         margin-right: 22px;
-        color: var(--color-text-black);
+        color: var(--color-background);
         transition: all 0.35s ease;
       }
       .btn > a > i.fa:hover {
@@ -320,7 +334,7 @@
         border: none;
         outline: none;
         border-radius: 1rem;
-        background: var(--color-text-black);
+        background: var(--color-white);
       }
       .burger-line:nth-child(1) {
         top: 0px;
@@ -363,371 +377,10 @@
         }
       }
 
-      /* login */
-
-      .modal-cont {
-        position: fixed;
-        height: 100%;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.47);
-        top: 0;
-        left: 0;
-        overflow: auto;
-        z-index: 1400;
-      }
-
-      .modal-box {
-        width: 33%;
-        margin: 105px auto;
-        padding: 24px 30px;
-        background-color: var(--color-white);
-      }
-
-      .modal-box h1 {
-        font-size: 21px;
-        font-weight: 500;
-      }
-
-      .modal-wlc {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid var(--color-line);
-        padding-bottom: 18px;
-        color: var(--color-text-black);
-      }
-
-      .modal-box .close {
-        width: 44px;
-        height: 44px;
-        background-color: var(--color-background);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 26px;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
-      }
-
-      .modal-box .close:hover,
-      .modal-box .close:focus {
-        color: var(--secondary-color);
-      }
-
-      .useremail,
-      .userpass {
-        margin: 28px 0 7px 0;
-        font-weight: 500;
-        color: var(--color-text-grayblack);
-      }
-
-      .email,
-      .password {
-        padding-left: 16px;
-        font-size: 15px;
-        font-weight: 500;
-      }
-
-      .login-box input[type="email"],
-      .login-box input[type="password"] {
-        width: 100%;
-        border: 1px solid var(--color-line);
-        display: block;
-        margin-bottom: 10px;
-        height: 48px;
-        border-radius: 10px;
-        outline: none;
-      }
-
-      .login-box input[type="email"]:focus,
-      .login-box input[type="password"]:focus {
-        border: 1.5px solid var(--primary-color);
-      }
-
-      .rememberlost {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 22px 0 30px 0;
-      }
-
-      .useremail,
-      .userpass,
-      .modal-box .login-button,
-      .modal-box .email,
-      .password {
-        width: 100%;
-        display: block;
-      }
-
-      .checkboxContainer {
-        display: flex;
-        align-items: center;
-      }
-
-      .checkboxContainer label {
-        padding-left: 10px;
-        color: var(--color-text-black);
-        font-weight: 500;
-        font-size: 15px;
-      }
-
-      .checkboxContainer input[type="checkbox"] {
-        width: 15px;
-        height: 15px;
-      }
-      .checkbox:checked {
-        accent-color: var(--primary-color);
-      }
-
-      .lostpass {
-        color: var(--secondary-color);
-        font-weight: 500;
-        font-size: 15px;
-      }
-
-      .modal-box .login-button {
-        height: 48px;
-        font-size: 16px;
-        font-weight: 600;
-        display: block;
-        width: 100%;
-        color: var(--color-white);
-        background-color: var(--primary-color);
-        border-radius: 10px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-      }
-      .modal-box .login-button:hover {
-        background-color: var(--secondary-color);
-      }
-
-      .or {
-        position: relative;
-        text-align: center;
-        margin: 22px 0 22px 0;
-        font-size: 1rem;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .or::before,
-      .or::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        width: 40%;
-        height: 1px;
-        background: var(--color-line);
-      }
-
-      .or::before {
-        left: 0;
-      }
-
-      .or::after {
-        right: 0;
-      }
-
-      .Google {
-        height: 48px;
-        font-size: 16px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        color: var(--primary-color);
-        background-color: transparent;
-        border-radius: 10px;
-        padding-left: 12px;
-        border: 1.5px solid var(--primary-color);
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-      }
-      .Google:hover {
-        background-color: var(--secondary-color);
-        border: none;
-        color: var(--color-white);
-      }
-      .Google svg {
-        fill: var(--primary-color);
-        transition: all 0.3s ease-in-out;
-      }
-      .Google:hover svg {
-        fill: var(--color-white);
-      }
-
-      .Google p {
-        width: 100%;
-        margin-right: 26px;
-      }
-
-      .Facebook {
-        height: 48px;
-        font-size: 16px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        color: var(--color-white);
-        background-color: #1778f2;
-        border-radius: 10px;
-        padding-left: 12px;
-        margin-top: 17px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-      }
-      .Facebook:hover {
-        background-color: var(--secondary-color);
-      }
-
-      .Facebook p {
-        width: 100%;
-        margin-right: 26px;
-      }
-
-      .Apple {
-        height: 48px;
-        font-size: 16px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        color: var(--color-white);
-        background-color: var(--color-text-black);
-        border-radius: 10px;
-        padding-left: 12px;
-        margin-top: 17px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-      }
-      .Apple:hover {
-        background-color: var(--secondary-color);
-      }
-
-      .Apple p {
-        width: 100%;
-        margin-right: 26px;
-      }
-
-      .signup-text {
-        font-size: 15px;
-        font-weight: 500;
-        color: var(--color-text-grayblack);
-        text-align: center;
-        margin-top: 22px;
-      }
-
-      .signup-text a {
-        padding-left: 6px;
-        color: var(--primary-color);
-        font-weight: 600;
-      }
-
-      .modal-cont {
-        display: none;
-      }
-      .modal-box {
-        animation-name: zoom;
-        animation-duration: 0.7s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease;
-        border: 1px solid #b7b7b7;
-        border-radius: 24px;
-      }
-      @keyframes zoom {
-        from {
-          transform: scale(0);
-        }
-        to {
-          transform: scale(1);
-        }
-      }
-
-      @media only screen and (max-width: 993px) {
-        .modal-box {
-          width: 55%;
-        }
-      }
-      @media only screen and (max-width: 630px) {
-        .modal-box {
-          width: 82%;
-          padding: 16px 16px;
-        }
-      }
-      @media only screen and (max-width: 435px) {
-        .modal-wlc h1 {
-          font-size: 17px;
-        }
-        .modal-box .close {
-          font-size: 20px;
-          width: 30px;
-          height: 30px;
-        }
-      }
-      @media only screen and (max-width: 374px) {
-        .rememberlost {
-          flex-direction: column;
-        }
-        .checkboxContainer {
-          margin: 8px 0 10px 0;
-        }
-      }
-
-      /* Popup boxs */
-
-      .popup-boxs {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 28px;
-        align-items: center;
-        justify-content: space-around;
-        margin-top: 240px;
-      }
-
-      .box {
-        background-color: var(--color-white);
-        padding: 36px 30px 26px 30px;
-        border-radius: 20px;
-      }
-
-      .btn-sm {
-        width: 153px;
-        height: 49px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--primary-color);
-        color: var(--color-white);
-        border-radius: 10px;
-        margin-top: 34px;
-        font-size: 17px;
-        font-weight: 500;
-        transition: all 0.3s ease-in;
-      }
-      .btn-sm:hover {
-        background-color: var(--secondary-color);
-      }
-
-      .image-box {
-        margin: 0 auto;
-      }
-
-      .popup-boxs {
-        display: none;
-      }
-
-      @media only screen and (max-width: 576px) {
-        .popup-boxs {
-          margin: 100px 0 100px 0;
-        }
-      }
-
       /* breadcrumb */
 
       .breadcrumb {
-        color: #c7c7c7;
+        color: var(--color-text-gray);
         font-size: 14px;
         font-weight: 500;
         padding: 24px 0;
@@ -1255,6 +908,11 @@
 
       /*footer*/
 
+      .footer-background {
+        background-color: var(--primary-color);
+        margin-top: 90px;
+      }
+
       .col-6 {
         width: 100%;
         text-align: center;
@@ -1262,6 +920,8 @@
 
       .col-3 > h4 {
         padding: 20px 0 20px 0;
+        color: var(--color-white);
+        font-weight: 500;
       }
 
       .desc a {
@@ -1273,21 +933,20 @@
         font-size: 20px;
         margin-left: 10px;
         font-weight: 600;
+        color: var(--color-white);
       }
 
       .desc > p {
         margin-top: 10px;
-        font-size: 17px;
-        font-weight: 500;
-        color: var(--color-text-grayblack);
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-white);
         width: 85%;
       }
 
       .row-fot {
-        border-bottom: 1px solid #dadada;
-        border-top: 1px solid #dadada;
-        margin: 7em 0 2em 0;
-        padding: 2.5em 0 2.5em 0;
+        border-bottom: 1px solid var(--color-line);
+        padding: 2em 0 2.5em 0;
       }
 
       footer .row {
@@ -1313,9 +972,9 @@
       }
 
       .footer-cat-links a {
-        color: var(--color-text-grayblack);
-        font-size: 17px;
-        font-weight: 500;
+        color: var(--color-text-gray);
+        font-size: 16px;
+        font-weight: 400;
         text-decoration: none;
         position: relative;
       }
@@ -1348,7 +1007,7 @@
       }
 
       .social-links a {
-        color: var(--color-text-grayblack);
+        color: var(--color-white);
         font-size: 20px;
         border: 1px solid;
         border-radius: 20px;
@@ -1364,7 +1023,7 @@
       .social-links a:hover,
       .social-links a:focus {
         background-color: var(--secondary-color);
-        color: var(--color-white);
+        color: var(--primary-color);
       }
 
       .social-links a i {
@@ -1379,11 +1038,11 @@
         justify-content: space-between;
         color: var(--color-text-gray);
         font-size: 14px;
-        padding-bottom: 30px;
+        padding: 24px 0 30px 0;
       }
 
       .contact {
-        padding-bottom: 5px;
+        padding-bottom: 13px;
       }
 
       .contact > ul > li {
@@ -1398,8 +1057,10 @@
       }
 
       .lineheightfot {
+        font-size: 16px;
         line-height: 1.5;
         margin-left: 12px;
+        color: var(--color-text-gray);
       }
 
       .iconfo {
@@ -1443,15 +1104,23 @@
         <span class="overlay"></span>
         <nav class="navbar" id="navbar">
           <ul class="menu" id="menu">
-            <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
             <li class="menu-item">
-              <a href="#" class="menu-link">Students</a>
+              <a href="../../../Home/index.html" class="menu-link">Home</a>
             </li>
             <li class="menu-item">
-              <a href="#" class="menu-link">Academics</a>
+              <a href="../../../Students/index.html" class="menu-link"
+                >Students</a
+              >
             </li>
             <li class="menu-item">
-              <a href="#" class="menu-link">Universities</a>
+              <a href="../../../Academics/index.html" class="menu-link"
+                >Academics</a
+              >
+            </li>
+            <li class="menu-item">
+              <a href="../../../Universities/index.html" class="menu-link"
+                >Universities</a
+              >
             </li>
             <li class="menu-item menu-dropdown">
               <span class="menu-link" data-toggle="submenu"
@@ -1473,7 +1142,7 @@
               </ul>
             </li>
             <li class="menu-item resnav">
-              <a href="#" class="menu-link" id="btn-md">Sign Up / Log In</a>
+              <a href="#" class="menu-link" id="btn-md">My profile</a>
             </li>
           </ul>
         </nav>
@@ -1484,130 +1153,7 @@
             <span class="burger-line"></span>
             <span class="burger-line"></span>
           </div>
-          <button class="btn-md" id="test">Sign Up / Log In</button>
-          <div class="modal-cont">
-            <div class="modal-box">
-              <div class="modal-wlc">
-                <h1>Welcome to Unisuniverse</h1>
-                <span class="close">&times;</span>
-              </div>
-              <form action="" class="login-box">
-                <label for="useremail" class="useremail">Email</label>
-                <input
-                  type="email"
-                  class="email"
-                  placeholder="Enter Your Email"
-                  required
-                />
-                <label for="Password" class="userpass">Password</label>
-                <input
-                  type="password"
-                  class="password"
-                  placeholder="Enter Your Password"
-                  required
-                />
-                <div class="rememberlost">
-                  <div class="checkboxContainer">
-                    <input type="checkbox" id="rememberme" class="checkbox" />
-                    <label for="RememberMe">Remember me </label>
-                  </div>
-                  <a href="#" class="lostpass">Lost your password?</a>
-                </div>
-                <button class="login-button">Login</button>
-                <div class="or">OR</div>
-                <button class="Google">
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 22 22"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clip-path="url(#clip0_24_2365)">
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M10.9994 5.04166C9.87998 5.04191 8.78332 5.35747 7.83501 5.95219C6.8867 6.54691 6.1251 7.39674 5.63746 8.4043C5.14981 9.41187 4.95586 10.5364 5.07781 11.6491C5.19976 12.7618 5.63268 13.8177 6.32698 14.6957C7.02129 15.5737 7.94888 16.2384 9.00349 16.6136C10.0581 16.9888 11.1971 17.0594 12.2899 16.8172C13.3828 16.575 14.3853 16.0298 15.1826 15.2442C15.98 14.4585 16.5399 13.4641 16.7982 12.375H11.916C11.5513 12.375 11.2016 12.2301 10.9437 11.9723C10.6859 11.7144 10.541 11.3647 10.541 11C10.541 10.6353 10.6859 10.2856 10.9437 10.0277C11.2016 9.76986 11.5513 9.62499 11.916 9.62499H18.3327C18.6974 9.62499 19.0471 9.76986 19.305 10.0277C19.5628 10.2856 19.7077 10.6353 19.7077 11C19.7077 13.0137 19.0098 14.9651 17.7329 16.5222C16.4559 18.0792 14.6789 19.1456 12.7041 19.5398C10.7294 19.934 8.67908 19.6317 6.90219 18.6843C5.1253 17.7368 3.73165 16.2029 2.95849 14.3436C2.18533 12.4842 2.08043 10.4144 2.66166 8.48641C3.24289 6.55843 4.47432 4.89146 6.14633 3.76926C7.81834 2.64706 9.82758 2.13899 11.832 2.33154C13.8365 2.52409 15.7123 3.40536 17.1401 4.82533C17.2681 4.95269 17.3698 5.10402 17.4393 5.27067C17.5089 5.43733 17.5449 5.61605 17.5454 5.79664C17.5459 5.97722 17.5107 6.15613 17.4421 6.32314C17.3734 6.49016 17.2725 6.64201 17.1451 6.77003C17.0178 6.89806 16.8665 6.99974 16.6998 7.06928C16.5331 7.13882 16.3544 7.17485 16.1738 7.17532C15.8091 7.17626 15.459 7.03229 15.2004 6.77508C14.6484 6.22434 13.9932 5.78779 13.2724 5.49036C12.5515 5.19293 11.7791 5.04046 10.9994 5.04166Z"
-                      />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_24_2365">
-                        <rect width="22" height="22" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                  <p>Continue Google</p>
-                </button>
-                <button class="Facebook">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.99935 1.69995C5.41602 1.69995 1.66602 5.44162 1.66602 10.05C1.66602 14.2166 4.71602 17.6749 8.69935 18.2999V12.4666H6.58268V10.05H8.69935V8.20828C8.69935 6.11662 9.94102 4.96662 11.8493 4.96662C12.7577 4.96662 13.7077 5.12495 13.7077 5.12495V7.18328H12.6577C11.6243 7.18328 11.2994 7.82495 11.2994 8.48328V10.05H13.616L13.241 12.4666H11.2994V18.2999C13.2631 17.9898 15.0512 16.9879 16.341 15.475C17.6307 13.9621 18.3371 12.038 18.3327 10.05C18.3327 5.44162 14.5827 1.69995 9.99935 1.69995Z"
-                      fill="white"
-                    />
-                  </svg>
-                  <p>Continue Facebook</p>
-                </button>
-                <button class="Apple">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M17.0492 20.28C16.0692 21.23 14.9992 21.08 13.9692 20.63C12.8792 20.17 11.8792 20.15 10.7292 20.63C9.28919 21.25 8.52919 21.07 7.66919 20.28C2.78919 15.25 3.50919 7.59 9.04919 7.31C10.3992 7.38 11.3392 8.05 12.1292 8.11C13.3092 7.87 14.4392 7.18 15.6992 7.27C17.2092 7.39 18.3492 7.99 19.0992 9.07C15.9792 10.94 16.7192 15.05 19.5792 16.2C19.0092 17.7 18.2692 19.19 17.0392 20.29L17.0492 20.28ZM12.0292 7.25C11.8792 5.02 13.6892 3.18 15.7692 3C16.0592 5.58 13.4292 7.5 12.0292 7.25Z"
-                      fill="white"
-                    />
-                  </svg>
-                  <p>Continue Apple</p>
-                </button>
-                <p class="signup-text">
-                  Don't you have an account?<a href="#" class="new-acc"
-                    >Create an account.</a
-                  >
-                </p>
-              </form>
-            </div>
-            <div class="popup-boxs">
-              <div class="box">
-                <img
-                  class="image-box"
-                  src="../../../images/student popup.png"
-                  alt="Student Image"
-                />
-                <a href="../../Signup/Student/index.html" class="btn-sm"
-                  >Student</a
-                >
-              </div>
-              <div class="box">
-                <img
-                  class="image-box"
-                  src="../../../images/Academic popup.png"
-                  alt="Academic Image"
-                />
-                <a href="../../Signup/Academic/index.html" class="btn-sm"
-                  >Academic</a
-                >
-              </div>
-              <div class="box">
-                <img
-                  class="image-box"
-                  src="../../../images/Recruiter popup.png"
-                  alt="Recruiter Image"
-                />
-                <a href="../../Signup/Recruiter/index.html" class="btn-sm"
-                  >Recruiter</a
-                >
-              </div>
-            </div>
-          </div>
+          <button class="btn-md" id="test">My profile</button>
         </div>
       </section>
     </header>
@@ -1787,9 +1333,9 @@
             <div class="user-img-name">
               <div class="uni-profile-wrapper">
                 <img
-                src="../../images/Uni-img.png"
-                alt="User Image"
-                class="uni-profile"
+                  src="../../images/Uni-img.png"
+                  alt="User Image"
+                  class="uni-profile"
                 />
               </div>
               <div class="icon-chng">
@@ -1844,14 +1390,14 @@
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <g clip-path="url(#clip0_24_981)">
+                          <g clip-path="url(#clip0_1_2038)">
                             <path
                               d="M19.556 3.66602H2.44488C2.12072 3.66602 1.80985 3.79479 1.58064 4.024C1.35143 4.25321 1.22266 4.56408 1.22266 4.88824V17.1105C1.22266 17.4346 1.35143 17.7455 1.58064 17.9747C1.80985 18.2039 2.12072 18.3327 2.44488 18.3327H19.556C19.8801 18.3327 20.191 18.2039 20.4202 17.9747C20.6494 17.7455 20.7782 17.4346 20.7782 17.1105V4.88824C20.7782 4.56408 20.6494 4.25321 20.4202 4.024C20.191 3.79479 19.8801 3.66602 19.556 3.66602ZM18.6149 17.1105H3.45932L7.7371 12.686L6.8571 11.8366L2.44488 16.4016V5.81713L10.041 13.3766C10.27 13.6042 10.5798 13.732 10.9027 13.732C11.2255 13.732 11.5353 13.6042 11.7643 13.3766L19.556 5.62768V16.3221L15.0582 11.8243L14.1965 12.686L18.6149 17.1105ZM3.24543 4.88824H18.566L10.9027 12.5088L3.24543 4.88824Z"
-                              fill="#F5AA1C"
+                              fill="#FFD700"
                             />
                           </g>
                           <defs>
-                            <clipPath id="clip0_24_981">
+                            <clipPath id="clip0_1_2038">
                               <rect width="22" height="22" fill="white" />
                             </clipPath>
                           </defs>
@@ -1859,7 +1405,11 @@
                         <p>Email: info@Recruiter.com</p>
                       </div>
                     </div>
-                    <a href="../Admins management/indexAddorEditadmin.html" class="btn-admin">Edit Admin</a>
+                    <a
+                      href="../Admins management/indexAddorEditadmin.html"
+                      class="btn-admin"
+                      >Edit Admin</a
+                    >
                   </div>
                 </div>
                 <div class="recruiter-card">
@@ -1883,22 +1433,27 @@
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <g clip-path="url(#clip0_24_981)">
+                          <g clip-path="url(#clip0_1_2038)">
                             <path
                               d="M19.556 3.66602H2.44488C2.12072 3.66602 1.80985 3.79479 1.58064 4.024C1.35143 4.25321 1.22266 4.56408 1.22266 4.88824V17.1105C1.22266 17.4346 1.35143 17.7455 1.58064 17.9747C1.80985 18.2039 2.12072 18.3327 2.44488 18.3327H19.556C19.8801 18.3327 20.191 18.2039 20.4202 17.9747C20.6494 17.7455 20.7782 17.4346 20.7782 17.1105V4.88824C20.7782 4.56408 20.6494 4.25321 20.4202 4.024C20.191 3.79479 19.8801 3.66602 19.556 3.66602ZM18.6149 17.1105H3.45932L7.7371 12.686L6.8571 11.8366L2.44488 16.4016V5.81713L10.041 13.3766C10.27 13.6042 10.5798 13.732 10.9027 13.732C11.2255 13.732 11.5353 13.6042 11.7643 13.3766L19.556 5.62768V16.3221L15.0582 11.8243L14.1965 12.686L18.6149 17.1105ZM3.24543 4.88824H18.566L10.9027 12.5088L3.24543 4.88824Z"
-                              fill="#F5AA1C"
+                              fill="#FFD700"
                             />
                           </g>
                           <defs>
-                            <clipPath id="clip0_24_981">
+                            <clipPath id="clip0_1_2038">
                               <rect width="22" height="22" fill="white" />
                             </clipPath>
                           </defs>
                         </svg>
+
                         <p>Email: info@Recruiter.com</p>
                       </div>
                     </div>
-                    <a href="../Admins management/indexAddorEditadmin.html" class="btn-admin">Edit Admin</a>
+                    <a
+                      href="../Admins management/indexAddorEditadmin.html"
+                      class="btn-admin"
+                      >Edit Admin</a
+                    >
                   </div>
                 </div>
               </div>
@@ -1908,98 +1463,102 @@
       </div>
     </main>
 
-    <footer>
+    <footer class="footer-background">
       <div class="container mx">
-        <div class="row-fot">
-          <div class="row">
-            <div class="desc col-3">
-              <a href="/index.html">
-                <img
-                  src="../../../images/image_59-removebg-preview (1) 1.png"
-                  alt=""
-                />
-                <h2>Unisuniverse</h2>
-              </a>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
-                congu.
-              </p>
+        <div>
+          <div class="row-fot">
+            <div class="row">
+              <div class="desc col-3">
+                <a href="/index.html">
+                  <img
+                    src="../../../images/image_59-removebg-preview (1) 1.png"
+                    alt=""
+                  />
+                  <h2>Unisuniverse</h2>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
+                  congu.
+                </p>
+              </div>
+              <div class="col-3">
+                <h4>Short Links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href=""><span>Home</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Academics</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Students</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Universities</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3">
+                <h4>Quick links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href="../Aboutus/index.html"><span>About us</span></a>
+                  </li>
+                  <li>
+                    <a href="../FAQ/index.html"><span>FAQ</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Contact us</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Privacy policy</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3 contact">
+                <h4>Contact us</h4>
+                <ul>
+                  <li>
+                    <div class="iconfo">
+                      <i
+                        class="fa fa-phone fa-flip-horizontal"
+                        aria-hidden="true"
+                      ></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Phone:<br />
+                      +971-580580580
+                    </div>
+                  </li>
+                  <li class="Emailfot">
+                    <div class="iconfo">
+                      <i class="fa fa-envelope-o"></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Email:<br />
+                      info@Unisuniverse@gmail.com
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div class="col-3">
-              <h4>Short Links</h4>
-              <ul class="footer-cat-links">
-                <li>
-                  <a href=""><span>Home</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Academics</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Students</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Universities</span></a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-3">
-              <h4>Quick links</h4>
-              <ul class="footer-cat-links">
-                <li>
-                  <a href="../Aboutus/index.html"><span>About us</span></a>
-                </li>
-                <li>
-                  <a href="../FAQ/index.html"><span>FAQ</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Contact us</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Privacy policy</span></a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-3 contact">
-              <h4>Contact us</h4>
-              <ul>
-                <li>
-                  <div class="iconfo">
-                    <i
-                      class="fa fa-phone fa-flip-horizontal"
-                      aria-hidden="true"
-                    ></i>
-                  </div>
-                  <div class="lineheightfot">
-                    Phone:<br />
-                    +971-580580580
-                  </div>
-                </li>
-                <li class="Emailfot">
-                  <div class="iconfo">
-                    <i class="fa fa-envelope-o"></i>
-                  </div>
-                  <div class="lineheightfot">
-                    Email:<br />
-                    info@Unisuniverse@gmail.com
-                  </div>
-                </li>
-              </ul>
+            <div class="social-links social-2 col-6">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-linkedin-in"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-reddit-alien"></i></a>
             </div>
           </div>
-          <div class="social-links social-2 col-6">
-            <a href=""><i class="fab fa-facebook-f"></i></a>
-            <a href=""><i class="fab fa-twitter"></i></a>
-            <a href=""><i class="fab fa-linkedin-in"></i></a>
-            <a href=""><i class="fab fa-instagram"></i></a>
-            <a href=""><i class="fab fa-reddit-alien"></i></a>
-          </div>
-        </div>
-        <div class="copyowner">
-          <div id="copyright">&copy; 2023 Attio Ltd. All rights reserved.</div>
-          <div id="owner">
-            <span> Terms & Conditions </span>
+          <div class="copyowner">
+            <div id="copyright">
+              &copy; 2023 Attio Ltd. All rights reserved.
+            </div>
+            <div id="owner">
+              <span> Terms & Conditions </span>
+            </div>
           </div>
         </div>
       </div>

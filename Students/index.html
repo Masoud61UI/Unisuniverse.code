@@ -18,14 +18,14 @@
           0 2px 4px -1px rgba(0, 0, 0, 0.06);
         --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
           0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        --color-text-black: #151515;
-        --color-text-grayblack: #636363;
-        --color-text-gray: #c7c7c7;
-        --color-background: #f4fcff;
-        --color-line: #dadada;
+        --color-text-black: #333333;
+        --color-text-grayblack: #666666;
+        --color-text-gray: #dcdcdc;
+        --color-background: #f7f9fb;
+        --color-line: #dcdcdc;
         --color-white: #ffffff;
-        --primary-color: #002754;
-        --secondary-color: #f5aa1c;
+        --primary-color: #003366;
+        --secondary-color: #ffd700;
       }
 
       *,
@@ -55,7 +55,7 @@
         font-weight: 400;
         line-height: 1.5;
         color: var(--color-text-black);
-        background-color: var(--color-background);
+        background-color: var(--color-white);
       }
 
       a,
@@ -71,6 +71,11 @@
         box-shadow: none;
         font-family: inherit;
         letter-spacing: 0.5px;
+      }
+
+      button {
+        font-family: inherit;
+        letter-spacing: 0.25px;
       }
 
       img,
@@ -97,9 +102,9 @@
       .logo {
         font-family: inherit;
         font-size: 28px;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 1.25;
-        color: var(--primary-color);
+        color: var(--color-white);
       }
 
       .header {
@@ -110,8 +115,8 @@
         height: auto;
         z-index: 100;
         margin: 0 auto;
-        box-shadow: var(--shadow-medium);
-        background-color: var(--color-white);
+        background-color: var(--primary-color);
+        border-bottom: 1px solid var(--color-white);
       }
 
       .wrapper {
@@ -138,7 +143,7 @@
           overflow-y: auto;
           visibility: hidden;
           box-shadow: var(--shadow-medium);
-          background-color: var(--color-white);
+          background-color: var(--primary-color);
           transition: all 0.5s ease;
         }
         .navbar.active {
@@ -170,14 +175,14 @@
         line-height: inherit;
         cursor: pointer;
         text-transform: capitalize;
-        color: var(--color-text-black);
+        color: var(--color-white);
         transition: all 0.3s ease-in-out;
       }
 
       .menu-link > i.fa {
         font-size: 14px;
         line-height: 1.5;
-        color: var(--color-text-black);
+        color: var(--color-background);
         margin-left: 2px;
       }
 
@@ -238,7 +243,7 @@
         font-weight: 500;
         line-height: inherit;
         cursor: pointer;
-        color: var(--color-text-black);
+        color: var(--color-text-grayblack);
         transition: all 0.35s ease;
       }
       .submenu-link:hover {
@@ -263,6 +268,9 @@
           box-shadow: none;
           background: transparent;
         }
+        .submenu-link {
+          color: var(--color-text-gray);
+        }
       }
 
       .btn {
@@ -279,8 +287,8 @@
         font-weight: 500;
         line-height: inherit;
         border-radius: 10px;
-        color: var(--color-white);
-        background-color: var(--primary-color);
+        color: var(--primary-color);
+        background-color: var(--color-white);
         transition: all 0.35s ease;
       }
       .btn-md:hover {
@@ -289,7 +297,7 @@
 
       .btn > a > i.fa {
         margin-right: 22px;
-        color: var(--color-text-black);
+        color: var(--color-background);
         transition: all 0.35s ease;
       }
       .btn > a > i.fa:hover {
@@ -320,7 +328,7 @@
         border: none;
         outline: none;
         border-radius: 1rem;
-        background: var(--color-text-black);
+        background: var(--color-white);
       }
       .burger-line:nth-child(1) {
         top: 0px;
@@ -366,7 +374,7 @@
       /* hero section */
 
       .breadcrumb {
-        color: #c7c7c7;
+        color: var(--color-text-gray);
         font-size: 14px;
         font-weight: 500;
         padding: 24px 0;
@@ -725,7 +733,7 @@
         }
       }
 
-      /* Popup boxs */ 
+      /* Popup boxs */
 
       .popup-boxs {
         display: flex;
@@ -881,11 +889,12 @@
       }
 
       /* Academic Products/Services */
-      
+
       .store-introduction-section {
         display: flex;
         align-items: flex-start;
         border-radius: 60px;
+        border: 1px solid var(--color-line);
         background: var(--color-white);
       }
 
@@ -907,7 +916,7 @@
       }
 
       .store-introduction-section-content-title {
-        font-size: 28px;
+        font-size: 26px;
         font-weight: 600;
         text-align: center;
         color: var(--color-text-black);
@@ -975,7 +984,7 @@
       }
 
       .store-introduction-tab-title > h2 {
-        font-size: 28px;
+        font-size: 24px;
         font-weight: 600;
         text-align: center;
         color: var(--primary-color);
@@ -1047,13 +1056,17 @@
         align-items: center;
         justify-content: center;
         border-radius: 0px 0px 60px 60px;
-        background: rgba(0, 39, 84, 0.10);
+        background: rgba(0, 39, 84, 0.1);
         transition: all 0.3s ease-in-out;
       }
       .store-introduction-section-btn-wrapper:hover {
         background-color: var(--primary-color);
       }
-      .store-introduction-section-btn-wrapper:hover .store-introduction-section-btn > h3 , .store-introduction-section-btn-wrapper:hover .store-introduction-section-btn-icon {
+      .store-introduction-section-btn-wrapper:hover
+        .store-introduction-section-btn
+        > h3,
+      .store-introduction-section-btn-wrapper:hover
+        .store-introduction-section-btn-icon {
         color: var(--secondary-color);
       }
 
@@ -1078,9 +1091,9 @@
         transition: all 0.3s ease-in-out;
       }
 
-      /* Our Member */ 
+      /* Our Member */
 
-      .our-members{
+      .our-members {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1091,7 +1104,7 @@
         font-size: 28px;
         font-weight: 600;
         text-align: center;
-        color: var(--color-text-black); 
+        color: var(--color-text-black);
       }
 
       .our-members-items {
@@ -1101,30 +1114,38 @@
         justify-content: center;
         gap: 60px;
         width: 100%;
-        overflow:hidden;
+        overflow: hidden;
       }
 
       .our-members-items:after {
-        content:'';
-        left:98px;
-        height:60vh;
-        position:absolute;
-        width:100px;
-        z-index:40;
-        background: linear-gradient(90deg, rgb(242,243,248) 0%,rgba(242,243,248,0)  100%);
-        pointer-event:none;
+        content: "";
+        left: 98px;
+        height: 60vh;
+        position: absolute;
+        width: 100px;
+        z-index: 40;
+        background: linear-gradient(
+          90deg,
+          rgb(242, 243, 248) 0%,
+          rgba(242, 243, 248, 0) 100%
+        );
+        pointer-event: none;
         border-radius: 30px;
       }
 
       .our-members-items:before {
-        content:'';
-        right:98px;
-        height:60vh;
-        position:absolute;
-        width:150px;
-        z-index:40;
-        background: linear-gradient(90deg, rgba(242,243,248,0) 0%,rgba(242,243,248,1)  100%);
-        pointer-event:none;
+        content: "";
+        right: 98px;
+        height: 60vh;
+        position: absolute;
+        width: 150px;
+        z-index: 40;
+        background: linear-gradient(
+          90deg,
+          rgba(242, 243, 248, 0) 0%,
+          rgba(242, 243, 248, 1) 100%
+        );
+        pointer-event: none;
         border-radius: 30px;
       }
 
@@ -1136,20 +1157,20 @@
         height: 336px;
         gap: 46px;
         width: inherit;
-        scroll-behavior:smooth;
-        overflow:hidden;
+        scroll-behavior: smooth;
+        overflow: hidden;
         padding: 36px 0;
       }
       .our-members-cards::-webkit-scrollbar {
-        height:0px;
+        height: 0px;
       }
 
       .our-members-cards:after {
-        content:'';
-        display:block;
-        min-width:20px;
-        height:100px;
-        position:relative;
+        content: "";
+        display: block;
+        min-width: 20px;
+        height: 100px;
+        position: relative;
       }
 
       .our-members-card {
@@ -1157,13 +1178,13 @@
         flex-direction: column;
         align-items: center;
         width: 100%;
-        transition: all .25s ease;
+        transition: all 0.25s ease;
         cursor: pointer;
         min-width: 216px;
         height: auto;
       }
       .our-members-card:hover {
-        transform:translate(0, -6px);
+        transform: translate(0, -6px);
       }
 
       .member-card-img {
@@ -1253,7 +1274,8 @@
       }
 
       @media only screen and (max-width: 1024px) {
-        .apply-section, .store-introduction-tab-steps-wrapper {
+        .apply-section,
+        .store-introduction-tab-steps-wrapper {
           flex-direction: column;
         }
         .our-members-items:after {
@@ -1262,8 +1284,8 @@
         .our-members-items:before {
           right: 80px;
         }
-      }   
-      
+      }
+
       @media only screen and (max-width: 900px) {
         .our-members-items:after {
           left: 60px;
@@ -1319,18 +1341,21 @@
         .store-introduction-section {
           border-radius: 30px;
         }
-        .store-introduction-section-content-title{
+        .store-introduction-section-content-title {
           padding: 0 20px;
           font-size: 22px;
         }
-        .apply-section-content-items-title > h2, .store-introduction-tab-title > h2 {
+        .apply-section-content-items-title > h2,
+        .store-introduction-tab-title > h2 {
           font-size: 22px;
           line-height: 33px;
         }
         .our-members-title {
           font-size: 22px;
         }
-        .apply-section-content-items-desc > p, .store-introduction-tab-title > p, .store-introduction-tab-steps > p {
+        .apply-section-content-items-desc > p,
+        .store-introduction-tab-title > p,
+        .store-introduction-tab-steps > p {
           font-size: 14px;
         }
         .store-introduction-section-btn-wrapper {
@@ -1351,7 +1376,7 @@
         .store-introduction-tab-steps-wrapper {
           gap: 54px;
         }
-        .our-members-cards{
+        .our-members-cards {
           gap: 68px;
         }
         .our-members-card {
@@ -1359,7 +1384,12 @@
         }
       }
 
-      /* footer */
+      /*footer*/
+
+      .footer-background {
+        background-color: var(--primary-color);
+        margin-top: 90px;
+      }
 
       .col-6 {
         width: 100%;
@@ -1368,6 +1398,8 @@
 
       .col-3 > h4 {
         padding: 20px 0 20px 0;
+        color: var(--color-white);
+        font-weight: 500;
       }
 
       .desc a {
@@ -1379,21 +1411,20 @@
         font-size: 20px;
         margin-left: 10px;
         font-weight: 600;
+        color: var(--color-white);
       }
 
       .desc > p {
         margin-top: 10px;
-        font-size: 17px;
-        font-weight: 500;
-        color: var(--color-text-grayblack);
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-white);
         width: 85%;
       }
 
       .row-fot {
-        border-bottom: 1px solid #dadada;
-        border-top: 1px solid #dadada;
-        margin: 7em 0 2em 0;
-        padding: 2.5em 0 2.5em 0;
+        border-bottom: 1px solid var(--color-line);
+        padding: 2em 0 2.5em 0;
       }
 
       footer .row {
@@ -1419,9 +1450,9 @@
       }
 
       .footer-cat-links a {
-        color: var(--color-text-grayblack);
-        font-size: 17px;
-        font-weight: 500;
+        color: var(--color-text-gray);
+        font-size: 16px;
+        font-weight: 400;
         text-decoration: none;
         position: relative;
       }
@@ -1454,7 +1485,7 @@
       }
 
       .social-links a {
-        color: var(--color-text-grayblack);
+        color: var(--color-white);
         font-size: 20px;
         border: 1px solid;
         border-radius: 20px;
@@ -1470,7 +1501,7 @@
       .social-links a:hover,
       .social-links a:focus {
         background-color: var(--secondary-color);
-        color: var(--color-white);
+        color: var(--primary-color);
       }
 
       .social-links a i {
@@ -1485,11 +1516,11 @@
         justify-content: space-between;
         color: var(--color-text-gray);
         font-size: 14px;
-        padding-bottom: 30px;
+        padding: 24px 0 30px 0;
       }
 
       .contact {
-        padding-bottom: 5px;
+        padding-bottom: 13px;
       }
 
       .contact > ul > li {
@@ -1504,8 +1535,10 @@
       }
 
       .lineheightfot {
+        font-size: 16px;
         line-height: 1.5;
         margin-left: 12px;
+        color: var(--color-text-gray);
       }
 
       .iconfo {
@@ -1536,12 +1569,6 @@
       }
 
       @media only screen and (max-width: 450px) {
-        .accordion-title {
-          font-size: 18px;
-        }
-        .accordion .accordion-content p {
-          font-size: 14px;
-        }
         .copyowner {
           flex-direction: column;
         }
@@ -1681,22 +1708,42 @@
                   <p>Continue Apple</p>
                 </button>
                 <p class="signup-text">
-                  Don't you have an account?<a href="#" class="new-acc">Create an account.</a>
+                  Don't you have an account?<a href="#" class="new-acc"
+                    >Create an account.</a
+                  >
                 </p>
               </form>
             </div>
             <div class="popup-boxs">
               <div class="box">
-                <img class="image-box" src="../../images/student popup.png" alt="Student Image">
-                <a href="../../Signup/Student/index.html" class="btn-sm">Student</a>
+                <img
+                  class="image-box"
+                  src="../../images/student popup.png"
+                  alt="Student Image"
+                />
+                <a href="../../Signup/Student/index.html" class="btn-sm"
+                  >Student</a
+                >
               </div>
               <div class="box">
-                <img class="image-box" src="../../images/Academic popup.png" alt="Academic Image">
-                <a href="../../Signup/Academic/index.html" class="btn-sm">Academic</a>
+                <img
+                  class="image-box"
+                  src="../../images/Academic popup.png"
+                  alt="Academic Image"
+                />
+                <a href="../../Signup/Academic/index.html" class="btn-sm"
+                  >Academic</a
+                >
               </div>
               <div class="box">
-                <img class="image-box" src="../../images/Recruiter popup.png" alt="Recruiter Image">
-                <a href="../../Signup/Recruiter/index.html" class="btn-sm">Recruiter</a>
+                <img
+                  class="image-box"
+                  src="../../images/Recruiter popup.png"
+                  alt="Recruiter Image"
+                />
+                <a href="../../Signup/Recruiter/index.html" class="btn-sm"
+                  >Recruiter</a
+                >
               </div>
             </div>
           </div>
@@ -1709,540 +1756,796 @@
     </div>
 
     <main>
-        <div class="container mx">
-            <section class="hero-section-wrapper">
-              <div class="hero-text">
-                  <h1 class="hero-title">Students</h1>
-                  <p class="hero-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et.
+      <div class="container mx">
+        <section class="hero-section-wrapper">
+          <div class="hero-text">
+            <h1 class="hero-title">Students</h1>
+            <p class="hero-desc">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et.
+            </p>
+          </div>
+        </section>
+
+        <section class="apply-section-wrapper">
+          <div class="apply-section">
+            <div class="apply-section-content">
+              <div class="apply-section-content-items">
+                <div class="apply-section-content-items-title">
+                  <div class="apply-section-content-items-title-small">
+                    <div class="title-small-icon">
+                      <i class="fa fa-file-text-o"></i>
+                    </div>
+                    <small>Apply for Students</small>
+                  </div>
+
+                  <h2>
+                    By applying to various educational levels, secure a bright
+                    future ahead.
+                  </h2>
+                </div>
+
+                <div class="apply-section-content-items-desc">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
+                    cursus vitae congue mauris rhoncus.
                   </p>
-              </div>
-            </section>
 
-            <section class="apply-section-wrapper">
-              <div class="apply-section">
-                <div class="apply-section-content">
-                  <div class="apply-section-content-items">
-                    <div class="apply-section-content-items-title">
-                      <div class="apply-section-content-items-title-small">
-                        <div class="title-small-icon">
-                          <i class="fa fa-file-text-o"></i>
-                        </div>
-                        <small>Apply for Students</small>
-                      </div>
-
-                      <h2>By applying to various educational levels, secure a bright future ahead.</h2>
-                    </div>
-
-                    <div class="apply-section-content-items-desc">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus.
-                      </p>
-
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      </p>
-                    </div>
-                  </div>
-
-                  <button class="btn-medium">
-                    Universities
-                  </button>
-                </div>
-
-                <div class="img-sections">
-                  <img src="./images/Student Apply Photo.png" class="all-img-sections" alt="Students Image">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p>
                 </div>
               </div>
-            </section>
 
-            <section class="store-introduction-section-wrapper">
-              <div class="store-introduction-section">
-                <div class="store-introduction-section-items">
-                  <div class="store-introduction-section-content">
-                    <h2 class="store-introduction-section-content-title">Academic Products/Services</h2>
-  
-                    <div class="store-introduction-section-tabs-wrapper">
-                      <div class="store-introduction-section-tabs">
-                        <input id="tab1" type="radio" name="tabs" checked />
-                        <label for="tab1" class="label-tab">Sell Products/Services</label>
-  
-                        <input id="tab2" type="radio" name="tabs" />
-                        <label for="tab2" class="marg-label label-tab">Find Products/Services</label>
-  
-                        <div id="content1" class="contents">
-                          <div class="store-introduction-tab-items">
-                            <div class="store-introduction-tab-title">
-                              <h2>Sell your products/services and achieve success.</h2>
-    
-                              <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua incididunt ut labore et dolore magna aliqua.
-                              </p>
-                            </div>
-    
-                            <div class="store-introduction-tab-steps-wrapper">
-                              <div class="store-introduction-tab-steps">
-                                <div class="store-introduction-tab-step">
-                                  <div class="store-introduction-tab-step-number">
-                                    <h3>.1</h3>
-                                  </div>
-                                  <h3 class="store-introduction-tab-step-title">Join Us</h3>
-                                </div>
-    
-                                <p>
-                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
-                                </p>
-                              </div>
-    
-                              <div class="store-introduction-tab-steps">
-                                <div class="store-introduction-tab-step">
-                                  <div class="store-introduction-tab-step-number">
-                                    <h3>.2</h3>
-                                  </div>
-                                  <h3 class="store-introduction-tab-step-title">Create Profile</h3>
-                                </div>
-    
-                                <p>
-                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
-                                </p>
-                              </div>
-    
-                              <div class="store-introduction-tab-steps">
-                                <div class="store-introduction-tab-step">
-                                  <div class="store-introduction-tab-step-number">
-                                    <h3>.3</h3>
-                                  </div>
-                                  <h3 class="store-introduction-tab-step-title">Add Product</h3>
-                                </div>
-    
-                                <p>
-                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
-                                </p>
-                              </div>
-    
-                              <div class="store-introduction-tab-steps">
-                                <div class="store-introduction-tab-step">
-                                  <div class="store-introduction-tab-step-number">
-                                    <h3>.4</h3>
-                                  </div>
-                                  <h3 class="store-introduction-tab-step-title">Product Sales</h3>
-                                </div>
-    
-                                <p>
-                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+              <button class="btn-medium">Universities</button>
+            </div>
 
-                        <div id="content2" class="contents">
-                          <div class="store-introduction-tab-items">
-                            <div class="store-introduction-tab-title">
-                              <h2>Find and use your products/services</h2>
-    
-                              <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <button class="store-introduction-section-btn-wrapper">
-                    <div class="store-introduction-section-btn">
-                      <h3>Get Started</h3>
-                      <div class="store-introduction-section-btn-icon">
-                        <i class="fa fa-long-arrow-right"></i>
-                      </div>
-                    </div>
-                  </button>
-                </div>
-              </div>
-            </section>
+            <div class="img-sections">
+              <img
+                src="./images/Student Apply Photo.png"
+                class="all-img-sections"
+                alt="Students Image"
+              />
+            </div>
+          </div>
+        </section>
 
-            <section class="our-members-wrapper">
-              <div class="our-members">
-                <h2 class="our-members-title">
-                  Our student members
+        <section class="store-introduction-section-wrapper">
+          <div class="store-introduction-section">
+            <div class="store-introduction-section-items">
+              <div class="store-introduction-section-content">
+                <h2 class="store-introduction-section-content-title">
+                  Academic Products/Services
                 </h2>
 
-                <div class="our-members-items">
-                  <div class="our-members-cards">
-                    <div class="our-members-card">
-                      <img src="./images/Avatar 1.png" class="member-card-img" alt="User Image">
+                <div class="store-introduction-section-tabs-wrapper">
+                  <div class="store-introduction-section-tabs">
+                    <input id="tab1" type="radio" name="tabs" checked />
+                    <label for="tab1" class="label-tab"
+                      >Sell Products/Services</label
+                    >
 
-                      <div class="member-card-content">
-                        <div class="member-card">
-                          <h4 class="member-card-name">James dunn</h4>
+                    <input id="tab2" type="radio" name="tabs" />
+                    <label for="tab2" class="marg-label label-tab"
+                      >Find Products/Services</label
+                    >
 
-                          <div class="member-card-items">
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <g clip-path="url(#clip0_418_130)">
-                                  <path d="M15.4492 10.812C15.7161 11.2808 15.9147 11.769 16.0449 12.2769C16.1751 12.7847 16.2435 13.3088 16.25 13.8491V14.855L10 17.9897L3.75 14.855C3.75 14.4644 3.75326 14.0998 3.75977 13.7612C3.76628 13.4227 3.79557 13.0939 3.84766 12.7749C3.89974 12.4559 3.97786 12.1369 4.08203 11.8179C4.1862 11.4989 4.34245 11.1636 4.55078 10.812L2.5 9.78662V15.519C2.6888 15.5841 2.85807 15.6753 3.00781 15.7925C3.15755 15.9097 3.29102 16.0464 3.4082 16.2026C3.52539 16.3589 3.61003 16.5282 3.66211 16.7104C3.71419 16.8927 3.74349 17.0848 3.75 17.2866V20.4116H0V17.2866C0 17.0913 0.0292969 16.9025 0.0878906 16.7202C0.146484 16.5379 0.23112 16.3654 0.341797 16.2026C0.452474 16.0399 0.582682 15.9032 0.732422 15.7925C0.882161 15.6818 1.05469 15.5907 1.25 15.519V9.16162L0 8.53662L10 3.53662L20 8.53662L15.4492 10.812ZM2.5 17.2866C2.5 17.1174 2.43815 16.9709 2.31445 16.8472C2.19076 16.7235 2.04427 16.6616 1.875 16.6616C1.70573 16.6616 1.55924 16.7235 1.43555 16.8472C1.31185 16.9709 1.25 17.1174 1.25 17.2866V19.1616H2.5V17.2866ZM2.79297 8.53662L10 12.1401L17.207 8.53662L10 4.93311L2.79297 8.53662ZM15 14.0835C15 13.5822 14.9512 13.1167 14.8535 12.687C14.7559 12.2573 14.5833 11.8179 14.3359 11.3687L10 13.5366L5.66406 11.3687C5.44922 11.7463 5.28646 12.1434 5.17578 12.5601C5.0651 12.9767 5.00651 13.4064 5 13.8491V14.0835L10 16.5835L15 14.0835Z" fill="#F5AA1C"/>
-                                  </g>
-                                  <defs>
-                                  <clipPath id="clip0_418_130">
-                                  <rect width="20" height="20" fill="white" transform="translate(0 0.411621)"/>
-                                  </clipPath>
-                                  </defs>
-                                </svg>                                  
+                    <div id="content1" class="contents">
+                      <div class="store-introduction-tab-items">
+                        <div class="store-introduction-tab-title">
+                          <h2>
+                            Sell your products/services and achieve success.
+                          </h2>
+
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua incididunt ut labore et dolore
+                            magna aliqua.
+                          </p>
+                        </div>
+
+                        <div class="store-introduction-tab-steps-wrapper">
+                          <div class="store-introduction-tab-steps">
+                            <div class="store-introduction-tab-step">
+                              <div class="store-introduction-tab-step-number">
+                                <h3>.1</h3>
                               </div>
-                              <h5>P.H.D</h5>
+                              <h3 class="store-introduction-tab-step-title">
+                                Join Us
+                              </h3>
                             </div>
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M5.21094 3.32764C5.04518 3.32764 4.88621 3.39348 4.769 3.51069C4.65179 3.6279 4.58594 3.78688 4.58594 3.95264V17.4943H6.2526V15.2026C6.2526 14.6276 6.71927 14.161 7.29427 14.161H12.7109C13.2859 14.161 13.7526 14.6276 13.7526 15.2026V17.4943H15.4193V10.2026C15.4193 10.0369 15.3534 9.8779 15.2362 9.76069C15.119 9.64348 14.96 9.57764 14.7943 9.57764H13.1276C12.9618 9.57764 12.8029 9.51179 12.6857 9.39458C12.5685 9.27737 12.5026 9.1184 12.5026 8.95264V3.95264C12.5026 3.78688 12.4368 3.6279 12.3195 3.51069C12.2023 3.39348 12.0434 3.32764 11.8776 3.32764H5.21094ZM7.5026 15.411V17.4943H9.3776V15.411H7.5026ZM10.6276 15.411V17.4943H12.5026V15.411H10.6276ZM16.0443 18.7443H3.96094C3.79518 18.7443 3.63621 18.6785 3.519 18.5612C3.40179 18.444 3.33594 18.2851 3.33594 18.1193V3.95264C3.33594 3.45536 3.53348 2.97844 3.88511 2.62681C4.23674 2.27518 4.71366 2.07764 5.21094 2.07764H11.8776C12.3749 2.07764 12.8518 2.27518 13.2034 2.62681C13.5551 2.97844 13.7526 3.45536 13.7526 3.95264V8.32764H14.7943C15.0405 8.32764 15.2843 8.37613 15.5118 8.47036C15.7393 8.56459 15.946 8.7027 16.1201 8.87681C16.2942 9.05092 16.4323 9.25762 16.5265 9.4851C16.6208 9.71259 16.6693 9.95641 16.6693 10.2026V18.1193C16.6693 18.2851 16.6034 18.444 16.4862 18.5612C16.369 18.6785 16.21 18.7443 16.0443 18.7443ZM6.2526 5.82764C6.2526 5.60662 6.3404 5.39466 6.49668 5.23838C6.65296 5.0821 6.86492 4.9943 7.08594 4.9943C7.30695 4.9943 7.51891 5.0821 7.67519 5.23838C7.83147 5.39466 7.91927 5.60662 7.91927 5.82764C7.91927 6.04865 7.83147 6.26061 7.67519 6.41689C7.51891 6.57317 7.30695 6.66097 7.08594 6.66097C6.86492 6.66097 6.65296 6.57317 6.49668 6.41689C6.3404 6.26061 6.2526 6.04865 6.2526 5.82764ZM7.08594 10.8276C6.86492 10.8276 6.65296 10.9154 6.49668 11.0717C6.3404 11.228 6.2526 11.44 6.2526 11.661C6.2526 11.882 6.3404 12.0939 6.49668 12.2502C6.65296 12.4065 6.86492 12.4943 7.08594 12.4943C7.30695 12.4943 7.51891 12.4065 7.67519 12.2502C7.83147 12.0939 7.91927 11.882 7.91927 11.661C7.91927 11.44 7.83147 11.228 7.67519 11.0717C7.51891 10.9154 7.30695 10.8276 7.08594 10.8276ZM7.08594 7.91097C6.86492 7.91097 6.65296 7.99877 6.49668 8.15505C6.3404 8.31133 6.2526 8.52329 6.2526 8.7443C6.2526 8.96532 6.3404 9.17728 6.49668 9.33356C6.65296 9.48984 6.86492 9.57764 7.08594 9.57764C7.30695 9.57764 7.51891 9.48984 7.67519 9.33356C7.83147 9.17728 7.91927 8.96532 7.91927 8.7443C7.91927 8.52329 7.83147 8.31133 7.67519 8.15505C7.51891 7.99877 7.30695 7.91097 7.08594 7.91097ZM10.0026 4.9943C9.78159 4.9943 9.56963 5.0821 9.41335 5.23838C9.25707 5.39466 9.16927 5.60662 9.16927 5.82764C9.16927 6.04865 9.25707 6.26061 9.41335 6.41689C9.56963 6.57317 9.78159 6.66097 10.0026 6.66097C10.2236 6.66097 10.4356 6.57317 10.5919 6.41689C10.7481 6.26061 10.8359 6.04865 10.8359 5.82764C10.8359 5.60662 10.7481 5.39466 10.5919 5.23838C10.4356 5.0821 10.2236 4.9943 10.0026 4.9943ZM10.0026 10.8276C9.78159 10.8276 9.56963 10.9154 9.41335 11.0717C9.25707 11.228 9.16927 11.44 9.16927 11.661C9.16927 11.882 9.25707 12.0939 9.41335 12.2502C9.56963 12.4065 9.78159 12.4943 10.0026 12.4943C10.2236 12.4943 10.4356 12.4065 10.5919 12.2502C10.7481 12.0939 10.8359 11.882 10.8359 11.661C10.8359 11.44 10.7481 11.228 10.5919 11.0717C10.4356 10.9154 10.2236 10.8276 10.0026 10.8276ZM12.9193 10.8276C12.6983 10.8276 12.4863 10.9154 12.33 11.0717C12.1737 11.228 12.0859 11.44 12.0859 11.661C12.0859 11.882 12.1737 12.0939 12.33 12.2502C12.4863 12.4065 12.6983 12.4943 12.9193 12.4943C13.1403 12.4943 13.3522 12.4065 13.5085 12.2502C13.6648 12.0939 13.7526 11.882 13.7526 11.661C13.7526 11.44 13.6648 11.228 13.5085 11.0717C13.3522 10.9154 13.1403 10.8276 12.9193 10.8276ZM10.0026 7.91097C9.78159 7.91097 9.56963 7.99877 9.41335 8.15505C9.25707 8.31133 9.16927 8.52329 9.16927 8.7443C9.16927 8.96532 9.25707 9.17728 9.41335 9.33356C9.56963 9.48984 9.78159 9.57764 10.0026 9.57764C10.2236 9.57764 10.4356 9.48984 10.5919 9.33356C10.7481 9.17728 10.8359 8.96532 10.8359 8.7443C10.8359 8.52329 10.7481 8.31133 10.5919 8.15505C10.4356 7.99877 10.2236 7.91097 10.0026 7.91097Z" fill="#F5AA1C"/>
-                                </svg>                                                                    
+
+                            <p>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing
+                              elit, sed do.
+                            </p>
+                          </div>
+
+                          <div class="store-introduction-tab-steps">
+                            <div class="store-introduction-tab-step">
+                              <div class="store-introduction-tab-step-number">
+                                <h3>.2</h3>
                               </div>
-                              <h5>National University</h5>
+                              <h3 class="store-introduction-tab-step-title">
+                                Create Profile
+                              </h3>
                             </div>
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M9.99554 2.01709C11.8426 2.01709 13.614 2.75083 14.92 4.05688C16.2261 5.36294 16.9598 7.13433 16.9598 8.98138C16.9598 11.9242 14.892 15.1314 10.8098 18.6371C10.5828 18.8321 10.2934 18.9392 9.9942 18.9389C9.69496 18.9387 9.40575 18.8311 9.17911 18.6357L8.90911 18.4014C5.00768 14.9871 3.03125 11.8585 3.03125 8.98138C3.03125 7.13433 3.76499 5.36294 5.07104 4.05688C6.3771 2.75083 8.14849 2.01709 9.99554 2.01709ZM9.99554 3.08852C8.43265 3.08852 6.93378 3.70937 5.82866 4.8145C4.72353 5.91962 4.10268 7.41849 4.10268 8.98138C4.10268 11.4828 5.92268 14.3649 9.61268 17.5935L9.87911 17.8242C9.9115 17.8521 9.95281 17.8674 9.99554 17.8674C10.0383 17.8674 10.0796 17.8521 10.112 17.8242C13.9805 14.5014 15.8884 11.5421 15.8884 8.98138C15.8884 8.20752 15.736 7.44123 15.4398 6.72628C15.1437 6.01132 14.7096 5.3617 14.1624 4.8145C13.6152 4.26729 12.9656 3.83323 12.2506 3.53709C11.5357 3.24094 10.7694 3.08852 9.99554 3.08852ZM9.99554 6.3028C10.7059 6.3028 11.3872 6.58501 11.8896 7.08734C12.3919 7.58967 12.6741 8.27098 12.6741 8.98138C12.6741 9.69178 12.3919 10.3731 11.8896 10.8754C11.3872 11.3777 10.7059 11.6599 9.99554 11.6599C9.28514 11.6599 8.60383 11.3777 8.1015 10.8754C7.59917 10.3731 7.31697 9.69178 7.31697 8.98138C7.31697 8.27098 7.59917 7.58967 8.1015 7.08734C8.60383 6.58501 9.28514 6.3028 9.99554 6.3028ZM9.99554 7.37423C9.5693 7.37423 9.16051 7.54356 8.85912 7.84495C8.55772 8.14635 8.38839 8.55514 8.38839 8.98138C8.38839 9.40762 8.55772 9.8164 8.85912 10.1178C9.16051 10.4192 9.5693 10.5885 9.99554 10.5885C10.4218 10.5885 10.8306 10.4192 11.132 10.1178C11.4334 9.8164 11.6027 9.40762 11.6027 8.98138C11.6027 8.55514 11.4334 8.14635 11.132 7.84495C10.8306 7.54356 10.4218 7.37423 9.99554 7.37423Z" fill="#F5AA1C"/>
-                                </svg>                                                                    
+
+                            <p>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing
+                              elit, sed do.
+                            </p>
+                          </div>
+
+                          <div class="store-introduction-tab-steps">
+                            <div class="store-introduction-tab-step">
+                              <div class="store-introduction-tab-step-number">
+                                <h3>.3</h3>
                               </div>
-                              <h5>United States</h5>
+                              <h3 class="store-introduction-tab-step-title">
+                                Add Product
+                              </h3>
                             </div>
+
+                            <p>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing
+                              elit, sed do.
+                            </p>
+                          </div>
+
+                          <div class="store-introduction-tab-steps">
+                            <div class="store-introduction-tab-step">
+                              <div class="store-introduction-tab-step-number">
+                                <h3>.4</h3>
+                              </div>
+                              <h3 class="store-introduction-tab-step-title">
+                                Product Sales
+                              </h3>
+                            </div>
+
+                            <p>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing
+                              elit, sed do.
+                            </p>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <div class="our-members-card">
-                      <img src="./images/Avatar 1.png" class="member-card-img" alt="User Image">
+                    <div id="content2" class="contents">
+                      <div class="store-introduction-tab-items">
+                        <div class="store-introduction-tab-title">
+                          <h2>Find and use your products/services</h2>
 
-                      <div class="member-card-content">
-                        <div class="member-card">
-                          <h4 class="member-card-name">James dunn</h4>
-
-                          <div class="member-card-items">
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <g clip-path="url(#clip0_418_130)">
-                                  <path d="M15.4492 10.812C15.7161 11.2808 15.9147 11.769 16.0449 12.2769C16.1751 12.7847 16.2435 13.3088 16.25 13.8491V14.855L10 17.9897L3.75 14.855C3.75 14.4644 3.75326 14.0998 3.75977 13.7612C3.76628 13.4227 3.79557 13.0939 3.84766 12.7749C3.89974 12.4559 3.97786 12.1369 4.08203 11.8179C4.1862 11.4989 4.34245 11.1636 4.55078 10.812L2.5 9.78662V15.519C2.6888 15.5841 2.85807 15.6753 3.00781 15.7925C3.15755 15.9097 3.29102 16.0464 3.4082 16.2026C3.52539 16.3589 3.61003 16.5282 3.66211 16.7104C3.71419 16.8927 3.74349 17.0848 3.75 17.2866V20.4116H0V17.2866C0 17.0913 0.0292969 16.9025 0.0878906 16.7202C0.146484 16.5379 0.23112 16.3654 0.341797 16.2026C0.452474 16.0399 0.582682 15.9032 0.732422 15.7925C0.882161 15.6818 1.05469 15.5907 1.25 15.519V9.16162L0 8.53662L10 3.53662L20 8.53662L15.4492 10.812ZM2.5 17.2866C2.5 17.1174 2.43815 16.9709 2.31445 16.8472C2.19076 16.7235 2.04427 16.6616 1.875 16.6616C1.70573 16.6616 1.55924 16.7235 1.43555 16.8472C1.31185 16.9709 1.25 17.1174 1.25 17.2866V19.1616H2.5V17.2866ZM2.79297 8.53662L10 12.1401L17.207 8.53662L10 4.93311L2.79297 8.53662ZM15 14.0835C15 13.5822 14.9512 13.1167 14.8535 12.687C14.7559 12.2573 14.5833 11.8179 14.3359 11.3687L10 13.5366L5.66406 11.3687C5.44922 11.7463 5.28646 12.1434 5.17578 12.5601C5.0651 12.9767 5.00651 13.4064 5 13.8491V14.0835L10 16.5835L15 14.0835Z" fill="#F5AA1C"/>
-                                  </g>
-                                  <defs>
-                                  <clipPath id="clip0_418_130">
-                                  <rect width="20" height="20" fill="white" transform="translate(0 0.411621)"/>
-                                  </clipPath>
-                                  </defs>
-                                </svg>                                  
-                              </div>
-                              <h5>P.H.D</h5>
-                            </div>
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M5.21094 3.32764C5.04518 3.32764 4.88621 3.39348 4.769 3.51069C4.65179 3.6279 4.58594 3.78688 4.58594 3.95264V17.4943H6.2526V15.2026C6.2526 14.6276 6.71927 14.161 7.29427 14.161H12.7109C13.2859 14.161 13.7526 14.6276 13.7526 15.2026V17.4943H15.4193V10.2026C15.4193 10.0369 15.3534 9.8779 15.2362 9.76069C15.119 9.64348 14.96 9.57764 14.7943 9.57764H13.1276C12.9618 9.57764 12.8029 9.51179 12.6857 9.39458C12.5685 9.27737 12.5026 9.1184 12.5026 8.95264V3.95264C12.5026 3.78688 12.4368 3.6279 12.3195 3.51069C12.2023 3.39348 12.0434 3.32764 11.8776 3.32764H5.21094ZM7.5026 15.411V17.4943H9.3776V15.411H7.5026ZM10.6276 15.411V17.4943H12.5026V15.411H10.6276ZM16.0443 18.7443H3.96094C3.79518 18.7443 3.63621 18.6785 3.519 18.5612C3.40179 18.444 3.33594 18.2851 3.33594 18.1193V3.95264C3.33594 3.45536 3.53348 2.97844 3.88511 2.62681C4.23674 2.27518 4.71366 2.07764 5.21094 2.07764H11.8776C12.3749 2.07764 12.8518 2.27518 13.2034 2.62681C13.5551 2.97844 13.7526 3.45536 13.7526 3.95264V8.32764H14.7943C15.0405 8.32764 15.2843 8.37613 15.5118 8.47036C15.7393 8.56459 15.946 8.7027 16.1201 8.87681C16.2942 9.05092 16.4323 9.25762 16.5265 9.4851C16.6208 9.71259 16.6693 9.95641 16.6693 10.2026V18.1193C16.6693 18.2851 16.6034 18.444 16.4862 18.5612C16.369 18.6785 16.21 18.7443 16.0443 18.7443ZM6.2526 5.82764C6.2526 5.60662 6.3404 5.39466 6.49668 5.23838C6.65296 5.0821 6.86492 4.9943 7.08594 4.9943C7.30695 4.9943 7.51891 5.0821 7.67519 5.23838C7.83147 5.39466 7.91927 5.60662 7.91927 5.82764C7.91927 6.04865 7.83147 6.26061 7.67519 6.41689C7.51891 6.57317 7.30695 6.66097 7.08594 6.66097C6.86492 6.66097 6.65296 6.57317 6.49668 6.41689C6.3404 6.26061 6.2526 6.04865 6.2526 5.82764ZM7.08594 10.8276C6.86492 10.8276 6.65296 10.9154 6.49668 11.0717C6.3404 11.228 6.2526 11.44 6.2526 11.661C6.2526 11.882 6.3404 12.0939 6.49668 12.2502C6.65296 12.4065 6.86492 12.4943 7.08594 12.4943C7.30695 12.4943 7.51891 12.4065 7.67519 12.2502C7.83147 12.0939 7.91927 11.882 7.91927 11.661C7.91927 11.44 7.83147 11.228 7.67519 11.0717C7.51891 10.9154 7.30695 10.8276 7.08594 10.8276ZM7.08594 7.91097C6.86492 7.91097 6.65296 7.99877 6.49668 8.15505C6.3404 8.31133 6.2526 8.52329 6.2526 8.7443C6.2526 8.96532 6.3404 9.17728 6.49668 9.33356C6.65296 9.48984 6.86492 9.57764 7.08594 9.57764C7.30695 9.57764 7.51891 9.48984 7.67519 9.33356C7.83147 9.17728 7.91927 8.96532 7.91927 8.7443C7.91927 8.52329 7.83147 8.31133 7.67519 8.15505C7.51891 7.99877 7.30695 7.91097 7.08594 7.91097ZM10.0026 4.9943C9.78159 4.9943 9.56963 5.0821 9.41335 5.23838C9.25707 5.39466 9.16927 5.60662 9.16927 5.82764C9.16927 6.04865 9.25707 6.26061 9.41335 6.41689C9.56963 6.57317 9.78159 6.66097 10.0026 6.66097C10.2236 6.66097 10.4356 6.57317 10.5919 6.41689C10.7481 6.26061 10.8359 6.04865 10.8359 5.82764C10.8359 5.60662 10.7481 5.39466 10.5919 5.23838C10.4356 5.0821 10.2236 4.9943 10.0026 4.9943ZM10.0026 10.8276C9.78159 10.8276 9.56963 10.9154 9.41335 11.0717C9.25707 11.228 9.16927 11.44 9.16927 11.661C9.16927 11.882 9.25707 12.0939 9.41335 12.2502C9.56963 12.4065 9.78159 12.4943 10.0026 12.4943C10.2236 12.4943 10.4356 12.4065 10.5919 12.2502C10.7481 12.0939 10.8359 11.882 10.8359 11.661C10.8359 11.44 10.7481 11.228 10.5919 11.0717C10.4356 10.9154 10.2236 10.8276 10.0026 10.8276ZM12.9193 10.8276C12.6983 10.8276 12.4863 10.9154 12.33 11.0717C12.1737 11.228 12.0859 11.44 12.0859 11.661C12.0859 11.882 12.1737 12.0939 12.33 12.2502C12.4863 12.4065 12.6983 12.4943 12.9193 12.4943C13.1403 12.4943 13.3522 12.4065 13.5085 12.2502C13.6648 12.0939 13.7526 11.882 13.7526 11.661C13.7526 11.44 13.6648 11.228 13.5085 11.0717C13.3522 10.9154 13.1403 10.8276 12.9193 10.8276ZM10.0026 7.91097C9.78159 7.91097 9.56963 7.99877 9.41335 8.15505C9.25707 8.31133 9.16927 8.52329 9.16927 8.7443C9.16927 8.96532 9.25707 9.17728 9.41335 9.33356C9.56963 9.48984 9.78159 9.57764 10.0026 9.57764C10.2236 9.57764 10.4356 9.48984 10.5919 9.33356C10.7481 9.17728 10.8359 8.96532 10.8359 8.7443C10.8359 8.52329 10.7481 8.31133 10.5919 8.15505C10.4356 7.99877 10.2236 7.91097 10.0026 7.91097Z" fill="#F5AA1C"/>
-                                </svg>                                                                    
-                              </div>
-                              <h5>National University</h5>
-                            </div>
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M9.99554 2.01709C11.8426 2.01709 13.614 2.75083 14.92 4.05688C16.2261 5.36294 16.9598 7.13433 16.9598 8.98138C16.9598 11.9242 14.892 15.1314 10.8098 18.6371C10.5828 18.8321 10.2934 18.9392 9.9942 18.9389C9.69496 18.9387 9.40575 18.8311 9.17911 18.6357L8.90911 18.4014C5.00768 14.9871 3.03125 11.8585 3.03125 8.98138C3.03125 7.13433 3.76499 5.36294 5.07104 4.05688C6.3771 2.75083 8.14849 2.01709 9.99554 2.01709ZM9.99554 3.08852C8.43265 3.08852 6.93378 3.70937 5.82866 4.8145C4.72353 5.91962 4.10268 7.41849 4.10268 8.98138C4.10268 11.4828 5.92268 14.3649 9.61268 17.5935L9.87911 17.8242C9.9115 17.8521 9.95281 17.8674 9.99554 17.8674C10.0383 17.8674 10.0796 17.8521 10.112 17.8242C13.9805 14.5014 15.8884 11.5421 15.8884 8.98138C15.8884 8.20752 15.736 7.44123 15.4398 6.72628C15.1437 6.01132 14.7096 5.3617 14.1624 4.8145C13.6152 4.26729 12.9656 3.83323 12.2506 3.53709C11.5357 3.24094 10.7694 3.08852 9.99554 3.08852ZM9.99554 6.3028C10.7059 6.3028 11.3872 6.58501 11.8896 7.08734C12.3919 7.58967 12.6741 8.27098 12.6741 8.98138C12.6741 9.69178 12.3919 10.3731 11.8896 10.8754C11.3872 11.3777 10.7059 11.6599 9.99554 11.6599C9.28514 11.6599 8.60383 11.3777 8.1015 10.8754C7.59917 10.3731 7.31697 9.69178 7.31697 8.98138C7.31697 8.27098 7.59917 7.58967 8.1015 7.08734C8.60383 6.58501 9.28514 6.3028 9.99554 6.3028ZM9.99554 7.37423C9.5693 7.37423 9.16051 7.54356 8.85912 7.84495C8.55772 8.14635 8.38839 8.55514 8.38839 8.98138C8.38839 9.40762 8.55772 9.8164 8.85912 10.1178C9.16051 10.4192 9.5693 10.5885 9.99554 10.5885C10.4218 10.5885 10.8306 10.4192 11.132 10.1178C11.4334 9.8164 11.6027 9.40762 11.6027 8.98138C11.6027 8.55514 11.4334 8.14635 11.132 7.84495C10.8306 7.54356 10.4218 7.37423 9.99554 7.37423Z" fill="#F5AA1C"/>
-                                </svg>                                                                    
-                              </div>
-                              <h5>United States</h5>
-                            </div>
-                          </div>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Egestas purus viverra accumsan
+                            in nisl nisi. Arcu cursus vitae congue mauris
+                            rhoncus.Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit, sed do eiusmod.
+                          </p>
                         </div>
                       </div>
                     </div>
-
-                    <div class="our-members-card">
-                      <img src="./images/Avatar 1.png" class="member-card-img" alt="User Image">
-
-                      <div class="member-card-content">
-                        <div class="member-card">
-                          <h4 class="member-card-name">James dunn</h4>
-
-                          <div class="member-card-items">
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <g clip-path="url(#clip0_418_130)">
-                                  <path d="M15.4492 10.812C15.7161 11.2808 15.9147 11.769 16.0449 12.2769C16.1751 12.7847 16.2435 13.3088 16.25 13.8491V14.855L10 17.9897L3.75 14.855C3.75 14.4644 3.75326 14.0998 3.75977 13.7612C3.76628 13.4227 3.79557 13.0939 3.84766 12.7749C3.89974 12.4559 3.97786 12.1369 4.08203 11.8179C4.1862 11.4989 4.34245 11.1636 4.55078 10.812L2.5 9.78662V15.519C2.6888 15.5841 2.85807 15.6753 3.00781 15.7925C3.15755 15.9097 3.29102 16.0464 3.4082 16.2026C3.52539 16.3589 3.61003 16.5282 3.66211 16.7104C3.71419 16.8927 3.74349 17.0848 3.75 17.2866V20.4116H0V17.2866C0 17.0913 0.0292969 16.9025 0.0878906 16.7202C0.146484 16.5379 0.23112 16.3654 0.341797 16.2026C0.452474 16.0399 0.582682 15.9032 0.732422 15.7925C0.882161 15.6818 1.05469 15.5907 1.25 15.519V9.16162L0 8.53662L10 3.53662L20 8.53662L15.4492 10.812ZM2.5 17.2866C2.5 17.1174 2.43815 16.9709 2.31445 16.8472C2.19076 16.7235 2.04427 16.6616 1.875 16.6616C1.70573 16.6616 1.55924 16.7235 1.43555 16.8472C1.31185 16.9709 1.25 17.1174 1.25 17.2866V19.1616H2.5V17.2866ZM2.79297 8.53662L10 12.1401L17.207 8.53662L10 4.93311L2.79297 8.53662ZM15 14.0835C15 13.5822 14.9512 13.1167 14.8535 12.687C14.7559 12.2573 14.5833 11.8179 14.3359 11.3687L10 13.5366L5.66406 11.3687C5.44922 11.7463 5.28646 12.1434 5.17578 12.5601C5.0651 12.9767 5.00651 13.4064 5 13.8491V14.0835L10 16.5835L15 14.0835Z" fill="#F5AA1C"/>
-                                  </g>
-                                  <defs>
-                                  <clipPath id="clip0_418_130">
-                                  <rect width="20" height="20" fill="white" transform="translate(0 0.411621)"/>
-                                  </clipPath>
-                                  </defs>
-                                </svg>                                  
-                              </div>
-                              <h5>P.H.D</h5>
-                            </div>
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M5.21094 3.32764C5.04518 3.32764 4.88621 3.39348 4.769 3.51069C4.65179 3.6279 4.58594 3.78688 4.58594 3.95264V17.4943H6.2526V15.2026C6.2526 14.6276 6.71927 14.161 7.29427 14.161H12.7109C13.2859 14.161 13.7526 14.6276 13.7526 15.2026V17.4943H15.4193V10.2026C15.4193 10.0369 15.3534 9.8779 15.2362 9.76069C15.119 9.64348 14.96 9.57764 14.7943 9.57764H13.1276C12.9618 9.57764 12.8029 9.51179 12.6857 9.39458C12.5685 9.27737 12.5026 9.1184 12.5026 8.95264V3.95264C12.5026 3.78688 12.4368 3.6279 12.3195 3.51069C12.2023 3.39348 12.0434 3.32764 11.8776 3.32764H5.21094ZM7.5026 15.411V17.4943H9.3776V15.411H7.5026ZM10.6276 15.411V17.4943H12.5026V15.411H10.6276ZM16.0443 18.7443H3.96094C3.79518 18.7443 3.63621 18.6785 3.519 18.5612C3.40179 18.444 3.33594 18.2851 3.33594 18.1193V3.95264C3.33594 3.45536 3.53348 2.97844 3.88511 2.62681C4.23674 2.27518 4.71366 2.07764 5.21094 2.07764H11.8776C12.3749 2.07764 12.8518 2.27518 13.2034 2.62681C13.5551 2.97844 13.7526 3.45536 13.7526 3.95264V8.32764H14.7943C15.0405 8.32764 15.2843 8.37613 15.5118 8.47036C15.7393 8.56459 15.946 8.7027 16.1201 8.87681C16.2942 9.05092 16.4323 9.25762 16.5265 9.4851C16.6208 9.71259 16.6693 9.95641 16.6693 10.2026V18.1193C16.6693 18.2851 16.6034 18.444 16.4862 18.5612C16.369 18.6785 16.21 18.7443 16.0443 18.7443ZM6.2526 5.82764C6.2526 5.60662 6.3404 5.39466 6.49668 5.23838C6.65296 5.0821 6.86492 4.9943 7.08594 4.9943C7.30695 4.9943 7.51891 5.0821 7.67519 5.23838C7.83147 5.39466 7.91927 5.60662 7.91927 5.82764C7.91927 6.04865 7.83147 6.26061 7.67519 6.41689C7.51891 6.57317 7.30695 6.66097 7.08594 6.66097C6.86492 6.66097 6.65296 6.57317 6.49668 6.41689C6.3404 6.26061 6.2526 6.04865 6.2526 5.82764ZM7.08594 10.8276C6.86492 10.8276 6.65296 10.9154 6.49668 11.0717C6.3404 11.228 6.2526 11.44 6.2526 11.661C6.2526 11.882 6.3404 12.0939 6.49668 12.2502C6.65296 12.4065 6.86492 12.4943 7.08594 12.4943C7.30695 12.4943 7.51891 12.4065 7.67519 12.2502C7.83147 12.0939 7.91927 11.882 7.91927 11.661C7.91927 11.44 7.83147 11.228 7.67519 11.0717C7.51891 10.9154 7.30695 10.8276 7.08594 10.8276ZM7.08594 7.91097C6.86492 7.91097 6.65296 7.99877 6.49668 8.15505C6.3404 8.31133 6.2526 8.52329 6.2526 8.7443C6.2526 8.96532 6.3404 9.17728 6.49668 9.33356C6.65296 9.48984 6.86492 9.57764 7.08594 9.57764C7.30695 9.57764 7.51891 9.48984 7.67519 9.33356C7.83147 9.17728 7.91927 8.96532 7.91927 8.7443C7.91927 8.52329 7.83147 8.31133 7.67519 8.15505C7.51891 7.99877 7.30695 7.91097 7.08594 7.91097ZM10.0026 4.9943C9.78159 4.9943 9.56963 5.0821 9.41335 5.23838C9.25707 5.39466 9.16927 5.60662 9.16927 5.82764C9.16927 6.04865 9.25707 6.26061 9.41335 6.41689C9.56963 6.57317 9.78159 6.66097 10.0026 6.66097C10.2236 6.66097 10.4356 6.57317 10.5919 6.41689C10.7481 6.26061 10.8359 6.04865 10.8359 5.82764C10.8359 5.60662 10.7481 5.39466 10.5919 5.23838C10.4356 5.0821 10.2236 4.9943 10.0026 4.9943ZM10.0026 10.8276C9.78159 10.8276 9.56963 10.9154 9.41335 11.0717C9.25707 11.228 9.16927 11.44 9.16927 11.661C9.16927 11.882 9.25707 12.0939 9.41335 12.2502C9.56963 12.4065 9.78159 12.4943 10.0026 12.4943C10.2236 12.4943 10.4356 12.4065 10.5919 12.2502C10.7481 12.0939 10.8359 11.882 10.8359 11.661C10.8359 11.44 10.7481 11.228 10.5919 11.0717C10.4356 10.9154 10.2236 10.8276 10.0026 10.8276ZM12.9193 10.8276C12.6983 10.8276 12.4863 10.9154 12.33 11.0717C12.1737 11.228 12.0859 11.44 12.0859 11.661C12.0859 11.882 12.1737 12.0939 12.33 12.2502C12.4863 12.4065 12.6983 12.4943 12.9193 12.4943C13.1403 12.4943 13.3522 12.4065 13.5085 12.2502C13.6648 12.0939 13.7526 11.882 13.7526 11.661C13.7526 11.44 13.6648 11.228 13.5085 11.0717C13.3522 10.9154 13.1403 10.8276 12.9193 10.8276ZM10.0026 7.91097C9.78159 7.91097 9.56963 7.99877 9.41335 8.15505C9.25707 8.31133 9.16927 8.52329 9.16927 8.7443C9.16927 8.96532 9.25707 9.17728 9.41335 9.33356C9.56963 9.48984 9.78159 9.57764 10.0026 9.57764C10.2236 9.57764 10.4356 9.48984 10.5919 9.33356C10.7481 9.17728 10.8359 8.96532 10.8359 8.7443C10.8359 8.52329 10.7481 8.31133 10.5919 8.15505C10.4356 7.99877 10.2236 7.91097 10.0026 7.91097Z" fill="#F5AA1C"/>
-                                </svg>                                                                    
-                              </div>
-                              <h5>National University</h5>
-                            </div>
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M9.99554 2.01709C11.8426 2.01709 13.614 2.75083 14.92 4.05688C16.2261 5.36294 16.9598 7.13433 16.9598 8.98138C16.9598 11.9242 14.892 15.1314 10.8098 18.6371C10.5828 18.8321 10.2934 18.9392 9.9942 18.9389C9.69496 18.9387 9.40575 18.8311 9.17911 18.6357L8.90911 18.4014C5.00768 14.9871 3.03125 11.8585 3.03125 8.98138C3.03125 7.13433 3.76499 5.36294 5.07104 4.05688C6.3771 2.75083 8.14849 2.01709 9.99554 2.01709ZM9.99554 3.08852C8.43265 3.08852 6.93378 3.70937 5.82866 4.8145C4.72353 5.91962 4.10268 7.41849 4.10268 8.98138C4.10268 11.4828 5.92268 14.3649 9.61268 17.5935L9.87911 17.8242C9.9115 17.8521 9.95281 17.8674 9.99554 17.8674C10.0383 17.8674 10.0796 17.8521 10.112 17.8242C13.9805 14.5014 15.8884 11.5421 15.8884 8.98138C15.8884 8.20752 15.736 7.44123 15.4398 6.72628C15.1437 6.01132 14.7096 5.3617 14.1624 4.8145C13.6152 4.26729 12.9656 3.83323 12.2506 3.53709C11.5357 3.24094 10.7694 3.08852 9.99554 3.08852ZM9.99554 6.3028C10.7059 6.3028 11.3872 6.58501 11.8896 7.08734C12.3919 7.58967 12.6741 8.27098 12.6741 8.98138C12.6741 9.69178 12.3919 10.3731 11.8896 10.8754C11.3872 11.3777 10.7059 11.6599 9.99554 11.6599C9.28514 11.6599 8.60383 11.3777 8.1015 10.8754C7.59917 10.3731 7.31697 9.69178 7.31697 8.98138C7.31697 8.27098 7.59917 7.58967 8.1015 7.08734C8.60383 6.58501 9.28514 6.3028 9.99554 6.3028ZM9.99554 7.37423C9.5693 7.37423 9.16051 7.54356 8.85912 7.84495C8.55772 8.14635 8.38839 8.55514 8.38839 8.98138C8.38839 9.40762 8.55772 9.8164 8.85912 10.1178C9.16051 10.4192 9.5693 10.5885 9.99554 10.5885C10.4218 10.5885 10.8306 10.4192 11.132 10.1178C11.4334 9.8164 11.6027 9.40762 11.6027 8.98138C11.6027 8.55514 11.4334 8.14635 11.132 7.84495C10.8306 7.54356 10.4218 7.37423 9.99554 7.37423Z" fill="#F5AA1C"/>
-                                </svg>                                                                    
-                              </div>
-                              <h5>United States</h5>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="our-members-card">
-                      <img src="./images/Avatar 1.png" class="member-card-img" alt="User Image">
-
-                      <div class="member-card-content">
-                        <div class="member-card">
-                          <h4 class="member-card-name">James dunn</h4>
-
-                          <div class="member-card-items">
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <g clip-path="url(#clip0_418_130)">
-                                  <path d="M15.4492 10.812C15.7161 11.2808 15.9147 11.769 16.0449 12.2769C16.1751 12.7847 16.2435 13.3088 16.25 13.8491V14.855L10 17.9897L3.75 14.855C3.75 14.4644 3.75326 14.0998 3.75977 13.7612C3.76628 13.4227 3.79557 13.0939 3.84766 12.7749C3.89974 12.4559 3.97786 12.1369 4.08203 11.8179C4.1862 11.4989 4.34245 11.1636 4.55078 10.812L2.5 9.78662V15.519C2.6888 15.5841 2.85807 15.6753 3.00781 15.7925C3.15755 15.9097 3.29102 16.0464 3.4082 16.2026C3.52539 16.3589 3.61003 16.5282 3.66211 16.7104C3.71419 16.8927 3.74349 17.0848 3.75 17.2866V20.4116H0V17.2866C0 17.0913 0.0292969 16.9025 0.0878906 16.7202C0.146484 16.5379 0.23112 16.3654 0.341797 16.2026C0.452474 16.0399 0.582682 15.9032 0.732422 15.7925C0.882161 15.6818 1.05469 15.5907 1.25 15.519V9.16162L0 8.53662L10 3.53662L20 8.53662L15.4492 10.812ZM2.5 17.2866C2.5 17.1174 2.43815 16.9709 2.31445 16.8472C2.19076 16.7235 2.04427 16.6616 1.875 16.6616C1.70573 16.6616 1.55924 16.7235 1.43555 16.8472C1.31185 16.9709 1.25 17.1174 1.25 17.2866V19.1616H2.5V17.2866ZM2.79297 8.53662L10 12.1401L17.207 8.53662L10 4.93311L2.79297 8.53662ZM15 14.0835C15 13.5822 14.9512 13.1167 14.8535 12.687C14.7559 12.2573 14.5833 11.8179 14.3359 11.3687L10 13.5366L5.66406 11.3687C5.44922 11.7463 5.28646 12.1434 5.17578 12.5601C5.0651 12.9767 5.00651 13.4064 5 13.8491V14.0835L10 16.5835L15 14.0835Z" fill="#F5AA1C"/>
-                                  </g>
-                                  <defs>
-                                  <clipPath id="clip0_418_130">
-                                  <rect width="20" height="20" fill="white" transform="translate(0 0.411621)"/>
-                                  </clipPath>
-                                  </defs>
-                                </svg>                                  
-                              </div>
-                              <h5>P.H.D</h5>
-                            </div>
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M5.21094 3.32764C5.04518 3.32764 4.88621 3.39348 4.769 3.51069C4.65179 3.6279 4.58594 3.78688 4.58594 3.95264V17.4943H6.2526V15.2026C6.2526 14.6276 6.71927 14.161 7.29427 14.161H12.7109C13.2859 14.161 13.7526 14.6276 13.7526 15.2026V17.4943H15.4193V10.2026C15.4193 10.0369 15.3534 9.8779 15.2362 9.76069C15.119 9.64348 14.96 9.57764 14.7943 9.57764H13.1276C12.9618 9.57764 12.8029 9.51179 12.6857 9.39458C12.5685 9.27737 12.5026 9.1184 12.5026 8.95264V3.95264C12.5026 3.78688 12.4368 3.6279 12.3195 3.51069C12.2023 3.39348 12.0434 3.32764 11.8776 3.32764H5.21094ZM7.5026 15.411V17.4943H9.3776V15.411H7.5026ZM10.6276 15.411V17.4943H12.5026V15.411H10.6276ZM16.0443 18.7443H3.96094C3.79518 18.7443 3.63621 18.6785 3.519 18.5612C3.40179 18.444 3.33594 18.2851 3.33594 18.1193V3.95264C3.33594 3.45536 3.53348 2.97844 3.88511 2.62681C4.23674 2.27518 4.71366 2.07764 5.21094 2.07764H11.8776C12.3749 2.07764 12.8518 2.27518 13.2034 2.62681C13.5551 2.97844 13.7526 3.45536 13.7526 3.95264V8.32764H14.7943C15.0405 8.32764 15.2843 8.37613 15.5118 8.47036C15.7393 8.56459 15.946 8.7027 16.1201 8.87681C16.2942 9.05092 16.4323 9.25762 16.5265 9.4851C16.6208 9.71259 16.6693 9.95641 16.6693 10.2026V18.1193C16.6693 18.2851 16.6034 18.444 16.4862 18.5612C16.369 18.6785 16.21 18.7443 16.0443 18.7443ZM6.2526 5.82764C6.2526 5.60662 6.3404 5.39466 6.49668 5.23838C6.65296 5.0821 6.86492 4.9943 7.08594 4.9943C7.30695 4.9943 7.51891 5.0821 7.67519 5.23838C7.83147 5.39466 7.91927 5.60662 7.91927 5.82764C7.91927 6.04865 7.83147 6.26061 7.67519 6.41689C7.51891 6.57317 7.30695 6.66097 7.08594 6.66097C6.86492 6.66097 6.65296 6.57317 6.49668 6.41689C6.3404 6.26061 6.2526 6.04865 6.2526 5.82764ZM7.08594 10.8276C6.86492 10.8276 6.65296 10.9154 6.49668 11.0717C6.3404 11.228 6.2526 11.44 6.2526 11.661C6.2526 11.882 6.3404 12.0939 6.49668 12.2502C6.65296 12.4065 6.86492 12.4943 7.08594 12.4943C7.30695 12.4943 7.51891 12.4065 7.67519 12.2502C7.83147 12.0939 7.91927 11.882 7.91927 11.661C7.91927 11.44 7.83147 11.228 7.67519 11.0717C7.51891 10.9154 7.30695 10.8276 7.08594 10.8276ZM7.08594 7.91097C6.86492 7.91097 6.65296 7.99877 6.49668 8.15505C6.3404 8.31133 6.2526 8.52329 6.2526 8.7443C6.2526 8.96532 6.3404 9.17728 6.49668 9.33356C6.65296 9.48984 6.86492 9.57764 7.08594 9.57764C7.30695 9.57764 7.51891 9.48984 7.67519 9.33356C7.83147 9.17728 7.91927 8.96532 7.91927 8.7443C7.91927 8.52329 7.83147 8.31133 7.67519 8.15505C7.51891 7.99877 7.30695 7.91097 7.08594 7.91097ZM10.0026 4.9943C9.78159 4.9943 9.56963 5.0821 9.41335 5.23838C9.25707 5.39466 9.16927 5.60662 9.16927 5.82764C9.16927 6.04865 9.25707 6.26061 9.41335 6.41689C9.56963 6.57317 9.78159 6.66097 10.0026 6.66097C10.2236 6.66097 10.4356 6.57317 10.5919 6.41689C10.7481 6.26061 10.8359 6.04865 10.8359 5.82764C10.8359 5.60662 10.7481 5.39466 10.5919 5.23838C10.4356 5.0821 10.2236 4.9943 10.0026 4.9943ZM10.0026 10.8276C9.78159 10.8276 9.56963 10.9154 9.41335 11.0717C9.25707 11.228 9.16927 11.44 9.16927 11.661C9.16927 11.882 9.25707 12.0939 9.41335 12.2502C9.56963 12.4065 9.78159 12.4943 10.0026 12.4943C10.2236 12.4943 10.4356 12.4065 10.5919 12.2502C10.7481 12.0939 10.8359 11.882 10.8359 11.661C10.8359 11.44 10.7481 11.228 10.5919 11.0717C10.4356 10.9154 10.2236 10.8276 10.0026 10.8276ZM12.9193 10.8276C12.6983 10.8276 12.4863 10.9154 12.33 11.0717C12.1737 11.228 12.0859 11.44 12.0859 11.661C12.0859 11.882 12.1737 12.0939 12.33 12.2502C12.4863 12.4065 12.6983 12.4943 12.9193 12.4943C13.1403 12.4943 13.3522 12.4065 13.5085 12.2502C13.6648 12.0939 13.7526 11.882 13.7526 11.661C13.7526 11.44 13.6648 11.228 13.5085 11.0717C13.3522 10.9154 13.1403 10.8276 12.9193 10.8276ZM10.0026 7.91097C9.78159 7.91097 9.56963 7.99877 9.41335 8.15505C9.25707 8.31133 9.16927 8.52329 9.16927 8.7443C9.16927 8.96532 9.25707 9.17728 9.41335 9.33356C9.56963 9.48984 9.78159 9.57764 10.0026 9.57764C10.2236 9.57764 10.4356 9.48984 10.5919 9.33356C10.7481 9.17728 10.8359 8.96532 10.8359 8.7443C10.8359 8.52329 10.7481 8.31133 10.5919 8.15505C10.4356 7.99877 10.2236 7.91097 10.0026 7.91097Z" fill="#F5AA1C"/>
-                                </svg>                                                                    
-                              </div>
-                              <h5>National University</h5>
-                            </div>
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M9.99554 2.01709C11.8426 2.01709 13.614 2.75083 14.92 4.05688C16.2261 5.36294 16.9598 7.13433 16.9598 8.98138C16.9598 11.9242 14.892 15.1314 10.8098 18.6371C10.5828 18.8321 10.2934 18.9392 9.9942 18.9389C9.69496 18.9387 9.40575 18.8311 9.17911 18.6357L8.90911 18.4014C5.00768 14.9871 3.03125 11.8585 3.03125 8.98138C3.03125 7.13433 3.76499 5.36294 5.07104 4.05688C6.3771 2.75083 8.14849 2.01709 9.99554 2.01709ZM9.99554 3.08852C8.43265 3.08852 6.93378 3.70937 5.82866 4.8145C4.72353 5.91962 4.10268 7.41849 4.10268 8.98138C4.10268 11.4828 5.92268 14.3649 9.61268 17.5935L9.87911 17.8242C9.9115 17.8521 9.95281 17.8674 9.99554 17.8674C10.0383 17.8674 10.0796 17.8521 10.112 17.8242C13.9805 14.5014 15.8884 11.5421 15.8884 8.98138C15.8884 8.20752 15.736 7.44123 15.4398 6.72628C15.1437 6.01132 14.7096 5.3617 14.1624 4.8145C13.6152 4.26729 12.9656 3.83323 12.2506 3.53709C11.5357 3.24094 10.7694 3.08852 9.99554 3.08852ZM9.99554 6.3028C10.7059 6.3028 11.3872 6.58501 11.8896 7.08734C12.3919 7.58967 12.6741 8.27098 12.6741 8.98138C12.6741 9.69178 12.3919 10.3731 11.8896 10.8754C11.3872 11.3777 10.7059 11.6599 9.99554 11.6599C9.28514 11.6599 8.60383 11.3777 8.1015 10.8754C7.59917 10.3731 7.31697 9.69178 7.31697 8.98138C7.31697 8.27098 7.59917 7.58967 8.1015 7.08734C8.60383 6.58501 9.28514 6.3028 9.99554 6.3028ZM9.99554 7.37423C9.5693 7.37423 9.16051 7.54356 8.85912 7.84495C8.55772 8.14635 8.38839 8.55514 8.38839 8.98138C8.38839 9.40762 8.55772 9.8164 8.85912 10.1178C9.16051 10.4192 9.5693 10.5885 9.99554 10.5885C10.4218 10.5885 10.8306 10.4192 11.132 10.1178C11.4334 9.8164 11.6027 9.40762 11.6027 8.98138C11.6027 8.55514 11.4334 8.14635 11.132 7.84495C10.8306 7.54356 10.4218 7.37423 9.99554 7.37423Z" fill="#F5AA1C"/>
-                                </svg>                                                                    
-                              </div>
-                              <h5>United States</h5>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="our-members-card">
-                      <img src="./images/Avatar 2.png" class="member-card-img" alt="User Image">
-
-                      <div class="member-card-content">
-                        <div class="member-card">
-                          <h4 class="member-card-name">Roxie Swanson</h4>
-
-                          <div class="member-card-items">
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <g clip-path="url(#clip0_418_130)">
-                                  <path d="M15.4492 10.812C15.7161 11.2808 15.9147 11.769 16.0449 12.2769C16.1751 12.7847 16.2435 13.3088 16.25 13.8491V14.855L10 17.9897L3.75 14.855C3.75 14.4644 3.75326 14.0998 3.75977 13.7612C3.76628 13.4227 3.79557 13.0939 3.84766 12.7749C3.89974 12.4559 3.97786 12.1369 4.08203 11.8179C4.1862 11.4989 4.34245 11.1636 4.55078 10.812L2.5 9.78662V15.519C2.6888 15.5841 2.85807 15.6753 3.00781 15.7925C3.15755 15.9097 3.29102 16.0464 3.4082 16.2026C3.52539 16.3589 3.61003 16.5282 3.66211 16.7104C3.71419 16.8927 3.74349 17.0848 3.75 17.2866V20.4116H0V17.2866C0 17.0913 0.0292969 16.9025 0.0878906 16.7202C0.146484 16.5379 0.23112 16.3654 0.341797 16.2026C0.452474 16.0399 0.582682 15.9032 0.732422 15.7925C0.882161 15.6818 1.05469 15.5907 1.25 15.519V9.16162L0 8.53662L10 3.53662L20 8.53662L15.4492 10.812ZM2.5 17.2866C2.5 17.1174 2.43815 16.9709 2.31445 16.8472C2.19076 16.7235 2.04427 16.6616 1.875 16.6616C1.70573 16.6616 1.55924 16.7235 1.43555 16.8472C1.31185 16.9709 1.25 17.1174 1.25 17.2866V19.1616H2.5V17.2866ZM2.79297 8.53662L10 12.1401L17.207 8.53662L10 4.93311L2.79297 8.53662ZM15 14.0835C15 13.5822 14.9512 13.1167 14.8535 12.687C14.7559 12.2573 14.5833 11.8179 14.3359 11.3687L10 13.5366L5.66406 11.3687C5.44922 11.7463 5.28646 12.1434 5.17578 12.5601C5.0651 12.9767 5.00651 13.4064 5 13.8491V14.0835L10 16.5835L15 14.0835Z" fill="#F5AA1C"/>
-                                  </g>
-                                  <defs>
-                                  <clipPath id="clip0_418_130">
-                                  <rect width="20" height="20" fill="white" transform="translate(0 0.411621)"/>
-                                  </clipPath>
-                                  </defs>
-                                </svg>                                  
-                              </div>
-                              <h5>Bachelor's degree</h5>
-                            </div>
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M5.21094 3.32764C5.04518 3.32764 4.88621 3.39348 4.769 3.51069C4.65179 3.6279 4.58594 3.78688 4.58594 3.95264V17.4943H6.2526V15.2026C6.2526 14.6276 6.71927 14.161 7.29427 14.161H12.7109C13.2859 14.161 13.7526 14.6276 13.7526 15.2026V17.4943H15.4193V10.2026C15.4193 10.0369 15.3534 9.8779 15.2362 9.76069C15.119 9.64348 14.96 9.57764 14.7943 9.57764H13.1276C12.9618 9.57764 12.8029 9.51179 12.6857 9.39458C12.5685 9.27737 12.5026 9.1184 12.5026 8.95264V3.95264C12.5026 3.78688 12.4368 3.6279 12.3195 3.51069C12.2023 3.39348 12.0434 3.32764 11.8776 3.32764H5.21094ZM7.5026 15.411V17.4943H9.3776V15.411H7.5026ZM10.6276 15.411V17.4943H12.5026V15.411H10.6276ZM16.0443 18.7443H3.96094C3.79518 18.7443 3.63621 18.6785 3.519 18.5612C3.40179 18.444 3.33594 18.2851 3.33594 18.1193V3.95264C3.33594 3.45536 3.53348 2.97844 3.88511 2.62681C4.23674 2.27518 4.71366 2.07764 5.21094 2.07764H11.8776C12.3749 2.07764 12.8518 2.27518 13.2034 2.62681C13.5551 2.97844 13.7526 3.45536 13.7526 3.95264V8.32764H14.7943C15.0405 8.32764 15.2843 8.37613 15.5118 8.47036C15.7393 8.56459 15.946 8.7027 16.1201 8.87681C16.2942 9.05092 16.4323 9.25762 16.5265 9.4851C16.6208 9.71259 16.6693 9.95641 16.6693 10.2026V18.1193C16.6693 18.2851 16.6034 18.444 16.4862 18.5612C16.369 18.6785 16.21 18.7443 16.0443 18.7443ZM6.2526 5.82764C6.2526 5.60662 6.3404 5.39466 6.49668 5.23838C6.65296 5.0821 6.86492 4.9943 7.08594 4.9943C7.30695 4.9943 7.51891 5.0821 7.67519 5.23838C7.83147 5.39466 7.91927 5.60662 7.91927 5.82764C7.91927 6.04865 7.83147 6.26061 7.67519 6.41689C7.51891 6.57317 7.30695 6.66097 7.08594 6.66097C6.86492 6.66097 6.65296 6.57317 6.49668 6.41689C6.3404 6.26061 6.2526 6.04865 6.2526 5.82764ZM7.08594 10.8276C6.86492 10.8276 6.65296 10.9154 6.49668 11.0717C6.3404 11.228 6.2526 11.44 6.2526 11.661C6.2526 11.882 6.3404 12.0939 6.49668 12.2502C6.65296 12.4065 6.86492 12.4943 7.08594 12.4943C7.30695 12.4943 7.51891 12.4065 7.67519 12.2502C7.83147 12.0939 7.91927 11.882 7.91927 11.661C7.91927 11.44 7.83147 11.228 7.67519 11.0717C7.51891 10.9154 7.30695 10.8276 7.08594 10.8276ZM7.08594 7.91097C6.86492 7.91097 6.65296 7.99877 6.49668 8.15505C6.3404 8.31133 6.2526 8.52329 6.2526 8.7443C6.2526 8.96532 6.3404 9.17728 6.49668 9.33356C6.65296 9.48984 6.86492 9.57764 7.08594 9.57764C7.30695 9.57764 7.51891 9.48984 7.67519 9.33356C7.83147 9.17728 7.91927 8.96532 7.91927 8.7443C7.91927 8.52329 7.83147 8.31133 7.67519 8.15505C7.51891 7.99877 7.30695 7.91097 7.08594 7.91097ZM10.0026 4.9943C9.78159 4.9943 9.56963 5.0821 9.41335 5.23838C9.25707 5.39466 9.16927 5.60662 9.16927 5.82764C9.16927 6.04865 9.25707 6.26061 9.41335 6.41689C9.56963 6.57317 9.78159 6.66097 10.0026 6.66097C10.2236 6.66097 10.4356 6.57317 10.5919 6.41689C10.7481 6.26061 10.8359 6.04865 10.8359 5.82764C10.8359 5.60662 10.7481 5.39466 10.5919 5.23838C10.4356 5.0821 10.2236 4.9943 10.0026 4.9943ZM10.0026 10.8276C9.78159 10.8276 9.56963 10.9154 9.41335 11.0717C9.25707 11.228 9.16927 11.44 9.16927 11.661C9.16927 11.882 9.25707 12.0939 9.41335 12.2502C9.56963 12.4065 9.78159 12.4943 10.0026 12.4943C10.2236 12.4943 10.4356 12.4065 10.5919 12.2502C10.7481 12.0939 10.8359 11.882 10.8359 11.661C10.8359 11.44 10.7481 11.228 10.5919 11.0717C10.4356 10.9154 10.2236 10.8276 10.0026 10.8276ZM12.9193 10.8276C12.6983 10.8276 12.4863 10.9154 12.33 11.0717C12.1737 11.228 12.0859 11.44 12.0859 11.661C12.0859 11.882 12.1737 12.0939 12.33 12.2502C12.4863 12.4065 12.6983 12.4943 12.9193 12.4943C13.1403 12.4943 13.3522 12.4065 13.5085 12.2502C13.6648 12.0939 13.7526 11.882 13.7526 11.661C13.7526 11.44 13.6648 11.228 13.5085 11.0717C13.3522 10.9154 13.1403 10.8276 12.9193 10.8276ZM10.0026 7.91097C9.78159 7.91097 9.56963 7.99877 9.41335 8.15505C9.25707 8.31133 9.16927 8.52329 9.16927 8.7443C9.16927 8.96532 9.25707 9.17728 9.41335 9.33356C9.56963 9.48984 9.78159 9.57764 10.0026 9.57764C10.2236 9.57764 10.4356 9.48984 10.5919 9.33356C10.7481 9.17728 10.8359 8.96532 10.8359 8.7443C10.8359 8.52329 10.7481 8.31133 10.5919 8.15505C10.4356 7.99877 10.2236 7.91097 10.0026 7.91097Z" fill="#F5AA1C"/>
-                                </svg>                                                                    
-                              </div>
-                              <h5>Adams State College</h5>
-                            </div>
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M9.99554 2.01709C11.8426 2.01709 13.614 2.75083 14.92 4.05688C16.2261 5.36294 16.9598 7.13433 16.9598 8.98138C16.9598 11.9242 14.892 15.1314 10.8098 18.6371C10.5828 18.8321 10.2934 18.9392 9.9942 18.9389C9.69496 18.9387 9.40575 18.8311 9.17911 18.6357L8.90911 18.4014C5.00768 14.9871 3.03125 11.8585 3.03125 8.98138C3.03125 7.13433 3.76499 5.36294 5.07104 4.05688C6.3771 2.75083 8.14849 2.01709 9.99554 2.01709ZM9.99554 3.08852C8.43265 3.08852 6.93378 3.70937 5.82866 4.8145C4.72353 5.91962 4.10268 7.41849 4.10268 8.98138C4.10268 11.4828 5.92268 14.3649 9.61268 17.5935L9.87911 17.8242C9.9115 17.8521 9.95281 17.8674 9.99554 17.8674C10.0383 17.8674 10.0796 17.8521 10.112 17.8242C13.9805 14.5014 15.8884 11.5421 15.8884 8.98138C15.8884 8.20752 15.736 7.44123 15.4398 6.72628C15.1437 6.01132 14.7096 5.3617 14.1624 4.8145C13.6152 4.26729 12.9656 3.83323 12.2506 3.53709C11.5357 3.24094 10.7694 3.08852 9.99554 3.08852ZM9.99554 6.3028C10.7059 6.3028 11.3872 6.58501 11.8896 7.08734C12.3919 7.58967 12.6741 8.27098 12.6741 8.98138C12.6741 9.69178 12.3919 10.3731 11.8896 10.8754C11.3872 11.3777 10.7059 11.6599 9.99554 11.6599C9.28514 11.6599 8.60383 11.3777 8.1015 10.8754C7.59917 10.3731 7.31697 9.69178 7.31697 8.98138C7.31697 8.27098 7.59917 7.58967 8.1015 7.08734C8.60383 6.58501 9.28514 6.3028 9.99554 6.3028ZM9.99554 7.37423C9.5693 7.37423 9.16051 7.54356 8.85912 7.84495C8.55772 8.14635 8.38839 8.55514 8.38839 8.98138C8.38839 9.40762 8.55772 9.8164 8.85912 10.1178C9.16051 10.4192 9.5693 10.5885 9.99554 10.5885C10.4218 10.5885 10.8306 10.4192 11.132 10.1178C11.4334 9.8164 11.6027 9.40762 11.6027 8.98138C11.6027 8.55514 11.4334 8.14635 11.132 7.84495C10.8306 7.54356 10.4218 7.37423 9.99554 7.37423Z" fill="#F5AA1C"/>
-                                </svg>                                                                    
-                              </div>
-                              <h5>United States</h5>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="our-members-card">
-                      <img src="./images/Avatar 3.png" class="member-card-img" alt="User Image">
-
-                      <div class="member-card-content">
-                        <div class="member-card">
-                          <h4 class="member-card-name">Zahir Mays</h4>
-
-                          <div class="member-card-items">
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <g clip-path="url(#clip0_418_130)">
-                                  <path d="M15.4492 10.812C15.7161 11.2808 15.9147 11.769 16.0449 12.2769C16.1751 12.7847 16.2435 13.3088 16.25 13.8491V14.855L10 17.9897L3.75 14.855C3.75 14.4644 3.75326 14.0998 3.75977 13.7612C3.76628 13.4227 3.79557 13.0939 3.84766 12.7749C3.89974 12.4559 3.97786 12.1369 4.08203 11.8179C4.1862 11.4989 4.34245 11.1636 4.55078 10.812L2.5 9.78662V15.519C2.6888 15.5841 2.85807 15.6753 3.00781 15.7925C3.15755 15.9097 3.29102 16.0464 3.4082 16.2026C3.52539 16.3589 3.61003 16.5282 3.66211 16.7104C3.71419 16.8927 3.74349 17.0848 3.75 17.2866V20.4116H0V17.2866C0 17.0913 0.0292969 16.9025 0.0878906 16.7202C0.146484 16.5379 0.23112 16.3654 0.341797 16.2026C0.452474 16.0399 0.582682 15.9032 0.732422 15.7925C0.882161 15.6818 1.05469 15.5907 1.25 15.519V9.16162L0 8.53662L10 3.53662L20 8.53662L15.4492 10.812ZM2.5 17.2866C2.5 17.1174 2.43815 16.9709 2.31445 16.8472C2.19076 16.7235 2.04427 16.6616 1.875 16.6616C1.70573 16.6616 1.55924 16.7235 1.43555 16.8472C1.31185 16.9709 1.25 17.1174 1.25 17.2866V19.1616H2.5V17.2866ZM2.79297 8.53662L10 12.1401L17.207 8.53662L10 4.93311L2.79297 8.53662ZM15 14.0835C15 13.5822 14.9512 13.1167 14.8535 12.687C14.7559 12.2573 14.5833 11.8179 14.3359 11.3687L10 13.5366L5.66406 11.3687C5.44922 11.7463 5.28646 12.1434 5.17578 12.5601C5.0651 12.9767 5.00651 13.4064 5 13.8491V14.0835L10 16.5835L15 14.0835Z" fill="#F5AA1C"/>
-                                  </g>
-                                  <defs>
-                                  <clipPath id="clip0_418_130">
-                                  <rect width="20" height="20" fill="white" transform="translate(0 0.411621)"/>
-                                  </clipPath>
-                                  </defs>
-                                </svg>                                  
-                              </div>
-                              <h5>Post-doctoral</h5>
-                            </div>
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M5.21094 3.32764C5.04518 3.32764 4.88621 3.39348 4.769 3.51069C4.65179 3.6279 4.58594 3.78688 4.58594 3.95264V17.4943H6.2526V15.2026C6.2526 14.6276 6.71927 14.161 7.29427 14.161H12.7109C13.2859 14.161 13.7526 14.6276 13.7526 15.2026V17.4943H15.4193V10.2026C15.4193 10.0369 15.3534 9.8779 15.2362 9.76069C15.119 9.64348 14.96 9.57764 14.7943 9.57764H13.1276C12.9618 9.57764 12.8029 9.51179 12.6857 9.39458C12.5685 9.27737 12.5026 9.1184 12.5026 8.95264V3.95264C12.5026 3.78688 12.4368 3.6279 12.3195 3.51069C12.2023 3.39348 12.0434 3.32764 11.8776 3.32764H5.21094ZM7.5026 15.411V17.4943H9.3776V15.411H7.5026ZM10.6276 15.411V17.4943H12.5026V15.411H10.6276ZM16.0443 18.7443H3.96094C3.79518 18.7443 3.63621 18.6785 3.519 18.5612C3.40179 18.444 3.33594 18.2851 3.33594 18.1193V3.95264C3.33594 3.45536 3.53348 2.97844 3.88511 2.62681C4.23674 2.27518 4.71366 2.07764 5.21094 2.07764H11.8776C12.3749 2.07764 12.8518 2.27518 13.2034 2.62681C13.5551 2.97844 13.7526 3.45536 13.7526 3.95264V8.32764H14.7943C15.0405 8.32764 15.2843 8.37613 15.5118 8.47036C15.7393 8.56459 15.946 8.7027 16.1201 8.87681C16.2942 9.05092 16.4323 9.25762 16.5265 9.4851C16.6208 9.71259 16.6693 9.95641 16.6693 10.2026V18.1193C16.6693 18.2851 16.6034 18.444 16.4862 18.5612C16.369 18.6785 16.21 18.7443 16.0443 18.7443ZM6.2526 5.82764C6.2526 5.60662 6.3404 5.39466 6.49668 5.23838C6.65296 5.0821 6.86492 4.9943 7.08594 4.9943C7.30695 4.9943 7.51891 5.0821 7.67519 5.23838C7.83147 5.39466 7.91927 5.60662 7.91927 5.82764C7.91927 6.04865 7.83147 6.26061 7.67519 6.41689C7.51891 6.57317 7.30695 6.66097 7.08594 6.66097C6.86492 6.66097 6.65296 6.57317 6.49668 6.41689C6.3404 6.26061 6.2526 6.04865 6.2526 5.82764ZM7.08594 10.8276C6.86492 10.8276 6.65296 10.9154 6.49668 11.0717C6.3404 11.228 6.2526 11.44 6.2526 11.661C6.2526 11.882 6.3404 12.0939 6.49668 12.2502C6.65296 12.4065 6.86492 12.4943 7.08594 12.4943C7.30695 12.4943 7.51891 12.4065 7.67519 12.2502C7.83147 12.0939 7.91927 11.882 7.91927 11.661C7.91927 11.44 7.83147 11.228 7.67519 11.0717C7.51891 10.9154 7.30695 10.8276 7.08594 10.8276ZM7.08594 7.91097C6.86492 7.91097 6.65296 7.99877 6.49668 8.15505C6.3404 8.31133 6.2526 8.52329 6.2526 8.7443C6.2526 8.96532 6.3404 9.17728 6.49668 9.33356C6.65296 9.48984 6.86492 9.57764 7.08594 9.57764C7.30695 9.57764 7.51891 9.48984 7.67519 9.33356C7.83147 9.17728 7.91927 8.96532 7.91927 8.7443C7.91927 8.52329 7.83147 8.31133 7.67519 8.15505C7.51891 7.99877 7.30695 7.91097 7.08594 7.91097ZM10.0026 4.9943C9.78159 4.9943 9.56963 5.0821 9.41335 5.23838C9.25707 5.39466 9.16927 5.60662 9.16927 5.82764C9.16927 6.04865 9.25707 6.26061 9.41335 6.41689C9.56963 6.57317 9.78159 6.66097 10.0026 6.66097C10.2236 6.66097 10.4356 6.57317 10.5919 6.41689C10.7481 6.26061 10.8359 6.04865 10.8359 5.82764C10.8359 5.60662 10.7481 5.39466 10.5919 5.23838C10.4356 5.0821 10.2236 4.9943 10.0026 4.9943ZM10.0026 10.8276C9.78159 10.8276 9.56963 10.9154 9.41335 11.0717C9.25707 11.228 9.16927 11.44 9.16927 11.661C9.16927 11.882 9.25707 12.0939 9.41335 12.2502C9.56963 12.4065 9.78159 12.4943 10.0026 12.4943C10.2236 12.4943 10.4356 12.4065 10.5919 12.2502C10.7481 12.0939 10.8359 11.882 10.8359 11.661C10.8359 11.44 10.7481 11.228 10.5919 11.0717C10.4356 10.9154 10.2236 10.8276 10.0026 10.8276ZM12.9193 10.8276C12.6983 10.8276 12.4863 10.9154 12.33 11.0717C12.1737 11.228 12.0859 11.44 12.0859 11.661C12.0859 11.882 12.1737 12.0939 12.33 12.2502C12.4863 12.4065 12.6983 12.4943 12.9193 12.4943C13.1403 12.4943 13.3522 12.4065 13.5085 12.2502C13.6648 12.0939 13.7526 11.882 13.7526 11.661C13.7526 11.44 13.6648 11.228 13.5085 11.0717C13.3522 10.9154 13.1403 10.8276 12.9193 10.8276ZM10.0026 7.91097C9.78159 7.91097 9.56963 7.99877 9.41335 8.15505C9.25707 8.31133 9.16927 8.52329 9.16927 8.7443C9.16927 8.96532 9.25707 9.17728 9.41335 9.33356C9.56963 9.48984 9.78159 9.57764 10.0026 9.57764C10.2236 9.57764 10.4356 9.48984 10.5919 9.33356C10.7481 9.17728 10.8359 8.96532 10.8359 8.7443C10.8359 8.52329 10.7481 8.31133 10.5919 8.15505C10.4356 7.99877 10.2236 7.91097 10.0026 7.91097Z" fill="#F5AA1C"/>
-                                </svg>                                                                    
-                              </div>
-                              <h5>National University</h5>
-                            </div>
-                            <div class="member-card-item">
-                              <div class="member-card-item-icon">
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M9.99554 2.01709C11.8426 2.01709 13.614 2.75083 14.92 4.05688C16.2261 5.36294 16.9598 7.13433 16.9598 8.98138C16.9598 11.9242 14.892 15.1314 10.8098 18.6371C10.5828 18.8321 10.2934 18.9392 9.9942 18.9389C9.69496 18.9387 9.40575 18.8311 9.17911 18.6357L8.90911 18.4014C5.00768 14.9871 3.03125 11.8585 3.03125 8.98138C3.03125 7.13433 3.76499 5.36294 5.07104 4.05688C6.3771 2.75083 8.14849 2.01709 9.99554 2.01709ZM9.99554 3.08852C8.43265 3.08852 6.93378 3.70937 5.82866 4.8145C4.72353 5.91962 4.10268 7.41849 4.10268 8.98138C4.10268 11.4828 5.92268 14.3649 9.61268 17.5935L9.87911 17.8242C9.9115 17.8521 9.95281 17.8674 9.99554 17.8674C10.0383 17.8674 10.0796 17.8521 10.112 17.8242C13.9805 14.5014 15.8884 11.5421 15.8884 8.98138C15.8884 8.20752 15.736 7.44123 15.4398 6.72628C15.1437 6.01132 14.7096 5.3617 14.1624 4.8145C13.6152 4.26729 12.9656 3.83323 12.2506 3.53709C11.5357 3.24094 10.7694 3.08852 9.99554 3.08852ZM9.99554 6.3028C10.7059 6.3028 11.3872 6.58501 11.8896 7.08734C12.3919 7.58967 12.6741 8.27098 12.6741 8.98138C12.6741 9.69178 12.3919 10.3731 11.8896 10.8754C11.3872 11.3777 10.7059 11.6599 9.99554 11.6599C9.28514 11.6599 8.60383 11.3777 8.1015 10.8754C7.59917 10.3731 7.31697 9.69178 7.31697 8.98138C7.31697 8.27098 7.59917 7.58967 8.1015 7.08734C8.60383 6.58501 9.28514 6.3028 9.99554 6.3028ZM9.99554 7.37423C9.5693 7.37423 9.16051 7.54356 8.85912 7.84495C8.55772 8.14635 8.38839 8.55514 8.38839 8.98138C8.38839 9.40762 8.55772 9.8164 8.85912 10.1178C9.16051 10.4192 9.5693 10.5885 9.99554 10.5885C10.4218 10.5885 10.8306 10.4192 11.132 10.1178C11.4334 9.8164 11.6027 9.40762 11.6027 8.98138C11.6027 8.55514 11.4334 8.14635 11.132 7.84495C10.8306 7.54356 10.4218 7.37423 9.99554 7.37423Z" fill="#F5AA1C"/>
-                                </svg>                                                                    
-                              </div>
-                              <h5>United States</h5>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="our-members-arrows">
-                    <button id="prev" class="btn-arrow">
-                      <i class="fa fa-angle-left"></i>
-                    </button>
-                    <button id="next" class="btn-arrow">
-                      <i class="fa fa-angle-right"></i>
-                    </button>
                   </div>
                 </div>
               </div>
-            </section>
-        </div>
+
+              <button class="store-introduction-section-btn-wrapper">
+                <div class="store-introduction-section-btn">
+                  <h3>Get Started</h3>
+                  <div class="store-introduction-section-btn-icon">
+                    <i class="fa fa-long-arrow-right"></i>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="our-members-wrapper">
+          <div class="our-members">
+            <h2 class="our-members-title">Our student members</h2>
+
+            <div class="our-members-items">
+              <div class="our-members-cards">
+                <div class="our-members-card">
+                  <img
+                    src="./images/Avatar 1.png"
+                    class="member-card-img"
+                    alt="User Image"
+                  />
+
+                  <div class="member-card-content">
+                    <div class="member-card">
+                      <h4 class="member-card-name">James dunn</h4>
+
+                      <div class="member-card-items">
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_418_130)">
+                                <path
+                                  d="M15.4492 10.812C15.7161 11.2808 15.9147 11.769 16.0449 12.2769C16.1751 12.7847 16.2435 13.3088 16.25 13.8491V14.855L10 17.9897L3.75 14.855C3.75 14.4644 3.75326 14.0998 3.75977 13.7612C3.76628 13.4227 3.79557 13.0939 3.84766 12.7749C3.89974 12.4559 3.97786 12.1369 4.08203 11.8179C4.1862 11.4989 4.34245 11.1636 4.55078 10.812L2.5 9.78662V15.519C2.6888 15.5841 2.85807 15.6753 3.00781 15.7925C3.15755 15.9097 3.29102 16.0464 3.4082 16.2026C3.52539 16.3589 3.61003 16.5282 3.66211 16.7104C3.71419 16.8927 3.74349 17.0848 3.75 17.2866V20.4116H0V17.2866C0 17.0913 0.0292969 16.9025 0.0878906 16.7202C0.146484 16.5379 0.23112 16.3654 0.341797 16.2026C0.452474 16.0399 0.582682 15.9032 0.732422 15.7925C0.882161 15.6818 1.05469 15.5907 1.25 15.519V9.16162L0 8.53662L10 3.53662L20 8.53662L15.4492 10.812ZM2.5 17.2866C2.5 17.1174 2.43815 16.9709 2.31445 16.8472C2.19076 16.7235 2.04427 16.6616 1.875 16.6616C1.70573 16.6616 1.55924 16.7235 1.43555 16.8472C1.31185 16.9709 1.25 17.1174 1.25 17.2866V19.1616H2.5V17.2866ZM2.79297 8.53662L10 12.1401L17.207 8.53662L10 4.93311L2.79297 8.53662ZM15 14.0835C15 13.5822 14.9512 13.1167 14.8535 12.687C14.7559 12.2573 14.5833 11.8179 14.3359 11.3687L10 13.5366L5.66406 11.3687C5.44922 11.7463 5.28646 12.1434 5.17578 12.5601C5.0651 12.9767 5.00651 13.4064 5 13.8491V14.0835L10 16.5835L15 14.0835Z"
+                                  fill="#F5AA1C"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_418_130">
+                                  <rect
+                                    width="20"
+                                    height="20"
+                                    fill="white"
+                                    transform="translate(0 0.411621)"
+                                  />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                          <h5>P.H.D</h5>
+                        </div>
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5.21094 3.32764C5.04518 3.32764 4.88621 3.39348 4.769 3.51069C4.65179 3.6279 4.58594 3.78688 4.58594 3.95264V17.4943H6.2526V15.2026C6.2526 14.6276 6.71927 14.161 7.29427 14.161H12.7109C13.2859 14.161 13.7526 14.6276 13.7526 15.2026V17.4943H15.4193V10.2026C15.4193 10.0369 15.3534 9.8779 15.2362 9.76069C15.119 9.64348 14.96 9.57764 14.7943 9.57764H13.1276C12.9618 9.57764 12.8029 9.51179 12.6857 9.39458C12.5685 9.27737 12.5026 9.1184 12.5026 8.95264V3.95264C12.5026 3.78688 12.4368 3.6279 12.3195 3.51069C12.2023 3.39348 12.0434 3.32764 11.8776 3.32764H5.21094ZM7.5026 15.411V17.4943H9.3776V15.411H7.5026ZM10.6276 15.411V17.4943H12.5026V15.411H10.6276ZM16.0443 18.7443H3.96094C3.79518 18.7443 3.63621 18.6785 3.519 18.5612C3.40179 18.444 3.33594 18.2851 3.33594 18.1193V3.95264C3.33594 3.45536 3.53348 2.97844 3.88511 2.62681C4.23674 2.27518 4.71366 2.07764 5.21094 2.07764H11.8776C12.3749 2.07764 12.8518 2.27518 13.2034 2.62681C13.5551 2.97844 13.7526 3.45536 13.7526 3.95264V8.32764H14.7943C15.0405 8.32764 15.2843 8.37613 15.5118 8.47036C15.7393 8.56459 15.946 8.7027 16.1201 8.87681C16.2942 9.05092 16.4323 9.25762 16.5265 9.4851C16.6208 9.71259 16.6693 9.95641 16.6693 10.2026V18.1193C16.6693 18.2851 16.6034 18.444 16.4862 18.5612C16.369 18.6785 16.21 18.7443 16.0443 18.7443ZM6.2526 5.82764C6.2526 5.60662 6.3404 5.39466 6.49668 5.23838C6.65296 5.0821 6.86492 4.9943 7.08594 4.9943C7.30695 4.9943 7.51891 5.0821 7.67519 5.23838C7.83147 5.39466 7.91927 5.60662 7.91927 5.82764C7.91927 6.04865 7.83147 6.26061 7.67519 6.41689C7.51891 6.57317 7.30695 6.66097 7.08594 6.66097C6.86492 6.66097 6.65296 6.57317 6.49668 6.41689C6.3404 6.26061 6.2526 6.04865 6.2526 5.82764ZM7.08594 10.8276C6.86492 10.8276 6.65296 10.9154 6.49668 11.0717C6.3404 11.228 6.2526 11.44 6.2526 11.661C6.2526 11.882 6.3404 12.0939 6.49668 12.2502C6.65296 12.4065 6.86492 12.4943 7.08594 12.4943C7.30695 12.4943 7.51891 12.4065 7.67519 12.2502C7.83147 12.0939 7.91927 11.882 7.91927 11.661C7.91927 11.44 7.83147 11.228 7.67519 11.0717C7.51891 10.9154 7.30695 10.8276 7.08594 10.8276ZM7.08594 7.91097C6.86492 7.91097 6.65296 7.99877 6.49668 8.15505C6.3404 8.31133 6.2526 8.52329 6.2526 8.7443C6.2526 8.96532 6.3404 9.17728 6.49668 9.33356C6.65296 9.48984 6.86492 9.57764 7.08594 9.57764C7.30695 9.57764 7.51891 9.48984 7.67519 9.33356C7.83147 9.17728 7.91927 8.96532 7.91927 8.7443C7.91927 8.52329 7.83147 8.31133 7.67519 8.15505C7.51891 7.99877 7.30695 7.91097 7.08594 7.91097ZM10.0026 4.9943C9.78159 4.9943 9.56963 5.0821 9.41335 5.23838C9.25707 5.39466 9.16927 5.60662 9.16927 5.82764C9.16927 6.04865 9.25707 6.26061 9.41335 6.41689C9.56963 6.57317 9.78159 6.66097 10.0026 6.66097C10.2236 6.66097 10.4356 6.57317 10.5919 6.41689C10.7481 6.26061 10.8359 6.04865 10.8359 5.82764C10.8359 5.60662 10.7481 5.39466 10.5919 5.23838C10.4356 5.0821 10.2236 4.9943 10.0026 4.9943ZM10.0026 10.8276C9.78159 10.8276 9.56963 10.9154 9.41335 11.0717C9.25707 11.228 9.16927 11.44 9.16927 11.661C9.16927 11.882 9.25707 12.0939 9.41335 12.2502C9.56963 12.4065 9.78159 12.4943 10.0026 12.4943C10.2236 12.4943 10.4356 12.4065 10.5919 12.2502C10.7481 12.0939 10.8359 11.882 10.8359 11.661C10.8359 11.44 10.7481 11.228 10.5919 11.0717C10.4356 10.9154 10.2236 10.8276 10.0026 10.8276ZM12.9193 10.8276C12.6983 10.8276 12.4863 10.9154 12.33 11.0717C12.1737 11.228 12.0859 11.44 12.0859 11.661C12.0859 11.882 12.1737 12.0939 12.33 12.2502C12.4863 12.4065 12.6983 12.4943 12.9193 12.4943C13.1403 12.4943 13.3522 12.4065 13.5085 12.2502C13.6648 12.0939 13.7526 11.882 13.7526 11.661C13.7526 11.44 13.6648 11.228 13.5085 11.0717C13.3522 10.9154 13.1403 10.8276 12.9193 10.8276ZM10.0026 7.91097C9.78159 7.91097 9.56963 7.99877 9.41335 8.15505C9.25707 8.31133 9.16927 8.52329 9.16927 8.7443C9.16927 8.96532 9.25707 9.17728 9.41335 9.33356C9.56963 9.48984 9.78159 9.57764 10.0026 9.57764C10.2236 9.57764 10.4356 9.48984 10.5919 9.33356C10.7481 9.17728 10.8359 8.96532 10.8359 8.7443C10.8359 8.52329 10.7481 8.31133 10.5919 8.15505C10.4356 7.99877 10.2236 7.91097 10.0026 7.91097Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>National University</h5>
+                        </div>
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M9.99554 2.01709C11.8426 2.01709 13.614 2.75083 14.92 4.05688C16.2261 5.36294 16.9598 7.13433 16.9598 8.98138C16.9598 11.9242 14.892 15.1314 10.8098 18.6371C10.5828 18.8321 10.2934 18.9392 9.9942 18.9389C9.69496 18.9387 9.40575 18.8311 9.17911 18.6357L8.90911 18.4014C5.00768 14.9871 3.03125 11.8585 3.03125 8.98138C3.03125 7.13433 3.76499 5.36294 5.07104 4.05688C6.3771 2.75083 8.14849 2.01709 9.99554 2.01709ZM9.99554 3.08852C8.43265 3.08852 6.93378 3.70937 5.82866 4.8145C4.72353 5.91962 4.10268 7.41849 4.10268 8.98138C4.10268 11.4828 5.92268 14.3649 9.61268 17.5935L9.87911 17.8242C9.9115 17.8521 9.95281 17.8674 9.99554 17.8674C10.0383 17.8674 10.0796 17.8521 10.112 17.8242C13.9805 14.5014 15.8884 11.5421 15.8884 8.98138C15.8884 8.20752 15.736 7.44123 15.4398 6.72628C15.1437 6.01132 14.7096 5.3617 14.1624 4.8145C13.6152 4.26729 12.9656 3.83323 12.2506 3.53709C11.5357 3.24094 10.7694 3.08852 9.99554 3.08852ZM9.99554 6.3028C10.7059 6.3028 11.3872 6.58501 11.8896 7.08734C12.3919 7.58967 12.6741 8.27098 12.6741 8.98138C12.6741 9.69178 12.3919 10.3731 11.8896 10.8754C11.3872 11.3777 10.7059 11.6599 9.99554 11.6599C9.28514 11.6599 8.60383 11.3777 8.1015 10.8754C7.59917 10.3731 7.31697 9.69178 7.31697 8.98138C7.31697 8.27098 7.59917 7.58967 8.1015 7.08734C8.60383 6.58501 9.28514 6.3028 9.99554 6.3028ZM9.99554 7.37423C9.5693 7.37423 9.16051 7.54356 8.85912 7.84495C8.55772 8.14635 8.38839 8.55514 8.38839 8.98138C8.38839 9.40762 8.55772 9.8164 8.85912 10.1178C9.16051 10.4192 9.5693 10.5885 9.99554 10.5885C10.4218 10.5885 10.8306 10.4192 11.132 10.1178C11.4334 9.8164 11.6027 9.40762 11.6027 8.98138C11.6027 8.55514 11.4334 8.14635 11.132 7.84495C10.8306 7.54356 10.4218 7.37423 9.99554 7.37423Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>United States</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="our-members-card">
+                  <img
+                    src="./images/Avatar 1.png"
+                    class="member-card-img"
+                    alt="User Image"
+                  />
+
+                  <div class="member-card-content">
+                    <div class="member-card">
+                      <h4 class="member-card-name">James dunn</h4>
+
+                      <div class="member-card-items">
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_418_130)">
+                                <path
+                                  d="M15.4492 10.812C15.7161 11.2808 15.9147 11.769 16.0449 12.2769C16.1751 12.7847 16.2435 13.3088 16.25 13.8491V14.855L10 17.9897L3.75 14.855C3.75 14.4644 3.75326 14.0998 3.75977 13.7612C3.76628 13.4227 3.79557 13.0939 3.84766 12.7749C3.89974 12.4559 3.97786 12.1369 4.08203 11.8179C4.1862 11.4989 4.34245 11.1636 4.55078 10.812L2.5 9.78662V15.519C2.6888 15.5841 2.85807 15.6753 3.00781 15.7925C3.15755 15.9097 3.29102 16.0464 3.4082 16.2026C3.52539 16.3589 3.61003 16.5282 3.66211 16.7104C3.71419 16.8927 3.74349 17.0848 3.75 17.2866V20.4116H0V17.2866C0 17.0913 0.0292969 16.9025 0.0878906 16.7202C0.146484 16.5379 0.23112 16.3654 0.341797 16.2026C0.452474 16.0399 0.582682 15.9032 0.732422 15.7925C0.882161 15.6818 1.05469 15.5907 1.25 15.519V9.16162L0 8.53662L10 3.53662L20 8.53662L15.4492 10.812ZM2.5 17.2866C2.5 17.1174 2.43815 16.9709 2.31445 16.8472C2.19076 16.7235 2.04427 16.6616 1.875 16.6616C1.70573 16.6616 1.55924 16.7235 1.43555 16.8472C1.31185 16.9709 1.25 17.1174 1.25 17.2866V19.1616H2.5V17.2866ZM2.79297 8.53662L10 12.1401L17.207 8.53662L10 4.93311L2.79297 8.53662ZM15 14.0835C15 13.5822 14.9512 13.1167 14.8535 12.687C14.7559 12.2573 14.5833 11.8179 14.3359 11.3687L10 13.5366L5.66406 11.3687C5.44922 11.7463 5.28646 12.1434 5.17578 12.5601C5.0651 12.9767 5.00651 13.4064 5 13.8491V14.0835L10 16.5835L15 14.0835Z"
+                                  fill="#F5AA1C"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_418_130">
+                                  <rect
+                                    width="20"
+                                    height="20"
+                                    fill="white"
+                                    transform="translate(0 0.411621)"
+                                  />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                          <h5>P.H.D</h5>
+                        </div>
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5.21094 3.32764C5.04518 3.32764 4.88621 3.39348 4.769 3.51069C4.65179 3.6279 4.58594 3.78688 4.58594 3.95264V17.4943H6.2526V15.2026C6.2526 14.6276 6.71927 14.161 7.29427 14.161H12.7109C13.2859 14.161 13.7526 14.6276 13.7526 15.2026V17.4943H15.4193V10.2026C15.4193 10.0369 15.3534 9.8779 15.2362 9.76069C15.119 9.64348 14.96 9.57764 14.7943 9.57764H13.1276C12.9618 9.57764 12.8029 9.51179 12.6857 9.39458C12.5685 9.27737 12.5026 9.1184 12.5026 8.95264V3.95264C12.5026 3.78688 12.4368 3.6279 12.3195 3.51069C12.2023 3.39348 12.0434 3.32764 11.8776 3.32764H5.21094ZM7.5026 15.411V17.4943H9.3776V15.411H7.5026ZM10.6276 15.411V17.4943H12.5026V15.411H10.6276ZM16.0443 18.7443H3.96094C3.79518 18.7443 3.63621 18.6785 3.519 18.5612C3.40179 18.444 3.33594 18.2851 3.33594 18.1193V3.95264C3.33594 3.45536 3.53348 2.97844 3.88511 2.62681C4.23674 2.27518 4.71366 2.07764 5.21094 2.07764H11.8776C12.3749 2.07764 12.8518 2.27518 13.2034 2.62681C13.5551 2.97844 13.7526 3.45536 13.7526 3.95264V8.32764H14.7943C15.0405 8.32764 15.2843 8.37613 15.5118 8.47036C15.7393 8.56459 15.946 8.7027 16.1201 8.87681C16.2942 9.05092 16.4323 9.25762 16.5265 9.4851C16.6208 9.71259 16.6693 9.95641 16.6693 10.2026V18.1193C16.6693 18.2851 16.6034 18.444 16.4862 18.5612C16.369 18.6785 16.21 18.7443 16.0443 18.7443ZM6.2526 5.82764C6.2526 5.60662 6.3404 5.39466 6.49668 5.23838C6.65296 5.0821 6.86492 4.9943 7.08594 4.9943C7.30695 4.9943 7.51891 5.0821 7.67519 5.23838C7.83147 5.39466 7.91927 5.60662 7.91927 5.82764C7.91927 6.04865 7.83147 6.26061 7.67519 6.41689C7.51891 6.57317 7.30695 6.66097 7.08594 6.66097C6.86492 6.66097 6.65296 6.57317 6.49668 6.41689C6.3404 6.26061 6.2526 6.04865 6.2526 5.82764ZM7.08594 10.8276C6.86492 10.8276 6.65296 10.9154 6.49668 11.0717C6.3404 11.228 6.2526 11.44 6.2526 11.661C6.2526 11.882 6.3404 12.0939 6.49668 12.2502C6.65296 12.4065 6.86492 12.4943 7.08594 12.4943C7.30695 12.4943 7.51891 12.4065 7.67519 12.2502C7.83147 12.0939 7.91927 11.882 7.91927 11.661C7.91927 11.44 7.83147 11.228 7.67519 11.0717C7.51891 10.9154 7.30695 10.8276 7.08594 10.8276ZM7.08594 7.91097C6.86492 7.91097 6.65296 7.99877 6.49668 8.15505C6.3404 8.31133 6.2526 8.52329 6.2526 8.7443C6.2526 8.96532 6.3404 9.17728 6.49668 9.33356C6.65296 9.48984 6.86492 9.57764 7.08594 9.57764C7.30695 9.57764 7.51891 9.48984 7.67519 9.33356C7.83147 9.17728 7.91927 8.96532 7.91927 8.7443C7.91927 8.52329 7.83147 8.31133 7.67519 8.15505C7.51891 7.99877 7.30695 7.91097 7.08594 7.91097ZM10.0026 4.9943C9.78159 4.9943 9.56963 5.0821 9.41335 5.23838C9.25707 5.39466 9.16927 5.60662 9.16927 5.82764C9.16927 6.04865 9.25707 6.26061 9.41335 6.41689C9.56963 6.57317 9.78159 6.66097 10.0026 6.66097C10.2236 6.66097 10.4356 6.57317 10.5919 6.41689C10.7481 6.26061 10.8359 6.04865 10.8359 5.82764C10.8359 5.60662 10.7481 5.39466 10.5919 5.23838C10.4356 5.0821 10.2236 4.9943 10.0026 4.9943ZM10.0026 10.8276C9.78159 10.8276 9.56963 10.9154 9.41335 11.0717C9.25707 11.228 9.16927 11.44 9.16927 11.661C9.16927 11.882 9.25707 12.0939 9.41335 12.2502C9.56963 12.4065 9.78159 12.4943 10.0026 12.4943C10.2236 12.4943 10.4356 12.4065 10.5919 12.2502C10.7481 12.0939 10.8359 11.882 10.8359 11.661C10.8359 11.44 10.7481 11.228 10.5919 11.0717C10.4356 10.9154 10.2236 10.8276 10.0026 10.8276ZM12.9193 10.8276C12.6983 10.8276 12.4863 10.9154 12.33 11.0717C12.1737 11.228 12.0859 11.44 12.0859 11.661C12.0859 11.882 12.1737 12.0939 12.33 12.2502C12.4863 12.4065 12.6983 12.4943 12.9193 12.4943C13.1403 12.4943 13.3522 12.4065 13.5085 12.2502C13.6648 12.0939 13.7526 11.882 13.7526 11.661C13.7526 11.44 13.6648 11.228 13.5085 11.0717C13.3522 10.9154 13.1403 10.8276 12.9193 10.8276ZM10.0026 7.91097C9.78159 7.91097 9.56963 7.99877 9.41335 8.15505C9.25707 8.31133 9.16927 8.52329 9.16927 8.7443C9.16927 8.96532 9.25707 9.17728 9.41335 9.33356C9.56963 9.48984 9.78159 9.57764 10.0026 9.57764C10.2236 9.57764 10.4356 9.48984 10.5919 9.33356C10.7481 9.17728 10.8359 8.96532 10.8359 8.7443C10.8359 8.52329 10.7481 8.31133 10.5919 8.15505C10.4356 7.99877 10.2236 7.91097 10.0026 7.91097Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>National University</h5>
+                        </div>
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M9.99554 2.01709C11.8426 2.01709 13.614 2.75083 14.92 4.05688C16.2261 5.36294 16.9598 7.13433 16.9598 8.98138C16.9598 11.9242 14.892 15.1314 10.8098 18.6371C10.5828 18.8321 10.2934 18.9392 9.9942 18.9389C9.69496 18.9387 9.40575 18.8311 9.17911 18.6357L8.90911 18.4014C5.00768 14.9871 3.03125 11.8585 3.03125 8.98138C3.03125 7.13433 3.76499 5.36294 5.07104 4.05688C6.3771 2.75083 8.14849 2.01709 9.99554 2.01709ZM9.99554 3.08852C8.43265 3.08852 6.93378 3.70937 5.82866 4.8145C4.72353 5.91962 4.10268 7.41849 4.10268 8.98138C4.10268 11.4828 5.92268 14.3649 9.61268 17.5935L9.87911 17.8242C9.9115 17.8521 9.95281 17.8674 9.99554 17.8674C10.0383 17.8674 10.0796 17.8521 10.112 17.8242C13.9805 14.5014 15.8884 11.5421 15.8884 8.98138C15.8884 8.20752 15.736 7.44123 15.4398 6.72628C15.1437 6.01132 14.7096 5.3617 14.1624 4.8145C13.6152 4.26729 12.9656 3.83323 12.2506 3.53709C11.5357 3.24094 10.7694 3.08852 9.99554 3.08852ZM9.99554 6.3028C10.7059 6.3028 11.3872 6.58501 11.8896 7.08734C12.3919 7.58967 12.6741 8.27098 12.6741 8.98138C12.6741 9.69178 12.3919 10.3731 11.8896 10.8754C11.3872 11.3777 10.7059 11.6599 9.99554 11.6599C9.28514 11.6599 8.60383 11.3777 8.1015 10.8754C7.59917 10.3731 7.31697 9.69178 7.31697 8.98138C7.31697 8.27098 7.59917 7.58967 8.1015 7.08734C8.60383 6.58501 9.28514 6.3028 9.99554 6.3028ZM9.99554 7.37423C9.5693 7.37423 9.16051 7.54356 8.85912 7.84495C8.55772 8.14635 8.38839 8.55514 8.38839 8.98138C8.38839 9.40762 8.55772 9.8164 8.85912 10.1178C9.16051 10.4192 9.5693 10.5885 9.99554 10.5885C10.4218 10.5885 10.8306 10.4192 11.132 10.1178C11.4334 9.8164 11.6027 9.40762 11.6027 8.98138C11.6027 8.55514 11.4334 8.14635 11.132 7.84495C10.8306 7.54356 10.4218 7.37423 9.99554 7.37423Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>United States</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="our-members-card">
+                  <img
+                    src="./images/Avatar 1.png"
+                    class="member-card-img"
+                    alt="User Image"
+                  />
+
+                  <div class="member-card-content">
+                    <div class="member-card">
+                      <h4 class="member-card-name">James dunn</h4>
+
+                      <div class="member-card-items">
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_418_130)">
+                                <path
+                                  d="M15.4492 10.812C15.7161 11.2808 15.9147 11.769 16.0449 12.2769C16.1751 12.7847 16.2435 13.3088 16.25 13.8491V14.855L10 17.9897L3.75 14.855C3.75 14.4644 3.75326 14.0998 3.75977 13.7612C3.76628 13.4227 3.79557 13.0939 3.84766 12.7749C3.89974 12.4559 3.97786 12.1369 4.08203 11.8179C4.1862 11.4989 4.34245 11.1636 4.55078 10.812L2.5 9.78662V15.519C2.6888 15.5841 2.85807 15.6753 3.00781 15.7925C3.15755 15.9097 3.29102 16.0464 3.4082 16.2026C3.52539 16.3589 3.61003 16.5282 3.66211 16.7104C3.71419 16.8927 3.74349 17.0848 3.75 17.2866V20.4116H0V17.2866C0 17.0913 0.0292969 16.9025 0.0878906 16.7202C0.146484 16.5379 0.23112 16.3654 0.341797 16.2026C0.452474 16.0399 0.582682 15.9032 0.732422 15.7925C0.882161 15.6818 1.05469 15.5907 1.25 15.519V9.16162L0 8.53662L10 3.53662L20 8.53662L15.4492 10.812ZM2.5 17.2866C2.5 17.1174 2.43815 16.9709 2.31445 16.8472C2.19076 16.7235 2.04427 16.6616 1.875 16.6616C1.70573 16.6616 1.55924 16.7235 1.43555 16.8472C1.31185 16.9709 1.25 17.1174 1.25 17.2866V19.1616H2.5V17.2866ZM2.79297 8.53662L10 12.1401L17.207 8.53662L10 4.93311L2.79297 8.53662ZM15 14.0835C15 13.5822 14.9512 13.1167 14.8535 12.687C14.7559 12.2573 14.5833 11.8179 14.3359 11.3687L10 13.5366L5.66406 11.3687C5.44922 11.7463 5.28646 12.1434 5.17578 12.5601C5.0651 12.9767 5.00651 13.4064 5 13.8491V14.0835L10 16.5835L15 14.0835Z"
+                                  fill="#F5AA1C"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_418_130">
+                                  <rect
+                                    width="20"
+                                    height="20"
+                                    fill="white"
+                                    transform="translate(0 0.411621)"
+                                  />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                          <h5>P.H.D</h5>
+                        </div>
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5.21094 3.32764C5.04518 3.32764 4.88621 3.39348 4.769 3.51069C4.65179 3.6279 4.58594 3.78688 4.58594 3.95264V17.4943H6.2526V15.2026C6.2526 14.6276 6.71927 14.161 7.29427 14.161H12.7109C13.2859 14.161 13.7526 14.6276 13.7526 15.2026V17.4943H15.4193V10.2026C15.4193 10.0369 15.3534 9.8779 15.2362 9.76069C15.119 9.64348 14.96 9.57764 14.7943 9.57764H13.1276C12.9618 9.57764 12.8029 9.51179 12.6857 9.39458C12.5685 9.27737 12.5026 9.1184 12.5026 8.95264V3.95264C12.5026 3.78688 12.4368 3.6279 12.3195 3.51069C12.2023 3.39348 12.0434 3.32764 11.8776 3.32764H5.21094ZM7.5026 15.411V17.4943H9.3776V15.411H7.5026ZM10.6276 15.411V17.4943H12.5026V15.411H10.6276ZM16.0443 18.7443H3.96094C3.79518 18.7443 3.63621 18.6785 3.519 18.5612C3.40179 18.444 3.33594 18.2851 3.33594 18.1193V3.95264C3.33594 3.45536 3.53348 2.97844 3.88511 2.62681C4.23674 2.27518 4.71366 2.07764 5.21094 2.07764H11.8776C12.3749 2.07764 12.8518 2.27518 13.2034 2.62681C13.5551 2.97844 13.7526 3.45536 13.7526 3.95264V8.32764H14.7943C15.0405 8.32764 15.2843 8.37613 15.5118 8.47036C15.7393 8.56459 15.946 8.7027 16.1201 8.87681C16.2942 9.05092 16.4323 9.25762 16.5265 9.4851C16.6208 9.71259 16.6693 9.95641 16.6693 10.2026V18.1193C16.6693 18.2851 16.6034 18.444 16.4862 18.5612C16.369 18.6785 16.21 18.7443 16.0443 18.7443ZM6.2526 5.82764C6.2526 5.60662 6.3404 5.39466 6.49668 5.23838C6.65296 5.0821 6.86492 4.9943 7.08594 4.9943C7.30695 4.9943 7.51891 5.0821 7.67519 5.23838C7.83147 5.39466 7.91927 5.60662 7.91927 5.82764C7.91927 6.04865 7.83147 6.26061 7.67519 6.41689C7.51891 6.57317 7.30695 6.66097 7.08594 6.66097C6.86492 6.66097 6.65296 6.57317 6.49668 6.41689C6.3404 6.26061 6.2526 6.04865 6.2526 5.82764ZM7.08594 10.8276C6.86492 10.8276 6.65296 10.9154 6.49668 11.0717C6.3404 11.228 6.2526 11.44 6.2526 11.661C6.2526 11.882 6.3404 12.0939 6.49668 12.2502C6.65296 12.4065 6.86492 12.4943 7.08594 12.4943C7.30695 12.4943 7.51891 12.4065 7.67519 12.2502C7.83147 12.0939 7.91927 11.882 7.91927 11.661C7.91927 11.44 7.83147 11.228 7.67519 11.0717C7.51891 10.9154 7.30695 10.8276 7.08594 10.8276ZM7.08594 7.91097C6.86492 7.91097 6.65296 7.99877 6.49668 8.15505C6.3404 8.31133 6.2526 8.52329 6.2526 8.7443C6.2526 8.96532 6.3404 9.17728 6.49668 9.33356C6.65296 9.48984 6.86492 9.57764 7.08594 9.57764C7.30695 9.57764 7.51891 9.48984 7.67519 9.33356C7.83147 9.17728 7.91927 8.96532 7.91927 8.7443C7.91927 8.52329 7.83147 8.31133 7.67519 8.15505C7.51891 7.99877 7.30695 7.91097 7.08594 7.91097ZM10.0026 4.9943C9.78159 4.9943 9.56963 5.0821 9.41335 5.23838C9.25707 5.39466 9.16927 5.60662 9.16927 5.82764C9.16927 6.04865 9.25707 6.26061 9.41335 6.41689C9.56963 6.57317 9.78159 6.66097 10.0026 6.66097C10.2236 6.66097 10.4356 6.57317 10.5919 6.41689C10.7481 6.26061 10.8359 6.04865 10.8359 5.82764C10.8359 5.60662 10.7481 5.39466 10.5919 5.23838C10.4356 5.0821 10.2236 4.9943 10.0026 4.9943ZM10.0026 10.8276C9.78159 10.8276 9.56963 10.9154 9.41335 11.0717C9.25707 11.228 9.16927 11.44 9.16927 11.661C9.16927 11.882 9.25707 12.0939 9.41335 12.2502C9.56963 12.4065 9.78159 12.4943 10.0026 12.4943C10.2236 12.4943 10.4356 12.4065 10.5919 12.2502C10.7481 12.0939 10.8359 11.882 10.8359 11.661C10.8359 11.44 10.7481 11.228 10.5919 11.0717C10.4356 10.9154 10.2236 10.8276 10.0026 10.8276ZM12.9193 10.8276C12.6983 10.8276 12.4863 10.9154 12.33 11.0717C12.1737 11.228 12.0859 11.44 12.0859 11.661C12.0859 11.882 12.1737 12.0939 12.33 12.2502C12.4863 12.4065 12.6983 12.4943 12.9193 12.4943C13.1403 12.4943 13.3522 12.4065 13.5085 12.2502C13.6648 12.0939 13.7526 11.882 13.7526 11.661C13.7526 11.44 13.6648 11.228 13.5085 11.0717C13.3522 10.9154 13.1403 10.8276 12.9193 10.8276ZM10.0026 7.91097C9.78159 7.91097 9.56963 7.99877 9.41335 8.15505C9.25707 8.31133 9.16927 8.52329 9.16927 8.7443C9.16927 8.96532 9.25707 9.17728 9.41335 9.33356C9.56963 9.48984 9.78159 9.57764 10.0026 9.57764C10.2236 9.57764 10.4356 9.48984 10.5919 9.33356C10.7481 9.17728 10.8359 8.96532 10.8359 8.7443C10.8359 8.52329 10.7481 8.31133 10.5919 8.15505C10.4356 7.99877 10.2236 7.91097 10.0026 7.91097Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>National University</h5>
+                        </div>
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M9.99554 2.01709C11.8426 2.01709 13.614 2.75083 14.92 4.05688C16.2261 5.36294 16.9598 7.13433 16.9598 8.98138C16.9598 11.9242 14.892 15.1314 10.8098 18.6371C10.5828 18.8321 10.2934 18.9392 9.9942 18.9389C9.69496 18.9387 9.40575 18.8311 9.17911 18.6357L8.90911 18.4014C5.00768 14.9871 3.03125 11.8585 3.03125 8.98138C3.03125 7.13433 3.76499 5.36294 5.07104 4.05688C6.3771 2.75083 8.14849 2.01709 9.99554 2.01709ZM9.99554 3.08852C8.43265 3.08852 6.93378 3.70937 5.82866 4.8145C4.72353 5.91962 4.10268 7.41849 4.10268 8.98138C4.10268 11.4828 5.92268 14.3649 9.61268 17.5935L9.87911 17.8242C9.9115 17.8521 9.95281 17.8674 9.99554 17.8674C10.0383 17.8674 10.0796 17.8521 10.112 17.8242C13.9805 14.5014 15.8884 11.5421 15.8884 8.98138C15.8884 8.20752 15.736 7.44123 15.4398 6.72628C15.1437 6.01132 14.7096 5.3617 14.1624 4.8145C13.6152 4.26729 12.9656 3.83323 12.2506 3.53709C11.5357 3.24094 10.7694 3.08852 9.99554 3.08852ZM9.99554 6.3028C10.7059 6.3028 11.3872 6.58501 11.8896 7.08734C12.3919 7.58967 12.6741 8.27098 12.6741 8.98138C12.6741 9.69178 12.3919 10.3731 11.8896 10.8754C11.3872 11.3777 10.7059 11.6599 9.99554 11.6599C9.28514 11.6599 8.60383 11.3777 8.1015 10.8754C7.59917 10.3731 7.31697 9.69178 7.31697 8.98138C7.31697 8.27098 7.59917 7.58967 8.1015 7.08734C8.60383 6.58501 9.28514 6.3028 9.99554 6.3028ZM9.99554 7.37423C9.5693 7.37423 9.16051 7.54356 8.85912 7.84495C8.55772 8.14635 8.38839 8.55514 8.38839 8.98138C8.38839 9.40762 8.55772 9.8164 8.85912 10.1178C9.16051 10.4192 9.5693 10.5885 9.99554 10.5885C10.4218 10.5885 10.8306 10.4192 11.132 10.1178C11.4334 9.8164 11.6027 9.40762 11.6027 8.98138C11.6027 8.55514 11.4334 8.14635 11.132 7.84495C10.8306 7.54356 10.4218 7.37423 9.99554 7.37423Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>United States</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="our-members-card">
+                  <img
+                    src="./images/Avatar 1.png"
+                    class="member-card-img"
+                    alt="User Image"
+                  />
+
+                  <div class="member-card-content">
+                    <div class="member-card">
+                      <h4 class="member-card-name">James dunn</h4>
+
+                      <div class="member-card-items">
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_418_130)">
+                                <path
+                                  d="M15.4492 10.812C15.7161 11.2808 15.9147 11.769 16.0449 12.2769C16.1751 12.7847 16.2435 13.3088 16.25 13.8491V14.855L10 17.9897L3.75 14.855C3.75 14.4644 3.75326 14.0998 3.75977 13.7612C3.76628 13.4227 3.79557 13.0939 3.84766 12.7749C3.89974 12.4559 3.97786 12.1369 4.08203 11.8179C4.1862 11.4989 4.34245 11.1636 4.55078 10.812L2.5 9.78662V15.519C2.6888 15.5841 2.85807 15.6753 3.00781 15.7925C3.15755 15.9097 3.29102 16.0464 3.4082 16.2026C3.52539 16.3589 3.61003 16.5282 3.66211 16.7104C3.71419 16.8927 3.74349 17.0848 3.75 17.2866V20.4116H0V17.2866C0 17.0913 0.0292969 16.9025 0.0878906 16.7202C0.146484 16.5379 0.23112 16.3654 0.341797 16.2026C0.452474 16.0399 0.582682 15.9032 0.732422 15.7925C0.882161 15.6818 1.05469 15.5907 1.25 15.519V9.16162L0 8.53662L10 3.53662L20 8.53662L15.4492 10.812ZM2.5 17.2866C2.5 17.1174 2.43815 16.9709 2.31445 16.8472C2.19076 16.7235 2.04427 16.6616 1.875 16.6616C1.70573 16.6616 1.55924 16.7235 1.43555 16.8472C1.31185 16.9709 1.25 17.1174 1.25 17.2866V19.1616H2.5V17.2866ZM2.79297 8.53662L10 12.1401L17.207 8.53662L10 4.93311L2.79297 8.53662ZM15 14.0835C15 13.5822 14.9512 13.1167 14.8535 12.687C14.7559 12.2573 14.5833 11.8179 14.3359 11.3687L10 13.5366L5.66406 11.3687C5.44922 11.7463 5.28646 12.1434 5.17578 12.5601C5.0651 12.9767 5.00651 13.4064 5 13.8491V14.0835L10 16.5835L15 14.0835Z"
+                                  fill="#F5AA1C"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_418_130">
+                                  <rect
+                                    width="20"
+                                    height="20"
+                                    fill="white"
+                                    transform="translate(0 0.411621)"
+                                  />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                          <h5>P.H.D</h5>
+                        </div>
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5.21094 3.32764C5.04518 3.32764 4.88621 3.39348 4.769 3.51069C4.65179 3.6279 4.58594 3.78688 4.58594 3.95264V17.4943H6.2526V15.2026C6.2526 14.6276 6.71927 14.161 7.29427 14.161H12.7109C13.2859 14.161 13.7526 14.6276 13.7526 15.2026V17.4943H15.4193V10.2026C15.4193 10.0369 15.3534 9.8779 15.2362 9.76069C15.119 9.64348 14.96 9.57764 14.7943 9.57764H13.1276C12.9618 9.57764 12.8029 9.51179 12.6857 9.39458C12.5685 9.27737 12.5026 9.1184 12.5026 8.95264V3.95264C12.5026 3.78688 12.4368 3.6279 12.3195 3.51069C12.2023 3.39348 12.0434 3.32764 11.8776 3.32764H5.21094ZM7.5026 15.411V17.4943H9.3776V15.411H7.5026ZM10.6276 15.411V17.4943H12.5026V15.411H10.6276ZM16.0443 18.7443H3.96094C3.79518 18.7443 3.63621 18.6785 3.519 18.5612C3.40179 18.444 3.33594 18.2851 3.33594 18.1193V3.95264C3.33594 3.45536 3.53348 2.97844 3.88511 2.62681C4.23674 2.27518 4.71366 2.07764 5.21094 2.07764H11.8776C12.3749 2.07764 12.8518 2.27518 13.2034 2.62681C13.5551 2.97844 13.7526 3.45536 13.7526 3.95264V8.32764H14.7943C15.0405 8.32764 15.2843 8.37613 15.5118 8.47036C15.7393 8.56459 15.946 8.7027 16.1201 8.87681C16.2942 9.05092 16.4323 9.25762 16.5265 9.4851C16.6208 9.71259 16.6693 9.95641 16.6693 10.2026V18.1193C16.6693 18.2851 16.6034 18.444 16.4862 18.5612C16.369 18.6785 16.21 18.7443 16.0443 18.7443ZM6.2526 5.82764C6.2526 5.60662 6.3404 5.39466 6.49668 5.23838C6.65296 5.0821 6.86492 4.9943 7.08594 4.9943C7.30695 4.9943 7.51891 5.0821 7.67519 5.23838C7.83147 5.39466 7.91927 5.60662 7.91927 5.82764C7.91927 6.04865 7.83147 6.26061 7.67519 6.41689C7.51891 6.57317 7.30695 6.66097 7.08594 6.66097C6.86492 6.66097 6.65296 6.57317 6.49668 6.41689C6.3404 6.26061 6.2526 6.04865 6.2526 5.82764ZM7.08594 10.8276C6.86492 10.8276 6.65296 10.9154 6.49668 11.0717C6.3404 11.228 6.2526 11.44 6.2526 11.661C6.2526 11.882 6.3404 12.0939 6.49668 12.2502C6.65296 12.4065 6.86492 12.4943 7.08594 12.4943C7.30695 12.4943 7.51891 12.4065 7.67519 12.2502C7.83147 12.0939 7.91927 11.882 7.91927 11.661C7.91927 11.44 7.83147 11.228 7.67519 11.0717C7.51891 10.9154 7.30695 10.8276 7.08594 10.8276ZM7.08594 7.91097C6.86492 7.91097 6.65296 7.99877 6.49668 8.15505C6.3404 8.31133 6.2526 8.52329 6.2526 8.7443C6.2526 8.96532 6.3404 9.17728 6.49668 9.33356C6.65296 9.48984 6.86492 9.57764 7.08594 9.57764C7.30695 9.57764 7.51891 9.48984 7.67519 9.33356C7.83147 9.17728 7.91927 8.96532 7.91927 8.7443C7.91927 8.52329 7.83147 8.31133 7.67519 8.15505C7.51891 7.99877 7.30695 7.91097 7.08594 7.91097ZM10.0026 4.9943C9.78159 4.9943 9.56963 5.0821 9.41335 5.23838C9.25707 5.39466 9.16927 5.60662 9.16927 5.82764C9.16927 6.04865 9.25707 6.26061 9.41335 6.41689C9.56963 6.57317 9.78159 6.66097 10.0026 6.66097C10.2236 6.66097 10.4356 6.57317 10.5919 6.41689C10.7481 6.26061 10.8359 6.04865 10.8359 5.82764C10.8359 5.60662 10.7481 5.39466 10.5919 5.23838C10.4356 5.0821 10.2236 4.9943 10.0026 4.9943ZM10.0026 10.8276C9.78159 10.8276 9.56963 10.9154 9.41335 11.0717C9.25707 11.228 9.16927 11.44 9.16927 11.661C9.16927 11.882 9.25707 12.0939 9.41335 12.2502C9.56963 12.4065 9.78159 12.4943 10.0026 12.4943C10.2236 12.4943 10.4356 12.4065 10.5919 12.2502C10.7481 12.0939 10.8359 11.882 10.8359 11.661C10.8359 11.44 10.7481 11.228 10.5919 11.0717C10.4356 10.9154 10.2236 10.8276 10.0026 10.8276ZM12.9193 10.8276C12.6983 10.8276 12.4863 10.9154 12.33 11.0717C12.1737 11.228 12.0859 11.44 12.0859 11.661C12.0859 11.882 12.1737 12.0939 12.33 12.2502C12.4863 12.4065 12.6983 12.4943 12.9193 12.4943C13.1403 12.4943 13.3522 12.4065 13.5085 12.2502C13.6648 12.0939 13.7526 11.882 13.7526 11.661C13.7526 11.44 13.6648 11.228 13.5085 11.0717C13.3522 10.9154 13.1403 10.8276 12.9193 10.8276ZM10.0026 7.91097C9.78159 7.91097 9.56963 7.99877 9.41335 8.15505C9.25707 8.31133 9.16927 8.52329 9.16927 8.7443C9.16927 8.96532 9.25707 9.17728 9.41335 9.33356C9.56963 9.48984 9.78159 9.57764 10.0026 9.57764C10.2236 9.57764 10.4356 9.48984 10.5919 9.33356C10.7481 9.17728 10.8359 8.96532 10.8359 8.7443C10.8359 8.52329 10.7481 8.31133 10.5919 8.15505C10.4356 7.99877 10.2236 7.91097 10.0026 7.91097Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>National University</h5>
+                        </div>
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M9.99554 2.01709C11.8426 2.01709 13.614 2.75083 14.92 4.05688C16.2261 5.36294 16.9598 7.13433 16.9598 8.98138C16.9598 11.9242 14.892 15.1314 10.8098 18.6371C10.5828 18.8321 10.2934 18.9392 9.9942 18.9389C9.69496 18.9387 9.40575 18.8311 9.17911 18.6357L8.90911 18.4014C5.00768 14.9871 3.03125 11.8585 3.03125 8.98138C3.03125 7.13433 3.76499 5.36294 5.07104 4.05688C6.3771 2.75083 8.14849 2.01709 9.99554 2.01709ZM9.99554 3.08852C8.43265 3.08852 6.93378 3.70937 5.82866 4.8145C4.72353 5.91962 4.10268 7.41849 4.10268 8.98138C4.10268 11.4828 5.92268 14.3649 9.61268 17.5935L9.87911 17.8242C9.9115 17.8521 9.95281 17.8674 9.99554 17.8674C10.0383 17.8674 10.0796 17.8521 10.112 17.8242C13.9805 14.5014 15.8884 11.5421 15.8884 8.98138C15.8884 8.20752 15.736 7.44123 15.4398 6.72628C15.1437 6.01132 14.7096 5.3617 14.1624 4.8145C13.6152 4.26729 12.9656 3.83323 12.2506 3.53709C11.5357 3.24094 10.7694 3.08852 9.99554 3.08852ZM9.99554 6.3028C10.7059 6.3028 11.3872 6.58501 11.8896 7.08734C12.3919 7.58967 12.6741 8.27098 12.6741 8.98138C12.6741 9.69178 12.3919 10.3731 11.8896 10.8754C11.3872 11.3777 10.7059 11.6599 9.99554 11.6599C9.28514 11.6599 8.60383 11.3777 8.1015 10.8754C7.59917 10.3731 7.31697 9.69178 7.31697 8.98138C7.31697 8.27098 7.59917 7.58967 8.1015 7.08734C8.60383 6.58501 9.28514 6.3028 9.99554 6.3028ZM9.99554 7.37423C9.5693 7.37423 9.16051 7.54356 8.85912 7.84495C8.55772 8.14635 8.38839 8.55514 8.38839 8.98138C8.38839 9.40762 8.55772 9.8164 8.85912 10.1178C9.16051 10.4192 9.5693 10.5885 9.99554 10.5885C10.4218 10.5885 10.8306 10.4192 11.132 10.1178C11.4334 9.8164 11.6027 9.40762 11.6027 8.98138C11.6027 8.55514 11.4334 8.14635 11.132 7.84495C10.8306 7.54356 10.4218 7.37423 9.99554 7.37423Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>United States</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="our-members-card">
+                  <img
+                    src="./images/Avatar 2.png"
+                    class="member-card-img"
+                    alt="User Image"
+                  />
+
+                  <div class="member-card-content">
+                    <div class="member-card">
+                      <h4 class="member-card-name">Roxie Swanson</h4>
+
+                      <div class="member-card-items">
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_418_130)">
+                                <path
+                                  d="M15.4492 10.812C15.7161 11.2808 15.9147 11.769 16.0449 12.2769C16.1751 12.7847 16.2435 13.3088 16.25 13.8491V14.855L10 17.9897L3.75 14.855C3.75 14.4644 3.75326 14.0998 3.75977 13.7612C3.76628 13.4227 3.79557 13.0939 3.84766 12.7749C3.89974 12.4559 3.97786 12.1369 4.08203 11.8179C4.1862 11.4989 4.34245 11.1636 4.55078 10.812L2.5 9.78662V15.519C2.6888 15.5841 2.85807 15.6753 3.00781 15.7925C3.15755 15.9097 3.29102 16.0464 3.4082 16.2026C3.52539 16.3589 3.61003 16.5282 3.66211 16.7104C3.71419 16.8927 3.74349 17.0848 3.75 17.2866V20.4116H0V17.2866C0 17.0913 0.0292969 16.9025 0.0878906 16.7202C0.146484 16.5379 0.23112 16.3654 0.341797 16.2026C0.452474 16.0399 0.582682 15.9032 0.732422 15.7925C0.882161 15.6818 1.05469 15.5907 1.25 15.519V9.16162L0 8.53662L10 3.53662L20 8.53662L15.4492 10.812ZM2.5 17.2866C2.5 17.1174 2.43815 16.9709 2.31445 16.8472C2.19076 16.7235 2.04427 16.6616 1.875 16.6616C1.70573 16.6616 1.55924 16.7235 1.43555 16.8472C1.31185 16.9709 1.25 17.1174 1.25 17.2866V19.1616H2.5V17.2866ZM2.79297 8.53662L10 12.1401L17.207 8.53662L10 4.93311L2.79297 8.53662ZM15 14.0835C15 13.5822 14.9512 13.1167 14.8535 12.687C14.7559 12.2573 14.5833 11.8179 14.3359 11.3687L10 13.5366L5.66406 11.3687C5.44922 11.7463 5.28646 12.1434 5.17578 12.5601C5.0651 12.9767 5.00651 13.4064 5 13.8491V14.0835L10 16.5835L15 14.0835Z"
+                                  fill="#F5AA1C"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_418_130">
+                                  <rect
+                                    width="20"
+                                    height="20"
+                                    fill="white"
+                                    transform="translate(0 0.411621)"
+                                  />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                          <h5>Bachelor's degree</h5>
+                        </div>
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5.21094 3.32764C5.04518 3.32764 4.88621 3.39348 4.769 3.51069C4.65179 3.6279 4.58594 3.78688 4.58594 3.95264V17.4943H6.2526V15.2026C6.2526 14.6276 6.71927 14.161 7.29427 14.161H12.7109C13.2859 14.161 13.7526 14.6276 13.7526 15.2026V17.4943H15.4193V10.2026C15.4193 10.0369 15.3534 9.8779 15.2362 9.76069C15.119 9.64348 14.96 9.57764 14.7943 9.57764H13.1276C12.9618 9.57764 12.8029 9.51179 12.6857 9.39458C12.5685 9.27737 12.5026 9.1184 12.5026 8.95264V3.95264C12.5026 3.78688 12.4368 3.6279 12.3195 3.51069C12.2023 3.39348 12.0434 3.32764 11.8776 3.32764H5.21094ZM7.5026 15.411V17.4943H9.3776V15.411H7.5026ZM10.6276 15.411V17.4943H12.5026V15.411H10.6276ZM16.0443 18.7443H3.96094C3.79518 18.7443 3.63621 18.6785 3.519 18.5612C3.40179 18.444 3.33594 18.2851 3.33594 18.1193V3.95264C3.33594 3.45536 3.53348 2.97844 3.88511 2.62681C4.23674 2.27518 4.71366 2.07764 5.21094 2.07764H11.8776C12.3749 2.07764 12.8518 2.27518 13.2034 2.62681C13.5551 2.97844 13.7526 3.45536 13.7526 3.95264V8.32764H14.7943C15.0405 8.32764 15.2843 8.37613 15.5118 8.47036C15.7393 8.56459 15.946 8.7027 16.1201 8.87681C16.2942 9.05092 16.4323 9.25762 16.5265 9.4851C16.6208 9.71259 16.6693 9.95641 16.6693 10.2026V18.1193C16.6693 18.2851 16.6034 18.444 16.4862 18.5612C16.369 18.6785 16.21 18.7443 16.0443 18.7443ZM6.2526 5.82764C6.2526 5.60662 6.3404 5.39466 6.49668 5.23838C6.65296 5.0821 6.86492 4.9943 7.08594 4.9943C7.30695 4.9943 7.51891 5.0821 7.67519 5.23838C7.83147 5.39466 7.91927 5.60662 7.91927 5.82764C7.91927 6.04865 7.83147 6.26061 7.67519 6.41689C7.51891 6.57317 7.30695 6.66097 7.08594 6.66097C6.86492 6.66097 6.65296 6.57317 6.49668 6.41689C6.3404 6.26061 6.2526 6.04865 6.2526 5.82764ZM7.08594 10.8276C6.86492 10.8276 6.65296 10.9154 6.49668 11.0717C6.3404 11.228 6.2526 11.44 6.2526 11.661C6.2526 11.882 6.3404 12.0939 6.49668 12.2502C6.65296 12.4065 6.86492 12.4943 7.08594 12.4943C7.30695 12.4943 7.51891 12.4065 7.67519 12.2502C7.83147 12.0939 7.91927 11.882 7.91927 11.661C7.91927 11.44 7.83147 11.228 7.67519 11.0717C7.51891 10.9154 7.30695 10.8276 7.08594 10.8276ZM7.08594 7.91097C6.86492 7.91097 6.65296 7.99877 6.49668 8.15505C6.3404 8.31133 6.2526 8.52329 6.2526 8.7443C6.2526 8.96532 6.3404 9.17728 6.49668 9.33356C6.65296 9.48984 6.86492 9.57764 7.08594 9.57764C7.30695 9.57764 7.51891 9.48984 7.67519 9.33356C7.83147 9.17728 7.91927 8.96532 7.91927 8.7443C7.91927 8.52329 7.83147 8.31133 7.67519 8.15505C7.51891 7.99877 7.30695 7.91097 7.08594 7.91097ZM10.0026 4.9943C9.78159 4.9943 9.56963 5.0821 9.41335 5.23838C9.25707 5.39466 9.16927 5.60662 9.16927 5.82764C9.16927 6.04865 9.25707 6.26061 9.41335 6.41689C9.56963 6.57317 9.78159 6.66097 10.0026 6.66097C10.2236 6.66097 10.4356 6.57317 10.5919 6.41689C10.7481 6.26061 10.8359 6.04865 10.8359 5.82764C10.8359 5.60662 10.7481 5.39466 10.5919 5.23838C10.4356 5.0821 10.2236 4.9943 10.0026 4.9943ZM10.0026 10.8276C9.78159 10.8276 9.56963 10.9154 9.41335 11.0717C9.25707 11.228 9.16927 11.44 9.16927 11.661C9.16927 11.882 9.25707 12.0939 9.41335 12.2502C9.56963 12.4065 9.78159 12.4943 10.0026 12.4943C10.2236 12.4943 10.4356 12.4065 10.5919 12.2502C10.7481 12.0939 10.8359 11.882 10.8359 11.661C10.8359 11.44 10.7481 11.228 10.5919 11.0717C10.4356 10.9154 10.2236 10.8276 10.0026 10.8276ZM12.9193 10.8276C12.6983 10.8276 12.4863 10.9154 12.33 11.0717C12.1737 11.228 12.0859 11.44 12.0859 11.661C12.0859 11.882 12.1737 12.0939 12.33 12.2502C12.4863 12.4065 12.6983 12.4943 12.9193 12.4943C13.1403 12.4943 13.3522 12.4065 13.5085 12.2502C13.6648 12.0939 13.7526 11.882 13.7526 11.661C13.7526 11.44 13.6648 11.228 13.5085 11.0717C13.3522 10.9154 13.1403 10.8276 12.9193 10.8276ZM10.0026 7.91097C9.78159 7.91097 9.56963 7.99877 9.41335 8.15505C9.25707 8.31133 9.16927 8.52329 9.16927 8.7443C9.16927 8.96532 9.25707 9.17728 9.41335 9.33356C9.56963 9.48984 9.78159 9.57764 10.0026 9.57764C10.2236 9.57764 10.4356 9.48984 10.5919 9.33356C10.7481 9.17728 10.8359 8.96532 10.8359 8.7443C10.8359 8.52329 10.7481 8.31133 10.5919 8.15505C10.4356 7.99877 10.2236 7.91097 10.0026 7.91097Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>Adams State College</h5>
+                        </div>
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M9.99554 2.01709C11.8426 2.01709 13.614 2.75083 14.92 4.05688C16.2261 5.36294 16.9598 7.13433 16.9598 8.98138C16.9598 11.9242 14.892 15.1314 10.8098 18.6371C10.5828 18.8321 10.2934 18.9392 9.9942 18.9389C9.69496 18.9387 9.40575 18.8311 9.17911 18.6357L8.90911 18.4014C5.00768 14.9871 3.03125 11.8585 3.03125 8.98138C3.03125 7.13433 3.76499 5.36294 5.07104 4.05688C6.3771 2.75083 8.14849 2.01709 9.99554 2.01709ZM9.99554 3.08852C8.43265 3.08852 6.93378 3.70937 5.82866 4.8145C4.72353 5.91962 4.10268 7.41849 4.10268 8.98138C4.10268 11.4828 5.92268 14.3649 9.61268 17.5935L9.87911 17.8242C9.9115 17.8521 9.95281 17.8674 9.99554 17.8674C10.0383 17.8674 10.0796 17.8521 10.112 17.8242C13.9805 14.5014 15.8884 11.5421 15.8884 8.98138C15.8884 8.20752 15.736 7.44123 15.4398 6.72628C15.1437 6.01132 14.7096 5.3617 14.1624 4.8145C13.6152 4.26729 12.9656 3.83323 12.2506 3.53709C11.5357 3.24094 10.7694 3.08852 9.99554 3.08852ZM9.99554 6.3028C10.7059 6.3028 11.3872 6.58501 11.8896 7.08734C12.3919 7.58967 12.6741 8.27098 12.6741 8.98138C12.6741 9.69178 12.3919 10.3731 11.8896 10.8754C11.3872 11.3777 10.7059 11.6599 9.99554 11.6599C9.28514 11.6599 8.60383 11.3777 8.1015 10.8754C7.59917 10.3731 7.31697 9.69178 7.31697 8.98138C7.31697 8.27098 7.59917 7.58967 8.1015 7.08734C8.60383 6.58501 9.28514 6.3028 9.99554 6.3028ZM9.99554 7.37423C9.5693 7.37423 9.16051 7.54356 8.85912 7.84495C8.55772 8.14635 8.38839 8.55514 8.38839 8.98138C8.38839 9.40762 8.55772 9.8164 8.85912 10.1178C9.16051 10.4192 9.5693 10.5885 9.99554 10.5885C10.4218 10.5885 10.8306 10.4192 11.132 10.1178C11.4334 9.8164 11.6027 9.40762 11.6027 8.98138C11.6027 8.55514 11.4334 8.14635 11.132 7.84495C10.8306 7.54356 10.4218 7.37423 9.99554 7.37423Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>United States</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="our-members-card">
+                  <img
+                    src="./images/Avatar 3.png"
+                    class="member-card-img"
+                    alt="User Image"
+                  />
+
+                  <div class="member-card-content">
+                    <div class="member-card">
+                      <h4 class="member-card-name">Zahir Mays</h4>
+
+                      <div class="member-card-items">
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_418_130)">
+                                <path
+                                  d="M15.4492 10.812C15.7161 11.2808 15.9147 11.769 16.0449 12.2769C16.1751 12.7847 16.2435 13.3088 16.25 13.8491V14.855L10 17.9897L3.75 14.855C3.75 14.4644 3.75326 14.0998 3.75977 13.7612C3.76628 13.4227 3.79557 13.0939 3.84766 12.7749C3.89974 12.4559 3.97786 12.1369 4.08203 11.8179C4.1862 11.4989 4.34245 11.1636 4.55078 10.812L2.5 9.78662V15.519C2.6888 15.5841 2.85807 15.6753 3.00781 15.7925C3.15755 15.9097 3.29102 16.0464 3.4082 16.2026C3.52539 16.3589 3.61003 16.5282 3.66211 16.7104C3.71419 16.8927 3.74349 17.0848 3.75 17.2866V20.4116H0V17.2866C0 17.0913 0.0292969 16.9025 0.0878906 16.7202C0.146484 16.5379 0.23112 16.3654 0.341797 16.2026C0.452474 16.0399 0.582682 15.9032 0.732422 15.7925C0.882161 15.6818 1.05469 15.5907 1.25 15.519V9.16162L0 8.53662L10 3.53662L20 8.53662L15.4492 10.812ZM2.5 17.2866C2.5 17.1174 2.43815 16.9709 2.31445 16.8472C2.19076 16.7235 2.04427 16.6616 1.875 16.6616C1.70573 16.6616 1.55924 16.7235 1.43555 16.8472C1.31185 16.9709 1.25 17.1174 1.25 17.2866V19.1616H2.5V17.2866ZM2.79297 8.53662L10 12.1401L17.207 8.53662L10 4.93311L2.79297 8.53662ZM15 14.0835C15 13.5822 14.9512 13.1167 14.8535 12.687C14.7559 12.2573 14.5833 11.8179 14.3359 11.3687L10 13.5366L5.66406 11.3687C5.44922 11.7463 5.28646 12.1434 5.17578 12.5601C5.0651 12.9767 5.00651 13.4064 5 13.8491V14.0835L10 16.5835L15 14.0835Z"
+                                  fill="#F5AA1C"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_418_130">
+                                  <rect
+                                    width="20"
+                                    height="20"
+                                    fill="white"
+                                    transform="translate(0 0.411621)"
+                                  />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                          <h5>Post-doctoral</h5>
+                        </div>
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5.21094 3.32764C5.04518 3.32764 4.88621 3.39348 4.769 3.51069C4.65179 3.6279 4.58594 3.78688 4.58594 3.95264V17.4943H6.2526V15.2026C6.2526 14.6276 6.71927 14.161 7.29427 14.161H12.7109C13.2859 14.161 13.7526 14.6276 13.7526 15.2026V17.4943H15.4193V10.2026C15.4193 10.0369 15.3534 9.8779 15.2362 9.76069C15.119 9.64348 14.96 9.57764 14.7943 9.57764H13.1276C12.9618 9.57764 12.8029 9.51179 12.6857 9.39458C12.5685 9.27737 12.5026 9.1184 12.5026 8.95264V3.95264C12.5026 3.78688 12.4368 3.6279 12.3195 3.51069C12.2023 3.39348 12.0434 3.32764 11.8776 3.32764H5.21094ZM7.5026 15.411V17.4943H9.3776V15.411H7.5026ZM10.6276 15.411V17.4943H12.5026V15.411H10.6276ZM16.0443 18.7443H3.96094C3.79518 18.7443 3.63621 18.6785 3.519 18.5612C3.40179 18.444 3.33594 18.2851 3.33594 18.1193V3.95264C3.33594 3.45536 3.53348 2.97844 3.88511 2.62681C4.23674 2.27518 4.71366 2.07764 5.21094 2.07764H11.8776C12.3749 2.07764 12.8518 2.27518 13.2034 2.62681C13.5551 2.97844 13.7526 3.45536 13.7526 3.95264V8.32764H14.7943C15.0405 8.32764 15.2843 8.37613 15.5118 8.47036C15.7393 8.56459 15.946 8.7027 16.1201 8.87681C16.2942 9.05092 16.4323 9.25762 16.5265 9.4851C16.6208 9.71259 16.6693 9.95641 16.6693 10.2026V18.1193C16.6693 18.2851 16.6034 18.444 16.4862 18.5612C16.369 18.6785 16.21 18.7443 16.0443 18.7443ZM6.2526 5.82764C6.2526 5.60662 6.3404 5.39466 6.49668 5.23838C6.65296 5.0821 6.86492 4.9943 7.08594 4.9943C7.30695 4.9943 7.51891 5.0821 7.67519 5.23838C7.83147 5.39466 7.91927 5.60662 7.91927 5.82764C7.91927 6.04865 7.83147 6.26061 7.67519 6.41689C7.51891 6.57317 7.30695 6.66097 7.08594 6.66097C6.86492 6.66097 6.65296 6.57317 6.49668 6.41689C6.3404 6.26061 6.2526 6.04865 6.2526 5.82764ZM7.08594 10.8276C6.86492 10.8276 6.65296 10.9154 6.49668 11.0717C6.3404 11.228 6.2526 11.44 6.2526 11.661C6.2526 11.882 6.3404 12.0939 6.49668 12.2502C6.65296 12.4065 6.86492 12.4943 7.08594 12.4943C7.30695 12.4943 7.51891 12.4065 7.67519 12.2502C7.83147 12.0939 7.91927 11.882 7.91927 11.661C7.91927 11.44 7.83147 11.228 7.67519 11.0717C7.51891 10.9154 7.30695 10.8276 7.08594 10.8276ZM7.08594 7.91097C6.86492 7.91097 6.65296 7.99877 6.49668 8.15505C6.3404 8.31133 6.2526 8.52329 6.2526 8.7443C6.2526 8.96532 6.3404 9.17728 6.49668 9.33356C6.65296 9.48984 6.86492 9.57764 7.08594 9.57764C7.30695 9.57764 7.51891 9.48984 7.67519 9.33356C7.83147 9.17728 7.91927 8.96532 7.91927 8.7443C7.91927 8.52329 7.83147 8.31133 7.67519 8.15505C7.51891 7.99877 7.30695 7.91097 7.08594 7.91097ZM10.0026 4.9943C9.78159 4.9943 9.56963 5.0821 9.41335 5.23838C9.25707 5.39466 9.16927 5.60662 9.16927 5.82764C9.16927 6.04865 9.25707 6.26061 9.41335 6.41689C9.56963 6.57317 9.78159 6.66097 10.0026 6.66097C10.2236 6.66097 10.4356 6.57317 10.5919 6.41689C10.7481 6.26061 10.8359 6.04865 10.8359 5.82764C10.8359 5.60662 10.7481 5.39466 10.5919 5.23838C10.4356 5.0821 10.2236 4.9943 10.0026 4.9943ZM10.0026 10.8276C9.78159 10.8276 9.56963 10.9154 9.41335 11.0717C9.25707 11.228 9.16927 11.44 9.16927 11.661C9.16927 11.882 9.25707 12.0939 9.41335 12.2502C9.56963 12.4065 9.78159 12.4943 10.0026 12.4943C10.2236 12.4943 10.4356 12.4065 10.5919 12.2502C10.7481 12.0939 10.8359 11.882 10.8359 11.661C10.8359 11.44 10.7481 11.228 10.5919 11.0717C10.4356 10.9154 10.2236 10.8276 10.0026 10.8276ZM12.9193 10.8276C12.6983 10.8276 12.4863 10.9154 12.33 11.0717C12.1737 11.228 12.0859 11.44 12.0859 11.661C12.0859 11.882 12.1737 12.0939 12.33 12.2502C12.4863 12.4065 12.6983 12.4943 12.9193 12.4943C13.1403 12.4943 13.3522 12.4065 13.5085 12.2502C13.6648 12.0939 13.7526 11.882 13.7526 11.661C13.7526 11.44 13.6648 11.228 13.5085 11.0717C13.3522 10.9154 13.1403 10.8276 12.9193 10.8276ZM10.0026 7.91097C9.78159 7.91097 9.56963 7.99877 9.41335 8.15505C9.25707 8.31133 9.16927 8.52329 9.16927 8.7443C9.16927 8.96532 9.25707 9.17728 9.41335 9.33356C9.56963 9.48984 9.78159 9.57764 10.0026 9.57764C10.2236 9.57764 10.4356 9.48984 10.5919 9.33356C10.7481 9.17728 10.8359 8.96532 10.8359 8.7443C10.8359 8.52329 10.7481 8.31133 10.5919 8.15505C10.4356 7.99877 10.2236 7.91097 10.0026 7.91097Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>National University</h5>
+                        </div>
+                        <div class="member-card-item">
+                          <div class="member-card-item-icon">
+                            <svg
+                              width="20"
+                              height="21"
+                              viewBox="0 0 20 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M9.99554 2.01709C11.8426 2.01709 13.614 2.75083 14.92 4.05688C16.2261 5.36294 16.9598 7.13433 16.9598 8.98138C16.9598 11.9242 14.892 15.1314 10.8098 18.6371C10.5828 18.8321 10.2934 18.9392 9.9942 18.9389C9.69496 18.9387 9.40575 18.8311 9.17911 18.6357L8.90911 18.4014C5.00768 14.9871 3.03125 11.8585 3.03125 8.98138C3.03125 7.13433 3.76499 5.36294 5.07104 4.05688C6.3771 2.75083 8.14849 2.01709 9.99554 2.01709ZM9.99554 3.08852C8.43265 3.08852 6.93378 3.70937 5.82866 4.8145C4.72353 5.91962 4.10268 7.41849 4.10268 8.98138C4.10268 11.4828 5.92268 14.3649 9.61268 17.5935L9.87911 17.8242C9.9115 17.8521 9.95281 17.8674 9.99554 17.8674C10.0383 17.8674 10.0796 17.8521 10.112 17.8242C13.9805 14.5014 15.8884 11.5421 15.8884 8.98138C15.8884 8.20752 15.736 7.44123 15.4398 6.72628C15.1437 6.01132 14.7096 5.3617 14.1624 4.8145C13.6152 4.26729 12.9656 3.83323 12.2506 3.53709C11.5357 3.24094 10.7694 3.08852 9.99554 3.08852ZM9.99554 6.3028C10.7059 6.3028 11.3872 6.58501 11.8896 7.08734C12.3919 7.58967 12.6741 8.27098 12.6741 8.98138C12.6741 9.69178 12.3919 10.3731 11.8896 10.8754C11.3872 11.3777 10.7059 11.6599 9.99554 11.6599C9.28514 11.6599 8.60383 11.3777 8.1015 10.8754C7.59917 10.3731 7.31697 9.69178 7.31697 8.98138C7.31697 8.27098 7.59917 7.58967 8.1015 7.08734C8.60383 6.58501 9.28514 6.3028 9.99554 6.3028ZM9.99554 7.37423C9.5693 7.37423 9.16051 7.54356 8.85912 7.84495C8.55772 8.14635 8.38839 8.55514 8.38839 8.98138C8.38839 9.40762 8.55772 9.8164 8.85912 10.1178C9.16051 10.4192 9.5693 10.5885 9.99554 10.5885C10.4218 10.5885 10.8306 10.4192 11.132 10.1178C11.4334 9.8164 11.6027 9.40762 11.6027 8.98138C11.6027 8.55514 11.4334 8.14635 11.132 7.84495C10.8306 7.54356 10.4218 7.37423 9.99554 7.37423Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5>United States</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="our-members-arrows">
+                <button id="prev" class="btn-arrow">
+                  <i class="fa fa-angle-left"></i>
+                </button>
+                <button id="next" class="btn-arrow">
+                  <i class="fa fa-angle-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
-    <footer>
+    <footer class="footer-background">
       <div class="container mx">
-        <div class="row-fot">
-          <div class="row">
-            <div class="desc col-3">
-              <a href="/index.html">
-                <img
-                  src="../images/image_59-removebg-preview (1) 1.png"
-                  alt=""
-                />
-                <h2>Unisuniverse</h2>
-              </a>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
-                congu.
-              </p>
+        <div>
+          <div class="row-fot">
+            <div class="row">
+              <div class="desc col-3">
+                <a href="/index.html">
+                  <img
+                    src="../images/image_59-removebg-preview (1) 1.png"
+                    alt=""
+                  />
+                  <h2>Unisuniverse</h2>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
+                  congu.
+                </p>
+              </div>
+              <div class="col-3">
+                <h4>Short Links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href=""><span>Home</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Academics</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Students</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Universities</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3">
+                <h4>Quick links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href="../Aboutus/index.html"><span>About us</span></a>
+                  </li>
+                  <li>
+                    <a href="../FAQ/index.html"><span>FAQ</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Contact us</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Privacy policy</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3 contact">
+                <h4>Contact us</h4>
+                <ul>
+                  <li>
+                    <div class="iconfo">
+                      <i
+                        class="fa fa-phone fa-flip-horizontal"
+                        aria-hidden="true"
+                      ></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Phone:<br />
+                      +971-580580580
+                    </div>
+                  </li>
+                  <li class="Emailfot">
+                    <div class="iconfo">
+                      <i class="fa fa-envelope-o"></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Email:<br />
+                      info@Unisuniverse@gmail.com
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div class="col-3">
-              <h4>Short Links</h4>
-              <ul class="footer-cat-links">
-                <li>
-                  <a href=""><span>Home</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Academics</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Students</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Universities</span></a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-3">
-              <h4>Quick links</h4>
-              <ul class="footer-cat-links">
-                <li>
-                  <a href="../../Aboutus/index.html"><span>About us</span></a>
-                </li>
-                <li>
-                  <a href="../../FAQ/index.html"><span>FAQ</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Contact us</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Privacy policy</span></a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-3 contact">
-              <h4>Contact us</h4>
-              <ul>
-                <li>
-                  <div class="iconfo">
-                    <i
-                      class="fa fa-phone fa-flip-horizontal"
-                      aria-hidden="true"
-                    ></i>
-                  </div>
-                  <div class="lineheightfot">
-                    Phone:<br />
-                    +971-580580580
-                  </div>
-                </li>
-                <li class="Emailfot">
-                  <div class="iconfo">
-                    <i class="fa fa-envelope-o"></i>
-                  </div>
-                  <div class="lineheightfot">
-                    Email:<br />
-                    info@Unisuniverse@gmail.com
-                  </div>
-                </li>
-              </ul>
+            <div class="social-links social-2 col-6">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-linkedin-in"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-reddit-alien"></i></a>
             </div>
           </div>
-          <div class="social-links social-2 col-6">
-            <a href=""><i class="fab fa-facebook-f"></i></a>
-            <a href=""><i class="fab fa-twitter"></i></a>
-            <a href=""><i class="fab fa-linkedin-in"></i></a>
-            <a href=""><i class="fab fa-instagram"></i></a>
-            <a href=""><i class="fab fa-reddit-alien"></i></a>
-          </div>
-        </div>
-        <div class="copyowner">
-          <div id="copyright">&copy; 2023 Attio Ltd. All rights reserved.</div>
-          <div id="owner">
-            <span> Terms & Conditions </span>
+          <div class="copyowner">
+            <div id="copyright">
+              &copy; 2023 Attio Ltd. All rights reserved.
+            </div>
+            <div id="owner">
+              <span> Terms & Conditions </span>
+            </div>
           </div>
         </div>
       </div>
@@ -2331,9 +2634,9 @@
       // new acc
 
       let newAcc = document.getElementsByClassName("new-acc")[0],
-      popupBoxs = document.getElementsByClassName("popup-boxs")[0],
-      modalBox = document.getElementsByClassName("modal-box")[0];
-      
+        popupBoxs = document.getElementsByClassName("popup-boxs")[0],
+        modalBox = document.getElementsByClassName("modal-box")[0];
+
       newAcc.onclick = function () {
         popupBoxs.style.display = "flex";
         modalBox.style.display = "none";
@@ -2341,21 +2644,27 @@
 
       // slider
 
-      const next=document.querySelector('#next')
-      const prev=document.querySelector('#prev')
+      const next = document.querySelector("#next");
+      const prev = document.querySelector("#prev");
 
-      function handleScrollNext (direction) {
-        const cards = document.querySelector('.our-members-cards');
-        cards.scrollLeft=cards.scrollLeft += window.innerWidth / 2 > 600 ? window.innerWidth /2 : window.innerWidth -100
+      function handleScrollNext(direction) {
+        const cards = document.querySelector(".our-members-cards");
+        cards.scrollLeft = cards.scrollLeft +=
+          window.innerWidth / 2 > 600
+            ? window.innerWidth / 2
+            : window.innerWidth - 100;
       }
 
-      function handleScrollPrev (direction) {
-        const cards = document.querySelector('.our-members-cards');
-        cards.scrollLeft=cards.scrollLeft -= window.innerWidth / 2 > 600 ? window.innerWidth /2 : window.innerWidth -100
+      function handleScrollPrev(direction) {
+        const cards = document.querySelector(".our-members-cards");
+        cards.scrollLeft = cards.scrollLeft -=
+          window.innerWidth / 2 > 600
+            ? window.innerWidth / 2
+            : window.innerWidth - 100;
       }
 
-      next.addEventListener('click', handleScrollNext);
-      prev.addEventListener('click', handleScrollPrev);
+      next.addEventListener("click", handleScrollNext);
+      prev.addEventListener("click", handleScrollPrev);
     </script>
   </body>
 </html>

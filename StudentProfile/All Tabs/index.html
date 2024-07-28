@@ -18,14 +18,14 @@
           0 2px 4px -1px rgba(0, 0, 0, 0.06);
         --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
           0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        --color-text-black: #151515;
-        --color-text-grayblack: #636363;
-        --color-text-gray: #c7c7c7;
-        --color-background: #f4fcff;
-        --color-line: #dadada;
+        --color-text-black: #333333;
+        --color-text-grayblack: #666666;
+        --color-text-gray: #dcdcdc;
+        --color-background: #f7f9fb;
+        --color-line: #dcdcdc;
         --color-white: #ffffff;
-        --primary-color: #002754;
-        --secondary-color: #f5aa1c;
+        --primary-color: #003366;
+        --secondary-color: #ffd700;
       }
 
       *,
@@ -55,7 +55,7 @@
         font-weight: 400;
         line-height: 1.5;
         color: var(--color-text-black);
-        background-color: var(--color-background);
+        background-color: var(--color-white);
       }
 
       a,
@@ -73,7 +73,7 @@
 
       button {
         font-family: inherit;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.25px;
       }
 
       img,
@@ -97,9 +97,9 @@
       .logo {
         font-family: inherit;
         font-size: 28px;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 1.25;
-        color: var(--primary-color);
+        color: var(--color-white);
       }
 
       .header {
@@ -110,8 +110,8 @@
         height: auto;
         z-index: 100;
         margin: 0 auto;
-        box-shadow: var(--shadow-medium);
-        background-color: var(--color-white);
+        background-color: var(--primary-color);
+        border-bottom: 1px solid var(--color-white);
       }
 
       .wrapper {
@@ -138,7 +138,7 @@
           overflow-y: auto;
           visibility: hidden;
           box-shadow: var(--shadow-medium);
-          background-color: var(--color-white);
+          background-color: var(--primary-color);
           transition: all 0.5s ease;
         }
         .navbar.active {
@@ -170,14 +170,14 @@
         line-height: inherit;
         cursor: pointer;
         text-transform: capitalize;
-        color: var(--color-text-black);
+        color: var(--color-white);
         transition: all 0.3s ease-in-out;
       }
 
       .menu-link > i.fa {
         font-size: 14px;
         line-height: 1.5;
-        color: var(--color-text-black);
+        color: var(--color-background);
         margin-left: 2px;
       }
 
@@ -238,7 +238,7 @@
         font-weight: 500;
         line-height: inherit;
         cursor: pointer;
-        color: var(--color-text-black);
+        color: var(--color-text-grayblack);
         transition: all 0.35s ease;
       }
       .submenu-link:hover {
@@ -263,6 +263,9 @@
           box-shadow: none;
           background: transparent;
         }
+        .submenu-link {
+          color: var(--color-text-gray);
+        }
       }
 
       .btn {
@@ -279,8 +282,8 @@
         font-weight: 500;
         line-height: inherit;
         border-radius: 10px;
-        color: var(--color-white);
-        background-color: var(--primary-color);
+        color: var(--primary-color);
+        background-color: var(--color-white);
         transition: all 0.35s ease;
       }
       .btn-md:hover {
@@ -289,7 +292,7 @@
 
       .btn > a > i.fa {
         margin-right: 22px;
-        color: var(--color-text-black);
+        color: var(--color-background);
         transition: all 0.35s ease;
       }
       .btn > a > i.fa:hover {
@@ -320,7 +323,7 @@
         border: none;
         outline: none;
         border-radius: 1rem;
-        background: var(--color-text-black);
+        background: var(--color-white);
       }
       .burger-line:nth-child(1) {
         top: 0px;
@@ -366,7 +369,7 @@
       /* hero section */
 
       .breadcrumb {
-        color: #c7c7c7;
+        color: var(--color-text-gray);
         font-size: 14px;
         font-weight: 500;
         padding: 24px 0;
@@ -1248,7 +1251,7 @@
       }
 
       .user-information-title {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 500;
         color: var(--color-text-grayblack);
       }
@@ -1485,10 +1488,10 @@
 
       .label-tab {
         display: inline-block;
-        font-size: 18px;
+        font-size: 17px;
         color: var(--color-text-grayblack);
         font-weight: 400;
-        padding: 16px 10px;
+        padding: 16px 26px;
         text-align: center;
         border-bottom: 1px solid transparent;
         transition: all 0.2s ease-in;
@@ -1501,7 +1504,7 @@
 
       @media only screen and (min-width: 1506px) {
         .user-information-tabs > .marg-label {
-          margin-left: 34px;
+          margin-left: 30px;
         }
       }
 
@@ -1526,10 +1529,7 @@
 
       .user-information-main #tab1:checked ~ #content1,
       .user-information-main #tab2:checked ~ #content2,
-      .user-information-main #tab3:checked ~ #content3,
-      .user-information-main #tab4:checked ~ #content4,
-      .user-information-main #tab5:checked ~ #content5,
-      .user-information-main #tab6:checked ~ #content6 {
+      .user-information-main #tab3:checked ~ #content3 {
         display: block;
       }
 
@@ -1539,34 +1539,22 @@
         }
         .label-tab {
           font-size: 16px;
-          padding: 12px 6px;
+          padding: 12px 20px;
         }
       }
       @media only screen and (max-width: 1090px) {
         .user-information-tabs {
           padding: 0 13px;
         }
-        .label-tab {
-          font-size: 15px;
-          padding: 12px 3px;
-        }
       }
       @media only screen and (max-width: 934px) {
         .user-information-tabs {
           padding: 8px 24px;
         }
-        .label-tab {
-          font-size: 17px;
-          padding: 12px 8px;
-        }
       }
       @media only screen and (max-width: 812px) {
         .user-information-tabs {
           padding: 8px 12px;
-        }
-        .label-tab {
-          font-size: 14px;
-          padding: 12px 6px;
         }
       }
       @media only screen and (max-width: 660px) {
@@ -1574,7 +1562,6 @@
           padding: 8px 12px;
         }
         .label-tab {
-          font-size: 18px;
           border: 1.5px solid transparent;
           width: 100%;
         }
@@ -1586,11 +1573,6 @@
         }
         .contents {
           margin-top: 20px;
-        }
-      }
-      @media only screen and (max-width: 450px) {
-        .label-tab {
-          font-size: 16px;
         }
       }
 
@@ -1675,7 +1657,8 @@
         gap: 1px;
       }
 
-      .detail-box-name-date h6 {
+      .detail-box-name-date > h6,
+      .detail-box-info-date {
         font-size: 14px;
         font-weight: 400;
         color: var(--color-text-grayblack);
@@ -1685,6 +1668,11 @@
         font-size: 16px;
         font-weight: 600;
         color: var(--color-text-black);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+      }
+      .detail-box-name-date h5:hover {
+        color: var(--secondary-color);
       }
 
       .detail-box-info-degree {
@@ -2768,786 +2756,6 @@
         }
       }
 
-      /* Review */
-
-      .user-reviews-items-down {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 40px;
-        width: 100%;
-      }
-
-      .user-reviews-items-down-statistics {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        width: 100%;
-        gap: 20px;
-      }
-
-      .user-reviews-items-down-statistics > hr {
-        height: 100px;
-        width: 1px;
-        border: none;
-        background-color: var(--color-line);
-      }
-
-      .statistics-total-rating {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 7px;
-      }
-
-      .statistics-star > h5 {
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--color-text-black);
-      }
-
-      .statistics-stars-bar {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 3px;
-      }
-
-      .statistics-total-rating > h3 {
-        font-size: 18px;
-        font-weight: 500;
-        color: var(--color-text-black);
-      }
-
-      .statistics-total-rating > h1,
-      .statistics-total-rating-stars > h1 {
-        font-size: 28px;
-        font-weight: 700;
-        color: var(--primary-color);
-      }
-
-      .statistics-total-rating > h5 {
-        font-size: 14px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .statistics-total-rating-stars {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-      }
-
-      .statistic-stars-bar {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .statistics-icon-star {
-        width: 12px;
-        height: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .statistics-star {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-      }
-
-      .statistics-bar {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .statistics-bar > h5 {
-        font-size: 14px;
-        font-weight: 500;
-      }
-
-      .line-bar {
-        width: 140px;
-        height: 3px;
-        background-color: var(--color-background);
-      }
-
-      .line-bar .first {
-        width: 100%;
-        height: 100%;
-        background-color: var(--primary-color);
-        border-radius: 20px;
-      }
-
-      .line-bar .secound {
-        width: 75%;
-        height: 100%;
-        background-color: #5454ff;
-        border-radius: 20px;
-      }
-
-      .line-bar .third {
-        width: 50%;
-        height: 100%;
-        background-color: var(--secondary-color);
-        border-radius: 20px;
-      }
-
-      .line-bar .fourth {
-        width: 25%;
-        height: 100%;
-        background-color: var(--color-text-grayblack);
-        border-radius: 20px;
-      }
-
-      .line-bar .last {
-        width: 2%;
-        height: 100%;
-        background-color: var(--color-line);
-        border-radius: 20px;
-      }
-
-      .reviews-separator {
-        width: 100%;
-        height: 1px;
-        border: none;
-        background-color: var(--color-line);
-      }
-
-      .user-reviews-items-down-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 55px;
-        width: 100%;
-      }
-
-      .user-review-items-down {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        width: 100%;
-        gap: 10px;
-      }
-
-      .user-review-informations {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        flex-basis: 28%;
-        text-align: left;
-      }
-
-      .user-review-informations > img {
-        width: 68px;
-        height: 68px;
-        object-fit: cover;
-        border-radius: 10px;
-        cursor: pointer;
-      }
-
-      .user-review-information {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1px;
-      }
-
-      .user-review-information > h3 {
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--primary-color);
-        padding-left: 3px;
-        cursor: pointer;
-      }
-
-      .user-review-information > h5 {
-        font-size: 14px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-        padding-left: 3px;
-      }
-
-      .user-review-text-section {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        flex-basis: 70%;
-        text-align: left;
-      }
-
-      .review-text-section-top {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-
-      .review-text-section-top > h3,
-      .section-down-like-or-diss > h4 {
-        font-size: 16px;
-        font-weight: 500;
-        color: var(--color-text-black);
-      }
-
-      .review-text-section-top > h3 > span {
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .review-text-section-top > p,
-      .review-text-section-down > h4 {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .review-text-section-down {
-        display: flex;
-        align-items: flex-start;
-        gap: 20px;
-      }
-
-      .text-section-down-like-or-diss {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-      }
-
-      .section-down-like-or-diss {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-      }
-      .section-down-like-or-diss:hover {
-        opacity: 0.7;
-      }
-
-      .reviews-separator-items-down-line {
-        width: 100%;
-        height: 1px;
-        border: none;
-        background-color: var(--color-line);
-      }
-
-      @media only screen and (max-width: 1600px) {
-        .user-review-text-section {
-          flex-basis: 60%;
-        }
-      }
-
-      @media only screen and (max-width: 1250px) {
-        .user-review-text-section {
-          flex-basis: 50%;
-        }
-      }
-
-      @media only screen and (max-width: 1050px) {
-        .user-review-text-section {
-          flex-basis: 45%;
-        }
-      }
-
-      @media only screen and (max-width: 992px) {
-        .user-review-text-section {
-          flex-basis: 40%;
-        }
-      }
-
-      @media only screen and (max-width: 970px) {
-        .user-review-text-section {
-          flex-basis: 50%;
-        }
-        .statistics-stars-bar {
-          margin: 0 auto;
-        }
-      }
-
-      @media only screen and (max-width: 730px) {
-        .user-review-items-down {
-          flex-direction: column;
-          gap: 24px;
-        }
-        .user-reviews-items-down-statistics > hr {
-          display: none;
-        }
-      }
-
-      @media only screen and (max-width: 600px) {
-        .user-reviews-items-down-statistics {
-          flex-direction: column;
-          gap: 40px;
-        }
-        .statistics-stars-bar {
-          margin: 0;
-        }
-      }
-
-      @media only screen and (max-width: 370px) {
-        .statistics-total-rating > h3 {
-          font-size: 16px;
-        }
-        .statistics-total-rating > h1,
-        .statistics-total-rating-stars > h1 {
-          font-size: 22px;
-        }
-        .statistics-total-rating > h5 {
-          font-size: 12px;
-        }
-        .user-review-informations > img {
-          width: 52px;
-          height: 52px;
-        }
-        .user-review-information > h3 {
-          font-size: 15px;
-        }
-        .user-review-information > h5 {
-          font-size: 12px;
-        }
-        .review-text-section-top > p,
-        .review-text-section-down > h4,
-        .review-text-section-top > h3,
-        .section-down-like-or-diss > h4 {
-          font-size: 14px;
-        }
-      }
-
-      /*   Ask a Qouestion   */
-
-      .user-questions-wrapper,
-      .user-reviews-wrapper {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 44px;
-        width: 100%;
-      }
-
-      .user-questions-items-top,
-      .user-reviews-items-top {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .questions-item-top-title,
-      .reviews-item-top-title {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-      }
-
-      .questions-item-top-title-icon,
-      .reviews-item-top-title-icon {
-        width: 24px;
-        height: 24px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        font-size: 20px;
-        color: var(--primary-color);
-      }
-
-      .questions-item-top-title-icon > i,
-      .reviews-item-top-title-icon > i {
-        text-align: center;
-        width: inherit;
-      }
-
-      .questions-item-top-title-text,
-      .reviews-item-top-title-text {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-      }
-
-      .questions-item-top-title-text > h5,
-      .reviews-item-top-title-text > h5 {
-        font-size: 14px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .questions-item-top-btn,
-      .reviews-item-top-btn {
-        display: flex;
-        width: 142px;
-        height: 42px;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--primary-color);
-        border-radius: 10px;
-        font-size: 14px;
-        color: var(--color-white);
-        transition: all 0.3s ease-in-out;
-      }
-
-      .questions-item-top-btn:hover,
-      .reviews-item-top-btn:hover {
-        background-color: var(--secondary-color);
-      }
-
-      .user-questions-items-down {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 40px;
-      }
-
-      .questions-answer-item {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 24px;
-      }
-
-      .questions-user-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 16px;
-        width: 100%;
-      }
-
-      .questions-user-photo,
-      .answered-user-item > img,
-      .answers-user-item-submit > img {
-        width: 48px;
-        height: 48px;
-        object-fit: cover;
-        border-radius: 10px;
-      }
-
-      .questions-user-name-text {
-        display: inline-flex;
-        padding: 2px 0px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        width: inherit;
-      }
-
-      .questions-user-name-text > h4,
-      .answered-user-item-name-text > h4 {
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--color-text-black);
-      }
-
-      .questions-user-text-box {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-        background-color: var(--color-background);
-        padding: 12px 18px;
-        border-radius: 10px;
-        width: inherit;
-      }
-
-      .answers-user-item {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-        width: 100%;
-        padding-left: 64px;
-      }
-
-      .answered-user-item,
-      .answers-user-item-submit {
-        display: flex;
-        align-items: flex-start;
-        gap: 16px;
-        width: inherit;
-      }
-
-      .answered-user-item-info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        width: inherit;
-      }
-
-      .answered-user-item-name-text {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 3px;
-        width: inherit;
-      }
-
-      .answered-user-item-name-text > h4 {
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--primary-color);
-      }
-
-      .answered-user-item-name-text > p {
-        font-size: 16px;
-        font-weight: 500;
-        color: var(--color-text-black);
-        width: inherit;
-      }
-
-      .answered-user-item-info > h5 {
-        font-size: 14px;
-        font-weight: 400;
-        color: var(--color-text-gray);
-      }
-
-      .answers-user-item-box {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 10px;
-        width: 100%;
-      }
-
-      .answers-item-text {
-        display: flex;
-        width: 100%;
-        height: 100px;
-        padding: 12px 15px;
-        align-items: flex-start;
-        border-radius: 12px;
-        border: 1px solid var(--color-line);
-        background: var(--color-white);
-        font-family: inherit;
-        font-size: 16px;
-        resize: none;
-        outline: none;
-      }
-      .answers-item-text:focus {
-        border-color: var(--primary-color);
-      }
-
-      .answers-submit-btn {
-        display: flex;
-        width: 86px;
-        height: 34px;
-        font-size: 14px;
-        justify-content: center;
-        align-items: center;
-        border-radius: 8px;
-        background: var(--primary-color);
-        color: var(--color-white);
-        transition: all 0.3s ease-in-out;
-      }
-      .answers-submit-btn:hover {
-        background-color: var(--secondary-color);
-      }
-
-      .questions-answers-line {
-        width: 100%;
-        height: 1px;
-        border: none;
-        background-color: var(--color-line);
-      }
-
-      @media only screen and (max-width: 470px) {
-        .user-questions-items-top,
-        .user-reviews-items-top {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 25px;
-        }
-        .questions-item-top-btn,
-        .reviews-item-top-btn {
-          width: 100%;
-        }
-        .questions-user-photo,
-        .answered-user-item > img,
-        .answers-user-item-submit > img {
-          width: 42px;
-          height: 42px;
-        }
-        .questions-user-name-text > h4,
-        .answered-user-item-name-text > h4 {
-          font-size: 16px;
-        }
-        .questions-user-text-box,
-        .answered-user-item-name-text > p {
-          font-size: 14px;
-        }
-        .answered-user-item,
-        .questions-user-item,
-        .answers-user-item-submit {
-          gap: 10px;
-        }
-        .answered-user-item-info > h5 {
-          font-size: 12px;
-          font-weight: 400;
-        }
-        .answers-item-text {
-          height: 200px;
-          font-size: 14px;
-        }
-      }
-
-      @media only screen and (max-width: 375px) {
-        .answers-user-item {
-          padding-left: 0;
-        }
-      }
-
-      /* Author profile  */
-
-      .author-accordions {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 34px;
-      }
-
-      .author-accordions-title-top {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 14px;
-      }
-
-      .author-accordions-title-down {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-      }
-
-      .author-accordion-items {
-        display: flex;
-        padding: 20px 24px 0 24px;
-        flex-direction: column;
-        align-items: flex-start;
-        border-radius: 12px;
-        background: var(--color-background);
-      }
-
-      .author-accordion-item {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 25px;
-      }
-
-      .accordion-icon {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-      }
-
-      .accordion-title {
-        text-align: left;
-      }
-
-      .accordion-icon svg {
-        width: 28px;
-        height: 28px;
-      }
-
-      .author-accordion-item button {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        color: var(--primary-color);
-        font-size: 18px;
-        font-weight: 500;
-        border: none;
-        background: none;
-        outline: none;
-        transition: all 0.3s ease-in-out;
-      }
-      .author-accordion-item button:hover,
-      .author-accordion-item button:focus,
-      .author-accordion-item button:hover .icon {
-        cursor: pointer;
-        color: var(--secondary-color);
-      }
-
-      .author-accordion-item button .icon {
-        display: inline-block;
-        position: absolute;
-        right: 0;
-        width: 22px;
-        height: 22px;
-        border: 1px solid;
-        border-radius: 22px;
-        color: var(--primary-color);
-        transition: all 0.3s ease-in-out;
-      }
-
-      .author-accordion-item button .icon::before {
-        display: block;
-        position: absolute;
-        content: "";
-        top: 9px;
-        left: 5px;
-        width: 10px;
-        height: 2px;
-        background: currentColor;
-      }
-
-      .author-accordion-item button .icon::after {
-        display: block;
-        position: absolute;
-        content: "";
-        top: 5px;
-        left: 9px;
-        width: 2px;
-        height: 10px;
-        background: currentColor;
-      }
-
-      .author-accordion-item button[aria-expanded="true"] {
-        color: var(--secondary-color);
-      }
-      .author-accordion-item button[aria-expanded="true"] .icon::after {
-        width: 0;
-      }
-
-      .author-accordion-item button[aria-expanded="true"] + .accordion-content {
-        opacity: 1;
-        max-height: 100%;
-        transition: all 200ms linear;
-        will-change: opacity, max-height;
-      }
-      .author-accordion-item .accordion-content {
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: opacity 200ms linear, max-height 200ms linear;
-        will-change: opacity, max-height;
-      }
-      .author-accordion-item .accordion-content p {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-        margin: 0 0 2em 0;
-        border-top: 1px solid var(--color-line);
-        padding-top: 20px;
-      }
-
-      @media only screen and (max-width: 620px) {
-        .author-accordion-item button {
-          font-size: 15px;
-        }
-        .author-accordion-item .accordion-content p {
-          font-size: 13px;
-        }
-      }
-
       .detail-box-info-text {
         font-size: 16px;
         font-weight: 400;
@@ -4039,6 +3247,11 @@
 
       /*footer*/
 
+      .footer-background {
+        background-color: var(--primary-color);
+        margin-top: 90px;
+      }
+
       .col-6 {
         width: 100%;
         text-align: center;
@@ -4046,6 +3259,8 @@
 
       .col-3 > h4 {
         padding: 20px 0 20px 0;
+        color: var(--color-white);
+        font-weight: 500;
       }
 
       .desc a {
@@ -4057,28 +3272,20 @@
         font-size: 20px;
         margin-left: 10px;
         font-weight: 600;
-        color: var(--primary-color);
+        color: var(--color-white);
       }
 
       .desc > p {
         margin-top: 10px;
-        font-size: 17px;
-        font-weight: 500;
-        color: var(--color-text-grayblack);
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-white);
         width: 85%;
-      }
-
-      @media only screen and (min-width: 1850px) {
-        .desc > p {
-          margin-top: 30px;
-        }
       }
 
       .row-fot {
         border-bottom: 1px solid var(--color-line);
-        border-top: 1px solid var(--color-line);
-        margin: 7em 0 2em 0;
-        padding: 2.5em 0 2.5em 0;
+        padding: 2em 0 2.5em 0;
       }
 
       footer .row {
@@ -4104,9 +3311,9 @@
       }
 
       .footer-cat-links a {
-        color: var(--color-text-grayblack);
-        font-size: 17px;
-        font-weight: 500;
+        color: var(--color-text-gray);
+        font-size: 16px;
+        font-weight: 400;
         text-decoration: none;
         position: relative;
       }
@@ -4139,7 +3346,7 @@
       }
 
       .social-links a {
-        color: var(--color-text-grayblack);
+        color: var(--color-white);
         font-size: 20px;
         border: 1px solid;
         border-radius: 20px;
@@ -4155,7 +3362,7 @@
       .social-links a:hover,
       .social-links a:focus {
         background-color: var(--secondary-color);
-        color: var(--color-white);
+        color: var(--primary-color);
       }
 
       .social-links a i {
@@ -4170,11 +3377,11 @@
         justify-content: space-between;
         color: var(--color-text-gray);
         font-size: 14px;
-        padding-bottom: 30px;
+        padding: 24px 0 30px 0;
       }
 
       .contact {
-        padding-bottom: 5px;
+        padding-bottom: 13px;
       }
 
       .contact > ul > li {
@@ -4189,8 +3396,10 @@
       }
 
       .lineheightfot {
+        font-size: 16px;
         line-height: 1.5;
         margin-left: 12px;
+        color: var(--color-text-gray);
       }
 
       .iconfo {
@@ -4752,19 +3961,6 @@
               <input id="tab3" type="radio" name="tabs" />
               <label for="tab3" class="marg-label label-tab">Services</label>
 
-              <input id="tab4" type="radio" name="tabs" />
-              <label for="tab4" class="marg-label label-tab">Reviews</label>
-
-              <input id="tab5" type="radio" name="tabs" />
-              <label for="tab5" class="marg-label label-tab"
-                >Ask a Question</label
-              >
-
-              <input id="tab6" type="radio" name="tabs" />
-              <label for="tab6" class="marg-label label-tab"
-                >Author profile</label
-              >
-
               <div id="content1" class="contents">
                 <div class="user-information-contents">
                   <div class="user-information-content">
@@ -4808,27 +4004,27 @@
                           <div class="user-information-detail-box">
                             <div class="detail-box-info">
                               <div class="detail-box-name-date">
-                                <h6>Jan 2000 - Sep 2004</h6>
                                 <h5>Harvard University</h5>
+                                <div class="detail-box-info-degree">
+                                  <span>Bachelor of Computer Science</span>
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="4"
+                                    height="5"
+                                    viewBox="0 0 4 5"
+                                    fill="none"
+                                  >
+                                    <circle
+                                      cx="2"
+                                      cy="2.5"
+                                      r="2"
+                                      fill="#F5AA1C"
+                                    />
+                                  </svg>
+                                  <span>English - German</span>
+                                </div>
                               </div>
-                              <div class="detail-box-info-degree">
-                                <span>Bachelor of Computer Science</span>
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="4"
-                                  height="5"
-                                  viewBox="0 0 4 5"
-                                  fill="none"
-                                >
-                                  <circle
-                                    cx="2"
-                                    cy="2.5"
-                                    r="2"
-                                    fill="#F5AA1C"
-                                  />
-                                </svg>
-                                <span>English - German</span>
-                              </div>
+                              <h6 class="detail-box-info-date">2000 - 2004</h6>
                               <p class="detail-box-info-text">
                                 Lorem, ipsum dolor sit amet consectetur
                                 adipisicing elit. Rerum magni hic quaerat atque
@@ -4870,27 +4066,29 @@
                           <div class="user-information-detail-box">
                             <div class="detail-box-info">
                               <div class="detail-box-name-date">
-                                <h6>Feb 2020 - Present</h6>
                                 <h5>Co-Founder, Employee</h5>
+                                <div class="detail-box-info-degree">
+                                  <a href="#">Microsoft</a>
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="4"
+                                    height="5"
+                                    viewBox="0 0 4 5"
+                                    fill="none"
+                                  >
+                                    <circle
+                                      cx="2"
+                                      cy="2.5"
+                                      r="2"
+                                      fill="#F5AA1C"
+                                    />
+                                  </svg>
+                                  <span>Part time</span>
+                                </div>
                               </div>
-                              <div class="detail-box-info-degree">
-                                <a href="#">Microsoft</a>
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="4"
-                                  height="5"
-                                  viewBox="0 0 4 5"
-                                  fill="none"
-                                >
-                                  <circle
-                                    cx="2"
-                                    cy="2.5"
-                                    r="2"
-                                    fill="#F5AA1C"
-                                  />
-                                </svg>
-                                <span>Part time</span>
-                              </div>
+                              <h6 class="detail-box-info-date">
+                                2020 - Present
+                              </h6>
                               <p class="detail-box-info-text">
                                 Keas 69 Str. 15234, Chalandri Athens, Greece.
                               </p>
@@ -5067,29 +4265,29 @@
                           <div class="user-information-detail-box fl-dr">
                             <div class="detail-box-info">
                               <div class="detail-box-name-date">
-                                <h6>Feb 2020</h6>
                                 <h5>
                                   NX Angular monorepo and shared NgRx store
                                 </h5>
+                                <div class="detail-box-info-degree">
+                                  <span>GreenOn Software</span>
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="4"
+                                    height="5"
+                                    viewBox="0 0 4 5"
+                                    fill="none"
+                                  >
+                                    <circle
+                                      cx="2"
+                                      cy="2.5"
+                                      r="2"
+                                      fill="#F5AA1C"
+                                    />
+                                  </svg>
+                                  <span>Peer review journal paper</span>
+                                </div>
                               </div>
-                              <div class="detail-box-info-degree">
-                                <span>GreenOn Software</span>
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="4"
-                                  height="5"
-                                  viewBox="0 0 4 5"
-                                  fill="none"
-                                >
-                                  <circle
-                                    cx="2"
-                                    cy="2.5"
-                                    r="2"
-                                    fill="#F5AA1C"
-                                  />
-                                </svg>
-                                <span>Peer review journal paper</span>
-                              </div>
+                              <h6 class="detail-box-info-date">Feb 2020</h6>
                               <p class="detail-box-info-text">
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit, sed do eiusmod tempor
@@ -5844,787 +5042,6 @@
                   </div>
                 </div>
               </div>
-
-              <div id="content4" class="contents">
-                <div class="user-reviews-wrapper">
-                  <div class="user-reviews-items-top">
-                    <div class="reviews-item-top-title">
-                      <div class="reviews-item-top-title-icon">
-                        <i class="fa fa-question-circle-o"></i>
-                      </div>
-                      <div class="reviews-item-top-title-text">
-                        <h3 class="user-information-detail-title">Reviews</h3>
-                        <h5>Rating & Reviews :</h5>
-                      </div>
-                    </div>
-
-                    <button type="button" class="reviews-item-top-btn">
-                      + New review
-                    </button>
-                  </div>
-
-                  <div class="user-reviews-items-down">
-                    <div class="user-reviews-items-down-statistics">
-                      <div class="statistics-total-rating">
-                        <h3>Total Reviews</h3>
-                        <h1>10.0k</h1>
-                        <h5>Growth in reviews on this year</h5>
-                      </div>
-                      <hr />
-                      <div class="statistics-total-rating">
-                        <h3>Average Rating</h3>
-                        <div class="statistics-total-rating-stars">
-                          <h1>4.0k</h1>
-                          <svg
-                            width="114"
-                            height="23"
-                            viewBox="0 0 114 23"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M9.57342 4.89057C10.0224 3.50861 11.9776 3.50861 12.4266 4.89058L13.1329 7.06434C13.3337 7.68237 13.9096 8.10081 14.5595 8.10081H16.8451C18.2982 8.10081 18.9023 9.96024 17.7268 10.8143L15.8777 12.1578C15.3519 12.5398 15.1319 13.2168 15.3328 13.8348L16.0391 16.0086C16.4881 17.3906 14.9064 18.5398 13.7308 17.6857L11.8817 16.3422C11.3559 15.9602 10.6441 15.9602 10.1183 16.3422L8.26921 17.6857C7.09364 18.5398 5.51192 17.3906 5.96095 16.0086L6.66725 13.8348C6.86806 13.2168 6.64807 12.5398 6.12234 12.1578L4.27322 10.8143C3.09765 9.96023 3.70182 8.10081 5.1549 8.10081H7.44053C8.09037 8.10081 8.66631 7.68237 8.86712 7.06434L9.57342 4.89057Z"
-                              fill="#FBBC1E"
-                            />
-                            <path
-                              d="M32.5734 4.89057C33.0224 3.50861 34.9776 3.50861 35.4266 4.89058L36.1329 7.06434C36.3337 7.68237 36.9096 8.10081 37.5595 8.10081H39.8451C41.2982 8.10081 41.9023 9.96024 40.7268 10.8143L38.8777 12.1578C38.3519 12.5398 38.1319 13.2168 38.3328 13.8348L39.0391 16.0086C39.4881 17.3906 37.9064 18.5398 36.7308 17.6857L34.8817 16.3422C34.3559 15.9602 33.6441 15.9602 33.1183 16.3422L31.2692 17.6857C30.0936 18.5398 28.5119 17.3906 28.9609 16.0086L29.6672 13.8348C29.8681 13.2168 29.6481 12.5398 29.1223 12.1578L27.2732 10.8143C26.0977 9.96023 26.7018 8.10081 28.1549 8.10081H30.4405C31.0904 8.10081 31.6663 7.68237 31.8671 7.06434L32.5734 4.89057Z"
-                              fill="#FBBC1E"
-                            />
-                            <path
-                              d="M55.5734 4.89057C56.0224 3.50861 57.9776 3.50861 58.4266 4.89058L59.1329 7.06434C59.3337 7.68237 59.9096 8.10081 60.5595 8.10081H62.8451C64.2982 8.10081 64.9023 9.96024 63.7268 10.8143L61.8777 12.1578C61.3519 12.5398 61.1319 13.2168 61.3328 13.8348L62.0391 16.0086C62.4881 17.3906 60.9064 18.5398 59.7308 17.6857L57.8817 16.3422C57.3559 15.9602 56.6441 15.9602 56.1183 16.3422L54.2692 17.6857C53.0936 18.5398 51.5119 17.3906 51.9609 16.0086L52.6672 13.8348C52.8681 13.2168 52.6481 12.5398 52.1223 12.1578L50.2732 10.8143C49.0977 9.96023 49.7018 8.10081 51.1549 8.10081H53.4405C54.0904 8.10081 54.6663 7.68237 54.8671 7.06434L55.5734 4.89057Z"
-                              fill="#FBBC1E"
-                            />
-                            <path
-                              d="M78.5734 4.89057C79.0224 3.50861 80.9776 3.50861 81.4266 4.89058L82.1329 7.06434C82.3337 7.68237 82.9096 8.10081 83.5595 8.10081H85.8451C87.2982 8.10081 87.9023 9.96024 86.7268 10.8143L84.8777 12.1578C84.3519 12.5398 84.1319 13.2168 84.3328 13.8348L85.0391 16.0086C85.4881 17.3906 83.9064 18.5398 82.7308 17.6857L80.8817 16.3422C80.3559 15.9602 79.6441 15.9602 79.1183 16.3422L77.2692 17.6857C76.0936 18.5398 74.5119 17.3906 74.9609 16.0086L75.6672 13.8348C75.8681 13.2168 75.6481 12.5398 75.1223 12.1578L73.2732 10.8143C72.0977 9.96023 72.7018 8.10081 74.1549 8.10081H76.4405C77.0904 8.10081 77.6663 7.68237 77.8671 7.06434L78.5734 4.89057Z"
-                              fill="#FBBC1E"
-                            />
-                            <path
-                              d="M101.573 4.89057C102.022 3.50861 103.978 3.50861 104.427 4.89058L105.133 7.06434C105.334 7.68237 105.91 8.10081 106.559 8.10081H108.845C110.298 8.10081 110.902 9.96024 109.727 10.8143L107.878 12.1578C107.352 12.5398 107.132 13.2168 107.333 13.8348L108.039 16.0086C108.488 17.3906 106.906 18.5398 105.731 17.6857L103.882 16.3422C103.356 15.9602 102.644 15.9602 102.118 16.3422L100.269 17.6857C99.0936 18.5398 97.5119 17.3906 97.9609 16.0086L98.6672 13.8348C98.8681 13.2168 98.6481 12.5398 98.1223 12.1578L96.2732 10.8143C95.0977 9.96023 95.7018 8.10081 97.1549 8.10081H99.4405C100.09 8.10081 100.666 7.68237 100.867 7.06434L101.573 4.89057Z"
-                              fill="#DADADA"
-                            />
-                          </svg>
-                        </div>
-                        <h5>Average rating on this year</h5>
-                      </div>
-                      <hr />
-                      <div class="statistics-stars-bar">
-                        <div class="statistic-stars-bar">
-                          <div class="statistics-star">
-                            <div class="statistics-icon-star">
-                              <svg
-                                width="10"
-                                height="9"
-                                viewBox="0 0 10 9"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M3.63057 0.853092C3.92993 -0.0682186 5.23333 -0.0682179 5.53269 0.853093L5.92871 2.07194C6.06259 2.48396 6.44654 2.76292 6.87977 2.76292H8.16134C9.13007 2.76292 9.53284 4.00254 8.74913 4.57194L7.71231 5.32523C7.36183 5.57987 7.21517 6.03124 7.34904 6.44326L7.74507 7.66211C8.04442 8.58342 6.98994 9.34955 6.20623 8.78014L5.16941 8.02686C4.81893 7.77221 4.34433 7.77221 3.99385 8.02686L2.95703 8.78015C2.17332 9.34955 1.11884 8.58342 1.41819 7.66211L1.81422 6.44326C1.94809 6.03124 1.80143 5.57987 1.45095 5.32523L0.414131 4.57194C-0.369582 4.00254 0.0331938 2.76292 1.00192 2.76292H2.28349C2.71672 2.76292 3.10067 2.48396 3.23455 2.07194L3.63057 0.853092Z"
-                                  fill="#DADADA"
-                                />
-                              </svg>
-                            </div>
-                            <h5>5</h5>
-                          </div>
-                          <div class="statistics-bar">
-                            <div class="line-bar">
-                              <div class="line-bar-inner first"></div>
-                            </div>
-                            <h5>2.0k</h5>
-                          </div>
-                        </div>
-                        <div class="statistic-stars-bar">
-                          <div class="statistics-star">
-                            <div class="statistics-icon-star">
-                              <svg
-                                width="10"
-                                height="9"
-                                viewBox="0 0 10 9"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M3.63057 0.853092C3.92993 -0.0682186 5.23333 -0.0682179 5.53269 0.853093L5.92871 2.07194C6.06259 2.48396 6.44654 2.76292 6.87977 2.76292H8.16134C9.13007 2.76292 9.53284 4.00254 8.74913 4.57194L7.71231 5.32523C7.36183 5.57987 7.21517 6.03124 7.34904 6.44326L7.74507 7.66211C8.04442 8.58342 6.98994 9.34955 6.20623 8.78014L5.16941 8.02686C4.81893 7.77221 4.34433 7.77221 3.99385 8.02686L2.95703 8.78015C2.17332 9.34955 1.11884 8.58342 1.41819 7.66211L1.81422 6.44326C1.94809 6.03124 1.80143 5.57987 1.45095 5.32523L0.414131 4.57194C-0.369582 4.00254 0.0331938 2.76292 1.00192 2.76292H2.28349C2.71672 2.76292 3.10067 2.48396 3.23455 2.07194L3.63057 0.853092Z"
-                                  fill="#DADADA"
-                                />
-                              </svg>
-                            </div>
-                            <h5>4</h5>
-                          </div>
-                          <div class="statistics-bar">
-                            <div class="line-bar">
-                              <div class="line-bar-inner secound"></div>
-                            </div>
-                            <h5>1.0k</h5>
-                          </div>
-                        </div>
-                        <div class="statistic-stars-bar">
-                          <div class="statistics-star">
-                            <div class="statistics-icon-star">
-                              <svg
-                                width="10"
-                                height="9"
-                                viewBox="0 0 10 9"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M3.63057 0.853092C3.92993 -0.0682186 5.23333 -0.0682179 5.53269 0.853093L5.92871 2.07194C6.06259 2.48396 6.44654 2.76292 6.87977 2.76292H8.16134C9.13007 2.76292 9.53284 4.00254 8.74913 4.57194L7.71231 5.32523C7.36183 5.57987 7.21517 6.03124 7.34904 6.44326L7.74507 7.66211C8.04442 8.58342 6.98994 9.34955 6.20623 8.78014L5.16941 8.02686C4.81893 7.77221 4.34433 7.77221 3.99385 8.02686L2.95703 8.78015C2.17332 9.34955 1.11884 8.58342 1.41819 7.66211L1.81422 6.44326C1.94809 6.03124 1.80143 5.57987 1.45095 5.32523L0.414131 4.57194C-0.369582 4.00254 0.0331938 2.76292 1.00192 2.76292H2.28349C2.71672 2.76292 3.10067 2.48396 3.23455 2.07194L3.63057 0.853092Z"
-                                  fill="#DADADA"
-                                />
-                              </svg>
-                            </div>
-                            <h5>3</h5>
-                          </div>
-                          <div class="statistics-bar">
-                            <div class="line-bar">
-                              <div class="line-bar-inner third"></div>
-                            </div>
-                            <h5>500</h5>
-                          </div>
-                        </div>
-                        <div class="statistic-stars-bar">
-                          <div class="statistics-star">
-                            <div class="statistics-icon-star">
-                              <svg
-                                width="10"
-                                height="9"
-                                viewBox="0 0 10 9"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M3.63057 0.853092C3.92993 -0.0682186 5.23333 -0.0682179 5.53269 0.853093L5.92871 2.07194C6.06259 2.48396 6.44654 2.76292 6.87977 2.76292H8.16134C9.13007 2.76292 9.53284 4.00254 8.74913 4.57194L7.71231 5.32523C7.36183 5.57987 7.21517 6.03124 7.34904 6.44326L7.74507 7.66211C8.04442 8.58342 6.98994 9.34955 6.20623 8.78014L5.16941 8.02686C4.81893 7.77221 4.34433 7.77221 3.99385 8.02686L2.95703 8.78015C2.17332 9.34955 1.11884 8.58342 1.41819 7.66211L1.81422 6.44326C1.94809 6.03124 1.80143 5.57987 1.45095 5.32523L0.414131 4.57194C-0.369582 4.00254 0.0331938 2.76292 1.00192 2.76292H2.28349C2.71672 2.76292 3.10067 2.48396 3.23455 2.07194L3.63057 0.853092Z"
-                                  fill="#DADADA"
-                                />
-                              </svg>
-                            </div>
-                            <h5>2</h5>
-                          </div>
-                          <div class="statistics-bar">
-                            <div class="line-bar">
-                              <div class="line-bar-inner fourth"></div>
-                            </div>
-                            <h5>150</h5>
-                          </div>
-                        </div>
-                        <div class="statistic-stars-bar">
-                          <div class="statistics-star">
-                            <div class="statistics-icon-star">
-                              <svg
-                                width="10"
-                                height="9"
-                                viewBox="0 0 10 9"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M3.63057 0.853092C3.92993 -0.0682186 5.23333 -0.0682179 5.53269 0.853093L5.92871 2.07194C6.06259 2.48396 6.44654 2.76292 6.87977 2.76292H8.16134C9.13007 2.76292 9.53284 4.00254 8.74913 4.57194L7.71231 5.32523C7.36183 5.57987 7.21517 6.03124 7.34904 6.44326L7.74507 7.66211C8.04442 8.58342 6.98994 9.34955 6.20623 8.78014L5.16941 8.02686C4.81893 7.77221 4.34433 7.77221 3.99385 8.02686L2.95703 8.78015C2.17332 9.34955 1.11884 8.58342 1.41819 7.66211L1.81422 6.44326C1.94809 6.03124 1.80143 5.57987 1.45095 5.32523L0.414131 4.57194C-0.369582 4.00254 0.0331938 2.76292 1.00192 2.76292H2.28349C2.71672 2.76292 3.10067 2.48396 3.23455 2.07194L3.63057 0.853092Z"
-                                  fill="#DADADA"
-                                />
-                              </svg>
-                            </div>
-                            <h5>1</h5>
-                          </div>
-                          <div class="statistics-bar">
-                            <div class="line-bar">
-                              <div class="line-bar-inner last"></div>
-                            </div>
-                            <h5>4</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <hr class="reviews-separator" />
-
-                    <div class="user-reviews-items-down-wrapper">
-                      <div class="user-review-items-down">
-                        <div class="user-review-informations">
-                          <img
-                            src="../images/review photo.png"
-                            alt="User Photo"
-                          />
-                          <div class="user-review-information">
-                            <h3>Zahir Mays</h3>
-                            <div class="user-review-information-stars">
-                              <svg
-                                width="114"
-                                height="23"
-                                viewBox="0 0 114 23"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M9.57342 4.89057C10.0224 3.50861 11.9776 3.50861 12.4266 4.89058L13.1329 7.06434C13.3337 7.68237 13.9096 8.10081 14.5595 8.10081H16.8451C18.2982 8.10081 18.9023 9.96024 17.7268 10.8143L15.8777 12.1578C15.3519 12.5398 15.1319 13.2168 15.3328 13.8348L16.0391 16.0086C16.4881 17.3906 14.9064 18.5398 13.7308 17.6857L11.8817 16.3422C11.3559 15.9602 10.6441 15.9602 10.1183 16.3422L8.26921 17.6857C7.09364 18.5398 5.51192 17.3906 5.96095 16.0086L6.66725 13.8348C6.86806 13.2168 6.64807 12.5398 6.12234 12.1578L4.27322 10.8143C3.09765 9.96023 3.70182 8.10081 5.1549 8.10081H7.44053C8.09037 8.10081 8.66631 7.68237 8.86712 7.06434L9.57342 4.89057Z"
-                                  fill="#FBBC1E"
-                                />
-                                <path
-                                  d="M32.5734 4.89057C33.0224 3.50861 34.9776 3.50861 35.4266 4.89058L36.1329 7.06434C36.3337 7.68237 36.9096 8.10081 37.5595 8.10081H39.8451C41.2982 8.10081 41.9023 9.96024 40.7268 10.8143L38.8777 12.1578C38.3519 12.5398 38.1319 13.2168 38.3328 13.8348L39.0391 16.0086C39.4881 17.3906 37.9064 18.5398 36.7308 17.6857L34.8817 16.3422C34.3559 15.9602 33.6441 15.9602 33.1183 16.3422L31.2692 17.6857C30.0936 18.5398 28.5119 17.3906 28.9609 16.0086L29.6672 13.8348C29.8681 13.2168 29.6481 12.5398 29.1223 12.1578L27.2732 10.8143C26.0977 9.96023 26.7018 8.10081 28.1549 8.10081H30.4405C31.0904 8.10081 31.6663 7.68237 31.8671 7.06434L32.5734 4.89057Z"
-                                  fill="#FBBC1E"
-                                />
-                                <path
-                                  d="M55.5734 4.89057C56.0224 3.50861 57.9776 3.50861 58.4266 4.89058L59.1329 7.06434C59.3337 7.68237 59.9096 8.10081 60.5595 8.10081H62.8451C64.2982 8.10081 64.9023 9.96024 63.7268 10.8143L61.8777 12.1578C61.3519 12.5398 61.1319 13.2168 61.3328 13.8348L62.0391 16.0086C62.4881 17.3906 60.9064 18.5398 59.7308 17.6857L57.8817 16.3422C57.3559 15.9602 56.6441 15.9602 56.1183 16.3422L54.2692 17.6857C53.0936 18.5398 51.5119 17.3906 51.9609 16.0086L52.6672 13.8348C52.8681 13.2168 52.6481 12.5398 52.1223 12.1578L50.2732 10.8143C49.0977 9.96023 49.7018 8.10081 51.1549 8.10081H53.4405C54.0904 8.10081 54.6663 7.68237 54.8671 7.06434L55.5734 4.89057Z"
-                                  fill="#FBBC1E"
-                                />
-                                <path
-                                  d="M78.5734 4.89057C79.0224 3.50861 80.9776 3.50861 81.4266 4.89058L82.1329 7.06434C82.3337 7.68237 82.9096 8.10081 83.5595 8.10081H85.8451C87.2982 8.10081 87.9023 9.96024 86.7268 10.8143L84.8777 12.1578C84.3519 12.5398 84.1319 13.2168 84.3328 13.8348L85.0391 16.0086C85.4881 17.3906 83.9064 18.5398 82.7308 17.6857L80.8817 16.3422C80.3559 15.9602 79.6441 15.9602 79.1183 16.3422L77.2692 17.6857C76.0936 18.5398 74.5119 17.3906 74.9609 16.0086L75.6672 13.8348C75.8681 13.2168 75.6481 12.5398 75.1223 12.1578L73.2732 10.8143C72.0977 9.96023 72.7018 8.10081 74.1549 8.10081H76.4405C77.0904 8.10081 77.6663 7.68237 77.8671 7.06434L78.5734 4.89057Z"
-                                  fill="#FBBC1E"
-                                />
-                                <path
-                                  d="M101.573 4.89057C102.022 3.50861 103.978 3.50861 104.427 4.89058L105.133 7.06434C105.334 7.68237 105.91 8.10081 106.559 8.10081H108.845C110.298 8.10081 110.902 9.96024 109.727 10.8143L107.878 12.1578C107.352 12.5398 107.132 13.2168 107.333 13.8348L108.039 16.0086C108.488 17.3906 106.906 18.5398 105.731 17.6857L103.882 16.3422C103.356 15.9602 102.644 15.9602 102.118 16.3422L100.269 17.6857C99.0936 18.5398 97.5119 17.3906 97.9609 16.0086L98.6672 13.8348C98.8681 13.2168 98.6481 12.5398 98.1223 12.1578L96.2732 10.8143C95.0977 9.96023 95.7018 8.10081 97.1549 8.10081H99.4405C100.09 8.10081 100.666 7.68237 100.867 7.06434L101.573 4.89057Z"
-                                  fill="#DADADA"
-                                />
-                              </svg>
-                            </div>
-                            <h5>11/1/2023</h5>
-                          </div>
-                        </div>
-                        <div class="user-review-text-section">
-                          <div class="review-text-section-top">
-                            <h3>
-                              <span>Purchased :</span> Scientific Writing -
-                              Basics
-                            </h3>
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do eiusmod tempor incididunt ut labore
-                              et dolore magna aliqua. Egestas purus viverra
-                              accumsan in nisl nisi. Arcu cursus vitae congue
-                              mauris rhoncus aenean vel elit scelerisque.
-                            </p>
-                          </div>
-                          <div class="review-text-section-down">
-                            <h4>Helpful ?</h4>
-                            <div class="text-section-down-like-or-diss">
-                              <div class="section-down-like-or-diss">
-                                <svg
-                                  width="14"
-                                  height="15"
-                                  viewBox="0 0 14 15"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <g clip-path="url(#clip0_1545_62)">
-                                    <path
-                                      d="M0.951865 7.14651V12.1564H3.07286L3.17997 12.169C5.14907 12.6282 6.45387 12.9593 7.10417 13.1644C7.96797 13.4367 8.28997 13.5032 8.87586 13.5424C9.31406 13.5725 9.81176 13.4038 10.0386 13.1728C10.1639 13.0454 10.2577 12.7836 10.2948 12.3776C10.3024 12.2925 10.3329 12.211 10.3829 12.1416C10.4329 12.0723 10.5006 12.0177 10.579 11.9835C10.7533 11.9079 10.8982 11.7847 11.0193 11.6055C11.1313 11.4417 11.2041 11.1365 11.2174 10.6948C11.2197 10.6136 11.2427 10.5343 11.2843 10.4645C11.3258 10.3947 11.3844 10.3366 11.4547 10.2958C11.8621 10.0599 12.0637 9.79391 12.1057 9.48171C12.1519 9.13661 12.0399 8.74811 11.7466 8.30571C11.6777 8.20196 11.6521 8.07545 11.6751 7.9531C11.6981 7.83074 11.768 7.72218 11.8698 7.65051C12.1505 7.45311 12.3045 7.17871 12.343 6.78951C12.4046 6.16931 12.0091 5.71081 11.1138 5.61911C10.3164 5.54025 9.51128 5.60738 8.73796 5.81721C8.65024 5.84014 8.5578 5.83753 8.47151 5.8097C8.38521 5.78187 8.30866 5.72997 8.25087 5.66011C8.19307 5.59026 8.15642 5.50534 8.14524 5.41537C8.13407 5.32539 8.14882 5.23409 8.18777 5.15221C8.53776 4.41161 8.73236 3.80051 8.77787 3.32731C8.83737 2.69941 8.69246 2.24441 8.35367 1.86921C8.09676 1.58501 7.68587 1.42261 7.53187 1.45621C7.32887 1.49961 7.19657 1.61721 7.02436 2.02881C6.92286 2.27241 6.87387 2.47961 6.78987 2.96331C6.70936 3.42251 6.66527 3.62971 6.57357 3.90131C6.29706 4.72451 5.61876 5.57781 4.70806 6.16651C4.0698 6.57861 3.37806 6.90128 2.65216 7.12551C2.60682 7.13949 2.55962 7.14657 2.51216 7.14651H0.951865ZM0.922465 13.1105C0.696365 13.1168 0.493365 13.0664 0.323265 12.9474C0.106265 12.7955 0.00406488 12.5561 0.00196488 12.2803L0.00406488 7.15421C-0.0197351 6.88121 0.0607649 6.63061 0.251165 6.44441C0.429665 6.26941 0.662765 6.18681 0.909165 6.19241H2.43866C3.05736 5.99527 3.64723 5.71706 4.19286 5.36501C4.92646 4.89041 5.46686 4.21001 5.67336 3.59681C5.74406 3.38541 5.78187 3.21041 5.85327 2.79881C5.94987 2.24651 6.01007 1.98961 6.14867 1.65921C6.43567 0.971813 6.81226 0.635813 7.33167 0.523113C7.84267 0.412513 8.58677 0.707213 9.05717 1.22801C9.57866 1.80481 9.80896 2.52651 9.72357 3.41831C9.68717 3.80191 9.58076 4.23101 9.40577 4.70911C10.0034 4.62202 10.6095 4.60885 11.2104 4.66991C12.6153 4.81341 13.4042 5.72831 13.2894 6.88471C13.239 7.38311 13.0584 7.80661 12.7511 8.13911C13.0094 8.63681 13.1123 9.12891 13.0479 9.60911C12.9737 10.1621 12.6657 10.6227 12.1533 10.9804C12.1134 11.4655 12.0021 11.8526 11.8047 12.1424C11.6491 12.3765 11.4462 12.5754 11.209 12.7262C11.1334 13.205 10.9745 13.5795 10.7148 13.8427C10.2843 14.2809 9.51497 14.542 8.81217 14.4944C8.14506 14.4496 7.75026 14.3684 6.81926 14.0744C6.20536 13.8805 4.93416 13.5585 3.01826 13.1105H0.922465ZM2.11316 6.92881C2.11298 6.86619 2.12516 6.80414 2.149 6.74623C2.17283 6.68831 2.20787 6.63567 2.25209 6.59132C2.29631 6.54698 2.34884 6.51179 2.40668 6.48778C2.46453 6.46377 2.52654 6.45141 2.58916 6.45141C2.65167 6.4516 2.71354 6.46409 2.77122 6.48818C2.8289 6.51227 2.88127 6.54749 2.92534 6.59182C2.96941 6.63615 3.00432 6.68873 3.02807 6.74655C3.05182 6.80437 3.06395 6.8663 3.06376 6.92881V12.3034C3.06386 12.3659 3.05164 12.4278 3.0278 12.4856C3.00396 12.5434 2.96898 12.5959 2.92484 12.6402C2.88071 12.6845 2.82828 12.7196 2.77057 12.7436C2.71285 12.7676 2.65097 12.78 2.58846 12.7801C2.52596 12.78 2.46408 12.7676 2.40636 12.7436C2.34864 12.7196 2.29622 12.6845 2.25209 12.6402C2.20795 12.5959 2.17297 12.5434 2.14913 12.4856C2.12529 12.4278 2.11307 12.3659 2.11316 12.3034V6.92881Z"
-                                      fill="#151515"
-                                    />
-                                  </g>
-                                  <defs>
-                                    <clipPath id="clip0_1545_62">
-                                      <rect
-                                        width="14"
-                                        height="14"
-                                        fill="white"
-                                        transform="translate(0 0.5)"
-                                      />
-                                    </clipPath>
-                                  </defs>
-                                </svg>
-                                <h4>Yes</h4>
-                              </div>
-                              <div class="section-down-like-or-diss">
-                                <svg
-                                  width="14"
-                                  height="15"
-                                  viewBox="0 0 14 15"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <g clip-path="url(#clip0_1545_69)">
-                                    <path
-                                      d="M13.0481 7.85349V2.84359H10.9271L10.82 2.83099C8.85093 2.37179 7.54613 2.04069 6.89583 1.83559C6.03203 1.56329 5.71003 1.49679 5.12414 1.45759C4.68594 1.42749 4.18824 1.59619 3.96144 1.82719C3.83613 1.95459 3.74234 2.21639 3.70524 2.62239C3.69755 2.70752 3.66712 2.78903 3.61712 2.85836C3.56711 2.9277 3.49939 2.98231 3.42103 3.01649C3.24673 3.09209 3.10184 3.21529 2.98073 3.39449C2.86874 3.55829 2.79594 3.86349 2.78264 4.30519C2.7803 4.38639 2.75728 4.46565 2.71575 4.53547C2.67422 4.6053 2.61557 4.66336 2.54533 4.70419C2.13793 4.94009 1.93633 5.20609 1.89433 5.51829C1.84813 5.86339 1.96013 6.25189 2.25344 6.69429C2.32225 6.79804 2.34788 6.92455 2.32487 7.0469C2.30187 7.16926 2.23204 7.27782 2.13023 7.34949C1.84953 7.54689 1.69554 7.82129 1.65704 8.21049C1.59544 8.83069 1.99094 9.28919 2.88624 9.38089C3.68363 9.45975 4.48872 9.39262 5.26204 9.18279C5.34976 9.15986 5.4422 9.16247 5.52849 9.1903C5.61479 9.21813 5.69134 9.27003 5.74913 9.33989C5.80693 9.40974 5.84358 9.49466 5.85476 9.58463C5.86593 9.67461 5.85118 9.76591 5.81223 9.84779C5.46224 10.5884 5.26764 11.1995 5.22213 11.6727C5.16263 12.3006 5.30754 12.7556 5.64633 13.1308C5.90324 13.415 6.31413 13.5774 6.46813 13.5438C6.67113 13.5004 6.80343 13.3828 6.97564 12.9712C7.07714 12.7276 7.12613 12.5204 7.21013 12.0367C7.29064 11.5775 7.33473 11.3703 7.42643 11.0987C7.70294 10.2755 8.38124 9.42219 9.29194 8.83349C9.9302 8.42139 10.6219 8.09872 11.3478 7.87449C11.3932 7.86051 11.4404 7.85343 11.4878 7.85349H13.0481ZM13.0775 1.88949C13.3036 1.88319 13.5066 1.93359 13.6767 2.05259C13.8937 2.20449 13.9959 2.44389 13.998 2.71969L13.9959 7.84579C14.0197 8.11879 13.9392 8.36939 13.7488 8.55559C13.5703 8.73059 13.3372 8.81319 13.0908 8.80759H11.5613C10.9426 9.00473 10.3528 9.28294 9.80714 9.63499C9.07354 10.1096 8.53314 10.79 8.32664 11.4032C8.25594 11.6146 8.21813 11.7896 8.14673 12.2012C8.05013 12.7535 7.98993 13.0104 7.85133 13.3408C7.56433 14.0282 7.18774 14.3642 6.66833 14.4769C6.15733 14.5875 5.41323 14.2928 4.94283 13.772C4.42134 13.1952 4.19104 12.4735 4.27643 11.5817C4.31283 11.1981 4.41924 10.769 4.59423 10.2909C3.99659 10.378 3.3905 10.3911 2.78964 10.3301C1.38474 10.1866 0.595835 9.27169 0.710634 8.11529C0.761035 7.61689 0.941635 7.19339 1.24894 6.86089C0.990635 6.36319 0.887735 5.87109 0.952135 5.39089C1.02634 4.83789 1.33434 4.37729 1.84674 4.01959C1.88664 3.53449 1.99794 3.14739 2.19533 2.85759C2.35087 2.62346 2.55381 2.42457 2.79103 2.27379C2.86663 1.79499 3.02553 1.42049 3.28523 1.15729C3.71573 0.719087 4.48503 0.457987 5.18783 0.505587C5.85494 0.550386 6.24974 0.631587 7.18074 0.925587C7.79464 1.11949 9.06584 1.44149 10.9817 1.88949H13.0775ZM11.8868 8.07119C11.887 8.13381 11.8748 8.19586 11.851 8.25377C11.8272 8.31169 11.7921 8.36433 11.7479 8.40868C11.7037 8.45302 11.6512 8.48821 11.5933 8.51222C11.5355 8.53623 11.4735 8.54859 11.4108 8.54859C11.3483 8.5484 11.2865 8.53591 11.2288 8.51182C11.1711 8.48773 11.1187 8.45251 11.0747 8.40818C11.0306 8.36385 10.9957 8.31127 10.9719 8.25345C10.9482 8.19563 10.9361 8.1337 10.9362 8.07119V2.69659C10.9361 2.63408 10.9484 2.57216 10.9722 2.51438C10.996 2.45659 11.031 2.40406 11.0752 2.3598C11.1193 2.31553 11.1717 2.28039 11.2294 2.25639C11.2871 2.23238 11.349 2.21998 11.4115 2.21989C11.474 2.21998 11.5359 2.23238 11.5936 2.25639C11.6514 2.28039 11.7038 2.31553 11.7479 2.3598C11.792 2.40406 11.827 2.45659 11.8509 2.51438C11.8747 2.57216 11.8869 2.63408 11.8868 2.69659V8.07119Z"
-                                      fill="#151515"
-                                    />
-                                  </g>
-                                  <defs>
-                                    <clipPath id="clip0_1545_69">
-                                      <rect
-                                        width="14"
-                                        height="14"
-                                        fill="white"
-                                        transform="matrix(-1 0 0 -1 14 14.5)"
-                                      />
-                                    </clipPath>
-                                  </defs>
-                                </svg>
-                                <h4>No</h4>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <hr class="reviews-separator-items-down-line" />
-
-                      <div class="user-review-items-down">
-                        <div class="user-review-informations">
-                          <img
-                            src="../images/review photo.png"
-                            alt="User Photo"
-                          />
-                          <div class="user-review-information">
-                            <h3>Zahir Mays</h3>
-                            <div class="user-review-information-stars">
-                              <svg
-                                width="114"
-                                height="23"
-                                viewBox="0 0 114 23"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M9.57342 4.89057C10.0224 3.50861 11.9776 3.50861 12.4266 4.89058L13.1329 7.06434C13.3337 7.68237 13.9096 8.10081 14.5595 8.10081H16.8451C18.2982 8.10081 18.9023 9.96024 17.7268 10.8143L15.8777 12.1578C15.3519 12.5398 15.1319 13.2168 15.3328 13.8348L16.0391 16.0086C16.4881 17.3906 14.9064 18.5398 13.7308 17.6857L11.8817 16.3422C11.3559 15.9602 10.6441 15.9602 10.1183 16.3422L8.26921 17.6857C7.09364 18.5398 5.51192 17.3906 5.96095 16.0086L6.66725 13.8348C6.86806 13.2168 6.64807 12.5398 6.12234 12.1578L4.27322 10.8143C3.09765 9.96023 3.70182 8.10081 5.1549 8.10081H7.44053C8.09037 8.10081 8.66631 7.68237 8.86712 7.06434L9.57342 4.89057Z"
-                                  fill="#FBBC1E"
-                                />
-                                <path
-                                  d="M32.5734 4.89057C33.0224 3.50861 34.9776 3.50861 35.4266 4.89058L36.1329 7.06434C36.3337 7.68237 36.9096 8.10081 37.5595 8.10081H39.8451C41.2982 8.10081 41.9023 9.96024 40.7268 10.8143L38.8777 12.1578C38.3519 12.5398 38.1319 13.2168 38.3328 13.8348L39.0391 16.0086C39.4881 17.3906 37.9064 18.5398 36.7308 17.6857L34.8817 16.3422C34.3559 15.9602 33.6441 15.9602 33.1183 16.3422L31.2692 17.6857C30.0936 18.5398 28.5119 17.3906 28.9609 16.0086L29.6672 13.8348C29.8681 13.2168 29.6481 12.5398 29.1223 12.1578L27.2732 10.8143C26.0977 9.96023 26.7018 8.10081 28.1549 8.10081H30.4405C31.0904 8.10081 31.6663 7.68237 31.8671 7.06434L32.5734 4.89057Z"
-                                  fill="#FBBC1E"
-                                />
-                                <path
-                                  d="M55.5734 4.89057C56.0224 3.50861 57.9776 3.50861 58.4266 4.89058L59.1329 7.06434C59.3337 7.68237 59.9096 8.10081 60.5595 8.10081H62.8451C64.2982 8.10081 64.9023 9.96024 63.7268 10.8143L61.8777 12.1578C61.3519 12.5398 61.1319 13.2168 61.3328 13.8348L62.0391 16.0086C62.4881 17.3906 60.9064 18.5398 59.7308 17.6857L57.8817 16.3422C57.3559 15.9602 56.6441 15.9602 56.1183 16.3422L54.2692 17.6857C53.0936 18.5398 51.5119 17.3906 51.9609 16.0086L52.6672 13.8348C52.8681 13.2168 52.6481 12.5398 52.1223 12.1578L50.2732 10.8143C49.0977 9.96023 49.7018 8.10081 51.1549 8.10081H53.4405C54.0904 8.10081 54.6663 7.68237 54.8671 7.06434L55.5734 4.89057Z"
-                                  fill="#FBBC1E"
-                                />
-                                <path
-                                  d="M78.5734 4.89057C79.0224 3.50861 80.9776 3.50861 81.4266 4.89058L82.1329 7.06434C82.3337 7.68237 82.9096 8.10081 83.5595 8.10081H85.8451C87.2982 8.10081 87.9023 9.96024 86.7268 10.8143L84.8777 12.1578C84.3519 12.5398 84.1319 13.2168 84.3328 13.8348L85.0391 16.0086C85.4881 17.3906 83.9064 18.5398 82.7308 17.6857L80.8817 16.3422C80.3559 15.9602 79.6441 15.9602 79.1183 16.3422L77.2692 17.6857C76.0936 18.5398 74.5119 17.3906 74.9609 16.0086L75.6672 13.8348C75.8681 13.2168 75.6481 12.5398 75.1223 12.1578L73.2732 10.8143C72.0977 9.96023 72.7018 8.10081 74.1549 8.10081H76.4405C77.0904 8.10081 77.6663 7.68237 77.8671 7.06434L78.5734 4.89057Z"
-                                  fill="#FBBC1E"
-                                />
-                                <path
-                                  d="M101.573 4.89057C102.022 3.50861 103.978 3.50861 104.427 4.89058L105.133 7.06434C105.334 7.68237 105.91 8.10081 106.559 8.10081H108.845C110.298 8.10081 110.902 9.96024 109.727 10.8143L107.878 12.1578C107.352 12.5398 107.132 13.2168 107.333 13.8348L108.039 16.0086C108.488 17.3906 106.906 18.5398 105.731 17.6857L103.882 16.3422C103.356 15.9602 102.644 15.9602 102.118 16.3422L100.269 17.6857C99.0936 18.5398 97.5119 17.3906 97.9609 16.0086L98.6672 13.8348C98.8681 13.2168 98.6481 12.5398 98.1223 12.1578L96.2732 10.8143C95.0977 9.96023 95.7018 8.10081 97.1549 8.10081H99.4405C100.09 8.10081 100.666 7.68237 100.867 7.06434L101.573 4.89057Z"
-                                  fill="#DADADA"
-                                />
-                              </svg>
-                            </div>
-                            <h5>11/1/2023</h5>
-                          </div>
-                        </div>
-                        <div class="user-review-text-section">
-                          <div class="review-text-section-top">
-                            <h3>
-                              <span>Purchased :</span> Scientific Writing -
-                              Basics
-                            </h3>
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do eiusmod tempor incididunt ut labore
-                              et dolore magna aliqua. Egestas purus viverra
-                              accumsan in nisl nisi. Arcu cursus vitae congue
-                              mauris rhoncus aenean vel elit scelerisque.
-                            </p>
-                          </div>
-                          <div class="review-text-section-down">
-                            <h4>Helpful ?</h4>
-                            <div class="text-section-down-like-or-diss">
-                              <div class="section-down-like-or-diss">
-                                <svg
-                                  width="14"
-                                  height="15"
-                                  viewBox="0 0 14 15"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <g clip-path="url(#clip0_1545_62)">
-                                    <path
-                                      d="M0.951865 7.14651V12.1564H3.07286L3.17997 12.169C5.14907 12.6282 6.45387 12.9593 7.10417 13.1644C7.96797 13.4367 8.28997 13.5032 8.87586 13.5424C9.31406 13.5725 9.81176 13.4038 10.0386 13.1728C10.1639 13.0454 10.2577 12.7836 10.2948 12.3776C10.3024 12.2925 10.3329 12.211 10.3829 12.1416C10.4329 12.0723 10.5006 12.0177 10.579 11.9835C10.7533 11.9079 10.8982 11.7847 11.0193 11.6055C11.1313 11.4417 11.2041 11.1365 11.2174 10.6948C11.2197 10.6136 11.2427 10.5343 11.2843 10.4645C11.3258 10.3947 11.3844 10.3366 11.4547 10.2958C11.8621 10.0599 12.0637 9.79391 12.1057 9.48171C12.1519 9.13661 12.0399 8.74811 11.7466 8.30571C11.6777 8.20196 11.6521 8.07545 11.6751 7.9531C11.6981 7.83074 11.768 7.72218 11.8698 7.65051C12.1505 7.45311 12.3045 7.17871 12.343 6.78951C12.4046 6.16931 12.0091 5.71081 11.1138 5.61911C10.3164 5.54025 9.51128 5.60738 8.73796 5.81721C8.65024 5.84014 8.5578 5.83753 8.47151 5.8097C8.38521 5.78187 8.30866 5.72997 8.25087 5.66011C8.19307 5.59026 8.15642 5.50534 8.14524 5.41537C8.13407 5.32539 8.14882 5.23409 8.18777 5.15221C8.53776 4.41161 8.73236 3.80051 8.77787 3.32731C8.83737 2.69941 8.69246 2.24441 8.35367 1.86921C8.09676 1.58501 7.68587 1.42261 7.53187 1.45621C7.32887 1.49961 7.19657 1.61721 7.02436 2.02881C6.92286 2.27241 6.87387 2.47961 6.78987 2.96331C6.70936 3.42251 6.66527 3.62971 6.57357 3.90131C6.29706 4.72451 5.61876 5.57781 4.70806 6.16651C4.0698 6.57861 3.37806 6.90128 2.65216 7.12551C2.60682 7.13949 2.55962 7.14657 2.51216 7.14651H0.951865ZM0.922465 13.1105C0.696365 13.1168 0.493365 13.0664 0.323265 12.9474C0.106265 12.7955 0.00406488 12.5561 0.00196488 12.2803L0.00406488 7.15421C-0.0197351 6.88121 0.0607649 6.63061 0.251165 6.44441C0.429665 6.26941 0.662765 6.18681 0.909165 6.19241H2.43866C3.05736 5.99527 3.64723 5.71706 4.19286 5.36501C4.92646 4.89041 5.46686 4.21001 5.67336 3.59681C5.74406 3.38541 5.78187 3.21041 5.85327 2.79881C5.94987 2.24651 6.01007 1.98961 6.14867 1.65921C6.43567 0.971813 6.81226 0.635813 7.33167 0.523113C7.84267 0.412513 8.58677 0.707213 9.05717 1.22801C9.57866 1.80481 9.80896 2.52651 9.72357 3.41831C9.68717 3.80191 9.58076 4.23101 9.40577 4.70911C10.0034 4.62202 10.6095 4.60885 11.2104 4.66991C12.6153 4.81341 13.4042 5.72831 13.2894 6.88471C13.239 7.38311 13.0584 7.80661 12.7511 8.13911C13.0094 8.63681 13.1123 9.12891 13.0479 9.60911C12.9737 10.1621 12.6657 10.6227 12.1533 10.9804C12.1134 11.4655 12.0021 11.8526 11.8047 12.1424C11.6491 12.3765 11.4462 12.5754 11.209 12.7262C11.1334 13.205 10.9745 13.5795 10.7148 13.8427C10.2843 14.2809 9.51497 14.542 8.81217 14.4944C8.14506 14.4496 7.75026 14.3684 6.81926 14.0744C6.20536 13.8805 4.93416 13.5585 3.01826 13.1105H0.922465ZM2.11316 6.92881C2.11298 6.86619 2.12516 6.80414 2.149 6.74623C2.17283 6.68831 2.20787 6.63567 2.25209 6.59132C2.29631 6.54698 2.34884 6.51179 2.40668 6.48778C2.46453 6.46377 2.52654 6.45141 2.58916 6.45141C2.65167 6.4516 2.71354 6.46409 2.77122 6.48818C2.8289 6.51227 2.88127 6.54749 2.92534 6.59182C2.96941 6.63615 3.00432 6.68873 3.02807 6.74655C3.05182 6.80437 3.06395 6.8663 3.06376 6.92881V12.3034C3.06386 12.3659 3.05164 12.4278 3.0278 12.4856C3.00396 12.5434 2.96898 12.5959 2.92484 12.6402C2.88071 12.6845 2.82828 12.7196 2.77057 12.7436C2.71285 12.7676 2.65097 12.78 2.58846 12.7801C2.52596 12.78 2.46408 12.7676 2.40636 12.7436C2.34864 12.7196 2.29622 12.6845 2.25209 12.6402C2.20795 12.5959 2.17297 12.5434 2.14913 12.4856C2.12529 12.4278 2.11307 12.3659 2.11316 12.3034V6.92881Z"
-                                      fill="#151515"
-                                    />
-                                  </g>
-                                  <defs>
-                                    <clipPath id="clip0_1545_62">
-                                      <rect
-                                        width="14"
-                                        height="14"
-                                        fill="white"
-                                        transform="translate(0 0.5)"
-                                      />
-                                    </clipPath>
-                                  </defs>
-                                </svg>
-                                <h4>Yes</h4>
-                              </div>
-                              <div class="section-down-like-or-diss">
-                                <svg
-                                  width="14"
-                                  height="15"
-                                  viewBox="0 0 14 15"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <g clip-path="url(#clip0_1545_69)">
-                                    <path
-                                      d="M13.0481 7.85349V2.84359H10.9271L10.82 2.83099C8.85093 2.37179 7.54613 2.04069 6.89583 1.83559C6.03203 1.56329 5.71003 1.49679 5.12414 1.45759C4.68594 1.42749 4.18824 1.59619 3.96144 1.82719C3.83613 1.95459 3.74234 2.21639 3.70524 2.62239C3.69755 2.70752 3.66712 2.78903 3.61712 2.85836C3.56711 2.9277 3.49939 2.98231 3.42103 3.01649C3.24673 3.09209 3.10184 3.21529 2.98073 3.39449C2.86874 3.55829 2.79594 3.86349 2.78264 4.30519C2.7803 4.38639 2.75728 4.46565 2.71575 4.53547C2.67422 4.6053 2.61557 4.66336 2.54533 4.70419C2.13793 4.94009 1.93633 5.20609 1.89433 5.51829C1.84813 5.86339 1.96013 6.25189 2.25344 6.69429C2.32225 6.79804 2.34788 6.92455 2.32487 7.0469C2.30187 7.16926 2.23204 7.27782 2.13023 7.34949C1.84953 7.54689 1.69554 7.82129 1.65704 8.21049C1.59544 8.83069 1.99094 9.28919 2.88624 9.38089C3.68363 9.45975 4.48872 9.39262 5.26204 9.18279C5.34976 9.15986 5.4422 9.16247 5.52849 9.1903C5.61479 9.21813 5.69134 9.27003 5.74913 9.33989C5.80693 9.40974 5.84358 9.49466 5.85476 9.58463C5.86593 9.67461 5.85118 9.76591 5.81223 9.84779C5.46224 10.5884 5.26764 11.1995 5.22213 11.6727C5.16263 12.3006 5.30754 12.7556 5.64633 13.1308C5.90324 13.415 6.31413 13.5774 6.46813 13.5438C6.67113 13.5004 6.80343 13.3828 6.97564 12.9712C7.07714 12.7276 7.12613 12.5204 7.21013 12.0367C7.29064 11.5775 7.33473 11.3703 7.42643 11.0987C7.70294 10.2755 8.38124 9.42219 9.29194 8.83349C9.9302 8.42139 10.6219 8.09872 11.3478 7.87449C11.3932 7.86051 11.4404 7.85343 11.4878 7.85349H13.0481ZM13.0775 1.88949C13.3036 1.88319 13.5066 1.93359 13.6767 2.05259C13.8937 2.20449 13.9959 2.44389 13.998 2.71969L13.9959 7.84579C14.0197 8.11879 13.9392 8.36939 13.7488 8.55559C13.5703 8.73059 13.3372 8.81319 13.0908 8.80759H11.5613C10.9426 9.00473 10.3528 9.28294 9.80714 9.63499C9.07354 10.1096 8.53314 10.79 8.32664 11.4032C8.25594 11.6146 8.21813 11.7896 8.14673 12.2012C8.05013 12.7535 7.98993 13.0104 7.85133 13.3408C7.56433 14.0282 7.18774 14.3642 6.66833 14.4769C6.15733 14.5875 5.41323 14.2928 4.94283 13.772C4.42134 13.1952 4.19104 12.4735 4.27643 11.5817C4.31283 11.1981 4.41924 10.769 4.59423 10.2909C3.99659 10.378 3.3905 10.3911 2.78964 10.3301C1.38474 10.1866 0.595835 9.27169 0.710634 8.11529C0.761035 7.61689 0.941635 7.19339 1.24894 6.86089C0.990635 6.36319 0.887735 5.87109 0.952135 5.39089C1.02634 4.83789 1.33434 4.37729 1.84674 4.01959C1.88664 3.53449 1.99794 3.14739 2.19533 2.85759C2.35087 2.62346 2.55381 2.42457 2.79103 2.27379C2.86663 1.79499 3.02553 1.42049 3.28523 1.15729C3.71573 0.719087 4.48503 0.457987 5.18783 0.505587C5.85494 0.550386 6.24974 0.631587 7.18074 0.925587C7.79464 1.11949 9.06584 1.44149 10.9817 1.88949H13.0775ZM11.8868 8.07119C11.887 8.13381 11.8748 8.19586 11.851 8.25377C11.8272 8.31169 11.7921 8.36433 11.7479 8.40868C11.7037 8.45302 11.6512 8.48821 11.5933 8.51222C11.5355 8.53623 11.4735 8.54859 11.4108 8.54859C11.3483 8.5484 11.2865 8.53591 11.2288 8.51182C11.1711 8.48773 11.1187 8.45251 11.0747 8.40818C11.0306 8.36385 10.9957 8.31127 10.9719 8.25345C10.9482 8.19563 10.9361 8.1337 10.9362 8.07119V2.69659C10.9361 2.63408 10.9484 2.57216 10.9722 2.51438C10.996 2.45659 11.031 2.40406 11.0752 2.3598C11.1193 2.31553 11.1717 2.28039 11.2294 2.25639C11.2871 2.23238 11.349 2.21998 11.4115 2.21989C11.474 2.21998 11.5359 2.23238 11.5936 2.25639C11.6514 2.28039 11.7038 2.31553 11.7479 2.3598C11.792 2.40406 11.827 2.45659 11.8509 2.51438C11.8747 2.57216 11.8869 2.63408 11.8868 2.69659V8.07119Z"
-                                      fill="#151515"
-                                    />
-                                  </g>
-                                  <defs>
-                                    <clipPath id="clip0_1545_69">
-                                      <rect
-                                        width="14"
-                                        height="14"
-                                        fill="white"
-                                        transform="matrix(-1 0 0 -1 14 14.5)"
-                                      />
-                                    </clipPath>
-                                  </defs>
-                                </svg>
-                                <h4>No</h4>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div id="content5" class="contents">
-                <div class="user-questions-wrapper">
-                  <div class="user-questions-items-top">
-                    <div class="questions-item-top-title">
-                      <div class="questions-item-top-title-icon">
-                        <i class="fa fa-question-circle-o"></i>
-                      </div>
-                      <div class="questions-item-top-title-text">
-                        <h3 class="user-information-detail-title">
-                          Ask a Question
-                        </h3>
-                        <h5>Questions And Answers :</h5>
-                      </div>
-                    </div>
-
-                    <button type="button" class="questions-item-top-btn">
-                      + New question
-                    </button>
-                  </div>
-
-                  <div class="user-questions-items-down">
-                    <div class="questions-answer-item">
-                      <div class="questions-user-item">
-                        <img
-                          src="../images/user.png"
-                          alt="User Photo"
-                          class="questions-user-photo"
-                        />
-                        <div class="questions-user-name-text">
-                          <h4>Zahir Mays</h4>
-                          <div class="questions-user-text-box">
-                            <p class="questions-user-text">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do eiusmod tempor incididunt ut labore
-                              et dolore magna aliqua. Egestas purus viverra
-                              accumsan in nisl nisi. Arcu cursus vitae congue
-                              mauris rhoncus aenean vel elit scelerisque. In
-                              egestas erat imperdiet sed euismod nisi porta
-                              lorem mollis. Morbi tristique senectus et netus.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="answers-user-item">
-                        <div class="answered-user-item">
-                          <img
-                            src="../images/answered photo.png"
-                            alt="User Photo"
-                          />
-                          <div class="answered-user-item-info">
-                            <div class="answered-user-item-name-text">
-                              <h4>Anderson Cooper</h4>
-                              <p>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.
-                                Egestas purus viverra accumsan in nisl nisi.
-                              </p>
-                            </div>
-                            <h5>October 26, 2023</h5>
-                          </div>
-                        </div>
-
-                        <div class="answers-user-item-submit">
-                          <img
-                            src="../images/answered photo.png"
-                            alt="User Photo"
-                          />
-                          <div class="answers-user-item-box">
-                            <textarea
-                              class="answers-item-text"
-                              rows="2"
-                              placeholder="Write Answer..."
-                            ></textarea>
-                            <button type="button" class="answers-submit-btn">
-                              Post
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <hr class="questions-answers-line" />
-
-                    <div class="questions-answer-item">
-                      <div class="questions-user-item">
-                        <img
-                          src="../images/user.png"
-                          alt="User Photo"
-                          class="questions-user-photo"
-                        />
-                        <div class="questions-user-name-text">
-                          <h4>Zahir Mays</h4>
-                          <div class="questions-user-text-box">
-                            <p class="questions-user-text">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do eiusmod tempor incididunt ut labore
-                              et dolore magna aliqua. Egestas purus viverra
-                              accumsan in nisl nisi. Arcu cursus vitae congue
-                              mauris rhoncus aenean vel elit scelerisque. In
-                              egestas erat imperdiet sed euismod nisi porta
-                              lorem mollis. Morbi tristique senectus et netus.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="answers-user-item">
-                        <div class="answered-user-item">
-                          <img
-                            src="../images/answered photo.png"
-                            alt="User Photo"
-                          />
-                          <div class="answered-user-item-info">
-                            <div class="answered-user-item-name-text">
-                              <h4>Anderson Cooper</h4>
-                              <p>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.
-                                Egestas purus viverra accumsan in nisl nisi.
-                              </p>
-                            </div>
-                            <h5>October 26, 2023</h5>
-                          </div>
-                        </div>
-
-                        <div class="answers-user-item-submit">
-                          <img
-                            src="../images/answered photo.png"
-                            alt="User Photo"
-                          />
-                          <div class="answers-user-item-box">
-                            <textarea
-                              class="answers-item-text"
-                              rows="2"
-                              placeholder="Write Answer..."
-                            ></textarea>
-                            <button type="button" class="answers-submit-btn">
-                              Post
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div id="content6" class="contents">
-                <div class="author-accordions">
-                  <div class="author-accordions-title-top">
-                    <div class="questions-item-top-title-icon">
-                      <svg
-                        width="20"
-                        height="26"
-                        viewBox="0 0 20 26"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g clip-path="url(#clip0_1558_1291)">
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M10.0008 0.00186702C10.4707 -0.0171759 10.841 0.141515 11.2157 0.374263C11.69 0.668371 12.2249 1.25024 12.8854 1.6184C13.8145 2.1368 15.534 1.42163 16.4133 2.69962C16.9266 3.44441 16.9504 4.0284 16.9894 4.60603C17.0305 5.2281 17.1431 5.80151 17.795 6.64363C18.8757 8.04012 19.1009 8.96899 18.5443 9.93595C18.1653 10.5961 17.3662 10.9622 17.1821 11.3811C16.788 12.2698 17.2233 12.9405 16.6862 13.9773C16.3115 14.6967 15.7355 15.1706 14.9666 15.4119C14.3191 15.615 13.6694 15.3209 13.1496 15.5346C12.2379 15.9091 11.5665 16.7787 10.841 16.9988C10.5617 17.0834 10.2823 17.1257 10.0029 17.1236C9.72355 17.1257 9.44417 17.0834 9.1648 16.9988C8.4393 16.7787 7.76794 15.9091 6.85619 15.5346C6.33643 15.3209 5.68673 15.6171 5.03919 15.4119C4.27038 15.1706 3.69431 14.6967 3.31965 13.9773C2.78039 12.9405 3.21569 12.2698 2.82371 11.3811C2.63963 10.9622 1.84049 10.5961 1.4615 9.93595C0.90059 8.96899 1.12582 8.04012 2.20649 6.64575C2.85836 5.80362 2.97097 5.23022 3.01212 4.60815C3.0511 4.03051 3.07493 3.44653 3.58819 2.70174C4.46962 1.42374 6.18917 2.13891 7.11607 1.62052C7.77661 1.25236 8.31153 0.670487 8.78581 0.376379C9.15831 0.141515 9.5308 -0.0192918 10.0008 0.00186702ZM10.0008 5.49471L10.9666 7.80102L13.5113 7.9851L11.5644 9.59529L12.1708 12.0159L10.0008 10.704L7.83075 12.0159L8.43713 9.59529L6.49019 7.9851L9.03486 7.80102L10.0008 5.49471ZM19.2655 23.9241L16.7642 23.4861L15.5232 25.657C14.6223 26.7467 14.0506 24.9545 13.7993 24.3303L11.3846 19.8806C11.9412 19.6923 12.6126 19.1485 13.3012 18.537C14.6764 18.5645 15.9585 18.3318 16.9006 17.1596L19.6748 22.3964L19.9152 22.9C20.1058 23.5538 20.0062 23.9854 19.2655 23.9241ZM0.733833 23.9241L3.23735 23.4861L4.47828 25.657C5.3792 26.7467 5.95094 24.9545 6.20216 24.3303L8.61689 19.8806C8.06031 19.6923 7.38895 19.1485 6.70026 18.537C5.32506 18.5645 4.04298 18.3318 3.10091 17.1596L0.32452 22.3964L0.0841305 22.9C-0.106449 23.5538 -0.00682783 23.9854 0.733833 23.9241ZM9.97476 3.40633C12.9634 3.40633 15.3868 5.774 15.3868 8.69392C15.3868 11.6138 12.9634 13.9815 9.97476 13.9815C6.98613 13.9815 4.56274 11.6138 4.56274 8.69392C4.56491 5.774 6.98613 3.40633 9.97476 3.40633Z"
-                            fill="#002754"
-                          />
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_1558_1291">
-                            <rect width="20" height="26" fill="white" />
-                          </clipPath>
-                        </defs>
-                      </svg>
-                    </div>
-                    <h3 class="user-information-detail-title">
-                      Author profile
-                    </h3>
-                  </div>
-
-                  <div class="author-accordions-title-down">
-                    <div class="author-accordion-items">
-                      <div class="author-accordion-item">
-                        <button id="accordion-button-1" aria-expanded="false">
-                          <div class="accordion-icon">
-                            <svg
-                              width="34"
-                              height="26"
-                              viewBox="0 0 34 26"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <g clip-path="url(#clip0_1560_38)">
-                                <path
-                                  fill-rule="evenodd"
-                                  clip-rule="evenodd"
-                                  d="M7.68678 6.03356C6.39503 6.03356 4.97974 5.82858 3.77662 6.29634V6.26481C3.49732 6.38569 3.2234 6.55124 2.96021 6.75359L2.95216 6.76147C2.70777 6.95068 2.47413 7.17405 2.2566 7.42632V7.42895C2.23243 7.45785 2.20826 7.48676 2.18409 7.51567C2.17335 7.52881 2.16261 7.54195 2.14918 7.55771L2.14649 7.56297C2.11964 7.59187 2.09547 7.62078 2.07398 7.64969L2.0713 7.65232C2.06055 7.66545 2.0525 7.67859 2.04176 7.69173L2.03638 7.69699V7.69962C2.02564 7.71276 2.01759 7.7259 2.00684 7.73903L1.99879 7.75217L1.97193 7.78896L1.96925 7.79422C1.9585 7.80736 1.94776 7.82313 1.93702 7.83627L1.92896 7.84678L1.90479 7.87831L1.89674 7.88882C1.88599 7.90196 1.87794 7.9151 1.86988 7.92824L1.8672 7.93087L1.86182 7.93875C1.85377 7.94926 1.84571 7.9624 1.83765 7.97291L1.82691 7.98868C1.81617 8.00182 1.80811 8.01759 1.79737 8.03073V8.03335C1.78663 8.04649 1.77857 8.06226 1.76783 8.07803L1.76246 8.08854L1.73829 8.12533L1.73292 8.13584C1.72486 8.15161 1.71412 8.16475 1.70606 8.18051L1.69801 8.19365L1.67921 8.22519L1.66847 8.24358C1.66041 8.25672 1.65235 8.27249 1.64161 8.28563L1.63624 8.29351L1.61475 8.3303L1.6067 8.34607C1.59864 8.36184 1.59058 8.37498 1.58253 8.39074V8.39337C1.57447 8.40914 1.56373 8.4249 1.55567 8.44067L1.5503 8.45118L1.52882 8.4906L1.52345 8.50111L1.4939 8.54579L1.48585 8.56418L1.46705 8.60097L1.46168 8.61148C1.45362 8.62725 1.44556 8.64302 1.43751 8.65878L1.42945 8.67192L1.41065 8.70871L1.40528 8.72185C1.39722 8.73762 1.38917 8.75601 1.38111 8.77178C0.924569 9.71518 0.803719 10.4247 0.728524 11.4312C0.575447 12.4455 0.494881 13.452 0.500252 14.4427C0.502938 14.4663 0.508309 14.49 0.51368 14.5136V14.5163C0.519051 14.5373 0.524422 14.5609 0.529793 14.582V14.5846C0.535164 14.6056 0.540535 14.6266 0.545906 14.645L0.548592 14.6503C0.553963 14.6687 0.559334 14.6897 0.567391 14.7081L0.570076 14.7134C0.575447 14.7318 0.583504 14.7475 0.588875 14.7659L0.591561 14.7738C0.596932 14.7896 0.604989 14.8053 0.613045 14.8211L0.618416 14.8316C0.626473 14.8474 0.631844 14.8605 0.639901 14.8763C1.09376 15.7487 2.36134 15.5122 2.79102 14.8027L2.79371 14.7975L2.79639 14.7922C2.80177 14.7843 2.80714 14.7764 2.80982 14.7659C2.81519 14.758 2.81788 14.7502 2.82056 14.7423C2.82325 14.737 2.82594 14.7291 2.82862 14.7239C2.83399 14.7134 2.83936 14.7029 2.84205 14.695L2.84742 14.6818C2.85279 14.6687 2.85816 14.6582 2.86353 14.645L2.86622 14.6372C2.87159 14.624 2.87696 14.6109 2.87965 14.5951V14.5925C2.88502 14.5767 2.89039 14.5609 2.89307 14.5452V14.5426C2.89845 14.5268 2.90113 14.511 2.90382 14.4953C2.9065 14.4795 2.90919 14.4611 2.91187 14.4453L3.15626 11.3339C3.19386 10.8636 3.22608 10.5456 3.41944 10.0988C3.51075 9.88862 3.62086 9.7073 3.74976 9.56014L3.76856 10.3932L3.87867 15.2416L2.28346 24.581C2.30225 26.4099 4.81861 26.3994 5.09254 24.891L6.53736 16.5607L7.94996 24.7623C8.54346 26.8094 10.9927 26.0447 10.759 24.4864L10.3401 21.354L9.23902 15.189L9.32496 10.2959V10.3905L9.32764 10.2591L10.4126 11.7255C10.6274 12.0172 10.9443 12.1959 11.28 12.2511L13.834 12.732V16.7473H11.6211C11.3418 16.7473 11.1082 16.9759 11.1082 17.2492C11.1082 17.5225 11.3418 17.7512 11.6211 17.7512H21.9443V19.9954C21.8826 20.0137 21.8262 20.0558 21.7725 20.1005H21.7644L18.5632 23.0726C18.3565 23.2565 18.3484 23.5745 18.5444 23.7768C18.7324 23.9792 19.0574 23.9871 19.2642 23.7952L21.9363 21.3145V23.5771C21.9363 23.8504 22.1699 24.079 22.4492 24.079C22.7285 24.079 22.9622 23.8504 22.9622 23.5771V21.4118L25.5349 23.7979C25.7337 23.9923 26.0559 23.9818 26.2546 23.7795C26.4534 23.585 26.4426 23.2697 26.2358 23.0752L23.0347 20.0978C23.0078 20.0794 22.989 20.0637 22.9622 20.0453V17.7485H32.9873C33.2666 17.7485 33.5003 17.5199 33.5003 17.2466C33.5003 16.9733 33.2666 16.7447 32.9873 16.7447H30.7476V4.33333H32.9336C33.2129 4.33333 33.4465 4.10471 33.4465 3.83141C33.4465 3.55812 33.2129 3.32949 32.9336 3.32949H22.8897V1.86841C22.8897 1.59511 22.656 1.36648 22.3767 1.36648C22.0974 1.36648 21.8638 1.59511 21.8638 1.86841V3.32949H11.6238C11.3445 3.32949 11.1108 3.55812 11.1108 3.83141C11.1108 4.10471 11.3445 4.33333 11.6238 4.33333H13.8367V10.0463L12.2844 9.7546L10.1091 6.81403C9.91041 6.54599 9.62843 6.37255 9.32227 6.30423C8.84156 6.1229 8.30177 6.03356 7.68678 6.03356ZM15.1956 10.3038L18.3215 7.09521C18.4478 6.96644 18.6572 6.96119 18.7915 7.0847C18.9231 7.20821 18.9285 7.41318 18.8023 7.54457L15.7971 10.627C16.1194 10.9266 16.2832 11.3734 16.1946 11.8332C16.0711 12.4692 15.499 12.9107 14.8599 12.9054V16.75H29.7297V4.33333H14.8599V10.2408L15.1231 10.2907C15.1472 10.2933 15.1714 10.2986 15.1956 10.3038ZM6.54005 0C8.11378 0 9.3921 1.24823 9.3921 2.79078C9.3921 4.33071 8.11646 5.58156 6.54005 5.58156C4.96632 5.58156 3.688 4.33333 3.688 2.79078C3.688 1.24823 4.96363 0 6.54005 0Z"
-                                  fill="#002754"
-                                />
-                              </g>
-                              <defs>
-                                <clipPath id="clip0_1560_38">
-                                  <rect
-                                    width="33"
-                                    height="26"
-                                    fill="white"
-                                    transform="translate(0.5)"
-                                  />
-                                </clipPath>
-                              </defs>
-                            </svg>
-                            <span class="accordion-title"
-                              >Teaching experience</span
-                            >
-                          </div>
-                          <span class="icon" aria-hidden="true"></span>
-                        </button>
-                        <div class="accordion-content">
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Egestas purus viverra accumsan
-                            in nisl nisi. Arcu cursus vitae congue mauris
-                            rhoncus aenean vel elit scelerisque. In egestas erat
-                            imperdiet sed euismod nisi porta lorem mollis. Morbi
-                            tristique senectus et netus. Mattis pellentesque id
-                            nibh tortor id aliquet lectus proin. Sapien faucibus
-                            et molestie ac feugiat sed lectus vestibulum.
-                            Ullamcorper velit sed ullamcorper morbi tincidunt
-                            ornare massa eget. Dictum varius duis at consectetur
-                            lorem. Nisi vitae suscipit tellus mauris a diam
-                            maecenas sed enim. Velit ut tortor pretium viverra
-                            suspendisse potenti nullam. Et molestie ac feugiat
-                            sed lectus. Non nisi est sit amet facilisis magna.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="author-accordion-items">
-                      <div class="author-accordion-item">
-                        <button id="accordion-button-1" aria-expanded="false">
-                          <div class="accordion-icon">
-                            <svg
-                              width="25"
-                              height="26"
-                              viewBox="0 0 25 26"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <g clip-path="url(#clip0_1560_67)">
-                                <path
-                                  d="M5.23046 6.74967H0.694C0.571279 9.2443 0.729971 11.6268 1.70751 13.366C2.63004 15.008 4.3164 16.0934 7.25113 16.1759C6.91682 15.7655 6.59732 15.2809 6.31591 14.6969C4.55338 14.46 3.5314 13.73 2.9453 12.634C2.3592 11.54 2.23437 10.1097 2.23437 8.44873C2.23437 8.26676 2.38248 8.11865 2.56444 8.11865H5.23046V6.74967ZM12.0351 7.08187L12.8561 9.08138L15.0143 9.2443L13.3618 10.645L13.8739 12.744L12.0351 11.6056L10.1964 12.744L10.7085 10.645L9.05598 9.2443L11.2142 9.08138L12.0351 7.08187ZM0.380849 6.08952H5.22834V4.85384H4.56395C4.16194 4.85384 3.798 4.6888 3.53352 4.42432L3.5314 4.4222C3.26692 4.15771 3.10188 3.79378 3.10188 3.39176V2.56869C2.84374 2.5179 2.61099 2.39095 2.43114 2.2111C2.19628 1.97624 2.05028 1.65251 2.05028 1.29492V0.715169C2.05028 0.518392 2.13069 0.338542 2.25976 0.209473C2.39306 0.0804036 2.57291 0 2.76968 0H21.3006C21.4974 0 21.6772 0.0804036 21.8063 0.209473C21.9354 0.338542 22.0158 0.518392 22.0158 0.715169V1.29704C22.0158 1.65462 21.8698 1.97835 21.6349 2.21322C21.4551 2.39307 21.2223 2.52002 20.9642 2.5708V3.39388C20.9642 3.79378 20.7991 4.15983 20.5347 4.42432L20.5325 4.42643C20.2681 4.69092 19.9041 4.85596 19.5021 4.85596H18.8377V6.09163H23.8354C24.0174 6.09163 24.1655 6.23975 24.1655 6.42171V6.42594C24.3179 9.13428 24.1655 11.7537 23.0631 13.694C21.946 15.6618 19.8872 16.9144 16.2542 16.8361C15.9093 17.1471 15.5602 17.4116 15.2322 17.6634C14.0854 18.5394 13.2222 19.1995 13.8929 21.2223H14.8958C15.2957 21.2223 15.6597 21.3853 15.9241 21.6497C16.1886 21.9142 16.3516 22.2782 16.3516 22.6781V23.2642H16.4954C16.889 23.2642 17.2487 23.425 17.5089 23.6852C17.7692 23.9455 17.93 24.3031 17.93 24.6987V25.672C17.93 25.854 17.7819 26.0021 17.5999 26.0021H6.46825C6.28629 26.0021 6.13817 25.854 6.13817 25.672V24.6987C6.13817 24.3052 6.29898 23.9476 6.55923 23.6873L6.56135 23.6852C6.8216 23.425 7.17919 23.2642 7.57274 23.2642H7.71662V22.6781C7.71662 22.2782 7.87955 21.9142 8.14403 21.6519L8.14615 21.6497C8.41063 21.3874 8.77457 21.2223 9.17235 21.2223H10.3001C10.8989 19.3138 10.1139 18.696 9.02847 17.8411C8.66031 17.5513 8.25829 17.236 7.85416 16.8382C4.2635 16.8975 2.23225 15.647 1.13199 13.6898C0.0423077 11.7474 -0.101572 9.13216 0.0507713 6.42594V6.42171C0.0507713 6.23763 0.198883 6.08952 0.380849 6.08952ZM10.9878 21.2202H13.2031C12.5006 18.9202 13.5078 18.1522 14.8345 17.1387C16.2902 16.0278 18.1818 14.5848 18.1818 9.83675V4.8623H5.8885V9.70768C5.9689 11.5506 6.27782 12.9154 6.70311 13.9606C7.12418 14.9932 7.66584 15.7147 8.22021 16.2754C8.62434 16.6859 9.04752 17.0181 9.43472 17.3228C10.6979 18.3151 11.6183 19.0409 10.9878 21.2202ZM13.6623 21.8804H9.17235C8.9523 21.8804 8.75341 21.9692 8.60953 22.1131L8.60741 22.1152C8.46353 22.2591 8.37467 22.458 8.37467 22.6781V23.2642H15.6914V22.6781C15.6914 22.4601 15.6025 22.2612 15.4565 22.1152C15.3127 21.9714 15.1138 21.8804 14.8937 21.8804H13.6623ZM16.0236 23.9222H7.57274C7.35904 23.9222 7.16438 24.009 7.02473 24.1486L7.02261 24.1507C6.88297 24.2904 6.79621 24.485 6.79621 24.6987V25.342H17.2698V24.6987C17.2698 24.485 17.1831 24.2925 17.0413 24.1507V24.1486C16.9017 24.009 16.707 23.9222 16.4933 23.9222H16.0236ZM18.842 8.11865H21.7513C21.9333 8.11865 22.0814 8.26676 22.0814 8.44873C22.0814 10.1139 21.9311 11.5485 21.3175 12.6424C20.706 13.73 19.6629 14.4557 17.9025 14.6948C17.6105 15.2852 17.272 15.7676 16.9123 16.1781C19.8597 16.0998 21.5587 15.0143 22.494 13.3703C23.4821 11.631 23.6471 9.24642 23.5265 6.75179H18.842V8.11865ZM21.4191 8.77881H18.842V9.83675C18.842 11.5951 18.5965 12.9302 18.2114 13.9754C19.4979 13.7215 20.2808 13.1439 20.7441 12.3187C21.2477 11.4173 21.4001 10.2007 21.4191 8.77881ZM5.23046 8.77881H2.89452C2.91145 10.2028 3.04052 11.4215 3.52294 12.3229C3.96516 13.1481 4.72476 13.7257 6.00487 13.9775C5.59651 12.8963 5.30663 11.521 5.22834 9.72038V9.70557H5.22623V8.77881H5.23046ZM21.3006 0.660156H2.76968C2.75487 0.660156 2.74006 0.666504 2.72948 0.677083C2.7189 0.687663 2.71256 0.700358 2.71256 0.717285V1.29915C2.71256 1.47477 2.7845 1.63346 2.90087 1.74984C3.01724 1.86621 3.17593 1.93815 3.35155 1.93815H20.7187C20.8944 1.93815 21.0531 1.86621 21.1694 1.74984C21.2858 1.63346 21.3577 1.47477 21.3577 1.29915V0.715169C21.3577 0.700358 21.3514 0.685547 21.3408 0.674967C21.3302 0.666504 21.3154 0.660156 21.3006 0.660156ZM20.3061 2.59619H3.76627V3.396C3.76627 3.61605 3.85513 3.81706 4.00113 3.96094C4.14713 4.10482 4.34602 4.1958 4.56607 4.1958H19.5063C19.7264 4.1958 19.9274 4.10693 20.0713 3.96094C20.2152 3.81494 20.3061 3.61605 20.3061 3.396V2.59619Z"
-                                  fill="#002754"
-                                />
-                              </g>
-                              <defs>
-                                <clipPath id="clip0_1560_67">
-                                  <rect
-                                    width="24.2184"
-                                    height="26"
-                                    fill="white"
-                                  />
-                                </clipPath>
-                              </defs>
-                            </svg>
-                            <span class="accordion-title">Honors/Awards</span>
-                          </div>
-                          <span class="icon" aria-hidden="true"></span>
-                        </button>
-                        <div class="accordion-content">
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Egestas purus viverra accumsan
-                            in nisl nisi. Arcu cursus vitae congue mauris
-                            rhoncus aenean vel elit scelerisque. In egestas erat
-                            imperdiet sed euismod nisi porta lorem mollis. Morbi
-                            tristique senectus et netus. Mattis pellentesque id
-                            nibh tortor id aliquet lectus proin. Sapien faucibus
-                            et molestie ac feugiat sed lectus vestibulum.
-                            Ullamcorper velit sed ullamcorper morbi tincidunt
-                            ornare massa eget. Dictum varius duis at consectetur
-                            lorem. Nisi vitae suscipit tellus mauris a diam
-                            maecenas sed enim. Velit ut tortor pretium viverra
-                            suspendisse potenti nullam. Et molestie ac feugiat
-                            sed lectus. Non nisi est sit amet facilisis magna.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="author-accordion-items">
-                      <div class="author-accordion-item">
-                        <button id="accordion-button-1" aria-expanded="false">
-                          <div class="accordion-icon">
-                            <svg
-                              width="31"
-                              height="26"
-                              viewBox="0 0 31 26"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <g clip-path="url(#clip0_1560_84)">
-                                <path
-                                  d="M12.9045 24.3243C13.0901 24.3352 13.2645 24.4166 13.3921 24.5517C13.5196 24.6868 13.5907 24.8655 13.5907 25.0513C13.5907 25.237 13.5196 25.4157 13.3921 25.5508C13.2645 25.686 13.0901 25.7673 12.9045 25.7783C10.6554 25.7776 8.44547 25.1899 6.49388 24.0732C4.54229 22.9566 2.91679 21.3498 1.77852 19.4123C0.640251 17.4747 0.0287522 15.2736 0.00464755 13.0273C-0.0194571 10.7809 0.544669 8.56722 1.6411 6.60574C2.73753 4.64426 4.32818 3.00308 6.25536 1.8449C8.18254 0.686732 10.3793 0.0517937 12.6279 0.00303668C14.8765 -0.0457204 17.0988 0.493397 19.0744 1.56694C21.0501 2.64049 22.7106 4.21117 23.8912 6.12328L24.0451 5.36732C24.0548 5.2717 24.0843 5.17914 24.1316 5.09546C24.1789 5.01179 24.2431 4.93882 24.3201 4.88116C24.3971 4.8235 24.4852 4.78241 24.5789 4.76047C24.6726 4.73853 24.7698 4.73622 24.8644 4.75369C24.959 4.77116 25.049 4.80803 25.1286 4.86196C25.2082 4.9159 25.2758 4.98574 25.3271 5.06708C25.3783 5.14841 25.4122 5.23948 25.4264 5.33452C25.4407 5.42957 25.4351 5.52654 25.4099 5.61931L24.9054 8.10138C24.8851 8.1903 24.8475 8.27436 24.7947 8.34874C24.7419 8.42312 24.6749 8.48635 24.5975 8.53481C24.5202 8.58327 24.434 8.616 24.344 8.63113C24.254 8.64626 24.1618 8.6435 24.0729 8.62299L21.6409 8.06358C21.4667 8.01797 21.3171 7.90649 21.2236 7.7527C21.1302 7.59891 21.1003 7.41486 21.1403 7.23946C21.1803 7.06407 21.287 6.91107 21.4378 6.81281C21.5887 6.71455 21.7719 6.67873 21.9487 6.71293L22.645 6.8742C21.5962 5.17743 20.1216 3.78395 18.3674 2.83191C16.6132 1.87988 14.6404 1.40237 12.6445 1.44672C10.6486 1.49107 8.69895 2.05574 6.9889 3.08476C5.27884 4.11377 3.86776 5.57137 2.89558 7.31305C1.92339 9.05473 1.42386 11.02 1.44652 13.0139C1.46918 15.0079 2.01324 16.9613 3.02476 18.6805C4.03627 20.3997 5.48011 21.8249 7.21311 22.8149C8.94611 23.8049 10.9081 24.3252 12.9045 24.3243ZM17.887 12.4431C17.9542 12.4964 18.0085 12.5642 18.0459 12.6415C18.0832 12.7187 18.1026 12.8034 18.1026 12.8891C18.1026 12.9749 18.0832 13.0595 18.0459 13.1368C18.0085 13.214 17.9542 13.2818 17.887 13.3351L16.6508 14.2877C16.5528 14.3629 16.4327 14.4037 16.3091 14.4036C16.1855 14.4036 16.0654 14.3627 15.9675 14.2873C15.8696 14.212 15.7994 14.1064 15.7679 13.987C15.7363 13.8677 15.7452 13.7413 15.7931 13.6274H14.1785C14.0674 13.8193 13.9143 13.9835 13.7308 14.108C13.5473 14.2325 13.3379 14.3139 13.1185 14.3463C12.899 14.3787 12.675 14.3611 12.4633 14.295C12.2516 14.2288 12.0575 14.1157 11.8957 13.9642C11.7338 13.8126 11.6083 13.6265 11.5285 13.4197C11.4487 13.213 11.4167 12.9909 11.4349 12.77C11.453 12.5492 11.5209 12.3353 11.6334 12.1443C11.7459 11.9533 11.9001 11.7901 12.0846 11.667L12.1098 9.05389C11.9952 9.10634 11.8662 9.11847 11.7439 9.08829C11.6215 9.05812 11.513 8.98742 11.436 8.88774C11.359 8.78805 11.3182 8.66526 11.32 8.53938C11.3219 8.41351 11.3664 8.29198 11.4463 8.19461L12.4277 6.98004C12.4781 6.91771 12.5414 6.86698 12.6132 6.83132C12.6851 6.79566 12.7637 6.77591 12.8439 6.77341C12.9337 6.77147 13.0226 6.79132 13.103 6.83126C13.1835 6.8712 13.253 6.93004 13.3056 7.00271L14.234 8.26265C14.3052 8.36021 14.3429 8.47815 14.3414 8.59886C14.34 8.71957 14.2994 8.83658 14.2259 8.9324C14.1524 9.02822 14.0499 9.09772 13.9335 9.13052C13.8172 9.16331 13.6934 9.15765 13.5806 9.11436L13.5629 11.5813C13.8179 11.7097 14.03 11.9093 14.1734 12.1558H15.788C15.7361 12.0411 15.7244 11.9122 15.7549 11.79C15.7854 11.6678 15.8563 11.5594 15.9561 11.4825C16.0559 11.4055 16.1788 11.3645 16.3049 11.3659C16.4309 11.3674 16.5528 11.4113 16.6508 11.4906L17.887 12.4431ZM20.7983 19.4786L22.0849 22.8527L22.7333 21.0132L22.4154 20.6629C22.1782 20.3152 22.259 19.907 22.7005 19.849C22.86 19.8363 23.0203 19.8363 23.1798 19.849C23.3558 19.8379 23.5324 19.8447 23.707 19.8692C24.1157 19.9599 24.1586 20.3555 23.9593 20.673L23.6415 21.0182L24.2898 22.8577L25.4528 19.4836C26.2929 20.2396 28.5533 20.3908 29.4893 20.9048C30.7708 21.623 30.7355 22.7695 31.0029 24.0521C28.4474 26.5972 17.9122 26.7106 15.2456 24.0471C15.5257 22.7872 15.4979 21.6054 16.7744 20.8998C17.9097 20.2673 19.8674 20.3152 20.8109 19.4786H20.7983ZM20.5611 17.2107C20.4509 17.2162 20.3415 17.19 20.2458 17.1351C20.1097 17.0525 20.0042 16.9277 19.9456 16.7798C19.8068 16.4699 19.6933 15.6534 20.0465 15.4191L19.9809 15.3762V15.2855C19.9809 15.1217 19.9632 14.9227 19.9607 14.7135C19.9607 13.9576 19.933 13.0151 19.2972 12.8286L19.0248 12.748L19.2039 12.5338C19.6746 11.9541 20.2076 11.4277 20.7932 10.9639C21.3236 10.5233 21.9573 10.2242 22.6349 10.0946C22.9495 10.0459 23.2708 10.0643 23.5778 10.1485C23.8848 10.2328 24.1704 10.381 24.416 10.5834C24.5913 10.7239 24.7526 10.8808 24.8978 11.0521C25.1804 11.0811 25.4538 11.1687 25.7005 11.3093C25.9473 11.4499 26.1619 11.6404 26.3307 11.8686C26.5415 12.1417 26.699 12.452 26.7949 12.7833C26.8974 13.1193 26.9401 13.4707 26.9211 13.8215C26.9007 14.4577 26.6339 15.0611 26.1769 15.5047C26.2576 15.5067 26.3368 15.5265 26.409 15.5627C26.5191 15.6346 26.6002 15.7432 26.6376 15.8692C26.675 15.9952 26.6664 16.1304 26.6133 16.2506C26.5452 16.4598 26.4569 16.7042 26.3736 16.9083C26.2752 17.183 26.1214 17.2359 25.8438 17.2057C25.2081 19.9775 21.3659 20.0783 20.5611 17.2057V17.2107ZM7.61924 4.98178C7.57389 4.91113 7.54337 4.83202 7.52953 4.74925C7.5157 4.66647 7.51884 4.58175 7.53876 4.50022C7.55868 4.41869 7.59496 4.34205 7.64541 4.27494C7.69587 4.20784 7.75944 4.15166 7.83227 4.10982C7.9051 4.06798 7.98568 4.04135 8.06913 4.03154C8.15257 4.02173 8.23714 4.02895 8.3177 4.05275C8.39827 4.07656 8.47316 4.11646 8.53784 4.17003C8.60251 4.2236 8.65562 4.28973 8.69394 4.36441L9.15561 5.16573C9.23925 5.30908 9.26245 5.47975 9.2201 5.64019C9.17776 5.80062 9.07334 5.93769 8.92983 6.02123C8.78631 6.10476 8.61544 6.12793 8.45482 6.08564C8.2942 6.04335 8.15697 5.93905 8.07334 5.7957L7.61924 4.98178ZM4.36737 8.68347C4.23377 8.59644 4.13868 8.46155 4.10166 8.30659C4.06465 8.15163 4.08853 7.98839 4.16839 7.85049C4.24825 7.71259 4.37801 7.61053 4.53095 7.56532C4.68389 7.52011 4.84836 7.5352 4.99049 7.60748L5.80283 8.06358C5.87489 8.1035 5.93826 8.15736 5.98926 8.222C6.04026 8.28665 6.07786 8.3608 6.09986 8.44011C6.12187 8.51943 6.12784 8.60233 6.11743 8.68397C6.10702 8.76562 6.08044 8.84437 6.03923 8.91565C5.99802 8.98692 5.94302 9.04928 5.87743 9.0991C5.81184 9.14892 5.73697 9.18519 5.6572 9.2058C5.57742 9.22641 5.49434 9.23094 5.41279 9.21914C5.33124 9.20733 5.25286 9.17942 5.18223 9.13704L4.37746 8.67591L4.36737 8.68347ZM3.40618 13.509C3.24159 13.509 3.08374 13.4437 2.96735 13.3275C2.85096 13.2112 2.78558 13.0535 2.78558 12.8891C2.78558 12.7247 2.85096 12.5671 2.96735 12.4508C3.08374 12.3345 3.24159 12.2692 3.40618 12.2692H4.33457C4.49916 12.2692 4.65702 12.3345 4.7734 12.4508C4.88979 12.5671 4.95517 12.7247 4.95517 12.8891C4.95517 13.0535 4.88979 13.2112 4.7734 13.3275C4.65702 13.4437 4.49916 13.509 4.33457 13.509H3.40618ZM4.98797 18.1683C4.84611 18.2409 4.68171 18.2562 4.52884 18.211C4.37597 18.1659 4.24637 18.0637 4.1669 17.9257C4.08742 17.7876 4.06417 17.6243 4.10196 17.4697C4.13975 17.315 4.23569 17.1807 4.36989 17.0948L5.17213 16.6311C5.2427 16.5898 5.32073 16.5627 5.40178 16.5514C5.48282 16.5402 5.56528 16.545 5.64446 16.5656C5.72365 16.5862 5.79799 16.6222 5.86325 16.6715C5.92852 16.7207 5.98342 16.7824 6.02484 16.8529C6.06625 16.9234 6.09336 17.0013 6.10461 17.0823C6.11587 17.1632 6.11105 17.2456 6.09043 17.3247C6.06982 17.4038 6.03381 17.478 5.98446 17.5432C5.93512 17.6084 5.8734 17.6632 5.80283 17.7046L4.98797 18.1683ZM17.115 4.36189C17.1976 4.21954 17.3335 4.11581 17.4927 4.07351C17.6519 4.03122 17.8214 4.05383 17.9639 4.13636C18.1064 4.2189 18.2103 4.3546 18.2526 4.51362C18.295 4.67264 18.2723 4.84195 18.1897 4.9843L17.7255 5.7957C17.6841 5.86618 17.6292 5.92783 17.5639 5.97712C17.4987 6.02641 17.4243 6.06238 17.3451 6.08297C17.266 6.10356 17.1835 6.10837 17.1025 6.09713C17.0214 6.08589 16.9434 6.05881 16.8728 6.01745C16.8023 5.97608 16.7405 5.92124 16.6912 5.85605C16.6418 5.79086 16.6058 5.7166 16.5852 5.63751C16.5646 5.55842 16.5598 5.47605 16.571 5.39511C16.5823 5.31416 16.6094 5.23621 16.6508 5.16573L17.115 4.36189ZM8.69394 21.4189C8.61165 21.5616 8.47597 21.6658 8.31677 21.7085C8.15757 21.7513 7.98788 21.7291 7.84503 21.6469C7.70218 21.5647 7.59787 21.4292 7.55505 21.2702C7.51224 21.1112 7.53442 20.9417 7.61672 20.799L8.07334 19.9901C8.11425 19.9196 8.16867 19.8579 8.23347 19.8084C8.29828 19.7589 8.37221 19.7227 8.45104 19.7017C8.52987 19.6808 8.61205 19.6756 8.6929 19.6863C8.77376 19.6971 8.85169 19.7237 8.92226 19.7646C8.99282 19.8055 9.05464 19.8598 9.10418 19.9245C9.15371 19.9893 9.19 20.0631 9.21097 20.1418C9.23193 20.2206 9.23717 20.3027 9.22637 20.3834C9.21558 20.4642 9.18896 20.542 9.14805 20.6125L8.69394 21.4189ZM12.2839 3.40182C12.2939 3.24458 12.3635 3.09706 12.4786 2.98925C12.5936 2.88144 12.7455 2.82144 12.9032 2.82144C13.061 2.82144 13.2128 2.88144 13.3278 2.98925C13.4429 3.09706 13.5125 3.24458 13.5226 3.40182V4.32913C13.528 4.41369 13.516 4.49846 13.4873 4.57821C13.4586 4.65795 13.4139 4.73097 13.3558 4.79277C13.2978 4.85456 13.2277 4.90381 13.1498 4.93748C13.072 4.97115 12.988 4.98852 12.9032 4.98852C12.8184 4.98852 12.7345 4.97115 12.6566 4.93748C12.5788 4.90381 12.5087 4.85456 12.4506 4.79277C12.3926 4.73097 12.3478 4.65795 12.3192 4.57821C12.2905 4.49846 12.2785 4.41369 12.2839 4.32913V3.40182ZM13.5251 22.3739C13.5251 22.5383 13.4597 22.696 13.3433 22.8122C13.2269 22.9285 13.0691 22.9938 12.9045 22.9938C12.7399 22.9938 12.582 22.9285 12.4656 22.8122C12.3493 22.696 12.2839 22.5383 12.2839 22.3739V21.4491C12.2839 21.2847 12.3493 21.127 12.4656 21.0108C12.582 20.8945 12.7399 20.8292 12.9045 20.8292C13.0691 20.8292 13.2269 20.8945 13.3433 21.0108C13.4597 21.127 13.5251 21.2847 13.5251 21.4491V22.3739Z"
-                                  fill="#002754"
-                                />
-                              </g>
-                              <defs>
-                                <clipPath id="clip0_1560_84">
-                                  <rect width="31" height="26" fill="white" />
-                                </clipPath>
-                              </defs>
-                            </svg>
-                            <span class="accordion-title"
-                              >My educational history</span
-                            >
-                          </div>
-                          <span class="icon" aria-hidden="true"></span>
-                        </button>
-                        <div class="accordion-content">
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Egestas purus viverra accumsan
-                            in nisl nisi. Arcu cursus vitae congue mauris
-                            rhoncus aenean vel elit scelerisque. In egestas erat
-                            imperdiet sed euismod nisi porta lorem mollis. Morbi
-                            tristique senectus et netus. Mattis pellentesque id
-                            nibh tortor id aliquet lectus proin. Sapien faucibus
-                            et molestie ac feugiat sed lectus vestibulum.
-                            Ullamcorper velit sed ullamcorper morbi tincidunt
-                            ornare massa eget. Dictum varius duis at consectetur
-                            lorem. Nisi vitae suscipit tellus mauris a diam
-                            maecenas sed enim. Velit ut tortor pretium viverra
-                            suspendisse potenti nullam. Et molestie ac feugiat
-                            sed lectus. Non nisi est sit amet facilisis magna.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -6879,98 +5296,102 @@
       </div>
     </main>
 
-    <footer>
+    <footer class="footer-background">
       <div class="container mx">
-        <div class="row-fot">
-          <div class="row">
-            <div class="desc col-3">
-              <a href="/index.html">
-                <img
-                  src="../../images/image_59-removebg-preview (1) 1.png"
-                  alt=""
-                />
-                <h2>Unisuniverse</h2>
-              </a>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
-                congu.
-              </p>
+        <div>
+          <div class="row-fot">
+            <div class="row">
+              <div class="desc col-3">
+                <a href="/index.html">
+                  <img
+                    src="../../images/image_59-removebg-preview (1) 1.png"
+                    alt=""
+                  />
+                  <h2>Unisuniverse</h2>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
+                  congu.
+                </p>
+              </div>
+              <div class="col-3">
+                <h4>Short Links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href=""><span>Home</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Academics</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Students</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Universities</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3">
+                <h4>Quick links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href="../Aboutus/index.html"><span>About us</span></a>
+                  </li>
+                  <li>
+                    <a href="../FAQ/index.html"><span>FAQ</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Contact us</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Privacy policy</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3 contact">
+                <h4>Contact us</h4>
+                <ul>
+                  <li>
+                    <div class="iconfo">
+                      <i
+                        class="fa fa-phone fa-flip-horizontal"
+                        aria-hidden="true"
+                      ></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Phone:<br />
+                      +971-580580580
+                    </div>
+                  </li>
+                  <li class="Emailfot">
+                    <div class="iconfo">
+                      <i class="fa fa-envelope-o"></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Email:<br />
+                      info@Unisuniverse@gmail.com
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div class="col-3">
-              <h4>Short Links</h4>
-              <ul class="footer-cat-links">
-                <li>
-                  <a href=""><span>Home</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Academics</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Students</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Universities</span></a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-3">
-              <h4>Quick links</h4>
-              <ul class="footer-cat-links">
-                <li>
-                  <a href="../../Aboutus/index.html"><span>About us</span></a>
-                </li>
-                <li>
-                  <a href="../../FAQ/index.html"><span>FAQ</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Contact us</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Privacy policy</span></a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-3 contact">
-              <h4>Contact us</h4>
-              <ul>
-                <li>
-                  <div class="iconfo">
-                    <i
-                      class="fa fa-phone fa-flip-horizontal"
-                      aria-hidden="true"
-                    ></i>
-                  </div>
-                  <div class="lineheightfot">
-                    Phone:<br />
-                    +971-580580580
-                  </div>
-                </li>
-                <li class="Emailfot">
-                  <div class="iconfo">
-                    <i class="fa fa-envelope-o"></i>
-                  </div>
-                  <div class="lineheightfot">
-                    Email:<br />
-                    info@Unisuniverse@gmail.com
-                  </div>
-                </li>
-              </ul>
+            <div class="social-links social-2 col-6">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-linkedin-in"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-reddit-alien"></i></a>
             </div>
           </div>
-          <div class="social-links social-2 col-6">
-            <a href=""><i class="fab fa-facebook-f"></i></a>
-            <a href=""><i class="fab fa-twitter"></i></a>
-            <a href=""><i class="fab fa-linkedin-in"></i></a>
-            <a href=""><i class="fab fa-instagram"></i></a>
-            <a href=""><i class="fab fa-reddit-alien"></i></a>
-          </div>
-        </div>
-        <div class="copyowner">
-          <div id="copyright">&copy; 2023 Attio Ltd. All rights reserved.</div>
-          <div id="owner">
-            <span> Terms & Conditions </span>
+          <div class="copyowner">
+            <div id="copyright">
+              &copy; 2023 Attio Ltd. All rights reserved.
+            </div>
+            <div id="owner">
+              <span> Terms & Conditions </span>
+            </div>
           </div>
         </div>
       </div>
@@ -7225,26 +5646,6 @@
           listView.style.display = "flex";
         }
       });
-
-      // acordion
-
-      const items = document.querySelectorAll(
-        ".author-accordions-title-down button"
-      );
-
-      function toggleAccordion() {
-        const itemToggle = this.getAttribute("aria-expanded");
-
-        for (i = 0; i < items.length; i++) {
-          items[i].setAttribute("aria-expanded", "false");
-        }
-
-        if (itemToggle == "false") {
-          this.setAttribute("aria-expanded", "true");
-        }
-      }
-
-      items.forEach((item) => item.addEventListener("click", toggleAccordion));
 
       // Show Modal People
 

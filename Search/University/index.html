@@ -19,14 +19,14 @@
           0 2px 4px -1px rgba(0, 0, 0, 0.06);
         --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
           0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        --color-text-black: #151515;
-        --color-text-grayblack: #636363;
-        --color-text-gray: #c7c7c7;
-        --color-background: #f4fcff;
-        --color-line: #dadada;
+        --color-text-black: #333333;
+        --color-text-grayblack: #666666;
+        --color-text-gray: #dcdcdc;
+        --color-background: #f7f9fb;
+        --color-line: #dcdcdc;
         --color-white: #ffffff;
-        --primary-color: #002754;
-        --secondary-color: #f5aa1c;
+        --primary-color: #003366;
+        --secondary-color: #ffd700;
       }
 
       *,
@@ -56,7 +56,7 @@
         font-weight: 400;
         line-height: 1.5;
         color: var(--color-text-black);
-        background-color: var(--color-background);
+        background-color: var(--color-white);
       }
 
       a,
@@ -99,9 +99,9 @@
       .logo {
         font-family: inherit;
         font-size: 28px;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 1.25;
-        color: var(--primary-color);
+        color: var(--color-white);
       }
 
       .header {
@@ -112,8 +112,8 @@
         height: auto;
         z-index: 1000;
         margin: 0 auto;
-        box-shadow: var(--shadow-medium);
-        background-color: var(--color-white);
+        background-color: var(--primary-color);
+        border-bottom: 1px solid var(--color-white);
       }
 
       .wrapper {
@@ -140,7 +140,7 @@
           overflow-y: auto;
           visibility: hidden;
           box-shadow: var(--shadow-medium);
-          background-color: var(--color-white);
+          background-color: var(--primary-color);
           transition: all 0.5s ease;
         }
         .navbar.active {
@@ -172,14 +172,14 @@
         line-height: inherit;
         cursor: pointer;
         text-transform: capitalize;
-        color: var(--color-text-black);
+        color: var(--color-white);
         transition: all 0.3s ease-in-out;
       }
 
       .menu-link > i.fa {
         font-size: 14px;
         line-height: 1.5;
-        color: var(--color-text-black);
+        color: var(--color-background);
         margin-left: 2px;
       }
 
@@ -240,7 +240,7 @@
         font-weight: 500;
         line-height: inherit;
         cursor: pointer;
-        color: var(--color-text-black);
+        color: var(--color-text-grayblack);
         transition: all 0.35s ease;
       }
       .submenu-link:hover {
@@ -265,6 +265,9 @@
           box-shadow: none;
           background: transparent;
         }
+        .submenu-link {
+          color: var(--color-text-gray);
+        }
       }
 
       .btn {
@@ -281,8 +284,8 @@
         font-weight: 500;
         line-height: inherit;
         border-radius: 10px;
-        color: var(--color-white);
-        background-color: var(--primary-color);
+        color: var(--primary-color);
+        background-color: var(--color-white);
         transition: all 0.35s ease;
       }
       .btn-md:hover {
@@ -291,7 +294,7 @@
 
       .btn > a > i.fa {
         margin-right: 22px;
-        color: var(--color-text-black);
+        color: var(--color-background);
         transition: all 0.35s ease;
       }
       .btn > a > i.fa:hover {
@@ -322,7 +325,7 @@
         border: none;
         outline: none;
         border-radius: 1rem;
-        background: var(--color-text-black);
+        background: var(--color-white);
       }
       .burger-line:nth-child(1) {
         top: 0px;
@@ -368,7 +371,7 @@
       /* hero section */
 
       .breadcrumb {
-        color: #c7c7c7;
+        color: var(--color-text-gray);
         font-size: 14px;
         font-weight: 500;
         padding: 24px 0;
@@ -1331,7 +1334,7 @@
         width: 100%;
       }
 
-      /* filter search box */ 
+      /* filter search box */
 
       .filter-btn-clicked-wrapper {
         display: inline-flex;
@@ -1420,11 +1423,12 @@
         width: 100%;
       }
 
-      .input-score:hover, #select-input-language:hover {
+      .input-score:hover,
+      #select-input-language:hover {
         opacity: 0.8;
       }
 
-      /* filter uni list */ 
+      /* filter uni list */
 
       .filter-unibtn-clicked-wrapper {
         display: inline-flex;
@@ -1637,7 +1641,12 @@
         }
       }
 
-      /* footer */
+      /*footer*/
+
+      .footer-background {
+        background-color: var(--primary-color);
+        margin-top: 90px;
+      }
 
       .col-6 {
         width: 100%;
@@ -1646,6 +1655,8 @@
 
       .col-3 > h4 {
         padding: 20px 0 20px 0;
+        color: var(--color-white);
+        font-weight: 500;
       }
 
       .desc a {
@@ -1657,21 +1668,20 @@
         font-size: 20px;
         margin-left: 10px;
         font-weight: 600;
+        color: var(--color-white);
       }
 
       .desc > p {
         margin-top: 10px;
-        font-size: 17px;
-        font-weight: 500;
-        color: var(--color-text-grayblack);
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-white);
         width: 85%;
       }
 
       .row-fot {
-        border-bottom: 1px solid #dadada;
-        border-top: 1px solid #dadada;
-        margin: 7em 0 2em 0;
-        padding: 2.5em 0 2.5em 0;
+        border-bottom: 1px solid var(--color-line);
+        padding: 2em 0 2.5em 0;
       }
 
       footer .row {
@@ -1697,9 +1707,9 @@
       }
 
       .footer-cat-links a {
-        color: var(--color-text-grayblack);
-        font-size: 17px;
-        font-weight: 500;
+        color: var(--color-text-gray);
+        font-size: 16px;
+        font-weight: 400;
         text-decoration: none;
         position: relative;
       }
@@ -1732,7 +1742,7 @@
       }
 
       .social-links a {
-        color: var(--color-text-grayblack);
+        color: var(--color-white);
         font-size: 20px;
         border: 1px solid;
         border-radius: 20px;
@@ -1748,7 +1758,7 @@
       .social-links a:hover,
       .social-links a:focus {
         background-color: var(--secondary-color);
-        color: var(--color-white);
+        color: var(--primary-color);
       }
 
       .social-links a i {
@@ -1763,11 +1773,11 @@
         justify-content: space-between;
         color: var(--color-text-gray);
         font-size: 14px;
-        padding-bottom: 30px;
+        padding: 24px 0 30px 0;
       }
 
       .contact {
-        padding-bottom: 5px;
+        padding-bottom: 13px;
       }
 
       .contact > ul > li {
@@ -1782,8 +1792,10 @@
       }
 
       .lineheightfot {
+        font-size: 16px;
         line-height: 1.5;
         margin-left: 12px;
+        color: var(--color-text-gray);
       }
 
       .iconfo {
@@ -2076,7 +2088,10 @@
                     </div>
                   </div>
                   <div class="search-content-items-box-btns">
-                    <button class="search-content-items-box-filter" id="filter-searchbox">
+                    <button
+                      class="search-content-items-box-filter"
+                      id="filter-searchbox"
+                    >
                       <i class="fa fa-filter"></i>
                     </button>
                     <div class="search-content-items-box-btn">
@@ -2147,7 +2162,9 @@
                             onchange="this.size=1; this.blur()"
                             id="select-input-language"
                           >
-                            <option disabled selected >Select your desired language(s)</option>
+                            <option disabled selected>
+                              Select your desired language(s)
+                            </option>
                             <option value="english">English</option>
                             <option value="german">German</option>
                             <option value="french">French</option>
@@ -2179,21 +2196,11 @@
                             onchange="this.size=1; this.blur()"
                           >
                             <option disabled selected>Reading Score</option>
-                            <option value="0 - 31">
-                              0 - 31
-                            </option>
-                            <option value="32 - 34">
-                              32 - 34
-                            </option>
-                            <option value="35 - 45">
-                              35 - 45
-                            </option>
-                            <option value="46 - 59">
-                              46 - 59
-                            </option>
-                            <option value="60 - 78">
-                              60 - 78
-                            </option>
+                            <option value="0 - 31">0 - 31</option>
+                            <option value="32 - 34">32 - 34</option>
+                            <option value="35 - 45">35 - 45</option>
+                            <option value="46 - 59">46 - 59</option>
+                            <option value="60 - 78">60 - 78</option>
                           </select>
                         </div>
                         <div class="input-score">
@@ -2204,21 +2211,11 @@
                             onchange="this.size=1; this.blur()"
                           >
                             <option disabled selected>Listening Score</option>
-                            <option value="0 - 31">
-                              0 - 31
-                            </option>
-                            <option value="32 - 34">
-                              32 - 34
-                            </option>
-                            <option value="35 - 45">
-                              35 - 45
-                            </option>
-                            <option value="46 - 59">
-                              46 - 59
-                            </option>
-                            <option value="60 - 78">
-                              60 - 78
-                            </option>
+                            <option value="0 - 31">0 - 31</option>
+                            <option value="32 - 34">32 - 34</option>
+                            <option value="35 - 45">35 - 45</option>
+                            <option value="46 - 59">46 - 59</option>
+                            <option value="60 - 78">60 - 78</option>
                           </select>
                         </div>
                         <div class="input-score">
@@ -2229,21 +2226,11 @@
                             onchange="this.size=1; this.blur()"
                           >
                             <option disabled selected>Writing Score</option>
-                            <option value="0 - 31">
-                              0 - 31
-                            </option>
-                            <option value="32 - 34">
-                              32 - 34
-                            </option>
-                            <option value="35 - 45">
-                              35 - 45
-                            </option>
-                            <option value="46 - 59">
-                              46 - 59
-                            </option>
-                            <option value="60 - 78">
-                              60 - 78
-                            </option>
+                            <option value="0 - 31">0 - 31</option>
+                            <option value="32 - 34">32 - 34</option>
+                            <option value="35 - 45">35 - 45</option>
+                            <option value="46 - 59">46 - 59</option>
+                            <option value="60 - 78">60 - 78</option>
                           </select>
                         </div>
                         <div class="input-score">
@@ -2254,28 +2241,18 @@
                             onchange="this.size=1; this.blur()"
                           >
                             <option disabled selected>Speaking Score</option>
-                            <option value="0 - 31">
-                              0 - 31
-                            </option>
-                            <option value="32 - 34">
-                              32 - 34
-                            </option>
-                            <option value="35 - 45">
-                              35 - 45
-                            </option>
-                            <option value="46 - 59">
-                              46 - 59
-                            </option>
-                            <option value="60 - 78">
-                              60 - 78
-                            </option>
+                            <option value="0 - 31">0 - 31</option>
+                            <option value="32 - 34">32 - 34</option>
+                            <option value="35 - 45">35 - 45</option>
+                            <option value="46 - 59">46 - 59</option>
+                            <option value="60 - 78">60 - 78</option>
                           </select>
                         </div>
                       </div>
                     </div>
 
-                    <hr>
-                    
+                    <hr />
+
                     <div class="filter-btn-clicked-input">
                       <div class="filter-btn-clicked-input-main">
                         <div class="input_pox wf">
@@ -2287,7 +2264,9 @@
                             onchange="this.size=1; this.blur()"
                             id="select-input-language"
                           >
-                            <option disabled selected >Select your desired language(s)</option>
+                            <option disabled selected>
+                              Select your desired language(s)
+                            </option>
                             <option value="english">English</option>
                             <option value="german">German</option>
                             <option value="french">French</option>
@@ -2319,21 +2298,11 @@
                             onchange="this.size=1; this.blur()"
                           >
                             <option disabled selected>Reading Score</option>
-                            <option value="0 - 31">
-                              0 - 31
-                            </option>
-                            <option value="32 - 34">
-                              32 - 34
-                            </option>
-                            <option value="35 - 45">
-                              35 - 45
-                            </option>
-                            <option value="46 - 59">
-                              46 - 59
-                            </option>
-                            <option value="60 - 78">
-                              60 - 78
-                            </option>
+                            <option value="0 - 31">0 - 31</option>
+                            <option value="32 - 34">32 - 34</option>
+                            <option value="35 - 45">35 - 45</option>
+                            <option value="46 - 59">46 - 59</option>
+                            <option value="60 - 78">60 - 78</option>
                           </select>
                         </div>
                         <div class="input-score">
@@ -2344,21 +2313,11 @@
                             onchange="this.size=1; this.blur()"
                           >
                             <option disabled selected>Listening Score</option>
-                            <option value="0 - 31">
-                              0 - 31
-                            </option>
-                            <option value="32 - 34">
-                              32 - 34
-                            </option>
-                            <option value="35 - 45">
-                              35 - 45
-                            </option>
-                            <option value="46 - 59">
-                              46 - 59
-                            </option>
-                            <option value="60 - 78">
-                              60 - 78
-                            </option>
+                            <option value="0 - 31">0 - 31</option>
+                            <option value="32 - 34">32 - 34</option>
+                            <option value="35 - 45">35 - 45</option>
+                            <option value="46 - 59">46 - 59</option>
+                            <option value="60 - 78">60 - 78</option>
                           </select>
                         </div>
                         <div class="input-score">
@@ -2369,21 +2328,11 @@
                             onchange="this.size=1; this.blur()"
                           >
                             <option disabled selected>Writing Score</option>
-                            <option value="0 - 31">
-                              0 - 31
-                            </option>
-                            <option value="32 - 34">
-                              32 - 34
-                            </option>
-                            <option value="35 - 45">
-                              35 - 45
-                            </option>
-                            <option value="46 - 59">
-                              46 - 59
-                            </option>
-                            <option value="60 - 78">
-                              60 - 78
-                            </option>
+                            <option value="0 - 31">0 - 31</option>
+                            <option value="32 - 34">32 - 34</option>
+                            <option value="35 - 45">35 - 45</option>
+                            <option value="46 - 59">46 - 59</option>
+                            <option value="60 - 78">60 - 78</option>
                           </select>
                         </div>
                         <div class="input-score">
@@ -2394,21 +2343,11 @@
                             onchange="this.size=1; this.blur()"
                           >
                             <option disabled selected>Speaking Score</option>
-                            <option value="0 - 31">
-                              0 - 31
-                            </option>
-                            <option value="32 - 34">
-                              32 - 34
-                            </option>
-                            <option value="35 - 45">
-                              35 - 45
-                            </option>
-                            <option value="46 - 59">
-                              46 - 59
-                            </option>
-                            <option value="60 - 78">
-                              60 - 78
-                            </option>
+                            <option value="0 - 31">0 - 31</option>
+                            <option value="32 - 34">32 - 34</option>
+                            <option value="35 - 45">35 - 45</option>
+                            <option value="46 - 59">46 - 59</option>
+                            <option value="60 - 78">60 - 78</option>
                           </select>
                         </div>
                       </div>
@@ -2429,7 +2368,10 @@
               </div>
 
               <div class="university-list-view-filters">
-                <button class="university-list-view-filter" id="filter-university">
+                <button
+                  class="university-list-view-filter"
+                  id="filter-university"
+                >
                   <i class="fa fa-filter"></i>
                 </button>
                 <div class="item-top-sort-by-box">
@@ -2460,8 +2402,10 @@
                       onchange="this.size=1; this.blur()"
                       id="select-input-language"
                     >
-                      <option disabled selected >Select which city you are planning to study in</option>
-                      <option value="chicago ">Chicago </option>
+                      <option disabled selected>
+                        Select which city you are planning to study in
+                      </option>
+                      <option value="chicago ">Chicago</option>
                     </select>
                   </div>
                   <div class="input_pox wf">
@@ -2473,7 +2417,9 @@
                       onchange="this.size=1; this.blur()"
                       id="select-input-language"
                     >
-                      <option disabled selected >Select the name of university you want to study at.</option>
+                      <option disabled selected>
+                        Select the name of university you want to study at.
+                      </option>
                       <option value="chicago ">Harvard University</option>
                     </select>
                   </div>
@@ -2486,7 +2432,9 @@
                       onchange="this.size=1; this.blur()"
                       id="select-input-language"
                     >
-                      <option disabled selected >Select the duration of your study</option>
+                      <option disabled selected>
+                        Select the duration of your study
+                      </option>
                       <option value="chicago ">1 year</option>
                     </select>
                   </div>
@@ -2499,7 +2447,9 @@
                       onchange="this.size=1; this.blur()"
                       id="select-input-language"
                     >
-                      <option disabled selected >Select your desired season for study</option>
+                      <option disabled selected>
+                        Select your desired season for study
+                      </option>
                       <option value="autumn ">Autumn</option>
                       <option value="winter ">Winter</option>
                       <option value="spring ">Spring</option>
@@ -3087,98 +3037,102 @@
       </div>
     </main>
 
-    <footer>
+    <footer class="footer-background">
       <div class="container mx">
-        <div class="row-fot">
-          <div class="row">
-            <div class="desc col-3">
-              <a href="/index.html">
-                <img
-                  src="../../images/image_59-removebg-preview (1) 1.png"
-                  alt=""
-                />
-                <h2>Unisuniverse</h2>
-              </a>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
-                congu.
-              </p>
+        <div>
+          <div class="row-fot">
+            <div class="row">
+              <div class="desc col-3">
+                <a href="/index.html">
+                  <img
+                    src="../../images/image_59-removebg-preview (1) 1.png"
+                    alt=""
+                  />
+                  <h2>Unisuniverse</h2>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
+                  congu.
+                </p>
+              </div>
+              <div class="col-3">
+                <h4>Short Links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href=""><span>Home</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Academics</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Students</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Universities</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3">
+                <h4>Quick links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href="../Aboutus/index.html"><span>About us</span></a>
+                  </li>
+                  <li>
+                    <a href="../FAQ/index.html"><span>FAQ</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Contact us</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Privacy policy</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3 contact">
+                <h4>Contact us</h4>
+                <ul>
+                  <li>
+                    <div class="iconfo">
+                      <i
+                        class="fa fa-phone fa-flip-horizontal"
+                        aria-hidden="true"
+                      ></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Phone:<br />
+                      +971-580580580
+                    </div>
+                  </li>
+                  <li class="Emailfot">
+                    <div class="iconfo">
+                      <i class="fa fa-envelope-o"></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Email:<br />
+                      info@Unisuniverse@gmail.com
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div class="col-3">
-              <h4>Short Links</h4>
-              <ul class="footer-cat-links">
-                <li>
-                  <a href=""><span>Home</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Academics</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Students</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Universities</span></a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-3">
-              <h4>Quick links</h4>
-              <ul class="footer-cat-links">
-                <li>
-                  <a href="../../Aboutus/index.html"><span>About us</span></a>
-                </li>
-                <li>
-                  <a href="../../FAQ/index.html"><span>FAQ</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Contact us</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Privacy policy</span></a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-3 contact">
-              <h4>Contact us</h4>
-              <ul>
-                <li>
-                  <div class="iconfo">
-                    <i
-                      class="fa fa-phone fa-flip-horizontal"
-                      aria-hidden="true"
-                    ></i>
-                  </div>
-                  <div class="lineheightfot">
-                    Phone:<br />
-                    +971-580580580
-                  </div>
-                </li>
-                <li class="Emailfot">
-                  <div class="iconfo">
-                    <i class="fa fa-envelope-o"></i>
-                  </div>
-                  <div class="lineheightfot">
-                    Email:<br />
-                    info@Unisuniverse@gmail.com
-                  </div>
-                </li>
-              </ul>
+            <div class="social-links social-2 col-6">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-linkedin-in"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-reddit-alien"></i></a>
             </div>
           </div>
-          <div class="social-links social-2 col-6">
-            <a href=""><i class="fab fa-facebook-f"></i></a>
-            <a href=""><i class="fab fa-twitter"></i></a>
-            <a href=""><i class="fab fa-linkedin-in"></i></a>
-            <a href=""><i class="fab fa-instagram"></i></a>
-            <a href=""><i class="fab fa-reddit-alien"></i></a>
-          </div>
-        </div>
-        <div class="copyowner">
-          <div id="copyright">&copy; 2023 Attio Ltd. All rights reserved.</div>
-          <div id="owner">
-            <span> Terms & Conditions </span>
+          <div class="copyowner">
+            <div id="copyright">
+              &copy; 2023 Attio Ltd. All rights reserved.
+            </div>
+            <div id="owner">
+              <span> Terms & Conditions </span>
+            </div>
           </div>
         </div>
       </div>
@@ -3312,9 +3266,9 @@
       const fieldInput = document.getElementById("field");
       const fieldClickedWrapper = document.getElementsByClassName(
         "field-input-clicked-wrapper"
-        )[0];
+      )[0];
 
-        fieldInput.addEventListener("click", function () {
+      fieldInput.addEventListener("click", function () {
         fieldClickedWrapper.classList.toggle("toggle-display");
       });
 
@@ -3328,7 +3282,7 @@
       });
 
       // Filter Search box
-      
+
       const filterSearchBox = document.getElementById("filter-searchbox");
       const filterSearchBoxClicked = document.getElementsByClassName(
         "filter-btn-clicked-wrapper"
@@ -3347,9 +3301,9 @@
         }
       });
 
-       // Filter University List
-      
-       const filterUniversity = document.getElementById("filter-university");
+      // Filter University List
+
+      const filterUniversity = document.getElementById("filter-university");
       const filterUniversityClicked = document.getElementsByClassName(
         "filter-unibtn-clicked-wrapper"
       )[0];

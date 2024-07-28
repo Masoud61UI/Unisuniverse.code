@@ -6,7 +6,10 @@
     <title>Unisuniverse</title>
 
     <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
 
     <!-- fontawesome Icon CDN-->
     <script
@@ -23,14 +26,14 @@
           0 2px 4px -1px rgba(0, 0, 0, 0.06);
         --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
           0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        --color-text-black: #151515;
-        --color-text-grayblack: #636363;
-        --color-text-gray: #c7c7c7;
-        --color-background: #f4fcff;
-        --color-line: #dadada;
+        --color-text-black: #333333;
+        --color-text-grayblack: #666666;
+        --color-text-gray: #dcdcdc;
+        --color-background: #f7f9fb;
+        --color-line: #dcdcdc;
         --color-white: #ffffff;
-        --primary-color: #002754;
-        --secondary-color: #f5aa1c;
+        --primary-color: #003366;
+        --secondary-color: #ffd700;
         --swiper-navigation-size: 20px;
       }
 
@@ -61,7 +64,7 @@
         font-weight: 400;
         line-height: 1.5;
         color: var(--color-text-black);
-        background-color: var(--color-background);
+        background-color: var(--color-white);
       }
 
       a,
@@ -100,9 +103,9 @@
       .logo {
         font-family: inherit;
         font-size: 28px;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 1.25;
-        color: var(--primary-color);
+        color: var(--color-white);
       }
 
       .header {
@@ -113,8 +116,8 @@
         height: auto;
         z-index: 100;
         margin: 0 auto;
-        box-shadow: var(--shadow-medium);
-        background-color: var(--color-white);
+        background-color: var(--primary-color);
+        border-bottom: 1px solid var(--color-white);
       }
 
       .wrapper {
@@ -141,7 +144,7 @@
           overflow-y: auto;
           visibility: hidden;
           box-shadow: var(--shadow-medium);
-          background-color: var(--color-white);
+          background-color: var(--primary-color);
           transition: all 0.5s ease;
         }
         .navbar.active {
@@ -173,14 +176,14 @@
         line-height: inherit;
         cursor: pointer;
         text-transform: capitalize;
-        color: var(--color-text-black);
+        color: var(--color-white);
         transition: all 0.3s ease-in-out;
       }
 
       .menu-link > i.fa {
         font-size: 14px;
         line-height: 1.5;
-        color: var(--color-text-black);
+        color: var(--color-background);
         margin-left: 2px;
       }
 
@@ -241,7 +244,7 @@
         font-weight: 500;
         line-height: inherit;
         cursor: pointer;
-        color: var(--color-text-black);
+        color: var(--color-text-grayblack);
         transition: all 0.35s ease;
       }
       .submenu-link:hover {
@@ -266,6 +269,9 @@
           box-shadow: none;
           background: transparent;
         }
+        .submenu-link {
+          color: var(--color-text-gray);
+        }
       }
 
       .btn {
@@ -282,8 +288,8 @@
         font-weight: 500;
         line-height: inherit;
         border-radius: 10px;
-        color: var(--color-white);
-        background-color: var(--primary-color);
+        color: var(--primary-color);
+        background-color: var(--color-white);
         transition: all 0.35s ease;
       }
       .btn-md:hover {
@@ -292,7 +298,7 @@
 
       .btn > a > i.fa {
         margin-right: 22px;
-        color: var(--color-text-black);
+        color: var(--color-background);
         transition: all 0.35s ease;
       }
       .btn > a > i.fa:hover {
@@ -323,7 +329,7 @@
         border: none;
         outline: none;
         border-radius: 1rem;
-        background: var(--color-text-black);
+        background: var(--color-white);
       }
       .burger-line:nth-child(1) {
         top: 0px;
@@ -684,7 +690,7 @@
         }
       }
 
-      /* Popup boxs */ 
+      /* Popup boxs */
 
       .popup-boxs {
         display: flex;
@@ -745,8 +751,8 @@
         width: 100%;
       }
 
-      /* Hero Section */ 
-    
+      /* Hero Section */
+
       .hero-section {
         display: flex;
         align-items: center;
@@ -791,7 +797,7 @@
       }
 
       .hero-section-content-text-title > h1 > span {
-        background: linear-gradient(90deg, #002754 0.02%, #F5AA1C 73.14%);
+        background: linear-gradient(90deg, #002754 0.02%, #f5aa1c 73.14%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -802,7 +808,7 @@
         font-weight: 400;
         color: var(--color-text-grayblack);
         width: 80%;
-      }      
+      }
 
       .btn-medium {
         display: flex;
@@ -850,34 +856,39 @@
         padding-top: 50px;
       }
 
-      .student-section-content-items, .academic-section-content-items {
+      .student-section-content-items,
+      .academic-section-content-items {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 30px;
       }
 
-      .student-section-content-text, .academic-section-content-text {
+      .student-section-content-text,
+      .academic-section-content-text {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 22px;
       }
 
-      .student-section-content-text-title, .academic-section-content-text-title {
+      .student-section-content-text-title,
+      .academic-section-content-text-title {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 16px;
       }
 
-      .student-section-content-text-title > small, .academic-section-content-text-title > small {
+      .student-section-content-text-title > small,
+      .academic-section-content-text-title > small {
         font-size: 14px;
         font-weight: 500;
         color: var(--secondary-color);
       }
 
-      .student-section-content-text-title > h1, .academic-section-content-text-title > h1 {
+      .student-section-content-text-title > h1,
+      .academic-section-content-text-title > h1 {
         font-size: 40px;
         font-weight: 600;
         color: var(--color-text-black);
@@ -886,14 +897,15 @@
         width: 90%;
       }
 
-      .student-section-content-text-desc, .academic-section-content-text-desc {
+      .student-section-content-text-desc,
+      .academic-section-content-text-desc {
         font-size: 16px;
         font-weight: 400;
         color: var(--color-text-grayblack);
         width: 90%;
       }
 
-      .student-section-content-advantages{
+      .student-section-content-advantages {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -1026,7 +1038,7 @@
         border: none;
       }
 
-      /* Reviews Section */ 
+      /* Reviews Section */
 
       .reviews-section {
         display: flex;
@@ -1153,7 +1165,10 @@
         margin-bottom: 20px;
       }
 
-      .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+      .swiper-horizontal > .swiper-pagination-bullets,
+      .swiper-pagination-bullets.swiper-pagination-horizontal,
+      .swiper-pagination-custom,
+      .swiper-pagination-fraction {
         bottom: var(--swiper-pagination-bottom, -3px);
       }
 
@@ -1161,7 +1176,8 @@
         background: var(--primary-color);
       }
 
-      .swiper-button-next, .swiper-button-prev {
+      .swiper-button-next,
+      .swiper-button-prev {
         width: 42px;
         height: 42px;
         border: 1px solid var(--primary-color);
@@ -1175,29 +1191,38 @@
           font-size: 32px;
           line-height: 42px;
         }
-        .hero-section-content, .student-section, .academic-section-content-advantages, .academic-section {
+        .hero-section-content,
+        .student-section,
+        .academic-section-content-advantages,
+        .academic-section {
           gap: 30px;
         }
-        .student-section-content  {
+        .student-section-content {
           gap: 25px;
         }
-        .student-section-content-items, .academic-section-content-items, .reviews-section-boxs-wrapper {
+        .student-section-content-items,
+        .academic-section-content-items,
+        .reviews-section-boxs-wrapper {
           gap: 20px;
         }
-        .student-section-content-text, .academic-section-content-text {
+        .student-section-content-text,
+        .academic-section-content-text {
           gap: 12px;
         }
-        .student-section-content-text-title, .academic-section-content-text-title{
+        .student-section-content-text-title,
+        .academic-section-content-text-title {
           gap: 10px;
         }
-        .student-section-content-text-title > h1, .academic-section-content-text-title > h1{
+        .student-section-content-text-title > h1,
+        .academic-section-content-text-title > h1 {
           font-size: 28px;
           line-height: 38px;
         }
       }
 
       @media only screen and (max-width: 850px) {
-        .hero-section, .academic-section{
+        .hero-section,
+        .academic-section {
           flex-direction: column;
           gap: 40px;
         }
@@ -1224,7 +1249,7 @@
         .main-wrapper {
           gap: 90px;
         }
-        .academic-section-content-items{
+        .academic-section-content-items {
           gap: 32px;
         }
         .academic-section-content-advantages {
@@ -1243,17 +1268,21 @@
           width: 50px;
           height: 50px;
         }
-        .hero-section-content-text-desc, .student-section-content-text-desc, .academic-section-content-text-desc, .academic-section-content-advantage-text, .reviews-section-text {
+        .hero-section-content-text-desc,
+        .student-section-content-text-desc,
+        .academic-section-content-text-desc,
+        .academic-section-content-advantage-text,
+        .reviews-section-text {
           width: 100%;
         }
-        .swiper-button-next, .swiper-button-prev {
+        .swiper-button-next,
+        .swiper-button-prev {
           width: 24px;
           height: 24px;
           border-radius: 4px;
           --swiper-navigation-size: 12px;
           top: var(--swiper-navigation-top-offset, 45%);
         }
-        
       }
 
       @media only screen and (max-width: 380px) {
@@ -1265,10 +1294,16 @@
         .users-statistic > h1 {
           font-size: 32px;
         }
-        .hero-section-content-text-desc, .student-section-content-text-desc, .academic-section-content-text-desc, .academic-section-content-advantage-text, .reviews-section-text, .users-statistic > h4 {
+        .hero-section-content-text-desc,
+        .student-section-content-text-desc,
+        .academic-section-content-text-desc,
+        .academic-section-content-advantage-text,
+        .reviews-section-text,
+        .users-statistic > h4 {
           font-size: 14px;
         }
-        .student-section-content-text-title > h1, .academic-section-content-text-title > h1 {
+        .student-section-content-text-title > h1,
+        .academic-section-content-text-title > h1 {
           font-size: 24px;
           line-height: 34px;
           width: 100%;
@@ -1280,15 +1315,24 @@
 
       @media only screen and (min-width: 1600px) {
         .all-img-sections {
-            width: 80%;
+          width: 80%;
         }
-        .hero-section-content-text-desc, .student-section-content-text-desc, .academic-section-content-text-desc, .academic-section-content-advantage-text, .reviews-section-text, .reviews-section-box-text {
+        .hero-section-content-text-desc,
+        .student-section-content-text-desc,
+        .academic-section-content-text-desc,
+        .academic-section-content-advantage-text,
+        .reviews-section-text,
+        .reviews-section-box-text {
           font-size: 18px;
         }
-        .reviews-section-box-info > h4, .hero-section-content-text-title > small, .student-section-content-text-title > small, .academic-section-content-text-title > small {
+        .reviews-section-box-info > h4,
+        .hero-section-content-text-title > small,
+        .student-section-content-text-title > small,
+        .academic-section-content-text-title > small {
           font-size: 16px;
         }
-        .reviews-section-box-info > h3, .academic-section-content-advantage-title > h3 {
+        .reviews-section-box-info > h3,
+        .academic-section-content-advantage-title > h3 {
           font-size: 20px;
         }
         .reviews-section-boxs-wrapper {
@@ -1296,7 +1340,12 @@
         }
       }
 
-      /* footer */
+      /*footer*/
+
+      .footer-background {
+        background-color: var(--primary-color);
+        margin-top: 90px;
+      }
 
       .col-6 {
         width: 100%;
@@ -1305,6 +1354,8 @@
 
       .col-3 > h4 {
         padding: 20px 0 20px 0;
+        color: var(--color-white);
+        font-weight: 500;
       }
 
       .desc a {
@@ -1316,22 +1367,20 @@
         font-size: 20px;
         margin-left: 10px;
         font-weight: 600;
-        color: var(--primary-color);
+        color: var(--color-white);
       }
 
       .desc > p {
         margin-top: 10px;
-        font-size: 17px;
-        font-weight: 500;
-        color: var(--color-text-grayblack);
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-white);
         width: 85%;
       }
 
       .row-fot {
-        border-bottom: 1px solid #dadada;
-        border-top: 1px solid #dadada;
-        margin: 7em 0 2em 0;
-        padding: 2.5em 0 2.5em 0;
+        border-bottom: 1px solid var(--color-line);
+        padding: 2em 0 2.5em 0;
       }
 
       footer .row {
@@ -1357,9 +1406,9 @@
       }
 
       .footer-cat-links a {
-        color: var(--color-text-grayblack);
-        font-size: 17px;
-        font-weight: 500;
+        color: var(--color-text-gray);
+        font-size: 16px;
+        font-weight: 400;
         text-decoration: none;
         position: relative;
       }
@@ -1392,7 +1441,7 @@
       }
 
       .social-links a {
-        color: var(--color-text-grayblack);
+        color: var(--color-white);
         font-size: 20px;
         border: 1px solid;
         border-radius: 20px;
@@ -1408,7 +1457,7 @@
       .social-links a:hover,
       .social-links a:focus {
         background-color: var(--secondary-color);
-        color: var(--color-white);
+        color: var(--primary-color);
       }
 
       .social-links a i {
@@ -1423,11 +1472,11 @@
         justify-content: space-between;
         color: var(--color-text-gray);
         font-size: 14px;
-        padding-bottom: 30px;
+        padding: 24px 0 30px 0;
       }
 
       .contact {
-        padding-bottom: 5px;
+        padding-bottom: 13px;
       }
 
       .contact > ul > li {
@@ -1442,8 +1491,10 @@
       }
 
       .lineheightfot {
+        font-size: 16px;
         line-height: 1.5;
         margin-left: 12px;
+        color: var(--color-text-gray);
       }
 
       .iconfo {
@@ -1474,12 +1525,6 @@
       }
 
       @media only screen and (max-width: 450px) {
-        .accordion-title {
-          font-size: 18px;
-        }
-        .accordion .accordion-content p {
-          font-size: 14px;
-        }
         .copyowner {
           flex-direction: column;
         }
@@ -1619,22 +1664,42 @@
                   <p>Continue Apple</p>
                 </button>
                 <p class="signup-text">
-                  Don't you have an account?<a href="#" class="new-acc">Create an account.</a>
+                  Don't you have an account?<a href="#" class="new-acc"
+                    >Create an account.</a
+                  >
                 </p>
               </form>
             </div>
             <div class="popup-boxs">
               <div class="box">
-                <img class="image-box" src="../../images/student popup.png" alt="Student Image">
-                <a href="../../Signup/Student/index.html" class="btn-sm">Student</a>
+                <img
+                  class="image-box"
+                  src="../../images/student popup.png"
+                  alt="Student Image"
+                />
+                <a href="../../Signup/Student/index.html" class="btn-sm"
+                  >Student</a
+                >
               </div>
               <div class="box">
-                <img class="image-box" src="../../images/Academic popup.png" alt="Academic Image">
-                <a href="../../Signup/Academic/index.html" class="btn-sm">Academic</a>
+                <img
+                  class="image-box"
+                  src="../../images/Academic popup.png"
+                  alt="Academic Image"
+                />
+                <a href="../../Signup/Academic/index.html" class="btn-sm"
+                  >Academic</a
+                >
               </div>
               <div class="box">
-                <img class="image-box" src="../../images/Recruiter popup.png" alt="Recruiter Image">
-                <a href="../../Signup/Recruiter/index.html" class="btn-sm">Recruiter</a>
+                <img
+                  class="image-box"
+                  src="../../images/Recruiter popup.png"
+                  alt="Recruiter Image"
+                />
+                <a href="../../Signup/Recruiter/index.html" class="btn-sm"
+                  >Recruiter</a
+                >
               </div>
             </div>
           </div>
@@ -1643,503 +1708,661 @@
     </header>
 
     <main>
-        <div class="main-wrapper">
-            <section class="slider-wrapper">
-              <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="hero-section container mx mrg-btm">
-                      <div class="hero-section-content">
-                          <div class="hero-section-content-text">
-                              <div class="hero-section-content-text-title">
-                                  <small>Welcome to Unisuniverse</small>
-                                  <h1>We Are The World Of 
-                                      <span>Universitarians</span></h1>
-                              </div>
-                              <p class="hero-section-content-text-desc">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                              </p>
-                          </div>
-  
-                          <button class="btn-medium">
-                              Join Us Now
-                          </button>
+      <div class="main-wrapper">
+        <section class="slider-wrapper">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="hero-section container mx mrg-btm">
+                  <div class="hero-section-content">
+                    <div class="hero-section-content-text">
+                      <div class="hero-section-content-text-title">
+                        <small>Welcome to Unisuniverse</small>
+                        <h1>
+                          We Are The World Of <span>Universitarians</span>
+                        </h1>
                       </div>
-                      <div class="img-sections">
-                          <img src="../Home/images/Photo.png" class="all-img-sections" alt="Hero Image">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="student-section container mx mrg-btm">
-                      <div class="img-sections">
-                          <img src="../Home/images/slide 2.png" class="all-img-sections" alt="Student Image">
-                      </div>
-                      <div class="student-section-content">
-                          <div class="student-section-content-items">
-                              <div class="student-section-content-text">
-                                  <div class="student-section-content-text-title">
-                                      <small>Introduction to Student</small>
-                                      <h1>Providing Unmatchable Facilities & Services</h1>
-                                  </div>
-  
-                                  <p class="student-section-content-text-desc">
-                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                  </p>
-                              </div>
-                          </div>
-                          
-                          <button class="btn-medium">
-                              Learn More
-                          </button>
-                      </div>
-                  </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="academic-section container mx">
-                      <div class="academic-section-content">
-                        <div class="academic-section-content-items">
-                          <div class="academic-section-content-text">
-                              <div class="academic-section-content-text-title">
-                                  <small>Introduction to Academic</small>
-                                  <h1>Join to Our Academic Community</h1>
-                              </div>
-  
-                              <p class="academic-section-content-text-desc">
-                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                              </p>
-                          </div>
-                        </div>
-                      
-                        <button class="btn-medium">
-                          Learn More
-                        </button>
-                      </div>
-  
-                      <div class="img-sections">
-                        <img src="../Home/images/slide 3.png" class="all-img-sections" alt="Academic Image">
-                      </div>
-                  </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="student-section container mx">
-                      <div class="img-sections">
-                          <img src="./images/slide 4.png" class="all-img-sections" alt="University Image">
-                      </div>
-                      <div class="student-section-content">
-                          <div class="student-section-content-items">
-                              <div class="student-section-content-text">
-                                  <div class="student-section-content-text-title">
-                                      <small>Introduction to University</small>
-                                      <h1>Attract More Students with Us</h1>
-                                  </div>
-    
-                                  <p class="student-section-content-text-desc">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                  </p>
-                              </div>
-                          </div>
-                          
-                          <button class="btn-medium">
-                              Learn More
-                          </button>
-                      </div>
-                  </div>
-                  </div>
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-              </div>
-            </section>
-
-            <section class="student-section-wrapper">
-                <div class="student-section container mx">
-                    <div class="img-sections">
-                        <img src="../Home/images/Student Photo.png" class="all-img-sections" alt="Student Image">
-                    </div>
-                    <div class="student-section-content">
-                        <div class="student-section-content-items">
-                            <div class="student-section-content-text">
-                                <div class="student-section-content-text-title">
-                                    <small>Introduction to Student</small>
-                                    <h1>Providing Unmatchable Facilities & Services</h1>
-                                </div>
-
-                                <p class="student-section-content-text-desc">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                </p>
-                            </div>
-
-                            <div class="student-section-content-advantages">
-                                <div class="student-section-content-advantage">
-                                    <div class="student-section-content-advantage-icon">
-                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <g clip-path="url(#clip0_390_162)">
-                                            <path d="M13.6584 7.38686L11.2884 9.75688L10.3449 8.81343C10.2787 8.74692 10.1999 8.69413 10.1133 8.65808C10.0266 8.62203 9.93362 8.60343 9.83974 8.60334C9.74585 8.60326 9.65287 8.62168 9.56612 8.65757C9.47936 8.69346 9.40054 8.7461 9.33415 8.81249C9.26776 8.87888 9.21512 8.95771 9.17923 9.04446C9.14334 9.13122 9.12491 9.2242 9.125 9.31808C9.12509 9.41197 9.14369 9.50491 9.17974 9.5916C9.21578 9.67829 9.26857 9.75702 9.33508 9.82329L10.7834 11.2716C10.8497 11.3379 10.9284 11.3905 11.0151 11.4264C11.1017 11.4623 11.1946 11.4808 11.2883 11.4808C11.3821 11.4808 11.4749 11.4623 11.5616 11.4264C11.6482 11.3905 11.7269 11.3379 11.7932 11.2716L14.6681 8.39672C14.802 8.26281 14.8773 8.08119 14.8773 7.89181C14.8773 7.70243 14.8021 7.52081 14.6682 7.38689C14.5343 7.25298 14.3526 7.17774 14.1633 7.17773C13.9739 7.17773 13.7923 7.25295 13.6584 7.38686Z" fill="#F5AA1C"/>
-                                            <path d="M9.88332 18.3894C9.36863 18.4772 8.83958 18.4156 8.35886 18.2118C7.87814 18.0081 7.46591 17.6708 7.17105 17.2399L6.98352 16.9648L4.48438 22.184L6.89363 22.0887L8.33013 24.0253L11.1222 18.196L11.09 18.1823L9.88332 18.3894Z" fill="#F5AA1C"/>
-                                            <path d="M16.0237 17.3355L15.1206 18.163C14.617 18.6228 13.9595 18.8775 13.2775 18.8768C13.2525 18.8768 13.2281 18.8762 13.2031 18.8756L15.6701 24.0269L17.106 22.0903L19.5153 22.1856L17.1042 17.1504L16.0237 17.3355Z" fill="#F5AA1C"/>
-                                            <path d="M20.2398 10.6461L19.755 9.14829L20.157 7.62619C20.2321 7.34191 20.2239 7.04205 20.1333 6.76231C20.0428 6.48257 19.8738 6.23475 19.6464 6.04837L18.4288 5.05042L17.9441 3.55263C17.8535 3.27289 17.6845 3.02507 17.4571 2.83869C17.2297 2.6523 16.9535 2.53521 16.6614 2.50136L15.0976 2.32009L13.8801 1.32214C13.6527 1.13576 13.3765 1.01866 13.0844 0.984811C12.7923 0.950957 12.4967 1.00177 12.2327 1.1312L10.8191 1.82417L9.25532 1.6429C8.96325 1.60905 8.66761 1.65986 8.4036 1.78929C8.1396 1.91871 7.91835 2.12129 7.76623 2.3729L6.95172 3.72009L5.53816 4.41306C5.27415 4.54248 5.05291 4.74507 4.90078 4.99668C4.74866 5.24829 4.67206 5.53832 4.68012 5.83224L4.72326 7.40592L3.90874 8.75311C3.75661 9.00472 3.68002 9.29476 3.68808 9.58867C3.69613 9.88259 3.7885 10.168 3.95418 10.4109L4.84127 11.7114L4.8844 13.2851C4.89246 13.579 4.98483 13.8644 5.15051 14.1073C5.31618 14.3502 5.54819 14.5404 5.81889 14.6552L7.26829 15.2697L8.15537 16.5702C8.32105 16.8131 8.55306 17.0033 8.82376 17.118C9.09446 17.2328 9.39244 17.2674 9.68222 17.2176L11.2338 16.9509L12.6831 17.5654C12.9538 17.6802 13.2518 17.7147 13.5416 17.6649C13.8314 17.6151 14.1007 17.4831 14.3176 17.2845L15.4787 16.2213L17.0302 15.9547C17.32 15.9049 17.5893 15.7728 17.8062 15.5743C18.023 15.3757 18.1782 15.119 18.2533 14.8347L18.6553 13.3126L19.8163 12.2495C20.0332 12.0509 20.1884 11.7942 20.2635 11.51C20.3385 11.2257 20.3303 10.9258 20.2398 10.6461ZM12.0009 14.7146C10.9361 14.7146 9.89523 14.3989 9.00987 13.8073C8.12451 13.2157 7.43446 12.3749 7.02697 11.3911C6.61949 10.4074 6.51287 9.32488 6.72061 8.28053C6.92834 7.23617 7.4411 6.27688 8.19403 5.52394C8.94697 4.771 9.90627 4.25825 10.9506 4.05052C11.995 3.84278 13.0775 3.9494 14.0612 4.35688C15.045 4.76437 15.8858 5.45442 16.4774 6.33978C17.069 7.22514 17.3847 8.26604 17.3847 9.33085C17.3847 10.0379 17.2455 10.7379 16.9749 11.3911C16.7043 12.0443 16.3078 12.6378 15.8079 13.1378C15.3079 13.6377 14.7144 14.0343 14.0612 14.3048C13.408 14.5754 12.7079 14.7146 12.0009 14.7146Z" fill="#002754"/>
-                                            </g>
-                                            <defs>
-                                            <clipPath id="clip0_390_162">
-                                            <rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
-                                            </clipPath>
-                                            </defs>
-                                        </svg>                                            
-                                    </div>
-                                    <h3>Guaranteed official certificate</h3>
-                                </div>
-                                <div class="student-section-content-advantage">
-                                    <div class="student-section-content-advantage-icon">
-                                        <svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <g clip-path="url(#clip0_390_171)">
-                                            <path d="M9.56804 6.91695C9.6864 6.64087 9.90521 6.41818 10.1816 6.29244C10.4937 6.16105 10.8427 6.14188 11.1676 6.23831C11.5098 6.33386 11.8297 6.4944 12.1092 6.71086C12.6135 7.11155 13.0273 7.61145 13.3238 8.17856C13.6204 8.74566 13.7934 9.36746 13.8315 10.0041C13.8622 10.4897 13.8551 10.9768 13.8104 11.4613C13.7829 11.8027 13.7384 12.1629 13.6771 12.5355H17.2593C17.8216 12.5524 18.3734 12.6902 18.8758 12.9393C19.2754 13.1375 19.6169 13.4327 19.8682 13.797C20.1271 14.1861 20.2538 14.646 20.23 15.1105C20.2065 15.5311 20.0964 15.9426 19.9063 16.32C20.0333 16.7951 20.0663 17.2898 20.0036 17.7772C19.9545 18.1513 19.7812 18.4989 19.5106 18.766C19.5315 19.3252 19.4446 19.8832 19.2546 20.4106C19.0803 20.8711 18.8084 21.2898 18.4569 21.6388C18.4306 21.935 18.3775 22.2283 18.2982 22.5152C18.2068 22.8519 18.0564 23.1703 17.8538 23.4561C17.2445 24.3013 16.7578 24.2888 15.9876 24.2492C15.8797 24.2492 15.776 24.2492 15.5877 24.2492H8.60531C8.0643 24.2709 7.52591 24.1645 7.03532 23.9391C6.54986 23.6804 6.1286 23.3193 5.80176 22.8816L5.71289 22.5797V14.5756L6.06836 14.4819C6.96127 14.2383 7.66797 13.4868 8.22022 12.5729C8.74505 11.6556 9.15905 10.681 9.45378 9.66897V7.58726C9.42883 7.35572 9.46833 7.12187 9.56804 6.9107V6.91695ZM0.715172 13.7387H4.17464C4.26884 13.739 4.36206 13.7575 4.44898 13.7932C4.5359 13.8289 4.61481 13.8811 4.68122 13.9469C4.74763 14.0126 4.80023 14.0905 4.83602 14.1763C4.87181 14.262 4.89009 14.3538 4.88981 14.4465V23.7996C4.88926 23.986 4.81373 24.1647 4.67973 24.2965C4.54573 24.4284 4.36415 24.5027 4.17464 24.5032H0.715172C0.620977 24.5029 0.527759 24.4844 0.44084 24.4487C0.353921 24.413 0.275004 24.3608 0.208594 24.295C0.142184 24.2293 0.0895828 24.1514 0.0537927 24.0656C0.0180026 23.9799 -0.000275142 23.8881 3.13024e-06 23.7954V14.4465C-0.000275142 14.3538 0.0180026 14.262 0.0537927 14.1763C0.0895828 14.0905 0.142184 14.0126 0.208594 13.9469C0.275004 13.8811 0.353921 13.8289 0.44084 13.7932C0.527759 13.7575 0.620977 13.739 0.715172 13.7387ZM10.5794 7.13345C10.5313 7.16359 10.4906 7.20388 10.4602 7.2514C10.4298 7.29892 10.4106 7.35249 10.4038 7.40823V9.74183L10.3827 9.87506C10.0638 10.986 9.6106 12.0554 9.03272 13.0601C8.43604 14.0301 7.66374 14.8816 6.65869 15.2792V22.4236C6.87749 22.7018 7.15275 22.9322 7.46696 23.1001C7.82708 23.2579 8.22014 23.3293 8.61377 23.3083H15.5962C15.721 23.3083 15.8818 23.3083 16.0342 23.3208C16.4912 23.3375 16.779 23.3499 17.0921 22.9211C17.231 22.7223 17.3334 22.501 17.3947 22.2675C17.4725 21.9852 17.52 21.6956 17.5365 21.4035L17.6825 21.0955C17.9898 20.8182 18.2268 20.4738 18.3744 20.09C18.5422 19.6029 18.6049 19.0868 18.5584 18.5745L18.5415 18.2976L18.7806 18.1519C18.8646 18.0906 18.9341 18.0122 18.9845 17.922C19.0349 17.8318 19.0649 17.732 19.0726 17.6294C19.1195 17.2093 19.0784 16.7843 18.952 16.3804L18.9901 16.0411C19.1575 15.7423 19.2571 15.4113 19.2821 15.071C19.2958 14.8 19.2217 14.5318 19.0705 14.3049C18.9083 14.0745 18.6901 13.8877 18.4357 13.7616C18.0651 13.579 17.6587 13.4775 17.2445 13.4639H12.5387L12.6445 12.9102C12.7461 12.3731 12.8202 11.8693 12.8561 11.376C12.8971 10.9379 12.9049 10.4974 12.8794 10.0582C12.8507 9.55489 12.7156 9.06295 12.4828 8.61383C12.25 8.16472 11.9246 7.76829 11.5273 7.44987C11.348 7.30839 11.1425 7.20235 10.9222 7.13761C10.809 7.0997 10.6863 7.0997 10.5731 7.13761L10.5794 7.13345Z" fill="#002754"/>
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.0798 0.500277C20.3711 0.494401 20.6563 0.5821 20.8923 0.750082C21.2118 0.958253 21.5694 1.34129 22.0116 1.58276C22.6337 1.93249 23.7848 1.44954 24.3751 2.31344C24.6332 2.69669 24.7654 3.14868 24.7538 3.60827C24.7724 4.11272 24.9624 4.59648 25.2934 4.98219C26.017 5.92312 26.1672 6.54972 25.7948 7.20337C25.5409 7.64886 25.0056 7.89658 24.8808 8.17761C24.6184 8.77714 24.9083 9.23096 24.5486 9.93041C24.4361 10.1619 24.2764 10.3682 24.0795 10.5365C23.8826 10.7048 23.6526 10.8316 23.4039 10.9088C22.9701 11.0462 22.5343 10.8464 22.1873 10.99C21.5758 11.2419 21.1293 11.8227 20.6405 11.9788C20.4591 12.0348 20.27 12.0628 20.0798 12.0621C19.8897 12.0631 19.7005 12.0351 19.5191 11.9788C19.0325 11.8289 18.5818 11.244 17.9703 10.99C17.6233 10.8464 17.1874 11.0462 16.7537 10.9088C16.5047 10.8335 16.2741 10.7087 16.0761 10.5422C15.8782 10.3757 15.717 10.171 15.6026 9.94082C15.2408 9.24136 15.5328 8.78755 15.2704 8.18802C15.1456 7.90699 14.6103 7.65927 14.3564 7.21378C13.984 6.56013 14.1448 5.93353 14.8578 4.9926C15.1888 4.60689 15.3788 4.12313 15.3974 3.61867C15.3873 3.15772 15.5217 2.70489 15.7825 2.32177C16.3728 1.45786 17.5238 1.94082 18.1459 1.59109C18.5881 1.34337 18.9457 0.949926 19.2631 0.758409C19.4998 0.587695 19.7864 0.497118 20.0798 0.500277ZM19.0579 5.60879L19.8132 6.32906L21.1166 5.02591C21.2457 4.89684 21.3282 4.79276 21.4869 4.95513L22.0032 5.47556C22.1725 5.64001 22.164 5.73577 22.0032 5.8919L20.0989 7.72172C19.7603 8.04646 19.8196 8.06728 19.4789 7.73421L18.1946 6.44771C18.177 6.43429 18.1628 6.41708 18.153 6.39742C18.1432 6.37776 18.1381 6.35615 18.1381 6.33426C18.1381 6.31237 18.1432 6.29076 18.153 6.2711C18.1628 6.25144 18.177 6.23423 18.1946 6.22081L18.7934 5.60879C18.8822 5.51511 18.9542 5.52135 19.0494 5.60879H19.0579ZM20.0608 3.11074C20.7145 3.11033 21.3536 3.30063 21.8973 3.65758C22.4411 4.01453 22.865 4.5221 23.1155 5.1161C23.3661 5.7101 23.4319 6.36385 23.3048 6.99468C23.1777 7.62552 22.8633 8.2051 22.4014 8.66014C21.9395 9.11518 21.3508 9.42523 20.7098 9.5511C20.0687 9.67697 19.4042 9.613 18.8001 9.36727C18.196 9.12154 17.6796 8.7051 17.3161 8.1706C16.9526 7.6361 16.7583 7.00756 16.7579 6.36445C16.7579 5.50242 17.1058 4.67567 17.7252 4.06593C18.3445 3.4562 19.1846 3.11337 20.0608 3.11282V3.11074Z" fill="#F5AA1C"/>
-                                            </g>
-                                            <defs>
-                                            <clipPath id="clip0_390_171">
-                                            <rect width="26" height="24" fill="white" transform="translate(0 0.5)"/>
-                                            </clipPath>
-                                            </defs>
-                                            </svg>
-                                                                                      
-                                    </div>
-                                    <h3>Trusted by many students</h3>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <button class="btn-medium">
-                            Learn More
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <section class="academic-section-wrapper">
-                <div class="academic-section container mx">
-                    <div class="academic-section-content">
-                      <div class="academic-section-content-items">
-                        <div class="academic-section-content-text">
-                            <div class="academic-section-content-text-title">
-                                <small>Introduction to Academic</small>
-                                <h1>Join to Our Academic Community</h1>
-                            </div>
-
-                            <p class="academic-section-content-text-desc">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            </p>
-                        </div>
-
-                        <div class="academic-section-content-advantages">
-                            <div class="academic-section-content-advantage">
-                                <div class="academic-section-content-advantage-title">
-                                  <div class="academic-section-content-advantage-icon">
-                                    <svg width="21" height="25" viewBox="0 0 21 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <g clip-path="url(#clip0_390_190)">
-                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0751 7.50052C10.0751 7.45728 10.0835 7.41446 10.0998 7.3745C10.116 7.33455 10.1399 7.29825 10.17 7.26767C10.2001 7.23709 10.2358 7.21284 10.2751 7.19629C10.3144 7.17974 10.3566 7.17122 10.3991 7.17122C10.4417 7.17122 10.4838 7.17974 10.5231 7.19629C10.5624 7.21284 10.5981 7.23709 10.6282 7.26767C10.6583 7.29825 10.6822 7.33455 10.6985 7.3745C10.7147 7.41446 10.7231 7.45728 10.7231 7.50052V8.78222H11.6525C11.7344 8.78865 11.8108 8.82624 11.8666 8.88747C11.9224 8.9487 11.9533 9.02906 11.9533 9.1125C11.9533 9.19594 11.9224 9.2763 11.8666 9.33753C11.8108 9.39877 11.7344 9.43635 11.6525 9.44279H10.3952C10.3093 9.44279 10.2269 9.40809 10.1661 9.34634C10.1053 9.28458 10.0712 9.20082 10.0712 9.11349V7.50052H10.0751ZM10.8667 1.09203V4.3929L15.9346 7.35066C16.408 7.66221 16.3498 7.52615 16.3498 8.09207V10.8822H19.2602C19.5874 10.8833 19.9009 11.0153 20.133 11.2496C20.3651 11.484 20.4969 11.8019 20.5 12.1343V24.7246H13.6335V16.3482C13.6335 14.7037 12.8205 13.6428 11.7786 13.1735C11.3759 12.9926 10.9404 12.8991 10.5 12.8991C10.0596 12.8991 9.62414 12.9926 9.22138 13.1735C8.17947 13.6428 7.36651 14.7017 7.36651 16.3482V24.7305H0.5V12.1343C0.501026 11.8007 0.632039 11.481 0.864383 11.2452C1.09673 11.0095 1.41149 10.8768 1.73981 10.8763H4.65017V8.06644C4.65017 7.51038 4.61525 7.64841 5.09255 7.34475L10.3079 4.38698V1.09203C10.2592 1.02726 10.2314 0.948729 10.2284 0.867243C10.2286 0.809514 10.2424 0.752672 10.2686 0.70144C10.2947 0.650209 10.3326 0.606067 10.3789 0.572682C10.4253 0.539296 10.4788 0.517632 10.535 0.509488C10.5912 0.501344 10.6486 0.506956 10.7023 0.525857C10.7559 0.544758 10.8044 0.576403 10.8436 0.618163C10.8828 0.659922 10.9117 0.710591 10.9278 0.765959C10.9438 0.821327 10.9467 0.879796 10.9361 0.936509C10.9255 0.993221 10.9017 1.04654 10.8667 1.09203ZM11.1364 1.23203C13.0087 -0.0910721 13.1484 2.51176 14.9858 0.894849V3.53712C13.2396 5.13825 12.8516 2.5512 11.1364 3.86642V1.22415V1.23203ZM11.3149 10.825C11.787 10.634 12.1799 10.2833 12.4271 9.83208C12.6744 9.38088 12.7609 8.85682 12.6721 8.3483C12.5834 7.83979 12.3247 7.37796 11.9398 7.04073C11.555 6.7035 11.0674 6.51153 10.5594 6.49718C10.0514 6.48284 9.55413 6.64702 9.15141 6.96201C8.7487 7.27701 8.46523 7.72353 8.34882 8.22625C8.23241 8.72898 8.29019 9.25712 8.51242 9.72157C8.73465 10.186 9.10772 10.5584 9.56868 10.7758C9.84118 10.9041 10.1366 10.9747 10.4368 10.9832C10.737 10.9917 11.0358 10.9379 11.3149 10.825ZM12.8031 24.7384H8.19693V16.3482C8.19693 15.0862 8.79259 14.2856 9.5551 13.9406C9.85327 13.8089 10.1749 13.7409 10.5 13.7409C10.8251 13.7409 11.1467 13.8089 11.4449 13.9406C12.2074 14.2856 12.8031 15.0862 12.8031 16.3482V24.7305V24.7384ZM15.1314 21.7589H16.505V22.9795H15.1294V21.7491L15.1314 21.7589ZM17.3568 17.8902H18.7383V16.6696H17.3568V17.9V17.8902ZM17.3568 15.3445H18.7383V14.1062H17.3568V15.3366V15.3445ZM15.1294 17.8902H16.5031V16.6696H15.1294V17.9V17.8902ZM15.1294 15.3445H16.5031V14.1062H15.1294V15.3366V15.3445ZM17.3568 19.2054H18.7383V20.4358H17.3568V19.2054ZM17.3568 21.751H18.7383V22.9795H17.3568V21.7491V21.751ZM15.1294 19.2054H16.5031V20.4358H15.1294V19.2054ZM2.27144 21.751H3.64319V22.9795H2.27144V21.7491V21.751ZM4.4969 17.8902H5.87059V16.6696H4.4969V17.9V17.8902ZM4.4969 15.3445H5.87059V14.1062H4.4969V15.3366V15.3445ZM2.27144 17.8902H3.64319V16.6696H2.27144V17.9V17.8902ZM2.27144 15.3445H3.64319V14.1062H2.27144V15.3366V15.3445ZM4.4969 19.2054H5.87059V20.4358H4.4969V19.2054ZM4.4969 21.751H5.87059V22.9795H4.4969V21.7491V21.751ZM2.27144 19.2054H3.64319V20.4358H2.27144V19.2054Z" fill="white"/>
-                                      </g>
-                                      <defs>
-                                      <clipPath id="clip0_390_190">
-                                      <rect width="20" height="24.23" fill="white" transform="translate(0.5 0.5)"/>
-                                      </clipPath>
-                                      </defs>
-                                    </svg>       
-                                  </div>
-                                  <h3>Certified Institute</h3>
-                                </div>
-                                <p class="academic-section-content-advantage-text">
-                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed .
-                                </p>
-                            </div>
-                            
-                            <div class="academic-section-content-advantage">
-                              <div class="academic-section-content-advantage-title">
-                                <div class="academic-section-content-advantage-icon">
-                                  <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_390_198)">
-                                    <path d="M12.5007 11.8327C13.4236 11.8327 14.3259 11.559 15.0933 11.0462C15.8607 10.5335 16.4589 9.80464 16.8121 8.95191C17.1653 8.09919 17.2577 7.16088 17.0777 6.25564C16.8976 5.35039 16.4531 4.51887 15.8005 3.86623C15.1478 3.21358 14.3163 2.76912 13.4111 2.58906C12.5058 2.409 11.5675 2.50141 10.7148 2.85462C9.86207 3.20783 9.13324 3.80597 8.62046 4.5734C8.10768 5.34083 7.83398 6.24308 7.83398 7.16606C7.83398 8.40373 8.32565 9.59072 9.20082 10.4659C10.076 11.3411 11.263 11.8327 12.5007 11.8327ZM12.5007 3.83272C13.1599 3.83272 13.8044 4.02822 14.3526 4.39449C14.9007 4.76076 15.328 5.28136 15.5802 5.89045C15.8325 6.49953 15.8986 7.16976 15.7699 7.81636C15.6413 8.46296 15.3238 9.05691 14.8577 9.52308C14.3915 9.98926 13.7976 10.3067 13.151 10.4353C12.5043 10.564 11.8341 10.4979 11.225 10.2457C10.616 9.99336 10.0954 9.56612 9.72909 9.01796C9.36281 8.46979 9.16732 7.82533 9.16732 7.16606C9.16732 6.282 9.51851 5.43416 10.1436 4.80904C10.7687 4.18391 11.6166 3.83272 12.5007 3.83272Z" fill="white"/>
-                                    <path d="M20.812 16.7464C19.7429 15.6164 18.4545 14.7163 17.0257 14.1012C15.5969 13.4861 14.0576 13.1688 12.502 13.1688C10.9464 13.1688 9.40716 13.4861 7.97834 14.1012C6.54952 14.7163 5.26116 15.6164 4.19203 16.7464C3.96024 16.994 3.83151 17.3206 3.83203 17.6597V21.1664C3.83203 21.52 3.97251 21.8592 4.22256 22.1092C4.47261 22.3593 4.81174 22.4997 5.16537 22.4997H19.832C20.1857 22.4997 20.5248 22.3593 20.7748 22.1092C21.0249 21.8592 21.1654 21.52 21.1654 21.1664V17.6597C21.1677 17.3215 21.0414 16.995 20.812 16.7464ZM19.832 21.1664H5.16537V17.6531C6.11018 16.6582 7.24756 15.866 8.50827 15.3246C9.76898 14.7832 11.1267 14.5041 12.4987 14.5041C13.8707 14.5041 15.2284 14.7832 16.4891 15.3246C17.7498 15.866 18.8872 16.6582 19.832 17.6531V21.1664Z" fill="white"/>
-                                    </g>
-                                    <defs>
-                                    <clipPath id="clip0_390_198">
-                                    <rect width="24" height="24" fill="white" transform="translate(0.5 0.5)"/>
-                                    </clipPath>
-                                    </defs>
-                                  </svg>                                           
-                                </div>
-                                <h3>Qualifed Teachers</h3>
-                              </div>
-                              <p class="academic-section-content-advantage-text">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed .
-                              </p>
-                            </div>
-                        </div>
-                      </div>
-                    
-                      <button class="btn-medium">
-                        Learn More
-                      </button>
-                    </div>
-
-                    <div class="img-sections">
-                      <img src="../Home/images/Academic Photo.png" class="all-img-sections" alt="Academic Image">
-                    </div>
-                </div>
-            </section>
-
-            <section class="student-section-wrapper">
-              <div class="student-section container mx">
-                  <div class="img-sections">
-                      <img src="./images/University Photo.png" class="all-img-sections" alt="University Image">
-                  </div>
-                  <div class="student-section-content">
-                      <div class="student-section-content-items">
-                          <div class="student-section-content-text">
-                              <div class="student-section-content-text-title">
-                                  <small>Introduction to University</small>
-                                  <h1>Attract More Students with Us</h1>
-                              </div>
-
-                              <p class="student-section-content-text-desc">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                              </p>
-                          </div>
-
-                          <div class="student-section-content-advantages">
-                              <div class="student-section-content-advantage">
-                                  <div class="student-section-content-advantage-icon">
-                                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M23.1574 14.2193C22.3449 18.2818 19.2818 22.1071 14.9837 22.9618C12.8874 23.3793 10.7129 23.1247 8.76966 22.2345C6.82648 21.3442 5.2137 19.8635 4.16099 18.0033C3.10827 16.1431 2.66928 13.9981 2.90651 11.8739C3.14375 9.74969 4.04512 7.75445 5.48228 6.17231C8.43003 2.92556 13.4074 2.03181 17.4699 3.65681" stroke="#F5AA1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                      <path d="M9.34375 12.5938L13.4062 16.6562L23.1562 6.09375" stroke="#002754" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                      </svg>
-                                  </div>
-                                  <h3>Introducing your university</h3>
-                              </div>
-                              <div class="student-section-content-advantage">
-                                  <div class="student-section-content-advantage-icon">
-                                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M23.1574 14.2193C22.3449 18.2818 19.2818 22.1071 14.9837 22.9618C12.8874 23.3793 10.7129 23.1247 8.76966 22.2345C6.82648 21.3442 5.2137 19.8635 4.16099 18.0033C3.10827 16.1431 2.66928 13.9981 2.90651 11.8739C3.14375 9.74969 4.04512 7.75445 5.48228 6.17231C8.43003 2.92556 13.4074 2.03181 17.4699 3.65681" stroke="#F5AA1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                      <path d="M9.34375 12.5938L13.4062 16.6562L23.1562 6.09375" stroke="#002754" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                      </svg>
-                                  </div>
-                                  <h3>Presenting Your University Courses</h3>
-                              </div>
-                          </div>
-                      </div>
-                      
-                      <button class="btn-medium">
-                          Learn More
-                      </button>
-                  </div>
-              </div>
-            </section>
-
-            <section class="users-statistics-wrapper">
-              <div class="users-statistics container mx">
-                <div class="users-statistic">
-                  <h1>242+</h1>
-                  <h4>Active Students</h4>
-                </div>
-
-                <hr>
-
-                <div class="users-statistic">
-                  <h1>110+</h1>
-                  <h4>Active Academics</h3>
-                </div>
-
-                <hr>
-                
-                <div class="users-statistic">
-                  <h1>82+</h1>
-                  <h4>Active Recruiters</h4>
-                </div>
-
-              </div>
-            </section>            
-
-            <section class="reviews-section-wrapper">
-                <div class="reviews-section container mx">
-                    <div class="reviews-section-top">
-                      <h2 class="reviews-section-title">
-                        Our Happy Users Reviews
-                      </h2>
-
-                      <p class="reviews-section-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      <p class="hero-section-content-text-desc">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua.
                       </p>
                     </div>
 
-                    <div class="reviews-section-boxs-wrapper">
-                      <div class="reviews-section-box">
-                          <img src="./images/Reviews avatar.png" class="reviews-section-img" alt="User Image">
-
-                          <div class="reviews-section-box-content">
-                            <div class="reviews-section-box-items">
-                              <p class="reviews-section-box-text">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-                              </p>
-
-                              <hr>
-
-                              <div class="reviews-section-box-user-info">
-                                  <div class="reviews-section-box-info">
-                                     <h3>Jordan Cutler</h3>
-                                     <h4>Student</h4>
-                                  </div>
-                                  <button type="button" class="reviews-section-box-play">
-                                    <i class="fa fa-play"></i>
-                                  </button>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                      <div class="reviews-section-box">
-                        <img src="./images/Reviews avatar.png" class="reviews-section-img" alt="User Image">
-
-                        <div class="reviews-section-box-content">
-                          <div class="reviews-section-box-items">
-                            <p class="reviews-section-box-text">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-                            </p>
-
-                            <hr>
-
-                            <div class="reviews-section-box-user-info">
-                                <div class="reviews-section-box-info">
-                                   <h3>Jordan Cutler</h3>
-                                   <h4>Student</h4>
-                                </div>
-                                <button type="button" class="reviews-section-box-play">
-                                  <i class="fa fa-play"></i>
-                                </button>
-                            </div>
-                          </div>
+                    <button class="btn-medium">Join Us Now</button>
+                  </div>
+                  <div class="img-sections">
+                    <img
+                      src="../Home/images/Photo.png"
+                      class="all-img-sections"
+                      alt="Hero Image"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="student-section container mx mrg-btm">
+                  <div class="img-sections">
+                    <img
+                      src="../Home/images/Students.png"
+                      class="all-img-sections"
+                      alt="Student Image"
+                    />
+                  </div>
+                  <div class="student-section-content">
+                    <div class="student-section-content-items">
+                      <div class="student-section-content-text">
+                        <div class="student-section-content-text-title">
+                          <small>Introduction to Student</small>
+                          <h1>Providing Unmatchable Facilities & Services</h1>
                         </div>
-                      </div>
-                      <div class="reviews-section-box">
-                      <img src="./images/Reviews avatar.png" class="reviews-section-img" alt="User Image">
 
-                      <div class="reviews-section-box-content">
-                        <div class="reviews-section-box-items">
-                          <p class="reviews-section-box-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-                          </p>
-
-                          <hr>
-
-                          <div class="reviews-section-box-user-info">
-                              <div class="reviews-section-box-info">
-                                 <h3>Jordan Cutler</h3>
-                                 <h4>Student</h4>
-                              </div>
-                              <button type="button" class="reviews-section-box-play">
-                                <i class="fa fa-play"></i>
-                              </button>
-                          </div>
-                        </div>
-                      </div>
+                        <p class="student-section-content-text-desc">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua.
+                        </p>
                       </div>
                     </div>
-                </div>
-            </section>
-        </div>
-    </main>
 
-    <footer>
-      <div class="container mx">
-        <div class="row-fot">
-          <div class="row">
-            <div class="desc col-3">
-              <a href="/index.html">
-                <img
-                  src="../images/image_59-removebg-preview (1) 1.png"
-                  alt=""
-                />
-                <h2>Unisuniverse</h2>
-              </a>
-              <p>
+                    <button class="btn-medium">Learn More</button>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="academic-section container mx">
+                  <div class="academic-section-content">
+                    <div class="academic-section-content-items">
+                      <div class="academic-section-content-text">
+                        <div class="academic-section-content-text-title">
+                          <small>Introduction to Academic</small>
+                          <h1>Join to Our Academic Community</h1>
+                        </div>
+
+                        <p class="academic-section-content-text-desc">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua.
+                        </p>
+                      </div>
+                    </div>
+
+                    <button class="btn-medium">Learn More</button>
+                  </div>
+
+                  <div class="img-sections">
+                    <img
+                      src="../Home/images/Academics.png"
+                      class="all-img-sections"
+                      alt="Academic Image"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="student-section container mx">
+                  <div class="img-sections">
+                    <img
+                      src="./images/Recruiter.png"
+                      class="all-img-sections"
+                      alt="University Image"
+                    />
+                  </div>
+                  <div class="student-section-content">
+                    <div class="student-section-content-items">
+                      <div class="student-section-content-text">
+                        <div class="student-section-content-text-title">
+                          <small>Introduction to University</small>
+                          <h1>Attract More Students with Us</h1>
+                        </div>
+
+                        <p class="student-section-content-text-desc">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua.
+                        </p>
+                      </div>
+                    </div>
+
+                    <button class="btn-medium">Learn More</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </section>
+
+        <section class="student-section-wrapper">
+          <div class="student-section container mx">
+            <div class="img-sections">
+              <img
+                src="../Home/images/Student Photo.png"
+                class="all-img-sections"
+                alt="Student Image"
+              />
+            </div>
+            <div class="student-section-content">
+              <div class="student-section-content-items">
+                <div class="student-section-content-text">
+                  <div class="student-section-content-text-title">
+                    <small>Introduction to Student</small>
+                    <h1>Providing Unmatchable Facilities & Services</h1>
+                  </div>
+
+                  <p class="student-section-content-text-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p>
+                </div>
+
+                <div class="student-section-content-advantages">
+                  <div class="student-section-content-advantage">
+                    <div class="student-section-content-advantage-icon">
+                      <svg
+                        width="24"
+                        height="25"
+                        viewBox="0 0 24 25"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_390_162)">
+                          <path
+                            d="M13.6584 7.38686L11.2884 9.75688L10.3449 8.81343C10.2787 8.74692 10.1999 8.69413 10.1133 8.65808C10.0266 8.62203 9.93362 8.60343 9.83974 8.60334C9.74585 8.60326 9.65287 8.62168 9.56612 8.65757C9.47936 8.69346 9.40054 8.7461 9.33415 8.81249C9.26776 8.87888 9.21512 8.95771 9.17923 9.04446C9.14334 9.13122 9.12491 9.2242 9.125 9.31808C9.12509 9.41197 9.14369 9.50491 9.17974 9.5916C9.21578 9.67829 9.26857 9.75702 9.33508 9.82329L10.7834 11.2716C10.8497 11.3379 10.9284 11.3905 11.0151 11.4264C11.1017 11.4623 11.1946 11.4808 11.2883 11.4808C11.3821 11.4808 11.4749 11.4623 11.5616 11.4264C11.6482 11.3905 11.7269 11.3379 11.7932 11.2716L14.6681 8.39672C14.802 8.26281 14.8773 8.08119 14.8773 7.89181C14.8773 7.70243 14.8021 7.52081 14.6682 7.38689C14.5343 7.25298 14.3526 7.17774 14.1633 7.17773C13.9739 7.17773 13.7923 7.25295 13.6584 7.38686Z"
+                            fill="#F5AA1C"
+                          />
+                          <path
+                            d="M9.88332 18.3894C9.36863 18.4772 8.83958 18.4156 8.35886 18.2118C7.87814 18.0081 7.46591 17.6708 7.17105 17.2399L6.98352 16.9648L4.48438 22.184L6.89363 22.0887L8.33013 24.0253L11.1222 18.196L11.09 18.1823L9.88332 18.3894Z"
+                            fill="#F5AA1C"
+                          />
+                          <path
+                            d="M16.0237 17.3355L15.1206 18.163C14.617 18.6228 13.9595 18.8775 13.2775 18.8768C13.2525 18.8768 13.2281 18.8762 13.2031 18.8756L15.6701 24.0269L17.106 22.0903L19.5153 22.1856L17.1042 17.1504L16.0237 17.3355Z"
+                            fill="#F5AA1C"
+                          />
+                          <path
+                            d="M20.2398 10.6461L19.755 9.14829L20.157 7.62619C20.2321 7.34191 20.2239 7.04205 20.1333 6.76231C20.0428 6.48257 19.8738 6.23475 19.6464 6.04837L18.4288 5.05042L17.9441 3.55263C17.8535 3.27289 17.6845 3.02507 17.4571 2.83869C17.2297 2.6523 16.9535 2.53521 16.6614 2.50136L15.0976 2.32009L13.8801 1.32214C13.6527 1.13576 13.3765 1.01866 13.0844 0.984811C12.7923 0.950957 12.4967 1.00177 12.2327 1.1312L10.8191 1.82417L9.25532 1.6429C8.96325 1.60905 8.66761 1.65986 8.4036 1.78929C8.1396 1.91871 7.91835 2.12129 7.76623 2.3729L6.95172 3.72009L5.53816 4.41306C5.27415 4.54248 5.05291 4.74507 4.90078 4.99668C4.74866 5.24829 4.67206 5.53832 4.68012 5.83224L4.72326 7.40592L3.90874 8.75311C3.75661 9.00472 3.68002 9.29476 3.68808 9.58867C3.69613 9.88259 3.7885 10.168 3.95418 10.4109L4.84127 11.7114L4.8844 13.2851C4.89246 13.579 4.98483 13.8644 5.15051 14.1073C5.31618 14.3502 5.54819 14.5404 5.81889 14.6552L7.26829 15.2697L8.15537 16.5702C8.32105 16.8131 8.55306 17.0033 8.82376 17.118C9.09446 17.2328 9.39244 17.2674 9.68222 17.2176L11.2338 16.9509L12.6831 17.5654C12.9538 17.6802 13.2518 17.7147 13.5416 17.6649C13.8314 17.6151 14.1007 17.4831 14.3176 17.2845L15.4787 16.2213L17.0302 15.9547C17.32 15.9049 17.5893 15.7728 17.8062 15.5743C18.023 15.3757 18.1782 15.119 18.2533 14.8347L18.6553 13.3126L19.8163 12.2495C20.0332 12.0509 20.1884 11.7942 20.2635 11.51C20.3385 11.2257 20.3303 10.9258 20.2398 10.6461ZM12.0009 14.7146C10.9361 14.7146 9.89523 14.3989 9.00987 13.8073C8.12451 13.2157 7.43446 12.3749 7.02697 11.3911C6.61949 10.4074 6.51287 9.32488 6.72061 8.28053C6.92834 7.23617 7.4411 6.27688 8.19403 5.52394C8.94697 4.771 9.90627 4.25825 10.9506 4.05052C11.995 3.84278 13.0775 3.9494 14.0612 4.35688C15.045 4.76437 15.8858 5.45442 16.4774 6.33978C17.069 7.22514 17.3847 8.26604 17.3847 9.33085C17.3847 10.0379 17.2455 10.7379 16.9749 11.3911C16.7043 12.0443 16.3078 12.6378 15.8079 13.1378C15.3079 13.6377 14.7144 14.0343 14.0612 14.3048C13.408 14.5754 12.7079 14.7146 12.0009 14.7146Z"
+                            fill="#002754"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_390_162">
+                            <rect
+                              width="24"
+                              height="24"
+                              fill="white"
+                              transform="translate(0 0.5)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+                    <h3>Guaranteed official certificate</h3>
+                  </div>
+                  <div class="student-section-content-advantage">
+                    <div class="student-section-content-advantage-icon">
+                      <svg
+                        width="26"
+                        height="25"
+                        viewBox="0 0 26 25"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_390_171)">
+                          <path
+                            d="M9.56804 6.91695C9.6864 6.64087 9.90521 6.41818 10.1816 6.29244C10.4937 6.16105 10.8427 6.14188 11.1676 6.23831C11.5098 6.33386 11.8297 6.4944 12.1092 6.71086C12.6135 7.11155 13.0273 7.61145 13.3238 8.17856C13.6204 8.74566 13.7934 9.36746 13.8315 10.0041C13.8622 10.4897 13.8551 10.9768 13.8104 11.4613C13.7829 11.8027 13.7384 12.1629 13.6771 12.5355H17.2593C17.8216 12.5524 18.3734 12.6902 18.8758 12.9393C19.2754 13.1375 19.6169 13.4327 19.8682 13.797C20.1271 14.1861 20.2538 14.646 20.23 15.1105C20.2065 15.5311 20.0964 15.9426 19.9063 16.32C20.0333 16.7951 20.0663 17.2898 20.0036 17.7772C19.9545 18.1513 19.7812 18.4989 19.5106 18.766C19.5315 19.3252 19.4446 19.8832 19.2546 20.4106C19.0803 20.8711 18.8084 21.2898 18.4569 21.6388C18.4306 21.935 18.3775 22.2283 18.2982 22.5152C18.2068 22.8519 18.0564 23.1703 17.8538 23.4561C17.2445 24.3013 16.7578 24.2888 15.9876 24.2492C15.8797 24.2492 15.776 24.2492 15.5877 24.2492H8.60531C8.0643 24.2709 7.52591 24.1645 7.03532 23.9391C6.54986 23.6804 6.1286 23.3193 5.80176 22.8816L5.71289 22.5797V14.5756L6.06836 14.4819C6.96127 14.2383 7.66797 13.4868 8.22022 12.5729C8.74505 11.6556 9.15905 10.681 9.45378 9.66897V7.58726C9.42883 7.35572 9.46833 7.12187 9.56804 6.9107V6.91695ZM0.715172 13.7387H4.17464C4.26884 13.739 4.36206 13.7575 4.44898 13.7932C4.5359 13.8289 4.61481 13.8811 4.68122 13.9469C4.74763 14.0126 4.80023 14.0905 4.83602 14.1763C4.87181 14.262 4.89009 14.3538 4.88981 14.4465V23.7996C4.88926 23.986 4.81373 24.1647 4.67973 24.2965C4.54573 24.4284 4.36415 24.5027 4.17464 24.5032H0.715172C0.620977 24.5029 0.527759 24.4844 0.44084 24.4487C0.353921 24.413 0.275004 24.3608 0.208594 24.295C0.142184 24.2293 0.0895828 24.1514 0.0537927 24.0656C0.0180026 23.9799 -0.000275142 23.8881 3.13024e-06 23.7954V14.4465C-0.000275142 14.3538 0.0180026 14.262 0.0537927 14.1763C0.0895828 14.0905 0.142184 14.0126 0.208594 13.9469C0.275004 13.8811 0.353921 13.8289 0.44084 13.7932C0.527759 13.7575 0.620977 13.739 0.715172 13.7387ZM10.5794 7.13345C10.5313 7.16359 10.4906 7.20388 10.4602 7.2514C10.4298 7.29892 10.4106 7.35249 10.4038 7.40823V9.74183L10.3827 9.87506C10.0638 10.986 9.6106 12.0554 9.03272 13.0601C8.43604 14.0301 7.66374 14.8816 6.65869 15.2792V22.4236C6.87749 22.7018 7.15275 22.9322 7.46696 23.1001C7.82708 23.2579 8.22014 23.3293 8.61377 23.3083H15.5962C15.721 23.3083 15.8818 23.3083 16.0342 23.3208C16.4912 23.3375 16.779 23.3499 17.0921 22.9211C17.231 22.7223 17.3334 22.501 17.3947 22.2675C17.4725 21.9852 17.52 21.6956 17.5365 21.4035L17.6825 21.0955C17.9898 20.8182 18.2268 20.4738 18.3744 20.09C18.5422 19.6029 18.6049 19.0868 18.5584 18.5745L18.5415 18.2976L18.7806 18.1519C18.8646 18.0906 18.9341 18.0122 18.9845 17.922C19.0349 17.8318 19.0649 17.732 19.0726 17.6294C19.1195 17.2093 19.0784 16.7843 18.952 16.3804L18.9901 16.0411C19.1575 15.7423 19.2571 15.4113 19.2821 15.071C19.2958 14.8 19.2217 14.5318 19.0705 14.3049C18.9083 14.0745 18.6901 13.8877 18.4357 13.7616C18.0651 13.579 17.6587 13.4775 17.2445 13.4639H12.5387L12.6445 12.9102C12.7461 12.3731 12.8202 11.8693 12.8561 11.376C12.8971 10.9379 12.9049 10.4974 12.8794 10.0582C12.8507 9.55489 12.7156 9.06295 12.4828 8.61383C12.25 8.16472 11.9246 7.76829 11.5273 7.44987C11.348 7.30839 11.1425 7.20235 10.9222 7.13761C10.809 7.0997 10.6863 7.0997 10.5731 7.13761L10.5794 7.13345Z"
+                            fill="#002754"
+                          />
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M20.0798 0.500277C20.3711 0.494401 20.6563 0.5821 20.8923 0.750082C21.2118 0.958253 21.5694 1.34129 22.0116 1.58276C22.6337 1.93249 23.7848 1.44954 24.3751 2.31344C24.6332 2.69669 24.7654 3.14868 24.7538 3.60827C24.7724 4.11272 24.9624 4.59648 25.2934 4.98219C26.017 5.92312 26.1672 6.54972 25.7948 7.20337C25.5409 7.64886 25.0056 7.89658 24.8808 8.17761C24.6184 8.77714 24.9083 9.23096 24.5486 9.93041C24.4361 10.1619 24.2764 10.3682 24.0795 10.5365C23.8826 10.7048 23.6526 10.8316 23.4039 10.9088C22.9701 11.0462 22.5343 10.8464 22.1873 10.99C21.5758 11.2419 21.1293 11.8227 20.6405 11.9788C20.4591 12.0348 20.27 12.0628 20.0798 12.0621C19.8897 12.0631 19.7005 12.0351 19.5191 11.9788C19.0325 11.8289 18.5818 11.244 17.9703 10.99C17.6233 10.8464 17.1874 11.0462 16.7537 10.9088C16.5047 10.8335 16.2741 10.7087 16.0761 10.5422C15.8782 10.3757 15.717 10.171 15.6026 9.94082C15.2408 9.24136 15.5328 8.78755 15.2704 8.18802C15.1456 7.90699 14.6103 7.65927 14.3564 7.21378C13.984 6.56013 14.1448 5.93353 14.8578 4.9926C15.1888 4.60689 15.3788 4.12313 15.3974 3.61867C15.3873 3.15772 15.5217 2.70489 15.7825 2.32177C16.3728 1.45786 17.5238 1.94082 18.1459 1.59109C18.5881 1.34337 18.9457 0.949926 19.2631 0.758409C19.4998 0.587695 19.7864 0.497118 20.0798 0.500277ZM19.0579 5.60879L19.8132 6.32906L21.1166 5.02591C21.2457 4.89684 21.3282 4.79276 21.4869 4.95513L22.0032 5.47556C22.1725 5.64001 22.164 5.73577 22.0032 5.8919L20.0989 7.72172C19.7603 8.04646 19.8196 8.06728 19.4789 7.73421L18.1946 6.44771C18.177 6.43429 18.1628 6.41708 18.153 6.39742C18.1432 6.37776 18.1381 6.35615 18.1381 6.33426C18.1381 6.31237 18.1432 6.29076 18.153 6.2711C18.1628 6.25144 18.177 6.23423 18.1946 6.22081L18.7934 5.60879C18.8822 5.51511 18.9542 5.52135 19.0494 5.60879H19.0579ZM20.0608 3.11074C20.7145 3.11033 21.3536 3.30063 21.8973 3.65758C22.4411 4.01453 22.865 4.5221 23.1155 5.1161C23.3661 5.7101 23.4319 6.36385 23.3048 6.99468C23.1777 7.62552 22.8633 8.2051 22.4014 8.66014C21.9395 9.11518 21.3508 9.42523 20.7098 9.5511C20.0687 9.67697 19.4042 9.613 18.8001 9.36727C18.196 9.12154 17.6796 8.7051 17.3161 8.1706C16.9526 7.6361 16.7583 7.00756 16.7579 6.36445C16.7579 5.50242 17.1058 4.67567 17.7252 4.06593C18.3445 3.4562 19.1846 3.11337 20.0608 3.11282V3.11074Z"
+                            fill="#F5AA1C"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_390_171">
+                            <rect
+                              width="26"
+                              height="24"
+                              fill="white"
+                              transform="translate(0 0.5)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+                    <h3>Trusted by many students</h3>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn-medium">Learn More</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="academic-section-wrapper">
+          <div class="academic-section container mx">
+            <div class="academic-section-content">
+              <div class="academic-section-content-items">
+                <div class="academic-section-content-text">
+                  <div class="academic-section-content-text-title">
+                    <small>Introduction to Academic</small>
+                    <h1>Join to Our Academic Community</h1>
+                  </div>
+
+                  <p class="academic-section-content-text-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p>
+                </div>
+
+                <div class="academic-section-content-advantages">
+                  <div class="academic-section-content-advantage">
+                    <div class="academic-section-content-advantage-title">
+                      <div class="academic-section-content-advantage-icon">
+                        <svg
+                          width="21"
+                          height="25"
+                          viewBox="0 0 21 25"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g clip-path="url(#clip0_390_190)">
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M10.0751 7.50052C10.0751 7.45728 10.0835 7.41446 10.0998 7.3745C10.116 7.33455 10.1399 7.29825 10.17 7.26767C10.2001 7.23709 10.2358 7.21284 10.2751 7.19629C10.3144 7.17974 10.3566 7.17122 10.3991 7.17122C10.4417 7.17122 10.4838 7.17974 10.5231 7.19629C10.5624 7.21284 10.5981 7.23709 10.6282 7.26767C10.6583 7.29825 10.6822 7.33455 10.6985 7.3745C10.7147 7.41446 10.7231 7.45728 10.7231 7.50052V8.78222H11.6525C11.7344 8.78865 11.8108 8.82624 11.8666 8.88747C11.9224 8.9487 11.9533 9.02906 11.9533 9.1125C11.9533 9.19594 11.9224 9.2763 11.8666 9.33753C11.8108 9.39877 11.7344 9.43635 11.6525 9.44279H10.3952C10.3093 9.44279 10.2269 9.40809 10.1661 9.34634C10.1053 9.28458 10.0712 9.20082 10.0712 9.11349V7.50052H10.0751ZM10.8667 1.09203V4.3929L15.9346 7.35066C16.408 7.66221 16.3498 7.52615 16.3498 8.09207V10.8822H19.2602C19.5874 10.8833 19.9009 11.0153 20.133 11.2496C20.3651 11.484 20.4969 11.8019 20.5 12.1343V24.7246H13.6335V16.3482C13.6335 14.7037 12.8205 13.6428 11.7786 13.1735C11.3759 12.9926 10.9404 12.8991 10.5 12.8991C10.0596 12.8991 9.62414 12.9926 9.22138 13.1735C8.17947 13.6428 7.36651 14.7017 7.36651 16.3482V24.7305H0.5V12.1343C0.501026 11.8007 0.632039 11.481 0.864383 11.2452C1.09673 11.0095 1.41149 10.8768 1.73981 10.8763H4.65017V8.06644C4.65017 7.51038 4.61525 7.64841 5.09255 7.34475L10.3079 4.38698V1.09203C10.2592 1.02726 10.2314 0.948729 10.2284 0.867243C10.2286 0.809514 10.2424 0.752672 10.2686 0.70144C10.2947 0.650209 10.3326 0.606067 10.3789 0.572682C10.4253 0.539296 10.4788 0.517632 10.535 0.509488C10.5912 0.501344 10.6486 0.506956 10.7023 0.525857C10.7559 0.544758 10.8044 0.576403 10.8436 0.618163C10.8828 0.659922 10.9117 0.710591 10.9278 0.765959C10.9438 0.821327 10.9467 0.879796 10.9361 0.936509C10.9255 0.993221 10.9017 1.04654 10.8667 1.09203ZM11.1364 1.23203C13.0087 -0.0910721 13.1484 2.51176 14.9858 0.894849V3.53712C13.2396 5.13825 12.8516 2.5512 11.1364 3.86642V1.22415V1.23203ZM11.3149 10.825C11.787 10.634 12.1799 10.2833 12.4271 9.83208C12.6744 9.38088 12.7609 8.85682 12.6721 8.3483C12.5834 7.83979 12.3247 7.37796 11.9398 7.04073C11.555 6.7035 11.0674 6.51153 10.5594 6.49718C10.0514 6.48284 9.55413 6.64702 9.15141 6.96201C8.7487 7.27701 8.46523 7.72353 8.34882 8.22625C8.23241 8.72898 8.29019 9.25712 8.51242 9.72157C8.73465 10.186 9.10772 10.5584 9.56868 10.7758C9.84118 10.9041 10.1366 10.9747 10.4368 10.9832C10.737 10.9917 11.0358 10.9379 11.3149 10.825ZM12.8031 24.7384H8.19693V16.3482C8.19693 15.0862 8.79259 14.2856 9.5551 13.9406C9.85327 13.8089 10.1749 13.7409 10.5 13.7409C10.8251 13.7409 11.1467 13.8089 11.4449 13.9406C12.2074 14.2856 12.8031 15.0862 12.8031 16.3482V24.7305V24.7384ZM15.1314 21.7589H16.505V22.9795H15.1294V21.7491L15.1314 21.7589ZM17.3568 17.8902H18.7383V16.6696H17.3568V17.9V17.8902ZM17.3568 15.3445H18.7383V14.1062H17.3568V15.3366V15.3445ZM15.1294 17.8902H16.5031V16.6696H15.1294V17.9V17.8902ZM15.1294 15.3445H16.5031V14.1062H15.1294V15.3366V15.3445ZM17.3568 19.2054H18.7383V20.4358H17.3568V19.2054ZM17.3568 21.751H18.7383V22.9795H17.3568V21.7491V21.751ZM15.1294 19.2054H16.5031V20.4358H15.1294V19.2054ZM2.27144 21.751H3.64319V22.9795H2.27144V21.7491V21.751ZM4.4969 17.8902H5.87059V16.6696H4.4969V17.9V17.8902ZM4.4969 15.3445H5.87059V14.1062H4.4969V15.3366V15.3445ZM2.27144 17.8902H3.64319V16.6696H2.27144V17.9V17.8902ZM2.27144 15.3445H3.64319V14.1062H2.27144V15.3366V15.3445ZM4.4969 19.2054H5.87059V20.4358H4.4969V19.2054ZM4.4969 21.751H5.87059V22.9795H4.4969V21.7491V21.751ZM2.27144 19.2054H3.64319V20.4358H2.27144V19.2054Z"
+                              fill="white"
+                            />
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_390_190">
+                              <rect
+                                width="20"
+                                height="24.23"
+                                fill="white"
+                                transform="translate(0.5 0.5)"
+                              />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <h3>Certified Institute</h3>
+                    </div>
+                    <p class="academic-section-content-advantage-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed .
+                    </p>
+                  </div>
+
+                  <div class="academic-section-content-advantage">
+                    <div class="academic-section-content-advantage-title">
+                      <div class="academic-section-content-advantage-icon">
+                        <svg
+                          width="25"
+                          height="25"
+                          viewBox="0 0 25 25"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g clip-path="url(#clip0_390_198)">
+                            <path
+                              d="M12.5007 11.8327C13.4236 11.8327 14.3259 11.559 15.0933 11.0462C15.8607 10.5335 16.4589 9.80464 16.8121 8.95191C17.1653 8.09919 17.2577 7.16088 17.0777 6.25564C16.8976 5.35039 16.4531 4.51887 15.8005 3.86623C15.1478 3.21358 14.3163 2.76912 13.4111 2.58906C12.5058 2.409 11.5675 2.50141 10.7148 2.85462C9.86207 3.20783 9.13324 3.80597 8.62046 4.5734C8.10768 5.34083 7.83398 6.24308 7.83398 7.16606C7.83398 8.40373 8.32565 9.59072 9.20082 10.4659C10.076 11.3411 11.263 11.8327 12.5007 11.8327ZM12.5007 3.83272C13.1599 3.83272 13.8044 4.02822 14.3526 4.39449C14.9007 4.76076 15.328 5.28136 15.5802 5.89045C15.8325 6.49953 15.8986 7.16976 15.7699 7.81636C15.6413 8.46296 15.3238 9.05691 14.8577 9.52308C14.3915 9.98926 13.7976 10.3067 13.151 10.4353C12.5043 10.564 11.8341 10.4979 11.225 10.2457C10.616 9.99336 10.0954 9.56612 9.72909 9.01796C9.36281 8.46979 9.16732 7.82533 9.16732 7.16606C9.16732 6.282 9.51851 5.43416 10.1436 4.80904C10.7687 4.18391 11.6166 3.83272 12.5007 3.83272Z"
+                              fill="white"
+                            />
+                            <path
+                              d="M20.812 16.7464C19.7429 15.6164 18.4545 14.7163 17.0257 14.1012C15.5969 13.4861 14.0576 13.1688 12.502 13.1688C10.9464 13.1688 9.40716 13.4861 7.97834 14.1012C6.54952 14.7163 5.26116 15.6164 4.19203 16.7464C3.96024 16.994 3.83151 17.3206 3.83203 17.6597V21.1664C3.83203 21.52 3.97251 21.8592 4.22256 22.1092C4.47261 22.3593 4.81174 22.4997 5.16537 22.4997H19.832C20.1857 22.4997 20.5248 22.3593 20.7748 22.1092C21.0249 21.8592 21.1654 21.52 21.1654 21.1664V17.6597C21.1677 17.3215 21.0414 16.995 20.812 16.7464ZM19.832 21.1664H5.16537V17.6531C6.11018 16.6582 7.24756 15.866 8.50827 15.3246C9.76898 14.7832 11.1267 14.5041 12.4987 14.5041C13.8707 14.5041 15.2284 14.7832 16.4891 15.3246C17.7498 15.866 18.8872 16.6582 19.832 17.6531V21.1664Z"
+                              fill="white"
+                            />
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_390_198">
+                              <rect
+                                width="24"
+                                height="24"
+                                fill="white"
+                                transform="translate(0.5 0.5)"
+                              />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <h3>Qualifed Teachers</h3>
+                    </div>
+                    <p class="academic-section-content-advantage-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed .
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn-medium">Learn More</button>
+            </div>
+
+            <div class="img-sections">
+              <img
+                src="../Home/images/Academics.png"
+                class="all-img-sections"
+                alt="Academic Image"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="student-section-wrapper">
+          <div class="student-section container mx">
+            <div class="img-sections">
+              <img
+                src="./images/University Photo.png"
+                class="all-img-sections"
+                alt="University Image"
+              />
+            </div>
+            <div class="student-section-content">
+              <div class="student-section-content-items">
+                <div class="student-section-content-text">
+                  <div class="student-section-content-text-title">
+                    <small>Introduction to University</small>
+                    <h1>Attract More Students with Us</h1>
+                  </div>
+
+                  <p class="student-section-content-text-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p>
+                </div>
+
+                <div class="student-section-content-advantages">
+                  <div class="student-section-content-advantage">
+                    <div class="student-section-content-advantage-icon">
+                      <svg
+                        width="26"
+                        height="26"
+                        viewBox="0 0 26 26"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M23.1574 14.2193C22.3449 18.2818 19.2818 22.1071 14.9837 22.9618C12.8874 23.3793 10.7129 23.1247 8.76966 22.2345C6.82648 21.3442 5.2137 19.8635 4.16099 18.0033C3.10827 16.1431 2.66928 13.9981 2.90651 11.8739C3.14375 9.74969 4.04512 7.75445 5.48228 6.17231C8.43003 2.92556 13.4074 2.03181 17.4699 3.65681"
+                          stroke="#F5AA1C"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M9.34375 12.5938L13.4062 16.6562L23.1562 6.09375"
+                          stroke="#002754"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <h3>Introducing your university</h3>
+                  </div>
+                  <div class="student-section-content-advantage">
+                    <div class="student-section-content-advantage-icon">
+                      <svg
+                        width="26"
+                        height="26"
+                        viewBox="0 0 26 26"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M23.1574 14.2193C22.3449 18.2818 19.2818 22.1071 14.9837 22.9618C12.8874 23.3793 10.7129 23.1247 8.76966 22.2345C6.82648 21.3442 5.2137 19.8635 4.16099 18.0033C3.10827 16.1431 2.66928 13.9981 2.90651 11.8739C3.14375 9.74969 4.04512 7.75445 5.48228 6.17231C8.43003 2.92556 13.4074 2.03181 17.4699 3.65681"
+                          stroke="#F5AA1C"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M9.34375 12.5938L13.4062 16.6562L23.1562 6.09375"
+                          stroke="#002754"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <h3>Presenting Your University Courses</h3>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn-medium">Learn More</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="users-statistics-wrapper">
+          <div class="users-statistics container mx">
+            <div class="users-statistic">
+              <h1>242+</h1>
+              <h4>Active Students</h4>
+            </div>
+
+            <hr />
+
+            <div class="users-statistic">
+              <h1>110+</h1>
+              <h4>Active Academics</h4>
+            </div>
+
+            <hr />
+
+            <div class="users-statistic">
+              <h1>82+</h1>
+              <h4>Active Recruiters</h4>
+            </div>
+          </div>
+        </section>
+
+        <section class="reviews-section-wrapper">
+          <div class="reviews-section container mx">
+            <div class="reviews-section-top">
+              <h2 class="reviews-section-title">Our Happy Users Reviews</h2>
+
+              <p class="reviews-section-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
-                congu.
               </p>
             </div>
-            <div class="col-3">
-              <h4>Short Links</h4>
-              <ul class="footer-cat-links">
-                <li>
-                  <a href=""><span>Home</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Academics</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Students</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Universities</span></a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-3">
-              <h4>Quick links</h4>
-              <ul class="footer-cat-links">
-                <li>
-                  <a href="../../Aboutus/index.html"><span>About us</span></a>
-                </li>
-                <li>
-                  <a href="../../FAQ/index.html"><span>FAQ</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Contact us</span></a>
-                </li>
-                <li>
-                  <a href=""><span>Privacy policy</span></a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-3 contact">
-              <h4>Contact us</h4>
-              <ul>
-                <li>
-                  <div class="iconfo">
-                    <i
-                      class="fa fa-phone fa-flip-horizontal"
-                      aria-hidden="true"
-                    ></i>
+
+            <div class="reviews-section-boxs-wrapper">
+              <div class="reviews-section-box">
+                <img
+                  src="./images/Reviews avatar.png"
+                  class="reviews-section-img"
+                  alt="User Image"
+                />
+
+                <div class="reviews-section-box-content">
+                  <div class="reviews-section-box-items">
+                    <p class="reviews-section-box-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore.
+                    </p>
+
+                    <hr />
+
+                    <div class="reviews-section-box-user-info">
+                      <div class="reviews-section-box-info">
+                        <h3>Jordan Cutler</h3>
+                        <h4>Student</h4>
+                      </div>
+                      <button type="button" class="reviews-section-box-play">
+                        <i class="fa fa-play"></i>
+                      </button>
+                    </div>
                   </div>
-                  <div class="lineheightfot">
-                    Phone:<br />
-                    +971-580580580
+                </div>
+              </div>
+              <div class="reviews-section-box">
+                <img
+                  src="./images/Reviews avatar.png"
+                  class="reviews-section-img"
+                  alt="User Image"
+                />
+
+                <div class="reviews-section-box-content">
+                  <div class="reviews-section-box-items">
+                    <p class="reviews-section-box-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore.
+                    </p>
+
+                    <hr />
+
+                    <div class="reviews-section-box-user-info">
+                      <div class="reviews-section-box-info">
+                        <h3>Jordan Cutler</h3>
+                        <h4>Student</h4>
+                      </div>
+                      <button type="button" class="reviews-section-box-play">
+                        <i class="fa fa-play"></i>
+                      </button>
+                    </div>
                   </div>
-                </li>
-                <li class="Emailfot">
-                  <div class="iconfo">
-                    <i class="fa fa-envelope-o"></i>
+                </div>
+              </div>
+              <div class="reviews-section-box">
+                <img
+                  src="./images/Reviews avatar.png"
+                  class="reviews-section-img"
+                  alt="User Image"
+                />
+
+                <div class="reviews-section-box-content">
+                  <div class="reviews-section-box-items">
+                    <p class="reviews-section-box-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore.
+                    </p>
+
+                    <hr />
+
+                    <div class="reviews-section-box-user-info">
+                      <div class="reviews-section-box-info">
+                        <h3>Jordan Cutler</h3>
+                        <h4>Student</h4>
+                      </div>
+                      <button type="button" class="reviews-section-box-play">
+                        <i class="fa fa-play"></i>
+                      </button>
+                    </div>
                   </div>
-                  <div class="lineheightfot">
-                    Email:<br />
-                    info@Unisuniverse@gmail.com
-                  </div>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="social-links social-2 col-6">
-            <a href=""><i class="fab fa-facebook-f"></i></a>
-            <a href=""><i class="fab fa-twitter"></i></a>
-            <a href=""><i class="fab fa-linkedin-in"></i></a>
-            <a href=""><i class="fab fa-instagram"></i></a>
-            <a href=""><i class="fab fa-reddit-alien"></i></a>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer-background">
+      <div class="container mx">
+        <div>
+          <div class="row-fot">
+            <div class="row">
+              <div class="desc col-3">
+                <a href="/index.html">
+                  <img
+                    src="../images/image_59-removebg-preview (1) 1.png"
+                    alt=""
+                  />
+                  <h2>Unisuniverse</h2>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
+                  congu.
+                </p>
+              </div>
+              <div class="col-3">
+                <h4>Short Links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href=""><span>Home</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Academics</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Students</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Universities</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3">
+                <h4>Quick links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href="../Aboutus/index.html"><span>About us</span></a>
+                  </li>
+                  <li>
+                    <a href="../FAQ/index.html"><span>FAQ</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Contact us</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Privacy policy</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3 contact">
+                <h4>Contact us</h4>
+                <ul>
+                  <li>
+                    <div class="iconfo">
+                      <i
+                        class="fa fa-phone fa-flip-horizontal"
+                        aria-hidden="true"
+                      ></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Phone:<br />
+                      +971-580580580
+                    </div>
+                  </li>
+                  <li class="Emailfot">
+                    <div class="iconfo">
+                      <i class="fa fa-envelope-o"></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Email:<br />
+                      info@Unisuniverse@gmail.com
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="social-links social-2 col-6">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-linkedin-in"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-reddit-alien"></i></a>
+            </div>
           </div>
-        </div>
-        <div class="copyowner">
-          <div id="copyright">&copy; 2023 Attio Ltd. All rights reserved.</div>
-          <div id="owner">
-            <span> Terms & Conditions </span>
+          <div class="copyowner">
+            <div id="copyright">
+              &copy; 2023 Attio Ltd. All rights reserved.
+            </div>
+            <div id="owner">
+              <span> Terms & Conditions </span>
+            </div>
           </div>
         </div>
       </div>
@@ -2228,14 +2451,13 @@
       // new acc
 
       let newAcc = document.getElementsByClassName("new-acc")[0],
-      popupBoxs = document.getElementsByClassName("popup-boxs")[0],
-      modalBox = document.getElementsByClassName("modal-box")[0];
-      
+        popupBoxs = document.getElementsByClassName("popup-boxs")[0],
+        modalBox = document.getElementsByClassName("modal-box")[0];
+
       newAcc.onclick = function () {
         popupBoxs.style.display = "flex";
         modalBox.style.display = "none";
       };
-      
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
