@@ -92,11 +92,17 @@
         height: auto;
       }
 
+      @media (min-width: 1700px) {
+        .container {
+          max-width: 1300px; /* 82% از 1700 پیکسل */
+        }
+      }
+
       .mx {
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        gap: 126px;
+        gap: 94px;
       }
 
       .logo {
@@ -390,21 +396,34 @@
         align-items: center;
         text-align: center;
         padding-top: 34px;
+        gap: 14px;
+      }
+
+      .hero-text > hr {
+        width: 80px;
+        height: 1px;
+        background-color: var(--color-line);
+        border: none;
       }
 
       .hero-title {
         color: var(--primary-color);
-        font-size: 42px;
+        font-size: 34px;
         font-weight: 600;
         letter-spacing: 0.84px;
       }
 
+      .hero-title-sec {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
       .hero-desc {
         color: #636363;
-        font-size: 17px;
         line-height: 27px;
-        max-width: 540px;
-        padding-top: 10px;
+        max-width: 900px;
+        font-size: 16px;
       }
 
       @media only screen and (max-width: 450px) {
@@ -413,11 +432,11 @@
         }
 
         .hero-title {
-          font-size: 28px;
+          font-size: 20px;
         }
 
         .hero-desc {
-          font-size: 14px;
+          font-size: 13px;
         }
       }
 
@@ -866,8 +885,7 @@
         justify-content: center;
         font-size: 16px;
         font-weight: 500;
-        width: 172px;
-        height: 49px;
+        padding: 14px 38px;
         background-color: var(--primary-color);
         color: var(--color-white);
         transition: all 0.3s ease-in-out;
@@ -1040,6 +1058,7 @@
         font-size: 20px;
         font-weight: 600;
         color: var(--color-text-black);
+        width: max-content;
       }
 
       .store-introduction-tab-steps > p {
@@ -1090,6 +1109,96 @@
         color: var(--primary-color);
         transition: all 0.3s ease-in-out;
       }
+
+      /* Additional */
+
+      .additional-wrapper {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 60px;
+      }
+
+      .additional-img {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .additional-img > img {
+        align-self: stretch;
+        border-radius: 20px;
+        background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+      }
+
+      .additional-textbox {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 56px;
+      }
+
+      .additional-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        align-self: stretch;
+      }
+
+      .additional-herotext {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .additional-herotext > h6 {
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--secondary-color);
+      }
+
+      .additional-herotext > h3 {
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .additional-desctext {
+        font-size: 16px;
+        color: var(--color-text-grayblack);
+      }
+
+      .btn-additional {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 14px 30px;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+        border-radius: 10px;
+      }
+
+      .btn-additional:hover {
+        background-color: var(--secondary-color);
+      }
+
+      @media only screen and (max-width: 993px) {
+        .additional-wrapper {
+          flex-direction: column;
+          gap: 48px;
+        }
+        .additional-textbox {
+          width: 90%;
+        }
+      }
+
+      /* Additional */
 
       /* Our Member */
 
@@ -1384,11 +1493,107 @@
         }
       }
 
-      /*footer*/
+      /* footer call to action */
+
+      .footer-callToAction-wrapper {
+        padding-top: 100px;
+      }
+
+      .footer-callToAction {
+        display: inline-flex;
+        padding: 56px 64px;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+        border-radius: 40px 40px 0px 0px;
+        background: #ffed8a;
+      }
+
+      .footer-callToAction-text {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        flex-basis: 80%;
+      }
+
+      .footer-callToAction-text > h3 {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--color-text-black);
+      }
+
+      .footer-callToAction-text > p {
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--color-text-black);
+        width: 100%;
+      }
+
+      .btn-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 14px 30px;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+        border-radius: 10px;
+        flex-basis: 20%;
+      }
+
+      .btn-footer:hover {
+        background-color: var(--secondary-color);
+      }
+
+      @media only screen and (max-width: 993px) {
+        .footer-callToAction,
+        .footer-callToAction-text {
+          flex-direction: column;
+        }
+      }
+
+      @media only screen and (max-width: 500px) {
+        .footer-callToAction-text > h3 {
+          font-size: 22px;
+        }
+
+        .footer-callToAction-text > p {
+          font-size: 13px;
+        }
+
+        .footer-callToAction-text {
+          gap: 28px;
+        }
+        .footer-callToAction {
+          gap: 34px;
+          padding: 38px 34px;
+        }
+      }
+
+      @media only screen and (min-width: 1600px) {
+        .footer-callToAction-text > h3 {
+          font-size: 34px;
+          font-weight: 700;
+          color: var(--color-text-black);
+        }
+
+        .footer-callToAction-text > p {
+          font-size: 18px;
+          font-weight: 400;
+          color: var(--color-text-black);
+          width: 100%;
+        }
+        .btn-footer {
+          padding: 20px 34px;
+        }
+      }
+
+      /* footer */
 
       .footer-background {
         background-color: var(--primary-color);
-        margin-top: 90px;
       }
 
       .col-6 {
@@ -1760,9 +1965,16 @@
         <section class="hero-section-wrapper">
           <div class="hero-text">
             <h1 class="hero-title">Academics</h1>
+            <hr />
+            <h3 class="hero-title-sec">
+              Empower Your Academic Career: Share, Sell, and Connect
+            </h3>
             <p class="hero-desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et.
+              At Unisuniverse.com, we provide a platform for academics,
+              professors, lecturers, researchers, post-docs, and all other
+              academics to share their expertise, sell academic products, and
+              offer services. Join a thriving community where you can connect
+              with students and fellow academics while expanding your reach.
             </p>
           </div>
         </section>
@@ -1819,7 +2031,7 @@
             <div class="store-introduction-section-items">
               <div class="store-introduction-section-content">
                 <h2 class="store-introduction-section-content-title">
-                  Academic Products/Services
+                  Academic Offerings
                 </h2>
 
                 <div class="store-introduction-section-tabs-wrapper">
@@ -1838,14 +2050,16 @@
                       <div class="store-introduction-tab-items">
                         <div class="store-introduction-tab-title">
                           <h2>
-                            Sell your products/services and achieve success.
+                            Monetize Your Research Papers, Lecture Notes, and
+                            Educational Content
                           </h2>
 
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua incididunt ut labore et dolore
-                            magna aliqua.
+                            Sell your self-made research papers, detailed
+                            lecture notes, and other educational resources to a
+                            global audience of students and academics. Our
+                            platform enables you to reach those seeking
+                            high-quality academic content.
                           </p>
                         </div>
 
@@ -1861,8 +2075,8 @@
                             </div>
 
                             <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do.
+                              Register now to access exclusive resources and
+                              connect with like-minded individuals.
                             </p>
                           </div>
 
@@ -1877,8 +2091,8 @@
                             </div>
 
                             <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do.
+                              Showcase your academic achievements, and connect
+                              with classmates.
                             </p>
                           </div>
 
@@ -1893,8 +2107,8 @@
                             </div>
 
                             <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do.
+                              List your unique items and start selling to a
+                              global audience today.
                             </p>
                           </div>
 
@@ -1909,8 +2123,7 @@
                             </div>
 
                             <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do.
+                              Discover new opportunities to boost your sales
                             </p>
                           </div>
                         </div>
@@ -1920,15 +2133,16 @@
                     <div id="content2" class="contents">
                       <div class="store-introduction-tab-items">
                         <div class="store-introduction-tab-title">
-                          <h2>Find and use your products/services</h2>
+                          <h2>
+                            Provide Expert Consulting, Tutoring, and Mentorship
+                            Services
+                          </h2>
 
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Egestas purus viverra accumsan
-                            in nisl nisi. Arcu cursus vitae congue mauris
-                            rhoncus.Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod.
+                            Offer specialized services such as tutoring, project
+                            consultation, and academic mentorship. Leverage your
+                            expertise to help others while building your
+                            professional reputation and earning income.
                           </p>
                         </div>
                       </div>
@@ -1949,9 +2163,38 @@
           </div>
         </section>
 
+        <section>
+          <div class="additional-wrapper">
+            <div class="additional-img">
+              <img src="./images/additonal.jpg" alt="Image" />
+            </div>
+
+            <div class="additional-textbox">
+              <div class="additional-text">
+                <div class="additional-herotext">
+                  <h6>ACADEMIC INFORMATION</h6>
+
+                  <h3>
+                    Resources for Academics: Maximize Your Online Presence
+                  </h3>
+                </div>
+
+                <p class="additional-desctext">
+                  Explore our comprehensive guides, FAQs, and support services
+                  to get the most out of Unisuniverse.com. Learn how to sell
+                  academic products, offer educational services, and grow your
+                  professional network online.
+                </p>
+              </div>
+
+              <button class="btn-additional">Get Help</button>
+            </div>
+          </div>
+        </section>
+
         <section class="our-members-wrapper">
           <div class="our-members">
-            <h2 class="our-members-title">Our student members</h2>
+            <h2 class="our-members-title">Meet our academic members</h2>
 
             <div class="our-members-items">
               <div class="our-members-cards">
@@ -2450,6 +2693,24 @@
       </div>
     </main>
 
+    <section class="footer-callToAction-wrapper">
+      <div class="container mx">
+        <div class="footer-callToAction">
+          <div class="footer-callToAction-text">
+            <h3>Expand Your Academic Reach—Earn by Sharing Your Expertise</h3>
+
+            <p>
+              Join Unisuniverse.com now and start selling your academic
+              research, offer specialized services, and connect with students
+              globally. You only contribute when you start earning.
+            </p>
+          </div>
+
+          <button class="btn-footer">Get Started Now</button>
+        </div>
+      </div>
+    </section>
+
     <footer class="footer-background">
       <div class="container mx">
         <div>
@@ -2464,10 +2725,9 @@
                   <h2>Unisuniverse</h2>
                 </a>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
-                  congu.
+                  Your one-stop platform for academic growth. Connect with
+                  students, professors, and universities to explore
+                  opportunities, sell services, and promote programs.
                 </p>
               </div>
               <div class="col-3">

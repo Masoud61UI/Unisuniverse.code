@@ -92,11 +92,17 @@
         height: auto;
       }
 
+      @media (min-width: 1700px) {
+        .container {
+          max-width: 1300px; /* 82% از 1700 پیکسل */
+        }
+      }
+
       .mx {
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        gap: 126px;
+        gap: 94px;
       }
 
       .logo {
@@ -390,21 +396,34 @@
         align-items: center;
         text-align: center;
         padding-top: 34px;
+        gap: 14px;
+      }
+
+      .hero-text > hr {
+        width: 80px;
+        height: 1px;
+        background-color: var(--color-line);
+        border: none;
       }
 
       .hero-title {
         color: var(--primary-color);
-        font-size: 42px;
+        font-size: 34px;
         font-weight: 600;
         letter-spacing: 0.84px;
       }
 
+      .hero-title-sec {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
       .hero-desc {
         color: #636363;
-        font-size: 17px;
         line-height: 27px;
-        max-width: 540px;
-        padding-top: 10px;
+        max-width: 900px;
+        font-size: 16px;
       }
 
       @media only screen and (max-width: 450px) {
@@ -413,11 +432,11 @@
         }
 
         .hero-title {
-          font-size: 28px;
+          font-size: 20px;
         }
 
         .hero-desc {
-          font-size: 14px;
+          font-size: 13px;
         }
       }
 
@@ -866,8 +885,7 @@
         justify-content: center;
         font-size: 16px;
         font-weight: 500;
-        width: 172px;
-        height: 49px;
+        padding: 14px 24px;
         background-color: var(--primary-color);
         color: var(--color-white);
         transition: all 0.3s ease-in-out;
@@ -1040,6 +1058,7 @@
         font-size: 20px;
         font-weight: 600;
         color: var(--color-text-black);
+        width: max-content;
       }
 
       .store-introduction-tab-steps > p {
@@ -1090,6 +1109,172 @@
         color: var(--primary-color);
         transition: all 0.3s ease-in-out;
       }
+
+      /* Testimonial */
+
+      .testimonial-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 54px;
+      }
+
+      .testimonial-boxs {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+        gap: 50px;
+      }
+
+      .testimonial-box {
+        display: flex;
+        padding: 30px 28px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+        border-radius: 20px;
+        border: 1px solid var(--color-line);
+        background: var(--color-background);
+        width: 50%;
+      }
+
+      .testimonial-box > p {
+        color: var(--primary-color);
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px;
+      }
+
+      .testimonial-box-user {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .testimonial-box-user > img {
+        width: 36px;
+        height: 36px;
+        border-radius: 200px;
+        background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+        object-fit: cover;
+      }
+
+      .testimonial-box-user > h5 {
+        color: var(--color-text-grayblack);
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .testimonial-boxs {
+          flex-direction: column;
+          gap: 30px;
+        }
+        .testimonial-box {
+          width: 100%;
+        }
+        .testimonial-box > p {
+          font-size: 16px;
+        }
+        .testimonial-box-user > h5 {
+          font-size: 13px;
+        }
+      }
+
+      /* Testimonial */
+
+      /* Additional */
+
+      .additional-wrapper {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 60px;
+      }
+
+      .additional-img {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .additional-img > img {
+        align-self: stretch;
+        border-radius: 20px;
+        background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+      }
+
+      .additional-textbox {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 56px;
+      }
+
+      .additional-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        align-self: stretch;
+      }
+
+      .additional-herotext {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .additional-herotext > h6 {
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--secondary-color);
+      }
+
+      .additional-herotext > h3 {
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .additional-desctext {
+        font-size: 16px;
+        color: var(--color-text-grayblack);
+      }
+
+      .btn-additional {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 14px 30px;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+        border-radius: 10px;
+      }
+
+      .btn-additional:hover {
+        background-color: var(--secondary-color);
+      }
+
+      @media only screen and (max-width: 993px) {
+        .additional-wrapper {
+          flex-direction: column;
+          gap: 48px;
+        }
+        .additional-textbox {
+          width: 90%;
+        }
+      }
+
+      /* Additional */
 
       /* Our Member */
 
@@ -1384,11 +1569,107 @@
         }
       }
 
-      /*footer*/
+      /* footer call to action */
+
+      .footer-callToAction-wrapper {
+        padding-top: 100px;
+      }
+
+      .footer-callToAction {
+        display: inline-flex;
+        padding: 56px 64px;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+        border-radius: 40px 40px 0px 0px;
+        background: #ffed8a;
+      }
+
+      .footer-callToAction-text {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        flex-basis: 80%;
+      }
+
+      .footer-callToAction-text > h3 {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--color-text-black);
+      }
+
+      .footer-callToAction-text > p {
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--color-text-black);
+        width: 100%;
+      }
+
+      .btn-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 14px 30px;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+        border-radius: 10px;
+        flex-basis: 20%;
+      }
+
+      .btn-footer:hover {
+        background-color: var(--secondary-color);
+      }
+
+      @media only screen and (max-width: 993px) {
+        .footer-callToAction,
+        .footer-callToAction-text {
+          flex-direction: column;
+        }
+      }
+
+      @media only screen and (max-width: 500px) {
+        .footer-callToAction-text > h3 {
+          font-size: 22px;
+        }
+
+        .footer-callToAction-text > p {
+          font-size: 13px;
+        }
+
+        .footer-callToAction-text {
+          gap: 28px;
+        }
+        .footer-callToAction {
+          gap: 34px;
+          padding: 38px 34px;
+        }
+      }
+
+      @media only screen and (min-width: 1600px) {
+        .footer-callToAction-text > h3 {
+          font-size: 34px;
+          font-weight: 700;
+          color: var(--color-text-black);
+        }
+
+        .footer-callToAction-text > p {
+          font-size: 18px;
+          font-weight: 400;
+          color: var(--color-text-black);
+          width: 100%;
+        }
+        .btn-footer {
+          padding: 20px 34px;
+        }
+      }
+
+      /* footer */
 
       .footer-background {
         background-color: var(--primary-color);
-        margin-top: 90px;
       }
 
       .col-6 {
@@ -1760,9 +2041,18 @@
         <section class="hero-section-wrapper">
           <div class="hero-text">
             <h1 class="hero-title">Students</h1>
+            <hr />
+            <h3 class="hero-title-sec">
+              Take Charge of Your Academic Future: Apply, Sell Academic
+              Products, and Offer Services
+            </h3>
             <p class="hero-desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et.
+              Welcome to Unisuniverse.com, the ultimate platform for students
+              seeking to advance their academic careers. Whether you want to
+              apply to top universities, sell your study materials and academic
+              products, or offer tutoring and academic services, we provide the
+              tools and opportunities to help you succeed. Join us today to
+              unlock your potential.
             </p>
           </div>
         </section>
@@ -1776,32 +2066,28 @@
                     <div class="title-small-icon">
                       <i class="fa fa-file-text-o"></i>
                     </div>
-                    <small>Apply for Students</small>
+                    <small>Apply for Further Education</small>
                   </div>
 
-                  <h2>
-                    By applying to various educational levels, secure a bright
-                    future ahead.
-                  </h2>
+                  <h2>Discover Universities and Find Your Perfect Program</h2>
                 </div>
 
                 <div class="apply-section-content-items-desc">
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
-                    cursus vitae congue mauris rhoncus.
+                    Discover and apply to prestigious universities and
+                    specialized academic programs that align with your career
+                    goals.
                   </p>
 
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
+                    Our platform simplifies the application process for
+                    undergraduate, graduate, and professional courses. Explore
+                    available scholarships to support your education.
                   </p>
                 </div>
               </div>
 
-              <button class="btn-medium">Universities</button>
+              <button class="btn-medium">Discover Top Programs</button>
             </div>
 
             <div class="img-sections">
@@ -1819,7 +2105,7 @@
             <div class="store-introduction-section-items">
               <div class="store-introduction-section-content">
                 <h2 class="store-introduction-section-content-title">
-                  Academic Products/Services
+                  Student Offerings
                 </h2>
 
                 <div class="store-introduction-section-tabs-wrapper">
@@ -1838,14 +2124,14 @@
                       <div class="store-introduction-tab-items">
                         <div class="store-introduction-tab-title">
                           <h2>
-                            Sell your products/services and achieve success.
+                            Monetize Your Study Materials and Academic Products
                           </h2>
 
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua incididunt ut labore et dolore
-                            magna aliqua.
+                            Turn your study notes, research papers, and
+                            educational resources into income. Reach a global
+                            audience of students looking for quality academic
+                            materials through our platform
                           </p>
                         </div>
 
@@ -1861,8 +2147,8 @@
                             </div>
 
                             <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do.
+                              Register now to access exclusive resources and
+                              connect with like-minded individuals.
                             </p>
                           </div>
 
@@ -1877,8 +2163,8 @@
                             </div>
 
                             <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do.
+                              Showcase your academic achievements, and connect
+                              with classmates.
                             </p>
                           </div>
 
@@ -1893,8 +2179,8 @@
                             </div>
 
                             <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do.
+                              List your unique items and start selling to a
+                              global audience today.
                             </p>
                           </div>
 
@@ -1909,8 +2195,7 @@
                             </div>
 
                             <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do.
+                              Discover new opportunities to boost your sales
                             </p>
                           </div>
                         </div>
@@ -1920,15 +2205,17 @@
                     <div id="content2" class="contents">
                       <div class="store-introduction-tab-items">
                         <div class="store-introduction-tab-title">
-                          <h2>Find and use your products/services</h2>
+                          <h2>
+                            Offer Tutoring and Academic Services to Fellow
+                            Students
+                          </h2>
 
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Egestas purus viverra accumsan
-                            in nisl nisi. Arcu cursus vitae congue mauris
-                            rhoncus.Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod.
+                            Share your expertise by providing tutoring, essay
+                            writing, project assistance and so on. Our platform
+                            connects you with students who need your help,
+                            allowing you to build your reputation and earn
+                            money.
                           </p>
                         </div>
                       </div>
@@ -1949,9 +2236,71 @@
           </div>
         </section>
 
+        <section>
+          <div class="testimonial-section">
+            <h2 class="store-introduction-section-content-title">
+              What Students Are Saying About Unisuniverse
+            </h2>
+
+            <div class="testimonial-boxs">
+              <div class="testimonial-box">
+                <p>
+                  "I found the perfect universities that matched my profile and
+                  easily navigated to their application pages. It’s been a huge
+                  help!"
+                </p>
+
+                <div class="testimonial-box-user">
+                  <img src="./images/testi-user.png" alt="User Image" />
+                  <h5>— Emily, Master's Applicant</h5>
+                </div>
+              </div>
+
+              <div class="testimonial-box">
+                <p>
+                  "Selling my study guides has been a rewarding venture,
+                  allowing me to earn extra income while directly contributing
+                  to the academic success of others."
+                </p>
+
+                <div class="testimonial-box-user">
+                  <img src="./images/testi-user2.png" alt="User Image" />
+                  <h5>— Alex, Undergraduate Student</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="additional-wrapper">
+            <div class="additional-img">
+              <img src="./images/additional img.png" alt="Image" />
+            </div>
+
+            <div class="additional-textbox">
+              <div class="additional-text">
+                <div class="additional-herotext">
+                  <h6>STUDENT INFORMATION</h6>
+
+                  <h3>Explore Our Student Resources</h3>
+                </div>
+
+                <p class="additional-desctext">
+                  Visit our FAQs, guides, and support sections to maximize your
+                  use of Unisuniverse. Find answers and tips to enhance your
+                  experience on our platform.
+                </p>
+              </div>
+
+              <button class="btn-additional">Get Help</button>
+            </div>
+          </div>
+        </section>
+
         <section class="our-members-wrapper">
           <div class="our-members">
-            <h2 class="our-members-title">Our student members</h2>
+            <h2 class="our-members-title">Some of our student members</h2>
 
             <div class="our-members-items">
               <div class="our-members-cards">
@@ -2450,6 +2799,25 @@
       </div>
     </main>
 
+    <section class="footer-callToAction-wrapper">
+      <div class="container mx">
+        <div class="footer-callToAction">
+          <div class="footer-callToAction-text">
+            <h3>Ready to Enhance Your Academic Journey?</h3>
+
+            <p>
+              Explore opportunities, connect with universities, and offer your
+              products and services without upfront costs. You only contribute
+              when you start earning. Join unisuniverse.com today and take
+              control of your academic future.
+            </p>
+          </div>
+
+          <button class="btn-footer">Get Started Now</button>
+        </div>
+      </div>
+    </section>
+
     <footer class="footer-background">
       <div class="container mx">
         <div>
@@ -2464,10 +2832,9 @@
                   <h2>Unisuniverse</h2>
                 </a>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
-                  congu.
+                  Your one-stop platform for academic growth. Connect with
+                  students, professors, and universities to explore
+                  opportunities, sell services, and promote programs.
                 </p>
               </div>
               <div class="col-3">
