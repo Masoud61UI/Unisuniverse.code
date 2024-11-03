@@ -11,10 +11,10 @@
     />
 
     <!-- fontawesome Icon CDN-->
-    <script
-      src="http://kit.fontawesome.com/7a4b62b0a4.js"
-      crossorigin="anonymous"
-    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
 
@@ -92,6 +92,12 @@
       .container {
         max-width: 82%;
         height: auto;
+      }
+
+      @media (min-width: 1700px) {
+        .container {
+          max-width: 1300px;
+        }
       }
 
       .mx {
@@ -381,34 +387,6 @@
 
       .breadcrumb > span {
         color: var(--secondary-color);
-      }
-
-      .hero-text {
-        text-align: center;
-        padding-top: 34px;
-      }
-
-      .hero-text-mg {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 0 32px 0 32px;
-      }
-
-      .hero-title {
-        color: var(--primary-color);
-        font-size: 42px;
-        font-weight: 600;
-        letter-spacing: 0.84px;
-      }
-
-      .hero-desc {
-        color: #636363;
-        font-size: 17px;
-        line-height: 27px;
-        max-width: 540px;
-        padding-top: 10px;
       }
 
       @media only screen and (max-width: 450px) {
@@ -799,11 +777,84 @@
 
       /*  University Introduction  */
 
-      .university-introduction {
-        display: flex;
+      .header-section-wrapper {
+        display: inline-flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        gap: 108px;
+        position: relative;
+        width: 100%;
+      }
+
+      .search-img-top {
+        width: 100%;
+      }
+
+      .search-img {
+        width: inherit;
+        object-fit: cover;
+        border-radius: 24px;
+      }
+
+      .header-section-texts-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 48px;
+        position: absolute;
+        top: 24%;
+        width: 100%;
+      }
+
+      .header-section-texts {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        align-self: stretch;
+        width: inherit;
+      }
+
+      .header-section-texts > h2 {
+        color: var(--color-white);
+        text-align: center;
+        letter-spacing: 1px;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 36px; /* 128.571% */
+        width: 50%;
+        margin: auto;
+      }
+
+      .header-section-texts > p {
+        color: var(--color-white);
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 25px; /* 156.25% */
+        align-self: stretch;
+        width: 70%;
+        margin: auto;
+      }
+
+      .btn-cta {
+        display: flex;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 14px 42px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        background: var(--secondary-color);
+        color: var(--primary-color);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .btn-cta:hover {
+        background-color: var(--primary-color);
+        color: var(--color-white);
       }
 
       .img-sections {
@@ -817,403 +868,530 @@
         width: 100%;
       }
 
-      .university-introduction-content {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 28px;
-        flex-basis: 52%;
+      /* Why Us */
+
+      .whyus-wrapper,
+      .features-wrapper,
+      .universities-wrapper,
+      .store-introduction-section-wrapper,
+      .reviews-section-wrapper {
+        margin-top: 130px;
       }
 
-      .university-introduction-content-text {
+      .whyus-contents {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-      }
-
-      .university-introduction-content-text-title {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
-      }
-
-      .text-title-icon {
-        display: flex;
+        justify-content: space-between;
         align-items: center;
-        gap: 8px;
-        color: var(--secondary-color);
       }
 
-      .text-title-icon > i {
-        width: 18px;
-        height: 18px;
-        font-size: 16px;
-      }
-
-      .text-title-icon > small {
-        font-size: 14px;
-        font-weight: 400;
-      }
-
-      .university-introduction-content-text-title > h2 {
-        font-size: 28px;
-        font-weight: 600;
-        color: var(--color-text-black);
-        line-height: 40px;
-      }
-
-      .university-introduction-content-text-desc {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .university-introduction-content-advantages {
+      .whyus-contents-texts {
         display: flex;
+        flex-basis: 50%;
         flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
-      }
-
-      .university-introduction-content-advantage {
-        display: flex;
-        align-items: center;
         gap: 12px;
       }
 
-      .advantage-icon {
+      .whyus-contents-texts > h2 {
+        color: var(--color-text-black);
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.72px;
+      }
+
+      .whyus-contents-texts > p {
+        color: var(--color-text-grayblack);
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.32px;
+        width: 80%;
+      }
+
+      .whyus-contents-boxs {
         display: flex;
         align-items: center;
-        justify-content: center;
-        color: var(--primary-color);
-        font-size: 13px;
-        width: 30px;
-        height: 30px;
-        background-color: var(--secondary-color);
-        border-radius: 50%;
+        gap: 18px;
+        flex-basis: 50%;
+        justify-content: space-between;
       }
 
-      .university-introduction-content-advantage > h3 {
-        font-size: 18px;
-        font-weight: 600;
+      .whyus-contents-box {
+        display: flex;
+        padding: 28px 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        border-radius: 12px;
+        background: var(--color-background);
+        width: 176px;
+      }
+
+      .whyus-contents-box > h5 {
         color: var(--color-text-black);
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.28px;
       }
 
-      /* Community */
+      /* features */
 
-      .our-community {
+      .features-contents {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 48px;
-        overflow: hidden;
       }
 
-      .our-community-title {
-        font-size: 28px;
-        font-weight: 600;
+      .features-contents > h3 {
         color: var(--color-text-black);
+        text-align: center;
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        align-self: stretch;
       }
 
-      .our-community-boxs-wrapper {
+      .features-boxs {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(244px, 1fr));
+        align-items: stretch;
+        justify-items: center;
+        gap: 56px 70px;
+        width: 100%;
+      }
+
+      .features-box {
+        position: relative;
+        flex: 1;
+        padding: 64px 70px;
+        box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.06);
+        border-radius: 16px;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+        animation: fadeInLeft 1.5s backwards;
+      }
+      .features-box:hover {
+        padding: 30px;
+        transition: all 0.3s ease-in-out;
+        border: 1px solid var(--primary-color);
+      }
+
+      .card-front {
         display: flex;
         flex-direction: column;
-        gap: 18px;
+        align-items: center;
+        gap: 28px;
+        background: var(--color-white);
       }
 
-      .our-community-boxs {
-        display: flex;
+      .card-front > h4 {
+        color: var(--color-text-black);
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.36px;
+      }
+
+      .card-back {
+        display: inline-flex;
+        flex-direction: column;
         align-items: flex-start;
-        gap: 18px;
-        width: 100%;
-        overflow-x: scroll;
-        white-space: nowrap;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-
-      ::-webkit-scrollbar {
+        gap: 16px;
         display: none;
       }
 
-      .our-community-box {
-        display: flex;
-        padding: 16px 22px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        border-radius: 12px;
-        border: 1px solid var(--color-line);
-        background: var(--color-white);
-        min-width: fit-content;
-        cursor: pointer;
+      .card-back > h4 {
+        color: var(--primary-color);
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.36px;
       }
 
-      .our-community-box-items {
+      .card-back > p {
+        color: var(--color-text-grayblack);
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 23px;
+      }
+
+      .features-box:hover .card-front {
+        display: none;
+      }
+
+      .features-box:hover .card-back {
         display: flex;
+      }
+
+      @media only screen and (max-width: 850px) {
+        .features-box:hover {
+          padding: 16px 16px 24px;
+          transition: all 0.3s ease-in-out;
+          background-color: transparent;
+        }
+        .features-box:hover .card-front {
+          display: block;
+        }
+
+        .features-box:hover .card-back {
+          display: none;
+        }
+      }
+
+      /* Academic Products/Services */
+
+      .store-introduction-section {
+        display: flex;
+        align-items: flex-start;
+        border-radius: 60px;
+        border: 1px solid var(--color-line);
+        background: var(--color-white);
+      }
+
+      .store-introduction-section-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 62px;
+        width: 100%;
+        padding-top: 50px;
+      }
+
+      .store-introduction-section-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: inherit;
+      }
+
+      .store-introduction-section-tabs-wrapper {
+        padding: 10px 0px;
+      }
+
+      .store-introduction-section-tabs {
+        max-width: 100%;
+        width: -webkit-fill-available;
+        padding: 0 46px;
+      }
+
+      .store-introduction-section-tabs input:checked + .label-tab {
+        color: var(--secondary-color);
+        font-weight: 500;
+        border-bottom: 1.5px solid var(--secondary-color);
+      }
+
+      .store-introduction-tab-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 56px;
+      }
+
+      .store-introduction-tab-title {
+        display: flex;
+        flex-direction: column;
         align-items: center;
         gap: 12px;
       }
 
-      .box-img {
-        width: 58px;
-        height: 58px;
-        object-fit: cover;
-      }
-
-      .box-name {
-        font-size: 16px;
+      .store-introduction-tab-title > h2 {
+        font-size: 24px;
         font-weight: 600;
+        text-align: center;
         color: var(--primary-color);
+        letter-spacing: 0.56px;
       }
 
-      /* charts */
+      .store-introduction-tab-title > p {
+        font-size: 16px;
+        font-weight: 400;
+        text-align: center;
+        width: 80%;
+        color: var(--color-text-grayblack);
+      }
 
-      .charts-section {
+      .store-introduction-tab-steps-wrapper {
+        display: flex;
+        align-items: flex-start;
+        gap: 46px;
+      }
+
+      .store-introduction-tab-steps {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .store-introduction-tab-step {
         display: flex;
         align-items: center;
-        gap: 76px;
-      }
-
-      .charts-section-content {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 40px;
-        flex-basis: 50%;
-      }
-
-      .charts-section-content-items {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 22px;
-      }
-
-      .charts-section-content-items-title {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
         gap: 16px;
       }
 
-      .charts-section-content-items-title-small {
+      .store-introduction-tab-step-number {
         display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .title-small-icon {
-        width: 18px;
-        height: 18px;
-        display: flex;
-        align-items: center;
+        width: 50px;
+        height: 50px;
+        flex-direction: column;
         justify-content: center;
-        color: var(--secondary-color);
-        font-size: 15px;
+        align-items: center;
+        border-radius: 10px;
+        border: 1px solid var(--color-line);
       }
 
-      .charts-section-content-items-title-small > small {
-        font-size: 14px;
-        font-weight: 400;
+      .store-introduction-tab-step-number > h3 {
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
         color: var(--secondary-color);
       }
 
-      .charts-section-content-items-title > h2 {
-        font-size: 28px;
+      .store-introduction-tab-step-title {
+        font-size: 20px;
         font-weight: 600;
         color: var(--color-text-black);
-        line-height: 40px;
+        width: max-content;
       }
 
-      .charts-section-content-items-desc {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-      }
-
-      .charts-section-content-items-desc > p {
+      .store-introduction-tab-steps > p {
         font-size: 16px;
         font-weight: 400;
         color: var(--color-text-grayblack);
       }
 
-      .btn-medium {
+      .store-introduction-section-btn-wrapper {
+        display: flex;
+        padding: 26px 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0px 0px 60px 60px;
+        background: rgba(0, 39, 84, 0.1);
+        transition: all 0.3s ease-in-out;
+      }
+      .store-introduction-section-btn-wrapper:hover {
+        background-color: var(--primary-color);
+      }
+      .store-introduction-section-btn-wrapper:hover
+        .store-introduction-section-btn
+        > h3,
+      .store-introduction-section-btn-wrapper:hover
+        .store-introduction-section-btn-icon {
+        color: var(--secondary-color);
+      }
+
+      .store-introduction-section-btn {
+        display: flex;
+        padding: 10px 13px;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .store-introduction-section-btn > h3 {
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        color: var(--primary-color);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .store-introduction-section-btn-icon {
+        font-size: 16px;
+        color: var(--primary-color);
+        transition: all 0.3s ease-in-out;
+      }
+
+      /* Reviews Section */
+
+      .reviews-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 70px;
+      }
+
+      .reviews-section-boxs-wrapper {
+        display: flex;
+        align-items: flex-start;
+        gap: 42px;
+      }
+
+      .reviews-section-box {
+        width: -webkit-fill-available;
+      }
+
+      .reviews-section-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .reviews-section-title {
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--color-text-black);
+        text-align: center;
+        line-height: normal;
+      }
+
+      .reviews-section-text {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+        text-align: center;
+        width: 500px;
+        line-height: 26px;
+      }
+
+      .reviews-section-img {
+        width: 68px;
+        height: 68px;
+        object-fit: cover;
+        border-radius: 10px;
+        z-index: 55;
+        position: relative;
+        margin-left: 28px;
+      }
+
+      .reviews-section-box-content {
+        display: inline-flex;
+        padding: 28px 28px;
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 24px;
+        background: var(--color-white);
+        box-shadow: var(--shadow-medium);
+        margin-top: -30px;
+        z-index: 54;
+      }
+
+      .reviews-section-box-items {
+        display: flex;
+        padding-top: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .reviews-section-box-text {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .reviews-section-box-items > hr {
+        width: 100%;
+        height: 1px;
+        border: none;
+        background-color: var(--color-line);
+      }
+
+      .reviews-section-box-user-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .reviews-section-box-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+      }
+
+      .reviews-section-box-info > h3 {
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .reviews-section-box-info > h4 {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .reviews-section-box-play {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 16px;
-        font-weight: 500;
-        width: 172px;
-        height: 49px;
         background-color: var(--primary-color);
         color: var(--color-white);
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
         transition: all 0.3s ease-in-out;
-        border-radius: 10px;
       }
-      .btn-medium:hover {
+      .reviews-section-box-play:hover {
         background-color: var(--secondary-color);
       }
 
-      .charts {
-        display: flex;
-        width: 100%;
-        padding: 40px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        border-radius: 24px;
-        border: 1px solid var(--color-line);
-        background: var(--color-white);
-        box-shadow: var(--shadow-medium);
-        flex-basis: 50%;
+      @media only screen and (max-width: 1024px) {
+        .reviews-section-boxs-wrapper {
+          gap: 20px;
+        }
       }
 
-      .charts-titles {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        align-self: stretch;
+      @media only screen and (max-width: 850px) {
+        .reviews-section-text {
+          width: 85%;
+        }
+
+        .reviews-section-boxs-wrapper {
+          flex-direction: column;
+          gap: 50px;
+        }
       }
 
-      .charts-title {
-        display: flex;
-        align-items: center;
-        align-self: stretch;
+      @media only screen and (max-width: 450px) {
+        .reviews-section-title {
+          font-size: 22px;
+        }
+        .reviews-section-text {
+          font-size: 14px;
+        }
+        .reviews-section-text {
+          width: 100%;
+        }
       }
 
-      .charts-title-al {
-        display: flex;
-        align-items: center;
-        flex: 1 0 0;
+      @media only screen and (max-width: 380px) {
+        .reviews-section-text {
+          font-size: 14px;
+        }
       }
 
-      .charts-title-al > h5 {
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--color-text-black);
-      }
-
-      .charts-data > h2 {
-        font-size: 28px;
-        font-weight: 600;
-        color: var(--primary-color);
-      }
-
-      .charts-body {
-        flex: 1 0 0;
-        align-self: stretch;
-        position: relative;
-      }
-
-      .charts-body-axis {
-        display: flex;
-        width: 100%;
-        padding: 0px 16px 0px 75px;
-        justify-content: space-between;
-        align-items: flex-start;
-      }
-
-      .axis-item {
-        display: flex;
-        width: 0.001px;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        flex-shrink: 0;
-        align-self: stretch;
-      }
-
-      .axis-item > h6 {
-        font-size: 12px;
-        font-weight: 500;
-        color: var(--color-text-grayblack);
-      }
-
-      .charts-body-bars {
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        position: absolute;
-        top: 0;
-        right: 14px;
-      }
-
-      .charts-body-bar {
-        display: flex;
-        padding: 6px 0px 6px 0px;
-        align-items: center;
-        flex: 1 0 0;
-        align-self: stretch;
-        border-radius: 4px;
-      }
-
-      .charts-body-bar-width {
-        display: flex;
-        align-items: center;
-        width: 100%;
-      }
-
-      .bar-width-axis {
-        display: flex;
-        width: 0.001px;
-        padding-right: 8px;
-        justify-content: flex-end;
-        align-items: center;
-        width: 88px;
-      }
-
-      .bar-width-axis-title {
-        font-size: 12px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .bar-width-fill {
-        height: 24px;
-        border-radius: 4px;
-        background: var(--secondary-color);
-      }
-
-      .bar-width-axis-numbers {
-        display: flex;
-        width: 0.001px;
-        padding: 0px 8px 0px 4px;
-        align-items: center;
-      }
-
-      .bar-width-axis-number {
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--primary-color);
-      }
-
-      #University {
-        width: 54%;
-      }
-
-      #Academic {
-        width: 68%;
-      }
-
-      #bachelor {
-        width: 30%;
-      }
-
-      #Master {
-        width: 18%;
-      }
-
-      #PHD {
-        width: 50%;
-      }
-
-      #Post-doctoral {
-        width: 8%;
+      @media only screen and (min-width: 1600px) {
+        .reviews-section-text,
+        .reviews-section-box-text {
+          font-size: 18px;
+        }
+        .reviews-section-box-info > h4 {
+          font-size: 16px;
+        }
+        .reviews-section-box-info > h3 {
+          font-size: 20px;
+        }
+        .reviews-section-boxs-wrapper {
+          gap: 80px;
+        }
       }
 
       /* Universities Box */
@@ -1375,9 +1553,11 @@
       }
 
       @media only screen and (max-width: 1220px) {
-        .university-introduction,
-        .charts-section {
+        .university-introduction {
           gap: 36px;
+        }
+        .store-introduction-tab-steps-wrapper {
+          flex-direction: column;
         }
       }
 
@@ -1389,27 +1569,30 @@
           flex-direction: column-reverse;
           gap: 80px;
         }
-        .university-introduction-content {
-          flex-basis: 100%;
-          width: 100%;
-        }
         .img-sections {
           flex-basis: 100%;
           width: 80%;
         }
-        .charts-section {
-          flex-direction: column;
-          gap: 80px;
+        .header-section-texts > h2 {
+          font-size: 20px;
         }
-        .our-community-box {
-          padding: 8px 12px;
-        }
-        .box-img {
-          width: 40px;
-          height: 40px;
-        }
-        .box-name {
+        .header-section-texts > p {
           font-size: 14px;
+        }
+        .header-section-texts-wrapper {
+          top: 8%;
+          gap: 30px;
+        }
+        .whyus-contents {
+          flex-direction: column;
+          gap: 40px;
+        }
+        .header-section-texts > h2,
+        .header-section-texts > p {
+          width: 90%;
+        }
+        .whyus-contents-boxs {
+          flex-wrap: wrap;
         }
       }
 
@@ -1420,9 +1603,6 @@
         .box-location-text {
           font-size: 12px;
         }
-        .university-introduction-content-advantage > h3 {
-          width: 80%;
-        }
         .img-sections {
           width: 100%;
         }
@@ -1432,6 +1612,19 @@
         .universities-box-img {
           border-radius: 12px 12px 0px 0px;
         }
+        .store-introduction-section-items {
+          padding-top: 30px;
+        }
+        .store-introduction-section-content {
+          gap: 40px;
+        }
+        .store-introduction-section-tabs {
+          padding: 0 20px;
+        }
+        .search-img-top,
+        .search-img {
+          height: 380px;
+        }
       }
 
       @media only screen and (max-width: 440px) {
@@ -1439,40 +1632,36 @@
         .charts-data > h2 {
           font-size: 22px;
         }
-        .btn-text > h3,
-        .charts-section-content-items-desc > p {
+        .btn-text > h3 {
           font-size: 14px;
         }
         .head-btn-icon {
           width: 12px;
           height: 12px;
         }
-        .university-introduction-content-text-title > h2,
-        .charts-section-content-items-title > h2 {
+        .store-introduction-section {
+          border-radius: 30px;
+        }
+        .store-introduction-section-content-title {
+          padding: 0 20px;
+          font-size: 22px;
+        }
+        .store-introduction-tab-title > h2 {
           font-size: 22px;
           line-height: 33px;
         }
-        .charts {
-          padding: 26px;
-        }
-        .bar-width-axis-number,
-        .bar-width-axis-title {
-          font-size: 11px;
-        }
-        .charts-body-axis {
-          padding: 0 0 0 66px;
-        }
-        .bar-width-axis {
-          width: 78px;
-        }
-      }
-
-      @media only screen and (max-width: 370px) {
-        .university-introduction-content-text-desc {
+        .store-introduction-tab-title > p,
+        .store-introduction-tab-steps > p {
           font-size: 14px;
         }
-        .university-introduction-content-advantage > h3 {
-          font-size: 16px;
+        .store-introduction-section-btn-wrapper {
+          border-radius: 0 0 30px 30px;
+        }
+        .header-section-texts > h2 {
+          font-size: 17px;
+        }
+        .header-section-texts > p {
+          font-size: 12px;
         }
       }
 
@@ -1483,29 +1672,118 @@
         .university-name {
           font-size: 22px;
         }
-        .our-community-box {
-          padding: 24px 28px;
-        }
-        .box-img {
-          width: 70px;
-          height: 70px;
-        }
-        .box-name {
-          font-size: 20px;
-        }
         .box-location-text {
           font-size: 16px;
         }
         .university-introduction {
           gap: 50px;
         }
+        .store-introduction-tab-steps-wrapper {
+          gap: 54px;
+        }
       }
 
-      /*footer*/
+      /* footer call to action */
+
+      .footer-callToAction-wrapper {
+        padding-top: 100px;
+      }
+
+      .footer-callToAction {
+        display: inline-flex;
+        padding: 56px 64px;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+        border-radius: 40px 40px 0px 0px;
+        background: #ffed8a;
+      }
+
+      .footer-callToAction-text {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        flex-basis: 80%;
+      }
+
+      .footer-callToAction-text > h3 {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--color-text-black);
+      }
+
+      .footer-callToAction-text > p {
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--color-text-black);
+        width: 100%;
+      }
+
+      .btn-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 14px 30px;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+        border-radius: 10px;
+        flex-basis: 20%;
+      }
+
+      .btn-footer:hover {
+        background-color: var(--secondary-color);
+      }
+
+      @media only screen and (max-width: 993px) {
+        .footer-callToAction,
+        .footer-callToAction-text {
+          flex-direction: column;
+        }
+      }
+
+      @media only screen and (max-width: 500px) {
+        .footer-callToAction-text > h3 {
+          font-size: 22px;
+        }
+
+        .footer-callToAction-text > p {
+          font-size: 13px;
+        }
+
+        .footer-callToAction-text {
+          gap: 28px;
+        }
+        .footer-callToAction {
+          gap: 34px;
+          padding: 38px 34px;
+        }
+      }
+
+      @media only screen and (min-width: 1600px) {
+        .footer-callToAction-text > h3 {
+          font-size: 34px;
+          font-weight: 700;
+          color: var(--color-text-black);
+        }
+
+        .footer-callToAction-text > p {
+          font-size: 18px;
+          font-weight: 400;
+          color: var(--color-text-black);
+          width: 100%;
+        }
+        .btn-footer {
+          padding: 20px 34px;
+        }
+      }
+
+      /* footer */
 
       .footer-background {
         background-color: var(--primary-color);
-        margin-top: 90px;
       }
 
       .col-6 {
@@ -1874,690 +2152,1000 @@
 
     <main>
       <div class="main-wrapper">
-        <section class="hero-section-wrapper">
-          <div class="hero-text-mg">
-            <h1 class="hero-title">Universities</h1>
-            <p class="hero-desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et.
-            </p>
-          </div>
-        </section>
-
-        <section class="university-introduction-wrapper">
-          <div class="university-introduction container mx">
-            <div class="img-sections">
+        <div class="container mx">
+          <section class="header-section-wrapper">
+            <div class="search-img-top">
               <img
-                src="./images/Video Photo.png"
-                class="all-img-sections"
-                alt="Video"
+                src="./images/TopImg.png"
+                alt="Header Photo"
+                class="search-img"
               />
             </div>
 
-            <div class="university-introduction-content">
-              <div class="university-introduction-content-text">
-                <div class="university-introduction-content-text-title">
-                  <div class="text-title-icon">
-                    <i class="fa fa-university"></i>
-                    <small>University account</small>
-                  </div>
-                  <h2>
-                    Benefits of having a dedicated account for each university
-                  </h2>
-                </div>
+            <div class="header-section-texts-wrapper">
+              <div class="header-section-texts">
+                <h2>
+                  Boost Your University’s Visibility and Recruitment Efforts
+                </h2>
 
-                <p class="university-introduction-content-text-desc">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
-                  congue mauris rhoncus.
+                <p>
+                  Join our academic network to attract top talent, showcase your
+                  programs, and foster meaningful connections with students,
+                  academics, and researchers worldwide.
                 </p>
               </div>
 
-              <div class="university-introduction-content-advantages">
-                <div class="university-introduction-content-advantage">
-                  <div class="advantage-icon">
-                    <i class="fa fa-check"></i>
-                  </div>
-
-                  <h3>The ability to offer online and offline courses</h3>
-                </div>
-
-                <div class="university-introduction-content-advantage">
-                  <div class="advantage-icon">
-                    <i class="fa fa-check"></i>
-                  </div>
-
-                  <h3>
-                    The ability to collaborate with other university members
-                  </h3>
-                </div>
-
-                <div class="university-introduction-content-advantage">
-                  <div class="advantage-icon">
-                    <i class="fa fa-check"></i>
-                  </div>
-
-                  <h3>The ability to offer online and offline courses</h3>
-                </div>
-              </div>
+              <a href="/Signup/Recruiter/index.html" class="btn-cta"
+                >Create University Profile</a
+              >
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section class="our-community-wrapper">
-          <div class="our-community">
-            <h2 class="our-community-title">Our University Community</h2>
+          <section class="whyus-wrapper">
+            <div class="whyus-contents">
+              <div class="whyus-contents-texts">
+                <h2>Why Join us?</h2>
 
-            <div class="our-community-boxs-wrapper">
-              <div class="our-community-boxs" id="infiniteScroll--left">
-                <div class="our-community-box">
-                  <div class="our-community-box-items">
-                    <img
-                      src="./images/Uni photo Comm.png"
-                      class="box-img"
-                      alt="University Image"
-                    />
-
-                    <h4 class="box-name">Hopkins University</h4>
-                  </div>
-                </div>
-
-                <div class="our-community-box">
-                  <div class="our-community-box-items">
-                    <img
-                      src="./images/Uni photo comm 2.png"
-                      class="box-img"
-                      alt="University Image"
-                    />
-
-                    <h4 class="box-name">Adams State College</h4>
-                  </div>
-                </div>
-
-                <div class="our-community-box">
-                  <div class="our-community-box-items">
-                    <img
-                      src="./images/Uni photo comm 3.png"
-                      class="box-img"
-                      alt="University Image"
-                    />
-
-                    <h4 class="box-name">Methodist University</h4>
-                  </div>
-                </div>
-
-                <div class="our-community-box">
-                  <div class="our-community-box-items">
-                    <img
-                      src="./images/Uni photo Comm.png"
-                      class="box-img"
-                      alt="University Image"
-                    />
-
-                    <h4 class="box-name">Hopkins University</h4>
-                  </div>
-                </div>
-
-                <div class="our-community-box">
-                  <div class="our-community-box-items">
-                    <img
-                      src="./images/Uni photo comm 2.png"
-                      class="box-img"
-                      alt="University Image"
-                    />
-
-                    <h4 class="box-name">Adams State College</h4>
-                  </div>
-                </div>
-
-                <div class="our-community-box">
-                  <div class="our-community-box-items">
-                    <img
-                      src="./images/Uni photo comm 3.png"
-                      class="box-img"
-                      alt="University Image"
-                    />
-
-                    <h4 class="box-name">Methodist University</h4>
-                  </div>
-                </div>
+                <p>
+                  Stand out in a competitive academic landscape. Our platform
+                  helps you showcase your university, engage with students, and
+                  recruit top talent. With dedicated features, you can enhance
+                  your institution's visibility, build stronger relationships,
+                  and boost recruitment efforts.
+                </p>
               </div>
 
-              <div class="our-community-boxs" id="infiniteScroll--left">
-                <div class="our-community-box">
-                  <div class="our-community-box-items">
-                    <img
-                      src="./images/Uni photo comm 3.png"
-                      class="box-img"
-                      alt="University Image"
-                    />
-
-                    <h4 class="box-name">Methodist University</h4>
+              <div class="whyus-contents-boxs">
+                <div class="whyus-contents-box">
+                  <div class="whyus-box-icon">
+                    <svg
+                      width="58"
+                      height="58"
+                      viewBox="0 0 58 58"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_1119_51)">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M28.1172 40.0411H29.8702V48.9956H28.1172V40.0411Z"
+                          fill="#003366"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M28.9922 40.0411H29.8687V48.9956H28.9922V40.0411Z"
+                          fill="#003366"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M4.85156 8.04822H53.1398V39.2543H4.85156V8.04822Z"
+                          fill="#DDE2E4"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M53.9345 40.0511H4.0625V7.25134H53.9444V40.0511H53.9345ZM5.64621 38.4574H52.3408V8.84501H5.65617V38.4574H5.64621Z"
+                          fill="#003366"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M28.9922 8.84497H52.4192V38.4574H28.9922V8.84497Z"
+                          fill="#D3DADE"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M53.9332 40.0511H28.9922V38.4574H52.3395V8.84501H28.9922V7.25134H53.9332V40.0511Z"
+                          fill="#003366"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M22.0234 48.9956H35.978V50.7486H22.0234V48.9956Z"
+                          fill="#003366"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M28.9922 48.9956H35.9645V50.7486H28.9922V48.9956Z"
+                          fill="#003366"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M7.24219 13.4068H50.7893V36.8936H7.24219V13.4068Z"
+                          fill="#BCC8CE"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M7.24219 10.4685H50.7893V13.3969H7.24219V10.4685Z"
+                          fill="#92AEB7"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M9.66167 12.4009H9.04412C8.9226 12.4009 8.80606 12.3526 8.72014 12.2667C8.63421 12.1807 8.58594 12.0642 8.58594 11.9427C8.58594 11.8212 8.63421 11.7046 8.72014 11.6187C8.80606 11.5328 8.9226 11.4845 9.04412 11.4845H9.67163C9.9306 11.4845 10.1398 11.6837 10.1398 11.9427C10.1398 12.1917 9.9306 12.4009 9.67163 12.4009H9.66167Z"
+                          fill="#BE1E2D"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M12.1113 12.4009H11.4738C11.3523 12.4009 11.2357 12.3526 11.1498 12.2667C11.0639 12.1807 11.0156 12.0642 11.0156 11.9427C11.0156 11.8212 11.0639 11.7046 11.1498 11.6187C11.2357 11.5328 11.3523 11.4845 11.4738 11.4845H12.1113C12.2328 11.4845 12.3493 11.5328 12.4353 11.6187C12.5212 11.7046 12.5695 11.8212 12.5695 11.9427C12.5695 12.0642 12.5212 12.1807 12.4353 12.2667C12.3493 12.3526 12.2328 12.4009 12.1113 12.4009Z"
+                          fill="#FFD700"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M14.5544 12.4009H13.9269C13.8054 12.4009 13.6889 12.3526 13.6029 12.2667C13.517 12.1807 13.4688 12.0642 13.4688 11.9427C13.4688 11.8212 13.517 11.7046 13.6029 11.6187C13.6889 11.5328 13.8054 11.4845 13.9269 11.4845H14.5544C14.8134 11.4845 15.0126 11.6837 15.0126 11.9427C15.0126 12.1917 14.8134 12.4009 14.5544 12.4009Z"
+                          fill="#39B54A"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M41.6642 24.483C41.6928 24.5108 41.7155 24.5441 41.7311 24.5809C41.7466 24.6177 41.7546 24.6572 41.7546 24.6971C41.7546 24.737 41.7466 24.7765 41.7311 24.8133C41.7155 24.8501 41.6928 24.8834 41.6642 24.9113C40.5785 26.0069 35.3194 30.9572 28.9945 30.9572C22.6796 30.9572 17.4204 26.0069 16.3248 24.9113C16.2962 24.8834 16.2734 24.8501 16.2579 24.8133C16.2424 24.7765 16.2344 24.737 16.2344 24.6971C16.2344 24.6572 16.2424 24.6177 16.2579 24.5809C16.2734 24.5441 16.2962 24.5108 16.3248 24.483C17.4204 23.3873 22.6796 18.427 28.9945 18.427C35.3194 18.427 40.5785 23.3873 41.6642 24.483Z"
+                          fill="white"
+                        />
+                        <path
+                          d="M28.9913 29.9413C31.8904 29.9413 34.2405 27.5912 34.2405 24.6921C34.2405 21.7931 31.8904 19.443 28.9913 19.443C26.0923 19.443 23.7422 21.7931 23.7422 24.6921C23.7422 27.5912 26.0923 29.9413 28.9913 29.9413Z"
+                          fill="#FFD700"
+                        />
+                        <path
+                          d="M28.9952 27.242C30.4034 27.242 31.5451 26.1003 31.5451 24.6921C31.5451 23.2838 30.4034 22.1422 28.9952 22.1422C27.5869 22.1422 26.4453 23.2838 26.4453 24.6921C26.4453 26.1003 27.5869 27.242 28.9952 27.242Z"
+                          fill="#003366"
+                        />
+                        <path
+                          d="M30.0386 23.726C30.3577 23.726 30.6163 23.4673 30.6163 23.1483C30.6163 22.8292 30.3577 22.5706 30.0386 22.5706C29.7196 22.5706 29.4609 22.8292 29.4609 23.1483C29.4609 23.4673 29.7196 23.726 30.0386 23.726Z"
+                          fill="#F7F7F6"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_1119_51">
+                          <rect width="58" height="58" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
                   </div>
+
+                  <h5>Increasing university visibility</h5>
                 </div>
 
-                <div class="our-community-box">
-                  <div class="our-community-box-items">
-                    <img
-                      src="./images/Uni photo Comm.png"
-                      class="box-img"
-                      alt="University Image"
-                    />
-
-                    <h4 class="box-name">Hopkins University</h4>
-                  </div>
-                </div>
-
-                <div class="our-community-box">
-                  <div class="our-community-box-items">
-                    <img
-                      src="./images/Uni photo comm 2.png"
-                      class="box-img"
-                      alt="University Image"
-                    />
-
-                    <h4 class="box-name">Adams State College</h4>
-                  </div>
-                </div>
-
-                <div class="our-community-box">
-                  <div class="our-community-box-items">
-                    <img
-                      src="./images/Uni photo comm 3.png"
-                      class="box-img"
-                      alt="University Image"
-                    />
-
-                    <h4 class="box-name">Methodist University</h4>
-                  </div>
-                </div>
-
-                <div class="our-community-box">
-                  <div class="our-community-box-items">
-                    <img
-                      src="./images/Uni photo Comm.png"
-                      class="box-img"
-                      alt="University Image"
-                    />
-
-                    <h4 class="box-name">Hopkins University</h4>
-                  </div>
-                </div>
-
-                <div class="our-community-box">
-                  <div class="our-community-box-items">
-                    <img
-                      src="./images/Uni photo comm 2.png"
-                      class="box-img"
-                      alt="University Image"
-                    />
-
-                    <h4 class="box-name">Adams State College</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="charts-section-wrapper">
-          <div class="charts-section container mx">
-            <div class="charts-section-content">
-              <div class="charts-section-content-items">
-                <div class="charts-section-content-items-title">
-                  <div class="charts-section-content-items-title-small">
-                    <div class="title-small-icon">
-                      <i class="fa fa-file-text-o"></i>
-                    </div>
-                    <small>Registration Chart</small>
-                  </div>
-
-                  <h2>
-                    Registration Statistics: A Close Look at the Incoming
-                    Population
-                  </h2>
-                </div>
-
-                <div class="charts-section-content-items-desc">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
-                    cursus vitae congue mauris rhoncus.
-                  </p>
-
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </div>
-              </div>
-
-              <button class="btn-medium">Join Us Now</button>
-            </div>
-
-            <div class="charts">
-              <div class="charts-titles">
-                <div class="charts-title">
-                  <div class="charts-title-al">
-                    <h5>Graph of Registration Numbers :</h5>
-                  </div>
-                </div>
-
-                <div class="charts-data">
-                  <h2>207,388</h2>
-                </div>
-              </div>
-
-              <div class="charts-body">
-                <div class="charts-body-axis">
-                  <div class="axis-item">
+                <div class="whyus-contents-box">
+                  <div class="whyus-box-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="2"
-                      height="223"
-                      viewBox="0 0 2 223"
+                      width="58"
+                      height="58"
+                      viewBox="0 0 58 58"
                       fill="none"
                     >
                       <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M0.50001 223L0.5 4.37112e-08L1.5 0L1.50001 223H0.50001Z"
-                        fill="#DADADA"
+                        d="M30.8638 47.8972L32.0045 44.3077L28.679 42.7665L25.3438 44.3085L26.4815 47.8972H30.8638Z"
+                        fill="#FFD700"
+                      />
+                      <path
+                        d="M37.8911 39.0863L28.6721 42.7643L19.4531 39.0863L21.7661 45.9616L28.6721 42.7688L35.6036 45.9728L37.8911 39.0863Z"
+                        fill="#DA5B78"
+                      />
+                      <path
+                        d="M42.9659 48.324C42.8203 48.324 42.6805 48.3818 42.5775 48.4847C42.4744 48.5877 42.4164 48.7273 42.4162 48.873V53.0767C42.4214 53.2189 42.4816 53.3535 42.5841 53.4523C42.6865 53.551 42.8233 53.6062 42.9656 53.6062C43.1079 53.6062 43.2446 53.551 43.3471 53.4523C43.4495 53.3535 43.5097 53.2189 43.5149 53.0767V48.873C43.5149 48.7274 43.4571 48.5877 43.3541 48.4848C43.2512 48.3818 43.1115 48.324 42.9659 48.324ZM14.3857 48.324C14.24 48.324 14.1003 48.3818 13.9972 48.4847C13.8941 48.5877 13.8361 48.7273 13.8359 48.873V53.0767C13.8359 53.2225 13.8939 53.3624 13.997 53.4655C14.1001 53.5686 14.2399 53.6265 14.3857 53.6265C14.5315 53.6265 14.6713 53.5686 14.7744 53.4655C14.8775 53.3624 14.9354 53.2225 14.9354 53.0767V48.873C14.9352 48.7273 14.8772 48.5877 14.7742 48.4847C14.6711 48.3818 14.5314 48.324 14.3857 48.324Z"
+                        fill="#003366"
+                      />
+                      <path
+                        d="M45.7299 40.0455L39.2229 38.922C38.8413 38.8562 38.4695 38.743 38.1159 38.5853C37.4683 38.2985 36.8946 37.8678 36.4387 37.3258C35.9827 36.7838 35.6565 36.1449 35.4849 35.4578L35.0694 33.8108C38.2486 31.2863 40.3569 26.946 40.3569 22.017C40.3569 14.844 35.6604 10.0253 28.6726 10.0253C21.6849 10.0253 16.9891 14.844 16.9891 22.017C16.9891 26.9445 19.0966 31.2855 22.2759 33.81L21.8604 35.4578C21.6889 36.145 21.3627 36.784 20.9068 37.326C20.4508 37.868 19.8771 38.2987 19.2294 38.5853C18.8755 38.7429 18.5034 38.8561 18.1216 38.922L11.6139 40.0455C9.66923 40.3781 7.90516 41.3886 6.63445 42.8978C5.36373 44.407 4.66846 46.3174 4.67189 48.2903V53.0775C4.67714 53.2197 4.73732 53.3543 4.83978 53.4531C4.94223 53.5518 5.07898 53.607 5.22126 53.607C5.36355 53.607 5.5003 53.5518 5.60275 53.4531C5.7052 53.3543 5.76538 53.2197 5.77064 53.0775V48.2903C5.76753 46.5766 6.37132 44.9172 7.47496 43.6063C8.5786 42.2953 10.1108 41.4175 11.7999 41.1285L18.3076 40.005C18.5803 39.9559 18.849 39.887 19.1116 39.7988L21.2439 46.1378C21.281 46.2466 21.3512 46.3412 21.4446 46.4083C21.5381 46.4754 21.6501 46.5116 21.7651 46.512C21.8447 46.5121 21.9233 46.4947 21.9954 46.461L25.0059 45.069L25.9059 47.9055L24.4786 52.926C24.4406 53.0657 24.4591 53.2147 24.5302 53.3408C24.6014 53.4669 24.7194 53.5598 24.8586 53.5994C24.9979 53.639 25.1471 53.6221 25.274 53.5523C25.4008 53.4826 25.495 53.3656 25.5361 53.2268L26.8951 48.4455L30.4456 48.4463L31.8061 53.2268C31.846 53.3669 31.9399 53.4855 32.0672 53.5563C32.1945 53.6272 32.3448 53.6447 32.4849 53.6048C32.625 53.5649 32.7436 53.471 32.8145 53.3437C32.8853 53.2164 32.9028 53.0662 32.8629 52.926L31.4341 47.9063L32.3364 45.069L35.3716 46.4708C35.4416 46.5039 35.5178 46.5216 35.5952 46.5226C35.6726 46.5237 35.7493 46.508 35.8201 46.4768C35.8915 46.4463 35.9554 46.401 36.0078 46.3438C36.0602 46.2867 36.0998 46.219 36.1239 46.1453L38.2329 39.798C38.4954 39.8843 38.7624 39.9578 39.0354 40.0043L45.5409 41.1278C47.2303 41.4165 48.7628 42.2941 49.8667 43.6051C50.9707 44.9161 51.5747 46.5757 51.5716 48.2895V53.0768C51.5716 53.2225 51.6295 53.3622 51.7325 53.4652C51.8356 53.5683 51.9753 53.6261 52.121 53.6261C52.2667 53.6261 52.4064 53.5683 52.5095 53.4652C52.6125 53.3622 52.6704 53.2225 52.6704 53.0768V48.2895C52.6746 46.3167 51.9798 44.4062 50.7092 42.897C49.4387 41.3879 47.6745 40.3776 45.7299 40.0455ZM18.0886 22.017C18.0886 15.3998 22.2429 11.1248 28.6726 11.1248C35.1024 11.1248 39.2566 15.3998 39.2566 22.017C39.2566 29.19 34.5091 35.028 28.6726 35.028C22.8369 35.0273 18.0886 29.19 18.0886 22.017ZM22.9254 35.7263L23.2359 34.4955C24.8619 35.5328 26.7099 36.126 28.6726 36.126C30.6346 36.126 32.4834 35.5328 34.1094 34.4955L34.4199 35.7263C34.7473 37.0443 35.5326 38.203 36.6354 38.9955L28.6726 42.1725L20.7106 38.997C21.8127 38.2033 22.5975 37.0443 22.9254 35.7263ZM20.3536 40.0373L27.2881 42.8033L22.0921 45.2063L20.3536 40.0373ZM30.4606 47.3468H26.8831L26.0124 44.6048L28.6726 43.374L31.3329 44.6033L30.4606 47.3468ZM35.2764 45.2153L30.0579 42.8025L36.9969 40.0358L35.2764 45.2153ZM5.22314 31.068C5.36881 31.0678 5.50845 31.0098 5.61138 30.9067C5.71432 30.8037 5.77214 30.6639 5.77214 30.5183V15.5528C5.77214 15.4071 5.71426 15.2673 5.61123 15.1643C5.5082 15.0613 5.36847 15.0034 5.22276 15.0034C5.07706 15.0034 4.93732 15.0613 4.8343 15.1643C4.73127 15.2673 4.67339 15.4071 4.67339 15.5528V30.5183C4.67329 30.5905 4.68744 30.662 4.71503 30.7288C4.74263 30.7955 4.78312 30.8562 4.83418 30.9072C4.88525 30.9583 4.9459 30.9988 5.01264 31.0264C5.07938 31.054 5.15092 31.0681 5.22314 31.068ZM5.22314 37.578C5.36881 37.5778 5.50845 37.5198 5.61138 37.4167C5.71432 37.3137 5.77214 37.1739 5.77214 37.0283V34.1828C5.77214 34.0371 5.71426 33.8973 5.61123 33.7943C5.5082 33.6913 5.36847 33.6334 5.22276 33.6334C5.07706 33.6334 4.93732 33.6913 4.8343 33.7943C4.73127 33.8973 4.67339 34.0371 4.67339 34.1828V37.0283C4.67329 37.1005 4.68744 37.172 4.71503 37.2388C4.74263 37.3055 4.78312 37.3662 4.83418 37.4172C4.88525 37.4683 4.9459 37.5088 5.01264 37.5364C5.07938 37.564 5.15092 37.5781 5.22314 37.578Z"
+                        fill="#003366"
+                      />
+                      <path
+                        d="M9.62006 35.379C9.76587 35.379 9.9057 35.3211 10.0088 35.218C10.1119 35.1149 10.1698 34.9751 10.1698 34.8293V24.9945C10.1698 24.8487 10.1119 24.7089 10.0088 24.6058C9.9057 24.5027 9.76587 24.4448 9.62006 24.4448C9.47426 24.4448 9.33443 24.5027 9.23133 24.6058C9.12823 24.7089 9.07031 24.8487 9.07031 24.9945V34.8285C9.07031 35.133 9.31631 35.379 9.62006 35.379ZM9.62006 21.879C9.76574 21.879 9.90545 21.8212 10.0085 21.7183C10.1116 21.6153 10.1696 21.4757 10.1698 21.33V18.4845C10.1698 18.3387 10.1119 18.1989 10.0088 18.0958C9.9057 17.9927 9.76587 17.9348 9.62006 17.9348C9.47426 17.9348 9.33443 17.9927 9.23133 18.0958C9.12823 18.1989 9.07031 18.3387 9.07031 18.4845V21.33C9.07031 21.633 9.31631 21.879 9.62006 21.879ZM52.1233 12.072C51.9777 12.072 51.8381 12.1299 51.7351 12.2328C51.6322 12.3358 51.5743 12.4754 51.5743 12.621V22.4558C51.5743 22.6015 51.6322 22.7412 51.7352 22.8442C51.8383 22.9473 51.978 23.0051 52.1237 23.0051C52.2694 23.0051 52.4091 22.9473 52.5122 22.8442C52.6152 22.7412 52.6731 22.6015 52.6731 22.4558V12.621C52.6729 12.4753 52.6149 12.3357 52.5118 12.2328C52.4087 12.1298 52.269 12.072 52.1233 12.072ZM52.1233 25.5705C51.9776 25.5707 51.838 25.6287 51.7351 25.7318C51.6321 25.8349 51.5743 25.9746 51.5743 26.1203V39.2265C51.5716 39.3004 51.5838 39.374 51.6102 39.4431C51.6365 39.5121 51.6766 39.5751 51.7278 39.6283C51.7791 39.6815 51.8406 39.7239 51.9086 39.7528C51.9766 39.7817 52.0498 39.7966 52.1237 39.7966C52.1976 39.7966 52.2707 39.7817 52.3388 39.7528C52.4068 39.7239 52.4683 39.6815 52.5195 39.6283C52.5708 39.5751 52.6108 39.5121 52.6372 39.4431C52.6636 39.374 52.6758 39.3004 52.6731 39.2265V26.1203C52.6731 25.9745 52.6152 25.8346 52.5121 25.7315C52.409 25.6284 52.2691 25.5705 52.1233 25.5705ZM47.7268 35.379C47.8725 35.3788 48.0121 35.3208 48.1151 35.2177C48.218 35.1147 48.2758 34.9749 48.2758 34.8293V29.3918C48.2706 29.2496 48.2104 29.115 48.1079 29.0162C48.0055 28.9175 47.8687 28.8623 47.7264 28.8623C47.5842 28.8623 47.4474 28.9175 47.345 29.0162C47.2425 29.115 47.1823 29.2496 47.1771 29.3918V34.8293C47.177 34.9015 47.1911 34.973 47.2187 35.0398C47.2463 35.1065 47.2868 35.1672 47.3379 35.2182C47.3889 35.2693 47.4496 35.3098 47.5163 35.3374C47.5831 35.365 47.6546 35.3791 47.7268 35.379ZM47.7268 26.2763C47.8725 26.2761 48.0121 26.2181 48.1151 26.115C48.218 26.0119 48.2758 25.8722 48.2758 25.7265V16.2855C48.2706 16.1433 48.2104 16.0087 48.1079 15.91C48.0055 15.8112 47.8687 15.7561 47.7264 15.7561C47.5842 15.7561 47.4474 15.8112 47.345 15.91C47.2425 16.0087 47.1823 16.1433 47.1771 16.2855V25.7273C47.177 25.7995 47.1911 25.871 47.2187 25.9377C47.2463 26.0044 47.2868 26.0649 47.3379 26.116C47.389 26.167 47.4496 26.2074 47.5164 26.2349C47.5831 26.2624 47.6546 26.2765 47.7268 26.2763Z"
+                        fill="#003366"
+                      />
+                      <path
+                        d="M39.653 12.3337L46.9842 10.5735L28.6632 6.17773L10.3438 10.5735L17.672 12.333V16.83C17.672 18.7957 22.5935 20.3895 28.664 20.3895C34.7352 20.3895 39.656 18.7957 39.656 16.83C39.656 16.8157 39.653 16.8022 39.653 16.788V12.3337Z"
+                        fill="#00A1F1"
+                      />
+                      <path
+                        d="M35.8597 21.3944C35.8597 21.9778 35.628 22.5372 35.2155 22.9496C34.803 23.3621 34.2436 23.5938 33.6603 23.5938C33.077 23.5938 32.5176 23.3621 32.1051 22.9496C31.6927 22.5372 31.4609 21.9778 31.4609 21.3944C31.4609 20.8111 31.6927 20.2517 32.1051 19.8393C32.5176 19.4268 33.077 19.1951 33.6603 19.1951C34.2436 19.1951 34.803 19.4268 35.2155 19.8393C35.628 20.2517 35.8597 20.8111 35.8597 21.3944Z"
+                        fill="#FFD700"
+                      />
+                      <path
+                        d="M47.1136 10.0387L28.7934 5.643C28.7091 5.62274 28.6212 5.62274 28.5369 5.643L10.2166 10.0387C10.0969 10.068 9.99046 10.1366 9.91435 10.2336C9.83824 10.3305 9.79688 10.4502 9.79688 10.5735C9.79688 10.6968 9.83824 10.8164 9.91435 10.9134C9.99046 11.0104 10.0969 11.079 10.2166 11.1082L28.5369 15.5055C28.6211 15.5265 28.7092 15.5265 28.7934 15.5055L33.1126 14.4682V18.702C32.4923 18.8293 31.9349 19.1667 31.5343 19.6572C31.1337 20.1476 30.9145 20.7612 30.9136 21.3945C30.9146 22.123 31.2045 22.8214 31.7196 23.3365C32.2347 23.8517 32.9331 24.1415 33.6616 24.1425C34.3902 24.1417 35.0887 23.8519 35.6039 23.3367C36.1191 22.8216 36.4088 22.1231 36.4096 21.3945C36.4096 20.067 35.4646 18.957 34.2114 18.702V14.205L47.1129 11.1082C47.2331 11.0797 47.3402 11.0113 47.4167 10.9142C47.4932 10.8172 47.5347 10.6971 47.5344 10.5735C47.5347 10.45 47.4934 10.33 47.417 10.233C47.3406 10.1359 47.2337 10.0675 47.1136 10.0387ZM35.3116 21.3945C35.3114 21.8318 35.1376 22.2512 34.8284 22.5605C34.5191 22.8697 34.0997 23.0435 33.6624 23.0437C33.2356 23.028 32.8316 22.8474 32.5352 22.5399C32.2389 22.2324 32.0733 21.8219 32.0733 21.3949C32.0733 20.9678 32.2389 20.5574 32.5352 20.2499C32.8316 19.9424 33.2356 19.7618 33.6624 19.746C34.0996 19.7462 34.5189 19.9199 34.8281 20.229C35.1373 20.5381 35.3112 20.9573 35.3116 21.3945ZM33.7809 13.1782L28.9891 9.6855C28.9308 9.64295 28.8646 9.61231 28.7944 9.59533C28.7242 9.57836 28.6514 9.57537 28.58 9.58655C28.5087 9.59773 28.4402 9.62285 28.3786 9.66048C28.3169 9.69811 28.2633 9.74752 28.2208 9.80587C28.1348 9.92373 28.0992 10.0709 28.1218 10.215C28.1444 10.3591 28.2233 10.4883 28.3411 10.5742L32.3769 13.5157L28.6651 14.4067L12.6999 10.575L28.6651 6.744L44.6304 10.575L33.7809 13.1782Z"
+                        fill="#003366"
                       />
                     </svg>
-                    <h6>0</h6>
                   </div>
 
-                  <div class="axis-item">
+                  <h5>Student engagement</h5>
+                </div>
+
+                <div class="whyus-contents-box">
+                  <div class="whyus-box-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="2"
-                      height="223"
-                      viewBox="0 0 2 223"
+                      width="58"
+                      height="58"
+                      viewBox="0 0 58 58"
                       fill="none"
                     >
                       <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M0.50001 223L0.5 4.37112e-08L1.5 0L1.50001 223H0.50001Z"
-                        fill="#DADADA"
+                        d="M11.4056 47.2011H10.0725V27.4874H11.4056V47.2011ZM9.23153 27.4874H7.89844V47.2006H9.23153V27.4874ZM13.5802 27.4874H12.2471V47.2006H13.5802V27.4874ZM22.2775 27.4874H20.9444V47.2006H22.2775V27.4874ZM20.1034 27.4874H18.7703V47.2006H20.1034V27.4874ZM24.452 27.4874H23.1189V47.2006H24.452V27.4874ZM36.9546 27.4874H35.6215V47.2006H36.9546V27.4874ZM34.7801 27.4874H33.447V47.2006H34.7801V27.4874ZM39.1287 27.4874H37.7956V47.2006H39.1287V27.4874ZM47.826 27.4874H46.4929V47.2006H47.826V27.4874ZM45.6519 27.4874H44.3188V47.2006H45.6519V27.4874ZM50.0005 27.4874H48.6674V47.2006H50.0005V27.4874Z"
+                        fill="#003366"
+                      />
+                      <path
+                        d="M56.999 20.5488H1L28.9995 4.7782L56.999 20.5488Z"
+                        fill="#F7F9FB"
+                      />
+                      <path
+                        d="M14.5477 27.488H6.9375V25.158H14.5477V27.488ZM14.5477 47.2012H6.9375V49.5311H14.5477V47.2012ZM25.4196 25.158H17.8093V27.488H25.4196V25.158ZM25.4196 47.2012H17.8093V49.5311H25.4196V47.2012ZM40.0963 25.158H32.486V27.488H40.0963V25.158ZM40.0963 47.2012H32.486V49.5311H40.0963V47.2012ZM50.9681 25.158H43.3579V27.488H50.9681V25.158ZM50.9681 47.2012H43.3579V49.5311H50.9681V47.2012ZM29.0029 8.00403L10.5485 18.3983H47.4568L29.0029 8.00403Z"
+                        fill="#DA5B78"
+                      />
+                      <path
+                        d="M52.6421 22.4016V25.3374H5.35938V22.47M5.35938 49.3517V52.219H52.6416V49.3517"
+                        fill="#578BAA"
+                      />
+                      <path
+                        d="M57.9991 22.4446H0V19.4264L28.9995 3.09302L57.9991 19.4268V22.4446ZM2.26789 20.4445H55.7312L28.9995 5.38855L2.26789 20.4445Z"
+                        fill="#003366"
+                      />
+                      <path
+                        d="M55.1762 52.0396V54.9069H2.82031V52.0396"
+                        fill="#003366"
                       />
                     </svg>
-                    <h6>20K</h6>
                   </div>
 
-                  <div class="axis-item">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="2"
-                      height="223"
-                      viewBox="0 0 2 223"
-                      fill="none"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M0.50001 223L0.5 4.37112e-08L1.5 0L1.50001 223H0.50001Z"
-                        fill="#DADADA"
-                      />
-                    </svg>
-                    <h6>40K</h6>
+                  <h5>Boosting university brand</h5>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="features-wrapper">
+            <div class="features-contents">
+              <h3>Key Features & Benefits</h3>
+
+              <div class="features-boxs">
+                <div class="features-box">
+                  <div class="card-front">
+                    <div class="features-box-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="77"
+                        height="76"
+                        viewBox="0 0 77 76"
+                        fill="none"
+                      >
+                        <g clip-path="url(#clip0_1119_102)">
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M3.88932 28.1315L38.4134 1L73.1107 28.1315H3.88932ZM27.1693 56.6502L27.2435 43.9855H25.9632V59.951C27.8479 59.4782 29.7846 59.2451 31.7276 59.2574C33.5959 59.2364 35.4545 59.5295 37.2259 60.1244C36.1054 59.2173 34.829 58.5226 33.4593 58.0746C31.7002 57.5174 29.8473 57.3194 28.0104 57.4924C27.9088 57.5018 27.8064 57.4909 27.709 57.4604C27.6116 57.4299 27.5212 57.3805 27.443 57.3148C27.3648 57.2492 27.3004 57.1687 27.2534 57.078C27.2064 56.9873 27.1778 56.8882 27.1693 56.7864C27.1631 56.7412 27.1631 56.6954 27.1693 56.6502ZM47.833 40.6723C46.158 40.4816 44.4617 40.6939 42.8851 41.2916C41.3843 41.8206 40.0981 42.8279 39.2236 44.1589V58.4957C40.4807 57.6284 41.8417 56.923 43.2748 56.3963C44.73 55.8191 46.2969 55.5799 47.8578 55.6965V40.6723H47.833ZM49.6885 42.4249H51.7975C52.0032 42.4265 52.1998 42.5095 52.3446 42.6556C52.4894 42.8018 52.5707 42.9993 52.5707 43.2052V61.1153C52.5715 61.2175 52.5521 61.3188 52.5136 61.4135C52.4751 61.5081 52.4183 61.5942 52.3464 61.6667C52.2745 61.7393 52.189 61.7968 52.0948 61.8361C52.0006 61.8754 51.8996 61.8956 51.7975 61.8956C51.711 61.8975 51.625 61.8828 51.544 61.8523C49.451 61.212 47.2809 60.8599 45.0931 60.8057C42.9434 60.7758 40.8127 61.211 38.8464 62.0814C38.713 62.1623 38.5601 62.2051 38.4041 62.2051C38.2482 62.2051 38.0953 62.1623 37.9619 62.0814C35.9973 61.2126 33.8689 60.7775 31.7214 60.8057C29.5357 60.8605 27.3676 61.2126 25.2767 61.8523C25.1955 61.8822 25.1096 61.8969 25.0231 61.8956C24.8186 61.894 24.6229 61.8119 24.4782 61.6671C24.3336 61.5223 24.2516 61.3263 24.25 61.1215V43.2052C24.2516 42.9988 24.3342 42.8012 24.48 42.6552C24.6258 42.5092 24.8231 42.4265 25.0293 42.4249H27.2435V39.83C27.2442 39.6521 27.306 39.4798 27.4187 39.3422C27.5313 39.2046 27.6879 39.1101 27.862 39.0745C30.1011 38.6194 32.4226 38.7974 34.5664 39.5885C36.0954 40.1455 37.4356 41.1246 38.432 42.4125C39.4578 41.1843 40.7922 40.2523 42.2975 39.7124C44.4428 38.9455 46.7465 38.7325 48.9958 39.0931C49.1805 39.1198 49.3495 39.212 49.4721 39.3529C49.5947 39.4938 49.6627 39.6741 49.6638 39.861V42.4559L49.6885 42.4249ZM39.9535 60.0068C41.6188 59.4882 43.3554 59.2353 45.0993 59.2574C47.0424 59.2426 48.9794 59.4757 50.8636 59.951V43.9855H49.6823V56.7369C49.6831 56.8391 49.6637 56.9404 49.6252 57.035C49.5868 57.1297 49.5299 57.2157 49.4581 57.2883C49.3862 57.3608 49.3007 57.4184 49.2065 57.4577C49.1123 57.497 49.0112 57.5172 48.9092 57.5172C48.8496 57.5236 48.7895 57.5236 48.7298 57.5172C47.0627 57.2678 45.3595 57.449 43.7819 58.0436C42.4314 58.5481 41.1494 59.2201 39.9658 60.0439L39.9535 60.0068ZM37.6465 58.3409V44.1589C36.8282 42.7744 35.5496 41.7221 34.0345 41.1863C32.4623 40.57 30.7556 40.3799 29.0866 40.6351L29 55.746C30.6788 55.6711 32.3568 55.9105 33.9479 56.452C35.2743 56.8732 36.5265 57.5001 37.6589 58.3099L37.6465 58.3409ZM38.5 14.0053C39.1948 14.0053 39.874 14.2116 40.4517 14.5981C41.0295 14.9846 41.4797 15.534 41.7456 16.1768C42.0115 16.8195 42.0811 17.5268 41.9455 18.2091C41.81 18.8915 41.4754 19.5183 40.9841 20.0102C40.4928 20.5022 39.8668 20.8372 39.1854 20.9729C38.5039 21.1086 37.7976 21.039 37.1556 20.7727C36.5137 20.5065 35.9651 20.0556 35.579 19.4772C35.193 18.8987 34.987 18.2186 34.987 17.5229C34.987 16.59 35.3571 15.6952 36.0159 15.0356C36.6748 14.3759 37.5683 14.0053 38.5 14.0053ZM38.5 10.2585C39.9346 10.2585 41.337 10.6844 42.53 11.4824C43.7229 12.2803 44.6528 13.4145 45.2021 14.7415C45.7513 16.0685 45.8954 17.5288 45.6159 18.9378C45.3365 20.3468 44.6462 21.6412 43.6322 22.6574C42.6182 23.6736 41.3261 24.3659 39.9192 24.6469C38.5123 24.9279 37.0537 24.7849 35.728 24.2361C34.4022 23.6872 33.2687 22.7571 32.4708 21.5633C31.6729 20.3695 31.2464 18.9656 31.2451 17.5291C31.2517 15.6067 32.0189 13.7654 33.3788 12.4084C34.7386 11.0514 36.5802 10.2895 38.5 10.2895V10.2585ZM4.60059 65.2399H8.31153V64.6206C8.31316 64.0002 8.56 63.4057 8.99808 62.9671C9.43617 62.5284 10.0299 62.2812 10.6494 62.2796V37.037H5.99837V31.9216H70.8161V37.037H66.1898V62.2486C66.8093 62.2503 67.4031 62.4974 67.8411 62.9361C68.2792 63.3748 68.5261 63.9692 68.5277 64.5896V65.2089H72.3871C72.7808 65.2121 73.1574 65.3706 73.4353 65.65C73.7131 65.9294 73.8698 66.3071 73.8714 66.7014V70.1261H74.9971C75.3909 70.1277 75.7681 70.2847 76.0471 70.5629C76.3261 70.8411 76.4844 71.2182 76.4877 71.6124V73.4703C76.4828 73.8647 76.3243 74.2415 76.0458 74.5204C75.7673 74.7992 75.3909 74.958 74.9971 74.9628H1.99056C1.60253 74.9599 1.23069 74.8067 0.952864 74.5354C0.675039 74.2642 0.512764 73.8958 0.5 73.5075L0.5 71.6496C0.501636 71.2548 0.659399 70.8768 0.938756 70.5982C1.21811 70.3197 1.59631 70.1633 1.99056 70.1633H3.11621V66.7386C3.11784 66.3432 3.2754 65.9645 3.55459 65.685C3.83377 65.4054 4.21195 65.2477 4.60677 65.246L4.60059 65.2399ZM21.4482 65.2399H55.3848V64.6206C55.3848 64.5277 55.3848 64.4348 55.3848 64.3419C55.4596 63.7892 55.7284 63.2812 56.1432 62.909C56.558 62.5368 57.0916 62.3247 57.6485 62.3106V37.037H19.166V62.2486C19.7764 62.2632 20.3568 62.5162 20.7833 62.9537C21.2098 63.3911 21.4484 63.9783 21.4482 64.5896V65.2089V65.2399Z"
+                            fill="#003366"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_1119_102">
+                            <rect
+                              width="76"
+                              height="76"
+                              fill="white"
+                              transform="translate(0.5)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+
+                    <h4>Introduce Your University</h4>
                   </div>
 
-                  <div class="axis-item">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="2"
-                      height="223"
-                      viewBox="0 0 2 223"
-                      fill="none"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M0.50001 223L0.5 4.37112e-08L1.5 0L1.50001 223H0.50001Z"
-                        fill="#DADADA"
-                      />
-                    </svg>
-                    <h6>60K</h6>
-                  </div>
+                  <div class="card-back">
+                    <h4>Introduce Your University</h4>
 
-                  <div class="axis-item">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="2"
-                      height="223"
-                      viewBox="0 0 2 223"
-                      fill="none"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M0.50001 223L0.5 4.37112e-08L1.5 0L1.50001 223H0.50001Z"
-                        fill="#DADADA"
-                      />
-                    </svg>
-                    <h6>80K</h6>
+                    <p>
+                      On UniUniverse.com, you can create a profile for your
+                      university to introduce it to potential students and
+                      academic professionals. This profile includes your
+                      university’s history, core values, location, achievements,
+                      admission criteria for courses, and more.
+                    </p>
                   </div>
                 </div>
 
-                <div class="charts-body-bars">
-                  <div class="charts-body-bar">
-                    <div class="charts-body-bar-width">
-                      <div class="bar-width-axis">
-                        <h6 class="bar-width-axis-title">University</h6>
-                      </div>
-                      <div class="bar-width-fill" id="University"></div>
-                      <div class="bar-width-axis-numbers">
-                        <h6 class="bar-width-axis-number">56,635</h6>
+                <div class="features-box">
+                  <div class="card-front">
+                    <div class="features-box-icon">
+                      <svg
+                        width="107"
+                        height="76"
+                        viewBox="0 0 107 76"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_1119_106)">
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M72.1846 28.4914L71.9258 18.8188L56.0361 23.4092C54.6042 23.7198 53.1981 23.8751 51.8092 23.8751C50.3255 23.8837 48.8677 23.7198 47.4271 23.4092L32.2448 18.767V28.5776C32.6761 33.6685 47.2891 35.2302 51.7747 35.4459C55.3719 35.6185 69.5708 33.7461 71.4341 30.8124C71.8395 30.1739 72.0897 29.3974 72.1846 28.4914ZM2.69108 71.6253H13.5516C12.7493 71.4183 12.1455 70.6762 12.1455 69.8133V21.7525C12.1455 20.7257 12.9909 19.8801 14.0174 19.8801H22.4022C22.1348 20.8379 21.9795 21.8129 21.9622 22.8138H15.3545V69.2784H91.4299V22.8138H85.0205C85.0033 21.8129 84.8566 20.8379 84.5892 19.8801H92.4995C93.526 19.8801 94.3714 20.7257 94.3714 21.7525V69.8047C94.3714 70.6762 93.7762 71.4096 92.9653 71.6167H104.318C105.525 71.6167 106.509 72.6004 106.509 73.8083C106.509 75.0163 105.525 76 104.318 76H2.69108C1.4834 76 0.5 75.0163 0.5 73.8083C0.5 72.609 1.4834 71.6253 2.69108 71.6253ZM23.9118 60.995C23.2131 60.995 22.6437 60.4255 22.6437 59.7266C22.6437 59.0277 23.2131 58.4582 23.9118 58.4582H73.4095C74.1082 58.4582 74.6776 59.0277 74.6776 59.7266C74.6776 60.4255 74.1082 60.995 73.4095 60.995H23.9118ZM23.9118 53.4278C23.2131 53.4278 22.6437 52.8583 22.6437 52.1594C22.6437 51.4605 23.2131 50.891 23.9118 50.891H61.8071C62.5059 50.891 63.0752 51.4605 63.0752 52.1594C63.0752 52.8583 62.5059 53.4278 61.8071 53.4278H23.9118ZM23.9118 45.8606C23.2131 45.8606 22.6437 45.2911 22.6437 44.5922C22.6437 43.8933 23.2131 43.3238 23.9118 43.3238H73.8063C74.5051 43.3238 75.0744 43.8933 75.0744 44.5922C75.0744 45.2911 74.5051 45.8606 73.8063 45.8606H23.9118ZM50.4204 72.445H56.5796C57.1576 72.445 57.632 72.9196 57.632 73.4977C57.632 74.0758 57.1576 74.5504 56.5796 74.5504H50.4204C49.8424 74.5504 49.368 74.0758 49.368 73.4977C49.368 72.911 49.8424 72.445 50.4204 72.445ZM78.6284 11.8556V23.6766H78.9994C79.2495 23.6766 79.4652 23.8837 79.4652 24.1426V27.3179C79.4652 27.5681 79.2581 27.7838 78.9994 27.7838H78.6198V28.8969C79.0942 28.9832 79.4565 29.406 79.4565 29.9064C79.4565 30.4673 78.9907 30.9332 78.43 30.9332H76.5926C76.0319 30.9332 75.5661 30.4759 75.5661 29.9064C75.5661 29.406 75.9284 28.9918 76.4028 28.8969V27.7838H76.0319C75.7817 27.7838 75.5661 27.5767 75.5661 27.3179V24.1426C75.5661 23.8837 75.7731 23.6766 76.0319 23.6766H76.4115V12.5459L57.0713 18.5599C53.569 19.3969 50.0667 19.4487 46.5645 18.5599L25.223 12.1835L23.2907 11.6054C20.884 10.6217 21.4878 8.31789 23.722 7.78292L47.867 0.569475C50.36 -0.138063 52.8444 -0.250234 55.3374 0.569475L79.0425 7.69663C81.6217 8.32651 82.1307 10.708 79.1287 11.6916L78.6284 11.8556Z"
+                            fill="#003366"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_1119_106">
+                            <rect
+                              width="106"
+                              height="76"
+                              fill="white"
+                              transform="translate(0.5)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+
+                    <h4>Showcase Educational Opportunities</h4>
+                  </div>
+
+                  <div class="card-back">
+                    <h4>Showcase Educational Opportunities</h4>
+
+                    <p>
+                      Promote your university’s programs at all
+                      levels—Bachelor’s, Master’s, PhD, and Postdoc. Provide
+                      detailed descriptions of each course, application
+                      requirements, and deadlines to attract a diverse student
+                      base.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="features-box">
+                  <div class="card-front">
+                    <div class="features-box-icon">
+                      <svg
+                        width="85"
+                        height="76"
+                        viewBox="0 0 85 76"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_1119_111)">
+                          <path
+                            d="M42.5 50.7916L30.9062 58.6783C30.1338 59.4212 28.9102 59.3934 28.1787 58.6089C27.4404 57.8244 27.4746 56.5817 28.2471 55.8389L40.668 47.1399L40.4561 36.1984C40.4355 35.1154 41.2832 34.2198 42.3428 34.199C43.4092 34.1781 44.291 35.039 44.3115 36.1151L44.5234 47.3273L56.7461 55.8319C57.5186 56.5817 57.5459 57.8175 56.8145 58.602C56.083 59.3865 54.8594 59.4143 54.0869 58.6714L42.5 50.7916ZM35.835 8.78925C35.5889 8.80314 35.4043 8.86562 35.2744 8.95587C35.1924 9.01141 35.1309 9.08084 35.0967 9.16415C35.0557 9.26134 35.0352 9.37242 35.0352 9.50433C35.0488 9.89312 35.2471 10.393 35.6299 10.9762L35.6367 10.9831L36.8877 13.0103C37.3936 13.8226 37.9199 14.6488 38.5693 15.2597C39.1982 15.8429 39.9639 16.2386 40.9688 16.2386C42.0625 16.2386 42.8623 15.829 43.5117 15.2111C44.1885 14.5724 44.7217 13.6907 45.248 12.809L46.6562 10.4485C46.9502 9.76815 47.0391 9.34465 46.9365 9.13638C46.8613 8.98364 46.5879 8.94199 46.1367 8.98364C46.0547 8.99058 45.9795 8.96976 45.918 8.93504C45.8496 8.93504 45.7744 8.93504 45.7061 8.9281L45.7539 8.68511C45.7539 8.67123 45.7471 8.66429 45.7471 8.6504C45.7402 8.56709 45.7607 8.48378 45.8018 8.4213L46.123 6.77591C43.5391 6.7412 41.7754 6.28299 39.6836 4.9292C39 4.48488 38.7881 3.97113 38.1045 4.02667C37.585 4.13081 37.1475 4.36685 36.8057 4.74175C36.4707 5.10276 36.2246 5.60262 36.0605 6.2344L36.3818 8.80314C36.1904 8.84479 36.0127 8.84479 35.835 8.78925ZM65.2158 54.9641C64.9697 54.978 64.7852 55.0405 64.6553 55.1307C64.5732 55.1863 64.5117 55.2557 64.4775 55.339C64.4365 55.4362 64.416 55.5473 64.416 55.6792C64.4297 56.068 64.6279 56.5678 65.0107 57.151L65.0176 57.1579L66.2686 59.1852C66.7744 59.9974 67.3008 60.8236 67.9502 61.4345C68.5791 62.0177 69.3447 62.4134 70.3496 62.4134C71.4434 62.4134 72.2432 62.0038 72.8926 61.3859C73.5693 60.7472 74.1025 59.8655 74.6289 58.9838L76.0371 56.6234C76.3311 55.943 76.4199 55.5195 76.3174 55.3112C76.2422 55.1585 75.9688 55.1168 75.5176 55.1585C75.4355 55.1654 75.3604 55.1446 75.2988 55.1099C75.2305 55.1099 75.1553 55.1099 75.0869 55.1029L75.1348 54.86C75.1348 54.8461 75.1279 54.8391 75.1279 54.8252C75.1211 54.7419 75.1416 54.6586 75.1826 54.5961L75.5039 52.9508C72.9199 52.916 71.1562 52.4578 69.0645 51.104C68.3809 50.6597 68.1689 50.146 67.4854 50.2015C66.9658 50.3056 66.5283 50.5417 66.1865 50.9166C65.8516 51.2776 65.6055 51.7775 65.4414 52.4092L65.7627 54.978C65.5713 55.0196 65.3936 55.0196 65.2158 54.9641ZM66.2959 64.5448L68.5381 71.2444L69.666 67.2663L69.1123 66.6484C68.8594 66.2804 68.8115 65.9541 68.9482 65.6764C69.249 65.0724 69.8643 65.1835 70.4453 65.1835C71.0537 65.1835 71.7988 65.0655 71.9902 65.8361C72.0518 66.093 71.9766 66.3637 71.7988 66.6414L71.2451 67.2593L72.373 71.2374L74.4033 64.5379C75.8662 65.8778 80.207 66.1485 81.8203 67.058C82.333 67.3496 82.791 67.7175 83.1602 68.2105C83.7207 68.9672 84.0693 69.953 84.165 71.2027L84.5 74.5212C84.418 75.4029 83.9258 75.9167 82.9482 75.993H70.4521H57.751C56.7803 75.9167 56.2813 75.4099 56.1992 74.5212L56.5342 71.2027C56.6299 69.953 56.9717 68.9672 57.5391 68.2105C57.9082 67.7106 58.373 67.3426 58.8789 67.058C60.499 66.1555 64.833 65.8847 66.2959 64.5448ZM76.3652 54.4989C76.6387 54.5823 76.8369 54.7489 76.96 54.9919C77.165 55.4084 77.0762 56.0332 76.6865 56.9358C76.6797 56.9497 76.6729 56.9635 76.666 56.9774L75.2373 59.3657C74.6836 60.289 74.1299 61.2124 73.3779 61.9205C72.6055 62.6564 71.6484 63.1424 70.3496 63.1424C69.1328 63.1424 68.2168 62.6703 67.4648 61.9691C66.7402 61.2957 66.1865 60.4279 65.6602 59.5739L64.4092 57.5537C63.9512 56.8594 63.7119 56.2207 63.6982 55.7C63.6914 55.457 63.7324 55.2279 63.8213 55.0335C63.917 54.8252 64.0605 54.6586 64.252 54.5198C64.3408 54.4573 64.4434 54.4017 64.5596 54.3601C64.4775 53.2632 64.4502 51.8816 64.498 50.7222C64.5254 50.4445 64.5801 50.1737 64.6553 49.896C64.9766 48.7366 65.7764 47.7994 66.7744 47.1537C67.123 46.9246 67.5059 46.7372 67.916 46.5914C70.3223 45.7097 73.5146 46.1887 75.2236 48.0701C75.9209 48.8338 76.3584 49.8474 76.4473 51.1874L76.3652 54.4989ZM9.50977 54.9641C9.26367 54.978 9.0791 55.0405 8.94922 55.1307C8.86719 55.1863 8.80566 55.2557 8.77148 55.339C8.73047 55.4362 8.70996 55.5473 8.70996 55.6792C8.72363 56.068 8.92188 56.5678 9.30469 57.151L9.31152 57.1579L10.5625 59.1852C11.0684 59.9974 11.5947 60.8236 12.2441 61.4345C12.873 62.0177 13.6387 62.4134 14.6436 62.4134C15.7373 62.4134 16.5371 62.0038 17.1865 61.3859C17.8633 60.7472 18.3965 59.8655 18.916 58.9838L20.3311 56.6234C20.625 55.943 20.7139 55.5195 20.6113 55.3112C20.5361 55.1585 20.2627 55.1168 19.8115 55.1585C19.7295 55.1654 19.6543 55.1446 19.5928 55.1099C19.5244 55.1099 19.4492 55.1099 19.3809 55.1029L19.4287 54.86C19.4287 54.8461 19.4219 54.8391 19.4219 54.8252C19.415 54.7419 19.4355 54.6586 19.4766 54.5961L19.7979 52.9508C17.2139 52.916 15.4502 52.4578 13.3584 51.104C12.6748 50.6597 12.4629 50.146 11.7793 50.2015C11.2598 50.3056 10.8223 50.5417 10.4805 50.9166C10.1455 51.2776 9.89941 51.7775 9.73535 52.4092L10.0566 54.978C9.87207 55.0196 9.6875 55.0196 9.50977 54.9641ZM10.5967 64.5448L12.8389 71.2444L13.9668 67.2663L13.4131 66.6484C13.1602 66.2804 13.1123 65.9541 13.249 65.6764C13.5498 65.0724 14.165 65.1835 14.7461 65.1835C15.3545 65.1835 16.0996 65.0655 16.291 65.8361C16.3525 66.093 16.2773 66.3637 16.0996 66.6414L15.5459 67.2593L16.6738 71.2374L18.7041 64.5379C20.167 65.8778 24.5078 66.1485 26.1211 67.058C26.6338 67.3496 27.0918 67.7175 27.4609 68.2105C28.0215 68.9672 28.3701 69.953 28.4658 71.2027L28.8008 74.5212C28.7188 75.4029 28.2266 75.9167 27.249 75.993H14.7529H2.05176C1.08105 75.9167 0.582031 75.4099 0.5 74.5212L0.834961 71.2027C0.930664 69.953 1.27246 68.9672 1.83984 68.2105C2.20898 67.7106 2.67383 67.3426 3.17969 67.058C4.79297 66.1555 9.12695 65.8847 10.5967 64.5448ZM20.666 54.4989C20.9395 54.5823 21.1377 54.7489 21.2607 54.9919C21.4658 55.4084 21.377 56.0332 20.9873 56.9358C20.9805 56.9497 20.9736 56.9635 20.9668 56.9774L19.5381 59.3657C18.9844 60.289 18.4307 61.2124 17.6787 61.9205C16.9062 62.6564 15.9492 63.1424 14.6504 63.1424C13.4336 63.1424 12.5176 62.6703 11.7656 61.9691C11.041 61.2957 10.4873 60.4279 9.96094 59.5739L8.70996 57.5537C8.25195 56.8594 8.0127 56.2207 7.99902 55.7C7.99219 55.457 8.0332 55.2279 8.12207 55.0335C8.21777 54.8252 8.36133 54.6586 8.55273 54.5198C8.6416 54.4573 8.74414 54.4017 8.86035 54.3601C8.77832 53.2632 8.75098 51.8816 8.79883 50.7222C8.82617 50.4445 8.88086 50.1737 8.95605 49.896C9.27734 48.7366 10.0771 47.7994 11.0752 47.1537C11.4238 46.9246 11.8066 46.7372 12.2168 46.5914C14.623 45.7097 17.8154 46.1887 19.5244 48.0701C20.2217 48.8338 20.6592 49.8474 20.748 51.1874L20.666 54.4989ZM36.915 18.37L39.1572 25.0695L40.2852 21.0914L39.7383 20.4805C39.4854 20.1125 39.4375 19.7862 39.5742 19.5085C39.875 18.9045 40.4902 19.0156 41.0713 19.0156C41.6797 19.0156 42.4248 18.8976 42.6162 19.6682C42.6777 19.9251 42.6025 20.1958 42.4248 20.4735L41.8711 21.0845L42.999 25.0626L45.0293 18.363C46.4922 19.7029 50.833 19.9737 52.4463 20.8832C52.959 21.1747 53.417 21.5427 53.7861 22.0356C54.3467 22.7924 54.6953 23.7782 54.791 25.0279L55.126 28.3464C55.0439 29.235 54.5518 29.7418 53.5742 29.8182H41.0781H28.3701C27.3994 29.7418 26.9004 29.235 26.8184 28.3464L27.1602 25.0348C27.2559 23.7851 27.5977 22.7993 28.165 22.0426C28.5342 21.5427 28.999 21.1747 29.5049 20.8901C31.1182 19.9806 35.4521 19.7099 36.915 18.37ZM46.9912 8.3241C47.2646 8.40741 47.4629 8.57403 47.5859 8.81702C47.791 9.23357 47.7022 9.8584 47.3125 10.7609C47.3057 10.7748 47.2988 10.7887 47.292 10.8026L45.8564 13.1908C45.3027 14.1142 44.749 15.0375 43.9971 15.7457C43.2246 16.4816 42.2676 16.9676 40.9688 16.9676C39.752 16.9676 38.8359 16.4955 38.084 15.7943C37.3594 15.1208 36.8057 14.253 36.2793 13.3991L35.0283 11.3788C34.5703 10.6846 34.3311 10.0459 34.3174 9.52516C34.3105 9.28217 34.3516 9.05307 34.4404 8.85868C34.5361 8.6504 34.6797 8.48378 34.8711 8.34493C34.96 8.28245 35.0625 8.2269 35.1787 8.18525C35.0967 7.08833 35.0693 5.70676 35.1172 4.54736C35.1445 4.26966 35.1992 3.9989 35.2744 3.7212C35.5957 2.56179 36.3955 1.62455 37.3936 0.978892C37.7422 0.749788 38.125 0.562339 38.5352 0.416546C40.9414 -0.465157 44.1338 0.0138785 45.8428 1.89531C46.54 2.65899 46.9775 3.6726 47.0664 5.01251L46.9912 8.3241Z"
+                            fill="#003366"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_1119_111">
+                            <rect
+                              width="84"
+                              height="76"
+                              fill="white"
+                              transform="translate(0.5)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+
+                    <h4>Engage with Students and Academics</h4>
+                  </div>
+
+                  <div class="card-back">
+                    <h4>Engage with Students and Academics</h4>
+
+                    <p>
+                      Allow prospective students and academic professionals to
+                      interact directly with university representatives or
+                      professors. Answer inquiries about programs, research
+                      opportunities, and career advice in real-time.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="features-box">
+                  <div class="card-front">
+                    <div class="features-box-icon">
+                      <svg
+                        width="73"
+                        height="76"
+                        viewBox="0 0 73 76"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_1119_116)">
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M50.3571 26.2178V21.3873C50.5805 20.4534 50.8907 20.3607 51.356 20.2741C52.6093 20.0823 52.4666 25.9023 50.3571 26.2178ZM51.8648 57.8288C51.8585 57.7793 51.8523 57.7298 51.8523 57.6679C51.8523 57.6185 51.8585 57.5628 51.8648 57.5133V54.0993C49.0356 53.8704 46.1072 54.1302 43.5573 54.9528C41.1687 55.7197 39.1151 56.9691 37.7812 58.7689V72.9879C39.8596 71.819 41.9814 71.2995 44.1653 70.6377C46.6532 69.8893 49.2155 69.5306 51.8648 69.7161V57.8288ZM35.3305 73.2415V58.7441C34.0462 56.833 31.974 55.5527 29.6288 54.792C26.9734 53.9323 23.9892 53.7405 21.3834 54.0498L21.2469 69.7842C24.0822 69.6976 26.8617 70.0006 29.4675 70.7243C31.5521 71.2933 33.5251 72.1344 35.3305 73.2415ZM54.6815 73.6435C52.1253 73.1426 49.5878 72.8271 47.0689 72.8148C43.7931 72.7962 40.5172 74.6022 37.229 75.8268C37.0243 75.9381 36.7823 76 36.5341 76C36.286 76 36.044 75.9443 35.833 75.8268C27.9165 72.8642 26.899 71.9551 18.3185 73.6559C18.3185 68.7451 18.4922 65.5413 18.6536 62.3252H4.22874C1.88975 62.1582 0.698535 60.9459 0.5 58.8616C1.30655 55.2806 1.49888 52.8747 3.71999 49.9554C4.6134 48.7803 5.71775 47.9082 6.94619 47.234C10.83 45.0755 23.2323 44.4446 26.7563 41.278L30.7332 52.9365C31.5459 53.2086 32.3277 53.5364 33.066 53.9261L34.8652 47.7103L33.5375 46.263C32.9419 45.3909 32.8054 44.624 33.1404 43.9746C33.8601 42.5521 35.3491 42.818 36.7451 42.818C38.2031 42.818 40.0023 42.5459 40.4614 44.3581C40.6165 44.9642 40.418 45.6012 39.9961 46.263L38.6684 47.7103L40.4614 53.9137C41.1501 53.5859 41.876 53.2952 42.6329 53.054L46.2685 41.2842C49.7925 44.4446 62.1948 45.0817 66.0724 47.2402C67.2947 47.9267 68.4114 48.7926 69.3048 49.9616C71.5259 52.8808 71.7121 55.2868 72.5248 58.8678C72.3263 60.9583 71.1351 62.1644 68.7961 62.3375H54.4705C54.5698 65.5661 54.6815 68.6894 54.6815 73.6435ZM28.3259 20.9915C28.0592 21.0967 27.7738 20.9297 27.6745 20.639C27.5814 20.3359 27.7241 20.0081 27.9909 19.9092C30.0383 19.1175 31.4963 19.167 33.5499 19.9092C33.8167 20.0081 33.9656 20.3297 33.8849 20.6328C33.8043 20.9359 33.5127 21.1028 33.2521 21.0101C32.9109 20.8926 32.5696 20.7812 32.2284 20.707C32.2656 20.8245 32.2842 20.9544 32.2842 21.0905C32.2842 21.876 31.6514 22.5192 30.8511 22.5192C30.0631 22.5192 29.4179 21.876 29.4179 21.0905C29.4179 20.8926 29.4551 20.7132 29.5233 20.5462C28.9215 20.6081 28.9339 20.7565 28.3259 20.9915ZM40.0519 20.9915C39.7851 21.0967 39.4997 20.9297 39.4005 20.639C39.3074 20.3359 39.4501 20.0081 39.7169 19.9092C41.7581 19.1175 43.2223 19.167 45.2759 19.9092C45.5426 20.0081 45.6916 20.3297 45.6109 20.6328C45.5302 20.9359 45.2386 21.1028 44.9781 21.0101C44.6368 20.8926 44.2956 20.7812 43.9544 20.707C43.9916 20.8245 44.0102 20.9544 44.0102 21.0905C44.0102 21.876 43.3712 22.5192 42.577 22.5192C41.7891 22.5192 41.1501 21.876 41.1501 21.0905C41.1501 20.8926 41.1873 20.7132 41.2555 20.5462C40.6413 20.6081 40.6599 20.7565 40.0519 20.9915ZM34.9086 27.3929C34.6666 27.1888 34.6294 26.8239 34.8342 26.5827C35.0389 26.3414 35.405 26.3043 35.6469 26.5084C35.9385 26.7558 36.2177 26.8795 36.4783 26.8795C36.7451 26.8857 37.0367 26.762 37.3469 26.5023C37.5888 26.2982 37.9549 26.3414 38.1596 26.5827C38.3644 26.8239 38.3271 27.1888 38.079 27.3929C37.5516 27.8258 37.0056 28.0361 36.4659 28.0237C35.9199 28.0176 35.405 27.8011 34.9086 27.3929ZM40.8833 31.7532C40.4118 31.914 39.9216 32.0501 39.4191 32.1614C38.8979 32.3037 38.4264 32.3903 38.0045 32.4026C37.5206 32.4088 37.1049 32.3222 36.7761 32.1058C36.6768 32.0377 36.5838 31.9697 36.5031 31.8893C36.4224 31.9635 36.3356 32.0377 36.2301 32.1058C35.9013 32.3284 35.4856 32.415 35.0017 32.4026C34.5798 32.3903 34.1021 32.3099 33.5871 32.1614C33.0846 32.0501 32.5944 31.914 32.1167 31.7532C31.6452 31.5924 31.1799 31.4069 30.7332 31.1966C30.516 31.0976 30.4292 30.8564 30.5408 30.6523C30.6091 30.5348 30.727 30.4544 30.8573 30.4359C31.0992 30.3987 31.2916 30.374 31.4715 30.3493L31.4839 30.3431C32.0671 30.2627 32.5076 30.2008 33.0536 29.9844C33.2087 29.9225 33.3576 29.8545 33.5065 29.7864C34.3751 29.3844 35.3243 28.9515 36.2735 29.6998C36.3542 29.7679 36.4286 29.8297 36.4969 29.9039C36.5651 29.8297 36.6396 29.7679 36.7202 29.6998C37.6633 28.9453 38.6187 29.3844 39.4873 29.7864C39.6362 29.8545 39.7851 29.9225 39.9402 29.9844C40.4862 30.2008 40.9329 30.2627 41.5099 30.3431L41.5285 30.3493C41.7084 30.374 41.9008 30.3987 42.1427 30.4359C42.273 30.4606 42.3971 30.5348 42.4592 30.6523C42.5708 30.8502 42.484 31.0976 42.2668 31.1966C41.8201 31.4069 41.3548 31.5924 40.8833 31.7532ZM19.7765 11.2379V9.10414C20.2232 5.40558 21.948 3.9212 24.7895 4.34796C27.4822 1.54001 31.2916 -0.030949 36.5403 0.00616037C42.3785 -0.111353 47.3605 1.24932 50.9713 4.94171C52.8698 6.8281 53.6826 8.7949 53.1925 12.9511C53.2917 17.027 53.7446 17.361 52.4169 18.0784C52.4107 18.1898 52.4045 18.3011 52.3983 18.4186L51.4863 18.9938C52.2246 18.9381 52.7395 19.3958 53.0498 20.1751C53.1987 20.5648 53.2979 21.041 53.3414 21.5605C53.3786 22.0429 53.3724 22.581 53.3041 23.1253C53.087 25.1045 52.175 27.1702 50.4874 27.4114C50.413 27.4238 50.3385 27.4238 50.2703 27.4176V27.6712C50.2703 27.6836 50.2703 27.6959 50.2703 27.7083C50.3819 30.473 48.9177 33.5407 46.5539 35.9961C42.2544 40.4678 35.194 42.6943 29.058 37.6289C27.9909 36.7444 26.7501 35.8786 25.776 34.5117C25.7884 34.4993 25.8008 34.487 25.807 34.4808L25.7822 34.4622C24.2001 32.9964 23.4556 32.3037 22.8228 29.2916C22.8104 29.236 22.8042 29.1679 22.8042 29.1123V27.4176C22.7173 27.4362 22.6243 27.4362 22.5312 27.4176C20.8374 27.1702 19.9316 25.1045 19.7145 23.1315C19.6586 22.5872 19.6462 22.0491 19.6772 21.5667C19.7207 21.0472 19.8199 20.5709 19.9688 20.1813C20.3039 19.334 20.8871 18.8639 21.7246 19.0247C22.1279 19.0989 22.5002 19.303 22.8042 19.6556V18.9691L22.1217 18.5856C22.0411 18.0289 22.0286 17.4661 22.0659 16.8909C20.8312 14.8314 19.8696 12.8275 19.7765 11.2379ZM48.4462 18.1217C47.6397 15.8642 46.5726 15.6107 44.6244 14.4232C42.9927 13.7181 41.5595 13.1181 40.2008 12.6914C36.9064 11.9616 33.2893 12.1719 30.2927 13.1676C29.4985 13.4769 28.6486 13.8541 27.7427 14.3056C25.8318 15.4189 24.9446 15.5303 24.5414 17.429V29.0999C25.2238 32.3532 25.1742 31.747 27.265 33.7881L30.8945 37.3258C31.5521 37.8639 32.2904 38.1793 33.0722 38.3649C35.7586 38.9957 41.3982 38.7422 43.5139 36.5218C46.6656 33.4664 48.651 32.5449 48.4276 27.6588V18.1217H48.4462ZM33.5251 34.4993C33.2645 34.3571 33.1652 34.0293 33.3017 33.7757C33.4444 33.5159 33.7732 33.4108 34.0276 33.553C34.859 33.9922 35.6717 34.2148 36.4783 34.221C37.2786 34.221 38.0852 34.0045 38.8917 33.5592C39.1523 33.417 39.4811 33.5097 39.6238 33.7695C39.7665 34.0293 39.6735 34.3509 39.4129 34.4993C38.445 35.0312 37.471 35.2972 36.4845 35.2848C35.4918 35.2786 34.5053 35.0189 33.5251 34.4993ZM22.6491 26.2178V21.3873C22.4257 20.4534 22.1589 20.4101 21.6998 20.3235C20.4528 20.1318 20.4776 25.7539 22.6491 26.2178Z"
+                            fill="#003366"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_1119_116">
+                            <rect
+                              width="72"
+                              height="76"
+                              fill="white"
+                              transform="translate(0.5)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+
+                    <h4>List Professors and Researchers</h4>
+                  </div>
+
+                  <div class="card-back">
+                    <h4>List Professors and Researchers</h4>
+
+                    <p>
+                      Highlight key faculty members and researchers by creating
+                      detailed profiles that showcase their expertise and
+                      current projects. This helps build your university’s
+                      academic reputation and encourages collaboration.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="features-box">
+                  <div class="card-front">
+                    <div class="features-box-icon">
+                      <svg
+                        width="75"
+                        height="76"
+                        viewBox="0 0 75 76"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_1119_121)">
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M18.06 24.6207H50.6332C50.8502 24.6211 51.0583 24.709 51.2117 24.8651C51.3652 25.0212 51.4516 25.2328 51.452 25.4536V39.6405C51.452 40.0977 51.0827 40.4719 50.6332 40.4719H18.06C17.6105 40.4719 17.2412 40.0977 17.2412 39.6405V25.4536C17.2412 24.9948 17.6105 24.6207 18.06 24.6207ZM33.0994 0C42.0918 0 50.2478 3.72191 56.1547 9.70636C62.063 15.716 65.6988 23.9868 65.6988 33.1587C65.6988 39.8483 63.7372 46.1015 60.3889 51.3065L74.5 66.9498L64.7662 76L51.1572 60.7709C45.9903 64.2731 39.7725 66.3174 33.0994 66.3174C24.107 66.3174 15.951 62.5955 10.0426 56.611C4.13578 50.6013 0.5 42.3306 0.5 33.1587C0.5 24.012 4.15913 15.716 10.0426 9.70636C15.951 3.69816 24.0822 0 33.0994 0ZM53.5727 12.3341C48.3344 7.00586 41.0876 3.69816 33.0994 3.69816C25.1112 3.69816 17.8645 7.00586 12.6261 12.3341C7.38769 17.6624 4.13578 25.0334 4.13578 33.1587C4.13578 41.0256 7.18481 48.1859 12.1327 53.4696V19.53C12.1327 18.8515 12.6742 18.3007 13.3413 18.3007H55.3505C56.019 18.3007 56.5605 18.8515 56.5605 19.53V50.4202C60.0182 45.5685 62.063 39.6004 62.063 33.1587C62.063 25.0334 58.8097 17.6624 53.5727 12.3341ZM14.5512 55.7722C19.5751 60.042 26.0482 62.6192 33.0994 62.6192C41.0876 62.6192 48.3344 59.3115 53.5727 53.9833C53.7654 53.7873 53.9551 53.5884 54.142 53.3865V20.7607H14.5512V55.7722ZM19.0671 46.7904C18.3228 46.7904 17.7185 46.1772 17.7185 45.4201C17.7185 44.6629 18.3228 44.0483 19.0671 44.0483H30.7699C31.5143 44.0483 32.1171 44.6629 32.1171 45.4201C32.1171 46.1772 31.5143 46.7904 30.7699 46.7904H19.0671ZM38.0605 53.1148C37.7016 53.1148 37.3575 52.9698 37.1037 52.7117C36.85 52.4536 36.7075 52.1035 36.7075 51.7385C36.7075 51.3736 36.85 51.0235 37.1037 50.7654C37.3575 50.5073 37.7016 50.3623 38.0605 50.3623H49.5794C49.9382 50.3623 50.2824 50.5073 50.5361 50.7654C50.7898 51.0235 50.9324 51.3736 50.9324 51.7385C50.9324 52.1035 50.7898 52.4536 50.5361 52.7117C50.2824 52.9698 49.9382 53.1148 49.5794 53.1148H38.0605ZM19.0671 53.1103C18.3228 53.1103 17.7185 52.4957 17.7185 51.7385C17.7185 50.9814 18.3228 50.3668 19.0671 50.3668H30.7699C31.5143 50.3668 32.1171 50.9814 32.1171 51.7385C32.1171 52.4957 31.5143 53.1103 30.7699 53.1103H19.0671ZM38.0605 46.7948C37.3132 46.7948 36.7075 46.1787 36.7075 45.4201C36.7075 45.0551 36.85 44.705 37.1037 44.4469C37.3575 44.1888 37.7016 44.0438 38.0605 44.0438H49.5794C49.9382 44.0438 50.2824 44.1888 50.5361 44.4469C50.7898 44.705 50.9324 45.0551 50.9324 45.4201C50.9324 46.1787 50.3267 46.7948 49.5794 46.7948H38.0605ZM26.0731 28.4094H28.4989V32.9033C28.4989 33.8461 28.42 34.5646 28.2609 35.0575C28.1033 35.5489 27.7851 35.9676 27.3049 36.3105C26.8262 36.6505 26.2132 36.8227 25.4659 36.8227C24.6763 36.8227 24.0647 36.7084 23.6312 36.4842C23.1963 36.2586 22.8606 35.929 22.6241 35.494C22.3877 35.0605 22.2475 34.523 22.2052 33.8832L24.5113 33.5521C24.5142 33.9144 24.5449 34.1831 24.6018 34.3583C24.6573 34.5364 24.7551 34.6774 24.8908 34.7873C24.9842 34.8586 25.1156 34.8927 25.2864 34.8927C25.5578 34.8927 25.7563 34.7873 25.8833 34.575C26.0088 34.3627 26.0731 34.0049 26.0731 33.5016V28.4094ZM29.8183 32.553C29.8183 31.202 30.173 30.1509 30.8852 29.3997C31.5975 28.6455 32.5871 28.2714 33.8584 28.2714C35.1603 28.2714 36.1645 28.641 36.8695 29.3789C37.573 30.1182 37.9247 31.1545 37.9247 32.4847C37.9247 33.4512 37.7715 34.2439 37.465 34.8615C37.157 35.4806 36.7104 35.9616 36.1295 36.3061C35.5471 36.6505 34.8217 36.8227 33.9533 36.8227C33.0717 36.8227 32.3419 36.6742 31.7624 36.3773C31.1859 36.0789 30.7159 35.6098 30.3569 34.9655C29.9978 34.3241 29.8183 33.5195 29.8183 32.553ZM32.2324 32.5589C32.2324 33.3918 32.3798 33.993 32.6732 34.3568C32.968 34.7205 33.3694 34.9046 33.8759 34.9046C34.394 34.9046 34.7983 34.725 35.083 34.3686C35.3676 34.0109 35.5106 33.371 35.5106 32.4446C35.5106 31.6667 35.3603 31.0981 35.064 30.7403C34.7648 30.3795 34.3634 30.2014 33.8525 30.2014C33.365 30.2014 32.9724 30.384 32.6776 30.7477C32.3798 31.1114 32.2324 31.7171 32.2324 32.5589ZM39.2559 28.4094H43.7849C44.538 28.4094 45.1175 28.6084 45.5218 29.0033C45.9261 29.3967 46.1275 29.8866 46.1275 30.4701C46.1275 30.96 45.9845 31.3801 45.694 31.7275C45.5028 31.9636 45.2211 32.1462 44.8518 32.2828C45.4138 32.4253 45.8254 32.6703 46.091 33.0191C46.3552 33.3665 46.488 33.8045 46.488 34.3301C46.488 34.7591 46.3931 35.1451 46.2063 35.488C46.0166 35.831 45.7582 36.0997 45.4327 36.3001C45.2284 36.4233 44.9219 36.5139 44.5132 36.5703C43.9688 36.6446 43.6083 36.6832 43.4288 36.6832H39.2559V28.4094ZM41.6919 31.7587H42.7471C43.1237 31.7587 43.3879 31.6904 43.5353 31.5538C43.6827 31.4158 43.7572 31.012 43.7572 30.7507C43.7572 30.5102 43.6813 30.3216 43.5353 30.1865C43.3879 30.0514 43.1281 29.9831 42.7632 29.9831H41.6919V31.7587ZM41.6919 35.007H42.9252C43.3412 35.007 43.6346 34.9269 43.8068 34.771C43.9776 34.6151 44.0637 34.2024 44.0637 33.9396C44.0637 33.6946 43.979 33.4972 43.8097 33.3502C43.6404 33.2017 43.3441 33.126 42.9194 33.126H41.6919V35.007Z"
+                            fill="#003366"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_1119_121">
+                            <rect
+                              width="74"
+                              height="76"
+                              fill="white"
+                              transform="translate(0.5)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+
+                    <h4>Advertise Job and Study Opportunities</h4>
+                  </div>
+
+                  <div class="card-back">
+                    <h4>Advertise Job and Study Opportunities</h4>
+
+                    <p>
+                      Post job openings, internships, and study opportunities at
+                      your university. Target students and researchers for
+                      teaching, administrative, or research positions and reach
+                      qualified candidates directly.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="features-box">
+                  <div class="card-front">
+                    <div class="features-box-icon">
+                      <svg
+                        width="69"
+                        height="76"
+                        viewBox="0 0 69 76"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_1119_125)">
+                          <path
+                            d="M30.2321 71.9613C31.3454 71.9613 32.2546 72.8643 32.2546 73.9775C32.2546 75.0908 31.3516 75.9938 30.2321 75.9938H4.95443C3.66178 75.9938 2.48665 75.4681 1.63314 74.6146C0.779622 73.7673 0.253906 72.5983 0.253906 71.2995V4.70052C0.253906 3.40169 0.779622 2.23275 1.63314 1.37923C2.48665 0.525716 3.6556 0 4.95443 0H62.6595C63.9522 0 65.1273 0.531901 65.9808 1.37923C66.8343 2.23275 67.36 3.40169 67.36 4.70052V38.068C67.36 39.1813 66.457 40.0843 65.3438 40.0843C64.2305 40.0843 63.3275 39.1813 63.3275 38.068V4.70052C63.3275 4.52116 63.2533 4.35417 63.1296 4.23665C63.0059 4.11296 62.8389 4.03874 62.6657 4.03874H4.95443C4.77507 4.03874 4.60807 4.11296 4.48438 4.23047C4.36686 4.36035 4.29264 4.52116 4.29264 4.70052V71.2995C4.29264 71.4788 4.36686 71.6458 4.49056 71.7634C4.61426 71.887 4.78125 71.9613 4.96061 71.9613H30.2321ZM21.2454 35.8229C20.862 35.1611 21.1403 33.2686 21.9629 32.6006C24.3132 31.2275 27.554 31.6543 29.8177 30.071C29.9476 29.873 30.0898 29.5885 30.2321 29.2731C30.4362 28.8031 30.6279 28.2897 30.7454 27.9372C30.2445 27.3434 29.8115 26.6755 29.4033 26.0199L28.0426 23.8551C27.5479 23.113 27.2881 22.4326 27.2695 21.876C27.2633 21.6162 27.3066 21.375 27.4056 21.1647C27.5046 20.9421 27.6592 20.7627 27.8757 20.6204C27.9746 20.5524 28.0859 20.4967 28.2035 20.4535C28.1107 19.2783 28.0798 17.8001 28.1416 16.557C28.1725 16.2663 28.2282 15.9694 28.3086 15.6725C28.6549 14.4294 29.527 13.4274 30.6094 12.7409C31.2031 12.3636 31.8587 12.0729 32.5391 11.8812C32.972 11.7575 32.168 10.3783 32.6195 10.3288C34.7842 10.1061 38.2786 12.0791 39.7878 13.7119C40.5423 14.5283 41.0186 15.6169 41.1237 17.0518L41.0371 20.5833C41.4144 20.7008 41.6556 20.9359 41.7546 21.3255C41.8659 21.7585 41.7484 22.3584 41.3773 23.1872C41.3711 23.1995 41.3649 23.2181 41.3525 23.2305L39.8001 25.7848C39.2311 26.7249 38.6497 27.665 37.8952 28.4072C37.9632 28.5062 38.0374 28.6051 38.1055 28.7041C38.4147 29.1556 38.724 29.6071 39.1198 30.0091C39.1322 30.0215 39.1445 30.04 39.1507 30.0524C40.9382 31.3141 45.2861 31.6234 46.9561 32.5511L47.0241 32.5882C47.8838 33.25 48.1497 35.1426 47.7539 35.8044H21.2454V35.8229ZM63.5192 48.8854C63.1914 48.57 62.8141 48.4216 62.3812 48.4277C61.9421 48.4339 61.571 48.6071 61.2679 48.9287L58.763 51.5387L65.7952 58.3298L68.3249 55.695C68.6279 55.3857 68.7516 54.9899 68.7454 54.557C68.7393 54.1302 68.5846 53.7344 68.2754 53.4437L63.5192 48.8854ZM52.541 71.8499C51.6133 72.1468 50.6856 72.4499 49.764 72.7529C48.8363 73.0622 47.9085 73.3714 46.987 73.6807C44.8037 74.3981 43.5791 74.794 43.3193 74.8682C43.0719 74.9424 43.2142 73.9219 43.7708 71.7819L45.5088 65.0837L56.5303 53.8395L63.5563 60.5996L52.541 71.8499ZM19.8848 58.9792C18.7715 58.9792 17.8623 58.0638 17.8623 56.932C17.8623 55.8001 18.7653 54.8848 19.8848 54.8848H33.6214C34.7347 54.8848 35.6439 55.8001 35.6439 56.932C35.6439 58.0638 34.7409 58.9792 33.6214 58.9792H19.8848ZM19.8848 46.1826C18.7715 46.1826 17.8685 45.2796 17.8685 44.1602C17.8685 43.0469 18.7715 42.1439 19.8848 42.1439H47.1292C48.2425 42.1439 49.1455 43.0469 49.1455 44.1602C49.1455 45.2734 48.2425 46.1826 47.1292 46.1826H19.8848Z"
+                            fill="#003366"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_1119_125">
+                            <rect
+                              width="68.4915"
+                              height="76"
+                              fill="white"
+                              transform="translate(0.253906)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+
+                    <h4>Manage Your University Profile and Recruitment</h4>
+                  </div>
+
+                  <div class="card-back">
+                    <h4>Manage Your University Profile and Recruitment</h4>
+
+                    <p>
+                      Easily manage your university’s profile by updating
+                      information, adding images, and tracking student interest.
+                      Receive insights on recruitment metrics and enhance
+                      engagement with prospective students.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="store-introduction-section-wrapper">
+            <div class="store-introduction-section">
+              <div class="store-introduction-section-items">
+                <div class="store-introduction-section-content">
+                  <div class="store-introduction-section-tabs-wrapper">
+                    <div class="store-introduction-section-tabs">
+                      <div class="contents">
+                        <div class="store-introduction-tab-items">
+                          <div class="store-introduction-tab-title">
+                            <h2>How It Works</h2>
+
+                            <p>
+                              Register, create a profile, and easily manage
+                              academic programs, recruitment, and events. Use
+                              analytics to track your success."
+                            </p>
+                          </div>
+
+                          <div class="store-introduction-tab-steps-wrapper">
+                            <div class="store-introduction-tab-steps">
+                              <div class="store-introduction-tab-step">
+                                <div class="store-introduction-tab-step-number">
+                                  <h3>.1</h3>
+                                </div>
+                                <h3 class="store-introduction-tab-step-title">
+                                  Register
+                                </h3>
+                              </div>
+
+                              <p>
+                                Register now to access exclusive resources and
+                                connect with like-minded individuals.
+                              </p>
+                            </div>
+
+                            <div class="store-introduction-tab-steps">
+                              <div class="store-introduction-tab-step">
+                                <div class="store-introduction-tab-step-number">
+                                  <h3>.2</h3>
+                                </div>
+                                <h3 class="store-introduction-tab-step-title">
+                                  Create Profile
+                                </h3>
+                              </div>
+
+                              <p>
+                                Highlight your academic achievements and connect
+                                with other user.
+                              </p>
+                            </div>
+
+                            <div class="store-introduction-tab-steps">
+                              <div class="store-introduction-tab-step">
+                                <div class="store-introduction-tab-step-number">
+                                  <h3>.3</h3>
+                                </div>
+                                <h3 class="store-introduction-tab-step-title">
+                                  Enter Information
+                                </h3>
+                              </div>
+
+                              <p>
+                                Fill in your personal and academic details to
+                                create a complete profile
+                              </p>
+                            </div>
+
+                            <div class="store-introduction-tab-steps">
+                              <div class="store-introduction-tab-step">
+                                <div class="store-introduction-tab-step-number">
+                                  <h3>.4</h3>
+                                </div>
+                                <h3 class="store-introduction-tab-step-title">
+                                  Use Account
+                                </h3>
+                              </div>
+
+                              <p>
+                                Discover a world of opportunities with your
+                                account.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <div class="charts-body-bar">
-                    <div class="charts-body-bar-width">
-                      <div class="bar-width-axis">
-                        <h6 class="bar-width-axis-title">Academic</h6>
-                      </div>
-                      <div class="bar-width-fill" id="Academic"></div>
-                      <div class="bar-width-axis-numbers">
-                        <h6 class="bar-width-axis-number">74,779</h6>
+                <button class="store-introduction-section-btn-wrapper">
+                  <div class="store-introduction-section-btn">
+                    <h3>Get Started</h3>
+                    <div class="store-introduction-section-btn-icon">
+                      <i class="fa fa-long-arrow-right"></i>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section class="reviews-section-wrapper">
+            <div class="reviews-section">
+              <div class="reviews-section-top">
+                <h2 class="reviews-section-title">Testimonials</h2>
+
+                <p class="reviews-section-text">
+                  Want to know what makes our users happy? Read their genuine
+                  reviews and see why they keep coming back for more.
+                </p>
+              </div>
+
+              <div class="reviews-section-boxs-wrapper">
+                <div class="reviews-section-box">
+                  <img
+                    src="./images/Reviews avatar.png"
+                    class="reviews-section-img"
+                    alt="User Image"
+                  />
+
+                  <div class="reviews-section-box-content">
+                    <div class="reviews-section-box-items">
+                      <p class="reviews-section-box-text">
+                        “UniUniverse has been a game-changer for us. It has
+                        provided an excellent platform to showcase our programs
+                        and connect directly with prospective students. We've
+                        seen a significant increase in student inquiries and
+                        applications, making our recruitment process more
+                        efficient and effective.”
+                      </p>
+
+                      <hr />
+
+                      <div class="reviews-section-box-user-info">
+                        <div class="reviews-section-box-info">
+                          <h3>Dr. Emily Hoffmann</h3>
+                          <h4>Head of Admissions, ABC University</h4>
+                        </div>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <div class="charts-body-bar">
-                    <div class="charts-body-bar-width">
-                      <div class="bar-width-axis">
-                        <h6 class="bar-width-axis-title">bachelor's</h6>
-                      </div>
-                      <div class="bar-width-fill" id="bachelor"></div>
-                      <div class="bar-width-axis-numbers">
-                        <h6 class="bar-width-axis-number">22,527</h6>
+                <div class="reviews-section-box">
+                  <img
+                    src="./images/Reviews avatar.png"
+                    class="reviews-section-img"
+                    alt="User Image"
+                  />
+
+                  <div class="reviews-section-box-content">
+                    <div class="reviews-section-box-items">
+                      <p class="reviews-section-box-text">
+                        “Through UniUniverse, we were able to highlight our
+                        university’s research excellence and attract highly
+                        qualified PhD and postdoc candidates. The direct
+                        interaction feature allows us to engage with potential
+                        applicants and answer their queries in real-time,
+                        streamlining the admission process.”
+                      </p>
+
+                      <hr />
+
+                      <div class="reviews-section-box-user-info">
+                        <div class="reviews-section-box-info">
+                          <h3>Prof. Michael Ritter</h3>
+                          <h4>Dean of Graduate Studies, XYZ University</h4>
+                        </div>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <div class="charts-body-bar">
-                    <div class="charts-body-bar-width">
-                      <div class="bar-width-axis">
-                        <h6 class="bar-width-axis-title">Master's</h6>
-                      </div>
-                      <div class="bar-width-fill" id="Master"></div>
-                      <div class="bar-width-axis-numbers">
-                        <h6 class="bar-width-axis-number">19,027</h6>
-                      </div>
-                    </div>
-                  </div>
+                <div class="reviews-section-box">
+                  <img
+                    src="./images/Reviews avatar.png"
+                    class="reviews-section-img"
+                    alt="User Image"
+                  />
 
-                  <div class="charts-body-bar">
-                    <div class="charts-body-bar-width">
-                      <div class="bar-width-axis">
-                        <h6 class="bar-width-axis-title">P.H.D</h6>
-                      </div>
-                      <div class="bar-width-fill" id="PHD"></div>
-                      <div class="bar-width-axis-numbers">
-                        <h6 class="bar-width-axis-number">43,887</h6>
-                      </div>
-                    </div>
-                  </div>
+                  <div class="reviews-section-box-content">
+                    <div class="reviews-section-box-items">
+                      <p class="reviews-section-box-text">
+                        “Thanks to UniUniverse, our international recruitment
+                        efforts have improved dramatically. The platform's
+                        ability to present our programs to a global audience and
+                        facilitate communication with potential students has
+                        made it an indispensable tool for us.We've been
+                        particularly impressed.”
+                      </p>
 
-                  <div class="charts-body-bar">
-                    <div class="charts-body-bar-width">
-                      <div class="bar-width-axis">
-                        <h6 class="bar-width-axis-title">Post-doctoral</h6>
-                      </div>
-                      <div class="bar-width-fill" id="Post-doctoral"></div>
-                      <div class="bar-width-axis-numbers">
-                        <h6 class="bar-width-axis-number">8,142</h6>
+                      <hr />
+
+                      <div class="reviews-section-box-user-info">
+                        <div class="reviews-section-box-info">
+                          <h3>Dr. Sarah Meier</h3>
+                          <h4>University recruiter</h4>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section class="universities-wrapper">
-          <div class="universities-boxs container mx">
-            <div class="universities-boxs-head">
-              <h2>Universities</h2>
+          <section class="universities-wrapper">
+            <div class="universities-boxs">
+              <div class="universities-boxs-head">
+                <h2>Universities</h2>
 
-              <a href="../Search/University/index.html" class="btn-text">
-                <h3>All Universities</h3>
-                <div class="head-btn-icon">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M13.5063 11.6047L13.8221 1.03245L3.29439 0.0128118C3.18518 -0.012435 3.07328 -0.014028 2.96628 0.00814101C2.85928 0.0303104 2.75967 0.0757246 2.67419 0.141308C2.58871 0.206892 2.51936 0.291114 2.47083 0.388273C2.4223 0.485432 2.39573 0.59326 2.39291 0.704457C2.39009 0.815654 2.4111 0.927624 2.4545 1.03278C2.49791 1.13795 2.56269 1.23385 2.64448 1.31399C2.72627 1.39413 2.82315 1.45665 2.92856 1.49731C3.03397 1.53797 3.14545 1.55582 3.25546 1.54966L11.144 2.32608L0.351264 11.834C0.201635 11.9658 0.113821 12.1554 0.107143 12.3612C0.100464 12.5669 0.175468 12.7719 0.315652 12.931C0.455837 13.0901 0.649721 13.1904 0.854651 13.2097C1.05958 13.229 1.25877 13.1658 1.4084 13.034L12.2012 3.52608L11.9768 11.4496C11.9709 11.6555 12.0466 11.8604 12.1874 12.0191C12.3282 12.1779 12.5225 12.2775 12.7276 12.2961C12.9326 12.3147 13.1317 12.2507 13.2809 12.1183C13.4301 11.9858 13.5173 11.7957 13.5232 11.5898L13.5063 11.6047Z"
-                      fill="#FFD700"
-                    />
-                  </svg>
-                </div>
-              </a>
-            </div>
-
-            <div class="slide-content swiper mySwiper">
-              <div class="universities-boxs-wrapper swiper-wrapper">
-                <div class="universities-box swiper-slide">
-                  <div class="universities-box-items">
-                    <img
-                      src="./images/adams uni.png"
-                      class="universities-box-img"
-                      alt=" University Image"
-                    />
-
-                    <div class="universities-box-content">
-                      <h3 class="university-name">Adams State College</h3>
-
-                      <div class="universities-box-location">
-                        <div class="box-location-icon">
-                          <svg
-                            width="14"
-                            height="18"
-                            viewBox="0 0 14 18"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M6.99554 0.605469C8.84258 0.605469 10.614 1.3392 11.92 2.64526C13.2261 3.95132 13.9598 5.72271 13.9598 7.56976C13.9598 10.5126 11.892 13.7198 7.80982 17.2255C7.58284 17.4205 7.29344 17.5276 6.9942 17.5273C6.69496 17.527 6.40575 17.4194 6.17911 17.224L5.90911 16.9898C2.00768 13.5755 0.03125 10.4469 0.03125 7.56976C0.03125 5.72271 0.764985 3.95132 2.07104 2.64526C3.3771 1.3392 5.14849 0.605469 6.99554 0.605469ZM6.99554 1.6769C5.43265 1.6769 3.93378 2.29775 2.82866 3.40288C1.72353 4.508 1.10268 6.00687 1.10268 7.56976C1.10268 10.0712 2.92268 12.9533 6.61268 16.1819L6.87911 16.4126C6.9115 16.4405 6.95281 16.4558 6.99554 16.4558C7.03826 16.4558 7.07957 16.4405 7.11197 16.4126C10.9805 13.0898 12.8884 10.1305 12.8884 7.56976C12.8884 6.79589 12.736 6.02961 12.4398 5.31466C12.1437 4.5997 11.7096 3.95008 11.1624 3.40288C10.6152 2.85567 9.96559 2.42161 9.25064 2.12546C8.53568 1.82932 7.7694 1.6769 6.99554 1.6769ZM6.99554 4.89118C7.70594 4.89118 8.38724 5.17339 8.88957 5.67572C9.3919 6.17805 9.67411 6.85935 9.67411 7.56976C9.67411 8.28016 9.3919 8.96146 8.88957 9.46379C8.38724 9.96612 7.70594 10.2483 6.99554 10.2483C6.28514 10.2483 5.60383 9.96612 5.1015 9.46379C4.59917 8.96146 4.31697 8.28016 4.31697 7.56976C4.31697 6.85935 4.59917 6.17805 5.1015 5.67572C5.60383 5.17339 6.28514 4.89118 6.99554 4.89118ZM6.99554 5.96261C6.5693 5.96261 6.16051 6.13194 5.85912 6.43333C5.55772 6.73473 5.38839 7.14352 5.38839 7.56976C5.38839 7.996 5.55772 8.40478 5.85912 8.70618C6.16051 9.00758 6.5693 9.1769 6.99554 9.1769C7.42178 9.1769 7.83056 9.00758 8.13196 8.70618C8.43336 8.40478 8.60268 7.996 8.60268 7.56976C8.60268 7.14352 8.43336 6.73473 8.13196 6.43333C7.83056 6.13194 7.42178 5.96261 6.99554 5.96261Z"
-                              fill="#F5AA1C"
-                            />
-                          </svg>
-                        </div>
-                        <h5 class="box-location-text">
-                          110 SW Frank Phillips ,Chicago ,United States
-                        </h5>
-                      </div>
-                    </div>
+                <a href="../Search/University/index.html" class="btn-text">
+                  <h3>All Universities</h3>
+                  <div class="head-btn-icon">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M13.5063 11.6047L13.8221 1.03245L3.29439 0.0128118C3.18518 -0.012435 3.07328 -0.014028 2.96628 0.00814101C2.85928 0.0303104 2.75967 0.0757246 2.67419 0.141308C2.58871 0.206892 2.51936 0.291114 2.47083 0.388273C2.4223 0.485432 2.39573 0.59326 2.39291 0.704457C2.39009 0.815654 2.4111 0.927624 2.4545 1.03278C2.49791 1.13795 2.56269 1.23385 2.64448 1.31399C2.72627 1.39413 2.82315 1.45665 2.92856 1.49731C3.03397 1.53797 3.14545 1.55582 3.25546 1.54966L11.144 2.32608L0.351264 11.834C0.201635 11.9658 0.113821 12.1554 0.107143 12.3612C0.100464 12.5669 0.175468 12.7719 0.315652 12.931C0.455837 13.0901 0.649721 13.1904 0.854651 13.2097C1.05958 13.229 1.25877 13.1658 1.4084 13.034L12.2012 3.52608L11.9768 11.4496C11.9709 11.6555 12.0466 11.8604 12.1874 12.0191C12.3282 12.1779 12.5225 12.2775 12.7276 12.2961C12.9326 12.3147 13.1317 12.2507 13.2809 12.1183C13.4301 11.9858 13.5173 11.7957 13.5232 11.5898L13.5063 11.6047Z"
+                        fill="#FFD700"
+                      />
+                    </svg>
                   </div>
-                </div>
-
-                <div class="universities-box swiper-slide">
-                  <div class="universities-box-items">
-                    <img
-                      src="./images/adams uni.png"
-                      class="universities-box-img"
-                      alt=" University Image"
-                    />
-
-                    <div class="universities-box-content">
-                      <h3 class="university-name">Hopkins University</h3>
-
-                      <div class="universities-box-location">
-                        <div class="box-location-icon">
-                          <svg
-                            width="14"
-                            height="18"
-                            viewBox="0 0 14 18"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M6.99554 0.605469C8.84258 0.605469 10.614 1.3392 11.92 2.64526C13.2261 3.95132 13.9598 5.72271 13.9598 7.56976C13.9598 10.5126 11.892 13.7198 7.80982 17.2255C7.58284 17.4205 7.29344 17.5276 6.9942 17.5273C6.69496 17.527 6.40575 17.4194 6.17911 17.224L5.90911 16.9898C2.00768 13.5755 0.03125 10.4469 0.03125 7.56976C0.03125 5.72271 0.764985 3.95132 2.07104 2.64526C3.3771 1.3392 5.14849 0.605469 6.99554 0.605469ZM6.99554 1.6769C5.43265 1.6769 3.93378 2.29775 2.82866 3.40288C1.72353 4.508 1.10268 6.00687 1.10268 7.56976C1.10268 10.0712 2.92268 12.9533 6.61268 16.1819L6.87911 16.4126C6.9115 16.4405 6.95281 16.4558 6.99554 16.4558C7.03826 16.4558 7.07957 16.4405 7.11197 16.4126C10.9805 13.0898 12.8884 10.1305 12.8884 7.56976C12.8884 6.79589 12.736 6.02961 12.4398 5.31466C12.1437 4.5997 11.7096 3.95008 11.1624 3.40288C10.6152 2.85567 9.96559 2.42161 9.25064 2.12546C8.53568 1.82932 7.7694 1.6769 6.99554 1.6769ZM6.99554 4.89118C7.70594 4.89118 8.38724 5.17339 8.88957 5.67572C9.3919 6.17805 9.67411 6.85935 9.67411 7.56976C9.67411 8.28016 9.3919 8.96146 8.88957 9.46379C8.38724 9.96612 7.70594 10.2483 6.99554 10.2483C6.28514 10.2483 5.60383 9.96612 5.1015 9.46379C4.59917 8.96146 4.31697 8.28016 4.31697 7.56976C4.31697 6.85935 4.59917 6.17805 5.1015 5.67572C5.60383 5.17339 6.28514 4.89118 6.99554 4.89118ZM6.99554 5.96261C6.5693 5.96261 6.16051 6.13194 5.85912 6.43333C5.55772 6.73473 5.38839 7.14352 5.38839 7.56976C5.38839 7.996 5.55772 8.40478 5.85912 8.70618C6.16051 9.00758 6.5693 9.1769 6.99554 9.1769C7.42178 9.1769 7.83056 9.00758 8.13196 8.70618C8.43336 8.40478 8.60268 7.996 8.60268 7.56976C8.60268 7.14352 8.43336 6.73473 8.13196 6.43333C7.83056 6.13194 7.42178 5.96261 6.99554 5.96261Z"
-                              fill="#F5AA1C"
-                            />
-                          </svg>
-                        </div>
-                        <h5 class="box-location-text">
-                          110 SW Frank Phillips ,Chicago ,United States
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="universities-box swiper-slide">
-                  <div class="universities-box-items">
-                    <img
-                      src="./images/adams uni.png"
-                      class="universities-box-img"
-                      alt=" University Image"
-                    />
-
-                    <div class="universities-box-content">
-                      <h3 class="university-name">Methodist University</h3>
-
-                      <div class="universities-box-location">
-                        <div class="box-location-icon">
-                          <svg
-                            width="14"
-                            height="18"
-                            viewBox="0 0 14 18"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M6.99554 0.605469C8.84258 0.605469 10.614 1.3392 11.92 2.64526C13.2261 3.95132 13.9598 5.72271 13.9598 7.56976C13.9598 10.5126 11.892 13.7198 7.80982 17.2255C7.58284 17.4205 7.29344 17.5276 6.9942 17.5273C6.69496 17.527 6.40575 17.4194 6.17911 17.224L5.90911 16.9898C2.00768 13.5755 0.03125 10.4469 0.03125 7.56976C0.03125 5.72271 0.764985 3.95132 2.07104 2.64526C3.3771 1.3392 5.14849 0.605469 6.99554 0.605469ZM6.99554 1.6769C5.43265 1.6769 3.93378 2.29775 2.82866 3.40288C1.72353 4.508 1.10268 6.00687 1.10268 7.56976C1.10268 10.0712 2.92268 12.9533 6.61268 16.1819L6.87911 16.4126C6.9115 16.4405 6.95281 16.4558 6.99554 16.4558C7.03826 16.4558 7.07957 16.4405 7.11197 16.4126C10.9805 13.0898 12.8884 10.1305 12.8884 7.56976C12.8884 6.79589 12.736 6.02961 12.4398 5.31466C12.1437 4.5997 11.7096 3.95008 11.1624 3.40288C10.6152 2.85567 9.96559 2.42161 9.25064 2.12546C8.53568 1.82932 7.7694 1.6769 6.99554 1.6769ZM6.99554 4.89118C7.70594 4.89118 8.38724 5.17339 8.88957 5.67572C9.3919 6.17805 9.67411 6.85935 9.67411 7.56976C9.67411 8.28016 9.3919 8.96146 8.88957 9.46379C8.38724 9.96612 7.70594 10.2483 6.99554 10.2483C6.28514 10.2483 5.60383 9.96612 5.1015 9.46379C4.59917 8.96146 4.31697 8.28016 4.31697 7.56976C4.31697 6.85935 4.59917 6.17805 5.1015 5.67572C5.60383 5.17339 6.28514 4.89118 6.99554 4.89118ZM6.99554 5.96261C6.5693 5.96261 6.16051 6.13194 5.85912 6.43333C5.55772 6.73473 5.38839 7.14352 5.38839 7.56976C5.38839 7.996 5.55772 8.40478 5.85912 8.70618C6.16051 9.00758 6.5693 9.1769 6.99554 9.1769C7.42178 9.1769 7.83056 9.00758 8.13196 8.70618C8.43336 8.40478 8.60268 7.996 8.60268 7.56976C8.60268 7.14352 8.43336 6.73473 8.13196 6.43333C7.83056 6.13194 7.42178 5.96261 6.99554 5.96261Z"
-                              fill="#F5AA1C"
-                            />
-                          </svg>
-                        </div>
-                        <h5 class="box-location-text">
-                          110 SW Frank Phillips ,Chicago ,United States
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="universities-box swiper-slide">
-                  <div class="universities-box-items">
-                    <img
-                      src="./images/adams uni.png"
-                      class="universities-box-img"
-                      alt=" University Image"
-                    />
-
-                    <div class="universities-box-content">
-                      <h3 class="university-name">Adams State College</h3>
-
-                      <div class="universities-box-location">
-                        <div class="box-location-icon">
-                          <svg
-                            width="14"
-                            height="18"
-                            viewBox="0 0 14 18"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M6.99554 0.605469C8.84258 0.605469 10.614 1.3392 11.92 2.64526C13.2261 3.95132 13.9598 5.72271 13.9598 7.56976C13.9598 10.5126 11.892 13.7198 7.80982 17.2255C7.58284 17.4205 7.29344 17.5276 6.9942 17.5273C6.69496 17.527 6.40575 17.4194 6.17911 17.224L5.90911 16.9898C2.00768 13.5755 0.03125 10.4469 0.03125 7.56976C0.03125 5.72271 0.764985 3.95132 2.07104 2.64526C3.3771 1.3392 5.14849 0.605469 6.99554 0.605469ZM6.99554 1.6769C5.43265 1.6769 3.93378 2.29775 2.82866 3.40288C1.72353 4.508 1.10268 6.00687 1.10268 7.56976C1.10268 10.0712 2.92268 12.9533 6.61268 16.1819L6.87911 16.4126C6.9115 16.4405 6.95281 16.4558 6.99554 16.4558C7.03826 16.4558 7.07957 16.4405 7.11197 16.4126C10.9805 13.0898 12.8884 10.1305 12.8884 7.56976C12.8884 6.79589 12.736 6.02961 12.4398 5.31466C12.1437 4.5997 11.7096 3.95008 11.1624 3.40288C10.6152 2.85567 9.96559 2.42161 9.25064 2.12546C8.53568 1.82932 7.7694 1.6769 6.99554 1.6769ZM6.99554 4.89118C7.70594 4.89118 8.38724 5.17339 8.88957 5.67572C9.3919 6.17805 9.67411 6.85935 9.67411 7.56976C9.67411 8.28016 9.3919 8.96146 8.88957 9.46379C8.38724 9.96612 7.70594 10.2483 6.99554 10.2483C6.28514 10.2483 5.60383 9.96612 5.1015 9.46379C4.59917 8.96146 4.31697 8.28016 4.31697 7.56976C4.31697 6.85935 4.59917 6.17805 5.1015 5.67572C5.60383 5.17339 6.28514 4.89118 6.99554 4.89118ZM6.99554 5.96261C6.5693 5.96261 6.16051 6.13194 5.85912 6.43333C5.55772 6.73473 5.38839 7.14352 5.38839 7.56976C5.38839 7.996 5.55772 8.40478 5.85912 8.70618C6.16051 9.00758 6.5693 9.1769 6.99554 9.1769C7.42178 9.1769 7.83056 9.00758 8.13196 8.70618C8.43336 8.40478 8.60268 7.996 8.60268 7.56976C8.60268 7.14352 8.43336 6.73473 8.13196 6.43333C7.83056 6.13194 7.42178 5.96261 6.99554 5.96261Z"
-                              fill="#F5AA1C"
-                            />
-                          </svg>
-                        </div>
-                        <h5 class="box-location-text">
-                          110 SW Frank Phillips ,Chicago ,United States
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="universities-box swiper-slide">
-                  <div class="universities-box-items">
-                    <img
-                      src="./images/adams uni.png"
-                      class="universities-box-img"
-                      alt=" University Image"
-                    />
-
-                    <div class="universities-box-content">
-                      <h3 class="university-name">Adams State College</h3>
-
-                      <div class="universities-box-location">
-                        <div class="box-location-icon">
-                          <svg
-                            width="14"
-                            height="18"
-                            viewBox="0 0 14 18"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M6.99554 0.605469C8.84258 0.605469 10.614 1.3392 11.92 2.64526C13.2261 3.95132 13.9598 5.72271 13.9598 7.56976C13.9598 10.5126 11.892 13.7198 7.80982 17.2255C7.58284 17.4205 7.29344 17.5276 6.9942 17.5273C6.69496 17.527 6.40575 17.4194 6.17911 17.224L5.90911 16.9898C2.00768 13.5755 0.03125 10.4469 0.03125 7.56976C0.03125 5.72271 0.764985 3.95132 2.07104 2.64526C3.3771 1.3392 5.14849 0.605469 6.99554 0.605469ZM6.99554 1.6769C5.43265 1.6769 3.93378 2.29775 2.82866 3.40288C1.72353 4.508 1.10268 6.00687 1.10268 7.56976C1.10268 10.0712 2.92268 12.9533 6.61268 16.1819L6.87911 16.4126C6.9115 16.4405 6.95281 16.4558 6.99554 16.4558C7.03826 16.4558 7.07957 16.4405 7.11197 16.4126C10.9805 13.0898 12.8884 10.1305 12.8884 7.56976C12.8884 6.79589 12.736 6.02961 12.4398 5.31466C12.1437 4.5997 11.7096 3.95008 11.1624 3.40288C10.6152 2.85567 9.96559 2.42161 9.25064 2.12546C8.53568 1.82932 7.7694 1.6769 6.99554 1.6769ZM6.99554 4.89118C7.70594 4.89118 8.38724 5.17339 8.88957 5.67572C9.3919 6.17805 9.67411 6.85935 9.67411 7.56976C9.67411 8.28016 9.3919 8.96146 8.88957 9.46379C8.38724 9.96612 7.70594 10.2483 6.99554 10.2483C6.28514 10.2483 5.60383 9.96612 5.1015 9.46379C4.59917 8.96146 4.31697 8.28016 4.31697 7.56976C4.31697 6.85935 4.59917 6.17805 5.1015 5.67572C5.60383 5.17339 6.28514 4.89118 6.99554 4.89118ZM6.99554 5.96261C6.5693 5.96261 6.16051 6.13194 5.85912 6.43333C5.55772 6.73473 5.38839 7.14352 5.38839 7.56976C5.38839 7.996 5.55772 8.40478 5.85912 8.70618C6.16051 9.00758 6.5693 9.1769 6.99554 9.1769C7.42178 9.1769 7.83056 9.00758 8.13196 8.70618C8.43336 8.40478 8.60268 7.996 8.60268 7.56976C8.60268 7.14352 8.43336 6.73473 8.13196 6.43333C7.83056 6.13194 7.42178 5.96261 6.99554 5.96261Z"
-                              fill="#F5AA1C"
-                            />
-                          </svg>
-                        </div>
-                        <h5 class="box-location-text">
-                          110 SW Frank Phillips ,Chicago ,United States
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="universities-box swiper-slide">
-                  <div class="universities-box-items">
-                    <img
-                      src="./images/adams uni.png"
-                      class="universities-box-img"
-                      alt=" University Image"
-                    />
-
-                    <div class="universities-box-content">
-                      <h3 class="university-name">Adams State College</h3>
-
-                      <div class="universities-box-location">
-                        <div class="box-location-icon">
-                          <svg
-                            width="14"
-                            height="18"
-                            viewBox="0 0 14 18"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M6.99554 0.605469C8.84258 0.605469 10.614 1.3392 11.92 2.64526C13.2261 3.95132 13.9598 5.72271 13.9598 7.56976C13.9598 10.5126 11.892 13.7198 7.80982 17.2255C7.58284 17.4205 7.29344 17.5276 6.9942 17.5273C6.69496 17.527 6.40575 17.4194 6.17911 17.224L5.90911 16.9898C2.00768 13.5755 0.03125 10.4469 0.03125 7.56976C0.03125 5.72271 0.764985 3.95132 2.07104 2.64526C3.3771 1.3392 5.14849 0.605469 6.99554 0.605469ZM6.99554 1.6769C5.43265 1.6769 3.93378 2.29775 2.82866 3.40288C1.72353 4.508 1.10268 6.00687 1.10268 7.56976C1.10268 10.0712 2.92268 12.9533 6.61268 16.1819L6.87911 16.4126C6.9115 16.4405 6.95281 16.4558 6.99554 16.4558C7.03826 16.4558 7.07957 16.4405 7.11197 16.4126C10.9805 13.0898 12.8884 10.1305 12.8884 7.56976C12.8884 6.79589 12.736 6.02961 12.4398 5.31466C12.1437 4.5997 11.7096 3.95008 11.1624 3.40288C10.6152 2.85567 9.96559 2.42161 9.25064 2.12546C8.53568 1.82932 7.7694 1.6769 6.99554 1.6769ZM6.99554 4.89118C7.70594 4.89118 8.38724 5.17339 8.88957 5.67572C9.3919 6.17805 9.67411 6.85935 9.67411 7.56976C9.67411 8.28016 9.3919 8.96146 8.88957 9.46379C8.38724 9.96612 7.70594 10.2483 6.99554 10.2483C6.28514 10.2483 5.60383 9.96612 5.1015 9.46379C4.59917 8.96146 4.31697 8.28016 4.31697 7.56976C4.31697 6.85935 4.59917 6.17805 5.1015 5.67572C5.60383 5.17339 6.28514 4.89118 6.99554 4.89118ZM6.99554 5.96261C6.5693 5.96261 6.16051 6.13194 5.85912 6.43333C5.55772 6.73473 5.38839 7.14352 5.38839 7.56976C5.38839 7.996 5.55772 8.40478 5.85912 8.70618C6.16051 9.00758 6.5693 9.1769 6.99554 9.1769C7.42178 9.1769 7.83056 9.00758 8.13196 8.70618C8.43336 8.40478 8.60268 7.996 8.60268 7.56976C8.60268 7.14352 8.43336 6.73473 8.13196 6.43333C7.83056 6.13194 7.42178 5.96261 6.99554 5.96261Z"
-                              fill="#F5AA1C"
-                            />
-                          </svg>
-                        </div>
-                        <h5 class="box-location-text">
-                          110 SW Frank Phillips ,Chicago ,United States
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                </a>
               </div>
-              <div class="swiper-pagination"></div>
+
+              <div class="slide-content swiper mySwiper">
+                <div class="universities-boxs-wrapper swiper-wrapper">
+                  <div class="universities-box swiper-slide">
+                    <div class="universities-box-items">
+                      <img
+                        src="./images/adams uni.png"
+                        class="universities-box-img"
+                        alt=" University Image"
+                      />
+
+                      <div class="universities-box-content">
+                        <h3 class="university-name">Adams State College</h3>
+
+                        <div class="universities-box-location">
+                          <div class="box-location-icon">
+                            <svg
+                              width="14"
+                              height="18"
+                              viewBox="0 0 14 18"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M6.99554 0.605469C8.84258 0.605469 10.614 1.3392 11.92 2.64526C13.2261 3.95132 13.9598 5.72271 13.9598 7.56976C13.9598 10.5126 11.892 13.7198 7.80982 17.2255C7.58284 17.4205 7.29344 17.5276 6.9942 17.5273C6.69496 17.527 6.40575 17.4194 6.17911 17.224L5.90911 16.9898C2.00768 13.5755 0.03125 10.4469 0.03125 7.56976C0.03125 5.72271 0.764985 3.95132 2.07104 2.64526C3.3771 1.3392 5.14849 0.605469 6.99554 0.605469ZM6.99554 1.6769C5.43265 1.6769 3.93378 2.29775 2.82866 3.40288C1.72353 4.508 1.10268 6.00687 1.10268 7.56976C1.10268 10.0712 2.92268 12.9533 6.61268 16.1819L6.87911 16.4126C6.9115 16.4405 6.95281 16.4558 6.99554 16.4558C7.03826 16.4558 7.07957 16.4405 7.11197 16.4126C10.9805 13.0898 12.8884 10.1305 12.8884 7.56976C12.8884 6.79589 12.736 6.02961 12.4398 5.31466C12.1437 4.5997 11.7096 3.95008 11.1624 3.40288C10.6152 2.85567 9.96559 2.42161 9.25064 2.12546C8.53568 1.82932 7.7694 1.6769 6.99554 1.6769ZM6.99554 4.89118C7.70594 4.89118 8.38724 5.17339 8.88957 5.67572C9.3919 6.17805 9.67411 6.85935 9.67411 7.56976C9.67411 8.28016 9.3919 8.96146 8.88957 9.46379C8.38724 9.96612 7.70594 10.2483 6.99554 10.2483C6.28514 10.2483 5.60383 9.96612 5.1015 9.46379C4.59917 8.96146 4.31697 8.28016 4.31697 7.56976C4.31697 6.85935 4.59917 6.17805 5.1015 5.67572C5.60383 5.17339 6.28514 4.89118 6.99554 4.89118ZM6.99554 5.96261C6.5693 5.96261 6.16051 6.13194 5.85912 6.43333C5.55772 6.73473 5.38839 7.14352 5.38839 7.56976C5.38839 7.996 5.55772 8.40478 5.85912 8.70618C6.16051 9.00758 6.5693 9.1769 6.99554 9.1769C7.42178 9.1769 7.83056 9.00758 8.13196 8.70618C8.43336 8.40478 8.60268 7.996 8.60268 7.56976C8.60268 7.14352 8.43336 6.73473 8.13196 6.43333C7.83056 6.13194 7.42178 5.96261 6.99554 5.96261Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5 class="box-location-text">
+                            110 SW Frank Phillips ,Chicago ,United States
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="universities-box swiper-slide">
+                    <div class="universities-box-items">
+                      <img
+                        src="./images/adams uni.png"
+                        class="universities-box-img"
+                        alt=" University Image"
+                      />
+
+                      <div class="universities-box-content">
+                        <h3 class="university-name">Hopkins University</h3>
+
+                        <div class="universities-box-location">
+                          <div class="box-location-icon">
+                            <svg
+                              width="14"
+                              height="18"
+                              viewBox="0 0 14 18"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M6.99554 0.605469C8.84258 0.605469 10.614 1.3392 11.92 2.64526C13.2261 3.95132 13.9598 5.72271 13.9598 7.56976C13.9598 10.5126 11.892 13.7198 7.80982 17.2255C7.58284 17.4205 7.29344 17.5276 6.9942 17.5273C6.69496 17.527 6.40575 17.4194 6.17911 17.224L5.90911 16.9898C2.00768 13.5755 0.03125 10.4469 0.03125 7.56976C0.03125 5.72271 0.764985 3.95132 2.07104 2.64526C3.3771 1.3392 5.14849 0.605469 6.99554 0.605469ZM6.99554 1.6769C5.43265 1.6769 3.93378 2.29775 2.82866 3.40288C1.72353 4.508 1.10268 6.00687 1.10268 7.56976C1.10268 10.0712 2.92268 12.9533 6.61268 16.1819L6.87911 16.4126C6.9115 16.4405 6.95281 16.4558 6.99554 16.4558C7.03826 16.4558 7.07957 16.4405 7.11197 16.4126C10.9805 13.0898 12.8884 10.1305 12.8884 7.56976C12.8884 6.79589 12.736 6.02961 12.4398 5.31466C12.1437 4.5997 11.7096 3.95008 11.1624 3.40288C10.6152 2.85567 9.96559 2.42161 9.25064 2.12546C8.53568 1.82932 7.7694 1.6769 6.99554 1.6769ZM6.99554 4.89118C7.70594 4.89118 8.38724 5.17339 8.88957 5.67572C9.3919 6.17805 9.67411 6.85935 9.67411 7.56976C9.67411 8.28016 9.3919 8.96146 8.88957 9.46379C8.38724 9.96612 7.70594 10.2483 6.99554 10.2483C6.28514 10.2483 5.60383 9.96612 5.1015 9.46379C4.59917 8.96146 4.31697 8.28016 4.31697 7.56976C4.31697 6.85935 4.59917 6.17805 5.1015 5.67572C5.60383 5.17339 6.28514 4.89118 6.99554 4.89118ZM6.99554 5.96261C6.5693 5.96261 6.16051 6.13194 5.85912 6.43333C5.55772 6.73473 5.38839 7.14352 5.38839 7.56976C5.38839 7.996 5.55772 8.40478 5.85912 8.70618C6.16051 9.00758 6.5693 9.1769 6.99554 9.1769C7.42178 9.1769 7.83056 9.00758 8.13196 8.70618C8.43336 8.40478 8.60268 7.996 8.60268 7.56976C8.60268 7.14352 8.43336 6.73473 8.13196 6.43333C7.83056 6.13194 7.42178 5.96261 6.99554 5.96261Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5 class="box-location-text">
+                            110 SW Frank Phillips ,Chicago ,United States
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="universities-box swiper-slide">
+                    <div class="universities-box-items">
+                      <img
+                        src="./images/adams uni.png"
+                        class="universities-box-img"
+                        alt=" University Image"
+                      />
+
+                      <div class="universities-box-content">
+                        <h3 class="university-name">Methodist University</h3>
+
+                        <div class="universities-box-location">
+                          <div class="box-location-icon">
+                            <svg
+                              width="14"
+                              height="18"
+                              viewBox="0 0 14 18"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M6.99554 0.605469C8.84258 0.605469 10.614 1.3392 11.92 2.64526C13.2261 3.95132 13.9598 5.72271 13.9598 7.56976C13.9598 10.5126 11.892 13.7198 7.80982 17.2255C7.58284 17.4205 7.29344 17.5276 6.9942 17.5273C6.69496 17.527 6.40575 17.4194 6.17911 17.224L5.90911 16.9898C2.00768 13.5755 0.03125 10.4469 0.03125 7.56976C0.03125 5.72271 0.764985 3.95132 2.07104 2.64526C3.3771 1.3392 5.14849 0.605469 6.99554 0.605469ZM6.99554 1.6769C5.43265 1.6769 3.93378 2.29775 2.82866 3.40288C1.72353 4.508 1.10268 6.00687 1.10268 7.56976C1.10268 10.0712 2.92268 12.9533 6.61268 16.1819L6.87911 16.4126C6.9115 16.4405 6.95281 16.4558 6.99554 16.4558C7.03826 16.4558 7.07957 16.4405 7.11197 16.4126C10.9805 13.0898 12.8884 10.1305 12.8884 7.56976C12.8884 6.79589 12.736 6.02961 12.4398 5.31466C12.1437 4.5997 11.7096 3.95008 11.1624 3.40288C10.6152 2.85567 9.96559 2.42161 9.25064 2.12546C8.53568 1.82932 7.7694 1.6769 6.99554 1.6769ZM6.99554 4.89118C7.70594 4.89118 8.38724 5.17339 8.88957 5.67572C9.3919 6.17805 9.67411 6.85935 9.67411 7.56976C9.67411 8.28016 9.3919 8.96146 8.88957 9.46379C8.38724 9.96612 7.70594 10.2483 6.99554 10.2483C6.28514 10.2483 5.60383 9.96612 5.1015 9.46379C4.59917 8.96146 4.31697 8.28016 4.31697 7.56976C4.31697 6.85935 4.59917 6.17805 5.1015 5.67572C5.60383 5.17339 6.28514 4.89118 6.99554 4.89118ZM6.99554 5.96261C6.5693 5.96261 6.16051 6.13194 5.85912 6.43333C5.55772 6.73473 5.38839 7.14352 5.38839 7.56976C5.38839 7.996 5.55772 8.40478 5.85912 8.70618C6.16051 9.00758 6.5693 9.1769 6.99554 9.1769C7.42178 9.1769 7.83056 9.00758 8.13196 8.70618C8.43336 8.40478 8.60268 7.996 8.60268 7.56976C8.60268 7.14352 8.43336 6.73473 8.13196 6.43333C7.83056 6.13194 7.42178 5.96261 6.99554 5.96261Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5 class="box-location-text">
+                            110 SW Frank Phillips ,Chicago ,United States
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="universities-box swiper-slide">
+                    <div class="universities-box-items">
+                      <img
+                        src="./images/adams uni.png"
+                        class="universities-box-img"
+                        alt=" University Image"
+                      />
+
+                      <div class="universities-box-content">
+                        <h3 class="university-name">Adams State College</h3>
+
+                        <div class="universities-box-location">
+                          <div class="box-location-icon">
+                            <svg
+                              width="14"
+                              height="18"
+                              viewBox="0 0 14 18"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M6.99554 0.605469C8.84258 0.605469 10.614 1.3392 11.92 2.64526C13.2261 3.95132 13.9598 5.72271 13.9598 7.56976C13.9598 10.5126 11.892 13.7198 7.80982 17.2255C7.58284 17.4205 7.29344 17.5276 6.9942 17.5273C6.69496 17.527 6.40575 17.4194 6.17911 17.224L5.90911 16.9898C2.00768 13.5755 0.03125 10.4469 0.03125 7.56976C0.03125 5.72271 0.764985 3.95132 2.07104 2.64526C3.3771 1.3392 5.14849 0.605469 6.99554 0.605469ZM6.99554 1.6769C5.43265 1.6769 3.93378 2.29775 2.82866 3.40288C1.72353 4.508 1.10268 6.00687 1.10268 7.56976C1.10268 10.0712 2.92268 12.9533 6.61268 16.1819L6.87911 16.4126C6.9115 16.4405 6.95281 16.4558 6.99554 16.4558C7.03826 16.4558 7.07957 16.4405 7.11197 16.4126C10.9805 13.0898 12.8884 10.1305 12.8884 7.56976C12.8884 6.79589 12.736 6.02961 12.4398 5.31466C12.1437 4.5997 11.7096 3.95008 11.1624 3.40288C10.6152 2.85567 9.96559 2.42161 9.25064 2.12546C8.53568 1.82932 7.7694 1.6769 6.99554 1.6769ZM6.99554 4.89118C7.70594 4.89118 8.38724 5.17339 8.88957 5.67572C9.3919 6.17805 9.67411 6.85935 9.67411 7.56976C9.67411 8.28016 9.3919 8.96146 8.88957 9.46379C8.38724 9.96612 7.70594 10.2483 6.99554 10.2483C6.28514 10.2483 5.60383 9.96612 5.1015 9.46379C4.59917 8.96146 4.31697 8.28016 4.31697 7.56976C4.31697 6.85935 4.59917 6.17805 5.1015 5.67572C5.60383 5.17339 6.28514 4.89118 6.99554 4.89118ZM6.99554 5.96261C6.5693 5.96261 6.16051 6.13194 5.85912 6.43333C5.55772 6.73473 5.38839 7.14352 5.38839 7.56976C5.38839 7.996 5.55772 8.40478 5.85912 8.70618C6.16051 9.00758 6.5693 9.1769 6.99554 9.1769C7.42178 9.1769 7.83056 9.00758 8.13196 8.70618C8.43336 8.40478 8.60268 7.996 8.60268 7.56976C8.60268 7.14352 8.43336 6.73473 8.13196 6.43333C7.83056 6.13194 7.42178 5.96261 6.99554 5.96261Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5 class="box-location-text">
+                            110 SW Frank Phillips ,Chicago ,United States
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="universities-box swiper-slide">
+                    <div class="universities-box-items">
+                      <img
+                        src="./images/adams uni.png"
+                        class="universities-box-img"
+                        alt=" University Image"
+                      />
+
+                      <div class="universities-box-content">
+                        <h3 class="university-name">Adams State College</h3>
+
+                        <div class="universities-box-location">
+                          <div class="box-location-icon">
+                            <svg
+                              width="14"
+                              height="18"
+                              viewBox="0 0 14 18"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M6.99554 0.605469C8.84258 0.605469 10.614 1.3392 11.92 2.64526C13.2261 3.95132 13.9598 5.72271 13.9598 7.56976C13.9598 10.5126 11.892 13.7198 7.80982 17.2255C7.58284 17.4205 7.29344 17.5276 6.9942 17.5273C6.69496 17.527 6.40575 17.4194 6.17911 17.224L5.90911 16.9898C2.00768 13.5755 0.03125 10.4469 0.03125 7.56976C0.03125 5.72271 0.764985 3.95132 2.07104 2.64526C3.3771 1.3392 5.14849 0.605469 6.99554 0.605469ZM6.99554 1.6769C5.43265 1.6769 3.93378 2.29775 2.82866 3.40288C1.72353 4.508 1.10268 6.00687 1.10268 7.56976C1.10268 10.0712 2.92268 12.9533 6.61268 16.1819L6.87911 16.4126C6.9115 16.4405 6.95281 16.4558 6.99554 16.4558C7.03826 16.4558 7.07957 16.4405 7.11197 16.4126C10.9805 13.0898 12.8884 10.1305 12.8884 7.56976C12.8884 6.79589 12.736 6.02961 12.4398 5.31466C12.1437 4.5997 11.7096 3.95008 11.1624 3.40288C10.6152 2.85567 9.96559 2.42161 9.25064 2.12546C8.53568 1.82932 7.7694 1.6769 6.99554 1.6769ZM6.99554 4.89118C7.70594 4.89118 8.38724 5.17339 8.88957 5.67572C9.3919 6.17805 9.67411 6.85935 9.67411 7.56976C9.67411 8.28016 9.3919 8.96146 8.88957 9.46379C8.38724 9.96612 7.70594 10.2483 6.99554 10.2483C6.28514 10.2483 5.60383 9.96612 5.1015 9.46379C4.59917 8.96146 4.31697 8.28016 4.31697 7.56976C4.31697 6.85935 4.59917 6.17805 5.1015 5.67572C5.60383 5.17339 6.28514 4.89118 6.99554 4.89118ZM6.99554 5.96261C6.5693 5.96261 6.16051 6.13194 5.85912 6.43333C5.55772 6.73473 5.38839 7.14352 5.38839 7.56976C5.38839 7.996 5.55772 8.40478 5.85912 8.70618C6.16051 9.00758 6.5693 9.1769 6.99554 9.1769C7.42178 9.1769 7.83056 9.00758 8.13196 8.70618C8.43336 8.40478 8.60268 7.996 8.60268 7.56976C8.60268 7.14352 8.43336 6.73473 8.13196 6.43333C7.83056 6.13194 7.42178 5.96261 6.99554 5.96261Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5 class="box-location-text">
+                            110 SW Frank Phillips ,Chicago ,United States
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="universities-box swiper-slide">
+                    <div class="universities-box-items">
+                      <img
+                        src="./images/adams uni.png"
+                        class="universities-box-img"
+                        alt=" University Image"
+                      />
+
+                      <div class="universities-box-content">
+                        <h3 class="university-name">Adams State College</h3>
+
+                        <div class="universities-box-location">
+                          <div class="box-location-icon">
+                            <svg
+                              width="14"
+                              height="18"
+                              viewBox="0 0 14 18"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M6.99554 0.605469C8.84258 0.605469 10.614 1.3392 11.92 2.64526C13.2261 3.95132 13.9598 5.72271 13.9598 7.56976C13.9598 10.5126 11.892 13.7198 7.80982 17.2255C7.58284 17.4205 7.29344 17.5276 6.9942 17.5273C6.69496 17.527 6.40575 17.4194 6.17911 17.224L5.90911 16.9898C2.00768 13.5755 0.03125 10.4469 0.03125 7.56976C0.03125 5.72271 0.764985 3.95132 2.07104 2.64526C3.3771 1.3392 5.14849 0.605469 6.99554 0.605469ZM6.99554 1.6769C5.43265 1.6769 3.93378 2.29775 2.82866 3.40288C1.72353 4.508 1.10268 6.00687 1.10268 7.56976C1.10268 10.0712 2.92268 12.9533 6.61268 16.1819L6.87911 16.4126C6.9115 16.4405 6.95281 16.4558 6.99554 16.4558C7.03826 16.4558 7.07957 16.4405 7.11197 16.4126C10.9805 13.0898 12.8884 10.1305 12.8884 7.56976C12.8884 6.79589 12.736 6.02961 12.4398 5.31466C12.1437 4.5997 11.7096 3.95008 11.1624 3.40288C10.6152 2.85567 9.96559 2.42161 9.25064 2.12546C8.53568 1.82932 7.7694 1.6769 6.99554 1.6769ZM6.99554 4.89118C7.70594 4.89118 8.38724 5.17339 8.88957 5.67572C9.3919 6.17805 9.67411 6.85935 9.67411 7.56976C9.67411 8.28016 9.3919 8.96146 8.88957 9.46379C8.38724 9.96612 7.70594 10.2483 6.99554 10.2483C6.28514 10.2483 5.60383 9.96612 5.1015 9.46379C4.59917 8.96146 4.31697 8.28016 4.31697 7.56976C4.31697 6.85935 4.59917 6.17805 5.1015 5.67572C5.60383 5.17339 6.28514 4.89118 6.99554 4.89118ZM6.99554 5.96261C6.5693 5.96261 6.16051 6.13194 5.85912 6.43333C5.55772 6.73473 5.38839 7.14352 5.38839 7.56976C5.38839 7.996 5.55772 8.40478 5.85912 8.70618C6.16051 9.00758 6.5693 9.1769 6.99554 9.1769C7.42178 9.1769 7.83056 9.00758 8.13196 8.70618C8.43336 8.40478 8.60268 7.996 8.60268 7.56976C8.60268 7.14352 8.43336 6.73473 8.13196 6.43333C7.83056 6.13194 7.42178 5.96261 6.99554 5.96261Z"
+                                fill="#F5AA1C"
+                              />
+                            </svg>
+                          </div>
+                          <h5 class="box-location-text">
+                            110 SW Frank Phillips ,Chicago ,United States
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </main>
+
+    <section class="footer-callToAction-wrapper">
+      <div class="container mx">
+        <div class="footer-callToAction">
+          <div class="footer-callToAction-text">
+            <h3>Ready to Boost your university’s visibility?</h3>
+
+            <p>
+              Access a global network of universities at no cost. UniUniverse is
+              a one-stop platform for promoting your academic programs,
+              attracting students, and developing international partnerships.
+            </p>
+          </div>
+
+          <button class="btn-footer">Get Started Now</button>
+        </div>
+      </div>
+    </section>
 
     <footer class="footer-background">
       <div class="container mx">
@@ -2573,10 +3161,9 @@
                   <h2>Unisuniverse</h2>
                 </a>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
-                  congu.
+                  Your one-stop platform for academic growth. Connect with
+                  students, professors, and universities to explore
+                  opportunities, sell services, and promote programs.
                 </p>
               </div>
               <div class="col-3">
@@ -2630,7 +3217,7 @@
                   </li>
                   <li class="Emailfot">
                     <div class="iconfo">
-                      <i class="fa fa-envelope-o"></i>
+                      <i class="fa-regular fa-envelope"></i>
                     </div>
                     <div class="lineheightfot">
                       Email:<br />
@@ -2750,62 +3337,6 @@
         popupBoxs.style.display = "flex";
         modalBox.style.display = "none";
       };
-
-      // Scroll community
-
-      const scrollContainers = document.querySelectorAll(
-        "#infiniteScroll--left"
-      );
-
-      scrollContainers.forEach((container) => {
-        const scrollWidth = container.scrollWidth;
-        let isScrollingPaused = false;
-
-        window.addEventListener("load", () => {
-          self.setInterval(() => {
-            if (isScrollingPaused) {
-              return;
-            }
-            const first = container.querySelector(".our-community-box");
-
-            if (!isElementInViewport(first)) {
-              container.appendChild(first);
-              container.scrollTo(container.scrollLeft - first.offsetWidth, 0);
-            }
-            if (container.scrollLeft !== scrollWidth) {
-              container.scrollTo(container.scrollLeft + 1, 0);
-            }
-          }, 15);
-        });
-
-        function isElementInViewport(el) {
-          var rect = el.getBoundingClientRect();
-          return rect.right > 0;
-        }
-
-        function pauseScrolling() {
-          isScrollingPaused = true;
-        }
-
-        function resumeScrolling() {
-          isScrollingPaused = false;
-        }
-        const allArticles = container.querySelectorAll(".our-community-box");
-        for (let article of allArticles) {
-          article.addEventListener("mouseenter", pauseScrolling);
-          article.addEventListener("mouseleave", resumeScrolling);
-        }
-      });
-
-      // community wrapper
-
-      const communitySection = document.getElementsByClassName(
-        "our-community-wrapper"
-      )[0];
-
-      if (matchMedia("(max-width: 700px)").matches) {
-        communitySection.style.display = "none";
-      }
     </script>
 
     <!-- Swiper JS -->

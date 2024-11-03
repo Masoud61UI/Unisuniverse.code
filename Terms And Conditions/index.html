@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unisuniverse</title>
-    <script
-      src="http://kit.fontawesome.com/7a4b62b0a4.js"
-      crossorigin="anonymous"
-    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
 
@@ -85,6 +85,12 @@
       .container {
         max-width: 82%;
         height: auto;
+      }
+
+      @media (min-width: 1700px) {
+        .container {
+          max-width: 1300px;
+        }
       }
 
       .mx {
@@ -850,7 +856,7 @@
       }
 
       .terms-title {
-        font-size: 28px;
+        font-size: 26px;
         font-weight: 600;
         color: var(--color-text-black);
       }
@@ -863,10 +869,18 @@
         width: 100%;
       }
 
+      .terms-content-category {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        width: 100%;
+      }
+
       .terms-content-desc,
       .terms-middle-text {
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 400;
         color: var(--color-text-grayblack);
         width: inherit;
       }
@@ -878,10 +892,89 @@
         gap: 9px;
       }
 
+      .terms-middle-p-text,
+      .term-content-text-wrapper {
+        padding-left: 40px;
+      }
+
+      .terms-middle-p,
+      .term-content-text {
+        list-style: initial;
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+        width: inherit;
+      }
+
       .terms-middle-head {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 600;
         color: var(--color-text-black);
+      }
+
+      .terms-content-category > h4 {
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .terms-middle-p-category {
+        list-style: auto;
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+        width: inherit;
+      }
+
+      .terms-content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 36px;
+      }
+
+      .term-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .term-content-subtitle {
+        color: var(--color-text-black);
+        font-size: 18px;
+        font-weight: 600;
+        line-height: normal;
+      }
+
+      .term-content-texts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .term-content-texts-desc {
+        color: var(--color-text-grayblack);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .term-content-text-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 26px;
+      }
+
+      .term-content-text-mb {
+        margin-bottom: 8px;
+      }
+
+      .term-content-text-title {
+        color: var(--color-text-black);
+        font-weight: 600;
       }
 
       .terms-content-desc-secound {
@@ -916,6 +1009,10 @@
         .terms-content-desc,
         .terms-middle-text {
           font-size: 14px;
+        }
+        .terms-middle-p-text,
+        .term-content-text-wrapper {
+          padding-left: 24px;
         }
       }
 
@@ -1295,8 +1392,8 @@
         <div class="hero-text-mg">
           <h1 class="hero-title">Terms And Conditions</h1>
           <p class="hero-desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et.
+            The terms and conditions that ensure the safe and secure use of this
+            website
           </p>
         </div>
       </section>
@@ -1308,204 +1405,705 @@
               <h4>Effective as of: March 24, 2023</h4>
               <nav>
                 <ul>
-                  <a href="#introduction">1. Introduction</a>
-                  <a href="#service">2. The Unisuniverse Service</a>
-                  <a href="#content"
-                    >3. Content and Intellectual Property Rights</a
+                  <a href="#introduction">1. General Overview</a>
+                  <a href="#service">2. User Categories</a>
+                  <a href="#content">3. Terms for Students</a>
+                  <a href="#problems"
+                    >4. Terms for Academics (Professors, Postdocs, PhDs)</a
                   >
-                  <a href="#problems">4. Problems and Disputes</a>
+                  <a href="#Recruiters">5. Terms for University Recruiters</a>
+                  <a href="#Disclaimers"
+                    >6. General Disclaimers and Limitations of Liability</a
+                  >
+                  <a href="#Governing"
+                    >7. Governing Law and Dispute Resolution</a
+                  >
+                  <a href="#Contact">8. Contact Information</a>
+                  <a href="#Subscription">9. Subscription and Membership</a>
                 </ul>
               </nav>
             </div>
             <div class="terms-container">
               <div id="introduction" class="terms">
-                <h2 class="terms-title">1 . Introduction</h2>
+                <h2 class="terms-title">1. General Overview</h2>
                 <div class="terms-content">
                   <p class="terms-content-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
-                    cursus vitae congue mauris rhoncus aenean vel elit
-                    scelerisque. In egestas erat imperdiet sed euismod nisi
-                    porta lorem mollis. Morbi tristique senectus et netus.
-                    Mattis pellentesque id nibh tortor id aliquet lectus proin.
-                    Sapien faucibus et molestie ac feugiat sed lectus
-                    vestibulum. Ullamcorper velit sed ullamcorper morbi
-                    tincidunt ornare massa eget. Dictum varius duis at
-                    consectetur lorem. Nisi vitae suscipit tellus mauris a diam
-                    maecenas sed enim. Velit ut tortor pretium viverra
-                    suspendisse potenti nullam. Et molestie ac feugiat sed
-                    lectus. Non nisi est sit amet facilisis magna. Dignissim
-                    diam quis enim lobortis scelerisque fermentum. Odio ut enim
-                    blandit volutpat maecenas volutpat. Ornare lectus sit amet
-                    est placerat in egestas erat. Nisi vitae suscipit tellus
-                    mauris a diam maecenas sed.
+                    Welcome to Unisuniverse.com! By accessing and using our
+                    website, you agree to comply with the following terms and
+                    conditions. These terms govern the use of our platform for
+                    all users, including students, academics, and university
+                    recruiters. Please read them carefully before proceeding.
+                    Unisuniverse.com reserves the right to update or modify
+                    these terms at any time, without prior notice.
                   </p>
                   <div class="terms-middle-head-text">
                     <h3 class="terms-middle-head">
-                      Age and eligibility requirements
+                      For clarity, here’s an overview of how these terms apply
+                      to different users:
                     </h3>
-                    <p class="terms-middle-text">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
-                      cursus vitae congue mauris rhoncus aenean vel elit
-                      scelerisque. In egestas erat imperdiet sed euismod nisi
-                      porta lorem mollis. Morbi tristique senectus et netus.
-                      Mattis pellentesque id nibh tortor id aliquet lectus
-                      proin. Sapien faucibus et molestie ac feugiat sed lectus
-                      vestibulum. Ullamcorper velit sed ullamcorper morbi
-                      tincidunt ornare massa eget. Dictum varius duis at
-                      consectetur lorem.Lorem ipsum dolor sit amet, consectetur
-                      adipiscing elit, sed do eiusmod tempor incididunt ut
-                      labore et dolore magna aliqua. Egestas purus viverra
-                      accumsan in nisl nisi. Arcu cursus vitae congue mauris
-                      rhoncus aenean vel elit scelerisque. In egestas erat
-                      imperdiet sed euismod nisi porta lorem mollis.
-                    </p>
+                    <ul class="terms-middle-p-text">
+                      <li class="terms-middle-p">
+                        Students: Using our platform to find and apply for
+                        educational opportunities.
+                      </li>
+                      <li class="terms-middle-p">
+                        Academics (Professors, Post-docs, Ph.D. candidates):
+                        Offering academic services, selling academic products,
+                        or networking with peers.
+                      </li>
+                      <li class="terms-middle-p">
+                        University Recruiters: Promoting universities,
+                        advertising academic programs, and recruiting students.
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
 
               <div id="service" class="terms">
-                <h2 class="terms-title">2 . The Unisuniverse Service</h2>
-                <div class="terms-content">
+                <h2 class="terms-title">2. User Categories</h2>
+                <div class="terms-content-category">
+                  <h4>
+                    Unisuniverse.com provides services to three main user
+                    groups:
+                  </h4>
+                  <ul class="terms-middle-p-text">
+                    <li class="terms-middle-p-category">
+                      Students: Can find and apply for educational programs,
+                      network with academics, and purchase academic services or
+                      products.
+                    </li>
+                    <li class="terms-middle-p-category">
+                      Academics: Can sell academic products, offer academic
+                      services (e.g., tutoring, consultancy), and network with
+                      students and other academics.
+                    </li>
+                    <li class="terms-middle-p-category">
+                      University Recruiters: Can create profiles for their
+                      universities, list educational programs, and recruit
+                      students.
+                    </li>
+                  </ul>
                   <p class="terms-content-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
-                    cursus vitae congue mauris rhoncus aenean vel elit
-                    scelerisque. In egestas erat imperdiet sed euismod nisi
-                    porta lorem mollis. Morbi tristique senectus et netus.
-                    Mattis pellentesque id nibh tortor id aliquet lectus proin.
-                    Sapien faucibus et molestie ac feugiat sed lectus
-                    vestibulum. Ullamcorper velit sed ullamcorper morbi
-                    tincidunt ornare massa eget.
-                  </p>
-                  <div class="terms-middle-head-text">
-                    <h3 class="terms-middle-head">
-                      Service limitations and modifications
-                    </h3>
-                    <p class="terms-middle-text">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
-                      cursus vitae congue mauris rhoncus aenean vel elit
-                      scelerisque. In egestas erat imperdiet sed euismod nisi
-                      porta lorem mollis. Morbi tristique senectus et netus.
-                      Mattis pellentesque id nibh tortor id aliquet lectus
-                      proin.
-                    </p>
-                  </div>
-                  <p class="terms-content-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
-                    cursus vitae congue mauris rhoncus aenean vel elit
-                    scelerisque. In egestas erat imperdiet sed euismod nisi
-                    porta lorem mollis. Morbi tristique senectus et netus.
-                    Mattis pellentesque id nibh tortor id aliquet lectus proin.
-                    Sapien faucibus et molestie ac feugiat sed lectus
-                    vestibulum. Ullamcorper velit sed ullamcorper morbi
-                    tincidunt ornare massa eget. Dictum varius duis at
-                    consectetur lorem.Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Egestas purus viverra accumsan in
-                    nisl nisi.
+                    Each user group has specific terms applicable to them,
+                    outlined below.
                   </p>
                 </div>
               </div>
 
               <div id="content" class="terms">
-                <h2 class="terms-title">
-                  3 . Content and Intellectual Property Rights
-                </h2>
-                <div class="terms-content">
-                  <p class="terms-content-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
-                    cursus vitae congue mauris rhoncus aenean vel elit
-                    scelerisque. In egestas erat imperdiet sed euismod nisi
-                    porta lorem mollis.
-                  </p>
-                  <div class="terms-content-desc-secound">
-                    <div class="terms-middle-head-text">
-                      <h3 class="terms-middle-head">User Content</h3>
-                      <p class="terms-middle-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Egestas purus viverra accumsan in nisl
-                        nisi. Arcu cursus vitae congue mauris rhoncus aenean vel
-                        elit scelerisque.
+                <h2 class="terms-title">3. Terms for Students</h2>
+
+                <div class="terms-content-wrapper">
+                  <div class="term-content">
+                    <h4 class="term-content-subtitle">
+                      3.1 Application for Educational Opportunities
+                    </h4>
+
+                    <div class="term-content-texts">
+                      <p class="term-content-texts-desc">
+                        By using Unisuniverse.com to apply for educational
+                        programs, students agree to the following:
                       </p>
+
+                      <ul class="term-content-text-wrapper">
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Accurate Information:</span
+                            >
+                            You must provide accurate and up-to-date information
+                            about your academic background and personal details
+                            when applying. Incorrect or falsified information
+                            may result in your application being rejected by the
+                            university.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            If you apply to a master's program and claim to have
+                            completed a bachelor’s degree that you did not
+                            complete, the university may reject your application
+                            or even blacklist you from future applications.
+                          </p>
+                        </li>
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Third-Party Responsibilities:</span
+                            >
+                            Unisuniverse.com is a platform connecting you with
+                            universities. We are not responsible for the
+                            application process, decisions, or any communication
+                            between you and the university. The application
+                            outcomes are solely at the discretion of the
+                            academic institutions.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            If a student applies to three different universities
+                            via Unisuniverse.com and receives no response from
+                            one of them, Unisuniverse.com is not liable for that
+                            non-response. It's the student’s responsibility to
+                            follow up with the university.
+                          </p>
+                        </li>
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >No Guarantees:</span
+                            >
+                            Unisuniverse.com does not guarantee that any
+                            application submitted through the platform will
+                            result in admission to the applied university or
+                            program. Admission decisions are entirely in the
+                            hands of the academic institutions.
+                          </p>
+                        </li>
+                      </ul>
                     </div>
-                    <p class="terms-content-desc">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
-                      cursus vitae congue mauris rhoncus aenean vel elit
-                      scelerisque.
-                    </p>
-                    <div class="terms-middle-head-text">
-                      <h3 class="terms-middle-head">Feedback</h3>
-                      <p class="terms-middle-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Egestas purus viverra accumsan in nisl
-                        nisi. Arcu cursus vitae congue mauris rhoncus aenean vel
-                        elit scelerisque. In egestas erat imperdiet sed euismod
-                        nisi porta lorem mollis. Morbi tristique senectus et
-                        netus. Mattis pellentesque id nibh tortor id aliquet
-                        lectus proin. Sapien faucibus et molestie ac feugiat sed
-                        lectus vestibulum.
-                      </p>
+                  </div>
+
+                  <div class="term-content">
+                    <h4 class="term-content-subtitle">
+                      3.2 Use of Information
+                    </h4>
+
+                    <div class="term-content-texts">
+                      <ul class="term-content-text-wrapper">
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Confidentiality:</span
+                            >
+                            We take your privacy seriously. Your personal
+                            information will not be shared with unauthorized
+                            parties. However, your data will be shared with the
+                            universities you are applying to.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            When you apply to a university, your academic
+                            credentials, personal information, and other
+                            necessary documents will be shared with that
+                            university’s admissions office.
+                          </p>
+                        </li>
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Third-Party Responsibilities:</span
+                            >
+                            Unisuniverse.com is a platform connecting you with
+                            universities. We are not responsible for the
+                            application process, decisions, or any communication
+                            between you and the university. The application
+                            outcomes are solely at the discretion of the
+                            academic institutions.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            If a student applies to three different universities
+                            via Unisuniverse.com and receives no response from
+                            one of them, Unisuniverse.com is not liable for that
+                            non-response. It's the student’s responsibility to
+                            follow up with the university.
+                          </p>
+                        </li>
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Data Responsibility:</span
+                            >
+                            It is your responsibility to ensure that all
+                            information submitted is accurate and complies with
+                            the requirements of the university.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="term-content">
+                    <h4 class="term-content-subtitle">
+                      3.3 Disclaimers and Liability
+                    </h4>
+
+                    <div class="term-content-texts">
+                      <ul class="term-content-text-wrapper">
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >No Liability for Application Outcomes:</span
+                            >
+                            We are not responsible for any issues, rejections,
+                            or delays that arise during the application process.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            If a university delays their decision-making process
+                            or misses a deadline for response, Unisuniverse.com
+                            is not responsible for that delay or its
+                            consequences for the applicant.
+                          </p>
+                        </li>
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >No Refund Policy:</span
+                            >
+                            Unisuniverse.com does not offer refunds for services
+                            such as application submissions, processing fees, or
+                            account-related services.
+                          </p>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div id="problems" class="terms">
-                <h2 class="terms-title">4. Problems and Disputes</h2>
+                <h2 class="terms-title">
+                  4. Terms for Academics (Professors, Postdocs, PhDs)
+                </h2>
+
+                <div class="terms-content-wrapper">
+                  <div class="term-content">
+                    <h4 class="term-content-subtitle">
+                      4.1 Selling Academic Products and Services
+                    </h4>
+
+                    <div class="term-content-texts">
+                      <ul class="term-content-text-wrapper">
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Ownership of Content:</span
+                            >
+                            As an academic offering services or selling products
+                            (e.g., research papers, educational material), you
+                            retain ownership of your intellectual property.
+                            However, by listing your products or services on
+                            Unisuniverse.com, you grant us a non-exclusive
+                            license to display and promote your content.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            A Ph.D. candidate selling tutoring services in
+                            mathematics retains ownership of the materials they
+                            create but allows Unisuniverse.com to display those
+                            materials on their profile page.
+                          </p>
+                        </li>
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Responsibility for Content:</span
+                            >
+                            You are solely responsible for the quality,
+                            accuracy, and legality of the content you offer.
+                            Unisuniverse.com does not verify or vet the academic
+                            accuracy of the products or services sold on the
+                            platform.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            If a professor sells a research paper and it is
+                            later found to contain plagiarized content,
+                            Unisuniverse.com is not responsible for any legal
+                            actions or disputes that arise from this situation.
+                          </p>
+                        </li>
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Transaction Fees:</span
+                            >
+                            Unisuniverse.com may charge service fees or
+                            commissions on successful sales of products or
+                            services. These fees are listed on our pricing page
+                            and may be updated from time to time.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="term-content">
+                    <h4 class="term-content-subtitle">
+                      4.2 Payments and Taxes
+                    </h4>
+
+                    <div class="term-content-texts">
+                      <ul class="term-content-text-wrapper">
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Payment Processing:</span
+                            >
+                            All payments for services or products sold through
+                            the platform are processed via third-party payment
+                            gateways. We do not control these gateways and are
+                            not responsible for delays, failed transactions, or
+                            any issues that may arise with payment processing.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            If a tutor provides services to a student but
+                            experiences a delay in receiving payment due to a
+                            bank processing issue, Unisuniverse.com is not
+                            liable for this delay.
+                          </p>
+                        </li>
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Tax Obligations:</span
+                            >
+                            As an academic selling products or services, you are
+                            responsible for reporting and paying any taxes on
+                            income earned through Unisuniverse.com. We do not
+                            withhold taxes on your behalf.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            A postdoc selling consultancy services on
+                            Unisuniverse.com must report the income from these
+                            services to their local tax authorities.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="term-content">
+                    <h4 class="term-content-subtitle">
+                      4.3 Disputes and Cancellations
+                    </h4>
+
+                    <div class="term-content-texts">
+                      <ul class="term-content-text-wrapper">
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Resolution of Disputes:</span
+                            >
+                            If a dispute arises between an academic and a
+                            student over the delivery or quality of a service,
+                            Unisuniverse.com provides a platform for mediation
+                            but does not guarantee a resolution. All disputes
+                            must be settled between the parties.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            If a student disputes the quality of tutoring
+                            received, both parties are responsible for resolving
+                            the issue. Unisuniverse.com is not liable for any
+                            refund or compensation claims unless otherwise
+                            stated in a service agreement.
+                          </p>
+                        </li>
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Cancellation of Orders:</span
+                            >
+                            Academics may cancel or modify orders under
+                            conditions specified in the agreement with the
+                            buyer. However, refunds are not guaranteed unless
+                            both parties agree to it.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="Recruiters" class="terms">
+                <h2 class="terms-title">5. Terms for University Recruiters</h2>
+
+                <div class="terms-content-wrapper">
+                  <div class="term-content">
+                    <h4 class="term-content-subtitle">
+                      5.1 University Profiles and Listings
+                    </h4>
+
+                    <div class="term-content-texts">
+                      <ul class="term-content-text-wrapper">
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Creation of University Profiles:</span
+                            >
+                            Universities can create profiles on Unisuniverse.com
+                            to promote their programs and recruit students. It
+                            is the responsibility of the university to keep
+                            their profile and information up-to-date.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            A university may create a profile listing its
+                            Bachelor’s, Master’s, Ph.D., and Postdoctoral
+                            programs, including application deadlines, course
+                            descriptions, and faculty information. The
+                            university is responsible for ensuring this
+                            information is current.
+                          </p>
+                        </li>
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Promotional Content:</span
+                            >
+                            Universities can use Unisuniverse.com to advertise
+                            educational programs, faculty positions, and
+                            recruitment opportunities. However, all promotional
+                            content must be accurate and comply with our terms.
+                            Any misleading or false content may result in the
+                            suspension of the university’s account.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            If a university advertises a scholarship opportunity
+                            but later fails to offer the scholarship,
+                            Unisuniverse.com reserves the right to suspend their
+                            account for violating the terms of service.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="term-content">
+                    <h4 class="term-content-subtitle">
+                      5.2 Communication with Users
+                    </h4>
+
+                    <div class="term-content-texts">
+                      <ul class="term-content-text-wrapper">
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Direct Communication:</span
+                            >
+                            University recruiters can interact with students and
+                            academics directly via the platform. It is the
+                            university’s responsibility to maintain professional
+                            communication standards and respond to inquiries
+                            promptly.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            A university recruiter may receive questions from
+                            prospective students about course prerequisites or
+                            scholarship opportunities. They are responsible for
+                            answering these questions in a timely and
+                            professional manner.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="term-content">
+                    <h4 class="term-content-subtitle">
+                      5.3 Disclaimers and Liability
+                    </h4>
+
+                    <div class="term-content-texts">
+                      <ul class="term-content-text-wrapper">
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >Information Accuracy:</span
+                            >
+                            Universities are responsible for ensuring that all
+                            content provided on their profile is accurate and
+                            up-to-date. Unisuniverse.com does not verify the
+                            accuracy of university profiles or listings.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            If a university advertises a program that has been
+                            discontinued, they are responsible for updating or
+                            removing that listing. Unisuniverse.com is not
+                            liable for any misinformation provided by the
+                            university.
+                          </p>
+                        </li>
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            <span class="term-content-text-title"
+                              >No Guarantee of Recruitment:</span
+                            >
+                            Unisuniverse.com does not guarantee that using our
+                            platform will result in student admissions or
+                            faculty hires. Recruitment success depends on the
+                            efforts and communication of the university.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="Disclaimers" class="terms">
+                <h2 class="terms-title">
+                  6. General Disclaimers and Limitations of Liability
+                </h2>
+
+                <div class="terms-content-wrapper">
+                  <div class="term-content">
+                    <h4 class="term-content-subtitle">
+                      6.1 Platform Availability
+                    </h4>
+
+                    <div class="term-content-texts">
+                      <ul class="term-content-text-wrapper">
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            While we strive to provide continuous access to
+                            Unisuniverse.com, we cannot guarantee uninterrupted
+                            service. We may occasionally need to conduct
+                            maintenance or resolve technical issues that could
+                            result in temporary downtime. We are not liable for
+                            any losses resulting from these service
+                            interruptions.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            If a student is unable to submit their university
+                            application due to a server outage, Unisuniverse.com
+                            is not responsible for any consequences related to
+                            that missed submission.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="term-content">
+                    <h4 class="term-content-subtitle">
+                      6.2 User Responsibility
+                    </h4>
+
+                    <div class="term-content-texts">
+                      <ul class="term-content-text-wrapper">
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            All users (students, academics, and recruiters) are
+                            responsible for their activities on the platform.
+                            This includes adhering to relevant laws and
+                            regulations, especially when offering paid services
+                            or products.
+                          </p>
+                          <p>
+                            <span class="term-content-text-subtitle"
+                              >Example:
+                            </span>
+                            If a professor sells academic content that violates
+                            copyright laws, the professor is responsible for any
+                            legal consequences, not Unisuniverse.com.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="term-content">
+                    <h4 class="term-content-subtitle">
+                      6.3 No Legal or Tax Liability
+                    </h4>
+
+                    <div class="term-content-texts">
+                      <ul class="term-content-text-wrapper">
+                        <li class="term-content-text">
+                          <p class="term-content-text-mb">
+                            Unisuniverse.com does not provide legal, tax, or
+                            financial advice. Users are responsible for
+                            understanding and complying with their legal
+                            obligations, including taxes on any income earned
+                            through the platform.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="Governing" class="terms">
+                <h2 class="terms-title">
+                  7. Governing Law and Dispute Resolution
+                </h2>
                 <div class="terms-content">
-                  <div class="terms-middle-head-text">
-                    <h3 class="terms-middle-head">Third-party rights</h3>
-                    <p class="terms-middle-text">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
-                      cursus vitae congue mauris rhoncus aenean vel elit
-                      scelerisque. In egestas erat imperdiet sed euismod nisi
-                      porta lorem mollis. Morbi tristique senectus et netus.
-                      Mattis pellentesque id nibh tortor id aliquet lectus
-                      proin. Sapien faucibus et molestie ac feugiat sed lectus
-                      vestibulum. Ullamcorper velit sed ullamcorper morbi
-                      tincidunt ornare massa eget.Lorem ipsum dolor sit amet,
-                      consectetur adipiscing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua. Egestas purus
-                      viverra accumsan in nisl nisi. Arcu cursus vitae congue
-                      mauris rhoncus aenean vel elit scelerisque. In egestas
-                      erat imperdiet sed euismod nisi porta lorem mollis. Morbi
-                      tristique senectus et netus. Mattis pellentesque id nibh
-                      tortor id aliquet lectus proin. Sapien faucibus et
-                      molestie ac feugiat sed lectus vestibulum. Ullamcorper
-                      velit sed ullamcorper morbi tincidunt ornare massa eget.
-                    </p>
-                  </div>
-                  <div class="terms-middle-head-text">
-                    <h3 class="terms-middle-head">Indemnification</h3>
-                    <p class="terms-middle-text">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
-                      cursus vitae congue mauris rhoncus aenean vel elit
-                      scelerisque. In egestas erat imperdiet sed euismod nisi
-                      porta lorem mollis. Morbi tristique senectus et netus.
-                      Mattis pellentesque id nibh tortor id aliquet lectus
-                      proin. Sapien faucibus et molestie ac feugiat sed lectus
-                      vestibulum. Ullamcorper.
-                    </p>
-                  </div>
+                  <p class="terms-content-desc">
+                    These terms and conditions are governed by the laws of [Your
+                    Country/State]. In the event of a dispute, users must first
+                    attempt to resolve it through mediation. If mediation fails,
+                    the dispute will be resolved in the courts of [Your
+                    Jurisdiction].
+                  </p>
+                </div>
+              </div>
+
+              <div id="Contact" class="terms">
+                <h2 class="terms-title">8. Contact Information</h2>
+                <div class="terms-content">
+                  <p class="terms-content-desc">
+                    If you have any questions or concerns regarding these Terms
+                    and Conditions, please contact us at
+                    support@unisuniverse.com.
+                  </p>
+                </div>
+              </div>
+
+              <div id="Subscription" class="terms">
+                <h2 class="terms-title">9. Subscription and Membership</h2>
+                <div class="terms-content">
+                  <p class="terms-content-desc">
+                    Unisuniverse.com is currently free to join, and users are
+                    welcome to access the platform without any initial fees.
+                    However, please note that Unisuniverse.com reserves the
+                    right to introduce a paid subscription model in the future.
+                    This may be required for accessing certain advanced
+                    features, services, or exclusive content. Any changes to the
+                    subscription model will be communicated to users in advance,
+                    and users will have the option to opt into paid features if
+                    they choose.
+                  </p>
                 </div>
               </div>
             </div>
@@ -1528,10 +2126,9 @@
                   <h2>Unisuniverse</h2>
                 </a>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
-                  congu.
+                  Your one-stop platform for academic growth. Connect with
+                  students, professors, and universities to explore
+                  opportunities, sell services, and promote programs.
                 </p>
               </div>
               <div class="col-3">
@@ -1585,7 +2182,7 @@
                   </li>
                   <li class="Emailfot">
                     <div class="iconfo">
-                      <i class="fa fa-envelope-o"></i>
+                      <i class="fa-regular fa-envelope"></i>
                     </div>
                     <div class="lineheightfot">
                       Email:<br />

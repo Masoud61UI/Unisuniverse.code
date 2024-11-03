@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unisuniverse</title>
-    <script
-      src="http://kit.fontawesome.com/7a4b62b0a4.js"
-      crossorigin="anonymous"
-    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
 
@@ -893,6 +893,46 @@
       }
       .btn-medium:hover {
         background-color: var(--secondary-color);
+      }
+
+      .img-sections-second {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-basis: 48%;
+      }
+
+      .benefits-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .benefit-items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .benefit-item-icon {
+        display: flex;
+        width: 30px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background: var(--secondary-color);
+        font-size: 14px;
+        color: var(--primary-color);
+      }
+
+      .benefit-items > p {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--color-text-black);
+        width: fit-content;
       }
 
       .img-sections {
@@ -1992,28 +2032,26 @@
                   </div>
 
                   <h2>
-                    By utilizing our services, easily expedite your research
-                    endeavors.
+                    Monetize Your Research Papers, Lecture Notes, and
+                    Educational Content
                   </h2>
                 </div>
 
                 <div class="apply-section-content-items-desc">
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
-                    cursus vitae congue mauris rhoncus.
+                    Sell your self-made research papers, detailed lecture notes,
+                    and other educational resources to a global audience of
+                    students and academics.
                   </p>
 
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
+                    Our platform enables you to reach those seeking high-quality
+                    academic content.
                   </p>
                 </div>
               </div>
 
-              <button class="btn-medium">Join Us</button>
+              <button class="btn-medium">Start Selling</button>
             </div>
 
             <div class="img-sections">
@@ -2022,6 +2060,65 @@
                 class="all-img-sections"
                 alt="Academics Image"
               />
+            </div>
+          </div>
+        </section>
+
+        <section class="apply-section-wrapper">
+          <div class="apply-section">
+            <div class="img-sections-second">
+              <img
+                src="./images/CtaImg2.png"
+                class="all-img-sections"
+                alt="Students Image"
+              />
+            </div>
+
+            <div class="apply-section-content">
+              <div class="apply-section-content-items">
+                <div class="apply-section-content-items-title">
+                  <h2>
+                    Provide Expert Consulting, Tutoring, and Mentorship Services
+                  </h2>
+                </div>
+
+                <div class="apply-section-content-items-desc">
+                  <p>
+                    Offer specialized services such as tutoring, project
+                    consultation, and academic mentorship. Leverage your
+                    expertise to help others while building your professional
+                    reputation and earning income.
+                  </p>
+                </div>
+              </div>
+
+              <button class="btn-medium">Offer Your Services</button>
+
+              <div class="benefits-wrapper">
+                <div class="benefit-items">
+                  <div class="benefit-item-icon">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+
+                  <p>Earn Money and Gain Financial Independence</p>
+                </div>
+
+                <div class="benefit-items">
+                  <div class="benefit-item-icon">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+
+                  <p>Bespoke training and consulting services</p>
+                </div>
+
+                <div class="benefit-items">
+                  <div class="benefit-item-icon">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+
+                  <p>Building a Strong Network</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -2049,17 +2146,11 @@
                     <div id="content1" class="contents">
                       <div class="store-introduction-tab-items">
                         <div class="store-introduction-tab-title">
-                          <h2>
-                            Monetize Your Research Papers, Lecture Notes, and
-                            Educational Content
-                          </h2>
+                          <h2>Step-by-Step Product/Service Addition</h2>
 
                           <p>
-                            Sell your self-made research papers, detailed
-                            lecture notes, and other educational resources to a
-                            global audience of students and academics. Our
-                            platform enables you to reach those seeking
-                            high-quality academic content.
+                            Display your products, make sales, and start
+                            earning. Follow our step-by-step guide.
                           </p>
                         </div>
 
@@ -2133,16 +2224,14 @@
                     <div id="content2" class="contents">
                       <div class="store-introduction-tab-items">
                         <div class="store-introduction-tab-title">
-                          <h2>
-                            Provide Expert Consulting, Tutoring, and Mentorship
-                            Services
-                          </h2>
+                          <h2>Find and use your products/services</h2>
 
                           <p>
-                            Offer specialized services such as tutoring, project
-                            consultation, and academic mentorship. Leverage your
-                            expertise to help others while building your
-                            professional reputation and earning income.
+                            Save time and find everything your business needs in
+                            one place. Our advanced search tools help you
+                            quickly compare and select the perfect products and
+                            services. Manage your entire business on a single
+                            platform.
                           </p>
                         </div>
                       </div>
