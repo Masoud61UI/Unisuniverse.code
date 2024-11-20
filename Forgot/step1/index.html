@@ -367,53 +367,9 @@
         }
       }
 
-      /* hero section */
-
-      .breadcrumb {
-        color: var(--color-text-gray);
-        font-size: 14px;
-        font-weight: 500;
-        padding: 24px 0;
-      }
-
-      .breadcrumb > span {
-        color: var(--secondary-color);
-      }
-
-      .hero-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding-top: 34px;
-      }
-
-      .hero-title {
-        color: var(--primary-color);
-        font-size: 42px;
-        font-weight: 600;
-        letter-spacing: 0.84px;
-      }
-
-      .hero-desc {
-        color: #636363;
-        font-size: 17px;
-        line-height: 27px;
-        max-width: 540px;
-        padding-top: 10px;
-      }
-
       @media only screen and (max-width: 450px) {
         .logo {
           font-size: 24px;
-        }
-
-        .hero-title {
-          font-size: 28px;
-        }
-
-        .hero-desc {
-          font-size: 14px;
         }
       }
 
@@ -778,105 +734,169 @@
         }
       }
 
-      /* accordion*/
+      /*Forgot*/
 
-      .accordion {
-        margin-top: 80px;
+      .forgot-warpper {
+        margin: 64px 0;
       }
 
-      .accordion .accordion-item {
-        border-bottom: 1px solid var(--color-line);
+      .circle-container {
+        position: relative; /* برای موقعیت دهی مطلق دایره کوچک */
+        width: 106px;
+        height: 106px;
+        margin: auto;
       }
 
-      .accordion button {
-        position: relative;
-        display: block;
-        text-align: left;
+      .big-circle {
         width: 100%;
-        padding: 1em 0;
-        color: var(--color-text-black);
-        font-size: 22px;
-        font-weight: 500;
-        border: none;
-        background: none;
-        outline: none;
+        height: 100%;
+        border-radius: 50%;
+        background-color: var(--primary-color);
       }
 
-      .accordion button:hover,
-      .accordion button:focus {
-        cursor: pointer;
-        color: var(--secondary-color);
-      }
-
-      .accordion button:hover::after,
-      .accordion button:focus::after {
-        cursor: pointer;
-        color: var(--secondary-color);
-        border: 1px solid var(--secondary-color);
-      }
-
-      .accordion button .accordion-title {
-        padding: 1em 1.5em 1em 0;
-      }
-
-      .accordion button .icon {
-        display: inline-block;
+      .small-circle {
         position: absolute;
-        right: 0;
-        width: 22px;
-        height: 22px;
-        border: 1px solid;
-        border-radius: 22px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 82px;
+        height: 82px;
+        border-radius: 50%;
+        background-color: var(--secondary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .forgot-contents {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        width: fit-content;
+        margin: auto;
+        margin-top: 24px;
+      }
+
+      .forgot-contents-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .forgot-contents-text > h2 {
+        color: #333;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: normal;
+      }
+
+      .forgot-contents-text > p,
+      .forgot-contents-btns > p {
+        color: #666;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: normal;
+        text-align: center;
+      }
+
+      .forgot-btns-wrapper {
+        margin-top: 20px;
+        width: 100%;
+      }
+
+      .forgot-contents-btns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        width: 100%;
+      }
+
+      .btn-click {
+        color: var(--primary-color);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: normal;
+        cursor: pointer;
+        border-bottom: 1px solid var(--primary-color);
+      }
+
+      .text-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--color-text-grayblack);
+      }
+
+      .text-btn > i {
+        font-size: 14px;
+      }
+
+      .input_pox {
+        margin: 18px 0 18px 0;
+        width: 100%;
+      }
+
+      .datails {
+        display: block;
+        font-weight: 500;
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: var(--color-text-grayblack);
+      }
+
+      .input_pox input {
+        height: 48px;
+        width: 100%;
+        outline: none;
+        border-radius: 10px;
+        border: 1px solid var(--color-line);
+        padding-left: 15px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .input_pox input:focus,
+      .input_pox input:valid {
+        border-color: var(--primary-color);
+      }
+
+      @media (max-width: 584px) {
+        .input_pox {
+          margin-bottom: 15px;
+          width: 100%;
+        }
+      }
+
+      .inputs-forms {
+        width: 100%;
+      }
+
+      .btn-medium {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 14px 24px;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+        border-radius: 10px;
+        width: 100%;
+      }
+      .btn-medium:hover {
+        background-color: var(--secondary-color);
         color: var(--primary-color);
       }
 
-      .accordion button .icon::before {
-        display: block;
-        position: absolute;
-        content: "";
-        top: 9px;
-        left: 5px;
-        width: 10px;
-        height: 2px;
-        background: currentColor;
-      }
-
-      .accordion button .icon::after {
-        display: block;
-        position: absolute;
-        content: "";
-        top: 5px;
-        left: 9px;
-        width: 2px;
-        height: 10px;
-        background: currentColor;
-      }
-
-      .accordion button[aria-expanded="true"] {
-        color: var(--secondary-color);
-      }
-      .accordion button[aria-expanded="true"] .icon::after {
-        width: 0;
-      }
-
-      .accordion button[aria-expanded="true"] + .accordion-content {
-        opacity: 1;
-        max-height: 9em;
-        transition: all 200ms linear;
-        will-change: opacity, max-height;
-      }
-      .accordion .accordion-content {
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: opacity 200ms linear, max-height 200ms linear;
-        will-change: opacity, max-height;
-      }
-      .accordion .accordion-content p {
-        font-size: 17px;
-        font-weight: 500;
-        color: var(--color-text-grayblack);
-        margin: 0 0 2em 0;
+      .error-message {
+        font-size: 14px;
+        color: #ff1a1a;
+        margin-top: 3px;
       }
 
       /*footer*/
@@ -1246,161 +1266,97 @@
       </section>
     </header>
 
-    <div class="mx container">
-      <p class="breadcrumb">Home / <span>FAQ</span></p>
-    </div>
+    <main class="hero-section">
+      <section>
+        <div class="container mx">
+          <div class="forgot-warpper" id="forgot1">
+            <div class="circle-container">
+              <div class="big-circle"></div>
+              <div class="small-circle">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14.3417 15.7707L24.807 5.30536L26.6924 7.19069L24.807 9.07736L28.1057 12.376L26.2204 14.2627L22.9204 10.9627L21.035 12.848L23.863 15.676L21.9777 17.5627L19.1497 14.7334L16.227 17.656C17.1329 19.0347 17.4957 20.7003 17.2453 22.3309C16.9949 23.9615 16.149 25.4414 14.8711 26.4847C13.5932 27.528 11.974 28.0607 10.3262 27.9798C8.67852 27.8989 7.11925 27.2102 5.94969 26.0467C4.77935 24.8788 4.08476 23.3176 4.0008 21.6663C3.91683 20.0151 4.44947 18.3915 5.4953 17.1109C6.54113 15.8303 8.02552 14.984 9.66027 14.7363C11.295 14.4887 12.9635 14.8573 14.3417 15.7707ZM13.4924 24.1614C13.8808 23.794 14.1916 23.3524 14.4065 22.8629C14.6213 22.3733 14.7358 21.8456 14.7433 21.311C14.7507 20.7764 14.6509 20.2457 14.4497 19.7504C14.2486 19.255 13.9502 18.805 13.5721 18.4269C13.194 18.0489 12.744 17.7505 12.2487 17.5493C11.7533 17.3481 11.2226 17.2483 10.688 17.2558C10.1535 17.2632 9.62577 17.3777 9.13619 17.5926C8.64662 17.8074 8.20508 18.1183 7.83769 18.5067C7.10905 19.2611 6.70588 20.2715 6.71499 21.3203C6.7241 22.3691 7.14478 23.3723 7.88641 24.114C8.62804 24.8556 9.63129 25.2763 10.6801 25.2854C11.7289 25.2945 12.7393 24.8913 13.4937 24.1627"
+                    fill="#003366"
+                  />
+                </svg>
+              </div>
+            </div>
 
-    <main class="hero-section container mx">
-      <section class="hero-text">
-        <h1 class="hero-title">Frequently Asked Questions</h1>
-        <p class="hero-desc">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et.
-        </p>
-      </section>
+            <div class="forgot-contents">
+              <div class="forgot-contents-text">
+                <h2>Forgot Password?</h2>
+                <p>No worries, we’ll send you reset instructions.</p>
+              </div>
+              <form class="inputs-forms">
+                <div class="input_pox wf">
+                  <label class="datails">Email</label>
+                  <input
+                    type="email"
+                    class="input"
+                    placeholder="Please enter your email address"
+                    required
+                  />
+                </div>
+              </form>
 
-      <section class="accordion-section container mx">
-        <div class="accordion">
-          <div class="accordion-item">
-            <button id="accordion-button-1" aria-expanded="false">
-              <span class="accordion-title">What is education?</span>
-              <span class="icon" aria-hidden="true"></span>
-            </button>
-            <div class="accordion-content">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Elementum sagittis vitae et leo duis ut. Ut tortor pretium
-                viverra suspendisse potenti.
-              </p>
+              <div class="forgot-contents-btns">
+                <button class="btn-medium">Reset password</button>
+                <a href="/Home/index.html" class="text-btn">
+                  <i class="fa-solid fa-arrow-left"></i>
+                  <span>Back to home</span>
+                </a>
+              </div>
             </div>
           </div>
-          <div class="accordion-item">
-            <button id="accordion-button-2" aria-expanded="false">
-              <span class="accordion-title"
-                >What are the different levels of education?</span
-              >
-              <span class="icon" aria-hidden="true"></span>
-            </button>
-            <div class="accordion-content">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Elementum sagittis vitae et leo duis ut. Ut tortor pretium
-                viverra suspendisse potenti.
-              </p>
+
+          <div class="forgot-warpper" id="forgot2" style="display: none">
+            <div class="circle-container">
+              <div class="big-circle"></div>
+              <div class="small-circle">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M29.9 7.368L17.274 17.824C16.9152 18.1213 16.4639 18.2839 15.998 18.2839C15.5321 18.2839 15.0808 18.1213 14.722 17.824L2.102 7.368C2.03429 7.57182 1.99984 7.78522 2 8V24C2 24.5304 2.21071 25.0391 2.58579 25.4142C2.96086 25.7893 3.46957 26 4 26H28C28.5304 26 29.0391 25.7893 29.4142 25.4142C29.7893 25.0391 30 24.5304 30 24V8C30.0008 7.78533 29.967 7.57193 29.9 7.368ZM4 4H28C29.0609 4 30.0783 4.42143 30.8284 5.17157C31.5786 5.92172 32 6.93913 32 8V24C32 25.0609 31.5786 26.0783 30.8284 26.8284C30.0783 27.5786 29.0609 28 28 28H4C2.93913 28 1.92172 27.5786 1.17157 26.8284C0.421427 26.0783 0 25.0609 0 24V8C0 6.93913 0.421427 5.92172 1.17157 5.17157C1.92172 4.42143 2.93913 4 4 4ZM3.58 6L14.732 15.206C15.0892 15.501 15.5377 15.6629 16.0009 15.664C16.4642 15.6651 16.9134 15.5053 17.272 15.212L28.536 6H3.58Z"
+                    fill="#003366"
+                  />
+                </svg>
+              </div>
             </div>
-          </div>
-          <div class="accordion-item">
-            <button id="accordion-button-3" aria-expanded="false">
-              <span class="accordion-title"
-                >What are the different levels of education?</span
-              >
-              <span class="icon" aria-hidden="true"></span>
-            </button>
-            <div class="accordion-content">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Elementum sagittis vitae et leo duis ut. Ut tortor pretium
-                viverra suspendisse potenti.
-              </p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button id="accordion-button-4" aria-expanded="false">
-              <span class="accordion-title"
-                >What are the different levels of education?</span
-              >
-              <span class="icon" aria-hidden="true"></span>
-            </button>
-            <div class="accordion-content">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Elementum sagittis vitae et leo duis ut. Ut tortor pretium
-                viverra suspendisse potenti.
-              </p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button id="accordion-button-5" aria-expanded="false">
-              <span class="accordion-title"
-                >What are the different levels of education?</span
-              >
-              <span class="icon" aria-hidden="true"></span>
-            </button>
-            <div class="accordion-content">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Elementum sagittis vitae et leo duis ut. Ut tortor pretium
-                viverra suspendisse potenti.
-              </p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button id="accordion-button-6" aria-expanded="false">
-              <span class="accordion-title"
-                >What are the different levels of education?</span
-              >
-              <span class="icon" aria-hidden="true"></span>
-            </button>
-            <div class="accordion-content">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Elementum sagittis vitae et leo duis ut. Ut tortor pretium
-                viverra suspendisse potenti.
-              </p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button id="accordion-button-7" aria-expanded="false">
-              <span class="accordion-title"
-                >What are the different levels of education?</span
-              >
-              <span class="icon" aria-hidden="true"></span>
-            </button>
-            <div class="accordion-content">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Elementum sagittis vitae et leo duis ut. Ut tortor pretium
-                viverra suspendisse potenti.
-              </p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button id="accordion-button-8" aria-expanded="false">
-              <span class="accordion-title"
-                >What are the different levels of education?</span
-              >
-              <span class="icon" aria-hidden="true"></span>
-            </button>
-            <div class="accordion-content">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Elementum sagittis vitae et leo duis ut. Ut tortor pretium
-                viverra suspendisse potenti.
-              </p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button id="accordion-button-9" aria-expanded="false">
-              <span class="accordion-title"
-                >What are the different levels of education?</span
-              >
-              <span class="icon" aria-hidden="true"></span>
-            </button>
-            <div class="accordion-content">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Elementum sagittis vitae et leo duis ut. Ut tortor pretium
-                viverra suspendisse potenti.
-              </p>
+
+            <div class="forgot-contents">
+              <div class="forgot-contents-text">
+                <h2>Check your email</h2>
+                <p>We sent a password reset link to your email</p>
+              </div>
+
+              <div class="forgot-btns-wrapper">
+                <div class="forgot-contents-btns">
+                  <button class="btn-medium">Reset password</button>
+
+                  <p>
+                    Didn’t receive the email?
+                    <span class="btn-click">Click to resend</span>
+                  </p>
+
+                  <a href="/Home/index.html" class="text-btn">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back to home</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1561,24 +1517,6 @@
       navbarMenu.addEventListener("click", toggleSubMenu);
       window.addEventListener("resize", resizeWindow);
 
-      // acordion
-
-      const items = document.querySelectorAll(".accordion button");
-
-      function toggleAccordion() {
-        const itemToggle = this.getAttribute("aria-expanded");
-
-        for (i = 0; i < items.length; i++) {
-          items[i].setAttribute("aria-expanded", "false");
-        }
-
-        if (itemToggle == "false") {
-          this.setAttribute("aria-expanded", "true");
-        }
-      }
-
-      items.forEach((item) => item.addEventListener("click", toggleAccordion));
-
       // log in
 
       let closeBut = document.getElementsByClassName("close")[0],
@@ -1615,6 +1553,41 @@
         popupBoxs.style.display = "flex";
         modalBox.style.display = "none";
       };
+
+      // Forgot
+
+      const emailInput = document.querySelector(".input");
+      const resetButton = document.querySelector(".btn-medium");
+      const forgot1 = document.getElementById("forgot1");
+      const forgot2 = document.getElementById("forgot2");
+
+      resetButton.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        const email = emailInput.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (email === "") {
+          const errorMessage = document.createElement("p");
+          errorMessage.classList.add("error-message");
+          errorMessage.textContent = "Please enter your email address.";
+          emailInput.parentNode.insertBefore(
+            errorMessage,
+            emailInput.nextSibling
+          );
+        } else if (!emailRegex.test(email)) {
+          const errorMessage = document.createElement("p");
+          errorMessage.classList.add("error-message");
+          errorMessage.textContent = "Please enter a valid email address";
+          emailInput.parentNode.insertBefore(
+            errorMessage,
+            emailInput.nextSibling
+          );
+        } else {
+          forgot1.style.display = "none";
+          forgot2.style.display = "block";
+        }
+      });
     </script>
   </body>
 </html>
