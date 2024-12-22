@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unisuniverse</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+          0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        --shadow-medium: 0 13px 30px 0 rgba(0, 0, 0, 0.048),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-large: 0 10px 18px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --color-text-black: #333333;
+        --color-text-grayblack: #666666;
+        --color-text-gray: #dcdcdc;
+        --color-background: #f7f9fb;
+        --color-line: #dcdcdc;
+        --color-white: #ffffff;
+        --primary-color: #003366;
+        --secondary-color: #ffd700;
+      }
+
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        list-style: none;
+        list-style-type: none;
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      html {
+        font-size: 100%;
+        box-sizing: inherit;
+        scroll-behavior: smooth;
+        height: -webkit-fill-available;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--color-text-black);
+        background-color: var(--color-white);
+      }
+
+      a,
+      button {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background: none;
+        box-shadow: none;
+        font-family: inherit;
+        letter-spacing: 0.5px;
+      }
+
+      button,
+      input {
+        font-family: inherit;
+        letter-spacing: 0.25px;
+      }
+
+      img,
+      video {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+
+      .container {
+        max-width: 82%;
+        height: auto;
+      }
+
+      @media (min-width: 1700px) {
+        .container {
+          max-width: 1300px;
+        }
+      }
+
+      .mx {
+        margin: 0 auto;
+      }
+
+      ::placeholder {
+        color: var(--color-text-gray);
+        letter-spacing: 0.25px;
+      }
+
+      .logo {
+        font-family: inherit;
+        font-size: 28px;
+        font-weight: 500;
+        line-height: 1.25;
+        color: var(--color-white);
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: 100;
+        margin: 0 auto;
+        box-shadow: var(--shadow-medium);
+        background-color: var(--primary-color);
+        border-bottom: 1px solid var(--color-white);
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        -moz-column-gap: 1rem;
+        column-gap: 1rem;
+        row-gap: 2rem;
+        width: 100%;
+        height: 110px;
+        margin: 0 auto;
+      }
+
+      @media screen and (max-width: 992px) {
+        .navbar {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 75%;
+          height: 100%;
+          z-index: 10;
+          opacity: 0;
+          overflow-y: auto;
+          visibility: hidden;
+          box-shadow: var(--shadow-medium);
+          background-color: var(--primary-color);
+          transition: all 0.5s ease;
+        }
+        .navbar.active {
+          left: 0rem;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      .menu-item {
+        position: relative;
+        display: inline-block;
+        margin-left: 2.4rem;
+      }
+
+      .resnav {
+        display: none;
+      }
+
+      .menu-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -moz-column-gap: 0.25rem;
+        column-gap: 0.25rem;
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: inherit;
+        cursor: pointer;
+        text-transform: capitalize;
+        color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .menu-link > i.fa {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--color-background);
+        margin-left: 2px;
+      }
+
+      .menu-link:hover {
+        outline: none;
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (min-width: 993px) {
+        .menu-dropdown:hover > .submenu {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+      @media only screen and (max-width: 992px) {
+        .menu {
+          width: 100%;
+          height: auto;
+          padding: 1rem 0;
+        }
+        .menu-item {
+          display: block;
+          margin: 0 auto;
+        }
+        .menu-link {
+          justify-content: space-between;
+          padding: 1rem 2rem;
+        }
+      }
+
+      .submenu {
+        position: absolute;
+        top: 3.2rem;
+        left: -2rem;
+        min-width: 13rem;
+        height: auto;
+        padding: 0 1rem 1rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(1rem);
+        border-radius: 0 0 0.25rem 0.25rem;
+        border-top: 2px solid var(--secondary-color);
+        box-shadow: var(--shadow-medium);
+        background-color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .submenu-item {
+        display: block;
+        margin-top: 0.75rem;
+      }
+
+      .submenu-link {
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: inherit;
+        cursor: pointer;
+        color: var(--color-text-grayblack);
+        transition: all 0.35s ease;
+      }
+      .submenu-link:hover {
+        outline: none;
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (max-width: 992px) {
+        .submenu {
+          position: relative;
+          top: -0.5rem;
+          left: 2.5rem;
+          width: 100%;
+          max-height: 0;
+          padding: 0px;
+          border: none;
+          outline: none;
+          opacity: 1;
+          overflow: hidden;
+          visibility: visible;
+          transform: translateY(0px);
+          box-shadow: none;
+          background: transparent;
+        }
+        .submenu-link {
+          color: var(--color-text-gray);
+        }
+      }
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-md {
+        width: 172px;
+        height: 49px;
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: inherit;
+        border-radius: 10px;
+        color: var(--primary-color);
+        background-color: var(--color-white);
+        transition: all 0.35s ease;
+      }
+      .btn-md:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .btn > a > i.fa {
+        margin-right: 22px;
+        color: var(--color-background);
+        transition: all 0.35s ease;
+      }
+      .btn > a > i.fa:hover {
+        color: var(--secondary-color);
+      }
+
+      .burger {
+        position: relative;
+        display: none;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 1.6rem;
+        height: 1.15rem;
+        opacity: 0;
+        visibility: hidden;
+        background: transparent;
+      }
+      .burger-line {
+        position: absolute;
+        display: block;
+        right: 0;
+        width: 100%;
+        height: 2.1px;
+        opacity: 1;
+        border: none;
+        outline: none;
+        border-radius: 1rem;
+        background: var(--color-white);
+      }
+      .burger-line:nth-child(1) {
+        top: 0px;
+      }
+      .burger-line:nth-child(2) {
+        top: 0.5rem;
+        width: 70%;
+      }
+      .burger-line:nth-child(3) {
+        top: 1rem;
+      }
+      @media only screen and (max-width: 992px) {
+        .burger {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+        .btn-md {
+          display: none;
+        }
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 9;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.65);
+      }
+      @media only screen and (max-width: 992px) {
+        .overlay.active {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      @media only screen and (max-width: 450px) {
+        .logo {
+          font-size: 24px;
+        }
+      }
+
+      /* Payment Successful */
+
+      .payment-texts-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 34px;
+        padding: 72px 0 30px 0;
+      }
+
+      .payment-texts-top-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .payment-texts-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .payment-texts-top > h2 {
+        color: var(--color-text-black);
+        text-align: center;
+        font-size: 30px;
+        font-weight: 500;
+      }
+
+      .payment-texts-top > p {
+        color: var(--color-text-grayblack);
+        text-align: center;
+        font-size: 15px;
+        font-weight: 400;
+      }
+
+      .payment-texts-down-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        width: 100%;
+      }
+
+      .payment-texts-orderid {
+        display: flex;
+        padding: 16px 18px;
+        align-items: center;
+        border-radius: 8px;
+        background: var(--color-background);
+        gap: 10px;
+      }
+
+      .payment-text-orderid-num {
+        color: var(--color-text-black);
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .payment-text-orderid-num > span {
+        color: #28a745;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .payment-info-wrapper {
+        display: flex;
+        padding: 20px;
+        flex-direction: column;
+        gap: 16px;
+        border-radius: 12px;
+        border: 1px solid var(--color-line);
+        width: 410px;
+      }
+
+      .checkout-title {
+        color: var(--color-text-black);
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .payment-info-content {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .order-summary-texts {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .order-summary-text-title {
+        color: var(--color-text-grayblack);
+        font-size: 16px;
+        font-weight: 400;
+      }
+
+      .order-summary-text-num {
+        color: var(--color-text-black);
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .btn-medium {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font-size: 15px;
+        font-weight: 500;
+        padding: 14px 42px;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+        border-radius: 8px;
+        border: 1px solid var(--color-line);
+      }
+      .btn-medium:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+      }
+
+      /* footer */
+
+      .footer-background {
+        background-color: var(--primary-color);
+        margin-top: 90px;
+      }
+
+      .col-6 {
+        width: 100%;
+        text-align: center;
+      }
+
+      .col-3 > h4 {
+        padding: 20px 0 20px 0;
+        color: var(--color-white);
+        font-weight: 500;
+      }
+
+      .desc a {
+        display: flex;
+        align-items: center;
+      }
+
+      .desc a > h2 {
+        font-size: 20px;
+        margin-left: 10px;
+        font-weight: 600;
+        color: var(--color-white);
+      }
+
+      .desc > p {
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-white);
+        width: 85%;
+      }
+
+      .row-fot {
+        border-bottom: 1px solid var(--color-line);
+        padding: 2em 0 2.5em 0;
+      }
+
+      footer .row {
+        position: relative;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        grid-gap: 30px;
+        align-items: center;
+      }
+
+      footer ul {
+        padding: 0;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+
+      footer ul li {
+        list-style-type: none;
+        padding: 0;
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        line-height: 2;
+      }
+
+      .footer-cat-links a {
+        color: var(--color-text-gray);
+        font-size: 16px;
+        font-weight: 400;
+        text-decoration: none;
+        position: relative;
+      }
+
+      .footer-cat-links.active > li a {
+        pointer-events: auto;
+      }
+
+      .footer-cat-links a:after {
+        top: 21px;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        width: 0;
+        background: var(--secondary-color);
+        -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      }
+
+      .footer-cat-links a:hover:after,
+      .footer-cat-links a:focus:after {
+        width: 100%;
+        left: 0;
+      }
+
+      .social-links {
+        margin-top: 65px;
+      }
+
+      .social-links a {
+        color: var(--color-white);
+        font-size: 20px;
+        border: 1px solid;
+        border-radius: 20px;
+        padding: 6px;
+        -webkit-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+      }
+
+      .social-links a:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      .social-links a:hover,
+      .social-links a:focus {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+      }
+
+      .social-links a i {
+        width: 25px;
+        height: 25px;
+        text-align: center;
+      }
+
+      .copyowner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--color-text-gray);
+        font-size: 14px;
+        padding: 24px 0 30px 0;
+      }
+
+      .contact {
+        padding-bottom: 13px;
+      }
+
+      .contact > ul > li {
+        display: flex;
+      }
+
+      .contact > ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 6px;
+      }
+
+      .lineheightfot {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-left: 12px;
+        color: var(--color-text-gray);
+      }
+
+      .iconfo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: var(--secondary-color);
+      }
+
+      .Emailfot {
+        padding-top: 20px;
+      }
+
+      @media only screen and (max-width: 992px) {
+        footer .row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media only screen and (max-width: 576px) {
+        footer .row {
+          display: block;
+        }
+        .col-3 {
+          margin-bottom: 28px;
+        }
+        .payment-info-wrapper {
+          width: 100%;
+        }
+      }
+
+      @media only screen and (max-width: 450px) {
+        .copyowner {
+          flex-direction: column;
+        }
+        .checkout-title,
+        .order-summary-text-title,
+        .order-summary-text-num {
+          font-size: 15px;
+        }
+      }
+
+      @media only screen and (max-width: 400px) {
+        .payment-texts-top > h2 {
+          font-size: 20px;
+        }
+        .payment-texts-top > p {
+          font-size: 13px;
+        }
+      }
+
+      @media only screen and (max-width: 376px) {
+        .order-summary-texts {
+          flex-direction: column;
+          gap: 4px;
+        }
+        .payment-info-content,
+        .payment-info-wrapper {
+          gap: 22px;
+        }
+        .checkout-title {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <section class="wrapper container">
+        <a href="./index.html" class="logo">Unisuniverse</a>
+        <span class="overlay"></span>
+        <nav class="navbar" id="navbar">
+          <ul class="menu" id="menu">
+            <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Students</a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Academics</a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Universities</a>
+            </li>
+            <li class="menu-item menu-dropdown">
+              <span class="menu-link" data-toggle="submenu"
+                >Our Services<i class="fa fa-angle-down"></i
+              ></span>
+              <ul class="submenu">
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item resnav">
+              <a href="#" class="menu-link" id="btn-md">Sign Up / Log In</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="btn">
+          <a href="#"><i class="fa fa-search"></i></a>
+          <div class="burger" id="burger">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </div>
+          <button class="btn-md" id="test">Sign Up / Log In</button>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <div class="container mx">
+        <div class="payment-texts-wrapper">
+          <div class="payment-texts-top-wrapper">
+            <div class="payment-successful-icon">
+              <svg
+                width="70"
+                height="70"
+                viewBox="0 0 70 70"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="70" height="70" rx="10" fill="#28A745" />
+                <path
+                  d="M35 52.5C44.665 52.5 52.5 44.665 52.5 35C52.5 25.335 44.665 17.5 35 17.5C25.335 17.5 17.5 25.335 17.5 35C17.5 44.665 25.335 52.5 35 52.5Z"
+                  stroke="white"
+                  stroke-width="2"
+                />
+                <path
+                  d="M28.875 35.875L32.375 39.375L41.125 30.625"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            <div class="payment-texts-top">
+              <h2>Payment Successful</h2>
+              <p>Thank you for your purchase!</p>
+            </div>
+          </div>
+
+          <div class="payment-texts-down-wrapper">
+            <div class="payment-texts-orderid">
+              <svg
+                width="19"
+                height="20"
+                viewBox="0 0 19 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_1553_29)">
+                  <path
+                    d="M6.11003 14.152C5.82682 14.152 5.5957 13.9193 5.5957 13.6328C5.5957 13.3464 5.8252 13.1136 6.11003 13.1136H9.44662C9.72982 13.1136 9.96094 13.3464 9.96094 13.6328C9.96094 13.9193 9.73145 14.152 9.44662 14.152H6.11003ZM6.11003 6.87988C5.82682 6.87988 5.59733 6.65039 5.59733 6.36719C5.59733 6.08398 5.82682 5.85449 6.11003 5.85449H12.8825C13.1657 5.85449 13.3952 6.08398 13.3952 6.36719C13.3952 6.65039 13.1657 6.87988 12.8825 6.87988H6.11003ZM11.8115 17.6855C11.5902 17.5098 11.5527 17.1875 11.7301 16.9661C11.9059 16.7448 12.2282 16.7074 12.4495 16.8848L14.0072 18.1201L16.971 14.4954C17.1501 14.2757 17.474 14.2448 17.6921 14.4238C17.9118 14.6029 17.9427 14.9268 17.7637 15.1449L14.4808 19.1602C14.3034 19.3766 13.986 19.4108 13.7663 19.2367L11.8115 17.6855ZM10.2295 18.9746C10.5127 18.9746 10.7422 19.2041 10.7422 19.4873C10.7422 19.7705 10.5127 20 10.2295 20H2.1696C1.84082 20 1.54297 19.8665 1.3265 19.6501C1.11003 19.4336 0.976562 19.1357 0.976562 18.807V1.19303C0.976562 0.864258 1.11003 0.566406 1.3265 0.349935C1.54297 0.133464 1.84082 0 2.1696 0H16.8213C17.1501 0 17.4479 0.133464 17.6644 0.349935C17.8809 0.566406 18.0143 0.864258 18.0143 1.19303V11.8164C18.0143 12.0996 17.7848 12.3291 17.5016 12.3291C17.2184 12.3291 16.9889 12.0996 16.9889 11.8164V1.19303C16.9889 1.14746 16.9694 1.10514 16.9401 1.07422C16.9092 1.04329 16.8669 1.02539 16.8213 1.02539H2.1696C2.12402 1.02539 2.08171 1.04492 2.05078 1.07422C2.02148 1.10677 2.00195 1.14746 2.00195 1.19303V18.8053C2.00195 18.8509 2.02148 18.8932 2.05078 18.9242C2.08171 18.9551 2.12402 18.973 2.1696 18.973H10.2295V18.9746ZM6.11003 10.5127C5.82682 10.5127 5.59733 10.2832 5.59733 10C5.59733 9.7168 5.82682 9.48731 6.11003 9.48731H12.8825C13.1657 9.48731 13.3952 9.7168 13.3952 10C13.3952 10.2832 13.1657 10.5127 12.8825 10.5127H6.11003Z"
+                    fill="#003366"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_1553_29">
+                    <rect
+                      width="17.0394"
+                      height="20"
+                      fill="white"
+                      transform="translate(0.976562)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+
+              <div class="payment-text-orderid-num">
+                Order number: <span>#246258</span>
+              </div>
+            </div>
+
+            <div class="payment-info-wrapper">
+              <h4 class="checkout-title">Payment Details</h4>
+
+              <div class="payment-info-content">
+                <div class="order-summary-texts">
+                  <div class="order-summary-text-title">Amount Paid :</div>
+                  <div class="order-summary-text-num">$20.25</div>
+                </div>
+
+                <div class="order-summary-texts">
+                  <div class="order-summary-text-title">Date :</div>
+                  <div class="order-summary-text-num">12/13/2024</div>
+                </div>
+
+                <div class="order-summary-texts">
+                  <div class="order-summary-text-title">Payment Method :</div>
+                  <div class="order-summary-text-num">Visa **** 1234</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-medium" type="button">Continue Shopping</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-background">
+      <div class="container mx">
+        <div>
+          <div class="row-fot">
+            <div class="row">
+              <div class="desc col-3">
+                <a href="/index.html">
+                  <img
+                    src="../images/image_59-removebg-preview (1) 1.png"
+                    alt=""
+                  />
+                  <h2>Unisuniverse</h2>
+                </a>
+                <p>
+                  Your one-stop platform for academic growth. Connect with
+                  students, professors, and universities to explore
+                  opportunities, sell services, and promote programs.
+                </p>
+              </div>
+              <div class="col-3">
+                <h4>Short Links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href=""><span>Home</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Academics</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Students</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Universities</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3">
+                <h4>Quick links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href="../Aboutus/index.html"><span>About us</span></a>
+                  </li>
+                  <li>
+                    <a href="../FAQ/index.html"><span>FAQ</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Contact us</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Privacy policy</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3 contact">
+                <h4>Contact us</h4>
+                <ul>
+                  <li>
+                    <div class="iconfo">
+                      <i
+                        class="fa fa-phone fa-flip-horizontal"
+                        aria-hidden="true"
+                      ></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Phone:<br />
+                      +971-580580580
+                    </div>
+                  </li>
+                  <li class="Emailfot">
+                    <div class="iconfo">
+                      <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Email:<br />
+                      info@Unisuniverse@gmail.com
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="social-links social-2 col-6">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-linkedin-in"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-reddit-alien"></i></a>
+            </div>
+          </div>
+          <div class="copyowner">
+            <div id="copyright">
+              &copy; 2023 Attio Ltd. All rights reserved.
+            </div>
+            <div id="owner">
+              <span> Terms & Conditions </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const navbarMenu = document.getElementById("navbar");
+      const burgerMenu = document.getElementById("burger");
+      const overlayMenu = document.querySelector(".overlay");
+
+      const toggleMenu = () => {
+        navbarMenu.classList.toggle("active");
+        overlayMenu.classList.toggle("active");
+      };
+
+      const collapseSubMenu = () => {
+        navbarMenu
+          .querySelector(".menu-dropdown.active .submenu")
+          .removeAttribute("style");
+        navbarMenu
+          .querySelector(".menu-dropdown.active")
+          .classList.remove("active");
+      };
+
+      const toggleSubMenu = (e) => {
+        if (e.target.hasAttribute("data-toggle") && window.innerWidth <= 992) {
+          e.preventDefault();
+          const menuDropdown = e.target.parentElement;
+
+          if (menuDropdown.classList.contains("active")) {
+            collapseSubMenu();
+          } else {
+            if (navbarMenu.querySelector(".menu-dropdown.active")) {
+              collapseSubMenu();
+            }
+
+            menuDropdown.classList.add("active");
+            const subMenu = menuDropdown.querySelector(".submenu");
+            subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+          }
+        }
+      };
+
+      const resizeWindow = () => {
+        if (window.innerWidth > 992) {
+          if (navbarMenu.classList.contains("active")) {
+            toggleMenu();
+          }
+          if (navbarMenu.querySelector(".menu-dropdown.active")) {
+            collapseSubMenu();
+          }
+        }
+      };
+
+      burgerMenu.addEventListener("click", toggleMenu);
+      overlayMenu.addEventListener("click", toggleMenu);
+      navbarMenu.addEventListener("click", toggleSubMenu);
+      window.addEventListener("resize", resizeWindow);
+    </script>
+  </body>
+</html>

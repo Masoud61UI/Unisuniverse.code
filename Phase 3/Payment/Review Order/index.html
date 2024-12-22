@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unisuniverse</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+          0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        --shadow-medium: 0 13px 30px 0 rgba(0, 0, 0, 0.048),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-large: 0 10px 18px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --color-text-black: #333333;
+        --color-text-grayblack: #666666;
+        --color-text-gray: #dcdcdc;
+        --color-background: #f7f9fb;
+        --color-line: #dcdcdc;
+        --color-white: #ffffff;
+        --primary-color: #003366;
+        --secondary-color: #ffd700;
+      }
+
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        list-style: none;
+        list-style-type: none;
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      html {
+        font-size: 100%;
+        box-sizing: inherit;
+        scroll-behavior: smooth;
+        height: -webkit-fill-available;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--color-text-black);
+        background-color: var(--color-background);
+      }
+
+      a,
+      button {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background: none;
+        box-shadow: none;
+        font-family: inherit;
+        letter-spacing: 0.5px;
+      }
+
+      button,
+      input {
+        font-family: inherit;
+        letter-spacing: 0.25px;
+      }
+
+      img,
+      video {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+
+      .container {
+        max-width: 82%;
+        height: auto;
+      }
+
+      @media (min-width: 1700px) {
+        .container {
+          max-width: 1300px;
+        }
+      }
+
+      .mx {
+        margin: 0 auto;
+      }
+
+      ::placeholder {
+        color: var(--color-text-gray);
+        letter-spacing: 0.25px;
+      }
+
+      .logo {
+        font-family: inherit;
+        font-size: 28px;
+        font-weight: 500;
+        line-height: 1.25;
+        color: var(--color-white);
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: 100;
+        margin: 0 auto;
+        box-shadow: var(--shadow-medium);
+        background-color: var(--primary-color);
+        border-bottom: 1px solid var(--color-white);
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        -moz-column-gap: 1rem;
+        column-gap: 1rem;
+        row-gap: 2rem;
+        width: 100%;
+        height: 110px;
+        margin: 0 auto;
+      }
+
+      @media screen and (max-width: 992px) {
+        .navbar {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 75%;
+          height: 100%;
+          z-index: 10;
+          opacity: 0;
+          overflow-y: auto;
+          visibility: hidden;
+          box-shadow: var(--shadow-medium);
+          background-color: var(--primary-color);
+          transition: all 0.5s ease;
+        }
+        .navbar.active {
+          left: 0rem;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      .menu-item {
+        position: relative;
+        display: inline-block;
+        margin-left: 2.4rem;
+      }
+
+      .resnav {
+        display: none;
+      }
+
+      .menu-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -moz-column-gap: 0.25rem;
+        column-gap: 0.25rem;
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: inherit;
+        cursor: pointer;
+        text-transform: capitalize;
+        color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .menu-link > i.fa {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--color-background);
+        margin-left: 2px;
+      }
+
+      .menu-link:hover {
+        outline: none;
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (min-width: 993px) {
+        .menu-dropdown:hover > .submenu {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+      @media only screen and (max-width: 992px) {
+        .menu {
+          width: 100%;
+          height: auto;
+          padding: 1rem 0;
+        }
+        .menu-item {
+          display: block;
+          margin: 0 auto;
+        }
+        .menu-link {
+          justify-content: space-between;
+          padding: 1rem 2rem;
+        }
+      }
+
+      .submenu {
+        position: absolute;
+        top: 3.2rem;
+        left: -2rem;
+        min-width: 13rem;
+        height: auto;
+        padding: 0 1rem 1rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(1rem);
+        border-radius: 0 0 0.25rem 0.25rem;
+        border-top: 2px solid var(--secondary-color);
+        box-shadow: var(--shadow-medium);
+        background-color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .submenu-item {
+        display: block;
+        margin-top: 0.75rem;
+      }
+
+      .submenu-link {
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: inherit;
+        cursor: pointer;
+        color: var(--color-text-grayblack);
+        transition: all 0.35s ease;
+      }
+      .submenu-link:hover {
+        outline: none;
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (max-width: 992px) {
+        .submenu {
+          position: relative;
+          top: -0.5rem;
+          left: 2.5rem;
+          width: 100%;
+          max-height: 0;
+          padding: 0px;
+          border: none;
+          outline: none;
+          opacity: 1;
+          overflow: hidden;
+          visibility: visible;
+          transform: translateY(0px);
+          box-shadow: none;
+          background: transparent;
+        }
+        .submenu-link {
+          color: var(--color-text-gray);
+        }
+      }
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-md {
+        width: 172px;
+        height: 49px;
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: inherit;
+        border-radius: 10px;
+        color: var(--primary-color);
+        background-color: var(--color-white);
+        transition: all 0.35s ease;
+      }
+      .btn-md:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .btn > a > i.fa {
+        margin-right: 22px;
+        color: var(--color-background);
+        transition: all 0.35s ease;
+      }
+      .btn > a > i.fa:hover {
+        color: var(--secondary-color);
+      }
+
+      .burger {
+        position: relative;
+        display: none;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 1.6rem;
+        height: 1.15rem;
+        opacity: 0;
+        visibility: hidden;
+        background: transparent;
+      }
+      .burger-line {
+        position: absolute;
+        display: block;
+        right: 0;
+        width: 100%;
+        height: 2.1px;
+        opacity: 1;
+        border: none;
+        outline: none;
+        border-radius: 1rem;
+        background: var(--color-white);
+      }
+      .burger-line:nth-child(1) {
+        top: 0px;
+      }
+      .burger-line:nth-child(2) {
+        top: 0.5rem;
+        width: 70%;
+      }
+      .burger-line:nth-child(3) {
+        top: 1rem;
+      }
+      @media only screen and (max-width: 992px) {
+        .burger {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+        .btn-md {
+          display: none;
+        }
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 9;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.65);
+      }
+      @media only screen and (max-width: 992px) {
+        .overlay.active {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      @media only screen and (max-width: 450px) {
+        .logo {
+          font-size: 24px;
+        }
+      }
+
+      /* Steps */
+
+      .steps-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 44px;
+        padding: 48px 0 48px 0;
+        flex-wrap: wrap;
+      }
+
+      .step-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .step-item-num-active {
+        display: flex;
+        width: 24px;
+        height: 24px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        background: var(--primary-color);
+        color: var(--color-white);
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .step-item-title-active {
+        color: var(--primary-color);
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+      }
+
+      .step-item-num {
+        display: flex;
+        width: 24px;
+        height: 24px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        background: var(--color-white);
+        color: var(--color-text-black);
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        border: 1px solid #dcdcdc;
+      }
+
+      .step-item-title {
+        color: var(--color-text-grayblack);
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+      }
+
+      /* Checkout Main */
+
+      .checkout-order-wrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 32px;
+      }
+
+      /* Checkout Detail */
+
+      .checkout-wrapper {
+        flex-basis: 66%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .checkout-order-title {
+        color: var(--color-text-black);
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .payment-checkout-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .checkout-items-wrapper {
+        display: flex;
+        padding: 24px 28px;
+        flex-direction: column;
+        border-radius: 12px;
+        background: var(--color-white);
+        box-shadow: var(--shadow-medium);
+        gap: 24px;
+        width: 100%;
+      }
+
+      .checkout-title {
+        color: var(--color-text-black);
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .checkout-items-wrapper > hr {
+        width: 100%;
+        border: none;
+        height: 1px;
+        background-color: var(--color-line);
+      }
+
+      .checkout-items-top {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .checkout-items-top-wrapper {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .checkout-items-top > p {
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .order-details-down {
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+      }
+
+      .order-details-down-card {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .btn-medium {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font-size: 15px;
+        font-weight: 500;
+        padding: 13.5px 42px;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+        border-radius: 8px;
+        border: 1px solid var(--color-line);
+      }
+      .btn-medium:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+      }
+
+      .btn-outline {
+        display: none;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 11px 42px;
+        color: #dc3545;
+        transition: all 0.3s ease-in-out;
+        border-radius: 8px;
+        border: 1px solid #dc3545;
+        width: 100%;
+      }
+
+      .checkout-items-down-wrapper {
+        display: flex;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 28px 96px;
+        flex-wrap: wrap;
+      }
+
+      .checkout-items-down-information {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .items-down-information-title {
+        color: var(--color-text-grayblack);
+        font-size: 15px;
+        font-weight: 400;
+      }
+
+      .items-down-information {
+        color: var(--color-text-black);
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      /* Order Details */
+
+      .order-wrapper {
+        flex-basis: 34%;
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+      }
+
+      .order-content-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .order-items-wrapper {
+        display: flex;
+        padding: 24px 26px 28px 26px;
+        flex-direction: column;
+        border-radius: 12px;
+        background: var(--color-white);
+        box-shadow: var(--shadow-medium);
+        gap: 17px;
+      }
+
+      .order-items-wrapper > hr {
+        width: 100%;
+        border: none;
+        height: 1px;
+        background-color: var(--color-line);
+      }
+
+      .order-item-wrapper {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        flex: 1 0 0;
+      }
+
+      .order-img {
+        width: 152px;
+        height: 102px;
+      }
+
+      .order-img > img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+
+      .order-detail-items {
+        display: flex;
+        padding-top: 0.5px;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1 0 0;
+        width: 100%;
+      }
+
+      .order-detail-top {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .order-summary-texts {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .order-summary-text-title {
+        color: var(--color-text-grayblack);
+        font-size: 16px;
+        font-weight: 400;
+      }
+
+      .order-summary-text-num {
+        color: var(--color-text-black);
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .summary-title {
+        color: var(--color-text-black);
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .summary-num {
+        color: var(--primary-color);
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .checkboxContainer {
+        display: flex;
+      }
+
+      .checkboxContainer label {
+        padding-left: 10px;
+        color: var(--color-text-black);
+        font-weight: 500;
+        font-size: 15px;
+      }
+
+      .checkboxContainer input[type="checkbox"] {
+        width: 22px;
+        height: 22px;
+      }
+      .checkbox:checked {
+        accent-color: var(--primary-color);
+      }
+
+      .text-btn {
+        display: flex;
+        align-items: center;
+        height: fit-content;
+        color: var(--primary-color);
+        font-size: 15px;
+        font-weight: 500;
+        gap: 3px;
+      }
+
+      .order-title {
+        color: var(--color-text-black);
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 20px;
+      }
+
+      .product-rate-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .product-rate {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .product-rate-num {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--color-text-black);
+      }
+
+      .product-rate-reviews {
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .order-detail {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .order-qty {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .order-qty-label {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .order-price {
+        color: var(--primary-color);
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .order-remove {
+        cursor: pointer;
+      }
+
+      .order-qty-num {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--color-text-black);
+      }
+
+      @media only screen and (max-width: 400px) {
+        .steps-wrapper {
+          gap: 28px;
+          padding: 36px 0 56px 0;
+        }
+        .order-detail-top {
+          gap: 10px;
+        }
+        .order-detail-items {
+          gap: 20px;
+        }
+        .order-items-wrapper {
+          gap: 24px;
+        }
+      }
+
+      /* footer */
+
+      .footer-background {
+        background-color: var(--primary-color);
+        margin-top: 90px;
+      }
+
+      .col-6 {
+        width: 100%;
+        text-align: center;
+      }
+
+      .col-3 > h4 {
+        padding: 20px 0 20px 0;
+        color: var(--color-white);
+        font-weight: 500;
+      }
+
+      .desc a {
+        display: flex;
+        align-items: center;
+      }
+
+      .desc a > h2 {
+        font-size: 20px;
+        margin-left: 10px;
+        font-weight: 600;
+        color: var(--color-white);
+      }
+
+      .desc > p {
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-white);
+        width: 85%;
+      }
+
+      .row-fot {
+        border-bottom: 1px solid var(--color-line);
+        padding: 2em 0 2.5em 0;
+      }
+
+      footer .row {
+        position: relative;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        grid-gap: 30px;
+        align-items: center;
+      }
+
+      footer ul {
+        padding: 0;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+
+      footer ul li {
+        list-style-type: none;
+        padding: 0;
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        line-height: 2;
+      }
+
+      .footer-cat-links a {
+        color: var(--color-text-gray);
+        font-size: 16px;
+        font-weight: 400;
+        text-decoration: none;
+        position: relative;
+      }
+
+      .footer-cat-links.active > li a {
+        pointer-events: auto;
+      }
+
+      .footer-cat-links a:after {
+        top: 21px;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        width: 0;
+        background: var(--secondary-color);
+        -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      }
+
+      .footer-cat-links a:hover:after,
+      .footer-cat-links a:focus:after {
+        width: 100%;
+        left: 0;
+      }
+
+      .social-links {
+        margin-top: 65px;
+      }
+
+      .social-links a {
+        color: var(--color-white);
+        font-size: 20px;
+        border: 1px solid;
+        border-radius: 20px;
+        padding: 6px;
+        -webkit-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+      }
+
+      .social-links a:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      .social-links a:hover,
+      .social-links a:focus {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+      }
+
+      .social-links a i {
+        width: 25px;
+        height: 25px;
+        text-align: center;
+      }
+
+      .copyowner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--color-text-gray);
+        font-size: 14px;
+        padding: 24px 0 30px 0;
+      }
+
+      .contact {
+        padding-bottom: 13px;
+      }
+
+      .contact > ul > li {
+        display: flex;
+      }
+
+      .contact > ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 6px;
+      }
+
+      .lineheightfot {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-left: 12px;
+        color: var(--color-text-gray);
+      }
+
+      .iconfo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: var(--secondary-color);
+      }
+
+      .Emailfot {
+        padding-top: 20px;
+      }
+
+      @media only screen and (max-width: 992px) {
+        footer .row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media only screen and (max-width: 576px) {
+        footer .row {
+          display: block;
+        }
+        .col-3 {
+          margin-bottom: 28px;
+        }
+      }
+
+      @media only screen and (max-width: 450px) {
+        .copyowner {
+          flex-direction: column;
+        }
+        .checkout-items-top-wrapper {
+          flex-direction: column;
+          gap: 16px;
+        }
+        .text-btn {
+          margin-left: auto;
+        }
+        .checkout-items-top > p {
+          font-size: 13px;
+        }
+      }
+
+      @media only screen and (max-width: 390px) {
+        .order-item-wrapper {
+          flex-direction: column;
+          gap: 18px;
+        }
+        .order-img {
+          width: 100%;
+          height: 100%;
+          padding: 16px;
+          border: 1px solid var(--color-line);
+          border-radius: 12px;
+        }
+        .checkout-title {
+          font-size: 15px;
+        }
+        .order-details-down-card {
+          flex-direction: column;
+        }
+      }
+
+      @media only screen and (max-width: 1058px) {
+        .checkout-order-wrapper {
+          flex-direction: column;
+          gap: 64px;
+        }
+      }
+
+      @media only screen and (max-width: 520px) {
+        .btn-outline {
+          display: flex;
+        }
+        .order-details-down-card {
+          flex-direction: column;
+          gap: 22px;
+        }
+        .order-remove > svg {
+          display: none;
+        }
+      }
+
+      @media only screen and (max-width: 820px) {
+        .checkout-items-wrapper {
+          gap: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <section class="wrapper container">
+        <a href="./index.html" class="logo">Unisuniverse</a>
+        <span class="overlay"></span>
+        <nav class="navbar" id="navbar">
+          <ul class="menu" id="menu">
+            <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Students</a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Academics</a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Universities</a>
+            </li>
+            <li class="menu-item menu-dropdown">
+              <span class="menu-link" data-toggle="submenu"
+                >Our Services<i class="fa fa-angle-down"></i
+              ></span>
+              <ul class="submenu">
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item resnav">
+              <a href="#" class="menu-link" id="btn-md">Sign Up / Log In</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="btn">
+          <a href="#"><i class="fa fa-search"></i></a>
+          <div class="burger" id="burger">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </div>
+          <button class="btn-md" id="test">Sign Up / Log In</button>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <div class="container mx">
+        <section>
+          <div class="steps-wrapper">
+            <div class="step-item">
+              <div class="step-item-num-active">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.03906 10.4167L6.51823 12.8959L13.9557 5.10419"
+                    stroke="#FFD700"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <h5 class="step-item-title-active">Checkout Detail</h5>
+            </div>
+
+            <div class="step-item">
+              <div class="step-item-num-active">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.03906 10.4167L6.51823 12.8959L13.9557 5.10419"
+                    stroke="#FFD700"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <h5 class="step-item-title-active">Payment Detail</h5>
+            </div>
+
+            <div class="step-item">
+              <div class="step-item-num-active">3</div>
+
+              <h5 class="step-item-title-active">Review Order</h5>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="checkout-order-wrapper">
+            <div class="checkout-wrapper">
+              <h3 class="checkout-order-title">Review Order</h3>
+
+              <div class="payment-checkout-wrapper">
+                <div class="checkout-items-wrapper">
+                  <div class="checkout-items-top">
+                    <h4 class="checkout-title">Order Details</h4>
+
+                    <p>
+                      Please review your orders information. Edit it if
+                      necessary.
+                    </p>
+                  </div>
+
+                  <hr />
+
+                  <div class="order-details-down">
+                    <div class="order-details-down-card">
+                      <div class="order-item-wrapper">
+                        <div class="order-img">
+                          <img src="./images/Order 1.png" alt="Product Photo" />
+                        </div>
+
+                        <div class="order-detail-items">
+                          <div class="order-detail-top">
+                            <h5 class="order-title">Create Character</h5>
+
+                            <div class="product-rate-wrapper">
+                              <div class="product-rate">
+                                <svg
+                                  width="12"
+                                  height="11"
+                                  viewBox="0 0 12 11"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M4.57341 1.39058C5.02244 0.00861239 6.97756 0.00861144 7.42659 1.39058L7.68386 2.18237C7.88467 2.80041 8.4606 3.21885 9.11044 3.21885H9.94298C11.3961 3.21885 12.0002 5.07827 10.8247 5.93237L10.1511 6.42173C9.62539 6.80369 9.4054 7.48075 9.60621 8.09878L9.86348 8.89057C10.3125 10.2725 8.73079 11.4217 7.55522 10.5676L6.88168 10.0783C6.35595 9.69631 5.64405 9.69631 5.11832 10.0783L4.44478 10.5676C3.26921 11.4217 1.68749 10.2725 2.13652 8.89058L2.39379 8.09878C2.5946 7.48075 2.37461 6.80369 1.84888 6.42173L1.17534 5.93237C-0.000229597 5.07827 0.603933 3.21885 2.05702 3.21885H2.88956C3.5394 3.21885 4.11533 2.80041 4.31614 2.18237L4.57341 1.39058Z"
+                                    fill="#FBBC1E"
+                                  />
+                                </svg>
+
+                                <div class="product-rate-num">4.7</div>
+                              </div>
+
+                              <svg
+                                width="4"
+                                height="5"
+                                viewBox="0 0 4 5"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle cx="2" cy="2.5" r="2" fill="#F5AA1C" />
+                              </svg>
+
+                              <div class="product-rate-reviews">
+                                218 Reviews
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="order-detail">
+                            <div class="order-qty">
+                              <label class="order-qty-label">Qty:</label>
+                              <div class="order-qty-num">1</div>
+                            </div>
+
+                            <div class="order-price">$18.25</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="order-remove">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 18 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7.5 4.50006H10.5C10.5 4.10224 10.342 3.72071 10.0607 3.4394C9.77935 3.1581 9.39782 3.00006 9 3.00006C8.60217 3.00006 8.22064 3.1581 7.93934 3.4394C7.65803 3.72071 7.5 4.10224 7.5 4.50006ZM6 4.50006C6 3.70441 6.31607 2.94135 6.87868 2.37874C7.44129 1.81613 8.20435 1.50006 9 1.50006C9.79565 1.50006 10.5587 1.81613 11.1213 2.37874C11.6839 2.94135 12 3.70441 12 4.50006H15.75C15.9489 4.50006 16.1397 4.57908 16.2803 4.71973C16.421 4.86038 16.5 5.05115 16.5 5.25006C16.5 5.44897 16.421 5.63974 16.2803 5.78039C16.1397 5.92104 15.9489 6.00006 15.75 6.00006H15.0885L14.424 13.7551C14.3601 14.5039 14.0175 15.2015 13.4639 15.7098C12.9103 16.2181 12.1861 16.5001 11.4345 16.5001H6.5655C5.81393 16.5001 5.08971 16.2181 4.53611 15.7098C3.98252 15.2015 3.63988 14.5039 3.576 13.7551L2.9115 6.00006H2.25C2.05109 6.00006 1.86032 5.92104 1.71967 5.78039C1.57902 5.63974 1.5 5.44897 1.5 5.25006C1.5 5.05115 1.57902 4.86038 1.71967 4.71973C1.86032 4.57908 2.05109 4.50006 2.25 4.50006H6ZM11.25 9.00006C11.25 8.80115 11.171 8.61038 11.0303 8.46973C10.8897 8.32908 10.6989 8.25006 10.5 8.25006C10.3011 8.25006 10.1103 8.32908 9.96967 8.46973C9.82902 8.61038 9.75 8.80115 9.75 9.00006V12.0001C9.75 12.199 9.82902 12.3897 9.96967 12.5304C10.1103 12.671 10.3011 12.7501 10.5 12.7501C10.6989 12.7501 10.8897 12.671 11.0303 12.5304C11.171 12.3897 11.25 12.199 11.25 12.0001V9.00006ZM7.5 8.25006C7.69891 8.25006 7.88968 8.32908 8.03033 8.46973C8.17098 8.61038 8.25 8.80115 8.25 9.00006V12.0001C8.25 12.199 8.17098 12.3897 8.03033 12.5304C7.88968 12.671 7.69891 12.7501 7.5 12.7501C7.30109 12.7501 7.11032 12.671 6.96967 12.5304C6.82902 12.3897 6.75 12.199 6.75 12.0001V9.00006C6.75 8.80115 6.82902 8.61038 6.96967 8.46973C7.11032 8.32908 7.30109 8.25006 7.5 8.25006ZM5.07 13.6276C5.10195 14.0021 5.27338 14.351 5.55033 14.6052C5.82729 14.8594 6.18959 15.0003 6.5655 15.0001H11.4345C11.8102 14.9999 12.1721 14.8588 12.4487 14.6047C12.7254 14.3505 12.8966 14.0019 12.9285 13.6276L13.5825 6.00006H4.4175L5.07 13.6276Z"
+                            fill="#DC3545"
+                          />
+                        </svg>
+                        <button class="btn-outline">Remove</button>
+                      </div>
+                    </div>
+
+                    <div class="order-details-down-card">
+                      <div class="order-item-wrapper">
+                        <div class="order-img">
+                          <img src="./images/Order 2.png" alt="Product Photo" />
+                        </div>
+
+                        <div class="order-detail-items">
+                          <div class="order-detail-top">
+                            <h5 class="order-title">
+                              Editable Lesson Plan Templates Bundle - Digital
+                            </h5>
+
+                            <div class="product-rate-wrapper">
+                              <div class="product-rate">
+                                <svg
+                                  width="12"
+                                  height="11"
+                                  viewBox="0 0 12 11"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M4.57341 1.39058C5.02244 0.00861239 6.97756 0.00861144 7.42659 1.39058L7.68386 2.18237C7.88467 2.80041 8.4606 3.21885 9.11044 3.21885H9.94298C11.3961 3.21885 12.0002 5.07827 10.8247 5.93237L10.1511 6.42173C9.62539 6.80369 9.4054 7.48075 9.60621 8.09878L9.86348 8.89057C10.3125 10.2725 8.73079 11.4217 7.55522 10.5676L6.88168 10.0783C6.35595 9.69631 5.64405 9.69631 5.11832 10.0783L4.44478 10.5676C3.26921 11.4217 1.68749 10.2725 2.13652 8.89058L2.39379 8.09878C2.5946 7.48075 2.37461 6.80369 1.84888 6.42173L1.17534 5.93237C-0.000229597 5.07827 0.603933 3.21885 2.05702 3.21885H2.88956C3.5394 3.21885 4.11533 2.80041 4.31614 2.18237L4.57341 1.39058Z"
+                                    fill="#FBBC1E"
+                                  />
+                                </svg>
+
+                                <div class="product-rate-num">4.7</div>
+                              </div>
+
+                              <svg
+                                width="4"
+                                height="5"
+                                viewBox="0 0 4 5"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle cx="2" cy="2.5" r="2" fill="#F5AA1C" />
+                              </svg>
+
+                              <div class="product-rate-reviews">
+                                218 Reviews
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="order-detail">
+                            <div class="order-qty">
+                              <label class="order-qty-label">Qty:</label>
+                              <div class="order-qty-num">2</div>
+                            </div>
+
+                            <div class="order-price">$36.5</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="order-remove">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 18 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7.5 4.50006H10.5C10.5 4.10224 10.342 3.72071 10.0607 3.4394C9.77935 3.1581 9.39782 3.00006 9 3.00006C8.60217 3.00006 8.22064 3.1581 7.93934 3.4394C7.65803 3.72071 7.5 4.10224 7.5 4.50006ZM6 4.50006C6 3.70441 6.31607 2.94135 6.87868 2.37874C7.44129 1.81613 8.20435 1.50006 9 1.50006C9.79565 1.50006 10.5587 1.81613 11.1213 2.37874C11.6839 2.94135 12 3.70441 12 4.50006H15.75C15.9489 4.50006 16.1397 4.57908 16.2803 4.71973C16.421 4.86038 16.5 5.05115 16.5 5.25006C16.5 5.44897 16.421 5.63974 16.2803 5.78039C16.1397 5.92104 15.9489 6.00006 15.75 6.00006H15.0885L14.424 13.7551C14.3601 14.5039 14.0175 15.2015 13.4639 15.7098C12.9103 16.2181 12.1861 16.5001 11.4345 16.5001H6.5655C5.81393 16.5001 5.08971 16.2181 4.53611 15.7098C3.98252 15.2015 3.63988 14.5039 3.576 13.7551L2.9115 6.00006H2.25C2.05109 6.00006 1.86032 5.92104 1.71967 5.78039C1.57902 5.63974 1.5 5.44897 1.5 5.25006C1.5 5.05115 1.57902 4.86038 1.71967 4.71973C1.86032 4.57908 2.05109 4.50006 2.25 4.50006H6ZM11.25 9.00006C11.25 8.80115 11.171 8.61038 11.0303 8.46973C10.8897 8.32908 10.6989 8.25006 10.5 8.25006C10.3011 8.25006 10.1103 8.32908 9.96967 8.46973C9.82902 8.61038 9.75 8.80115 9.75 9.00006V12.0001C9.75 12.199 9.82902 12.3897 9.96967 12.5304C10.1103 12.671 10.3011 12.7501 10.5 12.7501C10.6989 12.7501 10.8897 12.671 11.0303 12.5304C11.171 12.3897 11.25 12.199 11.25 12.0001V9.00006ZM7.5 8.25006C7.69891 8.25006 7.88968 8.32908 8.03033 8.46973C8.17098 8.61038 8.25 8.80115 8.25 9.00006V12.0001C8.25 12.199 8.17098 12.3897 8.03033 12.5304C7.88968 12.671 7.69891 12.7501 7.5 12.7501C7.30109 12.7501 7.11032 12.671 6.96967 12.5304C6.82902 12.3897 6.75 12.199 6.75 12.0001V9.00006C6.75 8.80115 6.82902 8.61038 6.96967 8.46973C7.11032 8.32908 7.30109 8.25006 7.5 8.25006ZM5.07 13.6276C5.10195 14.0021 5.27338 14.351 5.55033 14.6052C5.82729 14.8594 6.18959 15.0003 6.5655 15.0001H11.4345C11.8102 14.9999 12.1721 14.8588 12.4487 14.6047C12.7254 14.3505 12.8966 14.0019 12.9285 13.6276L13.5825 6.00006H4.4175L5.07 13.6276Z"
+                            fill="#DC3545"
+                          />
+                        </svg>
+                        <button class="btn-outline">Remove</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="checkout-items-wrapper">
+                  <div class="checkout-items-top-wrapper">
+                    <div class="checkout-items-top">
+                      <h4 class="checkout-title">Contact Detail</h4>
+
+                      <p>
+                        Please review your entered information. Edit it if
+                        necessary.
+                      </p>
+                    </div>
+
+                    <a class="text-btn" href="../Checkout/index.html"
+                      >Edit
+                      <svg
+                        width="17"
+                        height="18"
+                        viewBox="0 0 17 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M2.82812 12.6883V14.3125C2.82812 14.4064 2.86544 14.4965 2.93186 14.5629C2.99828 14.6293 3.08836 14.6667 3.18229 14.6667H4.81004C4.90379 14.6666 4.99371 14.6294 5.06008 14.5632L11.7524 7.87091L9.62742 5.74591L2.93225 12.4382C2.86578 12.5045 2.82833 12.5944 2.82812 12.6883ZM10.5043 4.86828L12.6293 6.99328L13.6635 5.95911C13.7963 5.82628 13.8709 5.64615 13.8709 5.45832C13.8709 5.2705 13.7963 5.09036 13.6635 4.95753L12.5408 3.83411C12.408 3.70132 12.2278 3.62672 12.04 3.62672C11.8522 3.62672 11.672 3.70132 11.5392 3.83411L10.5043 4.86828Z"
+                          fill="#003366"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+
+                  <hr />
+
+                  <div class="checkout-items-down-wrapper">
+                    <div class="checkout-items-down-information">
+                      <div class="items-down-information-title">Full Name</div>
+                      <div class="items-down-information">John Smith</div>
+                    </div>
+
+                    <div class="checkout-items-down-information">
+                      <div class="items-down-information-title">Email</div>
+                      <div class="items-down-information">
+                        JohnSmith7181@gmail.com
+                      </div>
+                    </div>
+
+                    <div class="checkout-items-down-information">
+                      <div class="items-down-information-title">
+                        Phone Number
+                      </div>
+                      <div class="items-down-information">+221402040785</div>
+                    </div>
+
+                    <div class="checkout-items-down-information">
+                      <div class="items-down-information-title">Address</div>
+                      <div class="items-down-information">
+                        Keas 69 Str. 15234, Chalandri Athens, Greece
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="checkout-items-wrapper">
+                  <div class="checkout-items-top-wrapper">
+                    <div class="checkout-items-top">
+                      <h4 class="checkout-title">Payment Detail</h4>
+
+                      <p>
+                        Please review your entered information. Edit it if
+                        necessary.
+                      </p>
+                    </div>
+
+                    <a class="text-btn" href="../Payment Details/index.html"
+                      >Edit
+                      <svg
+                        width="17"
+                        height="18"
+                        viewBox="0 0 17 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M2.82812 12.6883V14.3125C2.82812 14.4064 2.86544 14.4965 2.93186 14.5629C2.99828 14.6293 3.08836 14.6667 3.18229 14.6667H4.81004C4.90379 14.6666 4.99371 14.6294 5.06008 14.5632L11.7524 7.87091L9.62742 5.74591L2.93225 12.4382C2.86578 12.5045 2.82833 12.5944 2.82812 12.6883ZM10.5043 4.86828L12.6293 6.99328L13.6635 5.95911C13.7963 5.82628 13.8709 5.64615 13.8709 5.45832C13.8709 5.2705 13.7963 5.09036 13.6635 4.95753L12.5408 3.83411C12.408 3.70132 12.2278 3.62672 12.04 3.62672C11.8522 3.62672 11.672 3.70132 11.5392 3.83411L10.5043 4.86828Z"
+                          fill="#003366"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+
+                  <hr />
+
+                  <div class="checkout-items-down-wrapper">
+                    <div class="checkout-items-down-information">
+                      <div class="items-down-information-title">
+                        Name on Card
+                      </div>
+                      <div class="items-down-information">John Smith</div>
+                    </div>
+
+                    <div class="checkout-items-down-information">
+                      <div class="items-down-information-title">John Smith</div>
+                      <div class="items-down-information">
+                        1243 - **** - **** - 3200
+                      </div>
+                    </div>
+
+                    <div class="checkout-items-down-information">
+                      <div class="items-down-information-title">
+                        Expiry Date
+                      </div>
+                      <div class="items-down-information">12 / 10 / 2030</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <aside class="order-wrapper">
+              <div class="order-content-wrapper">
+                <h3 class="checkout-order-title">Order Summary</h3>
+
+                <div class="order-items-wrapper">
+                  <div class="order-summary-texts">
+                    <div class="order-summary-text-title">Price :</div>
+                    <div class="order-summary-text-num" id="price-summary">
+                      $54.75
+                    </div>
+                  </div>
+
+                  <div class="order-summary-texts">
+                    <div class="order-summary-text-title">Discount :</div>
+                    <div class="order-summary-text-num" id="price-discount">$0</div>
+                  </div>
+
+                  <div class="order-summary-texts">
+                    <div class="order-summary-text-title">Tax :</div>
+                    <div class="order-summary-text-num" id="tax-summary">
+                      $0
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  <div class="order-summary-texts">
+                    <div class="summary-title">Total :</div>
+                    <div class="summary-num" id="total-summary">$54.75</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checkboxContainer">
+                <input type="checkbox" id="rememberme" class="checkbox" />
+                <label for="RememberMe"
+                  >I have read and agree to the Terms and Conditions and Privacy
+                  Policy.</label
+                >
+              </div>
+
+              <button class="btn-medium" type="button">Pay Now</button>
+            </aside>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer-background">
+      <div class="container mx">
+        <div>
+          <div class="row-fot">
+            <div class="row">
+              <div class="desc col-3">
+                <a href="/index.html">
+                  <img
+                    src="../images/image_59-removebg-preview (1) 1.png"
+                    alt=""
+                  />
+                  <h2>Unisuniverse</h2>
+                </a>
+                <p>
+                  Your one-stop platform for academic growth. Connect with
+                  students, professors, and universities to explore
+                  opportunities, sell services, and promote programs.
+                </p>
+              </div>
+              <div class="col-3">
+                <h4>Short Links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href=""><span>Home</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Academics</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Students</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Universities</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3">
+                <h4>Quick links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href="../Aboutus/index.html"><span>About us</span></a>
+                  </li>
+                  <li>
+                    <a href="../FAQ/index.html"><span>FAQ</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Contact us</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Privacy policy</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3 contact">
+                <h4>Contact us</h4>
+                <ul>
+                  <li>
+                    <div class="iconfo">
+                      <i
+                        class="fa fa-phone fa-flip-horizontal"
+                        aria-hidden="true"
+                      ></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Phone:<br />
+                      +971-580580580
+                    </div>
+                  </li>
+                  <li class="Emailfot">
+                    <div class="iconfo">
+                      <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Email:<br />
+                      info@Unisuniverse@gmail.com
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="social-links social-2 col-6">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-linkedin-in"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-reddit-alien"></i></a>
+            </div>
+          </div>
+          <div class="copyowner">
+            <div id="copyright">
+              &copy; 2023 Attio Ltd. All rights reserved.
+            </div>
+            <div id="owner">
+              <span> Terms & Conditions </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const navbarMenu = document.getElementById("navbar");
+      const burgerMenu = document.getElementById("burger");
+      const overlayMenu = document.querySelector(".overlay");
+
+      const toggleMenu = () => {
+        navbarMenu.classList.toggle("active");
+        overlayMenu.classList.toggle("active");
+      };
+
+      const collapseSubMenu = () => {
+        navbarMenu
+          .querySelector(".menu-dropdown.active .submenu")
+          .removeAttribute("style");
+        navbarMenu
+          .querySelector(".menu-dropdown.active")
+          .classList.remove("active");
+      };
+
+      const toggleSubMenu = (e) => {
+        if (e.target.hasAttribute("data-toggle") && window.innerWidth <= 992) {
+          e.preventDefault();
+          const menuDropdown = e.target.parentElement;
+
+          if (menuDropdown.classList.contains("active")) {
+            collapseSubMenu();
+          } else {
+            if (navbarMenu.querySelector(".menu-dropdown.active")) {
+              collapseSubMenu();
+            }
+
+            menuDropdown.classList.add("active");
+            const subMenu = menuDropdown.querySelector(".submenu");
+            subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+          }
+        }
+      };
+
+      const resizeWindow = () => {
+        if (window.innerWidth > 992) {
+          if (navbarMenu.classList.contains("active")) {
+            toggleMenu();
+          }
+          if (navbarMenu.querySelector(".menu-dropdown.active")) {
+            collapseSubMenu();
+          }
+        }
+      };
+
+      burgerMenu.addEventListener("click", toggleMenu);
+      overlayMenu.addEventListener("click", toggleMenu);
+      navbarMenu.addEventListener("click", toggleSubMenu);
+      window.addEventListener("resize", resizeWindow);
+
+      // remove order
+
+      const removeButtons = document.querySelectorAll(".order-remove");
+      const priceSummaryElement = document.getElementById("price-summary");
+      const taxSummaryElement = document.getElementById("tax-summary");
+      const totalSummaryElement = document.getElementById("total-summary");
+
+      let total = parseFloat(priceSummaryElement.textContent.replace("$", ""));
+      let subtotal = total; // متغیر جدید برای نگهداری مجموع قیمت کالاها بدون مالیات
+      
+
+      removeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const orderRemoveElement = button.parentElement;
+          const priceElement = orderRemoveElement.querySelector(".order-price");
+          const priceToRemove = parseFloat(
+            priceElement.textContent.replace("$", "")
+          );
+
+          total -= priceToRemove;
+          subtotal -= priceToRemove;
+
+          // مقدار مالیات را محاسبه می کنیم
+          const tax = parseFloat(
+            taxSummaryElement.textContent.replace("$", "")
+          );
+
+          // مجموع جدید را محاسبه می کنیم
+          total += tax;
+
+          // به‌روزرسانی مقدار کل در هر دو عنصر
+          priceSummaryElement.textContent = `$${subtotal.toFixed(2)}`;
+          totalSummaryElement.textContent = `$${total.toFixed(2)}`;
+
+          orderRemoveElement.remove();
+        });
+      });
+    </script>
+  </body>
+</html>
