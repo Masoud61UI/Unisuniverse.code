@@ -4,10 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unisuniverse</title>
-    <script
-      src="http://kit.fontawesome.com/7a4b62b0a4.js"
-      crossorigin="anonymous"
-    ></script>
+
+    <!-- fontawesome Icon CDN-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
 
@@ -479,15 +482,16 @@
         cursor: pointer;
         fill: var(--color-text-black);
       }
+      
       .checked-tab {
-        color: var(--secondary-color);
-        border-left: 2px solid var(--secondary-color);
+        color: var(--primary-color);
+        border-left: 3px solid var(--secondary-color);
         border-radius: 1px;
         padding-left: 28px;
         margin-left: -20px;
       }
       .checked-tab svg {
-        fill: var(--secondary-color);
+        fill: var(--primary-color);
       }
 
       .edit-sec {
@@ -1148,7 +1152,7 @@
             <nav class="side-tabs">
               <ul>
                 <a href="../Public/index.html" class="tab-nav">
-                  <i class="fa fa-info-circle"></i>
+                  <i class="fa-regular fa-pen-to-square"></i>
                   <p>Basic Information</p>
                 </a>
                 <a href="../Campus/index.html" class="tab-nav">
@@ -1212,7 +1216,7 @@
                   </svg>
                   <p>Courses</p>
                 </a>
-                <a href="../Messaging/inde.xhtml" class="tab-nav">
+                <a href="../Messaging/index.html" class="tab-nav">
                   <svg
                     width="19"
                     height="19"
