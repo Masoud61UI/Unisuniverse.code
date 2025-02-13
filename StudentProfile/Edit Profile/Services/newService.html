@@ -80,7 +80,8 @@
         letter-spacing: 0.5px;
       }
 
-      button {
+      button,
+      select {
         font-family: inherit;
         letter-spacing: 0.25px;
       }
@@ -538,7 +539,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 70px;
+        gap: 50px;
       }
 
       .edit-section-title-add {
@@ -607,14 +608,14 @@
 
       .input_pox input,
       .select-input {
-        height: 49px;
         width: 100%;
         outline: none;
         border-radius: 10px;
         border: 1px solid var(--color-line);
-        padding-left: 15px;
+        padding: 13px 14px;
         font-size: 16px;
         transition: all 0.3s ease;
+        font-family: inherit;
       }
       .input_pox textarea {
         width: 100%;
@@ -642,8 +643,8 @@
         background-image: linear-gradient(45deg, transparent 50%, #151515 50%),
           linear-gradient(135deg, #151515 50%, transparent 50%),
           linear-gradient(to right, #ccc, #ccc);
-        background-position: calc(100% - 20px) calc(1em + 5px),
-          calc(100% - 15px) calc(1em + 5px), calc(100% - 2.5em) 0.68em;
+        background-position: calc(100% - 20px) calc(1em + 4px),
+          calc(100% - 15px) calc(1em + 4px), calc(100% - 2.5em) 0.68em;
         background-size: 5px 5px, 5px 5px, 1px 1.5em;
         background-repeat: no-repeat;
       }

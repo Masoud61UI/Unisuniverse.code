@@ -1,0 +1,2345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unisuniverse</title>
+
+    <!-- fontawesome Icon CDN-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+          0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        --shadow-medium: 0 13px 30px 0 rgba(0, 0, 0, 0.048),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --color-text-black: #333333;
+        --color-text-grayblack: #666666;
+        --color-text-gray: #dcdcdc;
+        --color-background: #f7f9fb;
+        --color-line: #dcdcdc;
+        --color-white: #ffffff;
+        --primary-color: #003366;
+        --secondary-color: #ffd700;
+      }
+
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        list-style: none;
+        list-style-type: none;
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      html {
+        font-size: 100%;
+        box-sizing: inherit;
+        scroll-behavior: smooth;
+        height: -webkit-fill-available;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--color-text-black);
+        background-color: var(--color-white);
+      }
+
+      a,
+      button {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background: none;
+        box-shadow: none;
+        font-family: inherit;
+      }
+
+      ::placeholder {
+        color: var(--color-text-gray);
+        letter-spacing: 0.25px;
+      }
+
+      button,
+      select {
+        font-family: inherit;
+        letter-spacing: 0.25px;
+      }
+
+      img,
+      video {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+
+      .container {
+        max-width: 82%;
+        height: auto;
+      }
+
+      .mx {
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-family: inherit;
+        font-size: 28px;
+        font-weight: 500;
+        line-height: 1.25;
+        color: var(--color-white);
+      }
+      @media only screen and (max-width: 450px) {
+        .logo {
+          font-size: 24px;
+        }
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: 100;
+        margin: 0 auto;
+        background-color: var(--primary-color);
+        border-bottom: 1px solid var(--color-white);
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        -moz-column-gap: 1rem;
+        column-gap: 1rem;
+        row-gap: 2rem;
+        width: 100%;
+        height: 110px;
+        margin: 0 auto;
+      }
+
+      @media screen and (max-width: 992px) {
+        .navbar {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 75%;
+          height: 100%;
+          z-index: 10;
+          opacity: 0;
+          overflow-y: auto;
+          visibility: hidden;
+          box-shadow: var(--shadow-medium);
+          background-color: var(--primary-color);
+          transition: all 0.5s ease;
+        }
+        .navbar.active {
+          left: 0rem;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      .menu-item {
+        position: relative;
+        display: inline-block;
+        margin-left: 2.4rem;
+      }
+
+      .resnav {
+        display: none;
+      }
+
+      .menu-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -moz-column-gap: 0.25rem;
+        column-gap: 0.25rem;
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: inherit;
+        cursor: pointer;
+        text-transform: capitalize;
+        color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .menu-link > i.fa {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--color-background);
+        margin-left: 2px;
+      }
+
+      .menu-link:hover {
+        outline: none;
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (min-width: 993px) {
+        .menu-dropdown:hover > .submenu {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+      @media only screen and (max-width: 992px) {
+        .menu {
+          width: 100%;
+          height: auto;
+          padding: 1rem 0;
+        }
+        .menu-item {
+          display: block;
+          margin: 0 auto;
+        }
+        .menu-link {
+          justify-content: space-between;
+          padding: 1rem 2rem;
+        }
+      }
+
+      .submenu {
+        position: absolute;
+        top: 3.2rem;
+        left: -2rem;
+        min-width: 13rem;
+        height: auto;
+        padding: 0 1rem 1rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(1rem);
+        border-radius: 0 0 0.25rem 0.25rem;
+        border-top: 2px solid var(--secondary-color);
+        box-shadow: var(--shadow-medium);
+        background-color: var(--color-white);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .submenu-item {
+        display: block;
+        margin-top: 0.75rem;
+      }
+
+      .submenu-link {
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: inherit;
+        cursor: pointer;
+        color: var(--color-text-grayblack);
+        transition: all 0.35s ease;
+      }
+      .submenu-link:hover {
+        outline: none;
+        color: var(--secondary-color);
+      }
+
+      @media only screen and (max-width: 992px) {
+        .submenu {
+          position: relative;
+          top: -0.5rem;
+          left: 2.5rem;
+          width: 100%;
+          max-height: 0;
+          padding: 0px;
+          border: none;
+          outline: none;
+          opacity: 1;
+          overflow: hidden;
+          visibility: visible;
+          transform: translateY(0px);
+          box-shadow: none;
+          background: transparent;
+        }
+        .submenu-link {
+          color: var(--color-text-gray);
+        }
+      }
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-md {
+        width: 172px;
+        height: 49px;
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: inherit;
+        border-radius: 10px;
+        color: var(--primary-color);
+        background-color: var(--color-white);
+        transition: all 0.35s ease;
+      }
+      .btn-md:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .btn > a > i.fa {
+        margin-right: 22px;
+        color: var(--color-background);
+        transition: all 0.35s ease;
+      }
+      .btn > a > i.fa:hover {
+        color: var(--secondary-color);
+      }
+
+      .burger {
+        position: relative;
+        display: none;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 1.6rem;
+        height: 1.15rem;
+        opacity: 0;
+        visibility: hidden;
+        background: transparent;
+      }
+      .burger-line {
+        position: absolute;
+        display: block;
+        right: 0;
+        width: 100%;
+        height: 2.1px;
+        opacity: 1;
+        border: none;
+        outline: none;
+        border-radius: 1rem;
+        background: var(--color-white);
+      }
+      .burger-line:nth-child(1) {
+        top: 0px;
+      }
+      .burger-line:nth-child(2) {
+        top: 0.5rem;
+        width: 70%;
+      }
+      .burger-line:nth-child(3) {
+        top: 1rem;
+      }
+      @media only screen and (max-width: 992px) {
+        .burger {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+        .btn-md {
+          display: none;
+        }
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 9;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.65);
+      }
+      @media only screen and (max-width: 992px) {
+        .overlay.active {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      /* breadcrumb */
+
+      .breadcrumb {
+        color: var(--color-text-gray);
+        font-size: 14px;
+        font-weight: 500;
+        padding: 24px 0;
+      }
+
+      .breadcrumb > span {
+        color: var(--secondary-color);
+      }
+
+      /* main section aside */
+
+      .edit-acc {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .edit-acc aside {
+        flex-basis: 30.5%;
+      }
+
+      .side-menu-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background-color: var(--color-white);
+        border-radius: 24px;
+        box-shadow: var(--shadow-medium);
+      }
+
+      .side-menu-wrapper nav,
+      ul {
+        width: 100%;
+      }
+
+      .side-menu-items {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 118px;
+      }
+
+      .side-menu-items-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+
+      .side-menu-item-profile {
+        display: flex;
+        width: 100%;
+        padding: 14px 14px;
+        align-items: center;
+        gap: 12px;
+        border-radius: 12px;
+      }
+
+      .side-menu-item-profile > h4 {
+        font-size: 17px;
+        font-weight: 500;
+        color: var(--color-text-grayblack);
+        cursor: pointer;
+      }
+
+      .side-menu-item-profile-icon {
+        width: 22px;
+        height: 22px;
+        font-size: 18px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--color-text-grayblack);
+      }
+      .side-menu-item-profile-icon > svg {
+        fill: var(--color-text-grayblack);
+      }
+
+      .side-menu-item {
+        width: 100%;
+      }
+
+      .sub-menu-wrapper {
+        padding: 4px 0 14px 52px;
+        display: none;
+      }
+
+      .show {
+        display: block;
+        animation: slideDown 0.4s ease-in-out;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+        }
+        to {
+          height: auto;
+          opacity: 1;
+        }
+      }
+
+      .sub-menu-contents {
+        margin-bottom: 12px;
+      }
+
+      .sub-menu {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        align-self: stretch;
+      }
+
+      .sub-menu-icon {
+        font-size: 11px;
+        color: var(--color-text-grayblack);
+        transition: all 0.2s ease-in-out;
+      }
+
+      .sub-menu-title {
+        color: var(--color-text-grayblack);
+        font-size: 15px;
+        font-weight: 400;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .sub-menu:hover .sub-menu-title,
+      .sub-menu:hover .sub-menu-icon {
+        color: var(--primary-color);
+        font-weight: 500;
+      }
+
+      .checked-tab {
+        background: #ffd90017;
+      }
+      .checked-tab > h4,
+      .checked-tab .side-menu-item-profile-icon {
+        color: var(--primary-color);
+      }
+      .checked-tab .side-menu-item-profile-icon > svg {
+        fill: var(--primary-color);
+      }
+
+      .log-out > h4,
+      .log-out .side-menu-item-profile-icon {
+        color: #f42e17;
+      }
+
+      .edit-section-wrapper {
+        flex-basis: 65.5%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 50px;
+      }
+
+      .edit-section-title-add {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
+      }
+
+      .edit-section-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      .edit-section-title-add > p {
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      .edit-section-item-title-wrapper {
+        width: 100%;
+      }
+
+      .edit-section-item-title {
+        font-size: 19px;
+        font-weight: 600;
+        color: var(--color-text-black);
+        border-bottom: 1px solid var(--color-line);
+        padding-bottom: 8px;
+      }
+
+      .stage {
+        width: 100%;
+      }
+
+      .edit-section-forms {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 60px;
+        width: inherit;
+      }
+      .edit-section-forms form {
+        width: 100%;
+      }
+
+      #authors-container {
+        margin-bottom: 40px;
+      }
+
+      .new-author-wrapper {
+        padding-top: 18px;
+        margin-top: 16px;
+      }
+
+      .new-author-top-contents {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: -8px;
+      }
+
+      .new-author-top-contents > span {
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--color-text-black);
+      }
+
+      .new-author-top-contents > button {
+        padding: 3px 6px;
+        border: 1px solid #f42e17;
+        font-size: 14px;
+        color: #f42e17;
+        border-radius: 4px;
+      }
+
+      .user_details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 12px;
+      }
+
+      .user_details > hr {
+        width: 100%;
+        background-color: var(--color-line);
+        outline: none;
+        border: none;
+        height: 1px;
+        margin: -8px 0 20px 0;
+      }
+
+      .input-tags-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        width: 100%;
+      }
+
+      .input-tags {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .input-tag {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+        border-radius: 4px;
+        padding: 3px 6px;
+        cursor: pointer;
+        text-transform: capitalize;
+      }
+
+      .input-tag-clicked {
+        background-color: var(--primary-color);
+        color: var(--color-white);
+      }
+
+      .input_pox {
+        margin: 16px 0 26px 0;
+        width: calc(100% / 2 - 20px);
+      }
+
+      .datails,
+      .information-title {
+        display: block;
+        font-weight: 500;
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: var(--color-text-grayblack);
+      }
+
+      .datails > span,
+      .information-title > span {
+        font-weight: 400;
+        font-size: 14px;
+      }
+
+      .input_pox input,
+      .select-input {
+        width: 100%;
+        outline: none;
+        border-radius: 8px;
+        border: 1px solid var(--color-line);
+        padding: 13px 14px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        font-family: inherit;
+      }
+
+      .input_pox textarea {
+        width: 100%;
+        height: 150px;
+        outline: none;
+        border-radius: 10px;
+        border: 1px solid var(--color-line);
+        padding: 12px 14px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        resize: none;
+        font-family: inherit;
+      }
+
+      .select-input {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+      }
+
+      .select-input {
+        background-image: linear-gradient(45deg, transparent 50%, #151515 50%),
+          linear-gradient(135deg, #151515 50%, transparent 50%),
+          linear-gradient(to right, #ccc, #ccc);
+        background-position: calc(100% - 20px) calc(1em + 4px),
+          calc(100% - 15px) calc(1em + 4px), calc(100% - 2.5em) 0.68em;
+        background-size: 5px 5px, 5px 5px, 1px 1.5em;
+        background-repeat: no-repeat;
+      }
+
+      .select-input:focus {
+        background-image: linear-gradient(45deg, gray 50%, transparent 50%),
+          linear-gradient(135deg, transparent 50%, gray 50%),
+          linear-gradient(to right, #ccc, #ccc);
+        background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+          calc(100% - 2.5em) 0.5em;
+        background-size: 5px 5px, 5px 5px, 1px 1.5em;
+        background-repeat: no-repeat;
+        border-color: var(--primary-color);
+        outline: 0;
+      }
+
+      .input_pox select option {
+        background-color: #f6f6f6;
+      }
+
+      select:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 #000;
+      }
+
+      .user_details .input_pox input:focus,
+      .user_details .input_pox select:focus,
+      .input_pox textarea:focus {
+        border-color: var(--primary-color);
+      }
+
+      .user_details input::-webkit-outer-spin-button,
+      .user_details input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      .user_details input[type="number"] {
+        -moz-appearance: textfield;
+      }
+
+      .inner-inputs-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .edit-section-buttons-step {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 38px;
+      }
+
+      .edit-section-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .text-btn-sv {
+        color: var(--color-text-black);
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: underline;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .btn-medium {
+        padding: 12px 24px;
+        background-color: var(--primary-color);
+        color: var(--color-white);
+        font-size: 15px;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.3s ease-in-out;
+      }
+      .btn-medium:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+      }
+
+      .out-btn {
+        padding: 12px 24px;
+        border: 1px solid var(--primary-color);
+        color: var(--primary-color);
+        font-size: 15px;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.3s ease-in-out;
+        text-align: center;
+      }
+      .out-btn:hover,
+      .text-btn-sv:hover {
+        opacity: 0.75;
+      }
+
+      .optional-lng::placeholder {
+        font-size: 14px;
+      }
+
+      .checkbox-warpper {
+        margin: -18px 0;
+      }
+
+      .checkboxContainer {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: 16px 0;
+      }
+
+      .checkboxContainer label {
+        padding-left: 10px;
+        color: var(--color-text-black);
+        font-weight: 500;
+        font-size: 15px;
+      }
+
+      .checkboxContainer label a {
+        color: var(--primary-color);
+        font-weight: 500;
+        font-size: 15px;
+      }
+
+      .checkboxContainer input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+      }
+      .checkbox:checked {
+        accent-color: var(--primary-color);
+      }
+
+      .information-edit {
+        margin: 18px 0 28px 0;
+      }
+
+      /* Drop Zoon */
+
+      .photo-upld {
+        width: 100%;
+        height: 220px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 10px 0;
+        padding: 0 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        border: 1.5px dashed var(--color-text-grayblack);
+      }
+
+      .photo-upld :where(i, p) {
+        color: var(--color-text-grayblack);
+        opacity: 0.6;
+      }
+      .photo-upld i {
+        font-size: 34px;
+      }
+
+      .photo-upld p {
+        font-size: 15px;
+        margin-top: 6px;
+        text-align: center;
+      }
+
+      .upload-text {
+        font-size: 15px;
+        margin: 20px 0;
+        border: 1px solid var(--color-line);
+        padding: 12px;
+        border-radius: 6px;
+        color: var(--color-text-grayblack);
+      }
+
+      .row-upload {
+        background: var(--color-white);
+        margin-bottom: 10px;
+        list-style: none;
+        padding: 15px 20px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .row-upload i {
+        font-size: 22px;
+        color: var(--primary-color);
+      }
+
+      .details span {
+        font-size: 14px;
+      }
+
+      .progress-area .row-upload .content {
+        width: 100%;
+        margin-left: 15px;
+      }
+
+      .progress-area .details {
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+        justify-content: space-between;
+      }
+
+      .progress-area .progress-bar {
+        height: 5px;
+        width: 100%;
+        background: var(--color-background);
+        margin-bottom: 4px;
+        border-radius: 30px;
+      }
+
+      .progress-bar .progress {
+        height: 100%;
+        width: 50%;
+        background: var(--primary-color);
+        border-radius: inherit;
+      }
+
+      .uploaded-area .row-upload .content {
+        display: flex;
+        align-items: center;
+      }
+      .uploaded-area .row-upload .details {
+        display: flex;
+        margin-left: 15px;
+        flex-direction: column;
+      }
+
+      .img-size {
+        font-size: 12px;
+        color: var(--color-text-grayblack);
+      }
+
+      .uploaded-area .fa-check {
+        color: var(--primary-color);
+        font-size: 16px;
+      }
+
+      .edit-section-items-steps {
+        width: 100%;
+      }
+
+      .stage.hidden {
+        display: none;
+      }
+
+      #characterCount {
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-grayblack);
+      }
+
+      @media only screen and (min-width: 1670px) {
+        .edit-section-item-tab > .marg-label {
+          margin-left: 24px;
+        }
+        .label-tab {
+          font-size: 17px;
+        }
+        #characterCount {
+          font-size: 16px;
+        }
+      }
+
+      @media only screen and (max-width: 1290px) {
+        .label-tab {
+          font-size: 14px;
+        }
+      }
+
+      @media only screen and (max-width: 1157px) {
+        .label-tab {
+          font-size: 13px;
+          padding: 16px 2px;
+        }
+      }
+
+      @media only screen and (max-width: 970px) {
+        .edit-acc {
+          flex-direction: column;
+          gap: 70px;
+        }
+        .stage {
+          flex-basis: 100%;
+          width: -webkit-fill-available;
+        }
+        .edit-acc aside {
+          flex-basis: 100%;
+          width: -webkit-fill-available;
+        }
+        .label-tab {
+          font-size: 15px;
+          padding: 16px 6px;
+        }
+        .input_pox input::placeholder {
+          font-size: 14px;
+        }
+        .input_pox {
+          width: calc(100% / 2 - 10px);
+        }
+      }
+
+      @media only screen and (max-width: 802px) {
+        .mx {
+          overflow: hidden;
+        }
+
+        .label-tab {
+          font-size: 13px;
+          padding: 16px 4px;
+        }
+      }
+
+      @media only screen and (max-width: 675px) {
+        .label-tab {
+          font-size: 13px;
+          padding: 16px 4px;
+        }
+        .contents {
+          margin-top: 20px;
+        }
+        .label-tab {
+          font-size: 17px;
+          background-color: var(--color-white);
+          border: 1.5px solid transparent;
+          width: 100%;
+        }
+        .edit-section-item-tab input:checked + .label-tab {
+          color: var(--secondary-color);
+          font-weight: 500;
+          border: 1.5px solid var(--secondary-color);
+          border-radius: 10px;
+        }
+        .inner-inputs-wrapper {
+          gap: 6px;
+        }
+      }
+
+      @media only screen and (max-width: 540px) {
+        .input_pox {
+          margin-bottom: 15px;
+          width: 100%;
+        }
+        .information-edit {
+          margin-bottom: 15px;
+        }
+        .edit-section-buttons-step {
+          flex-direction: column-reverse;
+          gap: 32px;
+          width: 100%;
+        }
+        .edit-section-buttons-step a {
+          width: inherit;
+        }
+        .photo-upld p, .upload-text {
+          font-size: 13px;
+        }
+        .input-tags-wrapper {
+          flex-direction: column;
+          align-items: start;
+          gap: 0px;
+          margin-bottom: 16px;
+        }
+        .input-tags {
+          margin: 8px 0;
+        }
+        .datails, .information-title {
+          font-size: 15px;
+        }
+      }
+
+      @media only screen and (max-width: 420px) {
+        .edit-section-title {
+          font-size: 20px;
+        }
+        .edit-section-item-title {
+          font-size: 17px;
+        }
+      }
+
+      @media only screen and (max-width: 410px) {
+        .label-tab {
+          font-size: 14px;
+        }
+        .custom-file-upload {
+          font-size: 14px;
+        }
+        .edit-section-photo {
+          width: 68px;
+          height: 68px;
+          margin: -10px 0 0 10px;
+        }
+        .btn-chng-img {
+          left: 22px;
+        }
+        .custom-file-upload-photo {
+          font-size: 12px;
+          padding: 5px;
+        }
+      }
+
+      .wf {
+        width: 100%;
+      }
+
+      .text-btn {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--primary-color);
+        cursor: pointer;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+        margin: 10px 0;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .text-btn:hover {
+        opacity: 0.7;
+      }
+
+      /*footer*/
+
+      .footer-background {
+        background-color: var(--primary-color);
+        margin-top: 90px;
+      }
+
+      .col-6 {
+        width: 100%;
+        text-align: center;
+      }
+
+      .col-3 > h4 {
+        padding: 20px 0 20px 0;
+        color: var(--color-white);
+        font-weight: 500;
+      }
+
+      .desc a {
+        display: flex;
+        align-items: center;
+      }
+
+      .desc a > h2 {
+        font-size: 20px;
+        margin-left: 10px;
+        font-weight: 600;
+        color: var(--color-white);
+      }
+
+      .desc > p {
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-white);
+        width: 85%;
+      }
+
+      .row-fot {
+        border-bottom: 1px solid var(--color-line);
+        padding: 2em 0 2.5em 0;
+      }
+
+      footer .row {
+        position: relative;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        grid-gap: 30px;
+        align-items: center;
+      }
+
+      footer ul {
+        padding: 0;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+
+      footer ul li {
+        list-style-type: none;
+        padding: 0;
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        line-height: 2;
+      }
+
+      .footer-cat-links a {
+        color: var(--color-text-gray);
+        font-size: 16px;
+        font-weight: 400;
+        text-decoration: none;
+        position: relative;
+      }
+
+      .footer-cat-links.active > li a {
+        pointer-events: auto;
+      }
+
+      .footer-cat-links a:after {
+        top: 21px;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        width: 0;
+        background: var(--secondary-color);
+        -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      }
+
+      .footer-cat-links a:hover:after,
+      .footer-cat-links a:focus:after {
+        width: 100%;
+        left: 0;
+      }
+
+      .social-links {
+        margin-top: 65px;
+      }
+
+      .social-links a {
+        color: var(--color-white);
+        font-size: 20px;
+        border: 1px solid;
+        border-radius: 20px;
+        padding: 6px;
+        -webkit-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+      }
+
+      .social-links a:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      .social-links a:hover,
+      .social-links a:focus {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+      }
+
+      .social-links a i {
+        width: 25px;
+        height: 25px;
+        text-align: center;
+      }
+
+      .copyowner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--color-text-gray);
+        font-size: 14px;
+        padding: 24px 0 30px 0;
+      }
+
+      .contact {
+        padding-bottom: 13px;
+      }
+
+      .contact > ul > li {
+        display: flex;
+      }
+
+      .contact > ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 6px;
+      }
+
+      .lineheightfot {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-left: 12px;
+        color: var(--color-text-gray);
+      }
+
+      .iconfo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: var(--secondary-color);
+      }
+
+      .Emailfot {
+        padding-top: 20px;
+      }
+
+      @media only screen and (max-width: 992px) {
+        footer .row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media only screen and (max-width: 576px) {
+        footer .row {
+          display: block;
+        }
+        .col-3 {
+          margin-bottom: 28px;
+        }
+      }
+
+      @media only screen and (max-width: 450px) {
+        .copyowner {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <section class="wrapper container">
+        <a href="./index.html" class="logo">Unisuniverse</a>
+        <span class="overlay"></span>
+        <nav class="navbar" id="navbar">
+          <ul class="menu" id="menu">
+            <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Students</a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Academics</a>
+            </li>
+            <li class="menu-item">
+              <a href="#" class="menu-link">Universities</a>
+            </li>
+            <li class="menu-item menu-dropdown">
+              <span class="menu-link" data-toggle="submenu"
+                >Our Services<i class="fa fa-angle-down"></i
+              ></span>
+              <ul class="submenu">
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+                <li class="submenu-item">
+                  <a href="#" class="submenu-link">Discover Link</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item resnav">
+              <a href="#" class="menu-link" id="btn-md">My profile</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="btn">
+          <a href="#"><i class="fa fa-search"></i></a>
+          <div class="burger" id="burger">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </div>
+          <button class="btn-md" id="test">My profile</button>
+        </div>
+      </section>
+    </header>
+
+    <div class="mx container">
+      <p class="breadcrumb">Home / <span>Edit Profile</span></p>
+    </div>
+
+    <main>
+      <div class="edit-acc mx container">
+        <aside>
+          <div class="side-menu-wrapper">
+            <nav class="side-menu-items">
+              <ul class="side-menu-items-profile">
+                <a href="../index.html" class="side-menu-item-profile">
+                  <div class="side-menu-item-profile-icon">
+                    <i class="fa-regular fa-user"></i>
+                  </div>
+                  <h4>My Account</h4>
+                </a>
+
+                <a
+                  href="../index.html"
+                  class="side-menu-item-profile checked-tab"
+                >
+                  <div class="side-menu-item-profile-icon">
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M6.70295 1.14648C5.9687 1.14648 5.46545 1.14648 5.01628 1.2684C4.55141 1.39598 4.11857 1.61992 3.74587 1.92566C3.37317 2.2314 3.06894 2.61211 2.85295 3.04307C2.64486 3.4574 2.54678 3.95148 2.40286 4.67198L1.83453 7.51182C1.73388 8.00964 1.7436 8.52349 1.86302 9.01715C1.98243 9.51081 2.20864 9.97228 2.5257 10.3691V12.8853C2.5257 14.5702 2.5257 15.9048 2.66595 16.9489C2.81078 18.0232 3.11511 18.8931 3.80078 19.5797C4.48645 20.2654 5.35636 20.5697 6.43161 20.7146C7.4757 20.8548 8.81036 20.8548 10.4943 20.8548H11.5145C13.1994 20.8548 14.534 20.8548 15.5781 20.7146C16.6524 20.5697 17.5224 20.2654 18.2089 19.5797C18.8946 18.8931 19.1989 18.0232 19.3438 16.9489C19.484 15.9039 19.484 14.5702 19.484 12.8853V10.37C19.8011 9.97302 20.0272 9.51135 20.1464 9.01752C20.2657 8.52369 20.2752 8.00972 20.1743 7.51182L19.6059 4.67198C19.4629 3.95148 19.3639 3.4574 19.1568 3.04307C18.9407 2.61201 18.6363 2.23124 18.2634 1.9255C17.8906 1.61975 17.4576 1.39587 16.9925 1.2684C16.5443 1.14648 16.041 1.14648 15.3059 1.14648H6.70295ZM16.7505 11.6882C17.2171 11.689 17.6791 11.5961 18.109 11.415V12.834C18.109 14.5821 18.1072 15.8242 17.9807 16.7665C17.8569 17.6877 17.6241 18.2194 17.2364 18.6072C16.8486 18.9949 16.3169 19.2277 15.3939 19.3515C14.9259 19.4095 14.4554 19.4444 13.984 19.456V16.9297C13.984 16.5263 13.984 16.178 13.9584 15.8938C13.9309 15.5913 13.8704 15.2925 13.7072 15.0111C13.5264 14.6974 13.2662 14.4369 12.9528 14.2557C12.6714 14.0935 12.3725 14.033 12.07 14.0055C11.7859 13.9798 11.4375 13.9798 11.0342 13.9798H10.9746C10.5713 13.9798 10.2239 13.9798 9.93878 14.0055C9.63628 14.033 9.33836 14.0935 9.05695 14.2557C8.7432 14.4368 8.48269 14.6973 8.30161 15.0111C8.13936 15.2925 8.07886 15.5913 8.05136 15.8929C8.0257 16.1789 8.0257 16.5263 8.0257 16.9287V19.456C7.5537 19.4445 7.08257 19.4096 6.61403 19.3515C5.69278 19.2277 5.16111 18.9949 4.77336 18.6072C4.3847 18.2194 4.15278 17.6877 4.02903 16.7656C3.90161 15.8242 3.9007 14.5821 3.9007 12.834V11.415C4.63321 11.7245 5.44946 11.7745 6.21428 11.5568C6.97911 11.3391 7.64665 10.8667 8.10636 10.2178C8.43937 10.6741 8.87554 11.0451 9.37927 11.3006C9.883 11.5561 10.44 11.6889 11.0049 11.6882C11.5697 11.6889 12.1267 11.5561 12.6305 11.3006C13.1342 11.0451 13.5704 10.6741 13.9034 10.2178C14.226 10.6725 14.6528 11.0433 15.1482 11.2991C15.6436 11.5549 16.193 11.6883 16.7505 11.6882ZM9.4007 19.478C9.75636 19.4798 10.1377 19.4798 10.5465 19.4798H11.4632C11.872 19.4798 12.2524 19.4798 12.609 19.478V16.959C12.609 16.5181 12.6081 16.233 12.5889 16.0176C12.5705 15.8113 12.5384 15.7362 12.5164 15.6986C12.4562 15.5943 12.3696 15.5077 12.2653 15.4474C12.2277 15.4254 12.1525 15.3942 11.9463 15.375C11.6329 15.3557 11.3188 15.349 11.0049 15.3548C10.5639 15.3548 10.2789 15.3548 10.0634 15.375C9.85628 15.3933 9.78203 15.4254 9.74445 15.4474C9.63983 15.5075 9.55289 15.5942 9.49236 15.6986C9.47128 15.7352 9.4392 15.8113 9.42086 16.0176C9.40161 16.233 9.4007 16.5181 9.4007 16.959V19.478ZM7.95236 2.52148H6.8047C5.9302 2.52148 5.62678 2.5279 5.38111 2.59482C5.10224 2.67131 4.84257 2.80558 4.61895 2.98893C4.39534 3.17227 4.21277 3.40059 4.08311 3.65907C3.96853 3.88732 3.90345 4.18248 3.73203 5.04048L3.18386 7.78132C3.12544 8.06332 3.12516 8.35429 3.18303 8.63641C3.24091 8.91852 3.35573 9.18587 3.52046 9.4221C3.6852 9.65833 3.89639 9.85847 4.14113 10.0103C4.38586 10.1621 4.65899 10.2624 4.94381 10.305C5.22863 10.3477 5.51915 10.3318 5.79762 10.2583C6.07608 10.1848 6.33663 10.0553 6.56332 9.87766C6.79002 9.70004 6.9781 9.47804 7.11606 9.22524C7.25402 8.97244 7.33897 8.69415 7.3657 8.4074L7.42895 7.77857L7.43261 7.74007L7.9542 2.52148H7.95236ZM8.79661 7.9069L9.33561 2.52148H12.6741L13.2094 7.87665C13.2394 8.18307 13.2053 8.49237 13.1091 8.78483C13.0128 9.0773 12.8567 9.3465 12.6507 9.57527C12.4447 9.80404 12.1932 9.98736 11.9124 10.1135C11.6315 10.2397 11.3275 10.306 11.0196 10.3081C10.7117 10.3102 10.4068 10.2481 10.1242 10.1258C9.8417 10.0035 9.58775 9.82363 9.37859 9.5977C9.16943 9.37178 9.00965 9.10474 8.90945 8.81362C8.80925 8.5225 8.77082 8.2137 8.79661 7.9069ZM16.6286 2.59482C16.3829 2.5279 16.0795 2.52148 15.205 2.52148H14.0555L14.6449 8.40648C14.6725 8.69241 14.7581 8.96973 14.8963 9.22154C15.0345 9.47336 15.2225 9.69441 15.4489 9.87123C15.6753 10.048 15.9353 10.1769 16.2131 10.25C16.4909 10.3231 16.7807 10.3389 17.0647 10.2965C17.3488 10.254 17.6213 10.1541 17.8656 10.0029C18.1098 9.85177 18.3208 9.65247 18.4855 9.41716C18.6503 9.18186 18.7654 8.91548 18.824 8.63424C18.8825 8.35301 18.8831 8.06281 18.8259 7.78132L18.2786 5.04048C18.1063 4.18248 18.0412 3.88732 17.9275 3.65907C17.7978 3.4005 17.6151 3.17212 17.3913 2.98877C17.1675 2.80541 16.9077 2.67119 16.6286 2.59482Z"
+                      />
+                    </svg>
+                  </div>
+                  <h4>Products</h4>
+                </a>
+
+                <a href="../index.html" class="side-menu-item-profile">
+                  <div class="side-menu-item-profile-icon">
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M6.70295 1.14648C5.9687 1.14648 5.46545 1.14648 5.01628 1.2684C4.55141 1.39598 4.11857 1.61992 3.74587 1.92566C3.37317 2.2314 3.06894 2.61211 2.85295 3.04307C2.64486 3.4574 2.54678 3.95148 2.40286 4.67198L1.83453 7.51182C1.73388 8.00964 1.7436 8.52349 1.86302 9.01715C1.98243 9.51081 2.20864 9.97228 2.5257 10.3691V12.8853C2.5257 14.5702 2.5257 15.9048 2.66595 16.9489C2.81078 18.0232 3.11511 18.8931 3.80078 19.5797C4.48645 20.2654 5.35636 20.5697 6.43161 20.7146C7.4757 20.8548 8.81036 20.8548 10.4943 20.8548H11.5145C13.1994 20.8548 14.534 20.8548 15.5781 20.7146C16.6524 20.5697 17.5224 20.2654 18.2089 19.5797C18.8946 18.8931 19.1989 18.0232 19.3438 16.9489C19.484 15.9039 19.484 14.5702 19.484 12.8853V10.37C19.8011 9.97302 20.0272 9.51135 20.1464 9.01752C20.2657 8.52369 20.2752 8.00972 20.1743 7.51182L19.6059 4.67198C19.4629 3.95148 19.3639 3.4574 19.1568 3.04307C18.9407 2.61201 18.6363 2.23124 18.2634 1.9255C17.8906 1.61975 17.4576 1.39587 16.9925 1.2684C16.5443 1.14648 16.041 1.14648 15.3059 1.14648H6.70295ZM16.7505 11.6882C17.2171 11.689 17.6791 11.5961 18.109 11.415V12.834C18.109 14.5821 18.1072 15.8242 17.9807 16.7665C17.8569 17.6877 17.6241 18.2194 17.2364 18.6072C16.8486 18.9949 16.3169 19.2277 15.3939 19.3515C14.9259 19.4095 14.4554 19.4444 13.984 19.456V16.9297C13.984 16.5263 13.984 16.178 13.9584 15.8938C13.9309 15.5913 13.8704 15.2925 13.7072 15.0111C13.5264 14.6974 13.2662 14.4369 12.9528 14.2557C12.6714 14.0935 12.3725 14.033 12.07 14.0055C11.7859 13.9798 11.4375 13.9798 11.0342 13.9798H10.9746C10.5713 13.9798 10.2239 13.9798 9.93878 14.0055C9.63628 14.033 9.33836 14.0935 9.05695 14.2557C8.7432 14.4368 8.48269 14.6973 8.30161 15.0111C8.13936 15.2925 8.07886 15.5913 8.05136 15.8929C8.0257 16.1789 8.0257 16.5263 8.0257 16.9287V19.456C7.5537 19.4445 7.08257 19.4096 6.61403 19.3515C5.69278 19.2277 5.16111 18.9949 4.77336 18.6072C4.3847 18.2194 4.15278 17.6877 4.02903 16.7656C3.90161 15.8242 3.9007 14.5821 3.9007 12.834V11.415C4.63321 11.7245 5.44946 11.7745 6.21428 11.5568C6.97911 11.3391 7.64665 10.8667 8.10636 10.2178C8.43937 10.6741 8.87554 11.0451 9.37927 11.3006C9.883 11.5561 10.44 11.6889 11.0049 11.6882C11.5697 11.6889 12.1267 11.5561 12.6305 11.3006C13.1342 11.0451 13.5704 10.6741 13.9034 10.2178C14.226 10.6725 14.6528 11.0433 15.1482 11.2991C15.6436 11.5549 16.193 11.6883 16.7505 11.6882ZM9.4007 19.478C9.75636 19.4798 10.1377 19.4798 10.5465 19.4798H11.4632C11.872 19.4798 12.2524 19.4798 12.609 19.478V16.959C12.609 16.5181 12.6081 16.233 12.5889 16.0176C12.5705 15.8113 12.5384 15.7362 12.5164 15.6986C12.4562 15.5943 12.3696 15.5077 12.2653 15.4474C12.2277 15.4254 12.1525 15.3942 11.9463 15.375C11.6329 15.3557 11.3188 15.349 11.0049 15.3548C10.5639 15.3548 10.2789 15.3548 10.0634 15.375C9.85628 15.3933 9.78203 15.4254 9.74445 15.4474C9.63983 15.5075 9.55289 15.5942 9.49236 15.6986C9.47128 15.7352 9.4392 15.8113 9.42086 16.0176C9.40161 16.233 9.4007 16.5181 9.4007 16.959V19.478ZM7.95236 2.52148H6.8047C5.9302 2.52148 5.62678 2.5279 5.38111 2.59482C5.10224 2.67131 4.84257 2.80558 4.61895 2.98893C4.39534 3.17227 4.21277 3.40059 4.08311 3.65907C3.96853 3.88732 3.90345 4.18248 3.73203 5.04048L3.18386 7.78132C3.12544 8.06332 3.12516 8.35429 3.18303 8.63641C3.24091 8.91852 3.35573 9.18587 3.52046 9.4221C3.6852 9.65833 3.89639 9.85847 4.14113 10.0103C4.38586 10.1621 4.65899 10.2624 4.94381 10.305C5.22863 10.3477 5.51915 10.3318 5.79762 10.2583C6.07608 10.1848 6.33663 10.0553 6.56332 9.87766C6.79002 9.70004 6.9781 9.47804 7.11606 9.22524C7.25402 8.97244 7.33897 8.69415 7.3657 8.4074L7.42895 7.77857L7.43261 7.74007L7.9542 2.52148H7.95236ZM8.79661 7.9069L9.33561 2.52148H12.6741L13.2094 7.87665C13.2394 8.18307 13.2053 8.49237 13.1091 8.78483C13.0128 9.0773 12.8567 9.3465 12.6507 9.57527C12.4447 9.80404 12.1932 9.98736 11.9124 10.1135C11.6315 10.2397 11.3275 10.306 11.0196 10.3081C10.7117 10.3102 10.4068 10.2481 10.1242 10.1258C9.8417 10.0035 9.58775 9.82363 9.37859 9.5977C9.16943 9.37178 9.00965 9.10474 8.90945 8.81362C8.80925 8.5225 8.77082 8.2137 8.79661 7.9069ZM16.6286 2.59482C16.3829 2.5279 16.0795 2.52148 15.205 2.52148H14.0555L14.6449 8.40648C14.6725 8.69241 14.7581 8.96973 14.8963 9.22154C15.0345 9.47336 15.2225 9.69441 15.4489 9.87123C15.6753 10.048 15.9353 10.1769 16.2131 10.25C16.4909 10.3231 16.7807 10.3389 17.0647 10.2965C17.3488 10.254 17.6213 10.1541 17.8656 10.0029C18.1098 9.85177 18.3208 9.65247 18.4855 9.41716C18.6503 9.18186 18.7654 8.91548 18.824 8.63424C18.8825 8.35301 18.8831 8.06281 18.8259 7.78132L18.2786 5.04048C18.1063 4.18248 18.0412 3.88732 17.9275 3.65907C17.7978 3.4005 17.6151 3.17212 17.3913 2.98877C17.1675 2.80541 16.9077 2.67119 16.6286 2.59482Z"
+                      />
+                    </svg>
+                  </div>
+                  <h4>Services</h4>
+                </a>
+
+                <a href="../index.html" class="side-menu-item-profile">
+                  <div class="side-menu-item-profile-icon">
+                    <i class="fa-regular fa-calendar"></i>
+                  </div>
+                  <h4>Payment</h4>
+                </a>
+
+                <a href="../index.html" class="side-menu-item-profile">
+                  <div class="side-menu-item-profile-icon">
+                    <i class="fa-regular fa-message"></i>
+                  </div>
+                  <h4>Messages</h4>
+                </a>
+
+                <a href="../index.html" class="side-menu-item-profile">
+                  <div class="side-menu-item-profile-icon">
+                    <i class="fa-regular fa-heart"></i>
+                  </div>
+                  <h4>Wishlist</h4>
+                </a>
+
+                <li class="side-menu-item">
+                  <div class="side-menu-item-profile">
+                    <div class="side-menu-item-profile-icon">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_3818_62)">
+                          <path
+                            d="M9.97053 0C10.2351 0 10.4718 0.1647 10.5609 0.4113L11.1963 2.1726C11.4237 2.229 11.6199 2.2866 11.7849 2.3454C11.9649 2.4096 12.1989 2.5086 12.4869 2.6424L13.9665 1.8594C14.0872 1.79512 14.2256 1.77186 14.3606 1.79313C14.4957 1.8144 14.6202 1.87904 14.7153 1.9773L16.0167 3.3228C16.1895 3.5019 16.2381 3.7638 16.1409 3.9924L15.447 5.6187C15.5616 5.8299 15.654 6.0111 15.7242 6.1623C15.7998 6.3261 15.8934 6.5541 16.005 6.8463L17.6223 7.5393C17.8653 7.6428 18.0156 7.8858 17.9994 8.1459L17.8806 10.0134C17.8725 10.1347 17.829 10.251 17.7554 10.3478C17.6818 10.4446 17.5814 10.5176 17.4666 10.5579L15.9348 11.1024C15.891 11.3136 15.8448 11.4954 15.7962 11.6478C15.7176 11.884 15.6281 12.1164 15.528 12.3444L16.2975 14.0454C16.3523 14.1648 16.3671 14.2987 16.3399 14.4272C16.3127 14.5558 16.2448 14.6721 16.1463 14.7591L14.6829 16.0659C14.5867 16.1519 14.4665 16.2064 14.3383 16.2218C14.2102 16.2373 14.0804 16.213 13.9665 16.1523L12.4581 15.3531C12.2224 15.4785 11.9789 15.5889 11.7291 15.6834L11.0703 15.93L10.4853 17.55C10.4416 17.6684 10.3632 17.7708 10.2605 17.8442C10.1578 17.9175 10.0355 17.9583 9.90933 17.9613L8.19933 18C8.06978 18.003 7.94245 17.966 7.83471 17.894C7.72696 17.822 7.64403 17.7185 7.59723 17.5977L6.90783 15.7734C6.67267 15.6928 6.43978 15.6058 6.20943 15.5124C6.02108 15.4309 5.83557 15.3429 5.65323 15.2487L3.94323 15.9795C3.8306 16.0278 3.70633 16.0422 3.58564 16.0209C3.46495 15.9997 3.35308 15.9437 3.26373 15.8598L1.99833 14.6727C1.90377 14.5849 1.83936 14.4695 1.81431 14.343C1.78925 14.2164 1.80484 14.0852 1.85883 13.968L2.59413 12.366C2.49669 12.1761 2.40603 11.9828 2.32233 11.7864C2.22484 11.5459 2.13479 11.3025 2.05233 11.0565L0.441331 10.566C0.310381 10.5264 0.196166 10.4447 0.116422 10.3336C0.0366774 10.2224 -0.00413217 10.088 0.000330722 9.9513L0.0633307 8.2224C0.0680108 8.10964 0.103328 8.0003 0.165488 7.9061C0.227648 7.81191 0.314299 7.73644 0.416131 7.6878L2.10633 6.876C2.18433 6.5892 2.25333 6.3648 2.31333 6.2028C2.39825 5.98523 2.49254 5.77143 2.59593 5.562L1.86333 4.014C1.80731 3.89653 1.7902 3.76426 1.81448 3.63641C1.83875 3.50855 1.90316 3.39176 1.99833 3.303L3.26193 2.1096C3.35039 2.02586 3.46123 1.96956 3.58103 1.94751C3.70083 1.92547 3.82446 1.93863 3.93693 1.9854L5.64513 2.691C5.83353 2.5656 6.00513 2.4624 6.15993 2.3814C6.34413 2.2842 6.59133 2.1804 6.90153 2.07L7.49553 0.4131C7.53989 0.292133 7.62027 0.187675 7.72584 0.113809C7.83141 0.0399434 7.95709 0.000221948 8.08593 0L9.97053 0ZM9.52953 1.2393H8.52783L7.98333 2.7639C7.95091 2.85257 7.89897 2.93282 7.83137 2.99871C7.76376 3.06461 7.6822 3.11447 7.59273 3.1446C7.20033 3.2751 6.91683 3.3876 6.75123 3.4749C6.57483 3.5679 6.35283 3.7089 6.08523 3.8979C5.99814 3.95932 5.8969 3.99765 5.79097 4.0093C5.68504 4.02095 5.57788 4.00553 5.47953 3.9645L3.83253 3.285L3.19083 3.8916L3.85953 5.3046C3.89956 5.38867 3.91989 5.48076 3.91895 5.57387C3.91802 5.66698 3.89585 5.75865 3.85413 5.8419C3.67413 6.2028 3.55263 6.4692 3.49143 6.633C3.39718 6.90555 3.31609 7.18247 3.24843 7.4628C3.22582 7.55051 3.18429 7.63221 3.12677 7.70217C3.06925 7.77213 2.99711 7.82866 2.91543 7.8678L1.30443 8.6409L1.27203 9.5229L2.73003 9.9657C2.92353 10.0242 3.07653 10.1727 3.14043 10.3635C3.28503 10.7967 3.39903 11.1135 3.48243 11.3139C3.59214 11.5674 3.71347 11.8158 3.84603 12.0582C3.89088 12.1416 3.91576 12.2342 3.91873 12.3289C3.9217 12.4235 3.90267 12.5176 3.86313 12.6036L3.18723 14.0778L3.82713 14.679L5.43093 13.9932C5.51727 13.9561 5.61082 13.9388 5.70473 13.9425C5.79863 13.9463 5.89051 13.9709 5.97363 14.0148C6.30363 14.1876 6.54633 14.307 6.70173 14.373C6.85923 14.4387 7.16073 14.5485 7.59813 14.6979C7.68476 14.7279 7.76378 14.7765 7.82969 14.8402C7.8956 14.904 7.94681 14.9813 7.97973 15.0669L8.61693 16.7508L9.45033 16.7328L9.98763 15.2442C10.0188 15.1595 10.0678 15.0825 10.1313 15.0183C10.1948 14.9542 10.2713 14.9045 10.3557 14.8725L11.289 14.5233C11.5254 14.4363 11.8107 14.2983 12.1449 14.1093C12.2373 14.0571 12.3413 14.0291 12.4473 14.0279C12.5533 14.0266 12.658 14.0521 12.7515 14.1021L14.1708 14.8536L14.9691 14.1417L14.2707 12.6C14.2348 12.5209 14.2161 12.435 14.216 12.3481C14.2158 12.2612 14.2342 12.1753 14.2698 12.096C14.4336 11.7297 14.5443 11.4534 14.6001 11.277C14.6559 11.103 14.7114 10.8555 14.7666 10.5345C14.7855 10.4257 14.8331 10.3238 14.9044 10.2395C14.9758 10.1552 15.0683 10.0914 15.1725 10.0548L16.6557 9.5283L16.7205 8.5023L15.2625 7.8777C15.1851 7.8443 15.1152 7.79571 15.0569 7.7348C14.9987 7.67389 14.9532 7.6019 14.9232 7.5231C14.8195 7.23614 14.706 6.95277 14.583 6.6735C14.4668 6.43025 14.3407 6.19185 14.205 5.9589C14.1579 5.87664 14.1305 5.78456 14.125 5.68991C14.1196 5.59526 14.1362 5.50064 14.1735 5.4135L14.826 3.8835L14.1384 3.1725L12.7992 3.8817C12.7119 3.92828 12.6148 3.95361 12.5158 3.95564C12.4168 3.95767 12.3187 3.93635 12.2295 3.8934C11.9454 3.75171 11.6547 3.62376 11.3583 3.51C11.1059 3.42476 10.8482 3.35562 10.587 3.303C10.4836 3.28056 10.3875 3.23244 10.3076 3.16307C10.2277 3.0937 10.1666 3.00533 10.1298 2.9061L9.52953 1.2393ZM9.02193 5.0769C11.2134 5.0769 12.9909 6.8346 12.9909 9.0018C12.9909 11.169 11.2134 12.9258 9.02193 12.9258C6.83043 12.9258 5.05293 11.169 5.05293 9.0018C5.05293 6.8346 6.82953 5.0778 9.02193 5.0778M9.02193 6.318C7.52163 6.318 6.30573 7.5195 6.30573 9.0027C6.30573 10.4859 7.52163 11.6883 9.02193 11.6883C10.5222 11.6883 11.7372 10.4859 11.7372 9.0027C11.7372 7.5195 10.5222 6.318 9.02193 6.318Z"
+                            fill="#333333"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_3818_62">
+                            <rect width="18" height="18" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+                    <h4>Setting</h4>
+                  </div>
+                  <ul class="sub-menu-wrapper">
+                    <li class="sub-menu-contents">
+                      <a
+                        href="../../Setting/Payout/index.html"
+                        class="sub-menu"
+                      >
+                        <div class="sub-menu-icon">
+                          <i class="fa-solid fa-angle-right"></i>
+                        </div>
+                        <h4 class="sub-menu-title">Payout</h4>
+                      </a>
+                    </li>
+
+                    <li class="sub-menu-contents">
+                      <a href="#" class="sub-menu">
+                        <div class="sub-menu-icon">
+                          <i class="fa-solid fa-angle-right"></i>
+                        </div>
+                        <h4 class="sub-menu-title">Title</h4>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+
+              <ul class="side-menu-logout-profile">
+                <a class="side-menu-item-profile log-out">
+                  <div class="side-menu-item-profile-icon">
+                    <i class="fa fa-power-off"></i>
+                  </div>
+                  <h4>Log Out</h4>
+                </a>
+              </ul>
+            </nav>
+          </div>
+        </aside>
+
+        <div class="edit-section-wrapper">
+          <div class="edit-section-title-add">
+            <h2 class="edit-section-title">Audio Book</h2>
+            <p>
+              Let's build your Audio Book! Please fill in the details below.
+            </p>
+          </div>
+
+          <div class="edit-section-items-steps">
+            <div class="stage">
+              <div class="edit-section-forms">
+                <form id="forms-wrapper">
+                  <div>
+                    <div class="edit-section-item-title-wrapper">
+                      <h3 class="edit-section-item-title">Basic information</h3>
+                    </div>
+                    <div class="user_details">
+                      <div class="input_pox wf">
+                        <label class="datails">Audio Book Title : </label>
+                        <input
+                          type="text"
+                          placeholder="Enter title of your audio book"
+                          required
+                        />
+                      </div>
+                      <div class="input_pox">
+                        <label class="datails">Subject :</label>
+                        <select
+                          name="subject"
+                          class="select-input"
+                          onblur="this.size=0"
+                          onchange="this.size=1; this.blur(); showOtherInput(this.value)"
+                          required
+                        >
+                          <option value="">Select a Subject</option>
+                          <option value="accounting">Accounting</option>
+                          <option value="anthropology">Anthropology</option>
+                          <option value="archaeology">Archaeology</option>
+                          <option value="architecture">Architecture</option>
+                          <option value="arts">Arts</option>
+                          <option value="astronomy">Astronomy</option>
+                          <option value="biology">Biology</option>
+                          <option value="business">Business</option>
+                          <option value="chemistry">Chemistry</option>
+                          <option value="computer science">
+                            Computer Science
+                          </option>
+                          <option value="data science">Data Science</option>
+                          <option value="economics">Economics</option>
+                          <option value="education">Education</option>
+                          <option value="engineering">Engineering</option>
+                          <option value="environmental science">
+                            Environmental Science
+                          </option>
+                          <option value="geography">Geography</option>
+                          <option value="history">History</option>
+                          <option value="law">Law</option>
+                          <option value="linguistics">Linguistics</option>
+                          <option value="literature">Literature</option>
+                          <option value="marketing">Marketing</option>
+                          <option value="mathematics">Mathematics</option>
+                          <option value="medicine">Medicine</option>
+                          <option value="music">Music</option>
+                          <option value="philosophy">Philosophy</option>
+                          <option value="physics">Physics</option>
+                          <option value="political science">
+                            Political Science
+                          </option>
+                          <option value="psychology">Psychology</option>
+                          <option value="sociology">Sociology</option>
+                          <option value="statistics">Statistics</option>
+                          <option value="theology">Theology</option>
+                          <option value="zoology">Zoology</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                      <div
+                        class="input_pox"
+                        id="otherCategoryInput"
+                        style="display: none"
+                      >
+                        <label class="datails">Add Subject :</label>
+                        <input
+                          type="text"
+                          name="other_category"
+                          placeholder="Specify the field"
+                          required
+                        />
+                      </div>
+                      <div class="input_pox">
+                        <label class="datails"
+                          >ISBN <span>(Optional)</span> :</label
+                        >
+                        <input
+                          type="text"
+                          placeholder="Enter ISBN (if available)"
+                        />
+                      </div>
+                      <div class="input_pox">
+                        <label class="datails">Duration :</label>
+                        <input
+                          type="number"
+                          placeholder="e.g, 5(in minutes)"
+                          required
+                        />
+                      </div>
+                      <div class="input_pox">
+                        <label class="datails">Year of Publication :</label>
+                        <input
+                          type="date"
+                          name="dateInput"
+                          min="1950-01-01"
+                          max="2028-12-31"
+                          required
+                          id="yearOfPublication"
+                        />
+                      </div>
+                      <div class="input_pox">
+                        <label class="datails">Price :</label>
+                        <input
+                          type="number"
+                          placeholder="Enter the price (in USD, EURO)"
+                          required
+                        />
+                      </div>
+                      <div class="input_pox">
+                        <label class="datails">Currency :</label>
+                        <select
+                          name="currency"
+                          class="select-input"
+                          onblur="this.size=0"
+                          onchange="this.size=1; this.blur();"
+                          required
+                        >
+                          <option value="">Select a Currency</option>
+                          <option value="usd">USD</option>
+                          <option value="euro">EURO</option>
+                        </select>
+                      </div>
+                      <div class="input_pox">
+                        <label class="datails">Language :</label>
+                        <select
+                          name="language"
+                          class="select-input"
+                          onblur="this.size=0"
+                          onchange="this.size=1; this.blur(); showOtherInputLanguage(this.value)"
+                          required
+                        >
+                          <option value="">Select a Language</option>
+                          <option value="english">English</option>
+                          <option value="chinese">Chinese</option>
+                          <option value="spanish">Spanish</option>
+                          <option value="arabic">Arabic</option>
+                          <option value="french">French</option>
+                          <option value="german">German</option>
+                          <option value="japanese">Japanese</option>
+                          <option value="russian">Russian</option>
+                          <option value="portuguese">Portuguese</option>
+                          <option value="italian">Italian</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                      <div
+                        class="input_pox"
+                        id="otherCategoryInputLanguage"
+                        style="display: none"
+                      >
+                        <label class="datails">Add Language :</label>
+                        <input
+                          type="text"
+                          name="other_category"
+                          placeholder="Enter your language"
+                          required
+                        />
+                      </div>
+
+                      <div class="information-edit wf">
+                        <h4 class="information-title">Upload Audio Book :</h4>
+                        <div class="photo-upld">
+                          <i class="fa fa-picture-o"></i>
+                          <p>Browse file to upload</p>
+                          <input
+                            type="file"
+                            class="file-input"
+                            accept=".mp3, .wav, .aac"
+                            hidden
+                            id="file-input-req"
+                            required
+                          />
+                          <p>file types: MP3, WAV, AAC (Max size: 50MB)</p>
+                        </div>
+                        <section class="progress-area">
+                          <li class="row-upload">
+                            <i class="fa-regular fa-file"></i>
+                            <div class="content">
+                              <div class="details">
+                                <span class="name">File.01 - Uploading</span>
+                                <span class="percent">50%</span>
+                              </div>
+                              <div class="progress-bar">
+                                <div class="progress"></div>
+                              </div>
+                            </div>
+                          </li>
+                        </section>
+                        <section class="uploaded-area">
+                          <li class="row-upload">
+                            <div class="content">
+                              <i class="fa-regular fa-file"></i>
+                              <div class="details">
+                                <span class="name">File.01 - Uploaded</span>
+                                <span class="img-size">70 KB</span>
+                              </div>
+                            </div>
+                            <i class="fa fa-check"></i>
+                          </li>
+                        </section>
+                      </div>
+
+                      <hr />
+
+                      <div class="information-edit wf">
+                        <h4 class="information-title">
+                          Audio Book Preview <span>(Optional)</span> :
+                        </h4>
+                        <div class="photo-upld">
+                          <i class="fa fa-picture-o"></i>
+                          <p>Browse file to upload</p>
+                          <input
+                            type="file"
+                            class="file-input"
+                            accept="audio/*"
+                            hidden
+                          />
+                          <p>
+                            file types: Audio (Upload a sample (up to 10
+                            minutes) as a preview)
+                          </p>
+                        </div>
+                        <section class="progress-area">
+                          <li class="row-upload">
+                            <i class="fa-regular fa-file"></i>
+                            <div class="content">
+                              <div class="details">
+                                <span class="name">File.01 - Uploading</span>
+                                <span class="percent">50%</span>
+                              </div>
+                              <div class="progress-bar">
+                                <div class="progress"></div>
+                              </div>
+                            </div>
+                          </li>
+                        </section>
+                        <section class="uploaded-area">
+                          <li class="row-upload">
+                            <div class="content">
+                              <i class="fa-regular fa-file"></i>
+                              <div class="details">
+                                <span class="name">File.01 - Uploaded</span>
+                                <span class="img-size">70 KB</span>
+                              </div>
+                            </div>
+                            <i class="fa fa-check"></i>
+                          </li>
+                        </section>
+                        <p class="upload-text">Your product photos and personal data are protected.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="edit-section-item-title-wrapper">
+                      <h3 class="edit-section-item-title">About the author</h3>
+                    </div>
+                    <div id="authors-container">
+                      <div class="user_details">
+                        <div class="input_pox">
+                          <label class="datails">Full Name :</label>
+                          <input
+                            type="text"
+                            placeholder="Anderson Cooper"
+                            required
+                          />
+                        </div>
+                        <div class="input_pox">
+                          <label class="datails">Affiliation :</label>
+                          <input type="text" required />
+                        </div>
+                        <div class="input_pox">
+                          <label class="datails"
+                            >Email <span>(Optional)</span> :</label
+                          >
+                          <input
+                            type="text"
+                            placeholder="Enter ISBN (if available)"
+                          />
+                        </div>
+                        <div class="input_pox">
+                          <label class="datails">Role :</label>
+                          <input
+                            type="text"
+                            placeholder="Eg: Corresponding Author"
+                            required
+                          />
+                        </div>
+
+                        <button
+                          class="text-btn"
+                          onclick="addAuthor(this.parentNode, event)"
+                        >
+                          + Add Next Author
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="edit-section-item-title-wrapper">
+                      <h3 class="edit-section-item-title">More info</h3>
+                    </div>
+                    <div class="user_details">
+                      <div class="input-tags-wrapper">
+                        <div class="input_pox">
+                          <label class="datails">Keywords :</label>
+                          <input
+                            type="text"
+                            id="keywordInput"
+                            placeholder="Enter keywords (e.g: fiction)"
+                            required
+                          />
+                        </div>
+                        <div class="input-tags">
+                          <div class="input-tag">Self-help</div>
+                          <div class="input-tag">Fiction</div>
+                        </div>
+                      </div>
+                      <div class="input_pox wf">
+                        <label class="datails">Description :</label>
+                        <textarea
+                          placeholder="Write a brief summary or overview of your audio book"
+                          required
+                        ></textarea>
+                      </div>
+                      <div class="input_pox wf">
+                        <label class="datails"
+                          >Author Bio <span>(Optional)</span>:</label
+                        >
+                        <textarea
+                          placeholder="Introduce yourself briefly"
+                        ></textarea>
+                      </div>
+                      <div class="checkbox-warpper">
+                        <div class="checkboxContainer">
+                          <input
+                            type="checkbox"
+                            id="copyright"
+                            class="checkbox"
+                            required
+                          />
+                          <label for="RememberMe"
+                            >I confirm that I hold the necessary rights to sell
+                            this audio book.</label
+                          >
+                        </div>
+                        <div class="checkboxContainer">
+                          <input
+                            type="checkbox"
+                            id="terms"
+                            class="checkbox"
+                            required
+                          />
+                          <label for="RememberMe"
+                            >I have read and agree to the
+                            <a
+                              href="../../../../Terms And Conditions/index.html"
+                              >terms and conditions</a
+                            >
+                            of Unisuniverse.com.</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="edit-section-buttons-step">
+                    <a class="out-btn" href="../newProduct.html">Back</a>
+                    <div class="edit-section-button">
+                      <button class="text-btn-sv">Save draft</button>
+                      <button
+                        type="submit"
+                        id="submit-button"
+                        class="btn-medium"
+                        href="#"
+                      >
+                        List Your Product
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-background">
+      <div class="container mx">
+        <div>
+          <div class="row-fot">
+            <div class="row">
+              <div class="desc col-3">
+                <a href="/index.html">
+                  <img
+                    src="../../../images/image_59-removebg-preview (1) 1.png"
+                    alt=""
+                  />
+                  <h2>Unisuniverse</h2>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae
+                  congu.
+                </p>
+              </div>
+              <div class="col-3">
+                <h4>Short Links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href=""><span>Home</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Academics</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Students</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Universities</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3">
+                <h4>Quick links</h4>
+                <ul class="footer-cat-links">
+                  <li>
+                    <a href="../Aboutus/index.html"><span>About us</span></a>
+                  </li>
+                  <li>
+                    <a href="../FAQ/index.html"><span>FAQ</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Contact us</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>Privacy policy</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3 contact">
+                <h4>Contact us</h4>
+                <ul>
+                  <li>
+                    <div class="iconfo">
+                      <i
+                        class="fa fa-phone fa-flip-horizontal"
+                        aria-hidden="true"
+                      ></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Phone:<br />
+                      +971-580580580
+                    </div>
+                  </li>
+                  <li class="Emailfot">
+                    <div class="iconfo">
+                      <i class="fa fa-envelope-o"></i>
+                    </div>
+                    <div class="lineheightfot">
+                      Email:<br />
+                      info@Unisuniverse@gmail.com
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="social-links social-2 col-6">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-linkedin-in"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-reddit-alien"></i></a>
+            </div>
+          </div>
+          <div class="copyowner">
+            <div id="copyright">
+              &copy; 2023 Attio Ltd. All rights reserved.
+            </div>
+            <div id="owner">
+              <span> Terms & Conditions </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const navbarMenu = document.getElementById("navbar");
+      const burgerMenu = document.getElementById("burger");
+      const overlayMenu = document.querySelector(".overlay");
+
+      const toggleMenu = () => {
+        navbarMenu.classList.toggle("active");
+        overlayMenu.classList.toggle("active");
+      };
+
+      const collapseSubMenu = () => {
+        navbarMenu
+          .querySelector(".menu-dropdown.active .submenu")
+          .removeAttribute("style");
+        navbarMenu
+          .querySelector(".menu-dropdown.active")
+          .classList.remove("active");
+      };
+
+      const toggleSubMenu = (e) => {
+        if (e.target.hasAttribute("data-toggle") && window.innerWidth <= 992) {
+          e.preventDefault();
+          const menuDropdown = e.target.parentElement;
+
+          if (menuDropdown.classList.contains("active")) {
+            collapseSubMenu();
+          } else {
+            if (navbarMenu.querySelector(".menu-dropdown.active")) {
+              collapseSubMenu();
+            }
+
+            menuDropdown.classList.add("active");
+            const subMenu = menuDropdown.querySelector(".submenu");
+            subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+          }
+        }
+      };
+
+      const resizeWindow = () => {
+        if (window.innerWidth > 992) {
+          if (navbarMenu.classList.contains("active")) {
+            toggleMenu();
+          }
+          if (navbarMenu.querySelector(".menu-dropdown.active")) {
+            collapseSubMenu();
+          }
+        }
+      };
+
+      burgerMenu.addEventListener("click", toggleMenu);
+      overlayMenu.addEventListener("click", toggleMenu);
+      navbarMenu.addEventListener("click", toggleSubMenu);
+      window.addEventListener("resize", resizeWindow);
+
+      // upload File
+
+      const forms = document.querySelectorAll(".photo-upld");
+      forms.forEach((form) => {
+        const fileInput = form.querySelector(".file-input");
+        const progressArea = form.querySelector(".progress-area");
+        const uploadedArea = form.querySelector(".uploaded-area");
+
+        form.addEventListener("click", () => {
+          fileInput.click();
+        });
+
+        fileInput.onchange = ({ target }) => {
+          let file = target.files[0];
+          if (file) {
+            let fileName = file.name;
+          }
+        };
+      });
+
+      // submenu
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuItems = document.querySelectorAll(".side-menu-item");
+
+        menuItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            menuItems.forEach((menuItem) => {
+              menuItem.classList.remove("checked-tab");
+            });
+
+            item.classList.add("checked-tab");
+
+            const subMenu = item.querySelector(".sub-menu-wrapper");
+            subMenu.classList.add("show");
+            subMenu.style.display =
+              subMenu.style.display === "block" ? "none" : "block";
+          });
+        });
+      });
+
+      // Choice other
+
+      function showOtherInput(selectedValue) {
+        const otherInput = document.getElementById("otherCategoryInput");
+        console.log(otherInput);
+
+        if (selectedValue === "other") {
+          otherInput.style.display = "block";
+        } else {
+          otherInput.style.display = "none";
+        }
+      }
+
+      // Choice other language
+
+      function showOtherInputLanguage(selectedValue) {
+        const otherInput = document.getElementById(
+          "otherCategoryInputLanguage"
+        );
+        console.log(otherInput);
+
+        if (selectedValue === "other") {
+          otherInput.style.display = "block";
+        } else {
+          otherInput.style.display = "none";
+        }
+      }
+
+      // autohr
+
+      function addAuthor(parentElement, event) {
+        event.preventDefault();
+        const newUserDetails = document.createElement("div");
+        newUserDetails.classList.add("new-author-wrapper");
+        newUserDetails.innerHTML = `
+      <div class="new-author-top-contents">
+                        <span>Next Author Info</span>
+                        <button class="remove-author" >Remove</button>
+                      </div>
+
+                      <div class="user_details">
+                        <div class="input_pox">
+                          <label class="datails">Full Name :</label>
+                          <input
+                            type="text"
+                            placeholder="Anderson Cooper"
+                            required
+                          />
+                        </div>
+                        <div class="input_pox">
+                          <label class="datails">Affiliation :</label>
+                          <input type="text" required />
+                        </div>
+                        <div class="input_pox">
+                          <label class="datails"
+                            >Email <span>(Optional)</span> :</label
+                          >
+                          <input
+                            type="text"
+                            placeholder="Enter ISBN (if available)"
+                          />
+                        </div>
+                        <div class="input_pox">
+                          <label class="datails">Role :</label>
+                          <input
+                            type="text"
+                            placeholder="Eg: Corresponding Author"
+                            required
+                          />
+                        </div>
+
+                        <button class="text-btn" onclick="addAuthor(this.parentNode, event)">+ Add Next Author</button>
+                      </div>
+    `;
+
+        document
+          .getElementById("authors-container")
+          .appendChild(newUserDetails);
+        parentElement.querySelector("button").style.display = "none";
+
+        const removeButton = newUserDetails.querySelector(".remove-author");
+        removeButton.addEventListener("click", function () {
+          newUserDetails.remove();
+          parentElement.querySelector("button").style.display = "flex";
+        });
+      }
+
+      // Size Upload
+
+      const fileInputSize = document.querySelector("#file-input-req");
+
+      fileInputSize.addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        const maxSize = 50 * 1024 * 1024;
+
+        if (file.size > maxSize) {
+          alert(
+            "The selected file size is larger than 50MB. Please select a smaller file"
+          );
+          fileInputSize.value = "";
+        }
+      });
+
+      // Clicked Tags
+
+      const inputTags = document.querySelectorAll(".input-tag");
+      console.log(inputTags);
+
+      inputTags.forEach((tag) => {
+        tag.addEventListener("click", () => {
+          tag.classList.toggle("input-tag-clicked");
+        });
+      });
+
+      const keywordInput = document.getElementById("keywordInput");
+
+      inputTags.forEach((tag) => {
+        let isSelected = false;
+
+        tag.addEventListener("click", () => {
+          isSelected = !isSelected;
+
+          const tagText = tag.textContent;
+          let keywords = keywordInput.value;
+
+          if (isSelected) {
+            keywords += (keywords ? ", " : "") + tagText;
+          } else {
+            const textToRemove = keywords.includes(", " + tagText)
+              ? ", " + tagText
+              : tagText;
+            keywords = keywords.replace(textToRemove, "");
+            keywords = keywords.replace(/^, +/g, "");
+            keywords = keywords.replace(/, +$/g, "");
+          }
+          keywordInput.value = keywords;
+        });
+      });
+
+      // Validation of inputs
+
+      const form = document.getElementById("forms-wrapper");
+      const submitButton = document.getElementById("submit-button");
+
+      submitButton.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        let isValid = true;
+        const requiredInputs = form.querySelectorAll("[required]");
+        const fileInputsReq = form.querySelectorAll("#file-input-req");
+        const checkboxes = form.querySelectorAll(".checkbox");
+
+        requiredInputs.forEach((input) => {
+          if (!input.value) {
+            isValid = false;
+            input.style.borderColor = "red";
+          } else {
+            input.style.borderColor = "";
+          }
+        });
+
+        fileInputsReq.forEach((fileInput) => {
+          if (fileInput.files.length === 0) {
+            isValid = false;
+            alert("You must upload a file.");
+            return;
+          }
+        });
+
+        checkboxes.forEach((checkbox) => {
+          if (checkbox.required && !checkbox.checked) {
+            isValid = false;
+          }
+        });
+
+        if (!isValid) {
+          let uncheckedCheckboxes = Array.from(checkboxes).filter(
+            (checkbox) => checkbox.required && !checkbox.checked
+          );
+
+          if (uncheckedCheckboxes.length > 0) {
+            alert(
+              "You must agree to the terms and conditions and confirm your rights to sell the e-book."
+            );
+          } else {
+            alert("Please fill in all the required fields that are highlighted in red.");
+          }
+        } else {
+          form.submit();
+        }
+      });
+
+      // show calendar
+
+      const yearOfPublication = document.getElementById("yearOfPublication");
+
+      yearOfPublication.addEventListener("click", function (event) {
+        if (event.target === this) {
+          this.showPicker();
+        }
+      });
+    </script>
+  </body>
+</html>
