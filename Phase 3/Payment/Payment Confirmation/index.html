@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unisuniverse</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
+
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
 
@@ -16,7 +13,7 @@
           0 1px 2px 0 rgba(0, 0, 0, 0.06);
         --shadow-medium: 0 13px 30px 0 rgba(0, 0, 0, 0.048),
           0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        --shadow-large: 0 10px 18px -3px rgba(0, 0, 0, 0.1),
+        --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
           0 4px 6px -2px rgba(0, 0, 0, 0.05);
         --color-text-black: #333333;
         --color-text-grayblack: #666666;
@@ -51,7 +48,7 @@
 
       body {
         font-family: "Outfit", sans-serif;
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 400;
         line-height: 1.5;
         color: var(--color-text-black);
@@ -70,13 +67,7 @@
         background: none;
         box-shadow: none;
         font-family: inherit;
-        letter-spacing: 0.5px;
-      }
-
-      button,
-      input {
-        font-family: inherit;
-        letter-spacing: 0.25px;
+        letter-spacing: 0.2px;
       }
 
       img,
@@ -86,6 +77,19 @@
         height: auto;
         -o-object-fit: cover;
         object-fit: cover;
+      }
+
+      button,
+      select,
+      input {
+        font-family: inherit;
+        letter-spacing: 0.25px;
+      }
+
+      ::placeholder {
+        color: var(--color-text-gray);
+        letter-spacing: 0.2px;
+        font-weight: 400;
       }
 
       .container {
@@ -103,17 +107,13 @@
         margin: 0 auto;
       }
 
-      ::placeholder {
-        color: var(--color-text-gray);
-        letter-spacing: 0.25px;
-      }
-
       .logo {
         font-family: inherit;
-        font-size: 28px;
+        font-size: 26px;
         font-weight: 500;
         line-height: 1.25;
         color: var(--color-white);
+        letter-spacing: 0.2px;
       }
 
       .header {
@@ -122,9 +122,8 @@
         left: 0;
         width: 100%;
         height: auto;
-        z-index: 100;
+        z-index: 1999;
         margin: 0 auto;
-        box-shadow: var(--shadow-medium);
         background-color: var(--primary-color);
         border-bottom: 1px solid var(--color-white);
       }
@@ -141,32 +140,10 @@
         margin: 0 auto;
       }
 
-      @media screen and (max-width: 992px) {
-        .navbar {
-          position: fixed;
-          top: 0;
-          left: -100%;
-          width: 75%;
-          height: 100%;
-          z-index: 10;
-          opacity: 0;
-          overflow-y: auto;
-          visibility: hidden;
-          box-shadow: var(--shadow-medium);
-          background-color: var(--primary-color);
-          transition: all 0.5s ease;
-        }
-        .navbar.active {
-          left: 0rem;
-          opacity: 1;
-          visibility: visible;
-        }
-      }
-
       .menu-item {
         position: relative;
         display: inline-block;
-        margin-left: 2.4rem;
+        margin-left: 2.1rem;
       }
 
       .resnav {
@@ -180,13 +157,14 @@
         -moz-column-gap: 0.25rem;
         column-gap: 0.25rem;
         font-family: inherit;
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 500;
         line-height: inherit;
         cursor: pointer;
         text-transform: capitalize;
         color: var(--color-white);
         transition: all 0.3s ease-in-out;
+        letter-spacing: 0.1px;
       }
 
       .menu-link > i.fa {
@@ -207,21 +185,6 @@
           opacity: 1;
           visibility: visible;
           transform: translateY(0);
-        }
-      }
-      @media only screen and (max-width: 992px) {
-        .menu {
-          width: 100%;
-          height: auto;
-          padding: 1rem 0;
-        }
-        .menu-item {
-          display: block;
-          margin: 0 auto;
-        }
-        .menu-link {
-          justify-content: space-between;
-          padding: 1rem 2rem;
         }
       }
 
@@ -261,7 +224,138 @@
         color: var(--secondary-color);
       }
 
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-md {
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: inherit;
+        border-radius: 8px;
+        color: var(--primary-color);
+        background-color: var(--color-white);
+        transition: all 0.35s ease;
+        gap: 4px;
+        width: max-content;
+      }
+      .btn-md:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .btn-md > i {
+        color: var(--primary-color);
+        font-size: 14px;
+      }
+
+      .btn-icon-menu {
+        margin-right: 15px;
+        color: var(--color-background);
+        transition: all 0.35s ease;
+        font-size: 16px;
+        display: flex;
+      }
+      .btn-icon-menu:hover {
+        color: var(--secondary-color);
+      }
+
+      .text-btn-wrapper {
+        margin-left: 12px;
+        font-size: 15px;
+        color: var(--color-white);
+        width: max-content;
+      }
+
+      .burger {
+        position: relative;
+        display: none;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 1.4rem;
+        height: 1rem;
+        opacity: 0;
+        visibility: hidden;
+        background: transparent;
+      }
+      .burger-line {
+        position: absolute;
+        display: block;
+        right: 0;
+        width: 100%;
+        height: 2px;
+        opacity: 1;
+        border: none;
+        outline: none;
+        border-radius: 1rem;
+        background: var(--color-white);
+      }
+      .burger-line:nth-child(1) {
+        top: 0px;
+      }
+      .burger-line:nth-child(2) {
+        top: 0.5rem;
+        width: 70%;
+      }
+      .burger-line:nth-child(3) {
+        top: 1rem;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 9;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.65);
+      }
+
       @media only screen and (max-width: 992px) {
+        .navbar {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 75%;
+          height: 100%;
+          z-index: 10;
+          opacity: 0;
+          overflow-y: auto;
+          visibility: hidden;
+          box-shadow: var(--shadow-medium);
+          background-color: var(--primary-color);
+          transition: all 0.5s ease;
+        }
+        .navbar.active {
+          left: 0rem;
+          opacity: 1;
+          visibility: visible;
+        }
+        .menu {
+          width: 100%;
+          height: auto;
+          padding: 1rem 0;
+        }
+        .menu-item {
+          display: block;
+          margin: 0 auto;
+        }
+        .menu-link {
+          justify-content: space-between;
+          padding: 1rem 2rem;
+        }
         .submenu {
           position: relative;
           top: -0.5rem;
@@ -281,99 +375,15 @@
         .submenu-link {
           color: var(--color-text-gray);
         }
-      }
-
-      .btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .btn-md {
-        width: 172px;
-        height: 49px;
-        font-family: inherit;
-        font-size: 17px;
-        font-weight: 500;
-        line-height: inherit;
-        border-radius: 10px;
-        color: var(--primary-color);
-        background-color: var(--color-white);
-        transition: all 0.35s ease;
-      }
-      .btn-md:hover {
-        background-color: var(--secondary-color);
-      }
-
-      .btn > a > i.fa {
-        margin-right: 22px;
-        color: var(--color-background);
-        transition: all 0.35s ease;
-      }
-      .btn > a > i.fa:hover {
-        color: var(--secondary-color);
-      }
-
-      .burger {
-        position: relative;
-        display: none;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        width: 1.6rem;
-        height: 1.15rem;
-        opacity: 0;
-        visibility: hidden;
-        background: transparent;
-      }
-      .burger-line {
-        position: absolute;
-        display: block;
-        right: 0;
-        width: 100%;
-        height: 2.1px;
-        opacity: 1;
-        border: none;
-        outline: none;
-        border-radius: 1rem;
-        background: var(--color-white);
-      }
-      .burger-line:nth-child(1) {
-        top: 0px;
-      }
-      .burger-line:nth-child(2) {
-        top: 0.5rem;
-        width: 70%;
-      }
-      .burger-line:nth-child(3) {
-        top: 1rem;
-      }
-      @media only screen and (max-width: 992px) {
         .burger {
           display: block;
           opacity: 1;
           visibility: visible;
         }
-        .btn-md {
+        .btn-md,
+        .text-btn-wrapper {
           display: none;
         }
-      }
-
-      .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 9;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.35s ease-in-out;
-        background-color: rgba(0, 0, 0, 0.65);
-      }
-      @media only screen and (max-width: 992px) {
         .overlay.active {
           display: block;
           opacity: 1;
@@ -383,8 +393,15 @@
 
       @media only screen and (max-width: 450px) {
         .logo {
-          font-size: 24px;
+          font-size: 22px;
         }
+        .btn-icon-menu {
+          margin-right: 14px;
+        }
+      }
+
+      .icon-down:hover {
+        filter: var(--secondary-color);
       }
 
       /* Payment Successful */
@@ -501,21 +518,21 @@
         gap: 6px;
         font-size: 15px;
         font-weight: 500;
-        padding: 14px 42px;
+        padding: 14px 32px;
         background-color: var(--primary-color);
         color: var(--color-white);
         transition: all 0.3s ease-in-out;
         border-radius: 8px;
-        border: 1px solid var(--color-line);
+        border: 1px solid var(--primary-color);
       }
       .btn-medium:hover {
         background-color: var(--secondary-color);
         color: var(--primary-color);
       }
 
-      /* footer */
+     /*footer*/
 
-      .footer-background {
+     .footer-background {
         background-color: var(--primary-color);
         margin-top: 90px;
       }
@@ -523,6 +540,9 @@
       .col-6 {
         width: 100%;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .col-3 > h4 {
@@ -615,10 +635,9 @@
 
       .social-links a {
         color: var(--color-white);
-        font-size: 20px;
         border: 1px solid;
         border-radius: 20px;
-        padding: 6px;
+        padding: 7px;
         -webkit-transition: all 0.2s ease-in;
         transition: all 0.2s ease-in;
       }
@@ -633,10 +652,13 @@
         color: var(--primary-color);
       }
 
-      .social-links a i {
-        width: 25px;
-        height: 25px;
+      .social-links a svg {
+        width: 24px;
+        height: 24px;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .copyowner {
@@ -644,12 +666,23 @@
         align-items: center;
         justify-content: space-between;
         color: var(--color-text-gray);
+        opacity: 0.6;
         font-size: 14px;
-        padding: 24px 0 30px 0;
+        padding: 30px 0 44px 0;
+      }
+
+      #owner a {
+        font-size: 14px;
+        color: var(--color-text-gray);
+      }
+
+      #owner a:hover {
+        color: var(--secondary-color);
+        opacity: 1;
       }
 
       .contact {
-        padding-bottom: 13px;
+        padding-bottom: 80px;
       }
 
       .contact > ul > li {
@@ -678,10 +711,6 @@
         color: var(--secondary-color);
       }
 
-      .Emailfot {
-        padding-top: 20px;
-      }
-
       @media only screen and (max-width: 992px) {
         footer .row {
           grid-template-columns: 1fr 1fr;
@@ -694,6 +723,9 @@
         }
         .col-3 {
           margin-bottom: 28px;
+        }
+        .contact {
+          padding-bottom: 0;
         }
         .payment-info-wrapper {
           width: 100%;
@@ -708,29 +740,6 @@
         .order-summary-text-title,
         .order-summary-text-num {
           font-size: 15px;
-        }
-      }
-
-      @media only screen and (max-width: 400px) {
-        .payment-texts-top > h2 {
-          font-size: 20px;
-        }
-        .payment-texts-top > p {
-          font-size: 13px;
-        }
-      }
-
-      @media only screen and (max-width: 376px) {
-        .order-summary-texts {
-          flex-direction: column;
-          gap: 4px;
-        }
-        .payment-info-content,
-        .payment-info-wrapper {
-          gap: 22px;
-        }
-        .checkout-title {
-          text-align: center;
         }
       }
     </style>
@@ -754,8 +763,24 @@
             </li>
             <li class="menu-item menu-dropdown">
               <span class="menu-link" data-toggle="submenu"
-                >Our Services<i class="fa fa-angle-down"></i
-              ></span>
+                >Our Services
+                <svg
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m19 9-7 7-7-7"
+                  />
+                </svg>
+              </span>
               <ul class="submenu">
                 <li class="submenu-item">
                   <a href="#" class="submenu-link">Discover Link</a>
@@ -772,18 +797,59 @@
               </ul>
             </li>
             <li class="menu-item resnav">
-              <a href="#" class="menu-link" id="btn-md">Sign Up / Log In</a>
+              <a href="../My account/index.html" class="menu-link"
+                >My profile</a
+              >
+            </li>
+            <li class="menu-item resnav">
+              <a href="#" class="menu-link">Log out</a>
             </li>
           </ul>
         </nav>
         <div class="btn">
-          <a href="#"><i class="fa fa-search"></i></a>
+          <a href="#" class="btn-icon-menu"><svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="19"
+            height="19"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+              d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+            />
+          </svg></a>
+          <a href="#" class="btn-icon-menu"
+            ><svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M14 7h-4v3a1 1 0 0 1-2 0V7H6a1 1 0 0 0-.997.923l-.917 11.924A2 2 0 0 0 6.08 22h11.84a2 2 0 0 0 1.994-2.153l-.917-11.924A1 1 0 0 0 18 7h-2v3a1 1 0 1 1-2 0V7Zm-2-3a2 2 0 0 0-2 2v1H8V6a4 4 0 0 1 8 0v1h-2V6a2 2 0 0 0-2-2Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          </a>
           <div class="burger" id="burger">
             <span class="burger-line"></span>
             <span class="burger-line"></span>
             <span class="burger-line"></span>
           </div>
-          <button class="btn-md" id="test">Sign Up / Log In</button>
+          <a href="../My account/index.html" class="btn-md"
+            ><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z" clip-rule="evenodd"/>
+            </svg>
+             <span>My profile</span></a
+          >
+          <button class="text-btn-wrapper">Log out</button>
         </div>
       </section>
     </header>
@@ -889,7 +955,7 @@
               <div class="desc col-3">
                 <a href="/index.html">
                   <img
-                    src="../images/image_59-removebg-preview (1) 1.png"
+                    src="../../images/image_59-removebg-preview (1) 1.png"
                     alt=""
                   />
                   <h2>Unisuniverse</h2>
@@ -937,21 +1003,20 @@
               <div class="col-3 contact">
                 <h4>Contact us</h4>
                 <ul>
-                  <li>
-                    <div class="iconfo">
-                      <i
-                        class="fa fa-phone fa-flip-horizontal"
-                        aria-hidden="true"
-                      ></i>
-                    </div>
-                    <div class="lineheightfot">
-                      Phone:<br />
-                      +971-580580580
-                    </div>
-                  </li>
                   <li class="Emailfot">
                     <div class="iconfo">
-                      <i class="fa-regular fa-envelope"></i>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM19.6 8.25L12.53 12.67C12.21 12.87 11.79 12.87 11.47 12.67L4.4 8.25C4.29973 8.19371 4.21192 8.11766 4.14189 8.02645C4.07186 7.93525 4.02106 7.83078 3.99258 7.71937C3.96409 7.60796 3.9585 7.49194 3.97616 7.37831C3.99381 7.26468 4.03434 7.15581 4.09528 7.0583C4.15623 6.96079 4.23632 6.87666 4.33073 6.811C4.42513 6.74533 4.53187 6.69951 4.6445 6.6763C4.75712 6.65309 4.87328 6.65297 4.98595 6.67595C5.09863 6.69893 5.20546 6.74453 5.3 6.81L12 11L18.7 6.81C18.7945 6.74453 18.9014 6.69893 19.014 6.67595C19.1267 6.65297 19.2429 6.65309 19.3555 6.6763C19.4681 6.69951 19.5749 6.74533 19.6693 6.811C19.7637 6.87666 19.8438 6.96079 19.9047 7.0583C19.9657 7.15581 20.0062 7.26468 20.0238 7.37831C20.0415 7.49194 20.0359 7.60796 20.0074 7.71937C19.9789 7.83078 19.9281 7.93525 19.8581 8.02645C19.7881 8.11766 19.7003 8.19371 19.6 8.25Z"
+                          fill="#FFD700"
+                        />
+                      </svg>
                     </div>
                     <div class="lineheightfot">
                       Email:<br />
@@ -962,11 +1027,90 @@
               </div>
             </div>
             <div class="social-links social-2 col-6">
-              <a href=""><i class="fab fa-facebook-f"></i></a>
-              <a href=""><i class="fab fa-twitter"></i></a>
-              <a href=""><i class="fab fa-linkedin-in"></i></a>
-              <a href=""><i class="fab fa-instagram"></i></a>
-              <a href=""><i class="fab fa-reddit-alien"></i></a>
+              <a href=""
+                ><svg
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <a href=""
+                ><svg
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M22 5.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.343 8.343 0 0 1-2.605.981A4.13 4.13 0 0 0 15.85 4a4.068 4.068 0 0 0-4.1 4.038c0 .31.035.618.105.919A11.705 11.705 0 0 1 3.4 4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 6.1 13.635a4.192 4.192 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 2 18.184 11.732 11.732 0 0 0 8.291 20 11.502 11.502 0 0 0 19.964 8.5c0-.177 0-.349-.012-.523A8.143 8.143 0 0 0 22 5.892Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <a href=""
+                ><svg
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z"
+                    clip-rule="evenodd"
+                  />
+                  <path d="M7.2 8.809H4V19.5h3.2V8.809Z" />
+                </svg>
+              </a>
+              <a href=""
+                ><svg
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <a href=""
+                ><svg
+                  class="w-6 h-6 text-gray-800 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M12.008 16.521a3.84 3.84 0 0 0 2.47-.77v.04a.281.281 0 0 0 .005-.396.281.281 0 0 0-.395-.005 3.291 3.291 0 0 1-2.09.61 3.266 3.266 0 0 1-2.081-.63.27.27 0 0 0-.38.381 3.84 3.84 0 0 0 2.47.77Z"
+                  />
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Zm-4.845-1.407A1.463 1.463 0 0 1 18.67 12a1.46 1.46 0 0 1-.808 1.33c.01.146.01.293 0 .44 0 2.242-2.61 4.061-5.829 4.061s-5.83-1.821-5.83-4.061a3.25 3.25 0 0 1 0-.44 1.458 1.458 0 0 1-.457-2.327 1.458 1.458 0 0 1 2.063-.064 7.163 7.163 0 0 1 3.9-1.23l.738-3.47v-.006a.31.31 0 0 1 .37-.236l2.452.49a1 1 0 1 1-.132.611l-2.14-.45-.649 3.12a7.11 7.11 0 0 1 3.85 1.23c.259-.246.6-.393.957-.405Z"
+                    clip-rule="evenodd"
+                  />
+                  <path
+                    fill="currentColor"
+                    d="M15.305 13a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-4.625 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"
+                  />
+                </svg>
+              </a>
             </div>
           </div>
           <div class="copyowner">
@@ -974,7 +1118,9 @@
               &copy; 2023 Attio Ltd. All rights reserved.
             </div>
             <div id="owner">
-              <span> Terms & Conditions </span>
+              <a href="../Terms And Conditions/index.html">
+                Terms & Conditions
+              </a>
             </div>
           </div>
         </div>

@@ -11,11 +11,6 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
 
@@ -34,7 +29,6 @@
         --color-white: #ffffff;
         --primary-color: #003366;
         --secondary-color: #ffd700;
-        --swiper-navigation-size: 20px;
       }
 
       *,
@@ -60,7 +54,7 @@
 
       body {
         font-family: "Outfit", sans-serif;
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 400;
         line-height: 1.5;
         color: var(--color-text-black);
@@ -79,7 +73,7 @@
         background: none;
         box-shadow: none;
         font-family: inherit;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.2px;
       }
 
       img,
@@ -89,6 +83,18 @@
         height: auto;
         -o-object-fit: cover;
         object-fit: cover;
+      }
+
+      button,
+      select,
+      input {
+        font-family: inherit;
+        letter-spacing: 0.25px;
+      }
+
+      ::placeholder {
+        color: var(--color-text-gray);
+        letter-spacing: 0.2px;
       }
 
       .container {
@@ -108,10 +114,11 @@
 
       .logo {
         font-family: inherit;
-        font-size: 28px;
+        font-size: 26px;
         font-weight: 500;
         line-height: 1.25;
         color: var(--color-white);
+        letter-spacing: 0.2px;
       }
 
       .header {
@@ -120,9 +127,8 @@
         left: 0;
         width: 100%;
         height: auto;
-        z-index: 100;
+        z-index: 1999;
         margin: 0 auto;
-        box-shadow: var(--shadow-medium);
         background-color: var(--primary-color);
         border-bottom: 1px solid var(--color-white);
       }
@@ -139,32 +145,10 @@
         margin: 0 auto;
       }
 
-      @media screen and (max-width: 992px) {
-        .navbar {
-          position: fixed;
-          top: 0;
-          left: -100%;
-          width: 75%;
-          height: 100%;
-          z-index: 10;
-          opacity: 0;
-          overflow-y: auto;
-          visibility: hidden;
-          box-shadow: var(--shadow-medium);
-          background-color: var(--primary-color);
-          transition: all 0.5s ease;
-        }
-        .navbar.active {
-          left: 0rem;
-          opacity: 1;
-          visibility: visible;
-        }
-      }
-
       .menu-item {
         position: relative;
         display: inline-block;
-        margin-left: 2.4rem;
+        margin-left: 2.1rem;
       }
 
       .resnav {
@@ -178,20 +162,14 @@
         -moz-column-gap: 0.25rem;
         column-gap: 0.25rem;
         font-family: inherit;
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 500;
         line-height: inherit;
         cursor: pointer;
         text-transform: capitalize;
         color: var(--color-white);
         transition: all 0.3s ease-in-out;
-      }
-
-      .menu-link > i.fa {
-        font-size: 14px;
-        line-height: 1.5;
-        color: var(--color-background);
-        margin-left: 2px;
+        letter-spacing: 0.1px;
       }
 
       .menu-link:hover {
@@ -205,21 +183,6 @@
           opacity: 1;
           visibility: visible;
           transform: translateY(0);
-        }
-      }
-      @media only screen and (max-width: 992px) {
-        .menu {
-          width: 100%;
-          height: auto;
-          padding: 1rem 0;
-        }
-        .menu-item {
-          display: block;
-          margin: 0 auto;
-        }
-        .menu-link {
-          justify-content: space-between;
-          padding: 1rem 2rem;
         }
       }
 
@@ -259,7 +222,131 @@
         color: var(--secondary-color);
       }
 
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-md {
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: inherit;
+        border-radius: 8px;
+        color: var(--primary-color);
+        background-color: var(--color-white);
+        transition: all 0.35s ease;
+        gap: 8px;
+        width: max-content;
+      }
+      .btn-md:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .btn-md > i {
+        color: var(--primary-color);
+        font-size: 14px;
+      }
+
+      .btn-icon-menu {
+        margin-right: 17px;
+        color: var(--color-background);
+        transition: all 0.35s ease;
+        font-size: 16px;
+        display: flex;
+      }
+      .btn-icon-menu:hover {
+        color: var(--secondary-color);
+      }
+
+      .burger {
+        position: relative;
+        display: none;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 1.4rem;
+        height: 1rem;
+        opacity: 0;
+        visibility: hidden;
+        background: transparent;
+      }
+      .burger-line {
+        position: absolute;
+        display: block;
+        right: 0;
+        width: 100%;
+        height: 2px;
+        opacity: 1;
+        border: none;
+        outline: none;
+        border-radius: 1rem;
+        background: var(--color-white);
+      }
+      .burger-line:nth-child(1) {
+        top: 0px;
+      }
+      .burger-line:nth-child(2) {
+        top: 0.5rem;
+        width: 70%;
+      }
+      .burger-line:nth-child(3) {
+        top: 1rem;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 9;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.65);
+      }
+
       @media only screen and (max-width: 992px) {
+        .navbar {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 75%;
+          height: 100%;
+          z-index: 10;
+          opacity: 0;
+          overflow-y: auto;
+          visibility: hidden;
+          box-shadow: var(--shadow-medium);
+          background-color: var(--primary-color);
+          transition: all 0.5s ease;
+        }
+        .navbar.active {
+          left: 0rem;
+          opacity: 1;
+          visibility: visible;
+        }
+        .menu {
+          width: 100%;
+          height: auto;
+          padding: 1rem 0;
+        }
+        .menu-item {
+          display: block;
+          margin: 0 auto;
+        }
+        .menu-link {
+          justify-content: space-between;
+          padding: 1rem 2rem;
+        }
         .submenu {
           position: relative;
           top: -0.5rem;
@@ -279,76 +366,6 @@
         .submenu-link {
           color: var(--color-text-gray);
         }
-      }
-
-      .btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .btn-md {
-        width: 172px;
-        height: 49px;
-        font-family: inherit;
-        font-size: 17px;
-        font-weight: 500;
-        line-height: inherit;
-        border-radius: 10px;
-        color: var(--primary-color);
-        background-color: var(--color-white);
-        transition: all 0.35s ease;
-      }
-      .btn-md:hover {
-        background-color: var(--secondary-color);
-      }
-
-      .btn > a > i.fa {
-        margin-right: 22px;
-        color: var(--color-background);
-        transition: all 0.35s ease;
-      }
-      .btn > a > i.fa:hover {
-        color: var(--secondary-color);
-      }
-
-      .burger {
-        position: relative;
-        display: none;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        width: 1.6rem;
-        height: 1.15rem;
-        opacity: 0;
-        visibility: hidden;
-        background: transparent;
-      }
-      .burger-line {
-        position: absolute;
-        display: block;
-        right: 0;
-        width: 100%;
-        height: 2.1px;
-        opacity: 1;
-        border: none;
-        outline: none;
-        border-radius: 1rem;
-        background: var(--color-white);
-      }
-      .burger-line:nth-child(1) {
-        top: 0px;
-      }
-      .burger-line:nth-child(2) {
-        top: 0.5rem;
-        width: 70%;
-      }
-      .burger-line:nth-child(3) {
-        top: 1rem;
-      }
-      @media only screen and (max-width: 992px) {
         .burger {
           display: block;
           opacity: 1;
@@ -357,21 +374,6 @@
         .btn-md {
           display: none;
         }
-      }
-
-      .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 9;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.35s ease-in-out;
-        background-color: rgba(0, 0, 0, 0.65);
-      }
-      @media only screen and (max-width: 992px) {
         .overlay.active {
           display: block;
           opacity: 1;
@@ -379,23 +381,17 @@
         }
       }
 
-      /* hero section */
-
-      .breadcrumb {
-        color: var(--color-text-gray);
-        font-size: 14px;
-        font-weight: 500;
-        padding: 24px 0;
-      }
-
-      .breadcrumb > span {
-        color: #ffc300;
-      }
-
       @media only screen and (max-width: 450px) {
         .logo {
-          font-size: 24px;
+          font-size: 22px;
         }
+        .btn-icon-menu {
+          margin-right: 14px;
+        }
+      }
+
+      .icon-down:hover {
+        filter: var(--secondary-color);
       }
 
       /* login */
@@ -517,7 +513,7 @@
       }
 
       .lostpass {
-        color: var(--secondary-color);
+        color: #ffc300;
         font-weight: 500;
         font-size: 15px;
       }
@@ -533,9 +529,11 @@
         border-radius: 10px;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
+        border: 1px solid var(--primary-color);
       }
       .modal-box .login-button:hover {
         background-color: var(--secondary-color);
+        color: var(--primary-color);
       }
 
       .or {
@@ -582,15 +580,14 @@
       }
       .Google:hover {
         background-color: var(--secondary-color);
-        border: none;
-        color: var(--color-white);
+        color: var(--primary-color);
       }
       .Google svg {
         fill: var(--primary-color);
         transition: all 0.3s ease-in-out;
       }
       .Google:hover svg {
-        fill: var(--color-white);
+        fill: var(--primary-color);
       }
 
       .Google p {
@@ -598,53 +595,6 @@
         margin-right: 26px;
       }
 
-      .Facebook {
-        height: 48px;
-        font-size: 16px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        color: var(--color-white);
-        background-color: #1778f2;
-        border-radius: 10px;
-        padding-left: 12px;
-        margin-top: 17px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-      }
-      .Facebook:hover {
-        background-color: var(--secondary-color);
-      }
-
-      .Facebook p {
-        width: 100%;
-        margin-right: 26px;
-      }
-
-      .Apple {
-        height: 48px;
-        font-size: 16px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        color: var(--color-white);
-        background-color: var(--color-text-black);
-        border-radius: 10px;
-        padding-left: 12px;
-        margin-top: 17px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-      }
-      .Apple:hover {
-        background-color: var(--secondary-color);
-      }
-
-      .Apple p {
-        width: 100%;
-        margin-right: 26px;
-      }
 
       .signup-text {
         font-size: 15px;
@@ -708,6 +658,19 @@
         .checkboxContainer {
           margin: 8px 0 10px 0;
         }
+      }
+
+      /* hero section */
+
+      .breadcrumb {
+        color: var(--color-text-gray);
+        font-size: 14px;
+        font-weight: 500;
+        padding: 24px 0;
+      }
+
+      .breadcrumb > span {
+        color: #ffc300;
       }
 
       /* Popup boxs */
@@ -894,12 +857,12 @@
       .information-text {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
       }
 
       .information-text-icon {
-        font-size: 15px;
         color: #ffc300;
+        display: flex;
       }
 
       .product-buttons-container {
@@ -925,8 +888,8 @@
         gap: 8px;
         width: 50%;
         height: 50px;
-        border-radius: 10px;
-        border: 1.5px solid var(--primary-color);
+        border-radius: 8px;
+        border: 1px solid var(--primary-color);
         transition: all ease-in-out 0.3s;
       }
 
@@ -947,8 +910,9 @@
         gap: 8px;
         width: 50%;
         height: 50px;
-        border-radius: 10px;
+        border-radius: 8px;
         background-color: var(--primary-color);
+        border: 1px solid var(--primary-color);
         color: var(--color-white);
         transition: all ease-in-out 0.3s;
       }
@@ -1068,7 +1032,7 @@
         display: flex;
         padding: 10px;
         align-items: center;
-        border-radius: 10px;
+        border-radius: 8px;
         background: var(--color-background);
       }
 
@@ -1102,7 +1066,7 @@
       }
 
       .university-info-location-icon {
-        font-size: 15px;
+        display: flex;
         color: #fbbc1e;
       }
 
@@ -1139,10 +1103,11 @@
         align-items: center;
         justify-content: center;
         border-radius: 8px;
-        border: 1.5px solid var(--primary-color);
+        border: 1px solid var(--primary-color);
         width: 42px;
         height: 42px;
         transition: all ease-in-out 0.3s;
+        color: var(--primary-color);
       }
 
       .university-social:hover {
@@ -1416,25 +1381,20 @@
       }
 
       .heart-icon {
-        display: flex;
-        justify-content: flex-end;
+        width: 28px;
+        height: 28px;
         position: absolute;
-        top: 22px;
-        right: 22px;
-        width: calc(100% - 1rem);
         z-index: 52;
         cursor: pointer;
-      }
-
-      .heart-icon i {
-        width: 29px;
-        height: 29px;
-        color: var(--color-white);
-        background-color: rgba(21, 21, 21, 0.4);
+        margin: 6px 8px 0 0;
+        background-color: rgba(21, 21, 21, 0.445);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
+        color: var(--color-white);
+        top: 13px;
+        right: 13px;
       }
 
       .courses-card-body {
@@ -1516,6 +1476,7 @@
         font-weight: 600;
         padding-bottom: 4px;
         transition: all 0.3s ease-in-out;
+        line-height: 19px;
       }
       .title-card:hover {
         cursor: pointer;
@@ -1552,7 +1513,7 @@
         width: 48px;
         height: 48px;
         object-fit: cover;
-        border-radius: 10px;
+        border-radius: 8px;
       }
 
       .reviews-field-items-head {
@@ -1579,15 +1540,14 @@
         gap: 4px;
       }
 
-      .reviews-field-items-rate > i {
-        font-size: 18px;
+      .reviews-field-items-rate > svg {
         color: var(--color-line);
-        opacity: 0.6;
+        opacity: 0.8;
         transition: all 0.3s ease-in-out;
         cursor: pointer;
       }
 
-      .reviews-field-items-rate > i.active-star {
+      .reviews-field-items-rate > svg.active-star {
         color: #fbbc1e;
       }
 
@@ -1605,10 +1565,10 @@
         height: 120px;
         outline: none;
         font-weight: 500;
-        border-radius: 10px;
+        border-radius: 8px;
         border: 1px solid var(--color-line);
         padding: 8px 12px;
-        font-size: 16px;
+        font-size: 15px;
         transition: all 0.3s ease;
         resize: none;
       }
@@ -1652,7 +1612,7 @@
         width: 68px;
         height: 68px;
         object-fit: cover;
-        border-radius: 10px;
+        border-radius: 8px;
         cursor: pointer;
       }
 
@@ -1664,7 +1624,7 @@
       }
 
       .user-review-information > h3 {
-        font-size: 18px;
+        font-size: 17px;
         font-weight: 600;
         color: var(--primary-color);
         padding-left: 3px;
@@ -1836,10 +1796,11 @@
         font-size: 14px;
         justify-content: center;
         align-items: center;
-        border-radius: 8px;
+        border-radius: 6px;
         background: var(--primary-color);
         color: var(--color-white);
         transition: all 0.3s ease-in-out;
+        border: 1px solid var(--primary-color);
       }
       .answers-submit-btn:hover {
         background-color: var(--secondary-color);
@@ -1919,13 +1880,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 500;
         padding: 14px 24px;
         background-color: var(--primary-color);
         color: var(--color-white);
         transition: all 0.3s ease-in-out;
-        border-radius: 10px;
+        border: 1px solid var(--primary-color);
+        border-radius: 8px;
         width: 100%;
       }
       .btn-medium:hover {
@@ -2074,16 +2036,15 @@
       .accordion-item-titles-date {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 5px;
       }
 
-      .accordion-item-titles-date > i {
-        font-size: 15px;
+      .accordion-item-titles-date > svg {
         color: var(--color-text-grayblack);
       }
 
       .accordion-item-titles-date > h6 {
-        font-size: 14px;
+        font-size: 13px;
         color: var(--color-text-grayblack);
         font-weight: 400;
       }
@@ -2140,7 +2101,7 @@
         line-height: normal;
       }
 
-      /* footer */
+      /*footer*/
 
       .footer-background {
         background-color: var(--primary-color);
@@ -2150,6 +2111,9 @@
       .col-6 {
         width: 100%;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .col-3 > h4 {
@@ -2242,10 +2206,9 @@
 
       .social-links a {
         color: var(--color-white);
-        font-size: 20px;
         border: 1px solid;
         border-radius: 20px;
-        padding: 6px;
+        padding: 7px;
         -webkit-transition: all 0.2s ease-in;
         transition: all 0.2s ease-in;
       }
@@ -2260,10 +2223,13 @@
         color: var(--primary-color);
       }
 
-      .social-links a i {
-        width: 25px;
-        height: 25px;
+      .social-links a svg {
+        width: 24px;
+        height: 24px;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .copyowner {
@@ -2271,12 +2237,23 @@
         align-items: center;
         justify-content: space-between;
         color: var(--color-text-gray);
+        opacity: 0.6;
         font-size: 14px;
-        padding: 24px 0 30px 0;
+        padding: 30px 0 44px 0;
+      }
+
+      #owner a {
+        font-size: 14px;
+        color: var(--color-text-gray);
+      }
+
+      #owner a:hover {
+        color: var(--secondary-color);
+        opacity: 1;
       }
 
       .contact {
-        padding-bottom: 13px;
+        padding-bottom: 80px;
       }
 
       .contact > ul > li {
@@ -2305,10 +2282,6 @@
         color: var(--secondary-color);
       }
 
-      .Emailfot {
-        padding-top: 20px;
-      }
-
       @media only screen and (max-width: 992px) {
         footer .row {
           grid-template-columns: 1fr 1fr;
@@ -2325,6 +2298,9 @@
         }
         .col-3 {
           margin-bottom: 28px;
+        }
+        .contact {
+          padding-bottom: 0;
         }
       }
 
@@ -2385,8 +2361,24 @@
             </li>
             <li class="menu-item menu-dropdown">
               <span class="menu-link" data-toggle="submenu"
-                >Our Services<i class="fa fa-angle-down"></i
-              ></span>
+                >Our Services
+                <svg
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m19 9-7 7-7-7"
+                  />
+                </svg>
+              </span>
               <ul class="submenu">
                 <li class="submenu-item">
                   <a href="#" class="submenu-link">Discover Link</a>
@@ -2408,7 +2400,39 @@
           </ul>
         </nav>
         <div class="btn">
-          <a href="#"><i class="fa fa-search"></i></a>
+          <a href="#" class="btn-icon-menu"
+            ><svg
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="19"
+              height="19"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-width="2"
+                d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+              />
+            </svg>
+          </a>
+          <a href="#" class="btn-icon-menu"
+            ><svg
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M14 7h-4v3a1 1 0 0 1-2 0V7H6a1 1 0 0 0-.997.923l-.917 11.924A2 2 0 0 0 6.08 22h11.84a2 2 0 0 0 1.994-2.153l-.917-11.924A1 1 0 0 0 18 7h-2v3a1 1 0 1 1-2 0V7Zm-2-3a2 2 0 0 0-2 2v1H8V6a4 4 0 0 1 8 0v1h-2V6a2 2 0 0 0-2-2Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
           <div class="burger" id="burger">
             <span class="burger-line"></span>
             <span class="burger-line"></span>
@@ -2467,36 +2491,6 @@
                     </defs>
                   </svg>
                   <p>Continue Google</p>
-                </button>
-                <button class="Facebook">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.99935 1.69995C5.41602 1.69995 1.66602 5.44162 1.66602 10.05C1.66602 14.2166 4.71602 17.6749 8.69935 18.2999V12.4666H6.58268V10.05H8.69935V8.20828C8.69935 6.11662 9.94102 4.96662 11.8493 4.96662C12.7577 4.96662 13.7077 5.12495 13.7077 5.12495V7.18328H12.6577C11.6243 7.18328 11.2994 7.82495 11.2994 8.48328V10.05H13.616L13.241 12.4666H11.2994V18.2999C13.2631 17.9898 15.0512 16.9879 16.341 15.475C17.6307 13.9621 18.3371 12.038 18.3327 10.05C18.3327 5.44162 14.5827 1.69995 9.99935 1.69995Z"
-                      fill="white"
-                    />
-                  </svg>
-                  <p>Continue Facebook</p>
-                </button>
-                <button class="Apple">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M17.0492 20.28C16.0692 21.23 14.9992 21.08 13.9692 20.63C12.8792 20.17 11.8792 20.15 10.7292 20.63C9.28919 21.25 8.52919 21.07 7.66919 20.28C2.78919 15.25 3.50919 7.59 9.04919 7.31C10.3992 7.38 11.3392 8.05 12.1292 8.11C13.3092 7.87 14.4392 7.18 15.6992 7.27C17.2092 7.39 18.3492 7.99 19.0992 9.07C15.9792 10.94 16.7192 15.05 19.5792 16.2C19.0092 17.7 18.2692 19.19 17.0392 20.29L17.0492 20.28ZM12.0292 7.25C11.8792 5.02 13.6892 3.18 15.7692 3C16.0592 5.58 13.4292 7.5 12.0292 7.25Z"
-                      fill="white"
-                    />
-                  </svg>
-                  <p>Continue Apple</p>
                 </button>
                 <p class="signup-text">
                   Don't you have an account?<a href="#" class="new-acc"
@@ -2612,7 +2606,20 @@
                     <div class="product-information-text">
                       <div class="information-text">
                         <div class="information-text-icon">
-                          <i class="fa-solid fa-user-group"></i>
+                          <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4H6Zm7.25-2.095c.478-.86.75-1.85.75-2.905a5.973 5.973 0 0 0-.75-2.906 4 4 0 1 1 0 5.811ZM15.466 20c.34-.588.535-1.271.535-2v-1a5.978 5.978 0 0 0-1.528-4H18a4 4 0 0 1 4 4v1a2 2 0 0 1-2 2h-4.535Z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
                         </div>
                         <h3>35 already enrolled</h3>
                       </div>
@@ -2621,7 +2628,20 @@
 
                       <div class="information-text">
                         <div class="information-text-icon">
-                          <i class="fa-regular fa-calendar"></i>
+                          <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M5 5a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1 2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a2 2 0 0 1 2-2ZM3 19v-7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm6.01-6a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm-10 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
                         </div>
                         <h3>Last Update : <span>September 29, 2024</span></h3>
                       </div>
@@ -2658,7 +2678,20 @@
 
                 <div class="university-info-location">
                   <div class="university-info-location-icon">
-                    <i class="fa-solid fa-location-dot"></i>
+                    <svg
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M11.906 1.994a8.002 8.002 0 0 1 8.09 8.421 7.996 7.996 0 0 1-1.297 3.957.996.996 0 0 1-.133.204l-.108.129c-.178.243-.37.477-.573.699l-5.112 6.224a1 1 0 0 1-1.545 0L5.982 15.26l-.002-.002a18.146 18.146 0 0 1-.309-.38l-.133-.163a.999.999 0 0 1-.13-.202 7.995 7.995 0 0 1 6.498-12.518ZM15 9.997a3 3 0 1 1-5.999 0 3 3 0 0 1 5.999 0Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
                   </div>
                   <h6>110 SW Frank Phillips ,Chicago ,United States</h6>
                 </div>
@@ -2670,27 +2703,113 @@
 
               <div class="university-info-share">
                 <a href="" class="university-social">
-                  <i class="fa-brands fa-whatsapp"></i>
+                  <svg
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z"
+                      clip-rule="evenodd"
+                    />
+                    <path
+                      fill="currentColor"
+                      d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0 .288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z"
+                    />
+                  </svg>
                 </a>
 
                 <a href="" class="university-social">
-                  <i class="fa-brands fa-twitter"></i>
+                  <svg
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M22 5.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.343 8.343 0 0 1-2.605.981A4.13 4.13 0 0 0 15.85 4a4.068 4.068 0 0 0-4.1 4.038c0 .31.035.618.105.919A11.705 11.705 0 0 1 3.4 4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 6.1 13.635a4.192 4.192 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 2 18.184 11.732 11.732 0 0 0 8.291 20 11.502 11.502 0 0 0 19.964 8.5c0-.177 0-.349-.012-.523A8.143 8.143 0 0 0 22 5.892Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
                 </a>
 
                 <a href="" class="university-social">
-                  <i class="fa-brands fa-linkedin-in"></i>
+                  <svg
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z"
+                      clip-rule="evenodd"
+                    />
+                    <path d="M7.2 8.809H4V19.5h3.2V8.809Z" />
+                  </svg>
                 </a>
 
                 <a href="" class="university-social">
-                  <i class="fa-brands fa-facebook-f"></i>
+                  <svg
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
                 </a>
 
                 <a href="" class="university-social">
-                  <i class="fa-brands fa-instagram"></i>
+                  <svg
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
                 </a>
 
                 <a href="" class="university-social">
-                  <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                  <svg
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-width="2"
+                      d="M7.926 10.898 15 7.727m-7.074 5.39L15 16.29M8 12a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm12 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm0-11a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
+                    />
+                  </svg>
                 </a>
               </div>
             </div>
@@ -2860,7 +2979,10 @@
                       class="courses-img"
                     />
                     <div class="heart-icon">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i>
+                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
+                      </svg>
+                      
                     </div>
                     <div class="courses-card-body">
                       <h4 class="title-card">
@@ -2882,8 +3004,8 @@
                         <div class="join-btn">
                           <p>Join Now</p>
                           <svg
-                            width="19"
-                            height="17"
+                            width="16"
+                            height="14"
                             viewBox="0 0 19 17"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -2907,7 +3029,9 @@
                       class="courses-img"
                     />
                     <div class="heart-icon">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i>
+                     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
+                      </svg>
                     </div>
                     <div class="courses-card-body">
                       <h4 class="title-card">
@@ -2929,8 +3053,8 @@
                         <div class="join-btn">
                           <p>Join Now</p>
                           <svg
-                            width="19"
-                            height="17"
+                            width="16"
+                            height="14"
                             viewBox="0 0 19 17"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -2954,7 +3078,9 @@
                       class="courses-img"
                     />
                     <div class="heart-icon">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i>
+                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
+                      </svg>
                     </div>
                     <div class="courses-card-body">
                       <h4 class="title-card">
@@ -2976,8 +3102,8 @@
                         <div class="join-btn">
                           <p>Join Now</p>
                           <svg
-                            width="19"
-                            height="17"
+                            width="16"
+                            height="14"
                             viewBox="0 0 19 17"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -3007,11 +3133,76 @@
                       <div class="reviews-field-items-rates">
                         <h4>Give overall rating :</h4>
                         <div class="reviews-field-items-rate">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
+                          <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="22"
+                            height="22"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-width="2"
+                              d="M11.083 5.104c.35-.8 1.485-.8 1.834 0l1.752 4.022a1 1 0 0 0 .84.597l4.463.342c.9.069 1.255 1.2.556 1.771l-3.33 2.723a1 1 0 0 0-.337 1.016l1.03 4.119c.214.858-.71 1.552-1.474 1.106l-3.913-2.281a1 1 0 0 0-1.008 0L7.583 20.8c-.764.446-1.688-.248-1.474-1.106l1.03-4.119A1 1 0 0 0 6.8 14.56l-3.33-2.723c-.698-.571-.342-1.702.557-1.771l4.462-.342a1 1 0 0 0 .84-.597l1.753-4.022Z"
+                            />
+                          </svg>
+                          <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="22"
+                            height="22"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-width="2"
+                              d="M11.083 5.104c.35-.8 1.485-.8 1.834 0l1.752 4.022a1 1 0 0 0 .84.597l4.463.342c.9.069 1.255 1.2.556 1.771l-3.33 2.723a1 1 0 0 0-.337 1.016l1.03 4.119c.214.858-.71 1.552-1.474 1.106l-3.913-2.281a1 1 0 0 0-1.008 0L7.583 20.8c-.764.446-1.688-.248-1.474-1.106l1.03-4.119A1 1 0 0 0 6.8 14.56l-3.33-2.723c-.698-.571-.342-1.702.557-1.771l4.462-.342a1 1 0 0 0 .84-.597l1.753-4.022Z"
+                            />
+                          </svg>
+                          <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="22"
+                            height="22"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-width="2"
+                              d="M11.083 5.104c.35-.8 1.485-.8 1.834 0l1.752 4.022a1 1 0 0 0 .84.597l4.463.342c.9.069 1.255 1.2.556 1.771l-3.33 2.723a1 1 0 0 0-.337 1.016l1.03 4.119c.214.858-.71 1.552-1.474 1.106l-3.913-2.281a1 1 0 0 0-1.008 0L7.583 20.8c-.764.446-1.688-.248-1.474-1.106l1.03-4.119A1 1 0 0 0 6.8 14.56l-3.33-2.723c-.698-.571-.342-1.702.557-1.771l4.462-.342a1 1 0 0 0 .84-.597l1.753-4.022Z"
+                            />
+                          </svg>
+                          <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="22"
+                            height="22"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-width="2"
+                              d="M11.083 5.104c.35-.8 1.485-.8 1.834 0l1.752 4.022a1 1 0 0 0 .84.597l4.463.342c.9.069 1.255 1.2.556 1.771l-3.33 2.723a1 1 0 0 0-.337 1.016l1.03 4.119c.214.858-.71 1.552-1.474 1.106l-3.913-2.281a1 1 0 0 0-1.008 0L7.583 20.8c-.764.446-1.688-.248-1.474-1.106l1.03-4.119A1 1 0 0 0 6.8 14.56l-3.33-2.723c-.698-.571-.342-1.702.557-1.771l4.462-.342a1 1 0 0 0 .84-.597l1.753-4.022Z"
+                            />
+                          </svg>
+                          <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="22"
+                            height="22"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-width="2"
+                              d="M11.083 5.104c.35-.8 1.485-.8 1.834 0l1.752 4.022a1 1 0 0 0 .84.597l4.463.342c.9.069 1.255 1.2.556 1.771l-3.33 2.723a1 1 0 0 0-.337 1.016l1.03 4.119c.214.858-.71 1.552-1.474 1.106l-3.913-2.281a1 1 0 0 0-1.008 0L7.583 20.8c-.764.446-1.688-.248-1.474-1.106l1.03-4.119A1 1 0 0 0 6.8 14.56l-3.33-2.723c-.698-.571-.342-1.702.557-1.771l4.462-.342a1 1 0 0 0 .84-.597l1.753-4.022Z"
+                            />
+                          </svg>
                         </div>
                       </div>
                     </div>
@@ -3872,7 +4063,22 @@
                           <div class="accordion-item-titles">
                             <h5 class="titles-open">Open</h5>
                             <div class="accordion-item-titles-date">
-                              <i class="fa-solid fa-calendar-days"></i>
+                              <svg
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="18"
+                                height="18"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"
+                                />
+                              </svg>
                               <h6>Sep 2026</h6>
                             </div>
                           </div>
@@ -3923,7 +4129,22 @@
                           <div class="accordion-item-titles">
                             <h5 class="titles-likely">Likely open</h5>
                             <div class="accordion-item-titles-date">
-                              <i class="fa-solid fa-calendar-days"></i>
+                              <svg
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="18"
+                                height="18"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"
+                                />
+                              </svg>
                               <h6>Sep 2025</h6>
                             </div>
                           </div>
@@ -3972,7 +4193,22 @@
                           <div class="accordion-item-titles">
                             <h5 class="titles-open">Open</h5>
                             <div class="accordion-item-titles-date">
-                              <i class="fa-solid fa-calendar-days"></i>
+                              <svg
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="18"
+                                height="18"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"
+                                />
+                              </svg>
                               <h6>Sep 2026</h6>
                             </div>
                           </div>
@@ -4023,7 +4259,23 @@
                           <div class="accordion-item-titles">
                             <h5 class="titles-likely">Likely open</h5>
                             <div class="accordion-item-titles-date">
-                              <i class="fa-solid fa-calendar-days"></i>
+                              <svg
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="18"
+                                height="18"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"
+                                />
+                              </svg>
+
                               <h6>Sep 2025</h6>
                             </div>
                           </div>
@@ -4128,21 +4380,20 @@
               <div class="col-3 contact">
                 <h4>Contact us</h4>
                 <ul>
-                  <li>
-                    <div class="iconfo">
-                      <i
-                        class="fa fa-phone fa-flip-horizontal"
-                        aria-hidden="true"
-                      ></i>
-                    </div>
-                    <div class="lineheightfot">
-                      Phone:<br />
-                      +971-580580580
-                    </div>
-                  </li>
                   <li class="Emailfot">
                     <div class="iconfo">
-                      <i class="fa-regular fa-envelope"></i>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM19.6 8.25L12.53 12.67C12.21 12.87 11.79 12.87 11.47 12.67L4.4 8.25C4.29973 8.19371 4.21192 8.11766 4.14189 8.02645C4.07186 7.93525 4.02106 7.83078 3.99258 7.71937C3.96409 7.60796 3.9585 7.49194 3.97616 7.37831C3.99381 7.26468 4.03434 7.15581 4.09528 7.0583C4.15623 6.96079 4.23632 6.87666 4.33073 6.811C4.42513 6.74533 4.53187 6.69951 4.6445 6.6763C4.75712 6.65309 4.87328 6.65297 4.98595 6.67595C5.09863 6.69893 5.20546 6.74453 5.3 6.81L12 11L18.7 6.81C18.7945 6.74453 18.9014 6.69893 19.014 6.67595C19.1267 6.65297 19.2429 6.65309 19.3555 6.6763C19.4681 6.69951 19.5749 6.74533 19.6693 6.811C19.7637 6.87666 19.8438 6.96079 19.9047 7.0583C19.9657 7.15581 20.0062 7.26468 20.0238 7.37831C20.0415 7.49194 20.0359 7.60796 20.0074 7.71937C19.9789 7.83078 19.9281 7.93525 19.8581 8.02645C19.7881 8.11766 19.7003 8.19371 19.6 8.25Z"
+                          fill="#FFD700"
+                        />
+                      </svg>
                     </div>
                     <div class="lineheightfot">
                       Email:<br />
@@ -4153,11 +4404,90 @@
               </div>
             </div>
             <div class="social-links social-2 col-6">
-              <a href=""><i class="fab fa-facebook-f"></i></a>
-              <a href=""><i class="fab fa-twitter"></i></a>
-              <a href=""><i class="fab fa-linkedin-in"></i></a>
-              <a href=""><i class="fab fa-instagram"></i></a>
-              <a href=""><i class="fab fa-reddit-alien"></i></a>
+              <a href=""
+                ><svg
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <a href=""
+                ><svg
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M22 5.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.343 8.343 0 0 1-2.605.981A4.13 4.13 0 0 0 15.85 4a4.068 4.068 0 0 0-4.1 4.038c0 .31.035.618.105.919A11.705 11.705 0 0 1 3.4 4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 6.1 13.635a4.192 4.192 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 2 18.184 11.732 11.732 0 0 0 8.291 20 11.502 11.502 0 0 0 19.964 8.5c0-.177 0-.349-.012-.523A8.143 8.143 0 0 0 22 5.892Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <a href=""
+                ><svg
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z"
+                    clip-rule="evenodd"
+                  />
+                  <path d="M7.2 8.809H4V19.5h3.2V8.809Z" />
+                </svg>
+              </a>
+              <a href=""
+                ><svg
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <a href=""
+                ><svg
+                  class="w-6 h-6 text-gray-800 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M12.008 16.521a3.84 3.84 0 0 0 2.47-.77v.04a.281.281 0 0 0 .005-.396.281.281 0 0 0-.395-.005 3.291 3.291 0 0 1-2.09.61 3.266 3.266 0 0 1-2.081-.63.27.27 0 0 0-.38.381 3.84 3.84 0 0 0 2.47.77Z"
+                  />
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Zm-4.845-1.407A1.463 1.463 0 0 1 18.67 12a1.46 1.46 0 0 1-.808 1.33c.01.146.01.293 0 .44 0 2.242-2.61 4.061-5.829 4.061s-5.83-1.821-5.83-4.061a3.25 3.25 0 0 1 0-.44 1.458 1.458 0 0 1-.457-2.327 1.458 1.458 0 0 1 2.063-.064 7.163 7.163 0 0 1 3.9-1.23l.738-3.47v-.006a.31.31 0 0 1 .37-.236l2.452.49a1 1 0 1 1-.132.611l-2.14-.45-.649 3.12a7.11 7.11 0 0 1 3.85 1.23c.259-.246.6-.393.957-.405Z"
+                    clip-rule="evenodd"
+                  />
+                  <path
+                    fill="currentColor"
+                    d="M15.305 13a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-4.625 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"
+                  />
+                </svg>
+              </a>
             </div>
           </div>
           <div class="copyowner">
@@ -4165,7 +4495,9 @@
               &copy; 2023 Attio Ltd. All rights reserved.
             </div>
             <div id="owner">
-              <span> Terms & Conditions </span>
+              <a href="../Terms And Conditions/index.html">
+                Terms & Conditions
+              </a>
             </div>
           </div>
         </div>
@@ -4265,7 +4597,7 @@
 
       // stars
 
-      const stars = document.querySelectorAll(".reviews-field-items-rate i");
+      const stars = document.querySelectorAll(".reviews-field-items-rate svg");
 
       stars.forEach((star, index1) => {
         star.addEventListener("click", () => {
