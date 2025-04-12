@@ -1829,6 +1829,54 @@
         margin-bottom: 10px;
       }
 
+      @media (max-width: 900px) {
+        .category-slider {
+          display: flex;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          width: 100vw;
+          padding-bottom: 48px;
+        }
+
+        .category-slider::-webkit-scrollbar {
+          width: 4px;
+          height: 4px;
+          background-color: var(--color-line);
+          border-radius: 5px;
+        }
+
+        .category-slider::-webkit-scrollbar-thumb {
+          background-color: var(--primary-color);
+          border-radius: 5px;
+        }
+
+        .category-slider .category-box {
+          margin: 0 10px;
+          flex-shrink: 0;
+        }
+
+        .category-wrapper {
+          overflow-x: initial;
+        }
+
+        .category-box:hover .box-front {
+          display: flex;
+        }
+
+        .category-box:hover .box-back {
+          display: none;
+        }
+
+        .mx {
+          overflow: hidden;
+        }
+      }
+
+      .dsply-nn {
+        display: none;
+      }
+
       /*footer*/
 
       .footer-background {
@@ -2032,54 +2080,6 @@
         .copyowner {
           flex-direction: column;
         }
-      }
-
-      @media (max-width: 900px) {
-        .category-slider {
-          display: flex;
-          flex-wrap: nowrap;
-          overflow-x: auto;
-          -webkit-overflow-scrolling: touch;
-          width: 100vw;
-          padding-bottom: 48px;
-        }
-
-        .category-slider::-webkit-scrollbar {
-          width: 4px;
-          height: 4px;
-          background-color: var(--color-line);
-          border-radius: 5px;
-        }
-
-        .category-slider::-webkit-scrollbar-thumb {
-          background-color: var(--primary-color);
-          border-radius: 5px;
-        }
-
-        .category-slider .category-box {
-          margin: 0 10px;
-          flex-shrink: 0;
-        }
-
-        .category-wrapper {
-          overflow-x: initial;
-        }
-
-        .category-box:hover .box-front {
-          display: flex;
-        }
-
-        .category-box:hover .box-back {
-          display: none;
-        }
-
-        .mx {
-          overflow: hidden;
-        }
-      }
-
-      .dsply-nn {
-        display: none;
       }
     </style>
   </head>
