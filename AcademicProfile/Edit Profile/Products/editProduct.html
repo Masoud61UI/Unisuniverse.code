@@ -604,30 +604,6 @@
         width: 100%;
       }
 
-      .edit-section-buttons-step {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-      }
-
-      .edit-section-buttons-step > button {
-        width: 153px;
-        height: 49px;
-        background-color: var(--primary-color);
-        color: var(--color-white);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px;
-        font-weight: 500;
-        border-radius: 10px;
-        transition: all 0.3s ease-in-out;
-      }
-      .edit-section-buttons-step > button:hover {
-        background-color: var(--secondary-color);
-      }
-
       .optional-lng::placeholder {
         font-size: 14px;
       }
@@ -658,103 +634,8 @@
         margin: 18px 0 28px 0;
       }
 
-      /* Drop Zoon */
-
-      .photo-upld {
-        width: 100%;
-        height: 220px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        margin: 20px 0;
-        border-radius: 10px;
-        cursor: pointer;
-        border: 1.5px dashed var(--secondary-color);
-      }
-
-      .photo-upld :where(svg, p) {
-        color: var(--color-text-gray);
-      }
-
-      .photo-upld p {
-        font-size: 16px;
-        margin-top: 12px;
-      }
-
-      .row-upload {
-        background: var(--color-white);
-        margin-bottom: 10px;
-        list-style: none;
-        padding: 15px 20px;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .row-upload i {
-        font-size: 28px;
-        color: var(--primary-color);
-      }
-
-      .details span {
-        font-size: 14px;
-      }
-
-      .progress-area .row-upload .content {
-        width: 100%;
-        margin-left: 15px;
-      }
-
-      .progress-area .details {
-        display: flex;
-        align-items: center;
-        margin-bottom: 7px;
-        justify-content: space-between;
-      }
-
-      .progress-area .progress-bar {
-        height: 5px;
-        width: 100%;
-        background: var(--color-background);
-        margin-bottom: 4px;
-        border-radius: 30px;
-      }
-
-      .progress-bar .progress {
-        height: 100%;
-        width: 50%;
-        background: var(--primary-color);
-        border-radius: inherit;
-      }
-
-      .uploaded-area .row-upload .content {
-        display: flex;
-        align-items: center;
-      }
-      .uploaded-area .row-upload .details {
-        display: flex;
-        margin-left: 15px;
-        flex-direction: column;
-      }
-
-      .img-size {
-        font-size: 12px;
-        color: var(--color-text-grayblack);
-      }
-
-      .uploaded-area .fa-check {
-        color: var(--primary-color);
-        font-size: 16px;
-      }
-
       .edit-section-items-steps {
         width: 100%;
-      }
-
-      .stage.hidden {
-        display: none;
       }
 
       .category-boxes-wrapper {
@@ -994,22 +875,11 @@
           border: 1.5px solid var(--secondary-color);
           border-radius: 10px;
         }
-        .inner-inputs-wrapper {
-          gap: 6px;
-        }
       }
 
       @media only screen and (max-width: 540px) {
         .information-edit {
           margin-bottom: 15px;
-        }
-        .edit-section-buttons-step {
-          flex-direction: column-reverse;
-          gap: 32px;
-          width: 100%;
-        }
-        .edit-section-buttons-step button {
-          width: inherit;
         }
       }
 
@@ -1017,13 +887,13 @@
         .edit-section-title-add {
           flex-direction: column;
           align-items: flex-start;
-          gap: 24px;
+          gap: 18px;
         }
         .edit-section-title-add > a {
           width: 100%;
         }
         .edit-section-title {
-          font-size: 22px;
+          font-size: 21px;
         }
         .edit-section-item-title {
           font-size: 18px;
@@ -3260,46 +3130,6 @@
       overlayMenu.addEventListener("click", toggleMenu);
       navbarMenu.addEventListener("click", toggleSubMenu);
       window.addEventListener("resize", resizeWindow);
-
-      // upload photo
-
-      const form = document.querySelector(".photo-upld"),
-        fileInput = form.querySelector(".file-input"),
-        progressArea = document.querySelector(".progress-area"),
-        uploadedArea = document.querySelector(".uploaded-area");
-
-      form.addEventListener("click", () => {
-        fileInput.click();
-      });
-
-      fileInput.onchange = ({ target }) => {
-        let file = target.files[0];
-        if (file) {
-          let fileName = file.name;
-        }
-      };
-
-      // Max Textarea
-
-      const textarea = document.getElementById("myTextarea");
-      const characterCount = document.getElementById("characterCount");
-
-      const maxCharacters = 300;
-
-      function updateCharacterCount() {
-        const remainingCharacters = maxCharacters - textarea.value.length;
-        characterCount.textContent = `${remainingCharacters}/${maxCharacters} characters`;
-      }
-
-      textarea.addEventListener("input", updateCharacterCount);
-
-      updateCharacterCount();
-
-      textarea.addEventListener("input", function () {
-        if (textarea.value.length > maxCharacters) {
-          textarea.value = textarea.value.substring(0, maxCharacters);
-        }
-      });
 
       // submenu
 

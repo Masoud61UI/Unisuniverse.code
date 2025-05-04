@@ -187,15 +187,20 @@ ul {
   width: 100%;
 }
 
-.edit-section-forms {
+.edit-section-forms, .form-wrapper {
+  width: inherit;
+}
+
+.edit-section-forms form {
+  width: 100%;
+}
+
+#forms-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 60px;
+  gap: 38px;
   width: inherit;
-}
-.edit-section-forms form {
-  width: 100%;
 }
 
 #authors-container {
@@ -516,6 +521,10 @@ select:-moz-focusring {
   color: var(--color-text-gray);
 }
 
+.items-box-input-placeholder.has-selection {
+  color: var(--color-text-black);
+}
+
 .input-arrow-icon {
   color: var(--color-text-black);
   display: flex;
@@ -536,7 +545,7 @@ select:-moz-focusring {
   box-shadow: var(--shadow-medium);
   position: absolute;
   top: 92px;
-  z-index: 90;
+  z-index: 1000;
   overflow: hidden;
   display: none;
 }
@@ -759,7 +768,7 @@ select:-moz-focusring {
   .input_pox input::placeholder {
     font-size: 14px;
   }
-  .input_pox {
+  .input_pox, .search-content-items-box-wrapper {
     width: calc(100% / 2 - 10px);
   }
 }
@@ -801,7 +810,7 @@ select:-moz-focusring {
 }
 
 @media only screen and (max-width: 540px) {
-  .input_pox {
+  .input_pox, .search-content-items-box-wrapper {
     margin-bottom: 15px;
     width: 100%;
   }
@@ -890,6 +899,6 @@ select:-moz-focusring {
   }
 }
 
-.toggle-display {
-  display: flex;
+.format-input-clicked-wrapper.toggle-display {
+  display: flex !important;
 }
