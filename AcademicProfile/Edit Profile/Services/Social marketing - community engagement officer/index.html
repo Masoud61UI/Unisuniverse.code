@@ -957,74 +957,23 @@
                         />
                       </div>
 
-                      <div class="search-content-items-box-wrapper">
-                        <div class="items-box-input-wrapper">
-                          <h3 class="items-box-input-label">
-                            Preferred Collaboration Format :
-                          </h3>
-                          <div class="items-box-input" id="format2" required>
-                            <h3 class="items-box-input-placeholder">
-                              Select format
-                            </h3>
-                            <div class="input-arrow-icon">
-                              <svg
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="14"
-                                height="14"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  stroke="currentColor"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
-                                  d="m19 9-7 7-7-7"
-                                />
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="format-input-clicked-wrapper"
-                          data-target="format2"
+                      <div class="input_pox">
+                        <label class="datails"
+                          >Preferred Collaboration Format :</label
                         >
-                          <div class="format-input-clicked">
-                            <div class="format">
-                              <input
-                                class="checkbox"
-                                type="checkbox"
-                                value="Monthly Coordination"
-                              />
-                              <h4>Monthly Coordination</h4>
-                            </div>
-                            <div class="format">
-                              <input
-                                class="checkbox"
-                                type="checkbox"
-                                value="Per Event"
-                              />
-                              <h4>Per Event</h4>
-                            </div>
-                            <div class="format">
-                              <input
-                                class="checkbox"
-                                type="checkbox"
-                                value="Hourly"
-                              />
-                              <h4>Hourly</h4>
-                            </div>
-                            <div class="format">
-                              <input
-                                class="checkbox"
-                                type="checkbox"
-                                value="Custom Project"
-                              />
-                              <h4>Custom Project</h4>
-                            </div>
-                          </div>
-                        </div>
+                        <select
+                          name="collaboration"
+                          class="select-input"
+                          onblur="this.size=0"
+                          onchange="this.size=1; this.blur();"
+                          required
+                        >
+                          <option value="">Select a format</option>
+                          <option value="monthly Coordination">Monthly Coordination</option>
+                          <option value="per Event">Per Event</option>
+                          <option value="hourly">Hourly</option>
+                          <option value="custom Project">Custom Project</option>
+                        </select>
                       </div>
 
                       <div class="input_pox wf">
