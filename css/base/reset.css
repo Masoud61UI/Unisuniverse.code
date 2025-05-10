@@ -79,6 +79,11 @@ input {
   letter-spacing: 0.25px;
 }
 
+input,
+textarea {
+  caret-color: var(--primary-color) !important;
+}
+
 ::placeholder {
   color: var(--color-text-gray);
   letter-spacing: 0.2px;

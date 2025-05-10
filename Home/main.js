@@ -288,8 +288,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const circles = document.querySelectorAll(".continent-point");
   let activeTooltip = null;
   let lastScrollPosition = window.pageYOffset;
+  let tooltipTimeout = null;
 
   function showTooltip(element) {
+    if (activeTooltip && activeTooltip !== element) {
+      hideTooltip();
+    }
+
     const continentName = element.getAttribute("data-continent");
     const data = continentData[continentName] || { universities: 0 };
     tooltip.textContent = continentName;
@@ -344,13 +349,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     tooltip.style.opacity = "1";
+    tooltip.style.pointerEvents = "auto";
     activeTooltip = element;
+
+    if (tooltipTimeout) {
+      clearTimeout(tooltipTimeout);
+      tooltipTimeout = null;
+    }
   }
 
   function hideTooltip() {
     if (tooltip) {
       tooltip.style.opacity = "0";
+      tooltip.style.pointerEvents = "none";
       activeTooltip = null;
+    }
+  }
+
+  function hideTooltipWithDelay() {
+    if (activeTooltip && !tooltip.matches(":hover")) {
+      tooltipTimeout = setTimeout(() => {
+        hideTooltip();
+      }, 300);
     }
   }
 
@@ -380,7 +400,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     circle.addEventListener("mouseleave", function () {
-      if (!isMobileView()) hideTooltip();
+      if (!isMobileView()) hideTooltipWithDelay();
     });
 
     circle.addEventListener("click", function (e) {
@@ -393,6 +413,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     });
+  });
+
+  tooltip.addEventListener("mouseenter", function () {
+    if (tooltipTimeout) {
+      clearTimeout(tooltipTimeout);
+      tooltipTimeout = null;
+    }
+  });
+
+  tooltip.addEventListener("mouseleave", function () {
+    hideTooltipWithDelay();
   });
 
   document.addEventListener("click", function (e) {
