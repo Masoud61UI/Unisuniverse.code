@@ -260,6 +260,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const itemsBoxInputs = form.querySelectorAll(
         ".items-box-input[required]"
       );
+      if (itemsBoxInputs.length === 0) return;
+
       itemsBoxInputs.forEach((box) => {
         const targetId = box.id;
         const checkboxes = document.querySelectorAll(
@@ -392,10 +394,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  initNavigation();
-  initFormat();
-  initUpload();
-  initSubmenu();
-  initOtherTypesCheckbox();
-  initValidation();
+  const initFunctions = [
+    initNavigation,
+    initFormat,
+    initUpload,
+    initSubmenu,
+    initOtherTypesCheckbox,
+    initValidation,
+  ];
+
+  initFunctions.forEach((init) => init());
 });

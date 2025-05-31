@@ -4,3082 +4,75 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unisuniverse</title>
-    
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
 
-      :root {
-        --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
-          0 1px 2px 0 rgba(0, 0, 0, 0.06);
-        --shadow-medium: 0 13px 30px 0 rgba(0, 0, 0, 0.048),
-          0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-          0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        --color-text-black: #333333;
-        --color-text-grayblack: #666666;
-        --color-text-gray: #dcdcdc;
-        --color-background: #f7f9fb;
-        --color-line: #dcdcdc;
-        --color-white: #ffffff;
-        --primary-color: #003366;
-        --secondary-color: #ffd700;
-      }
-
-      *,
-      *::before,
-      *::after {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        list-style: none;
-        list-style-type: none;
-        text-decoration: none;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
-      }
-
-      html {
-        font-size: 100%;
-        box-sizing: inherit;
-        scroll-behavior: smooth;
-        height: -webkit-fill-available;
-      }
-
-      body {
-        font-family: "Outfit", sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 1.5;
-        color: var(--color-text-black);
-        background-color: var(--color-white);
-      }
-
-      a,
-      button {
-        cursor: pointer;
-        border: none;
-        outline: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        background: none;
-        box-shadow: none;
-        font-family: inherit;
-        letter-spacing: 0.2px;
-      }
-
-      img,
-      video {
-        display: block;
-        max-width: 100%;
-        height: auto;
-        -o-object-fit: cover;
-        object-fit: cover;
-      }
-
-      button,
-      select,
-      input {
-        font-family: inherit;
-        letter-spacing: 0.25px;
-      }
-
-      ::placeholder {
-        color: var(--color-text-gray);
-        letter-spacing: 0.2px;
-      }
-
-      .container {
-        max-width: 82%;
-        height: auto;
-      }
-
-      @media (min-width: 1700px) {
-        .container {
-          max-width: 1300px;
-        }
-      }
-
-      .mx {
-        margin: 0 auto;
-      }
-
-      .logo {
-        font-family: inherit;
-        font-size: 26px;
-        font-weight: 500;
-        line-height: 1.25;
-        color: var(--color-white);
-        letter-spacing: 0.2px;
-      }
-
-      .header {
-        position: sticky;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        z-index: 1999;
-        margin: 0 auto;
-        background-color: var(--primary-color);
-        border-bottom: 1px solid var(--color-white);
-      }
-
-      .wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        -moz-column-gap: 1rem;
-        column-gap: 1rem;
-        row-gap: 2rem;
-        width: 100%;
-        height: 110px;
-        margin: 0 auto;
-      }
-
-      .menu-item {
-        position: relative;
-        display: inline-block;
-        margin-left: 2.1rem;
-      }
-
-      .resnav {
-        display: none;
-      }
-
-      .menu-link {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        -moz-column-gap: 0.25rem;
-        column-gap: 0.25rem;
-        font-family: inherit;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: inherit;
-        cursor: pointer;
-        text-transform: capitalize;
-        color: var(--color-white);
-        transition: all 0.3s ease-in-out;
-        letter-spacing: 0.1px;
-      }
-
-      .menu-link > i.fa {
-        font-size: 14px;
-        line-height: 1.5;
-        color: var(--color-background);
-        margin-left: 2px;
-      }
-
-      .menu-link:hover {
-        outline: none;
-        color: var(--secondary-color);
-      }
-
-      @media only screen and (min-width: 993px) {
-        .menu-dropdown:hover > .submenu {
-          display: block;
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0);
-        }
-      }
-
-      .submenu {
-        position: absolute;
-        top: 3.2rem;
-        left: -2rem;
-        min-width: 13rem;
-        height: auto;
-        padding: 0 1rem 1rem;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(1rem);
-        border-radius: 0 0 0.25rem 0.25rem;
-        border-top: 2px solid var(--secondary-color);
-        box-shadow: var(--shadow-medium);
-        background-color: var(--color-white);
-        transition: all 0.3s ease-in-out;
-      }
-
-      .submenu-item {
-        display: block;
-        margin-top: 0.75rem;
-      }
-
-      .submenu-link {
-        font-family: inherit;
-        font-size: 1rem;
-        font-weight: 500;
-        line-height: inherit;
-        cursor: pointer;
-        color: var(--color-text-grayblack);
-        transition: all 0.35s ease;
-      }
-      .submenu-link:hover {
-        outline: none;
-        color: var(--secondary-color);
-      }
-
-      .btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .btn-md {
-        padding: 12px 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: inherit;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: inherit;
-        border-radius: 8px;
-        color: var(--primary-color);
-        background-color: var(--color-white);
-        transition: all 0.35s ease;
-        gap: 8px;
-        width: max-content;
-      }
-      .btn-md:hover {
-        background-color: var(--secondary-color);
-      }
-
-      .btn-md > i {
-        color: var(--primary-color);
-        font-size: 14px;
-      }
-
-      .btn-icon-menu {
-        margin-right: 17px;
-        color: var(--color-background);
-        transition: all 0.35s ease;
-        font-size: 16px;
-        display: flex;
-      }
-      .btn-icon-menu:hover {
-        color: var(--secondary-color);
-      }
-
-      .burger {
-        position: relative;
-        display: none;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        width: 1.4rem;
-        height: 1rem;
-        opacity: 0;
-        visibility: hidden;
-        background: transparent;
-      }
-      .burger-line {
-        position: absolute;
-        display: block;
-        right: 0;
-        width: 100%;
-        height: 2px;
-        opacity: 1;
-        border: none;
-        outline: none;
-        border-radius: 1rem;
-        background: var(--color-white);
-      }
-      .burger-line:nth-child(1) {
-        top: 0px;
-      }
-      .burger-line:nth-child(2) {
-        top: 0.5rem;
-        width: 70%;
-      }
-      .burger-line:nth-child(3) {
-        top: 1rem;
-      }
-
-      .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 9;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.35s ease-in-out;
-        background-color: rgba(0, 0, 0, 0.65);
-      }
-
-      @media only screen and (max-width: 992px) {
-        .navbar {
-          position: fixed;
-          top: 0;
-          left: -100%;
-          width: 75%;
-          height: 100%;
-          z-index: 10;
-          opacity: 0;
-          overflow-y: auto;
-          visibility: hidden;
-          box-shadow: var(--shadow-medium);
-          background-color: var(--primary-color);
-          transition: all 0.5s ease;
-        }
-        .navbar.active {
-          left: 0rem;
-          opacity: 1;
-          visibility: visible;
-        }
-        .menu {
-          width: 100%;
-          height: auto;
-          padding: 1rem 0;
-        }
-        .menu-item {
-          display: block;
-          margin: 0 auto;
-        }
-        .menu-link {
-          justify-content: space-between;
-          padding: 1rem 2rem;
-        }
-        .submenu {
-          position: relative;
-          top: -0.5rem;
-          left: 2.5rem;
-          width: 100%;
-          max-height: 0;
-          padding: 0px;
-          border: none;
-          outline: none;
-          opacity: 1;
-          overflow: hidden;
-          visibility: visible;
-          transform: translateY(0px);
-          box-shadow: none;
-          background: transparent;
-        }
-        .submenu-link {
-          color: var(--color-text-gray);
-        }
-        .burger {
-          display: block;
-          opacity: 1;
-          visibility: visible;
-        }
-        .btn-md {
-          display: none;
-        }
-        .overlay.active {
-          display: block;
-          opacity: 1;
-          visibility: visible;
-        }
-      }
-
-      @media only screen and (max-width: 450px) {
-        .logo {
-          font-size: 22px;
-        }
-        .btn-icon-menu {
-          margin-right: 14px;
-        }
-      }
-
-      .icon-down:hover {
-        filter: var(--secondary-color);
-      }
-
-      /* hero section */
-
-      .breadcrumb {
-        color: var(--color-text-gray);
-        font-size: 14px;
-        font-weight: 500;
-        padding: 24px 0;
-      }
-
-      .breadcrumb > span {
-        color: #ffc300;
-      }
-
-      /* login */
-
-      .modal-cont {
-        position: fixed;
-        height: 100%;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.47);
-        top: 0;
-        left: 0;
-        overflow: auto;
-        z-index: 1400;
-      }
-
-      .modal-box {
-        width: 33%;
-        margin: 105px auto;
-        padding: 24px 30px;
-        background-color: var(--color-white);
-      }
-
-      .modal-box h1 {
-        font-size: 21px;
-        font-weight: 500;
-      }
-
-      .modal-wlc {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid var(--color-line);
-        padding-bottom: 18px;
-        color: var(--color-text-black);
-      }
-
-      .modal-box .close {
-        width: 44px;
-        height: 44px;
-        background-color: var(--color-background);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 26px;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
-      }
-
-      .modal-box .close:hover,
-      .modal-box .close:focus {
-        color: var(--secondary-color);
-      }
-
-      .useremail,
-      .userpass {
-        margin: 28px 0 7px 0;
-        font-weight: 500;
-        color: var(--color-text-grayblack);
-      }
-
-      .email,
-      .password {
-        padding-left: 16px;
-        font-size: 15px;
-        font-weight: 500;
-      }
-
-      .login-box input[type="email"],
-      .login-box input[type="password"] {
-        width: 100%;
-        border: 1px solid var(--color-line);
-        display: block;
-        margin-bottom: 10px;
-        height: 48px;
-        border-radius: 10px;
-        outline: none;
-      }
-
-      .login-box input[type="email"]:focus,
-      .login-box input[type="password"]:focus {
-        border: 1.5px solid var(--primary-color);
-      }
-
-      .rememberlost {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 22px 0 30px 0;
-      }
-
-      .useremail,
-      .userpass,
-      .modal-box .login-button,
-      .modal-box .email,
-      .password {
-        width: 100%;
-        display: block;
-      }
-
-      .checkboxContainer {
-        display: flex;
-        align-items: center;
-      }
-
-      .checkboxContainer label {
-        padding-left: 10px;
-        color: var(--color-text-black);
-        font-weight: 500;
-        font-size: 15px;
-      }
-
-      .checkboxContainer input[type="checkbox"] {
-        width: 15px;
-        height: 15px;
-      }
-      .checkbox:checked {
-        accent-color: var(--primary-color);
-      }
-
-      .lostpass {
-        color: #ffc300;
-        font-weight: 500;
-        font-size: 15px;
-      }
-
-      .modal-box .login-button {
-        height: 48px;
-        font-size: 16px;
-        font-weight: 600;
-        display: block;
-        width: 100%;
-        color: var(--color-white);
-        background-color: var(--primary-color);
-        border-radius: 10px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        border: 1px solid var(--primary-color);
-      }
-      .modal-box .login-button:hover {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-      }
-
-      .or {
-        position: relative;
-        text-align: center;
-        margin: 22px 0 22px 0;
-        font-size: 1rem;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .or::before,
-      .or::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        width: 40%;
-        height: 1px;
-        background: var(--color-line);
-      }
-
-      .or::before {
-        left: 0;
-      }
-
-      .or::after {
-        right: 0;
-      }
-
-      .Google {
-        height: 48px;
-        font-size: 16px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        color: var(--primary-color);
-        background-color: transparent;
-        border-radius: 10px;
-        padding-left: 12px;
-        border: 1.5px solid var(--primary-color);
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-      }
-      .Google:hover {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-      }
-      .Google svg {
-        fill: var(--primary-color);
-        transition: all 0.3s ease-in-out;
-      }
-      .Google:hover svg {
-        fill: var(--primary-color);
-      }
-
-      .Google p {
-        width: 100%;
-        margin-right: 26px;
-      }
-
-
-      .signup-text {
-        font-size: 15px;
-        font-weight: 500;
-        color: var(--color-text-grayblack);
-        text-align: center;
-        margin-top: 22px;
-      }
-
-      .signup-text a {
-        padding-left: 6px;
-        color: var(--primary-color);
-        font-weight: 600;
-      }
-
-      .modal-cont {
-        display: none;
-      }
-      .modal-box {
-        animation-name: zoom;
-        animation-duration: 0.7s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease;
-        border: 1px solid #b7b7b7;
-        border-radius: 24px;
-      }
-      @keyframes zoom {
-        from {
-          transform: scale(0);
-        }
-        to {
-          transform: scale(1);
-        }
-      }
-
-      @media only screen and (max-width: 993px) {
-        .modal-box {
-          width: 55%;
-        }
-      }
-      @media only screen and (max-width: 630px) {
-        .modal-box {
-          width: 82%;
-          padding: 16px 16px;
-        }
-      }
-      @media only screen and (max-width: 435px) {
-        .modal-wlc h1 {
-          font-size: 17px;
-        }
-        .modal-box .close {
-          font-size: 20px;
-          width: 30px;
-          height: 30px;
-        }
-      }
-      @media only screen and (max-width: 374px) {
-        .rememberlost {
-          flex-direction: column;
-        }
-        .checkboxContainer {
-          margin: 8px 0 10px 0;
-        }
-      }
-
-      /* Popup boxs */
-
-      .popup-boxs {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 28px;
-        align-items: center;
-        justify-content: space-around;
-        margin-top: 240px;
-      }
-
-      .box {
-        background-color: var(--color-white);
-        padding: 36px 30px 26px 30px;
-        border-radius: 20px;
-      }
-
-      .btn-sm {
-        width: 153px;
-        height: 49px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--primary-color);
-        color: var(--color-white);
-        border-radius: 10px;
-        margin-top: 34px;
-        font-size: 17px;
-        font-weight: 500;
-        transition: all 0.3s ease-in;
-      }
-      .btn-sm:hover {
-        background-color: var(--secondary-color);
-      }
-
-      .image-box {
-        margin: 0 auto;
-      }
-
-      .popup-boxs {
-        display: none;
-      }
-
-      @media only screen and (max-width: 576px) {
-        .popup-boxs {
-          margin: 100px 0 100px 0;
-        }
-      }
-
-      /* header product section */
-
-      .header-section-wrapper {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 70px;
-        width: 100%;
-      }
-
-      .header-section-imgs-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 18px;
-        flex-basis: 44%;
-      }
-
-      .product-img-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        position: relative;
-        width: 100%;
-      }
-
-      .product-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 24px;
-        box-shadow: var(--shadow-medium);
-      }
-
-      .heart-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--color-white);
-        background-color: rgba(21, 21, 21, 0.801);
-        width: 46px;
-        height: 46px;
-        border-radius: 50%;
-        position: absolute;
-        right: 16px;
-        top: 16px;
-        cursor: pointer;
-      }
-
-      .product-imgs-container {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 14px;
-        width: 100%;
-      }
-
-      .product-img-wrapper {
-        width: 82px;
-        height: 82px;
-        border-radius: 10px;
-        border: 1px solid var(--color-line);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        cursor: pointer;
-      }
-
-      .product-img-small {
-        width: 76px;
-        height: 76px;
-        object-fit: cover;
-        border-radius: 10px;
-      }
-
-      .active-img {
-        border: 1px solid var(--secondary-color);
-        border-radius: 10px;
-      }
-
-      .product-img-wrapper > h5 {
-        position: absolute;
-        top: 30px;
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--color-white);
-      }
-
-      .ovrly-img {
-        width: 76px;
-        height: 76px;
-        position: absolute;
-        border-radius: 10px;
-        background-color: var(--color-text-black);
-        opacity: 0.6;
-      }
-
-      .header-section-content-wrapper {
-        flex-basis: 56%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 80px;
-      }
-
-      .product-informations-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 36px;
-      }
-
-      .product-information-head {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 28px;
-      }
-
-      .product-title {
-        font-size: 35px;
-        font-weight: 600;
-        color: var(--color-text-black);
-        line-height: normal;
-      }
-
-      .product-information-price-rate {
-        display: flex;
-        align-items: center;
-        gap: 32px;
-      }
-
-      .product-price {
-        display: flex;
-        width: 98px;
-        height: 44px;
-        justify-content: center;
-        align-items: center;
-        border-radius: 8px;
-        border: 2px solid var(--secondary-color);
-      }
-
-      .product-price > h4 {
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--primary-color);
-        letter-spacing: 0.68px;
-      }
-
-      .product-information-price-rate > hr {
-        width: 1px;
-        height: 32px;
-        background: var(--color-line);
-        border: none;
-      }
-
-      .product-rate-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .product-rate {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .product-rate > h4 {
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--color-text-black);
-      }
-
-      .product-rate-reviews {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .product-information-texts-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 32px;
-      }
-
-      .product-information-texts,
-      .showpanel {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-      }
-
-      .showpanel {
-        display: none;
-      }
-
-      .product-information-text {
-        display: flex;
-        align-items: center;
-        gap: 32px;
-      }
-
-      .product-information-text > hr {
-        width: 1px;
-        height: 22px;
-        border: none;
-        background: var(--color-line);
-      }
-
-      .product-information-texts > h3,
-      .product-information-text > h3 {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .product-information-texts > h3 > span,
-      .product-information-text > h3 > span {
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--color-text-black);
-      }
-
-      .toggler {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 16px;
-        font-weight: 500;
-        color: var(--primary-color);
-        cursor: pointer;
-      }
-
-      .product-buttons-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-        width: 100%;
-      }
-
-      .product-buttons {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 40px;
-        width: inherit;
-      }
-
-      .product-button-lg-out {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        width: 50%;
-        height: 50px;
-        border-radius: 8px;
-        border: 1.5px solid var(--primary-color);
-        transition: all ease-in-out 0.3s;
-      }
-
-      .product-button-lg-icon {
-        width: 22px;
-        height: 22px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .product-button-lg-out > h4 {
-        font-size: 16px;
-        font-weight: 500;
-        color: var(--primary-color);
-      }
-
-      .product-button-lg-out:hover {
-        background-color: var(--secondary-color);
-      }
-
-      .product-button-lg {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1px;
-        width: 50%;
-        height: 50px;
-        border-radius: 8px;
-        background-color: var(--primary-color);
-        color: var(--color-white);
-        transition: all ease-in-out 0.3s;
-        border: 1.5px solid var(--primary-color);
-      }
-
-      .product-button-lg > h4 {
-        font-size: 16px;
-        font-weight: 500;
-      }
-
-      .product-button-lg:hover {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-      }
-
-      .product-buttons-container > hr {
-        width: 100%;
-        height: 1px;
-        border: none;
-        background-color: var(--color-line);
-      }
-
-      .product-buttons-share-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-      }
-
-      .product-buttons-share-wrapper > h4 {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .product-buttons-share {
-        display: flex;
-        align-items: flex-start;
-        gap: 16px;
-      }
-
-      .product-buttons-share-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px;
-        border: 1.5px solid var(--primary-color);
-        width: 42px;
-        height: 42px;
-        transition: all ease-in-out 0.3s;
-      }
-
-      .product-buttons-share-icon:hover {
-        background-color: var(--secondary-color);
-      }
-
-      /*  Tabs Section  */
-
-      .tabs-section-wrapper {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 62px;
-        width: 100%;
-        padding-top: 80px;
-      }
-
-      .tabs-section-items {
-        flex-basis: 72%;
-        max-width: 100%;
-        width: -webkit-fill-available;
-      }
-
-      .tabs-section-items input[type="radio"] {
-        display: none;
-      }
-
-      .label-tab {
-        display: inline-block;
-        font-size: 17px;
-        color: var(--color-text-grayblack);
-        font-weight: 400;
-        padding: 16px 12px;
-        text-align: center;
-        border-bottom: 1px solid transparent;
-        transition: all 0.2s ease-in;
-      }
-      .label-tab:hover {
-        color: var(--secondary-color);
-        font-weight: 500;
-        cursor: pointer;
-      }
-
-      .tabs-section-items input:checked + .label-tab {
-        color: var(--secondary-color);
-        font-weight: 500;
-        border-bottom: 1.5px solid var(--secondary-color);
-      }
-
-      .contents {
-        display: none;
-        padding: 40px 0 0 0;
-        border-top: 1px solid var(--color-line);
-      }
-
-      .tabs-section-items #tab1:checked ~ #content1,
-      .tabs-section-items #tab2:checked ~ #content2,
-      .tabs-section-items #tab3:checked ~ #content3,
-      .tabs-section-items #tab4:checked ~ #content4,
-      .tabs-section-items #tab5:checked ~ #content5 {
-        display: block;
-      }
-
-      .tabs-section-item {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 60px;
-      }
-
-      @media only screen and (max-width: 1210px) {
-        .label-tab {
-          font-size: 15px;
-          padding: 12px 6px;
-        }
-      }
-      @media only screen and (max-width: 1090px) {
-        .label-tab {
-          font-size: 14px;
-          padding: 12px 3px;
-        }
-      }
-      @media only screen and (max-width: 934px) {
-        .label-tab {
-          font-size: 16px;
-          padding: 12px 8px;
-        }
-      }
-      @media only screen and (max-width: 812px) {
-        .label-tab {
-          font-size: 14px;
-          padding: 12px 6px;
-        }
-      }
-      @media only screen and (max-width: 660px) {
-        .label-tab {
-          font-size: 16px;
-          border: 1.5px solid transparent;
-          width: 100%;
-          background-color: var(--color-white);
-        }
-        .tabs-section-items input:checked + .label-tab {
-          color: var(--secondary-color);
-          font-weight: 500;
-          border: 1.5px solid var(--secondary-color);
-          border-radius: 10px;
-        }
-        .contents {
-          margin-top: 20px;
-        }
-      }
-      @media only screen and (max-width: 450px) {
-        .label-tab {
-          font-size: 15px;
-        }
-      }
-
-      .tabs-section-item-text {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 42px;
-      }
-
-      .tabs-section-item-text p {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-        line-height: 26px;
-      }
-
-      .tabs-section-item-other-text > h4 {
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--color-text-black);
-        margin-bottom: 10px;
-      }
-
-      .tabs-section-items > hr {
-        width: 100%;
-        height: 1px;
-        border: none;
-        background-color: var(--color-line);
-        margin: 50px 0;
-      }
-
-      /*  products  */
-
-      .other-user-products {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-        width: 100%;
-      }
-
-      .other-user-products-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: inherit;
-      }
-
-      .other-user-products-head > h3 {
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--color-text-black);
-      }
-
-      .btn-text {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        transition: all 0.3s ease-in-out;
-      }
-
-      .btn-text > h3 {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--primary-color);
-      }
-
-      .head-btn-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 18px;
-        height: 18px;
-      }
-
-      .btn-text:hover {
-        opacity: 0.65;
-      }
-
-      .tabs-section-wrapper > aside {
-        flex-basis: 28%;
-      }
-
-      .similar-products-wrapper {
-        display: flex;
-        padding: 22px;
-        align-items: flex-start;
-        border-radius: 24px;
-        background: var(--color-white);
-        box-shadow: var(--shadow-medium);
-      }
-
-      .similar-products {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 34px;
-        width: 100%;
-      }
-
-      .similar-products-head {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 14px;
-        margin-top: 8px;
-      }
-
-      .similar-products-head > h3 {
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--color-text-black);
-      }
-
-      .similar-products-head > hr {
-        width: 46px;
-        height: 2px;
-        border: none;
-        background-color: var(--secondary-color);
-      }
-
-      .similar-products-cards {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 28px;
-        width: 100%;
-      }
-
-      .btn-show {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 48px;
-        border-radius: 8px;
-        border: 1px solid var(--color-line);
-        transition: all 0.3s ease-in-out;
-      }
-
-      .btn-show > button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 15px;
-        font-weight: 500;
-        color: var(--color-text-black);
-        gap: 4px;
-        transition: all 0.3s ease-in-out;
-      }
-
-      .icon-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .btn-show:hover {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-        border: 1px solid var(--primary-color);
-      }
-
-      .btn-show:hover > button {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-      }
-
-      @media only screen and (max-width: 1150px) {
-        .header-section-wrapper {
-          gap: 0;
-        }
-        .header-section-imgs-wrapper {
-          flex-basis: 30%;
-          width: 40%;
-        }
-        .product-img-wrapper {
-          width: 58px;
-          height: 58px;
-        }
-        .product-img-small,
-        .ovrly-img {
-          width: 48px;
-          height: 48px;
-        }
-        .product-img-wrapper > h5 {
-          top: 20px;
-        }
-        .product-title {
-          font-size: 28px;
-        }
-        .tabs-section-wrapper {
-          gap: 40px;
-        }
-        .tabs-section-items {
-          flex-basis: 68%;
-        }
-        .tabs-section-wrapper > aside {
-          flex-basis: 32%;
-        }
-      }
-
-      @media only screen and (max-width: 950px) {
-        .tabs-section-wrapper {
-          flex-direction: column;
-        }
-        .similar-products-cards {
-          flex-direction: row;
-        }
-      }
-
-      @media only screen and (max-width: 870px) {
-        .header-section-wrapper {
-          flex-direction: column-reverse;
-          align-items: center;
-          gap: 80px;
-          margin-top: 40px;
-        }
-        .header-section-imgs-wrapper {
-          width: 65%;
-        }
-      }
-
-      @media only screen and (max-width: 660px) {
-        .similar-products-cards {
-          flex-direction: column;
-        }
-        .header-section-imgs-wrapper {
-          width: 80%;
-        }
-        .tabs-section-item-text-step {
-          align-items: flex-start;
-        }
-      }
-
-      @media only screen and (max-width: 450px) {
-        .similar-products-cards {
-          flex-direction: column;
-        }
-        .header-section-imgs-wrapper {
-          width: 80%;
-        }
-        .product-buttons {
-          flex-direction: column;
-          gap: 22px;
-        }
-        .product-button-lg-out,
-        .product-button-lg {
-          width: 100%;
-        }
-        .product-buttons-share-wrapper {
-          flex-direction: column;
-          gap: 26px;
-        }
-        .header-section-imgs-wrapper {
-          width: 100%;
-        }
-      }
-
-      @media only screen and (max-width: 380px) {
-        .header-section-wrapper {
-          margin-top: 16px;
-        }
-        .product-title {
-          font-size: 24px;
-        }
-        .product-information-price-rate {
-          gap: 18px;
-        }
-        .product-information-text {
-          align-items: flex-start;
-          flex-direction: column;
-          gap: 16px;
-        }
-        .product-information-text > hr {
-          display: none;
-        }
-        .product-img-wrapper {
-          width: 44px;
-          height: 44px;
-        }
-        .product-img-small,
-        .ovrly-img {
-          width: 38px;
-          height: 38px;
-        }
-      }
-
-      @media only screen and (min-width: 1600px) {
-        .product-img-container,
-        .product-imgs-container {
-          width: 90%;
-        }
-        .product-img-wrapper {
-          width: 92px;
-          height: 92px;
-        }
-        .product-img-small {
-          width: 84px;
-          height: 84px;
-        }
-        .header-section-content-wrapper {
-          gap: 90px;
-        }
-        .product-informations-container {
-          gap: 52px;
-        }
-        .product-information-texts-container,
-        .product-information-texts,
-        .product-buttons-container {
-          gap: 30px;
-        }
-        .product-price {
-          width: 120px;
-          height: 48px;
-        }
-        .product-price > h4,
-        .product-rate > h4,
-        .product-rate-reviews,
-        .product-button-lg-out > h4,
-        .product-buttons-share-wrapper > h4 {
-          font-size: 18px;
-        }
-        .product-information-texts > h3,
-        .product-information-text > h3,
-        .product-information-texts > h3 > span,
-        .product-information-text > h3 > span,
-        .toggler {
-          font-size: 20px;
-        }
-        .tabs-section-items {
-          flex-basis: 76%;
-        }
-        .tabs-section-wrapper > aside {
-          flex-basis: 24%;
-        }
-        .tabs-section-items > .marg-label {
-          margin-left: 34px;
-        }
-        .card-desc,
-        .read-btn > h4,
-        .share-btn > h4 {
-          font-size: 15px;
-        }
-        .product-img-wrapper > h5 {
-          top: 36px;
-        }
-      }
-
-      .products-cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
-        align-items: stretch;
-        justify-items: center;
-        gap: 20px;
-        width: 100%;
-        margin: 30px auto 5px auto;
-      }
-
-      @media (max-width: 600px) {
-        .products-cards {
-          flex-direction: column;
-        }
-      }
-
-      /* flip card */
-
-      .flip-box {
-        background-color: transparent;
-        width: 100%;
-        min-height: 382px;
-        border-radius: 24px;
-        perspective: 1000px;
-      }
-
-      .flip-box-inner {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        transition: transform 0.8s;
-        transform-style: preserve-3d;
-
-        display: flex;
-      }
-
-      .flip-box:hover .flip-box-inner {
-        transform: rotateY(180deg);
-      }
-
-      .flip-box-front,
-      .flip-box-back {
-        position: absolute;
-        width: 100%;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-
-        padding: 16px 16px 24px;
-        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='%23DADADAFF' stroke-width='2' stroke-dasharray='12' stroke-dashoffset='22' stroke-linecap='round'/%3e%3c/svg%3e");
-        border-radius: 24px;
-        transition: all 0.3s ease-in-out;
-        overflow: hidden;
-      }
-
-      .flip-box-front {
-        background-color: #fff;
-        color: black;
-        border-radius: 10px;
-      }
-
-      .flip-box-back {
-        background-color: #ffffff;
-        color: #000;
-        transform: rotateY(180deg);
-        border-radius: 10px;
-        padding: 18px;
-      }
-
-      /* flip card */
-
-      .courses-img {
-        aspect-ratio: 500 / 320;
-        width: 100%;
-        border-radius: 10px;
-        margin-bottom: 15px;
-        position: relative;
-        max-height: 184px;
-        object-fit: cover;
-        box-shadow: var(--shadow-small);
-      }
-
-      .product-card-body {
-        color: var(--color-text-black);
-        width: 100%;
-        padding: 0 2px 0 2px;
-        position: relative;
-      }
-
-      .product-card-body hr {
-        width: 100%;
-        height: 1px;
-        border: none;
-        background-color: var(--color-line);
-        margin: 16px 0;
-      }
-
-      .title-card {
-        font-size: 16px;
-        font-weight: 600;
-        transition: all 0.3s ease-in-out;
-        text-align: start;
-      }
-      .title-card:hover {
-        cursor: pointer;
-        color: var(--primary-color);
-      }
-
-      .product-card-body p {
-        color: var(--color-text-grayblack);
-        font-size: 16px;
-        line-height: 22px;
-        font-weight: 400;
-      }
-
-      .card-back-item {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-      }
-
-      .card-back-type,
-      .card-back-type > span {
-        font-size: 15px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-      .card-back-type > span {
-        color: var(--color-text-black);
-        font-weight: 500;
-      }
-
-      .card-desc {
-        color: var(--color-text-grayblack);
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 23px;
-        text-align: start;
-      }
-
-      .buy-btns {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin-top: 22px;
-      }
-
-      .read-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px;
-        background-color: var(--primary-color);
-        border: 1px solid var(--primary-color);
-        color: var(--color-white);
-        transition: all 0.3s ease-in-out;
-        width: 100%;
-        height: 46px;
-        gap: 2px;
-      }
-
-      .icon-shop {
-        width: 22px;
-        height: 22px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .read-btn > h4 {
-        font-size: 15px;
-        font-weight: 500;
-      }
-
-      .read-btn:hover {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-      }
-
-      /* products */
-
-      .prof-info {
-        display: flex;
-        align-items: center;
-        margin: 18px 0;
-      }
-
-      .prof-info img {
-        width: 30px;
-        height: 30px;
-        object-fit: cover;
-        margin-right: 12px;
-        border-radius: 50%;
-        border: 1px solid var(--secondary-color);
-      }
-      .prof-info img:hover {
-        cursor: pointer;
-      }
-
-      .prof-info h5 {
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--color-text-grayblack);
-        cursor: pointer;
-        text-align: start;
-      }
-
-      .card-price h5 {
-        font-size: 13px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .inner-price {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--primary-color);
-      }
-
-      .card-price {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .icon-price {
-        width: 22px;
-        height: 22px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-      }
-
-      .stu-join {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .students,
-      .join-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        gap: 4px;
-      }
-      .students p {
-        padding-left: 2px;
-        font-size: 14px;
-      }
-
-      .card-service-price {
-        font-size: 13px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-      .card-service-price > span {
-        font-size: 15px;
-        font-weight: 500;
-        color: var(--primary-color);
-      }
-
-      .join-btn p {
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--primary-color);
-        transition: all 0.3s ease-in-out;
-      }
-      .join-btn p:hover {
-        font-weight: 600;
-      }
-      .join-btn:hover {
-        cursor: pointer;
-      }
-
-      .product-card-body {
-        padding: 0 2px 0 2px;
-      }
-
-      @media only screen and (max-width: 850px) {
-        .product-card:hover {
-          padding: 16px 16px 24px;
-          transition: all 0.3s ease-in-out;
-          background-color: transparent;
-        }
-        .product-card:hover .card-front {
-          display: block;
-        }
-
-        .product-card:hover .card-back {
-          display: none;
-        }
-      }
-
-      @media only screen and (max-width: 530px) {
-        .user-products-item-top-head {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 14px;
-        }
-        .user-products-item-top-sort-view {
-          flex-direction: column;
-          width: -webkit-fill-available;
-          align-items: flex-start;
-        }
-        .item-top-view {
-          margin-left: auto;
-        }
-        .item-top-head-search-box,
-        .search-form,
-        .form-group {
-          width: 100%;
-        }
-      }
-
-      @media only screen and (max-width: 950px) {
-        .tabs-section-wrapper > aside {
-          width: 100%;
-        }
-        .btn-show {
-          margin-top: 40px;
-        }
-      }
-
-      @media only screen and (max-width: 872px) {
-        .tabs-section-wrapper > aside {
-          margin-top: 60px;
-        }
-      }
-
-      @media only screen and (max-width: 730px) {
-        .btn-show {
-          margin-top: 30px;
-        }
-        .similar-products-cards {
-          row-gap: 60px;
-        }
-      }
-
-      @media only screen and (max-width: 440px) {
-        .user-products-item-top-sort-view {
-          width: 100%;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 18px;
-        }
-        .item-top-view {
-          margin-left: auto;
-        }
-        .btn-show {
-          margin-top: 50px;
-        }
-        .similar-products-cards {
-          row-gap: 80px;
-        }
-      }
-
-      @media only screen and (max-width: 350px) {
-        .prof-info img {
-          width: 30px;
-          height: 30px;
-          margin-right: 10px;
-        }
-        .prof-info h5 {
-          font-size: 14px;
-        }
-        .prof-name p {
-          font-size: 12px;
-        }
-        .students p,
-        .join-btn p {
-          font-size: 13px;
-        }
-        .join-btn p {
-          padding-right: 4px;
-        }
-        .students svg,
-        .join-btn svg {
-          width: 18px;
-          height: 18px;
-        }
-        .item-top-sort-by {
-          gap: 6px;
-        }
-      }
-
-      @media only screen and (max-width: 385px) {
-        .product-card {
-          margin: 14px 0px;
-        }
-        .product-card-body {
-          margin-bottom: 14;
-        }
-        .products-cards {
-          gap: 24px;
-        }
-        .title-card {
-          font-size: 15px;
-        }
-        .product-card-body p {
-          font-size: 14px;
-        }
-        .flip-box {
-          height: 386px;
-        }
-        .btn-show {
-          margin-top: 10px;
-        }
-        .similar-products-cards {
-          row-gap: 40px;
-        }
-      }
-
-      @media only screen and (max-width: 350px) {
-        .products-cards {
-          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        }
-      }
-
-      @media (max-width: 1280px) {
-        .products-cards {
-          row-gap: 72px;
-        }
-      }
-
-      @media (max-width: 350px) {
-        .products-cards {
-          row-gap: 40px;
-        }
-        .similar-products-cards {
-          row-gap: 20px;
-        }
-      }
-
-      /*   How to use   */
-
-      .tabs-section-item-text-other {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 18px;
-      }
-
-      .tabs-section-item-text-other > h4 {
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--color-text-black);
-      }
-
-      .tabs-section-item-text-steps {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-      }
-
-      .tabs-section-item-text-step {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .step-number {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 32px;
-        height: 32px;
-        background-color: var(--primary-color);
-        color: var(--color-white);
-        border-radius: 50%;
-      }
-
-      .step-number > h5 {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: inherit;
-      }
-
-      @media only screen and (max-width: 660px) {
-        .tabs-section-item-text-step {
-          align-items: flex-start;
-        }
-      }
-
-      /*  About the author   */
-
-      .tabs-section-author {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 40px;
-        width: 100%;
-      }
-
-      .tabs-section-author-profile {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: inherit;
-      }
-
-      .author-profile-content {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-      }
-
-      .author-profile-img {
-        width: 70px;
-        height: 70px;
-        object-fit: cover;
-        border-radius: 8px;
-      }
-
-      .author-profile-head {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-
-      .author-profile-head > a {
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--color-text-black);
-        transition: all 0.3s ease-in-out;
-      }
-      .author-profile-head > a:hover {
-        color: var(--primary-color);
-      }
-
-      .author-profile-rate-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .author-profile-rate {
-        display: flex;
-        align-items: center;
-        gap: 7px;
-      }
-
-      .author-profile-rate > h4,
-      .author-info-item-sub {
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--color-text-black);
-      }
-
-      .profile-vote-number,
-      .author-profile-flw > h4,
-      .author-info-item-head {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .author-profile-flw {
-        display: flex;
-        align-items: center;
-        gap: 26px;
-      }
-
-      .reviews-item-top-btn {
-        display: flex;
-        padding: 11px 22px;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--primary-color);
-        border-radius: 8px;
-        font-size: 14px;
-        color: var(--color-white);
-        transition: all 0.3s ease-in-out;
-        border: 1px solid var(--primary-color);
-      }
-
-      .reviews-item-top-btn:hover {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-      }
-
-      .tabs-section-author-info-wrapper {
-        display: flex;
-        padding: 32px 26px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 40px;
-        border-radius: 24px;
-        background: var(--color-white);
-        box-shadow: var(--shadow-medium);
-        width: 100%;
-      }
-
-      .tabs-section-author-info {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        width: inherit;
-      }
-
-      .author-info-items {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 28px;
-      }
-
-      .author-info-item {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2px;
-        align-self: stretch;
-      }
-
-      .tabs-section-author-info-wrapper > hr {
-        width: 100%;
-        height: 1px;
-        background-color: var(--color-line);
-        border: none;
-      }
-
-      .author-accordions-title-down {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-      }
-
-      .author-accordion-items {
-        display: flex;
-        padding: 20px 24px 0 24px;
-        flex-direction: column;
-        align-items: flex-start;
-        border-radius: 12px;
-        background: var(--color-background);
-      }
-
-      .author-accordion-item {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 25px;
-      }
-
-      .accordion-icon {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-      }
-
-      .accordion-title {
-        text-align: left;
-      }
-
-      .accordion-icon svg {
-        width: 28px;
-        height: 28px;
-      }
-
-      .author-accordion-item button {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        color: var(--primary-color);
-        font-size: 18px;
-        font-weight: 500;
-        border: none;
-        background: none;
-        outline: none;
-        transition: all 0.3s ease-in-out;
-      }
-      .author-accordion-item button:hover,
-      .author-accordion-item button:focus,
-      .author-accordion-item button:hover .icon {
-        cursor: pointer;
-        color: var(--secondary-color);
-      }
-
-      .author-accordion-item button .icon {
-        display: inline-block;
-        position: absolute;
-        right: 0;
-        width: 22px;
-        height: 22px;
-        border: 1px solid;
-        border-radius: 22px;
-        color: var(--primary-color);
-        transition: all 0.3s ease-in-out;
-      }
-
-      .author-accordion-item button .icon::before {
-        display: block;
-        position: absolute;
-        content: "";
-        top: 9px;
-        left: 5px;
-        width: 10px;
-        height: 2px;
-        background: currentColor;
-      }
-
-      .author-accordion-item button .icon::after {
-        display: block;
-        position: absolute;
-        content: "";
-        top: 5px;
-        left: 9px;
-        width: 2px;
-        height: 10px;
-        background: currentColor;
-      }
-
-      .author-accordion-item button[aria-expanded="true"] {
-        color: var(--secondary-color);
-      }
-      .author-accordion-item button[aria-expanded="true"] .icon::after {
-        width: 0;
-      }
-
-      .author-accordion-item button[aria-expanded="true"] + .accordion-content {
-        opacity: 1;
-        max-height: 100%;
-        transition: all 200ms linear;
-        will-change: opacity, max-height;
-      }
-      .author-accordion-item .accordion-content {
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: opacity 200ms linear, max-height 200ms linear;
-        will-change: opacity, max-height;
-      }
-      .author-accordion-item .accordion-content p {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-        margin: 0 0 2em 0;
-        border-top: 1px solid var(--color-line);
-        padding-top: 20px;
-      }
-
-      @media only screen and (max-width: 620px) {
-        .author-accordion-item button {
-          font-size: 15px;
-        }
-        .author-accordion-item .accordion-content p {
-          font-size: 13px;
-        }
-      }
-
-      @media only screen and (max-width: 675px) {
-        .tabs-section-author-profile {
-          flex-direction: column;
-          gap: 30px;
-          align-items: flex-start;
-        }
-        .author-profile-flw {
-          margin-left: auto;
-          gap: 16px;
-        }
-        .author-info-items {
-          margin-bottom: 16px;
-        }
-        .tabs-section-author-info {
-          flex-wrap: wrap;
-        }
-      }
-
-      @media only screen and (min-width: 1600px) {
-        .tabs-section-author-info-wrapper {
-          padding: 32px;
-        }
-        .author-info-item-head,
-        .author-info-item-sub {
-          font-size: 18px;
-        }
-      }
-
-      /*  Questions & Answers   */
-
-      .tabs-section-QvA {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 90px;
-        width: 100%;
-      }
-
-      .tabs-section-QvA-field-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 12px;
-        width: inherit;
-      }
-
-      .QvA-field-items {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        width: inherit;
-      }
-
-      .QvA-field-items > img,
-      .reviews-field-items-head > img {
-        width: 48px;
-        height: 48px;
-        object-fit: cover;
-        border-radius: 8px;
-      }
-
-      .QvA-field-items > input {
-        display: flex;
-        width: inherit;
-        padding: 14px 14px;
-        align-items: center;
-        border-radius: 8px;
-        border: 1px solid var(--color-line);
-        background: var(--color-white);
-        outline: none;
-      }
-      .QvA-field-items > input:focus {
-        border-color: var(--primary-color);
-      }
-
-      .QvA-field-items > input::placeholder {
-        color: var(--color-text-gray);
-      }
-
-      .user-questions-items-down {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 40px;
-      }
-
-      .questions-answer-item {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 28px;
-      }
-
-      .questions-user-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 16px;
-        width: 100%;
-      }
-
-      .questions-user-photo,
-      .answered-user-item > img,
-      .answers-user-item-submit > img {
-        width: 48px;
-        height: 48px;
-        object-fit: cover;
-        border-radius: 8px;
-      }
-
-      .questions-user-name-text {
-        display: inline-flex;
-        padding: 2px 0px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        width: inherit;
-      }
-
-      .questions-user-name-text > h4,
-      .answered-user-item-name-text > h4 {
-        font-size: 17px;
-        font-weight: 600;
-        color: var(--color-text-black);
-        cursor: pointer;
-      }
-
-      .questions-user-text-box {
-        font-size: 15px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-        background-color: var(--color-background);
-        padding: 8px 14px;
-        border-radius: 10px;
-        background-color: var(--color-white);
-        width: inherit;
-      }
-
-      .answers-user-item {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 28px;
-        width: 100%;
-        padding-left: 64px;
-      }
-
-      .answered-user-item,
-      .answers-user-item-submit {
-        display: flex;
-        align-items: flex-start;
-        gap: 16px;
-        width: inherit;
-      }
-
-      .answered-user-item-info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        width: inherit;
-      }
-
-      .answered-user-item-name-text {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 3px;
-        width: inherit;
-      }
-
-      .answered-user-item-name-text > h4 {
-        font-size: 17px;
-        font-weight: 600;
-        color: var(--primary-color);
-      }
-
-      .answered-user-item-name-text > p {
-        font-size: 15px;
-        font-weight: 500;
-        color: var(--color-text-black);
-        width: inherit;
-      }
-
-      .answered-user-item-info > h5 {
-        font-size: 14px;
-        font-weight: 400;
-        color: var(--color-text-gray);
-      }
-
-      .answers-user-item-box {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 10px;
-        width: 100%;
-      }
-
-      .answers-item-text {
-        display: flex;
-        width: 100%;
-        height: 100px;
-        padding: 12px 15px;
-        align-items: flex-start;
-        border-radius: 10px;
-        border: 1px solid var(--color-line);
-        background: var(--color-white);
-        font-family: inherit;
-        font-size: 16px;
-        resize: none;
-        outline: none;
-      }
-      .answers-item-text:focus {
-        border-color: var(--primary-color);
-      }
-
-      .answers-submit-btn {
-        display: flex;
-        width: 86px;
-        height: 34px;
-        font-size: 14px;
-        justify-content: center;
-        align-items: center;
-        border-radius: 6px;
-        background: var(--primary-color);
-        color: var(--color-white);
-        transition: all 0.3s ease-in-out;
-        border: 1px solid var(--primary-color);
-      }
-      .answers-submit-btn:hover {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-      }
-
-      .questions-answers-line {
-        width: 100%;
-        height: 1px;
-        border: none;
-        background-color: var(--color-line);
-      }
-
-      @media only screen and (max-width: 470px) {
-        .user-questions-items-top,
-        .user-reviews-items-top {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 25px;
-        }
-        .questions-item-top-btn,
-        .reviews-item-top-btn {
-          width: 100%;
-        }
-        .questions-user-photo,
-        .answered-user-item > img,
-        .answers-user-item-submit > img {
-          width: 42px;
-          height: 42px;
-        }
-        .questions-user-name-text > h4,
-        .answered-user-item-name-text > h4 {
-          font-size: 15px;
-        }
-        .questions-user-text-box,
-        .answered-user-item-name-text > p {
-          font-size: 14px;
-        }
-        .answered-user-item,
-        .questions-user-item,
-        .answers-user-item-submit {
-          gap: 10px;
-        }
-        .answered-user-item-info > h5 {
-          font-size: 12px;
-          font-weight: 400;
-        }
-        .answers-item-text {
-          height: 200px;
-          font-size: 14px;
-        }
-      }
-
-      @media only screen and (max-width: 375px) {
-        .answers-user-item {
-          padding-left: 0;
-        }
-      }
-
-      /*  Reviews  */
-
-      .tabs-section-reviews {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 90px;
-        width: 100%;
-      }
-
-      .tabs-section-reviews-field-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-        width: inherit;
-        flex-shrink: 0;
-      }
-
-      .reviews-field-items-head {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-      }
-
-      .reviews-field-items-rates {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .reviews-field-items-rates > h4 {
-        font-size: 16px;
-        font-weight: 500;
-        color: var(--color-text-grayblack);
-      }
-
-      .reviews-field-items-rate {
-        display: flex;
-        align-items: flex-start;
-        gap: 4px;
-      }
-
-      .reviews-field-items-rate > svg {
-        color: var(--color-line);
-        opacity: 0.8;
-        transition: all 0.3s ease-in-out;
-        cursor: pointer;
-      }
-
-      .reviews-field-items-rate > svg.active-star {
-        color: #fbbc1e;
-      }
-
-      .reviews-field-items {
-        display: flex;
-        padding-left: 64px;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 16px;
-        width: 100%;
-      }
-
-      .reviews-field-items textarea {
-        width: 100%;
-        height: 120px;
-        outline: none;
-        font-weight: 500;
-        border-radius: 8px;
-        border: 1px solid var(--color-line);
-        padding: 8px 12px;
-        font-size: 15px;
-        transition: all 0.3s ease;
-        resize: none;
-      }
-
-      .reviews-field-items textarea:focus,
-      .reviews-field-items textarea:valid {
-        border-color: var(--primary-color);
-      }
-
-      @media only screen and (max-width: 660px) {
-        .reviews-field-items {
-          padding-left: 0px;
-        }
-      }
-
-      .user-reviews-items-down-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 55px;
-        width: 100%;
-      }
-
-      .user-review-items-down {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        width: 100%;
-        gap: 10px;
-      }
-
-      .user-review-informations {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        flex-basis: 28%;
-        text-align: left;
-      }
-
-      .user-review-informations > img {
-        width: 68px;
-        height: 68px;
-        object-fit: cover;
-        border-radius: 8px;
-        cursor: pointer;
-      }
-
-      .user-review-information {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1px;
-      }
-
-      .user-review-information > h3 {
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--primary-color);
-        padding-left: 3px;
-        cursor: pointer;
-      }
-
-      .user-review-information > h5 {
-        font-size: 14px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-        padding-left: 3px;
-      }
-
-      .user-review-text-section {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        flex-basis: 70%;
-        text-align: left;
-      }
-
-      .review-text-section-top {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-
-      .review-text-section-top > h3,
-      .section-down-like-or-diss > h4 {
-        font-size: 16px;
-        font-weight: 500;
-        color: var(--color-text-black);
-      }
-
-      .review-text-section-top > h3 > span {
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .review-text-section-top > p,
-      .review-text-section-down > h4 {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .review-text-section-down {
-        display: flex;
-        align-items: flex-start;
-        gap: 20px;
-      }
-
-      .text-section-down-like-or-diss {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-      }
-
-      .section-down-like-or-diss {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-      }
-      .section-down-like-or-diss:hover {
-        opacity: 0.7;
-      }
-
-      .reviews-separator-items-down-line {
-        width: 100%;
-        height: 1px;
-        border: none;
-        background-color: var(--color-line);
-      }
-
-      @media only screen and (max-width: 1600px) {
-        .user-review-text-section {
-          flex-basis: 60%;
-        }
-      }
-
-      @media only screen and (max-width: 1250px) {
-        .user-review-text-section {
-          flex-basis: 50%;
-        }
-      }
-
-      @media only screen and (max-width: 1050px) {
-        .user-review-text-section {
-          flex-basis: 45%;
-        }
-      }
-
-      @media only screen and (max-width: 992px) {
-        .user-review-text-section {
-          flex-basis: 40%;
-        }
-      }
-
-      @media only screen and (max-width: 970px) {
-        .user-review-text-section {
-          flex-basis: 50%;
-        }
-        .statistics-stars-bar {
-          margin: 0 auto;
-        }
-      }
-
-      @media only screen and (max-width: 730px) {
-        .user-review-items-down {
-          flex-direction: column;
-          gap: 24px;
-        }
-        .user-reviews-items-down-statistics > hr {
-          display: none;
-        }
-      }
-
-      @media only screen and (max-width: 600px) {
-        .user-reviews-items-down-statistics {
-          flex-direction: column;
-          gap: 40px;
-        }
-        .statistics-stars-bar {
-          margin: 0;
-        }
-      }
-
-      @media only screen and (max-width: 370px) {
-        .statistics-total-rating > h3 {
-          font-size: 16px;
-        }
-        .statistics-total-rating > h1,
-        .statistics-total-rating-stars > h1 {
-          font-size: 22px;
-        }
-        .statistics-total-rating > h5 {
-          font-size: 12px;
-        }
-        .user-review-informations > img {
-          width: 52px;
-          height: 52px;
-        }
-        .user-review-information > h3 {
-          font-size: 15px;
-        }
-        .user-review-information > h5 {
-          font-size: 12px;
-        }
-        .review-text-section-top > p,
-        .review-text-section-down > h4,
-        .review-text-section-top > h3,
-        .section-down-like-or-diss > h4 {
-          font-size: 14px;
-        }
-      }
-
-      /* footer */
-
-      .footer-background {
-        background-color: var(--primary-color);
-        margin-top: 90px;
-      }
-
-      .col-6 {
-        width: 100%;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .col-3 > h4 {
-        padding: 20px 0 20px 0;
-        color: var(--color-white);
-        font-weight: 500;
-      }
-
-      .desc a {
-        display: flex;
-        align-items: center;
-      }
-
-      .desc a > h2 {
-        font-size: 20px;
-        margin-left: 10px;
-        font-weight: 600;
-        color: var(--color-white);
-      }
-
-      .desc > p {
-        margin-top: 10px;
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--color-white);
-        width: 85%;
-      }
-
-      .row-fot {
-        border-bottom: 1px solid var(--color-line);
-        padding: 2em 0 2.5em 0;
-      }
-
-      footer .row {
-        position: relative;
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        grid-gap: 30px;
-        align-items: center;
-      }
-
-      footer ul {
-        padding: 0;
-        -webkit-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-      }
-
-      footer ul li {
-        list-style-type: none;
-        padding: 0;
-        -webkit-transition: all 0.5s ease-in-out;
-        transition: all 0.5s ease-in-out;
-        line-height: 2;
-      }
-
-      .footer-cat-links a {
-        color: var(--color-text-gray);
-        font-size: 16px;
-        font-weight: 400;
-        text-decoration: none;
-        position: relative;
-      }
-
-      .footer-cat-links.active > li a {
-        pointer-events: auto;
-      }
-
-      .footer-cat-links a:after {
-        top: 21px;
-        content: "";
-        display: block;
-        height: 2px;
-        left: 50%;
-        position: absolute;
-        width: 0;
-        background: var(--secondary-color);
-        -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
-        transition: width 0.3s ease 0s, left 0.3s ease 0s;
-      }
-
-      .footer-cat-links a:hover:after,
-      .footer-cat-links a:focus:after {
-        width: 100%;
-        left: 0;
-      }
-
-      .social-links {
-        margin-top: 65px;
-      }
-
-      .social-links a {
-        color: var(--color-white);
-        border: 1px solid;
-        border-radius: 20px;
-        padding: 7px;
-        -webkit-transition: all 0.2s ease-in;
-        transition: all 0.2s ease-in;
-      }
-
-      .social-links a:not(:last-child) {
-        margin-right: 10px;
-      }
-
-      .social-links a:hover,
-      .social-links a:focus {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-      }
-
-      .social-links a svg {
-        width: 24px;
-        height: 24px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .copyowner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        color: var(--color-text-gray);
-        opacity: 0.6;
-        font-size: 14px;
-        padding: 30px 0 44px 0;
-      }
-
-      #owner a {
-        font-size: 14px;
-        color: var(--color-text-gray);
-      }
-
-      #owner a:hover {
-        color: var(--secondary-color);
-        opacity: 1;
-      }
-
-      .contact {
-        padding-bottom: 80px;
-      }
-
-      .contact > ul > li {
-        display: flex;
-      }
-
-      .contact > ul {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding-top: 6px;
-      }
-
-      .lineheightfot {
-        font-size: 16px;
-        line-height: 1.5;
-        margin-left: 12px;
-        color: var(--color-text-gray);
-      }
-
-      .iconfo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        color: var(--secondary-color);
-      }
-
-      @media only screen and (max-width: 992px) {
-        footer .row {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
-
-      @media only screen and (max-width: 576px) {
-        footer .row {
-          display: block;
-        }
-        .col-3 {
-          margin-bottom: 28px;
-        }
-        .contact {
-          padding-bottom: 0;
-        }
-      }
-
-      @media only screen and (max-width: 450px) {
-        .copyowner {
-          flex-direction: column;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="../css/base/reset.css" />
+    <link rel="stylesheet" href="../css/components/header-login.css" />
+    <link rel="stylesheet" href="../css/components/footer.css" />
+    <link rel="stylesheet" href="../css/pages/productDetails.css" />
   </head>
   <body>
     <header class="header" id="header">
       <section class="wrapper container">
-        <a href="./index.html" class="logo">Unisuniverse</a>
+        <a href="./index.html" class="logo"
+          ><span
+            ><svg
+              width="44"
+              height="33"
+              viewBox="0 0 44 33"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <rect
+                x="10.3906"
+                y="10.3531"
+                width="22.7765"
+                height="22.2587"
+                fill="url(#pattern0_1881_47)"
+              />
+              <rect width="44" height="27.4352" fill="url(#pattern1_1881_47)" />
+              <defs>
+                <pattern
+                  id="pattern0_1881_47"
+                  patternContentUnits="objectBoundingBox"
+                  width="1"
+                  height="1"
+                >
+                  <use
+                    xlink:href="#image0_1881_47"
+                    transform="matrix(0.0244317 0 0 0.025 -0.000849752 0)"
+                  />
+                </pattern>
+                <pattern
+                  id="pattern1_1881_47"
+                  patternContentUnits="objectBoundingBox"
+                  width="1"
+                  height="1"
+                >
+                  <use
+                    xlink:href="#image1_1881_47"
+                    transform="scale(0.0117647 0.018868)"
+                  />
+                </pattern>
+                <image
+                  id="image0_1881_47"
+                  width="41"
+                  height="40"
+                  preserveAspectRatio="none"
+                  xlink:href="data:image/png;base64,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"
+                />
+                <image
+                  id="image1_1881_47"
+                  width="85"
+                  height="53"
+                  preserveAspectRatio="none"
+                  xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAAA1CAMAAAAH31cyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALfUExURQAAAP/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Iff/nx/////////////////////+lLP/VnP////////+kKP/WoP////////////+gIP/YpP////+bEv+2U/////+aEv+ZEf////////////////////+aE/+cEv////////////////+AAP+aEv+aE/////////+qAP+aEv+YEf////+ZGv+aEf+ZEf+aE/////+hDf+bFP+VFfycE/ubE/+/AOWpHeSpHeSoHOapHeOoHOOnHOKpHeSoHuSkG+WqHOWqHd+fIP+/AP+2CPizDfu0C/+2CP+1CP+2CP+2Bv+/AP+2CP+2CP+2CP+1Cfy1Cv+2CP+3CP+2CPqzDP62Cf+2Cf+2CPSxEfy0C/+0CP+5BvCvE/21Cv+1B/+3Ce6uFfWxEP+zCOusGPGvEvKwEv+3CP+zCeerGv+1Cu+uFPeyD/+2CP+zDfizDvayD/+3CO+tFf+2CO2tFvezDv+2B/i0EPKmAIgeJ68AAAD1dFJOUwAEWMe7SCd2xf+6axw5iNfLfC1Lmundjj4PXaz77p9QIXC/sGESM4LRwnIjRZTj04Q0CFem9eSVRhppuPYse8poGT+N3Ml6KwJRoO/aizwUY7LsnE0mdcT9rl84h9ZKmejQgTL3z6tgVECnw5sos2wMk2Sv3+vnt4CXdHjb//8wTCSPGP//oxD//9Rm8/r/g++BRPRa+PHmkTv4VZLl9AYC/FGhkAb/TSAKSQ9EahNAGP9CBMP/84NsQHxMHNrCCAjf///LgP9QDPen55X//iDb//84+///XCj//288//9A////mzn/NP//mhTC/4ee4/+nI04Ucz2VdAAAAAlwSFlzAAAXEQAAFxEByibzPwAAA4xJREFUWEet1/d7U2UUB/ATS8Ug2CIIslKKg6FQGkCQUimyBGzYIpQhkDZJSWkooa0tO8isli0KyC4FRWZQNlJ42cqwKkMgbJCl8Af43psveZr05t6b9n5+aM55xzdP8vSePiWVdC+EVQhHrZUXK76k5yq9XBkLGqjySoSQKYis+ioWy6la9dcQKapR83VslF2t2nXqIs6nniEKu2VTP7oBkgK88eZbOBKytxs2QoiExk3ewbGQvNu0GQKCiGkei6NqGVu0bIXLMt5r3Qbn1Xi/bRzuKWnXsoURlxTEf9Aed1SJS+iAizI+7NgJx1Xr3KUrLkv7qFv3Hjgako8TTUgorWev3jgVuj59+yHFX/9PBuBE2Xw6cFAtRPkkDR6C3XJoEF0fcaKhwz7DRjkNHzESkRQV5GEXmJNTEhMsVpvAaolOTB2l8MSZ7Wlipm92BjKPTo/Vie/rx5GUPiay1CArYbSNKAx1oOQMh5CQMXhsjHOcuJLpTM6yZ2eY+Do5rJ9niouSssgYLbVtTieqnF7BjNZfREpOPP9LZs1CH8icy9/XmDFebCZMFF8EEWk0aSxqac3sk3U0JRVdSeapLvGbIp0lmbfTvvAu88/q0k1HKcOZM4PCA59FX6YoKlI/cxZ29KYOdlTyZs+htDzUIv9Mge3Lr7Cnd1VFoSifLKi40pnc3HnPv0oyoFA234FCX9cukUm0YCGFV+/D9xeFkGqgxeLr10u+QUyAb5fyH7Zly/XfhZDad4XwQGQuCzYKV65aLb66ppppjfeKCmt1/LMbpog3pawrWI/KRVK/h9LyC+UyiTYUbERFlII7yrIdcplE3xf8gIqoMe4o24QbwfxYsBkVkcxsDGDBjWC2bN2GypeaF2bIjUor7Old1BUmTbZkT4/xm4JW714w23e4d/6EmoSxEJlvk5iunDE2IdU35/gslfOzm9uFximOXjmxY7xDV+HYbiF1D5owFf8CGC1OnjoJXRB797nd+w+gEca9MmNunr4QdRAHfzlUdBi1aqY8hdQjjDuKRjWT5JzyOXZcSD2BTitHhVB2Ep1WTp0WUn/9Da1GzpzloefYebQa+b2Yp/7B/kSrjb/YBXaRHWKX0GvjMvubFbEr7Ah6bVxl11gx81y/gV4bN9kt5inyFJ9Cr43bp93szl3PlXvotXH/H5563fPgIXqtPHrseeL5dzs67fz39BmqciL6H5gtH0vQhqopAAAAAElFTkSuQmCC"
+                />
+              </defs>
+            </svg>
+          </span>
+          Unisuniverse</a
+        >
         <span class="overlay"></span>
         <nav class="navbar" id="navbar">
           <ul class="menu" id="menu">
@@ -3563,14 +556,14 @@
         <div class="tabs-section-wrapper">
           <div class="tabs-section-items">
             <input id="tab1" type="radio" name="tabs" checked />
-            <label for="tab1" class="label-tab">Description</label>
+            <label for="tab1" class="label-tab">Product Info</label>
 
             <input id="tab2" type="radio" name="tabs" />
-            <label for="tab2" class="marg-label label-tab">How to use</label>
+            <label for="tab2" class="marg-label label-tab">Description</label>
 
             <input id="tab3" type="radio" name="tabs" />
             <label for="tab3" class="marg-label label-tab"
-              >About the author</label
+              >About the Authors</label
             >
 
             <input id="tab4" type="radio" name="tabs" />
@@ -3582,6 +575,359 @@
             <label for="tab5" class="marg-label label-tab">Reviews</label>
 
             <div id="content1" class="contents">
+              <div class="tabs-section-item">
+                <div>
+                  <div class="tab-section-information-wrapper">
+                    <div class="section-information-title">
+                      <div class="information-title">
+                        <svg
+                          width="36"
+                          height="36"
+                          viewBox="0 0 36 36"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            x="0.5"
+                            y="0.5"
+                            width="35"
+                            height="35"
+                            rx="5.5"
+                            fill="white"
+                          />
+                          <rect
+                            x="0.5"
+                            y="0.5"
+                            width="35"
+                            height="35"
+                            rx="5.5"
+                            stroke="#DCDCDC"
+                          />
+                          <path
+                            d="M20.75 9.29102V10.666C20.75 11.9622 20.75 12.6103 21.1533 13.0127C21.5548 13.416 22.2029 13.416 23.5 13.416H24.875"
+                            stroke="#003366"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M14.3332 17.083H21.6665M14.3332 19.833H21.6665M14.3332 22.583H18.1557M10.6665 21.6663V14.333C10.6665 11.7407 10.6665 10.4436 11.4723 9.63876C12.2771 8.83301 13.5742 8.83301 16.1665 8.83301H19.9908C20.3648 8.83301 20.5528 8.83301 20.7214 8.90267C20.8892 8.97234 21.0221 9.10434 21.287 9.37017L24.796 12.8792C25.0618 13.145 25.1938 13.277 25.2635 13.4457C25.3332 13.6134 25.3332 13.8013 25.3332 14.1753V21.6663C25.3332 24.2587 25.3332 25.5558 24.5274 26.3606C23.7226 27.1663 22.4255 27.1663 19.8332 27.1663H16.1665C13.5742 27.1663 12.2771 27.1663 11.4723 26.3606C10.6665 25.5558 10.6665 24.2587 10.6665 21.6663Z"
+                            stroke="#003366"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+
+                        <div class="information-title-text">
+                          General Specifications
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="section-information-boxs">
+                      <div class="information-box">
+                        <div class="information-box-title">Version :</div>
+                        <div class="information-box-text">16.1.1</div>
+                      </div>
+
+                      <div class="information-box">
+                        <div class="information-box-title">Edition :</div>
+                        <div class="information-box-text">First Edition</div>
+                      </div>
+
+                      <div class="information-box">
+                        <div class="information-box-title">Dimensions :</div>
+                        <div class="information-box-text">
+                          Lorem ipsum dolor sit amet
+                        </div>
+                      </div>
+
+                      <div class="information-box">
+                        <div class="information-box-title">
+                          Materials Needed :
+                        </div>
+                        <div class="information-box-text">
+                          Lorem ipsum dolor sit amet
+                        </div>
+                      </div>
+
+                      <div class="information-box">
+                        <div class="information-box-title">
+                          Materials Used :
+                        </div>
+                        <div class="information-box-text">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="tab-section-information-wrapper">
+                    <div class="section-information-title">
+                      <div class="information-title">
+                        <svg
+                          width="36"
+                          height="36"
+                          viewBox="0 0 36 36"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect width="36" height="36" rx="5" fill="white" />
+                          <path
+                            d="M9.10156 15.292L18.8516 20.167L28.6016 15.292L18.8516 10.417L9.10156 15.292ZM9.10156 15.292V23.417M12.3516 16.917V23.6575C12.3516 24.0345 14.5182 25.5837 18.8516 25.5837C23.1849 25.5837 25.3516 24.0952 25.3516 23.6575V16.917"
+                            stroke="#003366"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+
+                        <div class="information-title-text">
+                          Educational Content
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="section-information-boxs">
+                      <div class="information-box">
+                        <div class="information-box-title">Outline :</div>
+                        <div class="information-box-text">
+                          Lorem ipsum dolor sit
+                        </div>
+                      </div>
+
+                      <div class="information-box">
+                        <div class="information-box-title">
+                          Number of Questions :
+                        </div>
+                        <div class="information-box-text">Lorem ipsum</div>
+                      </div>
+
+                      <div class="information-box">
+                        <div class="information-box-title">
+                          Difficulty Level :
+                        </div>
+                        <div class="information-box-text">
+                          Lorem ipsum dolor sit amet
+                        </div>
+                      </div>
+
+                      <div class="information-box">
+                        <div class="information-box-title">Assessment :</div>
+                        <div class="information-box-text">
+                          Lorem ipsum dolor sit amet, consectetur lorem
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="tab-section-information-wrapper">
+                    <div class="section-information-title">
+                      <div class="information-title">
+                        <svg
+                          width="36"
+                          height="36"
+                          viewBox="0 0 36 36"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect width="36" height="36" rx="5" fill="white" />
+                          <path
+                            d="M20.7499 24.534C21.5319 24.7608 22.342 24.8756 23.1562 24.875C24.4657 24.8781 25.7583 24.5795 26.9338 24.0023C26.9362 23.9498 26.9374 23.8969 26.9374 23.8437C26.9375 23.0351 26.6784 22.2478 26.1981 21.5973C25.7177 20.9468 25.0416 20.4675 24.2687 20.2295C23.4959 19.9916 22.6672 20.0077 21.9042 20.2754C21.1412 20.5432 20.4841 21.0484 20.0294 21.7171M20.7499 24.534V24.5312C20.7499 23.511 20.4887 22.5512 20.0294 21.7171M20.7499 24.534V24.6312C18.9861 25.6944 16.9648 26.2543 14.9053 26.25C12.7685 26.25 10.7693 25.6587 9.06244 24.6312L9.06152 24.5312C9.06082 23.2337 9.492 21.9728 10.2871 20.9473C11.0822 19.9219 12.1959 19.1902 13.4528 18.8677C14.7097 18.5452 16.0381 18.6502 17.2287 19.1661C18.4193 19.682 19.4053 20.5795 20.0294 21.7171M17.9999 12.8437C17.9999 13.6643 17.674 14.4512 17.0938 15.0314C16.5136 15.6116 15.7267 15.9375 14.9062 15.9375C14.0857 15.9375 13.2988 15.6116 12.7186 15.0314C12.1384 14.4512 11.8124 13.6643 11.8124 12.8437C11.8124 12.0232 12.1384 11.2363 12.7186 10.6561C13.2988 10.0759 14.0857 9.75 14.9062 9.75C15.7267 9.75 16.5136 10.0759 17.0938 10.6561C17.674 11.2363 17.9999 12.0232 17.9999 12.8437ZM25.5624 14.9062C25.5624 15.5444 25.3089 16.1565 24.8577 16.6077C24.4064 17.059 23.7944 17.3125 23.1562 17.3125C22.518 17.3125 21.906 17.059 21.4547 16.6077C21.0035 16.1565 20.7499 15.5444 20.7499 14.9062C20.7499 14.2681 21.0035 13.656 21.4547 13.2048C21.906 12.7535 22.518 12.5 23.1562 12.5C23.7944 12.5 24.4064 12.7535 24.8577 13.2048C25.3089 13.656 25.5624 14.2681 25.5624 14.9062Z"
+                            stroke="#003366"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+
+                        <div class="information-title-text">
+                          Audience & Technology
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="section-information-boxs">
+                      <div class="information-box">
+                        <div class="information-box-title">
+                          Target Audience :
+                        </div>
+                        <div class="information-box-text">Lorem ipsum</div>
+                      </div>
+
+                      <div class="information-box">
+                        <div class="information-box-title">
+                          Used Technology :
+                        </div>
+                        <div class="information-box-text">
+                          Lorem ipsum dolor sit amet, consectetur lorem ipsum
+                          dolor
+                        </div>
+                      </div>
+
+                      <div class="information-box">
+                        <div class="information-box-title">
+                          User Registration Process :
+                        </div>
+                        <div class="information-box-text">
+                          Lorem ipsum dolor sit amet
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="tab-section-information-wrapper">
+                    <div class="section-information-title">
+                      <div class="information-title">
+                        <svg
+                          width="36"
+                          height="36"
+                          viewBox="0 0 36 36"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect width="36" height="36" rx="5" fill="white" />
+                          <path
+                            d="M15.7083 20.2915L9.75 26.2498M11.5833 15.6944L20.0102 24.1213L21.5658 22.5657L21.2056 19.0943L26.2564 14.8107L20.8939 9.44824L16.6094 14.4991L13.1389 14.1388L11.5833 15.6944Z"
+                            stroke="#003366"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+
+                        <div class="information-title-text">
+                          Publishing Details
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="section-information-boxs">
+                      <div class="information-box">
+                        <div class="information-box-title">ISBN :</div>
+                        <div class="information-box-text">123-456789</div>
+                      </div>
+
+                      <div class="information-box">
+                        <div class="information-box-title">DOI :</div>
+                        <div class="information-box-text">10.xxxx/xxxx</div>
+                      </div>
+
+                      <div class="information-box">
+                        <div class="information-box-title">
+                          Journal/Conference Name :
+                        </div>
+                        <div class="information-box-text">
+                          Lorem ipsum dolor sit amet
+                        </div>
+                      </div>
+
+                      <div class="information-box">
+                        <div class="information-box-title">Institution :</div>
+                        <div class="information-box-text">
+                          Lorem ipsum dolor sit
+                        </div>
+                      </div>
+
+                      <div class="information-box">
+                        <div class="information-box-title">Keywords :</div>
+                        <div class="information-box-text">
+                          <span>Lorem ipsum</span> -
+                          <span>dolor sit amet</span> -
+                          <span>consectetur adipiscing</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="tab-section-information-wrapper">
+                    <div class="section-information-title">
+                      <div class="information-title">
+                        <svg
+                          width="36"
+                          height="36"
+                          viewBox="0 0 36 36"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect width="36" height="36" rx="5" fill="white" />
+                          <path
+                            d="M9.54984 8.90039C9.37744 8.90039 9.21211 8.96887 9.09022 9.09077C8.96832 9.21267 8.89984 9.378 8.89984 9.55039C8.89984 9.72278 8.96832 9.88811 9.09022 10.01C9.21211 10.1319 9.37744 10.2004 9.54984 10.2004H10.5248L7.69993 16.9799C7.63125 17.1467 7.59805 17.326 7.60244 17.5064C7.6393 18.5154 8.06605 19.4708 8.79293 20.1716C9.5198 20.8724 10.4901 21.264 11.4998 21.264C12.5095 21.264 13.4799 20.8724 14.2067 20.1716C14.9336 19.4708 15.3604 18.5154 15.3972 17.5064C15.4016 17.326 15.3684 17.1467 15.2997 16.9799L12.4748 10.2004H17.3498V23.2004H12.7998C12.1103 23.2004 11.449 23.4743 10.9614 23.9619C10.4738 24.4495 10.1998 25.1108 10.1998 25.8004C10.1998 26.49 10.4738 27.1513 10.9614 27.6389C11.449 28.1265 12.1103 28.4004 12.7998 28.4004H23.1998C23.8894 28.4004 24.5507 28.1265 25.0383 27.6389C25.5259 27.1513 25.7998 26.49 25.7998 25.8004C25.7998 25.1108 25.5259 24.4495 25.0383 23.9619C24.5507 23.4743 23.8894 23.2004 23.1998 23.2004H18.6498V10.2004H23.5248L20.6999 16.9799C20.6313 17.1467 20.598 17.326 20.6024 17.5064C20.6393 18.5154 21.0661 19.4708 21.7929 20.1716C22.5198 20.8724 23.4901 21.264 24.4998 21.264C25.5095 21.264 26.4799 20.8724 27.2067 20.1716C27.9336 19.4708 28.3604 18.5154 28.3972 17.5064C28.4016 17.326 28.3684 17.1467 28.2997 16.9799L25.4748 10.2004H26.4498C26.6222 10.2004 26.7876 10.1319 26.9095 10.01C27.0314 9.88811 27.0998 9.72278 27.0998 9.55039C27.0998 9.378 27.0314 9.21267 26.9095 9.09077C26.7876 8.96887 26.6222 8.90039 26.4498 8.90039H9.54984ZM11.4998 19.9504C10.9233 19.9505 10.3631 19.7591 9.90727 19.4061C9.45144 19.0531 9.12587 18.5586 8.98174 18.0004H14.0179C13.8738 18.5586 13.5482 19.0531 13.0924 19.4061C12.6366 19.7591 12.0764 19.9505 11.4998 19.9504ZM11.4998 11.2404L13.7748 16.7004H9.22484L11.4998 11.2404ZM12.7998 24.5004H23.1998C23.5446 24.5004 23.8753 24.6374 24.1191 24.8812C24.3629 25.1249 24.4998 25.4556 24.4998 25.8004C24.4998 26.1452 24.3629 26.4758 24.1191 26.7196C23.8753 26.9634 23.5446 27.1004 23.1998 27.1004H12.7998C12.4551 27.1004 12.1244 26.9634 11.8806 26.7196C11.6368 26.4758 11.4998 26.1452 11.4998 25.8004C11.4998 25.4556 11.6368 25.1249 11.8806 24.8812C12.1244 24.6374 12.4551 24.5004 12.7998 24.5004ZM26.7748 16.7004H22.2248L24.4998 11.2404L26.7748 16.7004ZM21.9817 18.0004H27.0179C26.8734 18.5582 26.5476 19.0523 26.0919 19.405C25.6361 19.7577 25.0761 19.9491 24.4998 19.9491C23.9235 19.9491 23.3636 19.7577 22.9078 19.405C22.4521 19.0523 22.1263 18.5582 21.9817 18.0004Z"
+                            fill="#003366"
+                          />
+                        </svg>
+
+                        <div class="information-title-text">
+                          Policies & Support
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="section-information-boxs">
+                      <div class="information-box">
+                        <div class="information-box-title">License :</div>
+                        <div class="information-box-text">Lorem ipsum</div>
+                      </div>
+
+                      <div class="information-box">
+                        <div class="information-box-title">
+                          Terms and Conditions :
+                        </div>
+                        <div class="information-box-text">
+                          Lorem ipsum dolor sit amet, consectetur lorem ipsum
+                          dolor
+                        </div>
+                      </div>
+
+                      <div class="information-box">
+                        <div class="information-box-title">
+                          Support and Resources :
+                        </div>
+                        <div class="information-box-text">
+                          Lorem ipsum dolor sit amet, consectetur lorem ipsum
+                          dolor sit amet, consectetur
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div class="preview-wrapper">
+                  <h3>Product Preview</h3>
+
+                  <div class="gallery-container">
+                    <div class="gallery-slides">
+                      <div class="gallery-slide" data-index="10">
+                        <img src="images/preview-img2.png" alt="Image 10" />
+                      </div>
+                      <div class="gallery-slide" data-index="1">
+                        <img src="images/preview-img1.png" alt="Image 1" />
+                      </div>
+                      <div class="gallery-slide active" data-index="2">
+                        <img src="images/preview-img2.png" alt="Image 2" />
+                      </div>
+                      <div class="gallery-slide" data-index="3">
+                        <img src="images/preview-img1.png" alt="Image 3" />
+                      </div>
+                      <div class="gallery-slide" data-index="4">
+                        <img src="images/preview-img2.png" alt="Image 4" />
+                      </div>
+                    </div>
+
+                    <div class="gallery-controls">
+                      <button class="gallery-prev">&#10094;</button>
+                      <span class="gallery-counter">2 / 10</span>
+                      <button class="gallery-next">&#10095;</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="content2" class="contents">
               <div class="tabs-section-item">
                 <div class="tabs-section-item-text">
                   <p>
@@ -3613,209 +959,236 @@
               </div>
             </div>
 
-            <div id="content2" class="contents">
-              <div class="tabs-section-item">
-                <div class="tabs-section-item-text">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
-                    cursus vitae congue mauris rhoncus aenean vel elit
-                    scelerisque.
-                  </p>
-
-                  <div class="tabs-section-item-text-other">
-                    <h4>How to use this resource :</h4>
-
-                    <div class="tabs-section-item-text-steps">
-                      <div class="tabs-section-item-text-step">
-                        <div class="step-number">
-                          <h5>1</h5>
-                        </div>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor.
-                        </p>
-                      </div>
-
-                      <div class="tabs-section-item-text-step">
-                        <div class="step-number">
-                          <h5>2</h5>
-                        </div>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua.
-                        </p>
-                      </div>
-
-                      <div class="tabs-section-item-text-step">
-                        <div class="step-number">
-                          <h5>3</h5>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur.</p>
-                      </div>
-
-                      <div class="tabs-section-item-text-step">
-                        <div class="step-number">
-                          <h5>4</h5>
-                        </div>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <div id="content3" class="contents">
               <div class="tabs-section-item">
                 <div class="tabs-section-author">
-                  <div class="tabs-section-author-profile">
-                    <div class="author-profile-content">
-                      <img
-                        src="./images/author.png"
-                        class="author-profile-img"
-                        alt="Author Image"
-                      />
+                  <div class="authors-wrapper">
+                    <div class="author-box">
+                      <div class="author-head">
+                        <img
+                          src="./images/author.png"
+                          alt="Author Img"
+                          class="author-photo"
+                        />
 
-                      <div class="author-profile-head">
-                        <a href="#">Anderson Cooper</a>
+                        <div class="author-info-warpper">
+                          <h4 class="author-name">Anderson Cooper</h4>
 
-                        <div class="author-profile-rate-wrapper">
-                          <div class="author-profile-rate">
-                            <svg
-                              width="16"
-                              height="15"
-                              viewBox="0 0 16 15"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M6.57342 1.39057C7.02244 0.00860715 8.97756 0.00861025 9.42659 1.39058L10.1329 3.56434C10.3337 4.18237 10.9096 4.60081 11.5595 4.60081H13.8451C15.2982 4.60081 15.9023 6.46024 14.7268 7.31434L12.8777 8.6578C12.3519 9.03976 12.1319 9.71681 12.3328 10.3348L13.0391 12.5086C13.4881 13.8906 11.9064 15.0398 10.7308 14.1857L8.88168 12.8422C8.35595 12.4602 7.64405 12.4602 7.11832 12.8422L5.26921 14.1857C4.09364 15.0398 2.51192 13.8906 2.96095 12.5086L3.66725 10.3348C3.86806 9.71681 3.64807 9.03976 3.12234 8.6578L1.27322 7.31434C0.0976527 6.46023 0.701818 4.60081 2.1549 4.60081H4.44053C5.09037 4.60081 5.66631 4.18237 5.86712 3.56434L6.57342 1.39057Z"
-                                fill="#FBBC1E"
-                              />
-                            </svg>
-                            <h4>4.9</h4>
+                          <div class="author-info">
+                            Role : <span>Lead Author</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="author-contents-wrapper">
+                        <div class="author-contents">
+                          <div class="author-content">
+                            <div class="author-content-title">
+                              Affiliation :
+                            </div>
+                            <div class="author-content-text">
+                              Oxford University
+                            </div>
                           </div>
 
-                          <svg
-                            width="4"
-                            height="4"
-                            viewBox="0 0 4 4"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <circle cx="2" cy="2" r="2" fill="#F5AA1C" />
-                          </svg>
-
-                          <h4 class="profile-vote-number">1,420 Votes</h4>
+                          <div class="author-content">
+                            <div class="author-content-title">Email :</div>
+                            <div class="author-content-text">
+                              AndersnCoper@gmail.com
+                            </div>
+                          </div>
                         </div>
+
+                        <hr />
+
+                        <p class="author-bio">
+                          Creator Bio :
+                          <span
+                            >Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor.</span
+                          >
+                        </p>
                       </div>
                     </div>
 
-                    <div class="author-profile-flw">
-                      <h4>9.4k Followers</h4>
+                    <div class="author-box">
+                      <div class="author-head">
+                        <img
+                          src="./images/author 2.png"
+                          alt="Author Img"
+                          class="author-photo"
+                        />
 
-                      <button class="reviews-item-top-btn" type="button">
-                        + Follow
-                      </button>
+                        <div class="author-info-warpper">
+                          <h4 class="author-name">Anderson Cooper</h4>
+
+                          <div class="author-info">
+                            Role : <span>Lead Author</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="author-contents-wrapper">
+                        <div class="author-contents">
+                          <div class="author-content">
+                            <div class="author-content-title">
+                              Affiliation :
+                            </div>
+                            <div class="author-content-text">
+                              Oxford University
+                            </div>
+                          </div>
+                        </div>
+
+                        <hr />
+
+                        <p class="author-bio">
+                          Creator Bio :
+                          <span>Lorem ipsum dolor sit amet, consectetur </span>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="author-box">
+                      <div class="author-head">
+                        <img
+                          src="./images/author 2.png"
+                          alt="Author Img"
+                          class="author-photo"
+                        />
+
+                        <div class="author-info-warpper">
+                          <h4 class="author-name">Anderson Cooper</h4>
+
+                          <div class="author-info">
+                            Role : <span>Lead Author</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="author-contents-wrapper">
+                        <div class="author-contents">
+                          <div class="author-content">
+                            <div class="author-content-title">
+                              Affiliation :
+                            </div>
+                            <div class="author-content-text">
+                              Oxford University
+                            </div>
+                          </div>
+
+                          <div class="author-content">
+                            <div class="author-content-title">Email :</div>
+                            <div class="author-content-text">
+                              AndersnCoper@gmail.com
+                            </div>
+                          </div>
+                        </div>
+
+                        <hr />
+
+                        <p class="author-bio">
+                          Creator Bio :
+                          <span
+                            >Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor.</span
+                          >
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="author-box">
+                      <div class="author-head">
+                        <img
+                          src="./images/author.png"
+                          alt="Author Img"
+                          class="author-photo"
+                        />
+
+                        <div class="author-info-warpper">
+                          <h4 class="author-name">Anderson Cooper</h4>
+
+                          <div class="author-info">
+                            Role : <span>Lead Author</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="author-contents-wrapper">
+                        <div class="author-contents">
+                          <div class="author-content">
+                            <div class="author-content-title">
+                              Affiliation :
+                            </div>
+                            <div class="author-content-text">
+                              Oxford University
+                            </div>
+                          </div>
+
+                          <div class="author-content">
+                            <div class="author-content-title">Email :</div>
+                            <div class="author-content-text">
+                              AndersnCoper@gmail.com
+                            </div>
+                          </div>
+                        </div>
+
+                        <hr />
+
+                        <p class="author-bio">
+                          Creator Bio :
+                          <span
+                            >Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor.</span
+                          >
+                        </p>
+                      </div>
                     </div>
                   </div>
 
-                  <div class="tabs-section-author-info-wrapper">
-                    <div class="tabs-section-author-info">
-                      <div class="author-info-items">
-                        <div class="author-info-item">
-                          <h4 class="author-info-item-head">From :</h4>
-                          <h4 class="author-info-item-sub">United States</h4>
-                        </div>
-
-                        <div class="author-info-item">
-                          <h4 class="author-info-item-head">Affiliation :</h4>
-                          <h4 class="author-info-item-sub">
-                            Oxford University
-                          </h4>
-                        </div>
-                      </div>
-
-                      <div class="author-info-items">
-                        <div class="author-info-item">
-                          <h4 class="author-info-item-head">Languages :</h4>
-                          <h4 class="author-info-item-sub">English</h4>
-                        </div>
-
-                        <div class="author-info-item">
-                          <h4 class="author-info-item-head">Field :</h4>
-                          <h4 class="author-info-item-sub">Management</h4>
-                        </div>
-                      </div>
-
-                      <div class="author-info-items">
-                        <div class="author-info-item">
-                          <h4 class="author-info-item-head">Member since :</h4>
-                          <h4 class="author-info-item-sub">Oct 2021</h4>
-                        </div>
-
-                        <div class="author-info-item">
-                          <h4 class="author-info-item-head">Title :</h4>
-                          <h4 class="author-info-item-sub">
-                            Full Professor in Management
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-
-                    <hr />
-
-                    <div class="author-accordions-title-down">
-                      <div class="author-accordion-items">
-                        <div class="author-accordion-item">
-                          <button id="accordion-button-1" aria-expanded="false">
-                            <div class="accordion-icon">
-                              <svg
-                                width="21"
-                                height="26"
-                                viewBox="0 0 21 26"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <g clip-path="url(#clip0_1561_96)">
-                                  <path
-                                    fill-rule="evenodd"
-                                    clip-rule="evenodd"
-                                    d="M5.82358 14.0389C5.85848 14.0042 5.90011 13.9766 5.94605 13.9577C5.99199 13.9389 6.04132 13.9292 6.09115 13.9292C6.14097 13.9292 6.1903 13.9389 6.23624 13.9577C6.28219 13.9766 6.32382 14.0042 6.35871 14.0389C6.42989 14.1094 6.4698 14.2044 6.4698 14.3034C6.4698 14.4024 6.42989 14.4974 6.35871 14.5679L5.70876 15.2026L6.35871 15.8374C6.42996 15.907 6.46999 16.0014 6.46999 16.0998C6.46999 16.1982 6.42996 16.2926 6.35871 16.3621C6.28746 16.4317 6.19083 16.4708 6.09007 16.4708C5.9893 16.4708 5.89267 16.4317 5.82142 16.3621L5.17146 15.7274L4.52151 16.3621C4.45082 16.4311 4.35497 16.4699 4.25503 16.4699C4.15509 16.4699 4.05924 16.4311 3.98855 16.3621C3.91737 16.2917 3.87746 16.1967 3.87746 16.0977C3.87746 15.9987 3.91737 15.9036 3.98855 15.8332L4.6385 15.1984L3.98855 14.5636C3.95318 14.5292 3.92511 14.4883 3.90596 14.4433C3.8868 14.3983 3.87694 14.35 3.87694 14.3013C3.87694 14.2525 3.8868 14.2042 3.90596 14.1592C3.92511 14.1142 3.95318 14.0733 3.98855 14.0389C4.02322 14.0045 4.06454 13.9773 4.1101 13.9586C4.15566 13.94 4.20456 13.9304 4.25395 13.9304C4.30334 13.9304 4.35223 13.94 4.39779 13.9586C4.44336 13.9773 4.48467 14.0045 4.51934 14.0389L5.1693 14.6737L5.81925 14.0389H5.82358ZM6.56886 1.10026H8.84154V0.349121C8.84153 0.256894 8.8789 0.168413 8.94547 0.103C9.01204 0.0375879 9.10241 0.000558953 9.19684 0L11.7967 0C11.8913 0.000555098 11.9819 0.0375156 12.0488 0.102869C12.1157 0.168222 12.1536 0.2567 12.1541 0.349121V1.10026H14.4311C14.5645 1.10081 14.6922 1.15264 14.7867 1.24452C14.8812 1.3364 14.9348 1.46093 14.9359 1.59115V2.44808C14.3687 2.83226 13.7668 3.16513 13.1377 3.44255C12.5315 3.71102 11.8984 3.91736 11.2485 4.05827V3.5695C11.2485 3.51986 11.2385 3.47071 11.219 3.42488C11.1995 3.37905 11.1709 3.33743 11.1348 3.30243C11.0988 3.26743 11.056 3.23973 11.009 3.22093C10.9619 3.20213 10.9115 3.19259 10.8607 3.19287H10.1371C10.0863 3.19259 10.0359 3.20213 9.98887 3.22093C9.94183 3.23973 9.89906 3.26743 9.86302 3.30243C9.82698 3.33743 9.79838 3.37905 9.77886 3.42488C9.75935 3.47071 9.7493 3.51986 9.7493 3.5695V4.04769C9.11574 3.90608 8.49814 3.70337 7.9056 3.44255C7.26137 3.15664 6.64562 2.8131 6.06623 2.41634V1.59115C6.0668 1.46113 6.11994 1.33659 6.21408 1.24465C6.30822 1.15271 6.43573 1.10082 6.56886 1.10026ZM10.8326 3.59701H10.1826C10.1776 3.597 10.1726 3.59799 10.168 3.59993C10.1634 3.60187 10.1592 3.60471 10.1558 3.60828C10.1523 3.61185 10.1496 3.61606 10.1479 3.62068C10.1462 3.62529 10.1455 3.63019 10.1458 3.63509V4.98503C10.1458 4.99457 10.1497 5.00372 10.1566 5.01046C10.1635 5.01721 10.1728 5.021 10.1826 5.021H10.8326C10.843 5.02108 10.853 5.0173 10.8607 5.01042C10.8639 5.00223 10.8639 4.99321 10.8607 4.98503V3.64144C10.8627 3.63192 10.8609 3.62202 10.8557 3.61376C10.8504 3.6055 10.8422 3.59951 10.8326 3.59701ZM11.5302 0.476074H9.46982C9.45833 0.476074 9.44731 0.480533 9.43918 0.488469C9.43106 0.496405 9.42649 0.507169 9.42649 0.518392V1.08545H11.5735V0.518392C11.5729 0.506978 11.5679 0.496212 11.5594 0.488332C11.551 0.480451 11.5397 0.476061 11.528 0.476074H11.5302ZM14.9359 3.2098V6.21859C14.9354 6.34897 14.8819 6.47383 14.7873 6.56582C14.6927 6.65782 14.5646 6.70947 14.4311 6.70947H6.56886C6.43573 6.70892 6.30822 6.65702 6.21408 6.56508C6.11994 6.47314 6.0668 6.34861 6.06623 6.21859V3.17383C6.54631 3.47356 7.0481 3.73875 7.56763 3.96729C8.26296 4.27096 8.98914 4.50217 9.73414 4.65706H9.7493V5.05062C9.74974 5.15107 9.79014 5.24743 9.86196 5.31934C9.89783 5.35429 9.9404 5.382 9.98724 5.40088C10.0341 5.41976 10.0843 5.42944 10.1349 5.42936H10.8586C10.9096 5.4296 10.9601 5.42 11.0074 5.40112C11.0546 5.38224 11.0975 5.35445 11.1337 5.31934C11.2055 5.24743 11.2459 5.15107 11.2464 5.05062V4.67188H11.307C12.0523 4.51803 12.7786 4.28679 13.4735 3.9821C13.9765 3.76101 14.463 3.50577 14.9294 3.21826L14.9359 3.2098ZM4.47818 4.72266H1.22841C1.19487 4.72427 1.16322 4.73828 1.13988 4.76186C1.11654 4.78544 1.10326 4.81682 1.10275 4.84961V24.7961C1.10329 24.8286 1.11664 24.8598 1.14003 24.883C1.16342 24.9063 1.19506 24.9198 1.22841 24.9209H19.7781C19.8114 24.9198 19.8431 24.9063 19.8665 24.883C19.8899 24.8598 19.9032 24.8286 19.9037 24.7961V4.84961C19.9027 4.81719 19.8892 4.78634 19.8659 4.76321C19.8426 4.74007 19.8113 4.72635 19.7781 4.72477H16.5283V3.6499H19.7781C20.1045 3.6499 20.4175 3.77652 20.6482 4.00191C20.879 4.22729 21.0087 4.53298 21.0087 4.85173V24.7982C21.0081 25.1167 20.8783 25.4221 20.6476 25.6474C20.417 25.8726 20.1043 25.9994 19.7781 26H1.23058C0.904385 25.9994 0.591715 25.8726 0.361061 25.6474C0.130407 25.4221 0.000572774 25.1167 0 24.7982L0 4.84961C0 4.53087 0.12965 4.22518 0.360428 3.99979C0.591206 3.77441 0.904209 3.64779 1.23058 3.64779H4.48035V4.72266H4.47818ZM16.7233 21.015C16.7992 21.0196 16.8753 21.009 16.9468 20.9838C17.0183 20.9586 17.0838 20.9194 17.1393 20.8686C17.1947 20.8177 17.2389 20.7563 17.269 20.6882C17.2992 20.62 17.3148 20.5465 17.3148 20.4722C17.3148 20.398 17.2992 20.3245 17.269 20.2563C17.2389 20.1882 17.1947 20.1268 17.1393 20.0759C17.0838 20.0251 17.0183 19.9859 16.9468 19.9607C16.8753 19.9355 16.7992 19.9249 16.7233 19.9295H9.316C9.24011 19.9249 9.16404 19.9355 9.09251 19.9607C9.02097 19.9859 8.95547 20.0251 8.90004 20.0759C8.84462 20.1268 8.80045 20.1882 8.77026 20.2563C8.74007 20.3245 8.72449 20.398 8.72449 20.4722C8.72449 20.5465 8.74007 20.62 8.77026 20.6882C8.80045 20.7563 8.84462 20.8177 8.90004 20.8686C8.95547 20.9194 9.02097 20.9586 9.09251 20.9838C9.16404 21.009 9.24011 21.0196 9.316 21.015H16.7233ZM16.7233 10.5794C16.871 10.5794 17.0126 10.5221 17.117 10.4202C17.2214 10.3182 17.2801 10.1799 17.2801 10.0356C17.2801 9.89143 17.2214 9.75311 17.117 9.65113C17.0126 9.54915 16.871 9.49186 16.7233 9.49186H9.316C9.16833 9.49186 9.02671 9.54915 8.92229 9.65113C8.81787 9.75311 8.75921 9.89143 8.75921 10.0356C8.75921 10.1799 8.81787 10.3182 8.92229 10.4202C9.02671 10.5221 9.16833 10.5794 9.316 10.5794H16.7233ZM16.7233 15.7253C16.7992 15.7299 16.8753 15.7193 16.9468 15.6941C17.0183 15.6689 17.0838 15.6297 17.1393 15.5789C17.1947 15.528 17.2389 15.4666 17.269 15.3984C17.2992 15.3303 17.3148 15.2568 17.3148 15.1825C17.3148 15.1083 17.2992 15.0348 17.269 14.9666C17.2389 14.8985 17.1947 14.8371 17.1393 14.7862C17.0838 14.7354 17.0183 14.6961 16.9468 14.671C16.8753 14.6458 16.7992 14.6352 16.7233 14.6398H9.316C9.24011 14.6352 9.16404 14.6458 9.09251 14.671C9.02097 14.6961 8.95547 14.7354 8.90004 14.7862C8.84462 14.8371 8.80045 14.8985 8.77026 14.9666C8.74007 15.0348 8.72449 15.1083 8.72449 15.1825C8.72449 15.2568 8.74007 15.3303 8.77026 15.3984C8.80045 15.4666 8.84462 15.528 8.90004 15.5789C8.95547 15.6297 9.02097 15.6689 9.09251 15.6941C9.16404 15.7193 9.24011 15.7299 9.316 15.7253H16.7233ZM4.02755 20.4437C3.98865 20.3911 3.96101 20.3314 3.94628 20.2682C3.93154 20.2049 3.93001 20.1394 3.94179 20.0756C3.95356 20.0118 3.9784 19.9509 4.0148 19.8967C4.05121 19.8424 4.09844 19.7959 4.15368 19.7599C4.20891 19.7239 4.27101 19.6991 4.33627 19.6871C4.40153 19.6751 4.4686 19.676 4.53348 19.6899C4.59835 19.7037 4.6597 19.7302 4.71386 19.7678C4.76801 19.8053 4.81386 19.8531 4.84865 19.9084L5.1173 20.3125L6.18323 19.043C6.26842 18.9513 6.38645 18.8951 6.51288 18.8861C6.63931 18.877 6.76446 18.9158 6.86244 18.9943C6.96042 19.0729 7.02372 19.1852 7.03924 19.3081C7.05476 19.431 7.02132 19.555 6.94584 19.6545L5.47044 21.4085C5.43564 21.45 5.3956 21.4869 5.35128 21.5186C5.2422 21.5889 5.1091 21.6144 4.98091 21.5894C4.85272 21.5644 4.73979 21.4911 4.66667 21.3853L4.02755 20.4585V20.4437ZM4.16187 9.87907C4.27129 9.80861 4.40473 9.7831 4.53328 9.80805C4.66182 9.833 4.77513 9.90641 4.84865 10.0124L5.1173 10.4017L6.18323 9.13216C6.22308 9.07965 6.27344 9.03559 6.33126 9.00267C6.38908 8.96974 6.45315 8.94864 6.51958 8.94063C6.58601 8.93263 6.65341 8.93789 6.71769 8.9561C6.78197 8.97431 6.84179 9.00509 6.89352 9.04657C6.94524 9.08805 6.9878 9.13936 7.01861 9.19739C7.04941 9.25542 7.06782 9.31896 7.07271 9.38416C7.07761 9.44935 7.06888 9.51483 7.04707 9.57663C7.02526 9.63843 6.99082 9.69525 6.94584 9.74365L5.47044 11.4956C5.43672 11.538 5.39653 11.5751 5.35128 11.6056C5.29745 11.641 5.23697 11.6656 5.17335 11.6781C5.10972 11.6905 5.0442 11.6906 4.98056 11.6782C4.91692 11.6658 4.85642 11.6412 4.80255 11.6059C4.74867 11.5706 4.70249 11.5252 4.66667 11.4723L4.02755 10.5477C3.95463 10.4412 3.92783 10.3109 3.953 10.1853C3.97817 10.0596 4.05326 9.94872 4.16187 9.87695V9.87907Z"
-                                    fill="#002754"
-                                  />
-                                </g>
-                                <defs>
-                                  <clipPath id="clip0_1561_96">
-                                    <rect width="21" height="26" fill="white" />
-                                  </clipPath>
-                                </defs>
-                              </svg>
-                              <span class="accordion-title"
-                                >How I am related to this product?</span
-                              >
-                            </div>
-                            <span class="icon" aria-hidden="true"></span>
-                          </button>
-                          <div class="accordion-content">
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit, sed do eiusmod tempor incididunt ut labore
-                              et dolore magna aliqua. Egestas purus viverra
-                              accumsan in nisl nisi. Arcu cursus vitae congue
-                              mauris rhoncus aenean vel elit scelerisque. In
-                              egestas erat imperdiet sed euismod nisi porta
-                              lorem mollis. Morbi tristique senectus et netus.
-                              Mattis pellentesque id nibh tortor id aliquet
-                              lectus proin.
-                            </p>
+                  <div class="author-accordions-title-down">
+                    <div class="author-accordion-items">
+                      <div class="author-accordion-item">
+                        <button id="accordion-button-1" aria-expanded="false">
+                          <div class="accordion-icon">
+                            <svg
+                              width="21"
+                              height="26"
+                              viewBox="0 0 21 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_1561_96)">
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M5.82358 14.0389C5.85848 14.0042 5.90011 13.9766 5.94605 13.9577C5.99199 13.9389 6.04132 13.9292 6.09115 13.9292C6.14097 13.9292 6.1903 13.9389 6.23624 13.9577C6.28219 13.9766 6.32382 14.0042 6.35871 14.0389C6.42989 14.1094 6.4698 14.2044 6.4698 14.3034C6.4698 14.4024 6.42989 14.4974 6.35871 14.5679L5.70876 15.2026L6.35871 15.8374C6.42996 15.907 6.46999 16.0014 6.46999 16.0998C6.46999 16.1982 6.42996 16.2926 6.35871 16.3621C6.28746 16.4317 6.19083 16.4708 6.09007 16.4708C5.9893 16.4708 5.89267 16.4317 5.82142 16.3621L5.17146 15.7274L4.52151 16.3621C4.45082 16.4311 4.35497 16.4699 4.25503 16.4699C4.15509 16.4699 4.05924 16.4311 3.98855 16.3621C3.91737 16.2917 3.87746 16.1967 3.87746 16.0977C3.87746 15.9987 3.91737 15.9036 3.98855 15.8332L4.6385 15.1984L3.98855 14.5636C3.95318 14.5292 3.92511 14.4883 3.90596 14.4433C3.8868 14.3983 3.87694 14.35 3.87694 14.3013C3.87694 14.2525 3.8868 14.2042 3.90596 14.1592C3.92511 14.1142 3.95318 14.0733 3.98855 14.0389C4.02322 14.0045 4.06454 13.9773 4.1101 13.9586C4.15566 13.94 4.20456 13.9304 4.25395 13.9304C4.30334 13.9304 4.35223 13.94 4.39779 13.9586C4.44336 13.9773 4.48467 14.0045 4.51934 14.0389L5.1693 14.6737L5.81925 14.0389H5.82358ZM6.56886 1.10026H8.84154V0.349121C8.84153 0.256894 8.8789 0.168413 8.94547 0.103C9.01204 0.0375879 9.10241 0.000558953 9.19684 0L11.7967 0C11.8913 0.000555098 11.9819 0.0375156 12.0488 0.102869C12.1157 0.168222 12.1536 0.2567 12.1541 0.349121V1.10026H14.4311C14.5645 1.10081 14.6922 1.15264 14.7867 1.24452C14.8812 1.3364 14.9348 1.46093 14.9359 1.59115V2.44808C14.3687 2.83226 13.7668 3.16513 13.1377 3.44255C12.5315 3.71102 11.8984 3.91736 11.2485 4.05827V3.5695C11.2485 3.51986 11.2385 3.47071 11.219 3.42488C11.1995 3.37905 11.1709 3.33743 11.1348 3.30243C11.0988 3.26743 11.056 3.23973 11.009 3.22093C10.9619 3.20213 10.9115 3.19259 10.8607 3.19287H10.1371C10.0863 3.19259 10.0359 3.20213 9.98887 3.22093C9.94183 3.23973 9.89906 3.26743 9.86302 3.30243C9.82698 3.33743 9.79838 3.37905 9.77886 3.42488C9.75935 3.47071 9.7493 3.51986 9.7493 3.5695V4.04769C9.11574 3.90608 8.49814 3.70337 7.9056 3.44255C7.26137 3.15664 6.64562 2.8131 6.06623 2.41634V1.59115C6.0668 1.46113 6.11994 1.33659 6.21408 1.24465C6.30822 1.15271 6.43573 1.10082 6.56886 1.10026ZM10.8326 3.59701H10.1826C10.1776 3.597 10.1726 3.59799 10.168 3.59993C10.1634 3.60187 10.1592 3.60471 10.1558 3.60828C10.1523 3.61185 10.1496 3.61606 10.1479 3.62068C10.1462 3.62529 10.1455 3.63019 10.1458 3.63509V4.98503C10.1458 4.99457 10.1497 5.00372 10.1566 5.01046C10.1635 5.01721 10.1728 5.021 10.1826 5.021H10.8326C10.843 5.02108 10.853 5.0173 10.8607 5.01042C10.8639 5.00223 10.8639 4.99321 10.8607 4.98503V3.64144C10.8627 3.63192 10.8609 3.62202 10.8557 3.61376C10.8504 3.6055 10.8422 3.59951 10.8326 3.59701ZM11.5302 0.476074H9.46982C9.45833 0.476074 9.44731 0.480533 9.43918 0.488469C9.43106 0.496405 9.42649 0.507169 9.42649 0.518392V1.08545H11.5735V0.518392C11.5729 0.506978 11.5679 0.496212 11.5594 0.488332C11.551 0.480451 11.5397 0.476061 11.528 0.476074H11.5302ZM14.9359 3.2098V6.21859C14.9354 6.34897 14.8819 6.47383 14.7873 6.56582C14.6927 6.65782 14.5646 6.70947 14.4311 6.70947H6.56886C6.43573 6.70892 6.30822 6.65702 6.21408 6.56508C6.11994 6.47314 6.0668 6.34861 6.06623 6.21859V3.17383C6.54631 3.47356 7.0481 3.73875 7.56763 3.96729C8.26296 4.27096 8.98914 4.50217 9.73414 4.65706H9.7493V5.05062C9.74974 5.15107 9.79014 5.24743 9.86196 5.31934C9.89783 5.35429 9.9404 5.382 9.98724 5.40088C10.0341 5.41976 10.0843 5.42944 10.1349 5.42936H10.8586C10.9096 5.4296 10.9601 5.42 11.0074 5.40112C11.0546 5.38224 11.0975 5.35445 11.1337 5.31934C11.2055 5.24743 11.2459 5.15107 11.2464 5.05062V4.67188H11.307C12.0523 4.51803 12.7786 4.28679 13.4735 3.9821C13.9765 3.76101 14.463 3.50577 14.9294 3.21826L14.9359 3.2098ZM4.47818 4.72266H1.22841C1.19487 4.72427 1.16322 4.73828 1.13988 4.76186C1.11654 4.78544 1.10326 4.81682 1.10275 4.84961V24.7961C1.10329 24.8286 1.11664 24.8598 1.14003 24.883C1.16342 24.9063 1.19506 24.9198 1.22841 24.9209H19.7781C19.8114 24.9198 19.8431 24.9063 19.8665 24.883C19.8899 24.8598 19.9032 24.8286 19.9037 24.7961V4.84961C19.9027 4.81719 19.8892 4.78634 19.8659 4.76321C19.8426 4.74007 19.8113 4.72635 19.7781 4.72477H16.5283V3.6499H19.7781C20.1045 3.6499 20.4175 3.77652 20.6482 4.00191C20.879 4.22729 21.0087 4.53298 21.0087 4.85173V24.7982C21.0081 25.1167 20.8783 25.4221 20.6476 25.6474C20.417 25.8726 20.1043 25.9994 19.7781 26H1.23058C0.904385 25.9994 0.591715 25.8726 0.361061 25.6474C0.130407 25.4221 0.000572774 25.1167 0 24.7982L0 4.84961C0 4.53087 0.12965 4.22518 0.360428 3.99979C0.591206 3.77441 0.904209 3.64779 1.23058 3.64779H4.48035V4.72266H4.47818ZM16.7233 21.015C16.7992 21.0196 16.8753 21.009 16.9468 20.9838C17.0183 20.9586 17.0838 20.9194 17.1393 20.8686C17.1947 20.8177 17.2389 20.7563 17.269 20.6882C17.2992 20.62 17.3148 20.5465 17.3148 20.4722C17.3148 20.398 17.2992 20.3245 17.269 20.2563C17.2389 20.1882 17.1947 20.1268 17.1393 20.0759C17.0838 20.0251 17.0183 19.9859 16.9468 19.9607C16.8753 19.9355 16.7992 19.9249 16.7233 19.9295H9.316C9.24011 19.9249 9.16404 19.9355 9.09251 19.9607C9.02097 19.9859 8.95547 20.0251 8.90004 20.0759C8.84462 20.1268 8.80045 20.1882 8.77026 20.2563C8.74007 20.3245 8.72449 20.398 8.72449 20.4722C8.72449 20.5465 8.74007 20.62 8.77026 20.6882C8.80045 20.7563 8.84462 20.8177 8.90004 20.8686C8.95547 20.9194 9.02097 20.9586 9.09251 20.9838C9.16404 21.009 9.24011 21.0196 9.316 21.015H16.7233ZM16.7233 10.5794C16.871 10.5794 17.0126 10.5221 17.117 10.4202C17.2214 10.3182 17.2801 10.1799 17.2801 10.0356C17.2801 9.89143 17.2214 9.75311 17.117 9.65113C17.0126 9.54915 16.871 9.49186 16.7233 9.49186H9.316C9.16833 9.49186 9.02671 9.54915 8.92229 9.65113C8.81787 9.75311 8.75921 9.89143 8.75921 10.0356C8.75921 10.1799 8.81787 10.3182 8.92229 10.4202C9.02671 10.5221 9.16833 10.5794 9.316 10.5794H16.7233ZM16.7233 15.7253C16.7992 15.7299 16.8753 15.7193 16.9468 15.6941C17.0183 15.6689 17.0838 15.6297 17.1393 15.5789C17.1947 15.528 17.2389 15.4666 17.269 15.3984C17.2992 15.3303 17.3148 15.2568 17.3148 15.1825C17.3148 15.1083 17.2992 15.0348 17.269 14.9666C17.2389 14.8985 17.1947 14.8371 17.1393 14.7862C17.0838 14.7354 17.0183 14.6961 16.9468 14.671C16.8753 14.6458 16.7992 14.6352 16.7233 14.6398H9.316C9.24011 14.6352 9.16404 14.6458 9.09251 14.671C9.02097 14.6961 8.95547 14.7354 8.90004 14.7862C8.84462 14.8371 8.80045 14.8985 8.77026 14.9666C8.74007 15.0348 8.72449 15.1083 8.72449 15.1825C8.72449 15.2568 8.74007 15.3303 8.77026 15.3984C8.80045 15.4666 8.84462 15.528 8.90004 15.5789C8.95547 15.6297 9.02097 15.6689 9.09251 15.6941C9.16404 15.7193 9.24011 15.7299 9.316 15.7253H16.7233ZM4.02755 20.4437C3.98865 20.3911 3.96101 20.3314 3.94628 20.2682C3.93154 20.2049 3.93001 20.1394 3.94179 20.0756C3.95356 20.0118 3.9784 19.9509 4.0148 19.8967C4.05121 19.8424 4.09844 19.7959 4.15368 19.7599C4.20891 19.7239 4.27101 19.6991 4.33627 19.6871C4.40153 19.6751 4.4686 19.676 4.53348 19.6899C4.59835 19.7037 4.6597 19.7302 4.71386 19.7678C4.76801 19.8053 4.81386 19.8531 4.84865 19.9084L5.1173 20.3125L6.18323 19.043C6.26842 18.9513 6.38645 18.8951 6.51288 18.8861C6.63931 18.877 6.76446 18.9158 6.86244 18.9943C6.96042 19.0729 7.02372 19.1852 7.03924 19.3081C7.05476 19.431 7.02132 19.555 6.94584 19.6545L5.47044 21.4085C5.43564 21.45 5.3956 21.4869 5.35128 21.5186C5.2422 21.5889 5.1091 21.6144 4.98091 21.5894C4.85272 21.5644 4.73979 21.4911 4.66667 21.3853L4.02755 20.4585V20.4437ZM4.16187 9.87907C4.27129 9.80861 4.40473 9.7831 4.53328 9.80805C4.66182 9.833 4.77513 9.90641 4.84865 10.0124L5.1173 10.4017L6.18323 9.13216C6.22308 9.07965 6.27344 9.03559 6.33126 9.00267C6.38908 8.96974 6.45315 8.94864 6.51958 8.94063C6.58601 8.93263 6.65341 8.93789 6.71769 8.9561C6.78197 8.97431 6.84179 9.00509 6.89352 9.04657C6.94524 9.08805 6.9878 9.13936 7.01861 9.19739C7.04941 9.25542 7.06782 9.31896 7.07271 9.38416C7.07761 9.44935 7.06888 9.51483 7.04707 9.57663C7.02526 9.63843 6.99082 9.69525 6.94584 9.74365L5.47044 11.4956C5.43672 11.538 5.39653 11.5751 5.35128 11.6056C5.29745 11.641 5.23697 11.6656 5.17335 11.6781C5.10972 11.6905 5.0442 11.6906 4.98056 11.6782C4.91692 11.6658 4.85642 11.6412 4.80255 11.6059C4.74867 11.5706 4.70249 11.5252 4.66667 11.4723L4.02755 10.5477C3.95463 10.4412 3.92783 10.3109 3.953 10.1853C3.97817 10.0596 4.05326 9.94872 4.16187 9.87695V9.87907Z"
+                                  fill="#002754"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_1561_96">
+                                  <rect width="21" height="26" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                            <span class="accordion-title"
+                              >How I am related to this product?</span
+                            >
                           </div>
+                          <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Egestas purus viverra accumsan
+                            in nisl nisi. Arcu cursus vitae congue mauris
+                            rhoncus aenean vel elit scelerisque. In egestas erat
+                            imperdiet sed euismod nisi porta lorem mollis. Morbi
+                            tristique senectus et netus. Mattis pellentesque id
+                            nibh tortor id aliquet lectus proin.
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -5022,13 +2395,70 @@
           <div class="row-fot">
             <div class="row">
               <div class="desc col-3">
-                <a href="/index.html">
-                  <img
-                    src="../images/image_59-removebg-preview (1) 1.png"
-                    alt=""
-                  />
-                  <h2>Unisuniverse</h2>
-                </a>
+                <a href="./index.html"
+                  ><span
+                    ><svg
+                      width="44"
+                      height="33"
+                      viewBox="0 0 44 33"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                    >
+                      <rect
+                        x="10.3906"
+                        y="10.3531"
+                        width="22.7765"
+                        height="22.2587"
+                        fill="url(#pattern0_1881_47)"
+                      />
+                      <rect
+                        width="44"
+                        height="27.4352"
+                        fill="url(#pattern1_1881_47)"
+                      />
+                      <defs>
+                        <pattern
+                          id="pattern0_1881_47"
+                          patternContentUnits="objectBoundingBox"
+                          width="1"
+                          height="1"
+                        >
+                          <use
+                            xlink:href="#image0_1881_47"
+                            transform="matrix(0.0244317 0 0 0.025 -0.000849752 0)"
+                          />
+                        </pattern>
+                        <pattern
+                          id="pattern1_1881_47"
+                          patternContentUnits="objectBoundingBox"
+                          width="1"
+                          height="1"
+                        >
+                          <use
+                            xlink:href="#image1_1881_47"
+                            transform="scale(0.0117647 0.018868)"
+                          />
+                        </pattern>
+                        <image
+                          id="image0_1881_47"
+                          width="41"
+                          height="40"
+                          preserveAspectRatio="none"
+                          xlink:href="data:image/png;base64,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"
+                        />
+                        <image
+                          id="image1_1881_47"
+                          width="85"
+                          height="53"
+                          preserveAspectRatio="none"
+                          xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAAA1CAMAAAAH31cyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALfUExURQAAAP/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Iff/nx/////////////////////+lLP/VnP////////+kKP/WoP////////////+gIP/YpP////+bEv+2U/////+aEv+ZEf////////////////////+aE/+cEv////////////////+AAP+aEv+aE/////////+qAP+aEv+YEf////+ZGv+aEf+ZEf+aE/////+hDf+bFP+VFfycE/ubE/+/AOWpHeSpHeSoHOapHeOoHOOnHOKpHeSoHuSkG+WqHOWqHd+fIP+/AP+2CPizDfu0C/+2CP+1CP+2CP+2Bv+/AP+2CP+2CP+2CP+1Cfy1Cv+2CP+3CP+2CPqzDP62Cf+2Cf+2CPSxEfy0C/+0CP+5BvCvE/21Cv+1B/+3Ce6uFfWxEP+zCOusGPGvEvKwEv+3CP+zCeerGv+1Cu+uFPeyD/+2CP+zDfizDvayD/+3CO+tFf+2CO2tFvezDv+2B/i0EPKmAIgeJ68AAAD1dFJOUwAEWMe7SCd2xf+6axw5iNfLfC1Lmundjj4PXaz77p9QIXC/sGESM4LRwnIjRZTj04Q0CFem9eSVRhppuPYse8poGT+N3Ml6KwJRoO/aizwUY7LsnE0mdcT9rl84h9ZKmejQgTL3z6tgVECnw5sos2wMk2Sv3+vnt4CXdHjb//8wTCSPGP//oxD//9Rm8/r/g++BRPRa+PHmkTv4VZLl9AYC/FGhkAb/TSAKSQ9EahNAGP9CBMP/84NsQHxMHNrCCAjf///LgP9QDPen55X//iDb//84+///XCj//288//9A////mzn/NP//mhTC/4ee4/+nI04Ucz2VdAAAAAlwSFlzAAAXEQAAFxEByibzPwAAA4xJREFUWEet1/d7U2UUB/ATS8Ug2CIIslKKg6FQGkCQUimyBGzYIpQhkDZJSWkooa0tO8isli0KyC4FRWZQNlJ42cqwKkMgbJCl8Af43psveZr05t6b9n5+aM55xzdP8vSePiWVdC+EVQhHrZUXK76k5yq9XBkLGqjySoSQKYis+ioWy6la9dcQKapR83VslF2t2nXqIs6nniEKu2VTP7oBkgK88eZbOBKytxs2QoiExk3ewbGQvNu0GQKCiGkei6NqGVu0bIXLMt5r3Qbn1Xi/bRzuKWnXsoURlxTEf9Aed1SJS+iAizI+7NgJx1Xr3KUrLkv7qFv3Hjgako8TTUgorWev3jgVuj59+yHFX/9PBuBE2Xw6cFAtRPkkDR6C3XJoEF0fcaKhwz7DRjkNHzESkRQV5GEXmJNTEhMsVpvAaolOTB2l8MSZ7Wlipm92BjKPTo/Vie/rx5GUPiay1CArYbSNKAx1oOQMh5CQMXhsjHOcuJLpTM6yZ2eY+Do5rJ9niouSssgYLbVtTieqnF7BjNZfREpOPP9LZs1CH8icy9/XmDFebCZMFF8EEWk0aSxqac3sk3U0JRVdSeapLvGbIp0lmbfTvvAu88/q0k1HKcOZM4PCA59FX6YoKlI/cxZ29KYOdlTyZs+htDzUIv9Mge3Lr7Cnd1VFoSifLKi40pnc3HnPv0oyoFA234FCX9cukUm0YCGFV+/D9xeFkGqgxeLr10u+QUyAb5fyH7Zly/XfhZDad4XwQGQuCzYKV65aLb66ppppjfeKCmt1/LMbpog3pawrWI/KRVK/h9LyC+UyiTYUbERFlII7yrIdcplE3xf8gIqoMe4o24QbwfxYsBkVkcxsDGDBjWC2bN2GypeaF2bIjUor7Old1BUmTbZkT4/xm4JW714w23e4d/6EmoSxEJlvk5iunDE2IdU35/gslfOzm9uFximOXjmxY7xDV+HYbiF1D5owFf8CGC1OnjoJXRB797nd+w+gEca9MmNunr4QdRAHfzlUdBi1aqY8hdQjjDuKRjWT5JzyOXZcSD2BTitHhVB2Ep1WTp0WUn/9Da1GzpzloefYebQa+b2Yp/7B/kSrjb/YBXaRHWKX0GvjMvubFbEr7Ah6bVxl11gx81y/gV4bN9kt5inyFJ9Cr43bp93szl3PlXvotXH/H5563fPgIXqtPHrseeL5dzs67fz39BmqciL6H5gtH0vQhqopAAAAAElFTkSuQmCC"
+                        />
+                      </defs>
+                    </svg>
+                  </span>
+                  <h2>Unisuniverse</h2></a
+                >
                 <p>
                   Your one-stop platform for academic growth. Connect with
                   students, professors, and universities to explore
@@ -5089,7 +2519,7 @@
                     </div>
                     <div class="lineheightfot">
                       Email:<br />
-                      info@Unisuniverse@gmail.com
+                      info@Unisuniverse.com
                     </div>
                   </li>
                 </ul>
@@ -5196,169 +2626,6 @@
       </div>
     </footer>
 
-    <script>
-      const navbarMenu = document.getElementById("navbar");
-      const burgerMenu = document.getElementById("burger");
-      const overlayMenu = document.querySelector(".overlay");
-
-      const toggleMenu = () => {
-        navbarMenu.classList.toggle("active");
-        overlayMenu.classList.toggle("active");
-      };
-
-      const collapseSubMenu = () => {
-        navbarMenu
-          .querySelector(".menu-dropdown.active .submenu")
-          .removeAttribute("style");
-        navbarMenu
-          .querySelector(".menu-dropdown.active")
-          .classList.remove("active");
-      };
-
-      const toggleSubMenu = (e) => {
-        if (e.target.hasAttribute("data-toggle") && window.innerWidth <= 992) {
-          e.preventDefault();
-          const menuDropdown = e.target.parentElement;
-
-          if (menuDropdown.classList.contains("active")) {
-            collapseSubMenu();
-          } else {
-            if (navbarMenu.querySelector(".menu-dropdown.active")) {
-              collapseSubMenu();
-            }
-
-            menuDropdown.classList.add("active");
-            const subMenu = menuDropdown.querySelector(".submenu");
-            subMenu.style.maxHeight = subMenu.scrollHeight + "px";
-          }
-        }
-      };
-
-      const resizeWindow = () => {
-        if (window.innerWidth > 992) {
-          if (navbarMenu.classList.contains("active")) {
-            toggleMenu();
-          }
-          if (navbarMenu.querySelector(".menu-dropdown.active")) {
-            collapseSubMenu();
-          }
-        }
-      };
-
-      burgerMenu.addEventListener("click", toggleMenu);
-      overlayMenu.addEventListener("click", toggleMenu);
-      navbarMenu.addEventListener("click", toggleSubMenu);
-      window.addEventListener("resize", resizeWindow);
-
-      // log in
-
-      let closeBut = document.getElementsByClassName("close")[0],
-        modal = document.getElementsByClassName("modal-cont")[0],
-        loginBut = document.getElementsByClassName("btn-md")[0],
-        loginRes = document.querySelector("#btn-md");
-
-      //close
-      function x() {
-        modal.style.display = "none";
-      }
-      closeBut.onclick = x;
-
-      loginBut.onclick = function () {
-        modal.style.display = "block";
-      };
-      loginRes.onclick = function () {
-        modal.style.display = "block";
-      };
-
-      window.onclick = function (e) {
-        if (e.target.className === "modal-cont") {
-          e.target.style.display = "none";
-        }
-      };
-
-      // new acc
-
-      let newAcc = document.getElementsByClassName("new-acc")[0],
-        popupBoxs = document.getElementsByClassName("popup-boxs")[0],
-        modalBox = document.getElementsByClassName("modal-box")[0];
-
-      newAcc.onclick = function () {
-        popupBoxs.style.display = "flex";
-        modalBox.style.display = "none";
-      };
-
-      // show more details
-
-      (function () {
-        const togglerEls = document.querySelectorAll(".toggler");
-
-        for (const togglerEl of togglerEls) {
-          togglerEl.addEventListener("click", function () {
-            const parentEl = togglerEl.parentNode;
-            const childrenEls = parentEl.children;
-
-            for (const childEl of childrenEls) {
-              childEl.style.display =
-                childEl.style.display === "none" ? "flex" : "none";
-            }
-
-            const showpanelEl = parentEl.parentNode.querySelector(".showpanel");
-            showpanelEl.style.display =
-              showpanelEl.style.display === "flex" ? "none" : "flex";
-          });
-        }
-      })();
-
-      // stars
-
-      const stars = document.querySelectorAll(".reviews-field-items-rate svg");
-
-      stars.forEach((star, index1) => {
-        star.addEventListener("click", () => {
-          stars.forEach((star, index2) => {
-            index1 >= index2
-              ? star.classList.add("active-star")
-              : star.classList.remove("active-star");
-          });
-        });
-      });
-
-      // img replace
-
-      document.addEventListener("DOMContentLoaded", function () {
-        const thumbnailImages = document.querySelectorAll(
-          ".product-img-wrapper img"
-        );
-        console.log(thumbnailImages);
-
-        thumbnailImages.forEach(function (thumbnailImage) {
-          thumbnailImage.addEventListener("click", function () {
-            const imageSource = this.getAttribute("src");
-            const largeImage = document.getElementById("grote_image");
-            largeImage.setAttribute("src", imageSource);
-          });
-        });
-      });
-
-      // acordion
-
-      const items = document.querySelectorAll(
-        ".author-accordions-title-down button"
-      );
-
-      function toggleAccordion() {
-        const itemToggle = this.getAttribute("aria-expanded");
-
-        for (i = 0; i < items.length; i++) {
-          items[i].setAttribute("aria-expanded", "false");
-        }
-
-        if (itemToggle == "false") {
-          this.setAttribute("aria-expanded", "true");
-        }
-      }
-
-      items.forEach((item) => item.addEventListener("click", toggleAccordion));
-    </script>
+    <script src="./main.js" defer></script>
   </body>
 </html>

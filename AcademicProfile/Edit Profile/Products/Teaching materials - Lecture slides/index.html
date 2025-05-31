@@ -5,1387 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unisuniverse</title>
 
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
-
-      :root {
-        --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
-          0 1px 2px 0 rgba(0, 0, 0, 0.06);
-        --shadow-medium: 0 13px 30px 0 rgba(0, 0, 0, 0.048),
-          0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-          0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        --color-text-black: #333333;
-        --color-text-grayblack: #666666;
-        --color-text-gray: #dcdcdc;
-        --color-background: #f7f9fb;
-        --color-line: #dcdcdc;
-        --color-white: #ffffff;
-        --primary-color: #003366;
-        --secondary-color: #ffd700;
-      }
-
-      *,
-      *::before,
-      *::after {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        list-style: none;
-        list-style-type: none;
-        text-decoration: none;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
-      }
-
-      html {
-        font-size: 100%;
-        box-sizing: inherit;
-        scroll-behavior: smooth;
-        height: -webkit-fill-available;
-      }
-
-      body {
-        font-family: "Outfit", sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 1.5;
-        color: var(--color-text-black);
-        background-color: var(--color-white);
-      }
-
-      a,
-      button {
-        cursor: pointer;
-        border: none;
-        outline: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        background: none;
-        box-shadow: none;
-        font-family: inherit;
-        letter-spacing: 0.2px;
-      }
-
-      img,
-      video {
-        display: block;
-        max-width: 100%;
-        height: auto;
-        -o-object-fit: cover;
-        object-fit: cover;
-      }
-
-      ::placeholder {
-        color: var(--color-text-gray);
-        letter-spacing: 0.2px;
-      }
-
-      button,
-      select,
-      input {
-        font-family: inherit;
-        letter-spacing: 0.25px;
-      }
-
-      .container {
-        max-width: 82%;
-        height: auto;
-      }
-
-      @media (min-width: 1700px) {
-        .container {
-          max-width: 1300px;
-        }
-      }
-
-      .mx {
-        margin: 0 auto;
-      }
-
-      .logo {
-        font-family: inherit;
-        font-size: 26px;
-        font-weight: 500;
-        line-height: 1.25;
-        color: var(--color-white);
-        letter-spacing: 0.2px;
-      }
-
-      .header {
-        position: sticky;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        z-index: 1999;
-        margin: 0 auto;
-        background-color: var(--primary-color);
-        border-bottom: 1px solid var(--color-white);
-      }
-
-      .wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        -moz-column-gap: 1rem;
-        column-gap: 1rem;
-        row-gap: 2rem;
-        width: 100%;
-        height: 110px;
-        margin: 0 auto;
-      }
-
-      .menu-item {
-        position: relative;
-        display: inline-block;
-        margin-left: 2.1rem;
-      }
-
-      .resnav {
-        display: none;
-      }
-
-      .menu-link {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        -moz-column-gap: 0.25rem;
-        column-gap: 0.25rem;
-        font-family: inherit;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: inherit;
-        cursor: pointer;
-        text-transform: capitalize;
-        color: var(--color-white);
-        transition: all 0.3s ease-in-out;
-        letter-spacing: 0.1px;
-      }
-
-      .menu-link > i.fa {
-        font-size: 14px;
-        line-height: 1.5;
-        color: var(--color-background);
-        margin-left: 2px;
-      }
-
-      .menu-link:hover {
-        outline: none;
-        color: var(--secondary-color);
-      }
-
-      @media only screen and (min-width: 993px) {
-        .menu-dropdown:hover > .submenu {
-          display: block;
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0);
-        }
-      }
-
-      .submenu {
-        position: absolute;
-        top: 3.2rem;
-        left: -2rem;
-        min-width: 13rem;
-        height: auto;
-        padding: 0 1rem 1rem;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(1rem);
-        border-radius: 0 0 0.25rem 0.25rem;
-        border-top: 2px solid var(--secondary-color);
-        box-shadow: var(--shadow-medium);
-        background-color: var(--color-white);
-        transition: all 0.3s ease-in-out;
-      }
-
-      .submenu-item {
-        display: block;
-        margin-top: 0.75rem;
-      }
-
-      .submenu-link {
-        font-family: inherit;
-        font-size: 1rem;
-        font-weight: 500;
-        line-height: inherit;
-        cursor: pointer;
-        color: var(--color-text-grayblack);
-        transition: all 0.35s ease;
-      }
-      .submenu-link:hover {
-        outline: none;
-        color: var(--secondary-color);
-      }
-
-      .btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .btn-md {
-        padding: 12px 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: inherit;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: inherit;
-        border-radius: 8px;
-        color: var(--primary-color);
-        background-color: var(--color-white);
-        transition: all 0.35s ease;
-        gap: 4px;
-        width: max-content;
-      }
-      .btn-md:hover {
-        background-color: var(--secondary-color);
-      }
-
-      .btn-md > i {
-        color: var(--primary-color);
-        font-size: 14px;
-      }
-
-      .btn-icon-menu {
-        margin-right: 15px;
-        color: var(--color-background);
-        transition: all 0.35s ease;
-        font-size: 16px;
-        display: flex;
-      }
-      .btn-icon-menu:hover {
-        color: var(--secondary-color);
-      }
-
-      .text-btn-wrapper {
-        margin-left: 12px;
-        font-size: 15px;
-        color: var(--color-white);
-        width: max-content;
-      }
-
-      .burger {
-        position: relative;
-        display: none;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        width: 1.4rem;
-        height: 1rem;
-        opacity: 0;
-        visibility: hidden;
-        background: transparent;
-      }
-      .burger-line {
-        position: absolute;
-        display: block;
-        right: 0;
-        width: 100%;
-        height: 2px;
-        opacity: 1;
-        border: none;
-        outline: none;
-        border-radius: 1rem;
-        background: var(--color-white);
-      }
-      .burger-line:nth-child(1) {
-        top: 0px;
-      }
-      .burger-line:nth-child(2) {
-        top: 0.5rem;
-        width: 70%;
-      }
-      .burger-line:nth-child(3) {
-        top: 1rem;
-      }
-
-      .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 9;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.35s ease-in-out;
-        background-color: rgba(0, 0, 0, 0.65);
-      }
-
-      @media only screen and (max-width: 992px) {
-        .navbar {
-          position: fixed;
-          top: 0;
-          left: -100%;
-          width: 75%;
-          height: 100%;
-          z-index: 10;
-          opacity: 0;
-          overflow-y: auto;
-          visibility: hidden;
-          box-shadow: var(--shadow-medium);
-          background-color: var(--primary-color);
-          transition: all 0.5s ease;
-        }
-        .navbar.active {
-          left: 0rem;
-          opacity: 1;
-          visibility: visible;
-        }
-        .menu {
-          width: 100%;
-          height: auto;
-          padding: 1rem 0;
-        }
-        .menu-item {
-          display: block;
-          margin: 0 auto;
-        }
-        .menu-link {
-          justify-content: space-between;
-          padding: 1rem 2rem;
-        }
-        .submenu {
-          position: relative;
-          top: -0.5rem;
-          left: 2.5rem;
-          width: 100%;
-          max-height: 0;
-          padding: 0px;
-          border: none;
-          outline: none;
-          opacity: 1;
-          overflow: hidden;
-          visibility: visible;
-          transform: translateY(0px);
-          box-shadow: none;
-          background: transparent;
-        }
-        .submenu-link {
-          color: var(--color-text-gray);
-        }
-        .burger {
-          display: block;
-          opacity: 1;
-          visibility: visible;
-        }
-        .btn-md,
-        .text-btn-wrapper {
-          display: none;
-        }
-        .overlay.active {
-          display: block;
-          opacity: 1;
-          visibility: visible;
-        }
-      }
-
-      @media only screen and (max-width: 450px) {
-        .logo {
-          font-size: 22px;
-        }
-        .btn-icon-menu {
-          margin-right: 14px;
-        }
-      }
-
-      .icon-down:hover {
-        filter: var(--secondary-color);
-      }
-
-      /* breadcrumb */
-
-      .breadcrumb {
-        color: var(--color-text-gray);
-        font-size: 14px;
-        font-weight: 500;
-        padding: 24px 0;
-      }
-
-      .breadcrumb > span {
-        color: #ffc300;
-      }
-
-      /* main section aside */
-
-      .edit-acc {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      .edit-acc aside {
-        flex-basis: 30.5%;
-      }
-
-      .side-menu-wrapper {
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        background-color: var(--color-white);
-        border-radius: 24px;
-        box-shadow: var(--shadow-medium);
-      }
-
-      .side-menu-wrapper nav,
-      ul {
-        width: 100%;
-      }
-
-      .side-menu-items {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 118px;
-      }
-
-      .side-menu-items-profile {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-      }
-
-      .side-menu-item-profile {
-        display: flex;
-        width: 100%;
-        padding: 14px 14px;
-        align-items: center;
-        gap: 12px;
-        border-radius: 12px;
-      }
-
-      .side-menu-item-profile > h4 {
-        font-size: 16px;
-        font-weight: 500;
-        color: var(--color-text-grayblack);
-        cursor: pointer;
-      }
-
-      .side-menu-item-profile-icon {
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        color: var(--color-text-grayblack);
-        width: 24px;
-        height: 24px;
-      }
-
-      .side-menu-item {
-        width: 100%;
-      }
-
-      .sub-menu-wrapper {
-        padding: 4px 0 14px 52px;
-        display: none;
-      }
-
-      .show {
-        display: block;
-        animation: slideDown 0.4s ease-in-out;
-      }
-
-      @keyframes slideDown {
-        from {
-          opacity: 0;
-        }
-        to {
-          height: auto;
-          opacity: 1;
-        }
-      }
-
-      .sub-menu-contents {
-        margin-bottom: 12px;
-      }
-
-      .sub-menu {
-        display: flex;
-        align-items: center;
-        gap: 9px;
-        align-self: stretch;
-      }
-
-      .sub-menu-icon {
-        color: var(--color-text-grayblack);
-        transition: all 0.2s ease-in-out;
-        display: flex;
-      }
-
-      .sub-menu-title {
-        color: var(--color-text-grayblack);
-        font-size: 15px;
-        font-weight: 400;
-        transition: all 0.2s ease-in-out;
-      }
-
-      .sub-menu:hover .sub-menu-title,
-      .sub-menu:hover .sub-menu-icon {
-        color: var(--primary-color);
-        font-weight: 500;
-      }
-
-      .checked-tab {
-        background: #ffd90017;
-      }
-      .checked-tab > h4,
-      .checked-tab .side-menu-item-profile-icon {
-        color: var(--primary-color);
-      }
-
-      .log-out > h4,
-      .log-out .side-menu-item-profile-icon {
-        color: #f42e17;
-      }
-
-      .edit-section-wrapper {
-        flex-basis: 65.5%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 50px;
-      }
-
-      .edit-section-title-add {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        width: 100%;
-      }
-
-      .edit-section-title {
-        font-size: 24px;
-        font-weight: 600;
-        color: var(--primary-color);
-      }
-
-      .edit-section-title-add > p {
-        font-size: 15px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .edit-section-item-title-wrapper {
-        width: 100%;
-      }
-
-      .edit-section-item-title {
-        font-size: 19px;
-        font-weight: 600;
-        color: var(--color-text-black);
-        border-bottom: 1px solid var(--color-line);
-        padding-bottom: 8px;
-      }
-
-      .stage {
-        width: 100%;
-      }
-
-      .edit-section-forms {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 60px;
-        width: inherit;
-      }
-      .edit-section-forms form {
-        width: 100%;
-      }
-
-      #authors-container {
-        margin-bottom: 40px;
-      }
-
-      .new-author-wrapper {
-        padding-top: 18px;
-        margin-top: 16px;
-      }
-
-      .new-author-top-contents {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        margin-bottom: -8px;
-      }
-
-      .new-author-top-contents > span {
-        font-size: 17px;
-        font-weight: 600;
-        color: var(--color-text-black);
-      }
-
-      .new-author-top-contents > button {
-        padding: 3px 6px;
-        border: 1px solid #f42e17;
-        font-size: 14px;
-        color: #f42e17;
-        border-radius: 4px;
-      }
-
-      .user_details {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-top: 12px;
-      }
-
-      .user_details > hr {
-        width: 100%;
-        background-color: var(--color-line);
-        outline: none;
-        border: none;
-        height: 1px;
-        margin: -8px 0 20px 0;
-      }
-
-      .input-tags-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 28px;
-        width: 100%;
-      }
-
-      .input-tags {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-top: 16px;
-      }
-
-      .input-tag {
-        font-size: 14px;
-        font-weight: 400;
-        color: var(--primary-color);
-        border: 1px solid var(--primary-color);
-        border-radius: 4px;
-        padding: 3px 6px;
-        cursor: pointer;
-        text-transform: capitalize;
-      }
-
-      .input-tag-clicked {
-        background-color: var(--primary-color);
-        color: var(--color-white);
-      }
-
-      .input_pox {
-        margin: 16px 0 26px 0;
-        width: calc(100% / 2 - 20px);
-      }
-
-      .datails,
-      .information-title {
-        display: block;
-        font-weight: 500;
-        font-size: 16px;
-        margin-bottom: 5px;
-        color: var(--color-text-grayblack);
-      }
-
-      .datails > span,
-      .information-title > span {
-        font-weight: 400;
-        font-size: 14px;
-      }
-
-      .input_pox input,
-      .select-input {
-        width: 100%;
-        outline: none;
-        border-radius: 8px;
-        border: 1px solid var(--color-line);
-        padding: 13px 14px;
-        font-size: 15px;
-        transition: all 0.3s ease;
-        font-family: inherit;
-      }
-
-      .input_pox textarea {
-        width: 100%;
-        height: 150px;
-        outline: none;
-        border-radius: 10px;
-        border: 1px solid var(--color-line);
-        padding: 12px 14px;
-        font-size: 15px;
-        transition: all 0.3s ease;
-        resize: none;
-        font-family: inherit;
-      }
-
-      .select-input {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        cursor: pointer;
-      }
-
-      .select-input {
-        background-image: linear-gradient(45deg, transparent 50%, #151515 50%),
-          linear-gradient(135deg, #151515 50%, transparent 50%),
-          linear-gradient(to right, #ccc, #ccc);
-        background-position: calc(100% - 20px) calc(1em + 4px),
-          calc(100% - 15px) calc(1em + 4px), calc(100% - 2.5em) 0.68em;
-        background-size: 5px 5px, 5px 5px, 1px 1.5em;
-        background-repeat: no-repeat;
-      }
-
-      .select-input:focus {
-        background-image: linear-gradient(45deg, gray 50%, transparent 50%),
-          linear-gradient(135deg, transparent 50%, gray 50%),
-          linear-gradient(to right, #ccc, #ccc);
-        background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-          calc(100% - 2.5em) 0.5em;
-        background-size: 5px 5px, 5px 5px, 1px 1.5em;
-        background-repeat: no-repeat;
-        border-color: var(--primary-color);
-        outline: 0;
-      }
-
-      .input_pox select option {
-        background-color: #f6f6f6;
-      }
-
-      select:-moz-focusring {
-        color: transparent;
-        text-shadow: 0 0 0 #000;
-      }
-
-      .user_details .input_pox input:focus,
-      .user_details .input_pox select:focus,
-      .input_pox textarea:focus {
-        border-color: var(--primary-color);
-      }
-
-      .user_details input::-webkit-outer-spin-button,
-      .user_details input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-
-      .user_details input[type="number"] {
-        -moz-appearance: textfield;
-      }
-
-      .inner-inputs-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .edit-section-buttons-step {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        margin-top: 38px;
-      }
-
-      .edit-section-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-      }
-
-      .text-btn-sv {
-        color: var(--color-text-black);
-        font-size: 15px;
-        font-weight: 500;
-        text-decoration: underline;
-        transition: all 0.3s ease-in-out;
-      }
-
-      .btn-medium {
-        padding: 13px 24px;
-        background-color: var(--primary-color);
-        color: var(--color-white);
-        font-size: 15px;
-        font-weight: 500;
-        border-radius: 8px;
-        transition: all 0.3s ease-in-out;
-        border: 1px solid var(--primary-color);
-      }
-      .btn-medium:hover {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-      }
-
-      .out-btn {
-        padding: 11px 24px;
-        border: 1px solid var(--primary-color);
-        color: var(--primary-color);
-        font-size: 15px;
-        font-weight: 500;
-        border-radius: 8px;
-        transition: all 0.3s ease-in-out;
-        text-align: center;
-      }
-      .out-btn:hover,
-      .text-btn-sv:hover {
-        opacity: 0.75;
-      }
-
-      .optional-lng::placeholder {
-        font-size: 14px;
-      }
-
-      .checkbox-warpper {
-        margin: -18px 0;
-      }
-
-      .checkboxContainer {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        margin: 16px 0;
-      }
-
-      .checkboxContainer label {
-        padding-left: 10px;
-        color: var(--color-text-black);
-        font-weight: 500;
-        font-size: 15px;
-      }
-
-      .checkboxContainer label a {
-        color: var(--primary-color);
-        font-weight: 500;
-        font-size: 15px;
-      }
-
-      .checkboxContainer input[type="checkbox"] {
-        width: 15px;
-        height: 15px;
-      }
-      .checkbox:checked {
-        accent-color: var(--primary-color);
-      }
-
-      .information-edit {
-        margin: 18px 0 28px 0;
-      }
-
-      /* Drop Zoon */
-
-      .photo-upld {
-        width: 100%;
-        height: 220px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        margin: 10px 0;
-        padding: 0 16px;
-        border-radius: 10px;
-        cursor: pointer;
-        border: 1.5px dashed var(--color-text-grayblack);
-      }
-
-      .photo-upld :where(svg, p) {
-        color: var(--color-text-grayblack);
-        opacity: 0.6;
-      }
-
-      .photo-upld p {
-        font-size: 15px;
-        margin-top: 6px;
-        text-align: center;
-      }
-
-      .upload-text {
-        font-size: 15px;
-        margin: 20px 0;
-        border: 1px solid var(--color-line);
-        padding: 12px;
-        border-radius: 6px;
-        color: var(--color-text-grayblack);
-      }
-
-      .row-upload {
-        background: var(--color-white);
-        margin-bottom: 10px;
-        list-style: none;
-        padding: 15px 20px;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .row-upload svg {
-        color: var(--primary-color);
-      }
-
-      .details span {
-        font-size: 14px;
-      }
-
-      .progress-area .row-upload .content {
-        width: 100%;
-        margin-left: 15px;
-      }
-
-      .progress-area .details {
-        display: flex;
-        align-items: center;
-        margin-bottom: 7px;
-        justify-content: space-between;
-      }
-
-      .progress-area .progress-bar {
-        height: 5px;
-        width: 100%;
-        background: var(--color-background);
-        margin-bottom: 4px;
-        border-radius: 30px;
-      }
-
-      .progress-bar .progress {
-        height: 100%;
-        width: 50%;
-        background: var(--primary-color);
-        border-radius: inherit;
-      }
-
-      .uploaded-area .row-upload .content {
-        display: flex;
-        align-items: center;
-      }
-      .uploaded-area .row-upload .details {
-        display: flex;
-        margin-left: 15px;
-        flex-direction: column;
-      }
-
-      .img-size {
-        font-size: 12px;
-        color: var(--color-text-grayblack);
-      }
-
-      .uploaded-area .fa-check {
-        color: var(--primary-color);
-        font-size: 16px;
-      }
-
-      .edit-section-items-steps {
-        width: 100%;
-      }
-
-      .stage.hidden {
-        display: none;
-      }
-
-      #characterCount {
-        font-family: inherit;
-        font-size: 14px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      @media only screen and (min-width: 1670px) {
-        .edit-section-item-tab > .marg-label {
-          margin-left: 24px;
-        }
-        .label-tab {
-          font-size: 17px;
-        }
-        #characterCount {
-          font-size: 16px;
-        }
-      }
-
-      @media only screen and (max-width: 1290px) {
-        .label-tab {
-          font-size: 14px;
-        }
-      }
-
-      @media only screen and (max-width: 1157px) {
-        .label-tab {
-          font-size: 13px;
-          padding: 16px 2px;
-        }
-      }
-
-      @media only screen and (max-width: 970px) {
-        .edit-acc {
-          flex-direction: column;
-          gap: 70px;
-        }
-        .stage {
-          flex-basis: 100%;
-          width: -webkit-fill-available;
-        }
-        .edit-acc aside {
-          flex-basis: 100%;
-          width: -webkit-fill-available;
-        }
-        .label-tab {
-          font-size: 15px;
-          padding: 16px 6px;
-        }
-        .input_pox input::placeholder {
-          font-size: 14px;
-        }
-        .input_pox {
-          width: calc(100% / 2 - 10px);
-        }
-      }
-
-      @media only screen and (max-width: 802px) {
-        .mx {
-          overflow: hidden;
-        }
-
-        .label-tab {
-          font-size: 13px;
-          padding: 16px 4px;
-        }
-      }
-
-      @media only screen and (max-width: 675px) {
-        .label-tab {
-          font-size: 13px;
-          padding: 16px 4px;
-        }
-        .contents {
-          margin-top: 20px;
-        }
-        .label-tab {
-          font-size: 17px;
-          background-color: var(--color-white);
-          border: 1.5px solid transparent;
-          width: 100%;
-        }
-        .edit-section-item-tab input:checked + .label-tab {
-          color: var(--secondary-color);
-          font-weight: 500;
-          border: 1.5px solid var(--secondary-color);
-          border-radius: 10px;
-        }
-        .inner-inputs-wrapper {
-          gap: 6px;
-        }
-      }
-
-      @media only screen and (max-width: 540px) {
-        .input_pox {
-          margin-bottom: 15px;
-          width: 100%;
-        }
-        .information-edit {
-          margin-bottom: 15px;
-        }
-        .edit-section-buttons-step {
-          flex-direction: column-reverse;
-          gap: 32px;
-          width: 100%;
-        }
-        .edit-section-buttons-step a {
-          width: inherit;
-        }
-        .photo-upld p,
-        .upload-text {
-          font-size: 13px;
-        }
-        .input-tags-wrapper {
-          flex-direction: column;
-          align-items: start;
-          gap: 0px;
-          margin-bottom: 16px;
-        }
-        .input-tags {
-          margin: 8px 0;
-        }
-        .datails,
-        .information-title {
-          font-size: 15px;
-        }
-      }
-
-      @media only screen and (max-width: 420px) {
-        .edit-section-title {
-          font-size: 20px;
-        }
-        .edit-section-item-title {
-          font-size: 17px;
-        }
-      }
-
-      @media only screen and (max-width: 410px) {
-        .label-tab {
-          font-size: 14px;
-        }
-        .custom-file-upload {
-          font-size: 14px;
-        }
-        .edit-section-photo {
-          width: 68px;
-          height: 68px;
-          margin: -10px 0 0 10px;
-        }
-        .btn-chng-img {
-          left: 22px;
-        }
-        .custom-file-upload-photo {
-          font-size: 12px;
-          padding: 5px;
-        }
-      }
-
-      .wf {
-        width: 100%;
-      }
-
-      .text-btn {
-        font-size: 15px;
-        font-weight: 500;
-        color: var(--primary-color);
-        cursor: pointer;
-        text-decoration: underline;
-        text-underline-offset: 5px;
-        margin: 10px 0;
-        transition: all 0.2s ease-in-out;
-      }
-
-      .text-btn:hover {
-        opacity: 0.7;
-      }
-
-      /*footer*/
-
-      
-     .footer-background {
-        background-color: var(--primary-color);
-        margin-top: 90px;
-      }
-
-      .col-6 {
-        width: 100%;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .col-3 > h4 {
-        padding: 20px 0 20px 0;
-        color: var(--color-white);
-        font-weight: 500;
-      }
-
-      .desc a {
-        display: flex;
-        align-items: center;
-      }
-
-      .desc a > h2 {
-        font-size: 20px;
-        margin-left: 10px;
-        font-weight: 600;
-        color: var(--color-white);
-      }
-
-      .desc > p {
-        margin-top: 10px;
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--color-white);
-        width: 85%;
-      }
-
-      .row-fot {
-        border-bottom: 1px solid var(--color-line);
-        padding: 2em 0 2.5em 0;
-      }
-
-      footer .row {
-        position: relative;
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        grid-gap: 30px;
-        align-items: center;
-      }
-
-      footer ul {
-        padding: 0;
-        -webkit-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-      }
-
-      footer ul li {
-        list-style-type: none;
-        padding: 0;
-        -webkit-transition: all 0.5s ease-in-out;
-        transition: all 0.5s ease-in-out;
-        line-height: 2;
-      }
-
-      .footer-cat-links a {
-        color: var(--color-text-gray);
-        font-size: 16px;
-        font-weight: 400;
-        text-decoration: none;
-        position: relative;
-      }
-
-      .footer-cat-links.active > li a {
-        pointer-events: auto;
-      }
-
-      .footer-cat-links a:after {
-        top: 21px;
-        content: "";
-        display: block;
-        height: 2px;
-        left: 50%;
-        position: absolute;
-        width: 0;
-        background: var(--secondary-color);
-        -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
-        transition: width 0.3s ease 0s, left 0.3s ease 0s;
-      }
-
-      .footer-cat-links a:hover:after,
-      .footer-cat-links a:focus:after {
-        width: 100%;
-        left: 0;
-      }
-
-      .social-links {
-        margin-top: 65px;
-      }
-
-      .social-links a {
-        color: var(--color-white);
-        border: 1px solid;
-        border-radius: 20px;
-        padding: 7px;
-        -webkit-transition: all 0.2s ease-in;
-        transition: all 0.2s ease-in;
-      }
-
-      .social-links a:not(:last-child) {
-        margin-right: 10px;
-      }
-
-      .social-links a:hover,
-      .social-links a:focus {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-      }
-
-      .social-links a svg {
-        width: 24px;
-        height: 24px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .copyowner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        color: var(--color-text-gray);
-        opacity: 0.6;
-        font-size: 14px;
-        padding: 30px 0 44px 0;
-      }
-
-      #owner a {
-        font-size: 14px;
-        color: var(--color-text-gray);
-      }
-
-      #owner a:hover {
-        color: var(--secondary-color);
-        opacity: 1;
-      }
-
-      .contact {
-        padding-bottom: 80px;
-      }
-
-      .contact > ul > li {
-        display: flex;
-      }
-
-      .contact > ul {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding-top: 6px;
-      }
-
-      .lineheightfot {
-        font-size: 16px;
-        line-height: 1.5;
-        margin-left: 12px;
-        color: var(--color-text-gray);
-      }
-
-      .iconfo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        color: var(--secondary-color);
-      }
-
-      @media only screen and (max-width: 992px) {
-        footer .row {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
-
-      @media only screen and (max-width: 576px) {
-        footer .row {
-          display: block;
-        }
-        .col-3 {
-          margin-bottom: 28px;
-        }
-        .contact {
-          padding-bottom: 0;
-        }
-      }
-
-      @media only screen and (max-width: 450px) {
-        .copyowner {
-          flex-direction: column;
-        }
-        .format > h4 {
-          font-size: 14px;
-        }
-      }
-
-      .toggle-display {
-        display: flex;
-      }
-    </style>
+    <link rel="stylesheet" href="../../../../css/base/reset.css" />
+    <link
+      rel="stylesheet"
+      href="../../../../css/components/header-logined.css"
+    />
+    <link rel="stylesheet" href="../../../../css/components/footer.css" />
+    <link
+      rel="stylesheet"
+      href="../../../../css/pages/Services/forms/allFormPages.css"
+    />
   </head>
   <body>
     <header class="header" id="header">
       <section class="wrapper container">
-        <a href="./index.html" class="logo">Unisuniverse</a>
+        <a href="./index.html" class="logo"
+          ><span
+            ><svg
+              width="44"
+              height="33"
+              viewBox="0 0 44 33"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <rect
+                x="10.3906"
+                y="10.3531"
+                width="22.7765"
+                height="22.2587"
+                fill="url(#pattern0_1881_47)"
+              />
+              <rect width="44" height="27.4352" fill="url(#pattern1_1881_47)" />
+              <defs>
+                <pattern
+                  id="pattern0_1881_47"
+                  patternContentUnits="objectBoundingBox"
+                  width="1"
+                  height="1"
+                >
+                  <use
+                    xlink:href="#image0_1881_47"
+                    transform="matrix(0.0244317 0 0 0.025 -0.000849752 0)"
+                  />
+                </pattern>
+                <pattern
+                  id="pattern1_1881_47"
+                  patternContentUnits="objectBoundingBox"
+                  width="1"
+                  height="1"
+                >
+                  <use
+                    xlink:href="#image1_1881_47"
+                    transform="scale(0.0117647 0.018868)"
+                  />
+                </pattern>
+                <image
+                  id="image0_1881_47"
+                  width="41"
+                  height="40"
+                  preserveAspectRatio="none"
+                  xlink:href="data:image/png;base64,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"
+                />
+                <image
+                  id="image1_1881_47"
+                  width="85"
+                  height="53"
+                  preserveAspectRatio="none"
+                  xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAAA1CAMAAAAH31cyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALfUExURQAAAP/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Iff/nx/////////////////////+lLP/VnP////////+kKP/WoP////////////+gIP/YpP////+bEv+2U/////+aEv+ZEf////////////////////+aE/+cEv////////////////+AAP+aEv+aE/////////+qAP+aEv+YEf////+ZGv+aEf+ZEf+aE/////+hDf+bFP+VFfycE/ubE/+/AOWpHeSpHeSoHOapHeOoHOOnHOKpHeSoHuSkG+WqHOWqHd+fIP+/AP+2CPizDfu0C/+2CP+1CP+2CP+2Bv+/AP+2CP+2CP+2CP+1Cfy1Cv+2CP+3CP+2CPqzDP62Cf+2Cf+2CPSxEfy0C/+0CP+5BvCvE/21Cv+1B/+3Ce6uFfWxEP+zCOusGPGvEvKwEv+3CP+zCeerGv+1Cu+uFPeyD/+2CP+zDfizDvayD/+3CO+tFf+2CO2tFvezDv+2B/i0EPKmAIgeJ68AAAD1dFJOUwAEWMe7SCd2xf+6axw5iNfLfC1Lmundjj4PXaz77p9QIXC/sGESM4LRwnIjRZTj04Q0CFem9eSVRhppuPYse8poGT+N3Ml6KwJRoO/aizwUY7LsnE0mdcT9rl84h9ZKmejQgTL3z6tgVECnw5sos2wMk2Sv3+vnt4CXdHjb//8wTCSPGP//oxD//9Rm8/r/g++BRPRa+PHmkTv4VZLl9AYC/FGhkAb/TSAKSQ9EahNAGP9CBMP/84NsQHxMHNrCCAjf///LgP9QDPen55X//iDb//84+///XCj//288//9A////mzn/NP//mhTC/4ee4/+nI04Ucz2VdAAAAAlwSFlzAAAXEQAAFxEByibzPwAAA4xJREFUWEet1/d7U2UUB/ATS8Ug2CIIslKKg6FQGkCQUimyBGzYIpQhkDZJSWkooa0tO8isli0KyC4FRWZQNlJ42cqwKkMgbJCl8Af43psveZr05t6b9n5+aM55xzdP8vSePiWVdC+EVQhHrZUXK76k5yq9XBkLGqjySoSQKYis+ioWy6la9dcQKapR83VslF2t2nXqIs6nniEKu2VTP7oBkgK88eZbOBKytxs2QoiExk3ewbGQvNu0GQKCiGkei6NqGVu0bIXLMt5r3Qbn1Xi/bRzuKWnXsoURlxTEf9Aed1SJS+iAizI+7NgJx1Xr3KUrLkv7qFv3Hjgako8TTUgorWev3jgVuj59+yHFX/9PBuBE2Xw6cFAtRPkkDR6C3XJoEF0fcaKhwz7DRjkNHzESkRQV5GEXmJNTEhMsVpvAaolOTB2l8MSZ7Wlipm92BjKPTo/Vie/rx5GUPiay1CArYbSNKAx1oOQMh5CQMXhsjHOcuJLpTM6yZ2eY+Do5rJ9niouSssgYLbVtTieqnF7BjNZfREpOPP9LZs1CH8icy9/XmDFebCZMFF8EEWk0aSxqac3sk3U0JRVdSeapLvGbIp0lmbfTvvAu88/q0k1HKcOZM4PCA59FX6YoKlI/cxZ29KYOdlTyZs+htDzUIv9Mge3Lr7Cnd1VFoSifLKi40pnc3HnPv0oyoFA234FCX9cukUm0YCGFV+/D9xeFkGqgxeLr10u+QUyAb5fyH7Zly/XfhZDad4XwQGQuCzYKV65aLb66ppppjfeKCmt1/LMbpog3pawrWI/KRVK/h9LyC+UyiTYUbERFlII7yrIdcplE3xf8gIqoMe4o24QbwfxYsBkVkcxsDGDBjWC2bN2GypeaF2bIjUor7Old1BUmTbZkT4/xm4JW714w23e4d/6EmoSxEJlvk5iunDE2IdU35/gslfOzm9uFximOXjmxY7xDV+HYbiF1D5owFf8CGC1OnjoJXRB797nd+w+gEca9MmNunr4QdRAHfzlUdBi1aqY8hdQjjDuKRjWT5JzyOXZcSD2BTitHhVB2Ep1WTp0WUn/9Da1GzpzloefYebQa+b2Yp/7B/kSrjb/YBXaRHWKX0GvjMvubFbEr7Ah6bVxl11gx81y/gV4bN9kt5inyFJ9Cr43bp93szl3PlXvotXH/H5563fPgIXqtPHrseeL5dzs67fz39BmqciL6H5gtH0vQhqopAAAAAElFTkSuQmCC"
+                />
+              </defs>
+            </svg>
+          </span>
+          Unisuniverse</a
+        >
         <span class="overlay"></span>
         <nav class="navbar" id="navbar">
           <ul class="menu" id="menu">
@@ -1445,36 +138,38 @@
           </ul>
         </nav>
         <div class="btn">
-          <a href="#" class="btn-icon-menu"><svg
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            width="19"
-            height="19"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-width="2"
-              d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
-            />
-          </svg></a>
           <a href="#" class="btn-icon-menu"
             ><svg
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M14 7h-4v3a1 1 0 0 1-2 0V7H6a1 1 0 0 0-.997.923l-.917 11.924A2 2 0 0 0 6.08 22h11.84a2 2 0 0 0 1.994-2.153l-.917-11.924A1 1 0 0 0 18 7h-2v3a1 1 0 1 1-2 0V7Zm-2-3a2 2 0 0 0-2 2v1H8V6a4 4 0 0 1 8 0v1h-2V6a2 2 0 0 0-2-2Z"
-              clip-rule="evenodd"
-            />
-          </svg>
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="19"
+              height="19"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-width="2"
+                d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+              />
+            </svg>
+          </a>
+          <a href="#" class="btn-icon-menu"
+            ><svg
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M14 7h-4v3a1 1 0 0 1-2 0V7H6a1 1 0 0 0-.997.923l-.917 11.924A2 2 0 0 0 6.08 22h11.84a2 2 0 0 0 1.994-2.153l-.917-11.924A1 1 0 0 0 18 7h-2v3a1 1 0 1 1-2 0V7Zm-2-3a2 2 0 0 0-2 2v1H8V6a4 4 0 0 1 8 0v1h-2V6a2 2 0 0 0-2-2Z"
+                clip-rule="evenodd"
+              />
+            </svg>
           </a>
           <div class="burger" id="burger">
             <span class="burger-line"></span>
@@ -1482,10 +177,21 @@
             <span class="burger-line"></span>
           </div>
           <a href="../My account/index.html" class="btn-md"
-            ><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z" clip-rule="evenodd"/>
+            ><svg
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z"
+                clip-rule="evenodd"
+              />
             </svg>
-             <span>My profile</span></a
+            <span>My profile</span></a
           >
           <button class="text-btn-wrapper">Log out</button>
         </div>
@@ -1525,7 +231,10 @@
                   <h4>My Account</h4>
                 </a>
 
-                <a href="../Products/index.html" class="side-menu-item-profile checked-tab">
+                <a
+                  href="../Products/index.html"
+                  class="side-menu-item-profile checked-tab"
+                >
                   <div class="side-menu-item-profile-icon">
                     <svg
                       aria-hidden="true"
@@ -1594,10 +303,7 @@
                   <h4>Payment</h4>
                 </a>
 
-                <a
-                  href="../Message/index.html"
-                  class="side-menu-item-profile"
-                >
+                <a href="../Message/index.html" class="side-menu-item-profile">
                   <div class="side-menu-item-profile-icon">
                     <svg
                       aria-hidden="true"
@@ -1721,10 +427,20 @@
               <ul class="side-menu-logout-profile">
                 <a class="side-menu-item-profile log-out">
                   <div class="side-menu-item-profile-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.375 0C9.54076 0 9.69974 0.065848 9.81695 0.183058C9.93416 0.300269 10 0.45924 10 0.625V8.125C10 8.29076 9.93416 8.44973 9.81695 8.56694C9.69974 8.68415 9.54076 8.75 9.375 8.75C9.20924 8.75 9.05027 8.68415 8.93306 8.56694C8.81585 8.44973 8.75 8.29076 8.75 8.125V0.625C8.75 0.45924 8.81585 0.300269 8.93306 0.183058C9.05027 0.065848 9.20924 0 9.375 0ZM6.825 2.2875C6.8592 2.36218 6.87833 2.44287 6.88132 2.52495C6.88431 2.60704 6.87108 2.6889 6.84241 2.76587C6.81373 2.84284 6.77017 2.9134 6.71421 2.97352C6.65824 3.03364 6.59098 3.08214 6.51625 3.11625C5.09043 3.76959 3.93058 4.89041 3.22881 6.29303C2.52705 7.69565 2.32548 9.29591 2.6575 10.8288C2.98907 12.361 3.83621 13.7332 5.0575 14.7162C5.81625 15.3261 6.6958 15.768 7.63801 16.0126C8.58022 16.2573 9.56363 16.2992 10.5232 16.1356C11.4828 15.9719 12.3968 15.6065 13.2047 15.0634C14.0125 14.5203 14.6959 13.8119 15.2097 12.985C15.7234 12.1582 16.0558 11.2317 16.1849 10.2668C16.314 9.30197 16.2368 8.3207 15.9585 7.38789C15.6801 6.45507 15.207 5.59195 14.5703 4.85558C13.9336 4.11922 13.1478 3.52638 12.265 3.11625C12.1145 3.04663 11.9978 2.92007 11.9406 2.76442C11.8834 2.60876 11.8904 2.43676 11.96 2.28625C12.0296 2.13574 12.1562 2.01905 12.3118 1.96185C12.4675 1.90465 12.6395 1.91163 12.79 1.98125C14.4741 2.75515 15.8418 4.08319 16.665 5.74375C17.488 7.40396 17.7192 9.2955 17.3202 11.105C16.9212 12.9146 15.9161 14.5335 14.4713 15.6938C13.0253 16.8515 11.2276 17.4812 9.37531 17.4789C7.52299 17.4767 5.72687 16.8425 4.28375 15.6813C2.8445 14.5133 1.84414 12.8916 1.44625 11.0812C1.05271 9.2691 1.2909 7.37685 2.12125 5.71875C2.94738 4.05895 4.3203 2.73459 6.00875 1.96875C6.08344 1.93456 6.16412 1.91542 6.24621 1.91243C6.32829 1.90945 6.41016 1.92267 6.48713 1.95134C6.56409 1.98002 6.63466 2.02358 6.69478 2.07955C6.7549 2.13551 6.8034 2.20278 6.8375 2.2775L6.825 2.2875Z" fill="#F42E17"/>
-                      </svg>
-                      
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M9.375 0C9.54076 0 9.69974 0.065848 9.81695 0.183058C9.93416 0.300269 10 0.45924 10 0.625V8.125C10 8.29076 9.93416 8.44973 9.81695 8.56694C9.69974 8.68415 9.54076 8.75 9.375 8.75C9.20924 8.75 9.05027 8.68415 8.93306 8.56694C8.81585 8.44973 8.75 8.29076 8.75 8.125V0.625C8.75 0.45924 8.81585 0.300269 8.93306 0.183058C9.05027 0.065848 9.20924 0 9.375 0ZM6.825 2.2875C6.8592 2.36218 6.87833 2.44287 6.88132 2.52495C6.88431 2.60704 6.87108 2.6889 6.84241 2.76587C6.81373 2.84284 6.77017 2.9134 6.71421 2.97352C6.65824 3.03364 6.59098 3.08214 6.51625 3.11625C5.09043 3.76959 3.93058 4.89041 3.22881 6.29303C2.52705 7.69565 2.32548 9.29591 2.6575 10.8288C2.98907 12.361 3.83621 13.7332 5.0575 14.7162C5.81625 15.3261 6.6958 15.768 7.63801 16.0126C8.58022 16.2573 9.56363 16.2992 10.5232 16.1356C11.4828 15.9719 12.3968 15.6065 13.2047 15.0634C14.0125 14.5203 14.6959 13.8119 15.2097 12.985C15.7234 12.1582 16.0558 11.2317 16.1849 10.2668C16.314 9.30197 16.2368 8.3207 15.9585 7.38789C15.6801 6.45507 15.207 5.59195 14.5703 4.85558C13.9336 4.11922 13.1478 3.52638 12.265 3.11625C12.1145 3.04663 11.9978 2.92007 11.9406 2.76442C11.8834 2.60876 11.8904 2.43676 11.96 2.28625C12.0296 2.13574 12.1562 2.01905 12.3118 1.96185C12.4675 1.90465 12.6395 1.91163 12.79 1.98125C14.4741 2.75515 15.8418 4.08319 16.665 5.74375C17.488 7.40396 17.7192 9.2955 17.3202 11.105C16.9212 12.9146 15.9161 14.5335 14.4713 15.6938C13.0253 16.8515 11.2276 17.4812 9.37531 17.4789C7.52299 17.4767 5.72687 16.8425 4.28375 15.6813C2.8445 14.5133 1.84414 12.8916 1.44625 11.0812C1.05271 9.2691 1.2909 7.37685 2.12125 5.71875C2.94738 4.05895 4.3203 2.73459 6.00875 1.96875C6.08344 1.93456 6.16412 1.91542 6.24621 1.91243C6.32829 1.90945 6.41016 1.92267 6.48713 1.95134C6.56409 1.98002 6.63466 2.02358 6.69478 2.07955C6.7549 2.13551 6.8034 2.20278 6.8375 2.2775L6.825 2.2875Z"
+                        fill="#F42E17"
+                      />
+                    </svg>
                   </div>
                   <h4>Log Out</h4>
                 </a>
@@ -1732,7 +448,7 @@
             </nav>
           </div>
         </aside>
-        
+
         <div class="edit-section-wrapper">
           <div class="edit-section-title-add">
             <h2 class="edit-section-title">Lecture Slides</h2>
@@ -1870,8 +586,21 @@
                       <div class="information-edit wf">
                         <h4 class="information-title">Upload Slides :</h4>
                         <div class="photo-upld">
-                          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-4m5-13v4a1 1 0 0 1-1 1H5m0 6h9m0 0-2-2m2 2-2 2"/>
+                          <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M5 12V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-4m5-13v4a1 1 0 0 1-1 1H5m0 6h9m0 0-2-2m2 2-2 2"
+                            />
                           </svg>
                           <p>Browse file to upload</p>
                           <input
@@ -1880,14 +609,27 @@
                             accept=".pptx, .pdf"
                             hidden
                             id="file-input-req"
+                            data-max-size="20"
                             required
                           />
                           <p>file types: PDF, PPTX (Max size: 20MB)</p>
                         </div>
                         <section class="progress-area">
                           <li class="row-upload">
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/>
+                            <svg
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="26"
+                              height="26"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
+                              />
                             </svg>
                             <div class="content">
                               <div class="details">
@@ -1903,16 +645,252 @@
                         <section class="uploaded-area">
                           <li class="row-upload">
                             <div class="content">
-                              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/>
+                              <svg
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="26"
+                                height="26"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
+                                />
                               </svg>
                               <div class="details">
                                 <span class="name">File.01 - Uploaded</span>
                                 <span class="img-size">70 KB</span>
                               </div>
                             </div>
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                            <svg
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                              />
+                            </svg>
+                          </li>
+                        </section>
+                      </div>
+
+                      <hr />
+
+                      <div class="information-edit wf">
+                        <h4 class="information-title">Thumbnail Image :</h4>
+                        <div class="photo-upld">
+                          <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M5 12V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-4m5-13v4a1 1 0 0 1-1 1H5m0 6h9m0 0-2-2m2 2-2 2"
+                            />
+                          </svg>
+                          <p>Browse file to upload</p>
+                          <input
+                            type="file"
+                            class="file-input"
+                            accept=".pdf, .jpg, .jpeg, .png"
+                            hidden
+                            required
+                          />
+                          <p>
+                            file types: Image (Upload up to 5 pages, Max size:
+                            20MB)
+                          </p>
+                        </div>
+                        <section class="progress-area">
+                          <li class="row-upload">
+                            <svg
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="26"
+                              height="26"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
+                              />
+                            </svg>
+                            <div class="content">
+                              <div class="details">
+                                <span class="name">File.01 - Uploading</span>
+                                <span class="percent">50%</span>
+                              </div>
+                              <div class="progress-bar">
+                                <div class="progress"></div>
+                              </div>
+                            </div>
+                          </li>
+                        </section>
+                        <section class="uploaded-area">
+                          <li class="row-upload">
+                            <div class="content">
+                              <svg
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="26"
+                                height="26"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
+                                />
+                              </svg>
+                              <div class="details">
+                                <span class="name">File.01 - Uploaded</span>
+                                <span class="img-size">70 KB</span>
+                              </div>
+                            </div>
+                            <svg
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                              />
+                            </svg>
+                          </li>
+                        </section>
+                      </div>
+
+                      <hr />
+
+                      <div class="information-edit wf">
+                        <h4 class="information-title">
+                          Slides Preview <span>(Optional)</span> :
+                        </h4>
+                        <div class="photo-upld">
+                          <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M5 12V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-4m5-13v4a1 1 0 0 1-1 1H5m0 6h9m0 0-2-2m2 2-2 2"
+                            />
+                          </svg>
+                          <p>Browse file to upload</p>
+                          <input
+                            type="file"
+                            class="file-input"
+                            accept=".pdf, .jpg, .jpeg, .png"
+                            hidden
+                          />
+                          <p>
+                            file types: PDF or image (Upload up to 10 pages, Max
+                            size: 20MB)
+                          </p>
+                        </div>
+                        <section class="progress-area">
+                          <li class="row-upload">
+                            <svg
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="26"
+                              height="26"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
+                              />
+                            </svg>
+                            <div class="content">
+                              <div class="details">
+                                <span class="name">File.01 - Uploading</span>
+                                <span class="percent">50%</span>
+                              </div>
+                              <div class="progress-bar">
+                                <div class="progress"></div>
+                              </div>
+                            </div>
+                          </li>
+                        </section>
+                        <section class="uploaded-area">
+                          <li class="row-upload">
+                            <div class="content">
+                              <svg
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="26"
+                                height="26"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
+                                />
+                              </svg>
+                              <div class="details">
+                                <span class="name">File.01 - Uploaded</span>
+                                <span class="img-size">70 KB</span>
+                              </div>
+                            </div>
+                            <svg
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                              />
                             </svg>
                           </li>
                         </section>
@@ -1924,7 +902,7 @@
                   </div>
                   <div>
                     <div class="edit-section-item-title-wrapper">
-                      <h3 class="edit-section-item-title">About the Author</h3>
+                      <h3 class="edit-section-item-title">About the Authors</h3>
                     </div>
                     <div id="authors-container">
                       <div class="user_details">
@@ -2034,19 +1012,101 @@
       </div>
     </main>
 
+    <div id="error-modal" class="custom-modal">
+      <div class="modal-content">
+        <div class="modal-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#DC3545"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <h3 class="modal-title">Required Fields</h3>
+        <div class="modal-message" id="modal-message"></div>
+        <button class="modal-button">Ok</button>
+      </div>
+    </div>
+
     <footer class="footer-background">
       <div class="container mx">
         <div>
           <div class="row-fot">
             <div class="row">
               <div class="desc col-3">
-                <a href="/index.html">
-                  <img
-                    src="../../images/image_59-removebg-preview (1) 1.png"
-                    alt=""
-                  />
-                  <h2>Unisuniverse</h2>
-                </a>
+                <a href="./index.html"
+                  ><span
+                    ><svg
+                      width="44"
+                      height="33"
+                      viewBox="0 0 44 33"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                    >
+                      <rect
+                        x="10.3906"
+                        y="10.3531"
+                        width="22.7765"
+                        height="22.2587"
+                        fill="url(#pattern0_1881_47)"
+                      />
+                      <rect
+                        width="44"
+                        height="27.4352"
+                        fill="url(#pattern1_1881_47)"
+                      />
+                      <defs>
+                        <pattern
+                          id="pattern0_1881_47"
+                          patternContentUnits="objectBoundingBox"
+                          width="1"
+                          height="1"
+                        >
+                          <use
+                            xlink:href="#image0_1881_47"
+                            transform="matrix(0.0244317 0 0 0.025 -0.000849752 0)"
+                          />
+                        </pattern>
+                        <pattern
+                          id="pattern1_1881_47"
+                          patternContentUnits="objectBoundingBox"
+                          width="1"
+                          height="1"
+                        >
+                          <use
+                            xlink:href="#image1_1881_47"
+                            transform="scale(0.0117647 0.018868)"
+                          />
+                        </pattern>
+                        <image
+                          id="image0_1881_47"
+                          width="41"
+                          height="40"
+                          preserveAspectRatio="none"
+                          xlink:href="data:image/png;base64,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"
+                        />
+                        <image
+                          id="image1_1881_47"
+                          width="85"
+                          height="53"
+                          preserveAspectRatio="none"
+                          xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAAA1CAMAAAAH31cyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALfUExURQAAAP/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Iff/nx/////////////////////+lLP/VnP////////+kKP/WoP////////////+gIP/YpP////+bEv+2U/////+aEv+ZEf////////////////////+aE/+cEv////////////////+AAP+aEv+aE/////////+qAP+aEv+YEf////+ZGv+aEf+ZEf+aE/////+hDf+bFP+VFfycE/ubE/+/AOWpHeSpHeSoHOapHeOoHOOnHOKpHeSoHuSkG+WqHOWqHd+fIP+/AP+2CPizDfu0C/+2CP+1CP+2CP+2Bv+/AP+2CP+2CP+2CP+1Cfy1Cv+2CP+3CP+2CPqzDP62Cf+2Cf+2CPSxEfy0C/+0CP+5BvCvE/21Cv+1B/+3Ce6uFfWxEP+zCOusGPGvEvKwEv+3CP+zCeerGv+1Cu+uFPeyD/+2CP+zDfizDvayD/+3CO+tFf+2CO2tFvezDv+2B/i0EPKmAIgeJ68AAAD1dFJOUwAEWMe7SCd2xf+6axw5iNfLfC1Lmundjj4PXaz77p9QIXC/sGESM4LRwnIjRZTj04Q0CFem9eSVRhppuPYse8poGT+N3Ml6KwJRoO/aizwUY7LsnE0mdcT9rl84h9ZKmejQgTL3z6tgVECnw5sos2wMk2Sv3+vnt4CXdHjb//8wTCSPGP//oxD//9Rm8/r/g++BRPRa+PHmkTv4VZLl9AYC/FGhkAb/TSAKSQ9EahNAGP9CBMP/84NsQHxMHNrCCAjf///LgP9QDPen55X//iDb//84+///XCj//288//9A////mzn/NP//mhTC/4ee4/+nI04Ucz2VdAAAAAlwSFlzAAAXEQAAFxEByibzPwAAA4xJREFUWEet1/d7U2UUB/ATS8Ug2CIIslKKg6FQGkCQUimyBGzYIpQhkDZJSWkooa0tO8isli0KyC4FRWZQNlJ42cqwKkMgbJCl8Af43psveZr05t6b9n5+aM55xzdP8vSePiWVdC+EVQhHrZUXK76k5yq9XBkLGqjySoSQKYis+ioWy6la9dcQKapR83VslF2t2nXqIs6nniEKu2VTP7oBkgK88eZbOBKytxs2QoiExk3ewbGQvNu0GQKCiGkei6NqGVu0bIXLMt5r3Qbn1Xi/bRzuKWnXsoURlxTEf9Aed1SJS+iAizI+7NgJx1Xr3KUrLkv7qFv3Hjgako8TTUgorWev3jgVuj59+yHFX/9PBuBE2Xw6cFAtRPkkDR6C3XJoEF0fcaKhwz7DRjkNHzESkRQV5GEXmJNTEhMsVpvAaolOTB2l8MSZ7Wlipm92BjKPTo/Vie/rx5GUPiay1CArYbSNKAx1oOQMh5CQMXhsjHOcuJLpTM6yZ2eY+Do5rJ9niouSssgYLbVtTieqnF7BjNZfREpOPP9LZs1CH8icy9/XmDFebCZMFF8EEWk0aSxqac3sk3U0JRVdSeapLvGbIp0lmbfTvvAu88/q0k1HKcOZM4PCA59FX6YoKlI/cxZ29KYOdlTyZs+htDzUIv9Mge3Lr7Cnd1VFoSifLKi40pnc3HnPv0oyoFA234FCX9cukUm0YCGFV+/D9xeFkGqgxeLr10u+QUyAb5fyH7Zly/XfhZDad4XwQGQuCzYKV65aLb66ppppjfeKCmt1/LMbpog3pawrWI/KRVK/h9LyC+UyiTYUbERFlII7yrIdcplE3xf8gIqoMe4o24QbwfxYsBkVkcxsDGDBjWC2bN2GypeaF2bIjUor7Old1BUmTbZkT4/xm4JW714w23e4d/6EmoSxEJlvk5iunDE2IdU35/gslfOzm9uFximOXjmxY7xDV+HYbiF1D5owFf8CGC1OnjoJXRB797nd+w+gEca9MmNunr4QdRAHfzlUdBi1aqY8hdQjjDuKRjWT5JzyOXZcSD2BTitHhVB2Ep1WTp0WUn/9Da1GzpzloefYebQa+b2Yp/7B/kSrjb/YBXaRHWKX0GvjMvubFbEr7Ah6bVxl11gx81y/gV4bN9kt5inyFJ9Cr43bp93szl3PlXvotXH/H5563fPgIXqtPHrseeL5dzs67fz39BmqciL6H5gtH0vQhqopAAAAAElFTkSuQmCC"
+                        />
+                      </defs>
+                    </svg>
+                  </span>
+                  <h2>Unisuniverse</h2></a
+                >
                 <p>
                   Your one-stop platform for academic growth. Connect with
                   students, professors, and universities to explore
@@ -2214,302 +1274,6 @@
       </div>
     </footer>
 
-    <script>
-      const navbarMenu = document.getElementById("navbar");
-      const burgerMenu = document.getElementById("burger");
-      const overlayMenu = document.querySelector(".overlay");
-
-      const toggleMenu = () => {
-        navbarMenu.classList.toggle("active");
-        overlayMenu.classList.toggle("active");
-      };
-
-      const collapseSubMenu = () => {
-        navbarMenu
-          .querySelector(".menu-dropdown.active .submenu")
-          .removeAttribute("style");
-        navbarMenu
-          .querySelector(".menu-dropdown.active")
-          .classList.remove("active");
-      };
-
-      const toggleSubMenu = (e) => {
-        if (e.target.hasAttribute("data-toggle") && window.innerWidth <= 992) {
-          e.preventDefault();
-          const menuDropdown = e.target.parentElement;
-
-          if (menuDropdown.classList.contains("active")) {
-            collapseSubMenu();
-          } else {
-            if (navbarMenu.querySelector(".menu-dropdown.active")) {
-              collapseSubMenu();
-            }
-
-            menuDropdown.classList.add("active");
-            const subMenu = menuDropdown.querySelector(".submenu");
-            subMenu.style.maxHeight = subMenu.scrollHeight + "px";
-          }
-        }
-      };
-
-      const resizeWindow = () => {
-        if (window.innerWidth > 992) {
-          if (navbarMenu.classList.contains("active")) {
-            toggleMenu();
-          }
-          if (navbarMenu.querySelector(".menu-dropdown.active")) {
-            collapseSubMenu();
-          }
-        }
-      };
-
-      burgerMenu.addEventListener("click", toggleMenu);
-      overlayMenu.addEventListener("click", toggleMenu);
-      navbarMenu.addEventListener("click", toggleSubMenu);
-      window.addEventListener("resize", resizeWindow);
-
-      // upload File
-
-      const forms = document.querySelectorAll(".photo-upld");
-      forms.forEach((form) => {
-        const fileInput = form.querySelector(".file-input");
-        const progressArea = form.querySelector(".progress-area");
-        const uploadedArea = form.querySelector(".uploaded-area");
-
-        form.addEventListener("click", () => {
-          fileInput.click();
-        });
-
-        fileInput.onchange = ({ target }) => {
-          let file = target.files[0];
-          if (file) {
-            let fileName = file.name;
-          }
-        };
-      });
-
-      // submenu
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const menuItems = document.querySelectorAll(".side-menu-item");
-
-        menuItems.forEach((item) => {
-          item.addEventListener("click", () => {
-            menuItems.forEach((menuItem) => {
-              menuItem.classList.remove("checked-tab");
-            });
-
-            item.classList.add("checked-tab");
-
-            const subMenu = item.querySelector(".sub-menu-wrapper");
-            subMenu.classList.add("show");
-            subMenu.style.display =
-              subMenu.style.display === "block" ? "none" : "block";
-          });
-        });
-      });
-
-      // Choice other
-
-      function showOtherInput(selectedValue) {
-        const otherInput = document.getElementById("otherCategoryInput");
-        console.log(otherInput);
-
-        if (selectedValue === "other") {
-          otherInput.style.display = "block";
-        } else {
-          otherInput.style.display = "none";
-        }
-      }
-
-      // Choice other language
-
-      function showOtherInputLanguage(selectedValue) {
-        const otherInput = document.getElementById(
-          "otherCategoryInputLanguage"
-        );
-        console.log(otherInput);
-
-        if (selectedValue === "other") {
-          otherInput.style.display = "block";
-        } else {
-          otherInput.style.display = "none";
-        }
-      }
-
-      // autohr
-
-      function addAuthor(parentElement, event) {
-        event.preventDefault();
-        const newUserDetails = document.createElement("div");
-        newUserDetails.classList.add("new-author-wrapper");
-        newUserDetails.innerHTML = `
-      <div class="new-author-top-contents">
-                        <span>Next Author Info</span>
-                        <button class="remove-author" >Remove</button>
-                      </div>
-
-                      <div class="user_details">
-                        <div class="input_pox">
-                          <label class="datails">Full Name :</label>
-                          <input
-                            type="text"
-                            placeholder="Anderson Cooper"
-                            required
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Affiliation :</label>
-                          <input type="text" required />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails"
-                            >Email <span>(Optional)</span> :</label
-                          >
-                          <input
-                            type="text"
-                            placeholder="Enter ISBN (if available)"
-                          />
-                        </div>
-                        <div class="input_pox">
-                          <label class="datails">Role :</label>
-                          <input
-                            type="text"
-                            placeholder="Eg: Corresponding Author"
-                            required
-                          />
-                        </div>
-
-                        <button class="text-btn" onclick="addAuthor(this.parentNode, event)">+ Add Next Author</button>
-                      </div>
-    `;
-
-        document
-          .getElementById("authors-container")
-          .appendChild(newUserDetails);
-        parentElement.querySelector("button").style.display = "none";
-
-        const removeButton = newUserDetails.querySelector(".remove-author");
-        removeButton.addEventListener("click", function () {
-          newUserDetails.remove();
-          parentElement.querySelector("button").style.display = "flex";
-        });
-      }
-
-      // Size Upload
-
-      const fileInputSize = document.querySelector("#file-input-req");
-
-      fileInputSize.addEventListener("change", function (event) {
-        const file = event.target.files[0];
-        const maxSize = 20 * 1024 * 1024;
-
-        if (file.size > maxSize) {
-          alert(
-            "The selected file size is larger than 20MB. Please select a smaller file"
-          );
-          fileInputSize.value = "";
-        }
-      });
-
-      // Clicked Tags
-
-      const inputTags = document.querySelectorAll(".input-tag");
-      console.log(inputTags);
-
-      inputTags.forEach((tag) => {
-        tag.addEventListener("click", () => {
-          tag.classList.toggle("input-tag-clicked");
-        });
-      });
-
-      const keywordInput = document.getElementById("keywordInput");
-
-      inputTags.forEach((tag) => {
-        let isSelected = false;
-
-        tag.addEventListener("click", () => {
-          isSelected = !isSelected;
-
-          const tagText = tag.textContent;
-          let keywords = keywordInput.value;
-
-          if (isSelected) {
-            keywords += (keywords ? ", " : "") + tagText;
-          } else {
-            const textToRemove = keywords.includes(", " + tagText)
-              ? ", " + tagText
-              : tagText;
-            keywords = keywords.replace(textToRemove, "");
-            keywords = keywords.replace(/^, +/g, "");
-            keywords = keywords.replace(/, +$/g, "");
-          }
-          keywordInput.value = keywords;
-        });
-      });
-
-      // Validation of inputs
-
-      const form = document.getElementById("forms-wrapper");
-      const submitButton = document.getElementById("submit-button");
-
-      submitButton.addEventListener("click", function (event) {
-        event.preventDefault();
-
-        let isValid = true;
-        const requiredInputs = form.querySelectorAll("[required]");
-        const fileInputsReq = form.querySelectorAll("#file-input-req");
-        const checkboxes = form.querySelectorAll(".checkbox");
-
-        requiredInputs.forEach((input) => {
-          if (!input.value) {
-            isValid = false;
-            input.style.borderColor = "red";
-          } else {
-            input.style.borderColor = "";
-          }
-        });
-
-        fileInputsReq.forEach((fileInput) => {
-          if (fileInput.files.length === 0) {
-            isValid = false;
-            alert("You must upload a file.");
-            return;
-          }
-        });
-
-        checkboxes.forEach((checkbox) => {
-          if (checkbox.required && !checkbox.checked) {
-            isValid = false;
-          }
-        });
-
-        if (!isValid) {
-          let uncheckedCheckboxes = Array.from(checkboxes).filter(
-            (checkbox) => checkbox.required && !checkbox.checked
-          );
-
-          if (uncheckedCheckboxes.length > 0) {
-            alert(
-              "You must agree to the terms and conditions and confirm your rights to sell the e-book."
-            );
-          } else {
-            alert("Please fill in all the required fields that are highlighted in red.");
-          }
-        } else {
-          form.submit();
-        }
-      });
-
-      // show calendar
-
-      const yearOfPublication = document.getElementById("yearOfPublication");
-
-      yearOfPublication.addEventListener("click", function (event) {
-        if (event.target === this) {
-          this.showPicker();
-        }
-      });
-    </script>
+    <script src="../form.js" defer></script>
   </body>
 </html>

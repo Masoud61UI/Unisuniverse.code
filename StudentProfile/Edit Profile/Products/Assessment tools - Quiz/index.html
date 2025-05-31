@@ -6,74 +6,79 @@
     <title>Unisuniverse</title>
 
     <link rel="stylesheet" href="../../../../css/base/reset.css" />
-    <link rel="stylesheet" href="../../../../css/components/header-logined.css" />
+    <link
+      rel="stylesheet"
+      href="../../../../css/components/header-logined.css"
+    />
     <link rel="stylesheet" href="../../../../css/components/footer.css" />
-    <link rel="stylesheet" href="../../../../css/pages/Products/forms/assessmentQuiz.css" />
-
+    <link
+      rel="stylesheet"
+      href="../../../../css/pages/Services/forms/allFormPages.css"
+    />
   </head>
   <body>
     <header class="header" id="header">
       <section class="wrapper container">
         <a href="./index.html" class="logo"
-        ><span
-          ><svg
-            width="44"
-            height="33"
-            viewBox="0 0 44 33"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-          >
-            <rect
-              x="10.3906"
-              y="10.3531"
-              width="22.7765"
-              height="22.2587"
-              fill="url(#pattern0_1881_47)"
-            />
-            <rect width="44" height="27.4352" fill="url(#pattern1_1881_47)" />
-            <defs>
-              <pattern
-                id="pattern0_1881_47"
-                patternContentUnits="objectBoundingBox"
-                width="1"
-                height="1"
-              >
-                <use
-                  xlink:href="#image0_1881_47"
-                  transform="matrix(0.0244317 0 0 0.025 -0.000849752 0)"
-                />
-              </pattern>
-              <pattern
-                id="pattern1_1881_47"
-                patternContentUnits="objectBoundingBox"
-                width="1"
-                height="1"
-              >
-                <use
-                  xlink:href="#image1_1881_47"
-                  transform="scale(0.0117647 0.018868)"
-                />
-              </pattern>
-              <image
-                id="image0_1881_47"
-                width="41"
-                height="40"
-                preserveAspectRatio="none"
-                xlink:href="data:image/png;base64,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"
+          ><span
+            ><svg
+              width="44"
+              height="33"
+              viewBox="0 0 44 33"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <rect
+                x="10.3906"
+                y="10.3531"
+                width="22.7765"
+                height="22.2587"
+                fill="url(#pattern0_1881_47)"
               />
-              <image
-                id="image1_1881_47"
-                width="85"
-                height="53"
-                preserveAspectRatio="none"
-                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAAA1CAMAAAAH31cyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALfUExURQAAAP/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Iff/nx/////////////////////+lLP/VnP////////+kKP/WoP////////////+gIP/YpP////+bEv+2U/////+aEv+ZEf////////////////////+aE/+cEv////////////////+AAP+aEv+aE/////////+qAP+aEv+YEf////+ZGv+aEf+ZEf+aE/////+hDf+bFP+VFfycE/ubE/+/AOWpHeSpHeSoHOapHeOoHOOnHOKpHeSoHuSkG+WqHOWqHd+fIP+/AP+2CPizDfu0C/+2CP+1CP+2CP+2Bv+/AP+2CP+2CP+2CP+1Cfy1Cv+2CP+3CP+2CPqzDP62Cf+2Cf+2CPSxEfy0C/+0CP+5BvCvE/21Cv+1B/+3Ce6uFfWxEP+zCOusGPGvEvKwEv+3CP+zCeerGv+1Cu+uFPeyD/+2CP+zDfizDvayD/+3CO+tFf+2CO2tFvezDv+2B/i0EPKmAIgeJ68AAAD1dFJOUwAEWMe7SCd2xf+6axw5iNfLfC1Lmundjj4PXaz77p9QIXC/sGESM4LRwnIjRZTj04Q0CFem9eSVRhppuPYse8poGT+N3Ml6KwJRoO/aizwUY7LsnE0mdcT9rl84h9ZKmejQgTL3z6tgVECnw5sos2wMk2Sv3+vnt4CXdHjb//8wTCSPGP//oxD//9Rm8/r/g++BRPRa+PHmkTv4VZLl9AYC/FGhkAb/TSAKSQ9EahNAGP9CBMP/84NsQHxMHNrCCAjf///LgP9QDPen55X//iDb//84+///XCj//288//9A////mzn/NP//mhTC/4ee4/+nI04Ucz2VdAAAAAlwSFlzAAAXEQAAFxEByibzPwAAA4xJREFUWEet1/d7U2UUB/ATS8Ug2CIIslKKg6FQGkCQUimyBGzYIpQhkDZJSWkooa0tO8isli0KyC4FRWZQNlJ42cqwKkMgbJCl8Af43psveZr05t6b9n5+aM55xzdP8vSePiWVdC+EVQhHrZUXK76k5yq9XBkLGqjySoSQKYis+ioWy6la9dcQKapR83VslF2t2nXqIs6nniEKu2VTP7oBkgK88eZbOBKytxs2QoiExk3ewbGQvNu0GQKCiGkei6NqGVu0bIXLMt5r3Qbn1Xi/bRzuKWnXsoURlxTEf9Aed1SJS+iAizI+7NgJx1Xr3KUrLkv7qFv3Hjgako8TTUgorWev3jgVuj59+yHFX/9PBuBE2Xw6cFAtRPkkDR6C3XJoEF0fcaKhwz7DRjkNHzESkRQV5GEXmJNTEhMsVpvAaolOTB2l8MSZ7Wlipm92BjKPTo/Vie/rx5GUPiay1CArYbSNKAx1oOQMh5CQMXhsjHOcuJLpTM6yZ2eY+Do5rJ9niouSssgYLbVtTieqnF7BjNZfREpOPP9LZs1CH8icy9/XmDFebCZMFF8EEWk0aSxqac3sk3U0JRVdSeapLvGbIp0lmbfTvvAu88/q0k1HKcOZM4PCA59FX6YoKlI/cxZ29KYOdlTyZs+htDzUIv9Mge3Lr7Cnd1VFoSifLKi40pnc3HnPv0oyoFA234FCX9cukUm0YCGFV+/D9xeFkGqgxeLr10u+QUyAb5fyH7Zly/XfhZDad4XwQGQuCzYKV65aLb66ppppjfeKCmt1/LMbpog3pawrWI/KRVK/h9LyC+UyiTYUbERFlII7yrIdcplE3xf8gIqoMe4o24QbwfxYsBkVkcxsDGDBjWC2bN2GypeaF2bIjUor7Old1BUmTbZkT4/xm4JW714w23e4d/6EmoSxEJlvk5iunDE2IdU35/gslfOzm9uFximOXjmxY7xDV+HYbiF1D5owFf8CGC1OnjoJXRB797nd+w+gEca9MmNunr4QdRAHfzlUdBi1aqY8hdQjjDuKRjWT5JzyOXZcSD2BTitHhVB2Ep1WTp0WUn/9Da1GzpzloefYebQa+b2Yp/7B/kSrjb/YBXaRHWKX0GvjMvubFbEr7Ah6bVxl11gx81y/gV4bN9kt5inyFJ9Cr43bp93szl3PlXvotXH/H5563fPgIXqtPHrseeL5dzs67fz39BmqciL6H5gtH0vQhqopAAAAAElFTkSuQmCC"
-              />
-            </defs>
-          </svg>
-        </span>
-        Unisuniverse</a
-      >
+              <rect width="44" height="27.4352" fill="url(#pattern1_1881_47)" />
+              <defs>
+                <pattern
+                  id="pattern0_1881_47"
+                  patternContentUnits="objectBoundingBox"
+                  width="1"
+                  height="1"
+                >
+                  <use
+                    xlink:href="#image0_1881_47"
+                    transform="matrix(0.0244317 0 0 0.025 -0.000849752 0)"
+                  />
+                </pattern>
+                <pattern
+                  id="pattern1_1881_47"
+                  patternContentUnits="objectBoundingBox"
+                  width="1"
+                  height="1"
+                >
+                  <use
+                    xlink:href="#image1_1881_47"
+                    transform="scale(0.0117647 0.018868)"
+                  />
+                </pattern>
+                <image
+                  id="image0_1881_47"
+                  width="41"
+                  height="40"
+                  preserveAspectRatio="none"
+                  xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAoCAYAAABjPNNTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFxEAABcRAcom8z8AAAvbSURBVFhHtVlZbFNXGrZ4qfoy1Wgeq0IW24mbhNBSWqAJJJCQOCZx7HiLHTvOxhYCtNASYNpQlpatgWGg7GEJJSSQPbHjBAcoaZl5qDQjNC/zMqpGVedhNOpIo6p96T/f/597YyekdD/Sr+t77r3nfOf/v385x4af2iz18QXGUMxlrI0dNYai8fTg6D/TQ5FvTKEImWsj3/A996vnMRe/r33667bmvubf+W42tyzefv1hamDs24ymKTI3fkTm+jiZamNkDEYgI5BR3I+RuW6SMhofEL8HwN+awrGH6G+Z7x/5rTbkL9eWvu962jVo2+Uesv0reM9GhccPUEbwvoDJbogKsDR/TESBVEBnCGu4/i4Af0zG2onPjaHxnQbj35/Spvh5zd61dnXVkO1vNXEH+YbLyT9gJ2e3nUpOvUZpgSixedMDY/T8+i7Kbr6G3wx6FkDRMF/VAkzhO2QMf4rr+KMFzqlCbaqf1ryjebu9o2vJHwWw26Xk6i0jV5+V3AOraXFrO6VWj5M5OEYL1w2Tp9dOeYd2UYoXAJIApeEduQ8Ny316TZRSfeO07J39VNkTohd2XMM7E63alD+uYeBzhScPk3vQSr7+cqrqtZK3v4I8Q4W06sRWWuC+q4FhbQ5R6YUwvdR6AqCjAML9owLwhe1naMXhVvRB4+hPxSLyD+0m32g+xi4kZ285OXqbyNFTfl6b+oe1nJaOi6b6TzFRhBxdVdBesYB099nIO7ySlu09QCnuSdGMaAcmtjQMkCUMs9eNAQxrbBT9EVpzpklowHxN9U3QotfOYaEFGK+Eqm6zZUoAtpgCk3aqumXr0CA8uXlHl+8v7dhNzzkfUM7mawBmpcBgpYB09paSL/IqrTz2BqV4GGTCrGxGE7SYVg0HggYZJAMrPr2BFr95kha47kH796joj83kwUKZPl5YiBfuuF0iY9dMOsjRbd2vQZm7LXCOl+W9d5IcnfWUGRqnnC0XyAX+uQCwCoO4BoqosrscZj0uWlEgFVB2IksoTgs3d1L2JuVADJifP7/hBlnW3aTMph6yXfHLOLJojefVcEYGW9UPao1VkONGmU2DNKul/eeZ7Jarn3sG3fDi1fTijjOU2dgDc6wR03iGCyj/vT1wjLjSYkgPM8rcLEUnW2C61ZBVYlZeSN7Bt6m80y2LdPSsJeetMvnNAFkYnKsXADXQHjiqs8/6hbvH/YyGLNFSq6NHV7afoJKzDVTw/nbx3DT/GByijgITS6jiwyq5z8Xkrx5oI3N4ACZVoSXFE5dvGAADYaBL9hwTU/tG85TmwL0qWTCDU4AYmA5Ov+drIG6nypvWdg2aak/n/vvZzKa+r9xDVlp71QvTdFE6+JQOUBnQZv57v6eclsvimQu3XqKFWzpEcwLQO0FLdr9PvuhyytrUKZxjzTvhFByqdEDJIL5PXAPQdp/ta3uX/TkNIsJN7dDBJW99KGbyjqyAFo5Qmi9OWfXIEsGYhBvhF2JdIrMg9UEyQjHRWvlVPy16/RxlNNyG1p2iPZkQpvQhdLHMBvMk8d+xk+NW2bsCsI3a5pV1VH9W0RUkVz9CDYebbidZ6gcBYowywyq+Kf7NFFNolHKQFp+rfEivvHmeXtlznIpObRBz6xpkx2AN8nU2kCeJZwRe3136WVtb2zyDvdue44sgXg0U4yFzZA35Rgpo6duHJHt8F0AWCTO+SVrWdpjWXnMLJ9kaCiAkyUFY5jL3XJzUf7MT2butOYbK7tKN/gm7aFFNoF7IP4CADb5NA9LiYTJIpsGS3e1UHV0mnHT1r8H3M4HwWBwHJcRoIJLBOLVnbtAi0cdipZq7ZeSN5G00uG/br/vvlAqPFr1+hnI2dZGlsY8stQxQgWKNZdVHUScyONXH3s9hxov0VnK2iVYeOCwDc6BmT1ahS03IQZs5ySZnQDoQBqv3ccrV+/jKTld2eSvlbrlw1eDtK39UPVZEL75xClnmIwTkO5SJ2pBLsAyAQvEqoJh/7CgCEqAZZMm5BnBwkzjSfOcnlHdgLxW27wCXyhFCMCnMzyZnIDoYT1/5DJDV/Xb0rZVrsoY5Lq84sg98n/qLwTVQ+L/8wwjS02luVDSW2zQmwPQ+pUFdOPTEKXfrRQy0U4L1srfayeSbUs60+QriaD+Vnq8TJ9KzlQpNs80NTQN4YMAxo0/F1TIOh18iV69E3LskMTAZEBcJOiD28GSgDPCFHaeRIlEVwbxczbCGbB1hKgdtGDRrufImuA5wHOC5SuKrd2Sl8H/auTRQev7W+znws49wnWqwXQ6QpalbskkCZELY3BkAqZuazZzdfFU4lwjWEEQFyfPsgLg6emzg+FkxPfflH95FudvO0/J9+8h+wyEln/4tP2fzqvFUhOB4veJIq6RWQ1og8mV6DYLzE0KNMju0yFxEwbrmzDrRoJokYSJd2LwMgjPT0r0HpXIKjL9MZR01iAic94dpzQfr5R1XfxGKjmrxCaYHg+PyjheU5kcIDA7/15ARHv6rufYeAKAOrI5rGlVmTlzVb37GlYwUCdDkXACVwMtBgWIAYRq9tKud8t59SyyQgQ0aKnHQKSK08MdewfPj9GzFn7GdGESNaYW290tplxa4T8vf2ffIUNHR2Fl5cx25O9eT9YMt2CzdFm9lUMxLbE+1rMPlGHI50p7jFlKdVNaoeGAi1sgM02tA2YysPZZVJ7ZIcni+jit5xFjPHeE1A83EmFzqLXCjb9tlsl2qAxc/JFPdAyo49nqnIaf5yjr3UA3VjBZjL/MqCoRNahWstbAakAeeBop+9mreQlgv1lLZpaCEIevFsGi3KkmbolFwjSvxxTtPThfDvHCOu7yBY9PL1iIQo4JDeylr4w0y+++TCRTM3T5IL+85st6Qu2kwy9dXj1XD5cEl1s7y/e/IxxzQudBg85ikflSSinv2cJ4kzQ+nqp6iF7fBmaBNPYCzyBYBwJlvnJ14kRYsOLsh4aT63scIkGVnW8jeVQmKYB8P5dhvBpn72QYiwzys/jP3MGcCVYGzd7EHllwIUdHp9UoLWuWTLKKVEDJRcELKOw4xyVxlGsimDZZR32A7i8lZVJJIcJ7BpsApuQZlCy3a0QmtXv2HwUDzpBLikohLI91MDLQKfPIPl1LtxAqEj1bRnD7gbGGwmTWT4vV6/udxVBjZSfOr7qM2HVcZjLU2xxgsTCUGy7vLiq7NlH/kzYMCkBsXl4juX3OxKRpAmvIjAzBY3whCCTio9jTJ3p4QfbdYft0lzqIvlEG+jAIkq17xmK/mkJ4YdJk5JoNM9X2E6/hXpvXdz2oQVeNyPRDHrhATcEXiBlAP+Gm74pOwo0JT8uAJ0QO8W1KfipOsUd5mzHdOUfGpzVR4fBuZ/HehTXBw+tuE+RPjjVDGuk/g7cNHNWiJtnNi5zOe/vIvqiMVCuRgAfixUcApgHNrkUV5Z1S45B5CFQRtVkCr3MffMkBOb6l+eLS8PzJdVVkQNcxJIPmQC/v9z42ByG80aDMbbyWrY3aqGUFF0lckW9FETv9ukPwsxTtOlg2d5O11UG18Ka06uVk2aPyM9+RqT/T4GBzaJBwBuDEEOjTcx8KGrBqkuZu9u3R/6EGp5NoUBNzZg841EU+Q0wgQflRGLZ0o17bDM69jMi0iQNPq3dnf8r3eFxEzpweG92pQntzyj7zRkbXxTzADvG1OULPvlfnYe1OxYeOy7/sokhB+hwE+5Dx9UYPww5qlbuJs1oaHYoLkybgaSpRuCWHgCYf4oQLHQS7PhAYB9Kw29Y9raYGRVnNdHPmcgzED5YwRoWxobfZkM+/nksff4UNVE49fG/lpR396S/ePFJrCE4/4hNZcNyEmTWOSaxML4WdN/t2i3sV4wj8el8fXpvp5zVj6h6f4+JiPkQUsNJAeRACHVhUXHzc/A5L0Bxrw8+yGGLQ2OeM4msfVpvjlGh/I88E8H9DzQX1m0xRy9gOAfvxg3wiuZdRPUs6Gj5EMsPepjX5rCv2KB/tzNf0vEnNd7GhO4/gknEb+IuEDfL7yvTEYjZvD0WPGup/zF4nB8H/O75cRWWi5BAAAAABJRU5ErkJggg=="
+                />
+                <image
+                  id="image1_1881_47"
+                  width="85"
+                  height="53"
+                  preserveAspectRatio="none"
+                  xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFUAAAA1CAMAAAAH31cyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALfUExURQAAAP/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Iff/nx/////////////////////+lLP/VnP////////+kKP/WoP////////////+gIP/YpP////+bEv+2U/////+aEv+ZEf////////////////////+aE/+cEv////////////////+AAP+aEv+aE/////////+qAP+aEv+YEf////+ZGv+aEf+ZEf+aE/////+hDf+bFP+VFfycE/ubE/+/AOWpHeSpHeSoHOapHeOoHOOnHOKpHeSoHuSkG+WqHOWqHd+fIP+/AP+2CPizDfu0C/+2CP+1CP+2CP+2Bv+/AP+2CP+2CP+2CP+1Cfy1Cv+2CP+3CP+2CPqzDP62Cf+2Cf+2CPSxEfy0C/+0CP+5BvCvE/21Cv+1B/+3Ce6uFfWxEP+zCOusGPGvEvKwEv+3CP+zCeerGv+1Cu+uFPeyD/+2CP+zDfizDvayD/+3CO+tFf+2CO2tFvezDv+2B/i0EPKmAIgeJ68AAAD1dFJOUwAEWMe7SCd2xf+6axw5iNfLfC1Lmundjj4PXaz77p9QIXC/sGESM4LRwnIjRZTj04Q0CFem9eSVRhppuPYse8poGT+N3Ml6KwJRoO/aizwUY7LsnE0mdcT9rl84h9ZKmejQgTL3z6tgVECnw5sos2wMk2Sv3+vnt4CXdHjb//8wTCSPGP//oxD//9Rm8/r/g++BRPRa+PHmkTv4VZLl9AYC/FGhkAb/TSAKSQ9EahNAGP9CBMP/84NsQHxMHNrCCAjf///LgP9QDPen55X//iDb//84+///XCj//288//9A////mzn/NP//mhTC/4ee4/+nI04Ucz2VdAAAAAlwSFlzAAAXEQAAFxEByibzPwAAA4xJREFUWEet1/d7U2UUB/ATS8Ug2CIIslKKg6FQGkCQUimyBGzYIpQhkDZJSWkooa0tO8isli0KyC4FRWZQNlJ42cqwKkMgbJCl8Af43psveZr05t6b9n5+aM55xzdP8vSePiWVdC+EVQhHrZUXK76k5yq9XBkLGqjySoSQKYis+ioWy6la9dcQKapR83VslF2t2nXqIs6nniEKu2VTP7oBkgK88eZbOBKytxs2QoiExk3ewbGQvNu0GQKCiGkei6NqGVu0bIXLMt5r3Qbn1Xi/bRzuKWnXsoURlxTEf9Aed1SJS+iAizI+7NgJx1Xr3KUrLkv7qFv3Hjgako8TTUgorWev3jgVuj59+yHFX/9PBuBE2Xw6cFAtRPkkDR6C3XJoEF0fcaKhwz7DRjkNHzESkRQV5GEXmJNTEhMsVpvAaolOTB2l8MSZ7Wlipm92BjKPTo/Vie/rx5GUPiay1CArYbSNKAx1oOQMh5CQMXhsjHOcuJLpTM6yZ2eY+Do5rJ9niouSssgYLbVtTieqnF7BjNZfREpOPP9LZs1CH8icy9/XmDFebCZMFF8EEWk0aSxqac3sk3U0JRVdSeapLvGbIp0lmbfTvvAu88/q0k1HKcOZM4PCA59FX6YoKlI/cxZ29KYOdlTyZs+htDzUIv9Mge3Lr7Cnd1VFoSifLKi40pnc3HnPv0oyoFA234FCX9cukUm0YCGFV+/D9xeFkGqgxeLr10u+QUyAb5fyH7Zly/XfhZDad4XwQGQuCzYKV65aLb66ppppjfeKCmt1/LMbpog3pawrWI/KRVK/h9LyC+UyiTYUbERFlII7yrIdcplE3xf8gIqoMe4o24QbwfxYsBkVkcxsDGDBjWC2bN2GypeaF2bIjUor7Old1BUmTbZkT4/xm4JW714w23e4d/6EmoSxEJlvk5iunDE2IdU35/gslfOzm9uFximOXjmxY7xDV+HYbiF1D5owFf8CGC1OnjoJXRB797nd+w+gEca9MmNunr4QdRAHfzlUdBi1aqY8hdQjjDuKRjWT5JzyOXZcSD2BTitHhVB2Ep1WTp0WUn/9Da1GzpzloefYebQa+b2Yp/7B/kSrjb/YBXaRHWKX0GvjMvubFbEr7Ah6bVxl11gx81y/gV4bN9kt5inyFJ9Cr43bp93szl3PlXvotXH/H5563fPgIXqtPHrseeL5dzs67fz39BmqciL6H5gtH0vQhqopAAAAAElFTkSuQmCC"
+                />
+              </defs>
+            </svg>
+          </span>
+          Unisuniverse</a
+        >
         <span class="overlay"></span>
         <nav class="navbar" id="navbar">
           <ul class="menu" id="menu">
@@ -147,7 +152,8 @@
                 stroke-linecap="round"
                 stroke-width="2"
                 d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
-              /></svg>
+              />
+            </svg>
           </a>
           <a href="#" class="btn-icon-menu"
             ><svg
@@ -225,7 +231,10 @@
                   <h4>My Account</h4>
                 </a>
 
-                <a href="../Products/index.html" class="side-menu-item-profile checked-tab">
+                <a
+                  href="../Products/index.html"
+                  class="side-menu-item-profile checked-tab"
+                >
                   <div class="side-menu-item-profile-icon">
                     <svg
                       aria-hidden="true"
@@ -294,10 +303,7 @@
                   <h4>Payment</h4>
                 </a>
 
-                <a
-                  href="../Message/index.html"
-                  class="side-menu-item-profile"
-                >
+                <a href="../Message/index.html" class="side-menu-item-profile">
                   <div class="side-menu-item-profile-icon">
                     <svg
                       aria-hidden="true"
@@ -421,10 +427,20 @@
               <ul class="side-menu-logout-profile">
                 <a class="side-menu-item-profile log-out">
                   <div class="side-menu-item-profile-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.375 0C9.54076 0 9.69974 0.065848 9.81695 0.183058C9.93416 0.300269 10 0.45924 10 0.625V8.125C10 8.29076 9.93416 8.44973 9.81695 8.56694C9.69974 8.68415 9.54076 8.75 9.375 8.75C9.20924 8.75 9.05027 8.68415 8.93306 8.56694C8.81585 8.44973 8.75 8.29076 8.75 8.125V0.625C8.75 0.45924 8.81585 0.300269 8.93306 0.183058C9.05027 0.065848 9.20924 0 9.375 0ZM6.825 2.2875C6.8592 2.36218 6.87833 2.44287 6.88132 2.52495C6.88431 2.60704 6.87108 2.6889 6.84241 2.76587C6.81373 2.84284 6.77017 2.9134 6.71421 2.97352C6.65824 3.03364 6.59098 3.08214 6.51625 3.11625C5.09043 3.76959 3.93058 4.89041 3.22881 6.29303C2.52705 7.69565 2.32548 9.29591 2.6575 10.8288C2.98907 12.361 3.83621 13.7332 5.0575 14.7162C5.81625 15.3261 6.6958 15.768 7.63801 16.0126C8.58022 16.2573 9.56363 16.2992 10.5232 16.1356C11.4828 15.9719 12.3968 15.6065 13.2047 15.0634C14.0125 14.5203 14.6959 13.8119 15.2097 12.985C15.7234 12.1582 16.0558 11.2317 16.1849 10.2668C16.314 9.30197 16.2368 8.3207 15.9585 7.38789C15.6801 6.45507 15.207 5.59195 14.5703 4.85558C13.9336 4.11922 13.1478 3.52638 12.265 3.11625C12.1145 3.04663 11.9978 2.92007 11.9406 2.76442C11.8834 2.60876 11.8904 2.43676 11.96 2.28625C12.0296 2.13574 12.1562 2.01905 12.3118 1.96185C12.4675 1.90465 12.6395 1.91163 12.79 1.98125C14.4741 2.75515 15.8418 4.08319 16.665 5.74375C17.488 7.40396 17.7192 9.2955 17.3202 11.105C16.9212 12.9146 15.9161 14.5335 14.4713 15.6938C13.0253 16.8515 11.2276 17.4812 9.37531 17.4789C7.52299 17.4767 5.72687 16.8425 4.28375 15.6813C2.8445 14.5133 1.84414 12.8916 1.44625 11.0812C1.05271 9.2691 1.2909 7.37685 2.12125 5.71875C2.94738 4.05895 4.3203 2.73459 6.00875 1.96875C6.08344 1.93456 6.16412 1.91542 6.24621 1.91243C6.32829 1.90945 6.41016 1.92267 6.48713 1.95134C6.56409 1.98002 6.63466 2.02358 6.69478 2.07955C6.7549 2.13551 6.8034 2.20278 6.8375 2.2775L6.825 2.2875Z" fill="#F42E17"/>
-                      </svg>
-                      
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M9.375 0C9.54076 0 9.69974 0.065848 9.81695 0.183058C9.93416 0.300269 10 0.45924 10 0.625V8.125C10 8.29076 9.93416 8.44973 9.81695 8.56694C9.69974 8.68415 9.54076 8.75 9.375 8.75C9.20924 8.75 9.05027 8.68415 8.93306 8.56694C8.81585 8.44973 8.75 8.29076 8.75 8.125V0.625C8.75 0.45924 8.81585 0.300269 8.93306 0.183058C9.05027 0.065848 9.20924 0 9.375 0ZM6.825 2.2875C6.8592 2.36218 6.87833 2.44287 6.88132 2.52495C6.88431 2.60704 6.87108 2.6889 6.84241 2.76587C6.81373 2.84284 6.77017 2.9134 6.71421 2.97352C6.65824 3.03364 6.59098 3.08214 6.51625 3.11625C5.09043 3.76959 3.93058 4.89041 3.22881 6.29303C2.52705 7.69565 2.32548 9.29591 2.6575 10.8288C2.98907 12.361 3.83621 13.7332 5.0575 14.7162C5.81625 15.3261 6.6958 15.768 7.63801 16.0126C8.58022 16.2573 9.56363 16.2992 10.5232 16.1356C11.4828 15.9719 12.3968 15.6065 13.2047 15.0634C14.0125 14.5203 14.6959 13.8119 15.2097 12.985C15.7234 12.1582 16.0558 11.2317 16.1849 10.2668C16.314 9.30197 16.2368 8.3207 15.9585 7.38789C15.6801 6.45507 15.207 5.59195 14.5703 4.85558C13.9336 4.11922 13.1478 3.52638 12.265 3.11625C12.1145 3.04663 11.9978 2.92007 11.9406 2.76442C11.8834 2.60876 11.8904 2.43676 11.96 2.28625C12.0296 2.13574 12.1562 2.01905 12.3118 1.96185C12.4675 1.90465 12.6395 1.91163 12.79 1.98125C14.4741 2.75515 15.8418 4.08319 16.665 5.74375C17.488 7.40396 17.7192 9.2955 17.3202 11.105C16.9212 12.9146 15.9161 14.5335 14.4713 15.6938C13.0253 16.8515 11.2276 17.4812 9.37531 17.4789C7.52299 17.4767 5.72687 16.8425 4.28375 15.6813C2.8445 14.5133 1.84414 12.8916 1.44625 11.0812C1.05271 9.2691 1.2909 7.37685 2.12125 5.71875C2.94738 4.05895 4.3203 2.73459 6.00875 1.96875C6.08344 1.93456 6.16412 1.91542 6.24621 1.91243C6.32829 1.90945 6.41016 1.92267 6.48713 1.95134C6.56409 1.98002 6.63466 2.02358 6.69478 2.07955C6.7549 2.13551 6.8034 2.20278 6.8375 2.2775L6.825 2.2875Z"
+                        fill="#F42E17"
+                      />
+                    </svg>
                   </div>
                   <h4>Log Out</h4>
                 </a>
@@ -552,70 +568,140 @@
                       </div>
                       <div class="search-content-items-box-wrapper">
                         <div class="items-box-input-wrapper">
-                          <h3 class="items-box-input-label">Question Format</h3>
-                          <div class="items-box-input" id="format">
+                          <h3 class="items-box-input-label">
+                            Question Format :
+                          </h3>
+                          <div class="items-box-input" id="format1" required>
                             <h3 class="items-box-input-placeholder">
                               Select format
                             </h3>
                             <div class="input-arrow-icon">
-                              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/>
+                              <svg
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="m19 9-7 7-7-7"
+                                />
                               </svg>
                             </div>
                           </div>
                         </div>
-                        <div class="format-input-clicked-wrapper">
+                        <div
+                          class="format-input-clicked-wrapper"
+                          data-target="format1"
+                        >
                           <div class="format-input-clicked">
                             <div class="format">
-                              <input class="checkbox" type="checkbox" />
+                              <input
+                                class="checkbox"
+                                type="checkbox"
+                                value="Multiple choice"
+                              />
                               <h4>Multiple choice</h4>
                             </div>
                             <div class="format">
-                              <input class="checkbox" type="checkbox" />
+                              <input
+                                class="checkbox"
+                                type="checkbox"
+                                value="Essay questions"
+                              />
                               <h4>Essay questions</h4>
                             </div>
                             <div class="format">
-                              <input class="checkbox" type="checkbox" />
+                              <input
+                                class="checkbox"
+                                type="checkbox"
+                                value="Short answer"
+                              />
                               <h4>Short answer</h4>
                             </div>
                             <div class="format">
-                              <input class="checkbox" type="checkbox" />
+                              <input
+                                class="checkbox"
+                                type="checkbox"
+                                value="True or false questions"
+                              />
                               <h4>True or false questions</h4>
                             </div>
                             <div class="format">
-                              <input class="checkbox" type="checkbox" />
+                              <input
+                                class="checkbox"
+                                type="checkbox"
+                                value="Fill in the blank"
+                              />
                               <h4>Fill in the blank</h4>
                             </div>
                             <div class="format">
-                              <input class="checkbox" type="checkbox" />
+                              <input
+                                class="checkbox"
+                                type="checkbox"
+                                value="Computational"
+                              />
                               <h4>Computational</h4>
                             </div>
                             <div class="format">
-                              <input class="checkbox" type="checkbox" />
+                              <input
+                                class="checkbox"
+                                type="checkbox"
+                                value="Essays"
+                              />
                               <h4>Essays</h4>
                             </div>
                             <div class="format">
-                              <input class="checkbox" type="checkbox" />
+                              <input
+                                class="checkbox"
+                                type="checkbox"
+                                value="Matching"
+                              />
                               <h4>Matching</h4>
                             </div>
                             <div class="format">
-                              <input class="checkbox" type="checkbox" />
+                              <input
+                                class="checkbox"
+                                type="checkbox"
+                                value="Matching questions"
+                              />
                               <h4>Matching questions</h4>
                             </div>
                             <div class="format">
-                              <input class="checkbox" type="checkbox" />
+                              <input
+                                class="checkbox"
+                                type="checkbox"
+                                value="Definition questions"
+                              />
                               <h4>Definition questions</h4>
                             </div>
                             <div class="format">
-                              <input class="checkbox" type="checkbox" />
+                              <input
+                                class="checkbox"
+                                type="checkbox"
+                                value="Oral"
+                              />
                               <h4>Oral</h4>
                             </div>
                             <div class="format">
-                              <input class="checkbox" type="checkbox" />
+                              <input
+                                class="checkbox"
+                                type="checkbox"
+                                value="Open book exams"
+                              />
                               <h4>Open book exams</h4>
                             </div>
                             <div class="format">
-                              <input class="checkbox" type="checkbox" />
+                              <input
+                                class="checkbox"
+                                type="checkbox"
+                                value="Oral question"
+                              />
                               <h4>Oral question</h4>
                             </div>
                             <div class="format">
@@ -623,8 +709,9 @@
                                 class="checkbox"
                                 type="checkbox"
                                 id="otherTypesCheckbox"
+                                value="Other"
                               />
-                              <h4>Other types</h4>
+                              <h4>Other</h4>
                             </div>
                           </div>
                         </div>
@@ -676,10 +763,23 @@
                       <div class="information-edit wf">
                         <h4 class="information-title">Upload Quiz :</h4>
                         <div class="photo-upld">
-                          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-4m5-13v4a1 1 0 0 1-1 1H5m0 6h9m0 0-2-2m2 2-2 2"/>
+                          <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M5 12V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-4m5-13v4a1 1 0 0 1-1 1H5m0 6h9m0 0-2-2m2 2-2 2"
+                            />
                           </svg>
-                          
+
                           <p>Browse file to upload</p>
                           <input
                             type="file"
@@ -687,14 +787,27 @@
                             accept=".pdf, .docx, .xlsx"
                             hidden
                             id="file-input-req"
+                            data-max-size="20"
                             required
                           />
                           <p>file types: PDF, DOCX, XLSX (Max size: 20MB)</p>
                         </div>
                         <section class="progress-area">
                           <li class="row-upload">
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/>
+                            <svg
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="26"
+                              height="26"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
+                              />
                             </svg>
                             <div class="content">
                               <div class="details">
@@ -710,23 +823,306 @@
                         <section class="uploaded-area">
                           <li class="row-upload">
                             <div class="content">
-                              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/>
+                              <svg
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="26"
+                                height="26"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
+                                />
                               </svg>
                               <div class="details">
                                 <span class="name">File.01 - Uploaded</span>
                                 <span class="img-size">70 KB</span>
                               </div>
                             </div>
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                            <svg
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                              />
                             </svg>
-                            
+                          </li>
+                        </section>
+                      </div>
+
+                      <hr />
+
+                      <div class="information-edit wf">
+                        <h4 class="information-title">Thumbnail Image :</h4>
+                        <div class="photo-upld">
+                          <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M5 12V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-4m5-13v4a1 1 0 0 1-1 1H5m0 6h9m0 0-2-2m2 2-2 2"
+                            />
+                          </svg>
+                          <p>Browse file to upload</p>
+                          <input
+                            type="file"
+                            class="file-input"
+                            accept=".pdf, .jpg, .jpeg, .png"
+                            hidden
+                            required
+                          />
+                          <p>
+                            file types: Image (Upload up to 5 pages, Max size:
+                            20MB)
+                          </p>
+                        </div>
+                        <section class="progress-area">
+                          <li class="row-upload">
+                            <svg
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="26"
+                              height="26"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
+                              />
+                            </svg>
+                            <div class="content">
+                              <div class="details">
+                                <span class="name">File.01 - Uploading</span>
+                                <span class="percent">50%</span>
+                              </div>
+                              <div class="progress-bar">
+                                <div class="progress"></div>
+                              </div>
+                            </div>
+                          </li>
+                        </section>
+                        <section class="uploaded-area">
+                          <li class="row-upload">
+                            <div class="content">
+                              <svg
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="26"
+                                height="26"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
+                                />
+                              </svg>
+                              <div class="details">
+                                <span class="name">File.01 - Uploaded</span>
+                                <span class="img-size">70 KB</span>
+                              </div>
+                            </div>
+                            <svg
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                              />
+                            </svg>
+                          </li>
+                        </section>
+                      </div>
+
+                      <hr />
+
+                      <div class="information-edit wf">
+                        <h4 class="information-title">
+                          Quiz Preview <span>(Optional)</span> :
+                        </h4>
+                        <div class="photo-upld">
+                          <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M5 12V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-4m5-13v4a1 1 0 0 1-1 1H5m0 6h9m0 0-2-2m2 2-2 2"
+                            />
+                          </svg>
+                          <p>Browse file to upload</p>
+                          <input
+                            type="file"
+                            class="file-input"
+                            accept=".pdf, .jpg, .jpeg, .png"
+                            hidden
+                          />
+                          <p>
+                            file types: PDF or image (Upload up to 10 pages, Max
+                            size: 20MB)
+                          </p>
+                        </div>
+                        <section class="progress-area">
+                          <li class="row-upload">
+                            <svg
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="26"
+                              height="26"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
+                              />
+                            </svg>
+                            <div class="content">
+                              <div class="details">
+                                <span class="name">File.01 - Uploading</span>
+                                <span class="percent">50%</span>
+                              </div>
+                              <div class="progress-bar">
+                                <div class="progress"></div>
+                              </div>
+                            </div>
+                          </li>
+                        </section>
+                        <section class="uploaded-area">
+                          <li class="row-upload">
+                            <div class="content">
+                              <svg
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="26"
+                                height="26"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
+                                />
+                              </svg>
+                              <div class="details">
+                                <span class="name">File.01 - Uploaded</span>
+                                <span class="img-size">70 KB</span>
+                              </div>
+                            </div>
+                            <svg
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                              />
+                            </svg>
                           </li>
                         </section>
                         <p class="upload-text">
                           Your product photos and personal data are protected.
                         </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="edit-section-item-title-wrapper">
+                      <h3 class="edit-section-item-title">
+                        About the Creators
+                      </h3>
+                    </div>
+                    <div id="authors-container">
+                      <div class="user_details">
+                        <div class="input_pox">
+                          <label class="datails">Full Name :</label>
+                          <input
+                            type="text"
+                            placeholder="Anderson Cooper"
+                            required
+                          />
+                        </div>
+                        <div class="input_pox">
+                          <label class="datails">Affiliation :</label>
+                          <input type="text" required />
+                        </div>
+                        <div class="input_pox">
+                          <label class="datails"
+                            >Email <span>(Optional)</span> :</label
+                          >
+                          <input
+                            type="text"
+                            placeholder="Enter ISBN (if available)"
+                          />
+                        </div>
+                        <div class="input_pox">
+                          <label class="datails">Role :</label>
+                          <input
+                            type="text"
+                            placeholder="Eg: Corresponding Author"
+                            required
+                          />
+                        </div>
+
+                        <button
+                          class="text-btn"
+                          onclick="addAuthor(this.parentNode, event)"
+                        >
+                          + Add Next Author
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -813,6 +1209,31 @@
         </div>
       </div>
     </main>
+
+    <div id="error-modal" class="custom-modal">
+      <div class="modal-content">
+        <div class="modal-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#DC3545"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <h3 class="modal-title">Required Fields</h3>
+        <div class="modal-message" id="modal-message"></div>
+        <button class="modal-button">Ok</button>
+      </div>
+    </div>
 
     <footer class="footer-background">
       <div class="container mx">
@@ -1051,6 +1472,6 @@
       </div>
     </footer>
 
-    <script src="./main.js" defer></script>
+    <script src="../form.js" defer></script>
   </body>
 </html>
