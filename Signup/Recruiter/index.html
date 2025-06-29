@@ -4,552 +4,106 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unisuniverse</title>
-   
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
 
-      :root {
-        --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
-          0 1px 2px 0 rgba(0, 0, 0, 0.06);
-        --shadow-medium: 0 13px 30px 0 rgba(0, 0, 0, 0.048),
-          0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-          0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        --color-text-black: #333333;
-        --color-text-grayblack: #666666;
-        --color-text-gray: #dcdcdc;
-        --color-background: #f7f9fb;
-        --color-line: #dcdcdc;
-        --color-white: #ffffff;
-        --primary-color: #003366;
-        --secondary-color: #ffd700;
-      }
-
-      *,
-      *::before,
-      *::after {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        list-style: none;
-        list-style-type: none;
-        text-decoration: none;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
-      }
-
-      html {
-        font-size: 100%;
-        box-sizing: inherit;
-        scroll-behavior: smooth;
-        height: -webkit-fill-available;
-      }
-
-      body {
-        font-family: "Outfit", sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 1.5;
-        color: var(--color-text-black);
-        background-color: var(--color-white);
-      }
-
-      a,
-      button {
-        cursor: pointer;
-        border: none;
-        outline: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        background: none;
-        box-shadow: none;
-        font-family: inherit;
-        letter-spacing: 0.2px;
-      }
-
-      img,
-      video {
-        display: block;
-        max-width: 100%;
-        height: auto;
-        -o-object-fit: cover;
-        object-fit: cover;
-      }
-
-      button,
-      select,
-      input {
-        font-family: inherit;
-        letter-spacing: 0.25px;
-      }
-
-      ::placeholder {
-        color: var(--color-text-gray);
-        letter-spacing: 0.2px;
-        font-weight: 400;
-      }
-
-      .container {
-        height: auto;
-        margin: 0 auto;
-      }
-
-      @media (min-width: 1700px) {
-        .container {
-          max-width: 1400px;
-        }
-      }
-
-      .signup-page-container {
-        height: 100vh;
-        overflow: auto;
-      }
-
-      .signup-page-inner-container {
-        display: flex;
-        min-height: 100%;
-      }
-
-      .left-contianer {
-        width: 55%;
-        background-color: var(--primary-color);
-        color: var(--color-white);
-        min-height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        border-radius: 0px 24px 24px 0px;
-        position: sticky;
-        top: 0;
-        overflow-y: auto;
-        max-height: 100vh;
-        overflow: hidden; 
-      }
-
-      .left-text-desc {
-        padding: 13%;
-        margin-bottom: 50px;
-      }
-
-      .left-title-wl {
-        font-size: 24px;
-        font-weight: 600;
-        letter-spacing: 1px;
-        margin: 0 auto;
-        margin-bottom: 56px;
-      }
-
-      .left-text-desc h3 {
-        font-size: 18px;
-        font-weight: 600;
-        letter-spacing: 0.8px;
-      }
-
-      .left-text-desc h3:after {
-        content: "";
-        display: block;
-        position: relative;
-        width: 14%;
-        border: 1.5px solid var(--secondary-color);
-        margin-top: 8px;
-        border-radius: 50%;
-      }
-
-      .left-text-desc h3 span {
-        color: var(--secondary-color);
-      }
-
-      .left-text-desc p {
-        font-size: 15px;
-        font-weight: 400;
-        line-height: 21px;
-        width: 92%;
-        margin-top: 12px;
-      }
-
-      .group-image {
-        width: 80%;
-        margin-top: 15px;
-      }
-
-      .signup-form-container {
-        flex-grow: 2;
-        min-height: 100%;
-        padding: 4.2% 5%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .user_details {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-
-      .input_pox {
-        margin-bottom: 15px;
-        margin: 18px 0 18px 0;
-        width: calc(97% / 2 - 20px);
-      }
-
-      .datails {
-        display: block;
-        font-weight: 500;
-        font-size: 16px;
-        margin-bottom: 5px;
-        color: var(--color-text-grayblack);
-      }
-
-      .input_pox input {
-        height: 48px;
-        width: 100%;
-        outline: none;
-        border-radius: 8px;
-        border: 1px solid var(--color-line);
-        padding-left: 15px;
-        font-size: 15px;
-        transition: all 0.3s ease;
-      }
-
-      .user_details .input_pox input:focus,
-      .user_details .input_pox input:valid {
-        border-color: var(--primary-color);
-      }
-
-      .signup-form-inner-container {
-        text-align: center;
-        margin-bottom: 36px;
-      }
-
-      .header {
-        font-size: 27px;
-        font-weight: 600;
-        letter-spacing: 1px;
-        color: var(--primary-color);
-      }
-
-      .subHeader {
-        font-size: 16px;
-        color: var(--color-text-grayblack);
-        font-weight: 400;
-        margin-top: 6px;
-      }
-
-      .OptionsContainer {
-        margin: 12px 0 46px 0;
-      }
-
-      .terms {
-        color: var(--secondary-color);
-        font-weight: 500;
-      }
-
-      .checkboxContainer {
-        display: flex;
-        align-items: center;
-      }
-
-      .checkboxContainer label {
-        font-size: 15px;
-        padding-left: 10px;
-        color: var(--color-text-grayblack);
-      }
-
-      .checkbox {
-        width: 15px;
-        height: 15px;
-        margin: 0px;
-        border: 1px solid var(--color-line);
-      }
-      .checkbox:checked {
-        accent-color: var(--primary-color);
-      }
-
-      .signup-button {
-        display: block;
-        width: 55%;
-        height: 50px;
-        border-radius: 8px;
-        font-size: 16px;
-        font-weight: 500;
-        color: var(--color-white);
-        background-color: var(--primary-color);
-        border: 0px;
-        outline: 0px;
-        cursor: pointer;
-        margin: 0 auto;
-        transition: all 0.3s ease;
-        border: 1px solid var(--primary-color);
-      }
-
-      .signup-button:hover {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-      }
-
-      .or {
-        position: relative;
-        text-align: center;
-        margin: 28px 0;
-        font-size: 14px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-      }
-
-      .or::before,
-      .or::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        width: 40%;
-        height: 1px;
-        background: var(--color-line);
-      }
-
-      .or::before {
-        left: 0;
-      }
-
-      .or::after {
-        right: 0;
-      }
-
-      .Google {
-        height: 50px;
-        font-size: 16px;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-        width: 55%;
-        color: var(--primary-color);
-        background-color: transparent;
-        border-radius: 8px;
-        padding-left: 12px;
-        border: 1.5px solid var(--primary-color);
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        margin: 0 auto;
-      }
-      .Google:hover {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-      }
-      .Google svg {
-        fill: var(--primary-color);
-      }
-      .Google:hover svg {
-        fill: var(--primary-color);
-      }
-
-      .Google p {
-        width: 100%;
-        margin-right: 26px;
-      }
-
-      .text-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 4px;
-        color: var(--color-text-grayblack);
-        transition: all 0.2s ease-in-out;
-        font-size: 15px;
-        margin-top: 32px;
-      }
-
-      .text-btn:hover {
-        opacity: 0.75;
-      }
-
-      @media screen and (max-width: 1050px) {
-        .left-contianer {
-          width: 70%;
-        }
-      }
-
-      @media screen and (max-width: 800px) {
-        .signup-page-inner-container {
-          flex-direction: column-reverse;
-        }
-        .left-contianer {
-          width: 100%;
-          border-radius: 0 0 0 0;
-        }
-        .group-image {
-          width: 60%;
-          margin-top: 15px;
-        }
-      }
-
-      @media (max-width: 584px) {
-        .input_pox {
-          margin-bottom: 15px;
-          width: 100%;
-        }
-        .signup-button,
-        .Google {
-          width: 100%;
-        }
-      }
-
-      @media (max-width: 445px) {
-        .left-title-wl {
-          font-size: 20px;
-        }
-      }
-
-      @media (min-width: 1700px) {
-        .left-contianer {
-          border-radius: 24px;
-        }
-      }
-
-      /* modal check email */
-
-      .modal-cont {
-        position: fixed;
-        height: 100%;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.596);
-        top: 0;
-        left: 0;
-        overflow: auto;
-        z-index: 1400;
-      }
-
-      .modal-box {
-        padding: 66px 50px;
-        border-radius: 24px;
-        background: var(--color-white);
-        width: 40%;
-        margin: 102px auto;
-      }
-
-      .modal-items {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 32px;
-      }
-
-      .modal-icon {
-        width: 130px;
-        height: 130px;
-        border-radius: 50%;
-        background-color: #f4fcff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid var(--color-line);
-      }
-
-      .modal-texts-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 56px;
-      }
-
-      .modal-check-email {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .modal-text-title {
-        font-size: 28px;
-        font-weight: 600;
-        color: var(--color-text-black);
-        text-align: center;
-      }
-
-      .modal-text-desc {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-        text-align: center;
-      }
-
-      .modal-resend-link {
-        display: flex;
-        align-items: center;
-        gap: 7px;
-      }
-
-      .modal-resend-link > h4 {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--color-text-grayblack);
-        text-align: center;
-      }
-
-      .modal-resend-link > h4 > span {
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--primary-color);
-        text-align: center;
-        text-decoration-line: underline;
-        cursor: pointer;
-      }
-
-      .modal-resend-link > i {
-        font-size: 15px;
-        color: var(--primary-color);
-      }
-
-      .modal-cont {
-        display: none;
-      }
-      .modal-box {
-        animation-name: zoom;
-        animation-duration: 0.7s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease;
-        border: 1px solid #b7b7b7;
-        border-radius: 24px;
-      }
-
-      .error-message {
-        font-size: 14px;
-        font-weight: 400;
-        color: #f42e17;
-        margin-top: 4px;
-      }
-
-      @keyframes zoom {
-        from {
-          transform: scale(0);
-        }
-        to {
-          transform: scale(1);
-        }
-      }
-
-      @media only screen and (max-width: 993px) {
-        .modal-box {
-          width: 55%;
-        }
-      }
-      @media only screen and (max-width: 630px) {
-        .modal-box {
-          width: 82%;
-          padding: 16px 16px;
-        }
-      }
-
-      .input.error {
-        border-color: #f42e17;
-      }
-    </style>
+    <link rel="stylesheet" href="../../css/pages/signup-pages.css" />
   </head>
   <body>
+    <div class="modal-notice">
+      <div class="modal-notice-box">
+        <div class="modal-notice-items">
+          <div class="modal-notice-items-head">
+            <div class="modal-notice-icon">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 28 28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_4246_31)">
+                  <path
+                    d="M14 27.125C6.76288 27.125 0.875 21.2371 0.875 14C0.875 6.76288 6.76288 0.875 14 0.875C21.2371 0.875 27.125 6.76288 27.125 14C27.125 21.2371 21.2371 27.125 14 27.125ZM14 2.625C7.728 2.625 2.625 7.728 2.625 14C2.625 20.272 7.728 25.375 14 25.375C20.272 25.375 25.375 20.272 25.375 14C25.375 7.728 20.272 2.625 14 2.625Z"
+                    fill="#DC3545"
+                  />
+                  <path
+                    d="M14 10.5C12.5527 10.5 11.375 9.32225 11.375 7.875C11.375 6.42775 12.5527 5.25 14 5.25C15.4473 5.25 16.625 6.42775 16.625 7.875C16.625 9.32225 15.4473 10.5 14 10.5ZM14 7C13.7679 7 13.5454 7.09219 13.3813 7.25628C13.2172 7.42038 13.125 7.64294 13.125 7.875C13.125 8.10706 13.2172 8.32962 13.3813 8.49372C13.5454 8.65781 13.7679 8.75 14 8.75C14.2321 8.75 14.4546 8.65781 14.6187 8.49372C14.7828 8.32962 14.875 8.10706 14.875 7.875C14.875 7.64294 14.7828 7.42038 14.6187 7.25628C14.4546 7.09219 14.2321 7 14 7ZM14 22.75C12.5527 22.75 11.375 21.5723 11.375 20.125V14C11.375 12.5527 12.5527 11.375 14 11.375C15.4473 11.375 16.625 12.5527 16.625 14V20.125C16.625 21.5723 15.4473 22.75 14 22.75ZM14 13.125C13.7679 13.125 13.5454 13.2172 13.3813 13.3813C13.2172 13.5454 13.125 13.7679 13.125 14V20.125C13.125 20.3571 13.2172 20.5796 13.3813 20.7437C13.5454 20.9078 13.7679 21 14 21C14.2321 21 14.4546 20.9078 14.6187 20.7437C14.7828 20.5796 14.875 20.3571 14.875 20.125V14C14.875 13.7679 14.7828 13.5454 14.6187 13.3813C14.4546 13.2172 14.2321 13.125 14 13.125Z"
+                    fill="#DC3545"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_4246_31">
+                    <rect width="28" height="28" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+
+            <h2 class="modal-text-notice--title">
+              University Registration Notice
+            </h2>
+          </div>
+
+          <div class="modal-notice-texts-wrapper">
+            <div class="modal-text-notice-desc">
+              To maintain the accuracy and authenticity of university profiles
+              on Unisuniverse.com, we follow a secure and invitation-based
+              registration process.
+              <br />
+              <br />
+              <span class="modal-text-notice-desc-bld"
+                >Here’s how it works:</span
+              >
+              <br />
+              When a recruiter wishes to create or access their university page,
+              our system first checks whether the university already exists in
+              our database.
+              <br />
+              <br />
+              <p class="modal-text-notice-desc-pl">
+                •
+                <span class="modal-text-notice-desc-bld"
+                  >If the university already exists:</span
+                >
+                a login ID and password are sent to the university’s official
+                email address (e.g., info@university.edu). The recruiter can
+                then use these credentials to log in and begin updating the
+                existing page.
+              </p>
+              <br />
+              <p class="modal-text-notice-desc-pl">
+                •
+                <span class="modal-text-notice-desc-bld"
+                  >If the university does not exist:</span
+                >
+                a unique registration link is sent to the same official email
+                address. The recruiter can use that link to start the process of
+                creating the university profile from scratch.
+              </p>
+              <br />
+              In both cases, all communication is made through the verified
+              institutional email to ensure the legitimacy of the request and
+              avoid unauthorized page creation.
+              <br />
+              <br />
+              <span class="modal-text-notice-desc-bld"
+                >To keep your institution informed</span
+              >, we’ve also sent a notification to the university’s info email
+              containing your name and request details, so they are aware of
+              your interest in managing the university’s page. <br /><br />
+              If you agree with this process, please complete the form below to
+              submit your university and contact details. Our team will verify
+              the information and send the appropriate registration credentials
+              or invitation link to your institution.
+            </div>
+
+            <button id="read-notice-button" class="signup-button">
+              I Understand and Agree
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
       <div class="signup-page-container">
         <div class="signup-page-inner-container">
@@ -558,8 +112,9 @@
               <h1 class="left-title-wl">Welcome to Unisuniverse</h1>
               <h3>Join US as an <span>Student Recruiter</span></h3>
               <p>
-                Join US for free and reach a wider audience of potential students
-                and promote your university's programs and academic positions.
+                Join US for free and reach a wider audience of potential
+                students and promote your university's programs and academic
+                positions.
               </p>
             </div>
             <img
@@ -575,66 +130,45 @@
                 Create account to start using Unisuniverse
               </header>
             </div>
-  
+
             <form id="signup-form">
               <div class="user_details">
-                <div class="input_pox">
-                  <label class="datails">Username</label>
-                  <input
-                    class="input"
-                    type="text"
-                    placeholder="Enter your Username"
-                    required
-                  />
-                </div>
                 <div class="input_pox">
                   <label class="datails">Full Name</label>
                   <input
                     class="input"
                     type="text"
-                    placeholder="Enter your name"
+                    placeholder="e.g., Anderson Cooper"
                     required
                   />
                 </div>
                 <div class="input_pox">
-                  <label class="datails">Email</label>
-                  <input
-                    class="input"
-                    type="email"
-                    placeholder="Please enter your email address"
-                    required
-                  />
-                </div>
-                <div class="input_pox">
-                  <label class="datails">Affiliated School</label>
+                  <label class="datails"
+                    >Affiliated University/Institution Name</label
+                  >
                   <input
                     class="input"
                     type="text"
-                    placeholder="Eg : Adams State University"
+                    placeholder="e.g., Harvard University"
                     required
                   />
                 </div>
                 <div class="input_pox">
-                  <label class="datails">Password</label>
+                  <label class="datails">Official Email Address</label>
                   <input
-                    id="password"
                     class="input"
-                    type="password"
-                    placeholder="Enter your Password"
+                    type="email"
+                    placeholder="university/institution email address"
                     required
-                    pattern=".{8,}"
                   />
-                  <span class="error-message"></span>
                 </div>
                 <div class="input_pox">
-                  <label class="datails">Confirm Password</label>
+                  <label class="datails">University Info Email</label>
                   <input
-                    id="confirm-password"
-                    type="password"
                     class="input"
-                    placeholder="Confirm your Password"
+                    type="text"
+                    placeholder="e.g., info@university.edu"
                     required
-                    pattern=".{8,}"
                   />
                 </div>
               </div>
@@ -653,32 +187,8 @@
                   </label>
                 </div>
               </div>
-  
+
               <button id="submit-button" class="signup-button">Sign Up</button>
-              <div class="or">OR</div>
-              <button class="Google">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 22 22"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g clip-path="url(#clip0_24_2365)">
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M10.9994 5.04166C9.87998 5.04191 8.78332 5.35747 7.83501 5.95219C6.8867 6.54691 6.1251 7.39674 5.63746 8.4043C5.14981 9.41187 4.95586 10.5364 5.07781 11.6491C5.19976 12.7618 5.63268 13.8177 6.32698 14.6957C7.02129 15.5737 7.94888 16.2384 9.00349 16.6136C10.0581 16.9888 11.1971 17.0594 12.2899 16.8172C13.3828 16.575 14.3853 16.0298 15.1826 15.2442C15.98 14.4585 16.5399 13.4641 16.7982 12.375H11.916C11.5513 12.375 11.2016 12.2301 10.9437 11.9723C10.6859 11.7144 10.541 11.3647 10.541 11C10.541 10.6353 10.6859 10.2856 10.9437 10.0277C11.2016 9.76986 11.5513 9.62499 11.916 9.62499H18.3327C18.6974 9.62499 19.0471 9.76986 19.305 10.0277C19.5628 10.2856 19.7077 10.6353 19.7077 11C19.7077 13.0137 19.0098 14.9651 17.7329 16.5222C16.4559 18.0792 14.6789 19.1456 12.7041 19.5398C10.7294 19.934 8.67908 19.6317 6.90219 18.6843C5.1253 17.7368 3.73165 16.2029 2.95849 14.3436C2.18533 12.4842 2.08043 10.4144 2.66166 8.48641C3.24289 6.55843 4.47432 4.89146 6.14633 3.76926C7.81834 2.64706 9.82758 2.13899 11.832 2.33154C13.8365 2.52409 15.7123 3.40536 17.1401 4.82533C17.2681 4.95269 17.3698 5.10402 17.4393 5.27067C17.5089 5.43733 17.5449 5.61605 17.5454 5.79664C17.5459 5.97722 17.5107 6.15613 17.4421 6.32314C17.3734 6.49016 17.2725 6.64201 17.1451 6.77003C17.0178 6.89806 16.8665 6.99974 16.6998 7.06928C16.5331 7.13882 16.3544 7.17485 16.1738 7.17532C15.8091 7.17626 15.459 7.03229 15.2004 6.77508C14.6484 6.22434 13.9932 5.78779 13.2724 5.49036C12.5515 5.19293 11.7791 5.04046 10.9994 5.04166Z"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_24_2365">
-                      <rect width="22" height="22" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
-                <p>Continue Google</p>
-              </button>
               <a href="/Home/index.html" class="text-btn">
                 <svg
                   aria-hidden="true"
@@ -704,91 +214,117 @@
       </div>
     </div>
 
+    <div id="error-modal" class="custom-modal">
+      <div class="modal-content">
+        <div class="modal-icon-error">
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 38.75C9.66125 38.75 1.25 30.3387 1.25 20C1.25 9.66125 9.66125 1.25 20 1.25C30.3387 1.25 38.75 9.66125 38.75 20C38.75 30.3387 30.3387 38.75 20 38.75ZM20 3.75C11.04 3.75 3.75 11.04 3.75 20C3.75 28.96 11.04 36.25 20 36.25C28.96 36.25 36.25 28.96 36.25 20C36.25 11.04 28.96 3.75 20 3.75Z"
+              fill="#DC3545"
+            />
+            <path
+              d="M20 15C17.9325 15 16.25 13.3175 16.25 11.25C16.25 9.1825 17.9325 7.5 20 7.5C22.0675 7.5 23.75 9.1825 23.75 11.25C23.75 13.3175 22.0675 15 20 15ZM20 10C19.6685 10 19.3505 10.1317 19.1161 10.3661C18.8817 10.6005 18.75 10.9185 18.75 11.25C18.75 11.5815 18.8817 11.8995 19.1161 12.1339C19.3505 12.3683 19.6685 12.5 20 12.5C20.3315 12.5 20.6495 12.3683 20.8839 12.1339C21.1183 11.8995 21.25 11.5815 21.25 11.25C21.25 10.9185 21.1183 10.6005 20.8839 10.3661C20.6495 10.1317 20.3315 10 20 10ZM20 32.5C17.9325 32.5 16.25 30.8175 16.25 28.75V20C16.25 17.9325 17.9325 16.25 20 16.25C22.0675 16.25 23.75 17.9325 23.75 20V28.75C23.75 30.8175 22.0675 32.5 20 32.5ZM20 18.75C19.6685 18.75 19.3505 18.8817 19.1161 19.1161C18.8817 19.3505 18.75 19.6685 18.75 20V28.75C18.75 29.0815 18.8817 29.3995 19.1161 29.6339C19.3505 29.8683 19.6685 30 20 30C20.3315 30 20.6495 29.8683 20.8839 29.6339C21.1183 29.3995 21.25 29.0815 21.25 28.75V20C21.25 19.6685 21.1183 19.3505 20.8839 19.1161C20.6495 18.8817 20.3315 18.75 20 18.75Z"
+              fill="#DC3545"
+            />
+          </svg>
+        </div>
+        <h3 class="modal-title">Required Fields</h3>
+        <div class="modal-message" id="modal-message"></div>
+        <button class="modal-button">Ok</button>
+      </div>
+    </div>
+
     <div class="modal-cont">
       <div class="modal-box">
         <div class="modal-items">
           <div class="modal-icon">
             <svg
-              width="62"
-              height="62"
-              viewBox="0 0 62 62"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M4.03125 25.0839L28.1643 45.1486C29.7336 46.4535 32.2836 46.4535 33.8532 45.1486L57.9863 25.0839H4.03125Z"
+                d="M3.11719 19.4199L21.8008 34.9539C23.0158 35.9641 24.99 35.9641 26.2051 34.9539L44.8888 19.4199H3.11719Z"
                 fill="#87796F"
               />
               <path
-                d="M58.3318 24.9603C58.3064 24.8901 58.26 24.8294 58.1988 24.7865C58.1377 24.7436 58.0648 24.7206 57.9901 24.7206H4.03504C3.96037 24.7206 3.88752 24.7436 3.82641 24.7865C3.7653 24.8294 3.71889 24.8901 3.69351 24.9604C3.66813 25.0306 3.665 25.1069 3.68455 25.179C3.7041 25.2511 3.74539 25.3153 3.80278 25.3631L27.9358 45.4279C28.7842 46.1333 29.8982 46.486 31.0126 46.4857C32.1266 46.4857 33.2412 46.1331 34.0893 45.4279L58.2223 25.3631C58.2798 25.3154 58.3211 25.2511 58.3407 25.179C58.3603 25.1069 58.3572 25.0306 58.3318 24.9603ZM33.6248 44.8691C32.1845 46.0667 29.8406 46.0665 28.4003 44.8691L5.04012 25.4471H56.985L33.6248 44.8691Z"
+                d="M45.1611 19.3242C45.1414 19.2699 45.1055 19.2229 45.0581 19.1897C45.0108 19.1565 44.9544 19.1387 44.8966 19.1387H3.12491C3.0671 19.1387 3.0107 19.1565 2.96339 19.1897C2.91608 19.2229 2.88015 19.2699 2.8605 19.3243C2.84085 19.3787 2.83843 19.4377 2.85356 19.4936C2.8687 19.5494 2.90066 19.5991 2.94509 19.6361L21.6287 35.1701C22.2855 35.7162 23.148 35.9893 24.0108 35.9891C24.8732 35.9891 25.7361 35.7161 26.3927 35.1701L45.0763 19.6361C45.1208 19.5992 45.1528 19.5494 45.168 19.4936C45.1832 19.4377 45.1808 19.3787 45.1611 19.3242ZM26.0331 34.7375C24.918 35.6647 23.1034 35.6645 21.9883 34.7375L3.90304 19.7011H44.1184L26.0331 34.7375Z"
                 fill="#002754"
               />
               <path
-                d="M33.8532 5.01908C32.2836 3.71418 29.7339 3.71418 28.1643 5.01908L4.03125 25.0838H57.9863L33.8532 5.01908Z"
+                d="M26.2051 3.88561C24.99 2.87537 23.016 2.87537 21.8008 3.88561L3.11719 19.4196H44.8888L26.2051 3.88561Z"
                 fill="#87796F"
               />
               <path
-                d="M58.2223 24.8044L34.0893 4.73964C32.393 3.32914 29.6326 3.32914 27.9358 4.73964L3.80278 24.8044C3.74539 24.8521 3.7041 24.9164 3.68455 24.9885C3.665 25.0606 3.66813 25.1369 3.69351 25.2071C3.71889 25.2773 3.7653 25.338 3.82641 25.3809C3.88752 25.4239 3.96037 25.4469 4.03504 25.4469H57.9901C58.0647 25.4469 58.1376 25.4239 58.1987 25.3809C58.2598 25.338 58.3062 25.2773 58.3316 25.2071C58.357 25.1369 58.3601 25.0606 58.3405 24.9885C58.321 24.9164 58.2797 24.8521 58.2223 24.8044ZM5.04012 24.7206L28.4003 5.29836C29.8406 4.10099 32.1845 4.10099 33.6248 5.29836L56.985 24.7206H5.04012Z"
+                d="M45.0763 19.2036L26.3927 3.66959C25.0795 2.57759 22.9424 2.57759 21.6287 3.66959L2.94509 19.2036C2.90066 19.2405 2.8687 19.2903 2.85356 19.3461C2.83843 19.4019 2.84085 19.461 2.8605 19.5154C2.88015 19.5697 2.91608 19.6167 2.96339 19.6499C3.0107 19.6832 3.0671 19.701 3.12491 19.701H44.8966C44.9543 19.701 45.0108 19.6832 45.0581 19.6499C45.1054 19.6167 45.1413 19.5697 45.161 19.5154C45.1806 19.461 45.183 19.4019 45.1678 19.3461C45.1527 19.2903 45.1208 19.2405 45.0763 19.2036ZM3.90304 19.1387L21.9883 4.10214C23.1034 3.17515 24.918 3.17515 26.0331 4.10214L44.1184 19.1387H3.90304Z"
                 fill="#002754"
               />
               <path
-                d="M47.6726 14.1295H14.3503C12.2064 14.1295 10.4688 15.8672 10.4688 18.0111V54.1537C10.4688 56.2975 12.2067 58.0352 14.3503 58.0352H47.6726C49.8165 58.0352 51.5542 56.2973 51.5542 54.1537V18.0111C51.5542 15.8672 49.8162 14.1295 47.6726 14.1295Z"
+                d="M36.9045 10.9395H11.1066C9.4468 10.9395 8.10156 12.2848 8.10156 13.9446V41.9259C8.10156 43.5856 9.44703 44.931 11.1066 44.931H36.9045C38.5643 44.931 39.9096 43.5855 39.9096 41.9259V13.9446C39.9096 12.2848 38.5641 10.9395 36.9045 10.9395Z"
                 fill="#FCE8CB"
               />
               <path
-                d="M47.6768 13.7662H39.572C39.4756 13.7662 39.3832 13.8045 39.3151 13.8726C39.247 13.9408 39.2087 14.0332 39.2087 14.1295C39.2087 14.2259 39.247 14.3183 39.3151 14.3864C39.3832 14.4545 39.4756 14.4928 39.572 14.4928H47.6768C49.6167 14.4928 51.195 16.0711 51.195 18.0111V54.1537C51.195 56.0936 49.6167 57.6719 47.6768 57.6719H14.3542C12.4143 57.6719 10.8359 56.0936 10.8359 54.1537V18.0111C10.8359 16.0711 12.4143 14.4928 14.3542 14.4928H35.998C36.0944 14.4928 36.1868 14.4545 36.2549 14.3864C36.323 14.3183 36.3613 14.2259 36.3613 14.1295C36.3613 14.0332 36.323 13.9408 36.2549 13.8726C36.1868 13.8045 36.0944 13.7662 35.998 13.7662H14.3542C12.0135 13.7662 10.1094 15.6706 10.1094 18.0111V54.1537C10.1094 56.4944 12.0137 58.3985 14.3542 58.3985H47.6765C50.017 58.3985 51.9214 56.4942 51.9214 54.1537V18.0111C51.9216 15.6706 50.0173 13.7662 47.6768 13.7662Z"
+                d="M36.9126 10.6572H30.6379C30.5632 10.6572 30.4917 10.6869 30.439 10.7396C30.3863 10.7924 30.3566 10.8639 30.3566 10.9385C30.3566 11.0131 30.3863 11.0847 30.439 11.1374C30.4917 11.1901 30.5632 11.2198 30.6379 11.2198H36.9126C38.4144 11.2198 39.6363 12.4417 39.6363 13.9436V41.925C39.6363 43.4268 38.4144 44.6487 36.9126 44.6487H11.1144C9.61256 44.6487 8.39058 43.4268 8.39058 41.925V13.9436C8.39058 12.4417 9.61256 11.2198 11.1144 11.2198H27.8709C27.9455 11.2198 28.0171 11.1901 28.0698 11.1374C28.1225 11.0847 28.1522 11.0131 28.1522 10.9385C28.1522 10.8639 28.1225 10.7924 28.0698 10.7396C28.0171 10.6869 27.9455 10.6572 27.8709 10.6572H11.1144C9.30227 10.6572 7.82812 12.1316 7.82812 13.9436V41.925C7.82812 43.7371 9.30242 45.2113 11.1144 45.2113H36.9123C38.7243 45.2113 40.1987 43.737 40.1987 41.925V13.9436C40.1989 12.1316 38.7246 10.6572 36.9126 10.6572Z"
                 fill="#002754"
               />
               <path
-                d="M45.5053 20.3169H16.4961C16.3997 20.3169 16.3073 20.3552 16.2392 20.4233C16.1711 20.4914 16.1328 20.5838 16.1328 20.6802C16.1328 20.7765 16.1711 20.8689 16.2392 20.9371C16.3073 21.0052 16.3997 21.0435 16.4961 21.0435H45.5053C45.6017 21.0435 45.6941 21.0052 45.7622 20.9371C45.8303 20.8689 45.8686 20.7765 45.8686 20.6802C45.8686 20.5838 45.8303 20.4914 45.7622 20.4233C45.6941 20.3552 45.6017 20.3169 45.5053 20.3169ZM45.5053 26.389H16.4961C16.3997 26.389 16.3073 26.4273 16.2392 26.4954C16.1711 26.5635 16.1328 26.656 16.1328 26.7523C16.1328 26.8486 16.1711 26.941 16.2392 27.0092C16.3073 27.0773 16.3997 27.1156 16.4961 27.1156H45.5053C45.6017 27.1156 45.6941 27.0773 45.7622 27.0092C45.8303 26.941 45.8686 26.8486 45.8686 26.7523C45.8686 26.656 45.8303 26.5635 45.7622 26.4954C45.6941 26.4273 45.6017 26.389 45.5053 26.389ZM45.5053 32.4614H16.4961C16.3997 32.4614 16.3073 32.4997 16.2392 32.5678C16.1711 32.6359 16.1328 32.7283 16.1328 32.8247C16.1328 32.921 16.1711 33.0134 16.2392 33.0815C16.3073 33.1497 16.3997 33.1879 16.4961 33.1879H45.5053C45.6017 33.1879 45.6941 33.1497 45.7622 33.0815C45.8303 33.0134 45.8686 32.921 45.8686 32.8247C45.8686 32.7283 45.8303 32.6359 45.7622 32.5678C45.6941 32.4997 45.6017 32.4614 45.5053 32.4614Z"
+                d="M35.2322 15.7295H12.7735C12.6988 15.7295 12.6273 15.7591 12.5746 15.8119C12.5218 15.8646 12.4922 15.9361 12.4922 16.0108C12.4922 16.0853 12.5218 16.1568 12.5746 16.2096C12.6273 16.2624 12.6988 16.292 12.7735 16.292H35.2322C35.3068 16.292 35.3784 16.2624 35.4311 16.2096C35.4838 16.1568 35.5134 16.0853 35.5134 16.0108C35.5134 15.9361 35.4838 15.8646 35.4311 15.8119C35.3784 15.7591 35.3068 15.7295 35.2322 15.7295ZM35.2322 20.4305H12.7735C12.6988 20.4305 12.6273 20.4601 12.5746 20.5128C12.5218 20.5656 12.4922 20.6372 12.4922 20.7117C12.4922 20.7863 12.5218 20.8578 12.5746 20.9106C12.6273 20.9633 12.6988 20.993 12.7735 20.993H35.2322C35.3068 20.993 35.3784 20.9633 35.4311 20.9106C35.4838 20.8578 35.5134 20.7863 35.5134 20.7117C35.5134 20.6372 35.4838 20.5656 35.4311 20.5128C35.3784 20.4601 35.3068 20.4305 35.2322 20.4305ZM35.2322 25.1317H12.7735C12.6988 25.1317 12.6273 25.1613 12.5746 25.2141C12.5218 25.2668 12.4922 25.3383 12.4922 25.4129C12.4922 25.4875 12.5218 25.559 12.5746 25.6118C12.6273 25.6646 12.6988 25.6941 12.7735 25.6941H35.2322C35.3068 25.6941 35.3784 25.6646 35.4311 25.6118C35.4838 25.559 35.5134 25.4875 35.5134 25.4129C35.5134 25.3383 35.4838 25.2668 35.4311 25.2141C35.3784 25.1613 35.3068 25.1317 35.2322 25.1317Z"
                 fill="#002754"
               />
               <path
-                d="M38.124 41.5981H38.1216L33.8518 45.1486C32.2824 46.454 29.7322 46.454 28.1628 45.1486L23.893 41.5981L4.03125 25.0834V54.7707C4.03125 55.7395 4.4575 56.6065 5.13078 57.1999C5.69992 57.6988 6.44586 58.0039 7.26445 58.0039H54.7526C55.5712 58.0039 56.3171 57.6988 56.8862 57.1999C57.5595 56.6065 57.9858 55.7395 57.9858 54.7707V25.0834L38.124 41.5981Z"
+                d="M29.5116 32.2045H29.5097L26.2041 34.9533C24.989 35.9639 23.0147 35.9639 21.7997 34.9533L18.494 32.2045L3.11719 19.4189V42.4027C3.11719 43.1527 3.44719 43.8239 3.96844 44.2833C4.40906 44.6696 4.98656 44.9058 5.62031 44.9058H42.3853C43.0191 44.9058 43.5966 44.6696 44.0371 44.2833C44.5584 43.8239 44.8885 43.1527 44.8885 42.4027V19.4189L29.5116 32.2045Z"
                 fill="#F16C7A"
               />
               <path
-                d="M58.1439 24.7545C58.0815 24.7252 58.0119 24.7143 57.9435 24.7231C57.875 24.7319 57.8105 24.76 57.7574 24.8042L37.9203 41.2983C37.911 41.3047 37.9019 41.3115 37.8932 41.3187L33.6234 44.8692C32.1834 46.0673 29.8397 46.0675 28.399 44.8692L4.26741 24.8039C4.21435 24.7598 4.14983 24.7317 4.08138 24.7229C4.01294 24.7141 3.94341 24.725 3.88093 24.7543C3.81845 24.7836 3.76561 24.8301 3.72859 24.8883C3.69156 24.9466 3.67189 25.0142 3.67188 25.0832V38.4819C3.67188 38.5783 3.71015 38.6707 3.77828 38.7388C3.84641 38.8069 3.93881 38.8452 4.03516 38.8452C4.1315 38.8452 4.22391 38.8069 4.29203 38.7388C4.36016 38.6707 4.39844 38.5783 4.39844 38.4819V25.8577L27.9345 45.4276C29.631 46.8389 32.3914 46.8391 34.088 45.4276L38.333 41.8975C38.3425 41.8912 38.3514 41.8844 38.3601 41.8772L57.6264 25.8577V54.7707C57.6264 55.5944 57.2704 56.3806 56.6506 56.9267C56.1268 57.3866 55.4536 57.6404 54.7565 57.6407H7.26836C6.5716 57.6404 5.89868 57.3869 5.37494 56.9274C5.06848 56.6578 4.82291 56.326 4.65454 55.9542C4.48618 55.5823 4.39888 55.1789 4.39844 54.7707V41.9241C4.39844 41.8278 4.36016 41.7354 4.29203 41.6673C4.22391 41.5991 4.1315 41.5609 4.03516 41.5609C3.93881 41.5609 3.84641 41.5991 3.77828 41.6673C3.71015 41.7354 3.67188 41.8278 3.67188 41.9241V54.7707C3.67188 55.8029 4.1175 56.7877 4.89516 57.4731C5.55143 58.0492 6.39483 58.367 7.26812 58.3672H54.7562C55.6288 58.3672 56.4716 58.0497 57.1302 57.4726C57.5139 57.1347 57.8214 56.7191 58.0322 56.2532C58.243 55.7874 58.3522 55.282 58.3527 54.7707V25.0834C58.3529 25.0144 58.3333 24.9468 58.2963 24.8885C58.2593 24.8302 58.2065 24.7838 58.1439 24.7545Z"
+                d="M45.0156 19.1645C44.9673 19.1418 44.9134 19.1333 44.8605 19.1401C44.8075 19.147 44.7575 19.1687 44.7164 19.2029L29.3587 31.9726C29.3515 31.9775 29.3444 31.9828 29.3377 31.9883L26.032 34.7371C24.9172 35.6647 23.1027 35.6648 21.9873 34.7371L3.30481 19.2027C3.26373 19.1686 3.21378 19.1468 3.16078 19.14C3.1078 19.1332 3.05397 19.1416 3.0056 19.1643C2.95722 19.187 2.91632 19.223 2.88765 19.268C2.85899 19.3132 2.84376 19.3655 2.84375 19.4189V29.7921C2.84375 29.8667 2.87338 29.9383 2.92612 29.991C2.97887 30.0437 3.05041 30.0734 3.125 30.0734C3.19958 30.0734 3.27113 30.0437 3.32387 29.991C3.37661 29.9383 3.40625 29.8667 3.40625 29.7921V20.0185L21.6277 35.1694C22.9411 36.2621 25.0782 36.2622 26.3917 35.1694L29.6782 32.4365C29.6855 32.4316 29.6924 32.4263 29.6991 32.4207L44.615 20.0185V42.4028C44.615 43.0405 44.3394 43.6492 43.8595 44.072C43.454 44.428 42.9328 44.6245 42.3931 44.6247H5.62812C5.08869 44.6245 4.56772 44.4282 4.16225 44.0725C3.92499 43.8638 3.73487 43.6069 3.60452 43.3191C3.47418 43.0311 3.40659 42.7188 3.40625 42.4028V32.457C3.40625 32.3825 3.37661 32.311 3.32387 32.2582C3.27113 32.2054 3.19958 32.1759 3.125 32.1759C3.05041 32.1759 2.97887 32.2054 2.92612 32.2582C2.87338 32.311 2.84375 32.3825 2.84375 32.457V42.4028C2.84375 43.2019 3.18875 43.9643 3.79081 44.495C4.29889 44.941 4.95184 45.187 5.62794 45.1872H42.3929C43.0685 45.1872 43.7209 44.9414 44.2308 44.4946C44.5279 44.233 44.766 43.9112 44.9292 43.5505C45.0924 43.1899 45.1769 42.7986 45.1773 42.4028V19.4191C45.1774 19.3657 45.1623 19.3133 45.1336 19.2682C45.105 19.2231 45.0641 19.1871 45.0156 19.1645Z"
                 fill="#002754"
               />
               <path
-                d="M11.4982 6.22998C11.2624 9.03064 8.34375 9.47287 8.34375 9.47287C10.8494 9.59082 11.474 12.8778 11.474 12.8778C11.5275 10.5341 14.7002 9.43824 14.7002 9.43824C12.3236 9.29607 11.4982 6.22998 11.4982 6.22998Z"
+                d="M8.90309 4.82324C8.72054 6.99149 6.46094 7.33387 6.46094 7.33387C8.4008 7.42518 8.88436 9.96994 8.88436 9.96994C8.92578 8.15546 11.3821 7.30706 11.3821 7.30706C9.54211 7.19699 8.90309 4.82324 8.90309 4.82324Z"
                 fill="#F5AA1C"
               />
               <path
-                d="M14.7174 9.07544C12.6336 8.95096 11.8521 6.16338 11.8444 6.13529C11.8216 6.05302 11.7708 5.98131 11.7007 5.93257C11.6307 5.88383 11.5458 5.86112 11.4607 5.8684C11.3757 5.87611 11.2961 5.91352 11.236 5.97406C11.1758 6.0346 11.1388 6.11441 11.1316 6.19947C10.9233 8.67341 8.39149 9.09675 8.28493 9.11347C8.1959 9.12708 8.11511 9.17328 8.05822 9.24309C8.00133 9.31291 7.9724 9.40137 7.97705 9.49131C7.98169 9.58126 8.01958 9.66627 8.08336 9.72985C8.14715 9.79343 8.23227 9.83106 8.32223 9.83543C10.5087 9.93836 11.1069 12.9158 11.1127 12.9458C11.1298 13.0337 11.1787 13.1122 11.25 13.1662C11.3214 13.2203 11.4102 13.246 11.4994 13.2386C11.5886 13.2312 11.672 13.1911 11.7334 13.1261C11.7949 13.061 11.8302 12.9755 11.8325 12.886C11.8797 10.8252 14.7852 9.79159 14.8145 9.78142C14.8939 9.75378 14.9612 9.69953 15.0051 9.62788C15.049 9.55622 15.0667 9.47159 15.0553 9.38835C15.0438 9.30517 15.0039 9.22853 14.9423 9.17147C14.8807 9.11442 14.8012 9.08048 14.7174 9.07544ZM11.4319 11.5811C11.1035 10.8231 10.5336 9.90832 9.59444 9.43146C10.3043 9.09118 11.1466 8.48378 11.5809 7.42784C11.9565 8.1716 12.5978 9.09409 13.5993 9.5402C12.871 9.93739 11.9228 10.6073 11.4319 11.5811Z"
+                d="M11.3906 7.02589C9.77732 6.92952 9.17229 4.7714 9.16633 4.74965C9.14868 4.68596 9.10935 4.63044 9.05508 4.5927C9.00088 4.55497 8.93515 4.53739 8.86927 4.54302C8.80346 4.54899 8.74184 4.57796 8.69531 4.62483C8.6487 4.67169 8.62006 4.73348 8.61448 4.79934C8.45322 6.71464 6.49311 7.04239 6.41061 7.05534C6.34168 7.06587 6.27914 7.10164 6.23509 7.15569C6.19105 7.20974 6.16865 7.27823 6.17225 7.34786C6.17584 7.4175 6.20518 7.48331 6.25455 7.53253C6.30394 7.58176 6.36984 7.61089 6.43949 7.61427C8.13224 7.69396 8.59536 9.99908 8.59985 10.0223C8.61309 10.0904 8.65095 10.1511 8.70615 10.1929C8.76142 10.2348 8.83017 10.2547 8.89923 10.249C8.96829 10.2433 9.03286 10.2122 9.08039 10.1619C9.12801 10.1115 9.15533 10.0453 9.15712 9.976C9.19366 8.38055 11.4431 7.58033 11.4658 7.57246C11.5272 7.55106 11.5793 7.50906 11.6133 7.45359C11.6473 7.39811 11.661 7.33259 11.6522 7.26815C11.6433 7.20375 11.6124 7.14441 11.5647 7.10024C11.517 7.05607 11.4555 7.0298 11.3906 7.02589ZM8.84697 8.96576C8.59273 8.37892 8.15152 7.6707 7.42442 7.30152C7.97399 7.03808 8.6261 6.56783 8.96233 5.75033C9.25312 6.32615 9.74961 7.04033 10.525 7.38571C9.96112 7.69321 9.22702 8.21185 8.84697 8.96576Z"
                 fill="#002754"
               />
               <path
-                d="M6.23884 10.3427C6.07198 12.3235 4.00781 12.6364 4.00781 12.6364C5.78014 12.7197 6.22189 15.0447 6.22189 15.0447C6.25967 13.3869 8.50378 12.6119 8.50378 12.6119C6.82276 12.5112 6.23884 10.3427 6.23884 10.3427Z"
+                d="M4.82881 8.00684C4.69963 9.54036 3.10156 9.7826 3.10156 9.7826C4.47369 9.84709 4.81569 11.6471 4.81569 11.6471C4.84494 10.3636 6.58231 9.76364 6.58231 9.76364C5.28088 9.68567 4.82881 8.00684 4.82881 8.00684Z"
                 fill="#F5AA1C"
               />
               <path
-                d="M8.52999 12.2491C7.13354 12.1656 6.59927 10.2668 6.59394 10.2477C6.57154 10.1653 6.52086 10.0935 6.45078 10.0447C6.38069 9.99602 6.29569 9.97353 6.21068 9.98121C6.12567 9.9889 6.04608 10.0263 5.98587 10.0868C5.92567 10.1473 5.88869 10.2271 5.88143 10.3121C5.7412 11.9762 4.02966 12.2658 3.95797 12.2772C3.86868 12.2906 3.78756 12.3367 3.73043 12.4066C3.6733 12.4765 3.64424 12.5652 3.64893 12.6554C3.65361 12.7455 3.69171 12.8307 3.75578 12.8943C3.81985 12.9579 3.90532 12.9954 3.99551 12.9994C5.45711 13.0682 5.86617 15.0929 5.8698 15.1128C5.88637 15.2011 5.9351 15.2802 6.00659 15.3347C6.07807 15.3892 6.16722 15.4153 6.25681 15.4079C6.3464 15.4004 6.43005 15.3601 6.49161 15.2946C6.55316 15.2291 6.58824 15.143 6.59007 15.0532C6.62155 13.6705 8.60773 12.9621 8.62735 12.9553C8.70648 12.9275 8.77357 12.8732 8.81727 12.8017C8.86096 12.7301 8.87857 12.6456 8.86712 12.5625C8.85566 12.4794 8.81585 12.4028 8.75441 12.3457C8.69297 12.2886 8.61369 12.2545 8.52999 12.2491ZM6.20886 13.8948C5.98508 13.4383 5.64215 12.9389 5.13186 12.616C5.58111 12.3639 6.02722 11.9791 6.31155 11.4252C6.56754 11.8791 6.95432 12.3831 7.5082 12.6904C7.06015 12.957 6.54211 13.3542 6.20886 13.8948Z"
+                d="M6.60739 9.48349C5.52627 9.41884 5.11264 7.94881 5.10851 7.93402C5.09117 7.87023 5.05193 7.81464 4.99768 7.77686C4.94342 7.73917 4.87761 7.72176 4.8118 7.7277C4.74598 7.73366 4.68436 7.76261 4.63775 7.80945C4.59114 7.85629 4.56251 7.91807 4.55689 7.98388C4.44833 9.27221 3.12326 9.49642 3.06776 9.50524C2.99863 9.51562 2.93583 9.55131 2.8916 9.60543C2.84737 9.65954 2.82487 9.72821 2.8285 9.79804C2.83213 9.8678 2.86162 9.93376 2.91123 9.983C2.96083 10.0322 3.027 10.0613 3.09682 10.0644C4.22839 10.1176 4.54508 11.6851 4.54789 11.7005C4.56072 11.7689 4.59844 11.8301 4.65379 11.8723C4.70913 11.9145 4.77815 11.9347 4.84751 11.929C4.91687 11.9232 4.98163 11.892 5.02929 11.8413C5.07694 11.7906 5.1041 11.7239 5.10552 11.6544C5.12989 10.5839 6.66758 10.0355 6.68277 10.0302C6.74403 10.0087 6.79597 9.96666 6.8298 9.91131C6.86363 9.85588 6.87726 9.79046 6.86839 9.72612C6.85952 9.66179 6.8287 9.60248 6.78113 9.55828C6.73357 9.51407 6.67219 9.48767 6.60739 9.48349ZM4.81039 10.7576C4.63714 10.4042 4.37164 10.0175 3.97658 9.76754C4.32439 9.57237 4.66976 9.27446 4.88989 8.84563C5.08807 9.19704 5.38752 9.58723 5.81633 9.82514C5.46945 10.0315 5.06839 10.3391 4.81039 10.7576Z"
                 fill="#002754"
               />
               <path
-                d="M6.23884 3.8866C6.07198 5.86745 4.00781 6.18035 4.00781 6.18035C5.78014 6.26367 6.22189 8.58867 6.22189 8.58867C6.25967 6.93089 8.50378 6.15589 8.50378 6.15589C6.82276 6.05514 6.23884 3.8866 6.23884 3.8866Z"
+                d="M4.82881 3.00879C4.69963 4.54235 3.10156 4.7846 3.10156 4.7846C4.47369 4.8491 4.81569 6.6491 4.81569 6.6491C4.84494 5.36566 6.58231 4.76566 6.58231 4.76566C5.28088 4.68766 4.82881 3.00879 4.82881 3.00879Z"
                 fill="#F5AA1C"
               />
               <path
-                d="M8.52876 5.79283C7.13231 5.70927 6.5978 3.81052 6.59272 3.79115C6.57032 3.70878 6.51963 3.63693 6.44955 3.5882C6.37947 3.53948 6.29446 3.51698 6.20945 3.52467C6.12444 3.53236 6.04485 3.56973 5.98465 3.63024C5.92444 3.69075 5.88746 3.77052 5.8802 3.85557C5.73997 5.51964 4.02844 5.8093 3.95675 5.82068C3.86771 5.83431 3.78692 5.88053 3.73004 5.95037C3.67316 6.02021 3.64425 6.10869 3.64893 6.19864C3.65361 6.28859 3.69153 6.3736 3.75535 6.43716C3.81916 6.50073 3.90432 6.53832 3.99429 6.54264C5.45589 6.61142 5.86494 8.63611 5.86858 8.65597C5.88514 8.74432 5.93388 8.8234 6.00536 8.8779C6.07684 8.93241 6.166 8.95848 6.25558 8.95107C6.34517 8.94366 6.42883 8.90329 6.49038 8.83778C6.55194 8.77227 6.58702 8.68627 6.58884 8.59639C6.62033 7.21374 8.6065 6.50534 8.62612 6.49856C8.70543 6.47098 8.77273 6.41677 8.81658 6.34517C8.86043 6.27356 8.87813 6.18898 8.86665 6.1058C8.85518 6.02262 8.81524 5.94598 8.75364 5.88893C8.69204 5.83187 8.61258 5.79791 8.52876 5.79283ZM6.2074 7.43849C5.98361 6.98197 5.64068 6.48258 5.13039 6.15974C5.57965 5.90763 6.02576 5.52279 6.31008 4.96915C6.56608 5.42277 6.95285 5.92676 7.50673 6.23434C7.05868 6.50099 6.54065 6.89793 6.2074 7.43849Z"
+                d="M6.60644 4.48468C5.52532 4.41999 5.1115 2.94999 5.10757 2.93499C5.09023 2.87122 5.05098 2.81559 4.99673 2.77787C4.94247 2.74015 4.87666 2.72273 4.81084 2.72868C4.74503 2.73464 4.68341 2.76357 4.6368 2.81041C4.59019 2.85726 4.56156 2.91902 4.55594 2.98486C4.44737 4.27318 3.12232 4.49743 3.06682 4.50624C2.99788 4.51679 2.93534 4.55257 2.8913 4.60664C2.84726 4.66071 2.82488 4.72921 2.82851 4.79885C2.83213 4.86849 2.86149 4.93431 2.91089 4.98351C2.9603 5.03273 3.02623 5.06183 3.09588 5.06518C4.22744 5.11843 4.54413 6.68593 4.54694 6.7013C4.55976 6.7697 4.5975 6.83093 4.65284 6.87312C4.70818 6.91532 4.7772 6.9355 4.84656 6.92977C4.91592 6.92403 4.98069 6.89278 5.02834 6.84206C5.076 6.79134 5.10316 6.72476 5.10456 6.65518C5.12894 5.58474 6.66662 5.0363 6.68181 5.03105C6.74321 5.0097 6.79532 4.96773 6.82927 4.9123C6.86321 4.85686 6.87692 4.79137 6.86803 4.72698C6.85915 4.66258 6.82823 4.60325 6.78054 4.55908C6.73285 4.5149 6.67133 4.48861 6.60644 4.48468ZM4.80926 5.75874C4.636 5.4053 4.3705 5.01868 3.97544 4.76874C4.32326 4.57356 4.66863 4.27561 4.88875 3.84699C5.08694 4.19818 5.38638 4.58837 5.81519 4.82649C5.46831 5.03293 5.06726 5.34024 4.80926 5.75874Z"
                 fill="#002754"
               />
               <path
-                d="M38.126 41.5981H38.1236L33.8538 38.0477C32.2844 36.7447 29.7342 36.7447 28.1648 38.0477L23.8951 41.5981L5.13281 57.1998C5.70195 57.6987 6.44789 58.0039 7.26648 58.0039H54.7546C55.5732 58.0039 56.3191 57.6987 56.8883 57.1998L38.126 41.5981Z"
+                d="M29.5197 32.2045H29.5178L26.2122 29.4558C24.9971 28.447 23.0228 28.447 21.8078 29.4558L18.5022 32.2045L3.97656 44.2832C4.41719 44.6695 4.99469 44.9058 5.62844 44.9058H42.3934C43.0272 44.9058 43.6047 44.6695 44.0453 44.2832L29.5197 32.2045Z"
                 fill="#F16C7A"
               />
               <path
-                d="M57.1242 56.9206L38.3619 41.3188C38.3533 41.3117 38.3444 41.305 38.3353 41.2987L34.0895 37.7681C32.3932 36.3598 29.633 36.3598 27.9362 37.7684L4.90419 56.9206C4.86388 56.9542 4.83133 56.9962 4.80876 57.0436C4.7862 57.091 4.77416 57.1427 4.77347 57.1952C4.77278 57.2477 4.78345 57.2998 4.80476 57.3477C4.82607 57.3957 4.85751 57.4385 4.89692 57.4732C5.55319 58.0494 6.39659 58.3672 7.26987 58.3674H54.758C55.6306 58.3674 56.4734 58.0499 57.1312 57.4732C57.1707 57.4386 57.2023 57.3958 57.2237 57.3479C57.2451 57.2999 57.2558 57.2478 57.2551 57.1953C57.2545 57.1427 57.2424 57.091 57.2198 57.0435C57.1972 56.9961 57.1646 56.9541 57.1242 56.9206ZM54.7582 57.6406H7.27012C6.71841 57.6406 6.18148 57.4815 5.72109 57.1862L28.4005 38.3271C29.841 37.1309 32.1849 37.1309 33.6252 38.3269L37.895 41.8773C37.9034 41.8843 37.9124 41.8911 37.9214 41.8974L56.3073 57.1862C55.845 57.4828 55.3074 57.6405 54.7582 57.6406Z"
+                d="M44.2249 44.0673L29.6993 31.9885C29.6926 31.983 29.6857 31.9778 29.6787 31.9729L26.3916 29.2396C25.0784 28.1493 22.9414 28.1493 21.6278 29.2398L3.79654 44.0673C3.76533 44.0933 3.74013 44.1258 3.72266 44.1625C3.70519 44.1992 3.69587 44.2393 3.69534 44.2799C3.6948 44.3206 3.70306 44.3609 3.71956 44.398C3.73606 44.4351 3.7604 44.4683 3.79091 44.4951C4.29899 44.9412 4.95195 45.1873 5.62803 45.1874H42.393C43.0686 45.1874 43.7211 44.9416 44.2304 44.4951C44.2609 44.4683 44.2854 44.4352 44.302 44.3981C44.3185 44.361 44.3268 44.3206 44.3263 44.28C44.3258 44.2393 44.3165 44.1992 44.299 44.1625C44.2815 44.1258 44.2562 44.0933 44.2249 44.0673ZM42.3932 44.6247H5.62823C5.2011 44.6247 4.78541 44.5016 4.42898 44.2729L21.9872 29.6723C23.1025 28.7463 24.9171 28.7463 26.0322 29.6722L29.3378 32.4209C29.3443 32.4263 29.3513 32.4316 29.3583 32.4364L43.5925 44.2729C43.2346 44.5026 42.8184 44.6247 42.3932 44.6247Z"
                 fill="#002754"
               />
               <path
-                d="M53.875 25.4467V28.0332L56.9871 25.4467H53.875ZM53.875 22.1335V24.7201H56.9871L53.875 22.1335Z"
+                d="M41.7109 19.7008V21.7033L44.1203 19.7008H41.7109ZM41.7109 17.1357V19.1383H44.1203L41.7109 17.1357Z"
                 fill="#6A5C52"
               />
               <path
-                d="M53.8712 28.9802V54.2185L56.8695 56.7107C57.3514 56.1827 57.6251 55.4925 57.6251 54.7707V25.8584L53.8712 28.9802ZM53.8494 55.1437C53.7549 55.9599 53.3577 56.684 52.7716 57.1999C52.5755 57.3718 52.3575 57.5196 52.125 57.6407H54.7552C55.3073 57.6407 55.8426 57.4808 56.3052 57.1853L53.8494 55.1437Z"
+                d="M41.7035 22.4364V41.9757L44.0247 43.9052C44.3978 43.4964 44.6097 42.9621 44.6097 42.4032V20.0195L41.7035 22.4364ZM41.6866 42.692C41.6134 43.3239 41.3059 43.8845 40.8522 44.2839C40.7003 44.417 40.5316 44.5314 40.3516 44.6252H42.3878C42.8153 44.6252 43.2297 44.5014 43.5878 44.2726L41.6866 42.692Z"
                 fill="#D34E5C"
               />
             </svg>
@@ -796,93 +332,52 @@
 
           <div class="modal-texts-wrapper">
             <div class="modal-check-email">
-              <h2 class="modal-text-title">Check Email</h2>
+              <h2 class="modal-text-title">University Already Exists</h2>
 
-              <p class="modal-text-desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Egestas purus viverra accumsan in nisl nisi.
-              </p>
+              <div class="modal-text-title-sec-wrapper">
+                <h2 class="modal-text-title-sec">
+                  Thank you for submitting your registration request.
+                </h2>
+                <p class="modal-text-desc">
+                  Our system has identified that your university is already
+                  listed on Unisuniverse.com.
+                </p>
+
+                <p class="modal-text-desc">
+                  A login ID and password have now been sent to the university’s
+                  official email address (e.g., info@university.edu). This will
+                  allow access to your university’s existing page on the
+                  platform.
+                </p>
+
+                <p class="modal-text-desc">
+                  We recommend that you contact the appropriate department at
+                  your university and ask them to share the login credentials
+                  and access link with you.
+                </p>
+
+                <p class="modal-text-desc">
+                  To keep your institution informed, we’ve also sent a
+                  notification to the university’s info email containing your
+                  name and request details, so they are aware of your interest
+                  in managing the university’s page.
+                </p>
+
+                <p class="modal-text-desc">
+                  If you need any assistance, please don’t hesitate to reach out
+                  to our support team.
+                </p>
+              </div>
             </div>
 
-            <div class="modal-resend-link">
-              <h4>
-                if you dont receive email,
-                <span>click here to resend link</span>
-              </h4>
-
-              <svg
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="13"
-                height="13"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m9 5 7 7-7 7"
-                />
-              </svg>
-            </div>
+            <button id="modal-cont-btn" class="signup-button">
+              I Understand
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <script>
-      const form = document.getElementById("signup-form");
-      const submitBtn = document.querySelector("#submit-button");
-      const modalCont = document.querySelector(".modal-cont");
-      const checkbox = document.getElementById("readterms");
-      const passwordInput = document.getElementById("password");
-      const confirmPasswordInput = document.getElementById("confirm-password");
-      const errorMessageSpan = document.querySelector(".error-message");
-
-      const passwordRegex = /.{8,}/;
-
-      submitBtn.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        // Check if all inputs are filled
-        let allFilled = true;
-        for (const input of form.elements) {
-          if (
-            input.type === "text" ||
-            input.type === "email" ||
-            input.type === "password"
-          ) {
-            if (input.value === "") {
-              allFilled = false;
-              break;
-            }
-          }
-        }
-
-        if (!allFilled || !checkbox.checked) {
-          alert(
-            "Please fill out all required information and read and agree to the terms and conditions."
-          );
-          return;
-        }
-
-        if (!passwordRegex.test(passwordInput.value)) {
-          errorMessageSpan.textContent = "Password must be 8 characters";
-          errorMessageSpan.style.display = "block";
-          passwordInput.classList.add("error");
-          return;
-        }
-
-        if (passwordInput.value !== confirmPasswordInput.value) {
-          alert("The password and its confirmation do not match.");
-          return;
-        }
-
-        modalCont.style.display = "block";
-      });
-    </script>
+    <script src="../signup-pages.js" defer></script>
   </body>
 </html>
