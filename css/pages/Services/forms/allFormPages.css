@@ -180,7 +180,7 @@ ul {
   font-weight: 600;
   color: var(--color-text-black);
   border-bottom: 1px solid var(--color-line);
-  padding-bottom: 8px;
+  padding-bottom: 5px;
 }
 
 .stage {
@@ -240,7 +240,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .user_details > hr {

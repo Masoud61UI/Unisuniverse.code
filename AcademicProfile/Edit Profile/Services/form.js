@@ -260,6 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const itemsBoxInputs = form.querySelectorAll(
         ".items-box-input[required]"
       );
+
       if (itemsBoxInputs.length === 0) return;
 
       itemsBoxInputs.forEach((box) => {

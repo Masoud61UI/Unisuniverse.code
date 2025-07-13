@@ -49,3 +49,23 @@ overlayMenu.addEventListener("click", toggleMenu);
 navbarMenu.addEventListener("click", toggleSubMenu);
 window.addEventListener("resize", resizeWindow);
 
+// submenu
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuItems = document.querySelectorAll(".side-menu-item");
+
+  menuItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      menuItems.forEach((menuItem) => {
+        menuItem.classList.remove("checked-tab");
+      });
+
+      item.classList.add("checked-tab");
+
+      const subMenu = item.querySelector(".sub-menu-wrapper");
+      subMenu.classList.add("show");
+      subMenu.style.display =
+        subMenu.style.display === "block" ? "none" : "block";
+    });
+  });
+});
