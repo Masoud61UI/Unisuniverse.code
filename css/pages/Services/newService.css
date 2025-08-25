@@ -87,7 +87,8 @@ ul {
 }
 
 .show {
-  display: block;
+  background: #ffd90017;
+  display: block !important;
   animation: slideDown 0.4s ease-in-out;
 }
 
@@ -108,7 +109,7 @@ ul {
 .sub-menu {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 5px;
   align-self: stretch;
 }
 

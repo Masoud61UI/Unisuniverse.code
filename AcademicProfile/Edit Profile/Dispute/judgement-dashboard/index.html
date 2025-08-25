@@ -11,7 +11,10 @@
       href="../../../../css/components/header-logined.css"
     />
     <link rel="stylesheet" href="../../../../css/components/footer.css" />
-    <link rel="stylesheet" href="../../../../css/pages/Setting/payout.css" />
+    <link
+      rel="stylesheet"
+      href="../../../../css/pages/Dispute/dispute-cases.css"
+    />
   </head>
   <body>
     <header class="header" id="header">
@@ -135,7 +138,8 @@
           </ul>
         </nav>
         <div class="btn">
-          <a href="#" class="btn-icon-menu"> <svg
+          <a href="#" class="btn-icon-menu">
+            <svg
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="19"
@@ -351,7 +355,7 @@
                 </a>
 
                 <li class="side-menu-item">
-                  <div class="side-menu-item-profile">
+                  <div class="side-menu-item-profile checked-tab">
                     <div class="side-menu-item-profile-icon">
                       <svg
                         width="22"
@@ -392,12 +396,15 @@
                             />
                           </svg>
                         </div>
-                        <h4 class="sub-menu-title">Dispute Submission</h4>
+                        <h4 class="sub-menu-title">Dispute Cases</h4>
+                        <span class="notification-bell has-notification">
+                          <span class="notification-badge">2</span>
+                        </span>
                       </a>
                     </li>
 
                     <li class="sub-menu-contents">
-                      <a href="#" class="sub-menu">
+                      <a href="#" class="sub-menu active-page">
                         <div class="sub-menu-icon">
                           <svg
                             aria-hidden="true"
@@ -416,62 +423,17 @@
                             />
                           </svg>
                         </div>
-                        <h4 class="sub-menu-title">My Disputes</h4>
-                      </a>
-                    </li>
-
-                    <li class="sub-menu-contents">
-                      <a href="#" class="sub-menu">
-                        <div class="sub-menu-icon">
-                          <svg
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="13"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="m9 5 7 7-7 7"
-                            />
-                          </svg>
-                        </div>
-                        <h4 class="sub-menu-title">Respond to Disputes</h4>
-                      </a>
-                    </li>
-
-                    <li class="sub-menu-contents">
-                      <a href="#" class="sub-menu">
-                        <div class="sub-menu-icon">
-                          <svg
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="13"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="m9 5 7 7-7 7"
-                            />
-                          </svg>
-                        </div>
-                        <h4 class="sub-menu-title">Judge Dashboard</h4>
+                        <h4 class="sub-menu-title">Judgement</h4>
+                        <span class="notification-bell has-notification">
+                          <span class="notification-badge">1</span>
+                        </span>
                       </a>
                     </li>
                   </ul>
                 </li>
 
                 <li class="side-menu-item">
-                  <div class="side-menu-item-profile checked-tab">
+                  <div class="side-menu-item-profile">
                     <div class="side-menu-item-profile-icon">
                       <svg
                         aria-hidden="true"
@@ -577,244 +539,383 @@
         </aside>
 
         <div class="edit-section-wrapper">
-          <div class="edit-section-title-add">
-            <h2 class="edit-section-title">Payout Setting</h2>
-            <p>
-              To successfully complete your payment request, please pay close
-              attention to all steps and fields in this section.
-            </p>
+          <div class="edit-section-title-top-add">
+            <div class="edit-section-title-add">
+              <h2 class="edit-section-title">Assigned Disputes to Judge</h2>
+              <p>
+                Below is a list of all disputes waiting for your review and decision.
+              </p>
+            </div>
+
           </div>
 
-          <div class="steps-warpper">
-            <div class="accordion-item">
-              <button id="accordion-button-1" aria-expanded="false">
-                <span class="accordion-title"
-                  >Step 1: How do you want to payout?</span
-                >
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content">
-                <div class="accordions-wrapper">
-                  <hr />
-
-                  <p class="accordions-description">
-                    Please select one of the payment methods and fill in the
-                    requested information.
-                  </p>
-
-                  <div class="accordions-inner-wrapper">
-                    <div class="accordion-item-inner">
-                      <div
-                        id="accordion-button-3"
-                        aria-expanded="false"
-                        class="accordion-inner"
-                      >
-                        <div class="accordion-item-inner-top">
-                          <span class="accordion-title-inner"
-                            >Bank Transfer</span
-                          >
-
-                          <img
-                            class="accordion-photo-inner"
-                            src="../../../images/Bank Transfr.png"
-                          />
-                        </div>
-                      </div>
-                      <div class="accordion-content-inner">
-                        <hr />
-
-                        <div class="edit-section-forms">
-                          <form>
-                            <div class="user_details">
-                              <div class="input_pox">
-                                <label class="datails">Account Name :</label>
-                                <input
-                                  type="text"
-                                  placeholder="Enter your name"
-                                  required
-                                />
-                              </div>
-                              <div class="input_pox">
-                                <label class="datails">Account Number :</label>
-                                <input
-                                  type="number"
-                                  placeholder="Enter your account number"
-                                  required
-                                />
-                              </div>
-                              <div class="input_pox">
-                                <label class="datails">SWIFT Code</label>
-                                <input
-                                  type="text"
-                                  placeholder="Enter your swift code"
-                                  required
-                                />
-                              </div>
-                              <div class="input_pox">
-                                <label class="datails">IBAN</label>
-                                <input type="text" required />
-                              </div>
-                              <div class="input_pox">
-                                <label class="datails">Bank Name</label>
-                                <input
-                                  type="text"
-                                  placeholder="Enter your bank name"
-                                  required
-                                />
-                              </div>
-                              <div class="input_pox wf">
-                                <label class="datails">Address :</label>
-                                <textarea
-                                  placeholder="Enter your address"
-                                  required
-                                ></textarea>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="accordion-item-inner">
-                      <div
-                        id="accordion-button-4"
-                        aria-expanded="false"
-                        class="accordion-inner"
-                      >
-                        <div class="accordion-item-inner-top">
-                          <span class="accordion-title-inner">Paypal</span>
-
-                          <img
-                            class="accordion-photo-inner"
-                            src="../../../images/Paypal.png"
-                          />
-                        </div>
-                      </div>
-                      <div class="accordion-content-inner">
-                        <hr />
-
-                        <div class="edit-section-forms">
-                          <form>
-                            <div class="user_details">
-                              <div class="input_pox wf">
-                                <label class="datails">PayPal Email :</label>
-                                <input
-                                  type="text"
-                                  placeholder="Enter your paypal email"
-                                  required
-                                />
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <button id="accordion-button-2" aria-expanded="false">
-                <span class="accordion-title"
-                  >Step 2: Withdrawal Configuration</span
-                >
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content">
-                <div class="accordions-wrapper">
-                  <hr />
-
-                  <p class="accordions-description">
-                    Explanations about the minimum payout threshold.
-                  </p>
-
-                  <div class="accordions-inner-wrapper">
-                    <div class="accordion-item-inner">
-                      <div class="edit-section-forms">
-                        <form class="forms-step-two">
-                          <div class="user_details">
-                            <div class="input_pox">
-                              <label class="datails">Payout Interval :</label>
-                              <select
-                                name="payout interval"
-                                class="select-input"
-                                onblur="this.size=0"
-                                onchange="this.size=1; this.blur()"
-                              >
-                                <option value="Weekly">Weekly</option>
-                                <option value="Monthly">Monthly</option>
-                                <option value="Upon Threshold Reached">
-                                  Upon Threshold Reached
-                                </option>
-                                <option value="Automatic or Manual">
-                                  Automatic or Manual
-                                </option>
-                              </select>
-                            </div>
-                            <div class="input_pox dollar">
-                              <label class="datails"
-                                >Minimum Payout Threshold :</label
-                              >
-                              <input
-                                type="number"
-                                placeholder="Minimum amount is 100 USD"
-                                required
-                              />
-                              <span class="dollar-sign">$</span>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <div class="toggle-wrapper">
-                <div class="steps-content">
-                  <h3 class="accordion-title">Toggle Notifications</h3>
-                  <div class="step-toggle-notif">
-                    <input type="checkbox" id="switch" /><label
-                      class="toggle-notif toggle-item"
-                      for="switch"
-                      >Toggle</label
+          <div class="tab-content active" id="received">
+            <div class="edit-section-items">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Case ID</th>
+                    <th>Order Title</th>
+                    <th>Status</th>
+                    <th>Deadline</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="Case ID">
+                      <div class="caseId">D-20250706-U2649-4831</div>
+                    </td>
+                    <td
+                      data-label="Order Title"
+                      title="draw a avatar cartoon for you"
                     >
-                  </div>
-                </div>
-
-                <div class="inner-toggle-wrapper">
-                  <div class="inner-toggle">
-                    <h3 class="accordion-title">Successful Payout</h3>
-                    <div class="step-toggle-notif">
-                      <input type="checkbox" id="switch-one" /><label
-                        class="toggle-notif toggle-item"
-                        for="switch-one"
-                        >Toggle</label
-                      >
-                    </div>
-                  </div>
-
-                  <div class="inner-toggle">
-                    <h3 class="accordion-title">Failed payout</h3>
-                    <div class="step-toggle-notif">
-                      <input type="checkbox" id="switch-two" /><label
-                        class="toggle-notif toggle-item"
-                        for="switch-two"
-                        >Toggle</label
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
+                      draw a avatar cartoon for you
+                    </td>
+                    <td data-label="Status">
+                      <span class="status-check-pending">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="6"
+                          height="6"
+                          viewBox="0 0 6 6"
+                          fill="none"
+                        >
+                          <circle cx="3" cy="3" r="3" fill="#FFD700" />
+                        </svg>
+                        Pending
+                      </span>
+                    </td>
+                    <td data-label="Deadline">2:13:05</td>
+                    <td data-label="">
+                      <div class="manage-container">
+                        <button class="btn-text-table manage-btn">
+                          Manage
+                          <span>
+                            <svg
+                              width="15"
+                              height="15"
+                              viewBox="0 0 15 15"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7.49966 9.4507C7.33392 9.45066 7.17497 9.38479 7.05779 9.26757L4.40591 6.61632C4.29207 6.49845 4.22907 6.34057 4.23049 6.1767C4.23192 6.01283 4.29765 5.85607 4.41353 5.74019C4.52941 5.62431 4.68616 5.55858 4.85004 5.55715C5.01391 5.55573 5.17179 5.61872 5.28966 5.73257L7.49966 7.94195L9.70966 5.73257C9.82754 5.61872 9.98542 5.55573 10.1493 5.55715C10.3132 5.55858 10.4699 5.62431 10.5858 5.74019C10.7017 5.85607 10.7674 6.01283 10.7688 6.1767C10.7703 6.34057 10.7073 6.49845 10.5934 6.61632L7.94154 9.26757C7.82435 9.38479 7.66541 9.45066 7.49966 9.4507Z"
+                                fill="#003366"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                        <div class="manage-dropdown">
+                          <a class="dropdown-item view-btn"
+                            ><span
+                              ><svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M14.3633 7.36301C14.566 7.64701 14.6673 7.78968 14.6673 7.99968C14.6673 8.21034 14.566 8.35234 14.3633 8.63634C13.4527 9.91368 11.1267 12.6663 8.00065 12.6663C4.87398 12.6663 2.54865 9.91301 1.63798 8.63634C1.43532 8.35234 1.33398 8.20968 1.33398 7.99968C1.33398 7.78901 1.43532 7.64701 1.63798 7.36301C2.54865 6.08568 4.87465 3.33301 8.00065 3.33301C11.1273 3.33301 13.4527 6.08634 14.3633 7.36301Z"
+                                  stroke="black"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M10 8C10 7.46957 9.78929 6.96086 9.41421 6.58579C9.03914 6.21071 8.53043 6 8 6C7.46957 6 6.96086 6.21071 6.58579 6.58579C6.21071 6.96086 6 7.46957 6 8C6 8.53043 6.21071 9.03914 6.58579 9.41421C6.96086 9.78929 7.46957 10 8 10C8.53043 10 9.03914 9.78929 9.41421 9.41421C9.78929 9.03914 10 8.53043 10 8Z"
+                                  stroke="black"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg> </span
+                            >View</a
+                          >
+                          <a class="dropdown-item respond-btn"
+                            ><span
+                              ><svg
+                                width="15"
+                                height="15"
+                                viewBox="0 0 15 15"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g clip-path="url(#clip0_4406_610)">
+                                  <path
+                                    d="M10.9001 9.09961V12.6996M9.10023 10.8996H12.6999M2.80078 4.59961H9.10023M2.80078 7.29961H6.40047M2.80078 9.99961H5.05059M7.30039 10.8996C7.30039 11.8544 7.67964 12.7701 8.35471 13.4452C9.02979 14.1203 9.94538 14.4996 10.9001 14.4996C11.8548 14.4996 12.7704 14.1203 13.4454 13.4452C14.1205 12.7701 14.4998 11.8544 14.4998 10.8996C14.4998 9.94483 14.1205 9.02916 13.4454 8.35402C12.7704 7.67889 11.8548 7.29961 10.9001 7.29961C9.94538 7.29961 9.02979 7.67889 8.35471 8.35402C7.67964 9.02916 7.30039 9.94483 7.30039 10.8996Z"
+                                    stroke="#003366"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                  <path
+                                    d="M5.05 12.7H1.9C1.66131 12.7 1.43239 12.6052 1.2636 12.4364C1.09482 12.2676 1 12.0387 1 11.8V1.9C1 1.66131 1.09482 1.43239 1.2636 1.2636C1.43239 1.09482 1.66131 1 1.9 1H8.2774C8.51593 1.00005 8.74468 1.09479 8.9134 1.2634L10.6366 2.9866C10.8052 3.15532 10.8999 3.38407 10.9 3.6226V5.05"
+                                    stroke="#003366"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_4406_610">
+                                    <rect width="15" height="15" fill="white" />
+                                  </clipPath>
+                                </defs>
+                              </svg> </span
+                            >Judge</a
+                          >
+                          <button class="dropdown-item withdraw-btn">
+                            <span
+                              ><svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4 4L12 12M4 12L12 4"
+                                  stroke="#666666"
+                                  stroke-width="1.2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg> </span
+                            >Reject
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="has-case-notification">
+                    <td data-label="Case ID">
+                      <div class="caseId">D-20240908-U2647-4833</div>
+                    </td>
+                    <td
+                      data-label="Order Title"
+                      title="Story Elements Flip Book"
+                    >
+                      Story Elements Flip Book
+                    </td>
+                    <td data-label="Status">
+                      <span class="status-check-request">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="6"
+                          height="6"
+                          viewBox="0 0 6 6"
+                          fill="none"
+                        >
+                          <circle cx="3" cy="3" r="3" fill="#8A2BE2" />
+                        </svg>
+                        Replied
+                        <span class="notification-bell has-notification">
+                          <span class="notification-count">(1)</span>
+                          <svg
+                            class="bell-icon"
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M2.33203 11.0837V9.91699H3.4987V5.83366C3.4987 5.02672 3.74175 4.3098 4.22786 3.68291C4.71397 3.05602 5.34592 2.64516 6.1237 2.45033V1.16699H7.8737V2.45033C8.65147 2.64477 9.28342 3.05563 9.76953 3.68291C10.2556 4.31019 10.4987 5.0271 10.4987 5.83366V9.91699H11.6654V11.0837H2.33203ZM6.9987 12.8337C6.67786 12.8337 6.40331 12.7195 6.17503 12.4912C5.94675 12.263 5.83242 11.9882 5.83203 11.667H8.16536C8.16536 11.9878 8.05122 12.2626 7.82295 12.4912C7.59467 12.7199 7.31992 12.8341 6.9987 12.8337ZM4.66536 9.91699H9.33203V5.83366C9.33203 5.19199 9.10356 4.64269 8.64661 4.18574C8.18967 3.7288 7.64036 3.50033 6.9987 3.50033C6.35703 3.50033 5.80772 3.7288 5.35078 4.18574C4.89384 4.64269 4.66536 5.19199 4.66536 5.83366V9.91699Z"
+                              fill="#DC3545"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </td>
+                    <td data-label="Deadline">24:13:05</td>
+                    <td data-label="">
+                      <div class="manage-container">
+                        <button class="btn-text-table manage-btn">
+                          Manage
+                          <span>
+                            <svg
+                              width="15"
+                              height="15"
+                              viewBox="0 0 15 15"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7.49966 9.4507C7.33392 9.45066 7.17497 9.38479 7.05779 9.26757L4.40591 6.61632C4.29207 6.49845 4.22907 6.34057 4.23049 6.1767C4.23192 6.01283 4.29765 5.85607 4.41353 5.74019C4.52941 5.62431 4.68616 5.55858 4.85004 5.55715C5.01391 5.55573 5.17179 5.61872 5.28966 5.73257L7.49966 7.94195L9.70966 5.73257C9.82754 5.61872 9.98542 5.55573 10.1493 5.55715C10.3132 5.55858 10.4699 5.62431 10.5858 5.74019C10.7017 5.85607 10.7674 6.01283 10.7688 6.1767C10.7703 6.34057 10.7073 6.49845 10.5934 6.61632L7.94154 9.26757C7.82435 9.38479 7.66541 9.45066 7.49966 9.4507Z"
+                                fill="#003366"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                        <div class="manage-dropdown">
+                          <a class="dropdown-item view-btn"
+                            ><span
+                              ><svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M14.3633 7.36301C14.566 7.64701 14.6673 7.78968 14.6673 7.99968C14.6673 8.21034 14.566 8.35234 14.3633 8.63634C13.4527 9.91368 11.1267 12.6663 8.00065 12.6663C4.87398 12.6663 2.54865 9.91301 1.63798 8.63634C1.43532 8.35234 1.33398 8.20968 1.33398 7.99968C1.33398 7.78901 1.43532 7.64701 1.63798 7.36301C2.54865 6.08568 4.87465 3.33301 8.00065 3.33301C11.1273 3.33301 13.4527 6.08634 14.3633 7.36301Z"
+                                  stroke="black"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M10 8C10 7.46957 9.78929 6.96086 9.41421 6.58579C9.03914 6.21071 8.53043 6 8 6C7.46957 6 6.96086 6.21071 6.58579 6.58579C6.21071 6.96086 6 7.46957 6 8C6 8.53043 6.21071 9.03914 6.58579 9.41421C6.96086 9.78929 7.46957 10 8 10C8.53043 10 9.03914 9.78929 9.41421 9.41421C9.78929 9.03914 10 8.53043 10 8Z"
+                                  stroke="black"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg> </span
+                            >View</a
+                          >
+                          <a class="dropdown-item respond-btn"
+                            ><span
+                              ><svg
+                                width="15"
+                                height="15"
+                                viewBox="0 0 15 15"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g clip-path="url(#clip0_4406_610)">
+                                  <path
+                                    d="M10.9001 9.09961V12.6996M9.10023 10.8996H12.6999M2.80078 4.59961H9.10023M2.80078 7.29961H6.40047M2.80078 9.99961H5.05059M7.30039 10.8996C7.30039 11.8544 7.67964 12.7701 8.35471 13.4452C9.02979 14.1203 9.94538 14.4996 10.9001 14.4996C11.8548 14.4996 12.7704 14.1203 13.4454 13.4452C14.1205 12.7701 14.4998 11.8544 14.4998 10.8996C14.4998 9.94483 14.1205 9.02916 13.4454 8.35402C12.7704 7.67889 11.8548 7.29961 10.9001 7.29961C9.94538 7.29961 9.02979 7.67889 8.35471 8.35402C7.67964 9.02916 7.30039 9.94483 7.30039 10.8996Z"
+                                    stroke="#003366"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                  <path
+                                    d="M5.05 12.7H1.9C1.66131 12.7 1.43239 12.6052 1.2636 12.4364C1.09482 12.2676 1 12.0387 1 11.8V1.9C1 1.66131 1.09482 1.43239 1.2636 1.2636C1.43239 1.09482 1.66131 1 1.9 1H8.2774C8.51593 1.00005 8.74468 1.09479 8.9134 1.2634L10.6366 2.9866C10.8052 3.15532 10.8999 3.38407 10.9 3.6226V5.05"
+                                    stroke="#003366"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_4406_610">
+                                    <rect width="15" height="15" fill="white" />
+                                  </clipPath>
+                                </defs>
+                              </svg> </span
+                            >Judge</a
+                          >
+                          <button class="dropdown-item withdraw-btn">
+                            <span
+                              ><svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4 4L12 12M4 12L12 4"
+                                  stroke="#666666"
+                                  stroke-width="1.2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg> </span
+                            >Reject
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td data-label="Case ID">
+                      <div class="caseId">D-20240807-U2648-4832</div>
+                    </td>
+                    <td data-label="Order Title" title="Create Character">
+                      Create Character
+                    </td>
+                    <td data-label="Status">
+                      <span class="status-check-raised">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="6"
+                          height="6"
+                          viewBox="0 0 6 6"
+                          fill="none"
+                        >
+                          <circle cx="3" cy="3" r="3" fill="#666666" />
+                        </svg>
+                        Judged
+                      </span>
+                    </td>
+                    <td data-label="Deadline">Expired</td>
+                    <td data-label="">
+                      <div class="manage-container">
+                        <button class="btn-text-table manage-btn">
+                          Manage
+                          <span>
+                            <svg
+                              width="15"
+                              height="15"
+                              viewBox="0 0 15 15"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7.49966 9.4507C7.33392 9.45066 7.17497 9.38479 7.05779 9.26757L4.40591 6.61632C4.29207 6.49845 4.22907 6.34057 4.23049 6.1767C4.23192 6.01283 4.29765 5.85607 4.41353 5.74019C4.52941 5.62431 4.68616 5.55858 4.85004 5.55715C5.01391 5.55573 5.17179 5.61872 5.28966 5.73257L7.49966 7.94195L9.70966 5.73257C9.82754 5.61872 9.98542 5.55573 10.1493 5.55715C10.3132 5.55858 10.4699 5.62431 10.5858 5.74019C10.7017 5.85607 10.7674 6.01283 10.7688 6.1767C10.7703 6.34057 10.7073 6.49845 10.5934 6.61632L7.94154 9.26757C7.82435 9.38479 7.66541 9.45066 7.49966 9.4507Z"
+                                fill="#003366"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                        <div class="manage-dropdown">
+                          <a class="dropdown-item view-btn"
+                            ><span
+                              ><svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M14.3633 7.36301C14.566 7.64701 14.6673 7.78968 14.6673 7.99968C14.6673 8.21034 14.566 8.35234 14.3633 8.63634C13.4527 9.91368 11.1267 12.6663 8.00065 12.6663C4.87398 12.6663 2.54865 9.91301 1.63798 8.63634C1.43532 8.35234 1.33398 8.20968 1.33398 7.99968C1.33398 7.78901 1.43532 7.64701 1.63798 7.36301C2.54865 6.08568 4.87465 3.33301 8.00065 3.33301C11.1273 3.33301 13.4527 6.08634 14.3633 7.36301Z"
+                                  stroke="black"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M10 8C10 7.46957 9.78929 6.96086 9.41421 6.58579C9.03914 6.21071 8.53043 6 8 6C7.46957 6 6.96086 6.21071 6.58579 6.58579C6.21071 6.96086 6 7.46957 6 8C6 8.53043 6.21071 9.03914 6.58579 9.41421C6.96086 9.78929 7.46957 10 8 10C8.53043 10 9.03914 9.78929 9.41421 9.41421C9.78929 9.03914 10 8.53043 10 8Z"
+                                  stroke="black"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg> </span
+                            >View</a
+                          >
+                          <button class="dropdown-item withdraw-btn">
+                            <span
+                              ><svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4 4L12 12M4 12L12 4"
+                                  stroke="#666666"
+                                  stroke-width="1.2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg> </span
+                            >Reject
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </div>
-
-          <div class="btns-wrapper">
-            <div class="btn-text">Discard</div>
-            <button class="btn-medium">Save Changes</button>
           </div>
         </div>
       </div>
@@ -1058,5 +1159,6 @@
     </footer>
 
     <script src="./main.js" defer></script>
+    <script src="../main.js" defer></script>
   </body>
 </html>

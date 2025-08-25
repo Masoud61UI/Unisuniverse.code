@@ -35,3 +35,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// Upload File
+function initFileUploader() {
+  const uploadAreas = document.querySelectorAll(".photo-upld");
+
+  if (!uploadAreas.length) return false;
+
+  uploadAreas.forEach((area) => {
+    const fileInput = area.querySelector('input[type="file"]');
+    if (!fileInput) return;
+
+    area.addEventListener(
+      "click",
+      (e) => {
+        if (e.target !== fileInput) {
+          e.preventDefault();
+          e.stopPropagation();
+          fileInput.click();
+        }
+      },
+      true
+    );
+  });
+
+  return true;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initFileUploader();
+});

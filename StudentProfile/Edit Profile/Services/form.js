@@ -178,17 +178,34 @@ document.addEventListener("DOMContentLoaded", function () {
     if (menuItems.length === 0) return;
 
     menuItems.forEach((item) => {
-      item.addEventListener("click", () => {
+      item.addEventListener("click", (e) => {
+        if (
+          e.target.closest(".sub-menu-wrapper") ||
+          e.target.closest(".sub-menu")
+        ) {
+          return;
+        }
+
         menuItems.forEach((menuItem) => {
-          menuItem.classList.remove("checked-tab");
+          menuItem
+            .querySelector(".side-menu-item-profile")
+            .classList.remove("checked-tab");
         });
 
-        item.classList.add("checked-tab");
+        item
+          .querySelector(".side-menu-item-profile")
+          .classList.add("checked-tab");
+
+        document.querySelectorAll(".sub-menu-wrapper").forEach((subMenu) => {
+          subMenu.classList.remove("show");
+          subMenu.style.display = "none";
+        });
 
         const subMenu = item.querySelector(".sub-menu-wrapper");
-        subMenu.classList.add("show");
-        subMenu.style.display =
-          subMenu.style.display === "block" ? "none" : "block";
+        if (subMenu) {
+          subMenu.classList.add("show");
+          subMenu.style.display = "block";
+        }
       });
     });
   };

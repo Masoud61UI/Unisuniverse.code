@@ -11,7 +11,7 @@
       href="../../../../css/components/header-logined.css"
     />
     <link rel="stylesheet" href="../../../../css/components/footer.css" />
-    <link rel="stylesheet" href="../../../../css/pages/Setting/payout.css" />
+    <link rel="stylesheet" href="../../../../css/pages/Dispute/case-view.css" />
   </head>
   <body>
     <header class="header" id="header">
@@ -135,7 +135,8 @@
           </ul>
         </nav>
         <div class="btn">
-          <a href="#" class="btn-icon-menu"> <svg
+          <a href="#" class="btn-icon-menu">
+            <svg
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="19"
@@ -351,7 +352,7 @@
                 </a>
 
                 <li class="side-menu-item">
-                  <div class="side-menu-item-profile">
+                  <div class="side-menu-item-profile checked-tab">
                     <div class="side-menu-item-profile-icon">
                       <svg
                         width="22"
@@ -392,7 +393,7 @@
                             />
                           </svg>
                         </div>
-                        <h4 class="sub-menu-title">Dispute Submission</h4>
+                        <h4 class="sub-menu-title">Dispute Cases</h4>
                       </a>
                     </li>
 
@@ -416,62 +417,14 @@
                             />
                           </svg>
                         </div>
-                        <h4 class="sub-menu-title">My Disputes</h4>
-                      </a>
-                    </li>
-
-                    <li class="sub-menu-contents">
-                      <a href="#" class="sub-menu">
-                        <div class="sub-menu-icon">
-                          <svg
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="13"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="m9 5 7 7-7 7"
-                            />
-                          </svg>
-                        </div>
-                        <h4 class="sub-menu-title">Respond to Disputes</h4>
-                      </a>
-                    </li>
-
-                    <li class="sub-menu-contents">
-                      <a href="#" class="sub-menu">
-                        <div class="sub-menu-icon">
-                          <svg
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="13"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="m9 5 7 7-7 7"
-                            />
-                          </svg>
-                        </div>
-                        <h4 class="sub-menu-title">Judge Dashboard</h4>
+                        <h4 class="sub-menu-title">Judgement</h4>
                       </a>
                     </li>
                   </ul>
                 </li>
 
                 <li class="side-menu-item">
-                  <div class="side-menu-item-profile checked-tab">
+                  <div class="side-menu-item-profile">
                     <div class="side-menu-item-profile-icon">
                       <svg
                         aria-hidden="true"
@@ -577,244 +530,186 @@
         </aside>
 
         <div class="edit-section-wrapper">
-          <div class="edit-section-title-add">
-            <h2 class="edit-section-title">Payout Setting</h2>
-            <p>
-              To successfully complete your payment request, please pay close
-              attention to all steps and fields in this section.
-            </p>
+          <div class="edit-section-title-top-add">
+            <div class="edit-section-title-add">
+              <h2 class="edit-section-title">Case Overview</h2>
+              <p>Below is a timeline of all updates on this case.</p>
+            </div>
           </div>
 
-          <div class="steps-warpper">
-            <div class="accordion-item">
-              <button id="accordion-button-1" aria-expanded="false">
-                <span class="accordion-title"
-                  >Step 1: How do you want to payout?</span
-                >
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content">
-                <div class="accordions-wrapper">
-                  <hr />
-
-                  <p class="accordions-description">
-                    Please select one of the payment methods and fill in the
-                    requested information.
-                  </p>
-
-                  <div class="accordions-inner-wrapper">
-                    <div class="accordion-item-inner">
-                      <div
-                        id="accordion-button-3"
-                        aria-expanded="false"
-                        class="accordion-inner"
-                      >
-                        <div class="accordion-item-inner-top">
-                          <span class="accordion-title-inner"
-                            >Bank Transfer</span
-                          >
-
-                          <img
-                            class="accordion-photo-inner"
-                            src="../../../images/Bank Transfr.png"
-                          />
-                        </div>
-                      </div>
-                      <div class="accordion-content-inner">
-                        <hr />
-
-                        <div class="edit-section-forms">
-                          <form>
-                            <div class="user_details">
-                              <div class="input_pox">
-                                <label class="datails">Account Name :</label>
-                                <input
-                                  type="text"
-                                  placeholder="Enter your name"
-                                  required
-                                />
-                              </div>
-                              <div class="input_pox">
-                                <label class="datails">Account Number :</label>
-                                <input
-                                  type="number"
-                                  placeholder="Enter your account number"
-                                  required
-                                />
-                              </div>
-                              <div class="input_pox">
-                                <label class="datails">SWIFT Code</label>
-                                <input
-                                  type="text"
-                                  placeholder="Enter your swift code"
-                                  required
-                                />
-                              </div>
-                              <div class="input_pox">
-                                <label class="datails">IBAN</label>
-                                <input type="text" required />
-                              </div>
-                              <div class="input_pox">
-                                <label class="datails">Bank Name</label>
-                                <input
-                                  type="text"
-                                  placeholder="Enter your bank name"
-                                  required
-                                />
-                              </div>
-                              <div class="input_pox wf">
-                                <label class="datails">Address :</label>
-                                <textarea
-                                  placeholder="Enter your address"
-                                  required
-                                ></textarea>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="accordion-item-inner">
-                      <div
-                        id="accordion-button-4"
-                        aria-expanded="false"
-                        class="accordion-inner"
-                      >
-                        <div class="accordion-item-inner-top">
-                          <span class="accordion-title-inner">Paypal</span>
-
-                          <img
-                            class="accordion-photo-inner"
-                            src="../../../images/Paypal.png"
-                          />
-                        </div>
-                      </div>
-                      <div class="accordion-content-inner">
-                        <hr />
-
-                        <div class="edit-section-forms">
-                          <form>
-                            <div class="user_details">
-                              <div class="input_pox wf">
-                                <label class="datails">PayPal Email :</label>
-                                <input
-                                  type="text"
-                                  placeholder="Enter your paypal email"
-                                  required
-                                />
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div class="case-content">
+            <div class="case-row">
+              <div class="case-label">Case Status</div>
+              <div class="case-value status-value-pending">Pending Judgment</div>
             </div>
-
-            <div class="accordion-item">
-              <button id="accordion-button-2" aria-expanded="false">
-                <span class="accordion-title"
-                  >Step 2: Withdrawal Configuration</span
-                >
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content">
-                <div class="accordions-wrapper">
-                  <hr />
-
-                  <p class="accordions-description">
-                    Explanations about the minimum payout threshold.
-                  </p>
-
-                  <div class="accordions-inner-wrapper">
-                    <div class="accordion-item-inner">
-                      <div class="edit-section-forms">
-                        <form class="forms-step-two">
-                          <div class="user_details">
-                            <div class="input_pox">
-                              <label class="datails">Payout Interval :</label>
-                              <select
-                                name="payout interval"
-                                class="select-input"
-                                onblur="this.size=0"
-                                onchange="this.size=1; this.blur()"
-                              >
-                                <option value="Weekly">Weekly</option>
-                                <option value="Monthly">Monthly</option>
-                                <option value="Upon Threshold Reached">
-                                  Upon Threshold Reached
-                                </option>
-                                <option value="Automatic or Manual">
-                                  Automatic or Manual
-                                </option>
-                              </select>
-                            </div>
-                            <div class="input_pox dollar">
-                              <label class="datails"
-                                >Minimum Payout Threshold :</label
-                              >
-                              <input
-                                type="number"
-                                placeholder="Minimum amount is 100 USD"
-                                required
-                              />
-                              <span class="dollar-sign">$</span>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="case-row">
+              <div class="case-label">Dispute Title</div>
+              <div class="case-value">Item Missing from Shipment</div>
             </div>
+            <div class="case-row">
+              <div class="case-label">Transaction Amount</div>
+              <div class="case-value amount-value">100 (USD)</div>
+            </div>
+            <div class="case-row">
+              <div class="case-label">Case ID</div>
+              <div class="case-value">D-20250807-U2648-4832</div>
+            </div>
+            <div class="case-row">
+              <div class="case-label">Order ID</div>
+              <div class="case-value">O-20250706-U2648-00015</div>
+            </div>
+          </div>
 
-            <div class="accordion-item">
-              <div class="toggle-wrapper">
-                <div class="steps-content">
-                  <h3 class="accordion-title">Toggle Notifications</h3>
-                  <div class="step-toggle-notif">
-                    <input type="checkbox" id="switch" /><label
-                      class="toggle-notif toggle-item"
-                      for="switch"
-                      >Toggle</label
+          <div class="timeline">
+            <div class="timeline-item active">
+              <div class="timeline-icon completed">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.55018 15.15L18.0252 6.675C18.2252 6.475 18.4585 6.375 18.7252 6.375C18.9918 6.375 19.2252 6.475 19.4252 6.675C19.6252 6.875 19.7252 7.11267 19.7252 7.388C19.7252 7.66333 19.6252 7.90067 19.4252 8.1L10.2502 17.3C10.0502 17.5 9.81685 17.6 9.55018 17.6C9.28351 17.6 9.05018 17.5 8.85018 17.3L4.55018 13C4.35018 12.8 4.25418 12.5627 4.26218 12.288C4.27018 12.0133 4.37451 11.7757 4.57518 11.575C4.77585 11.3743 5.01351 11.2743 5.28818 11.275C5.56285 11.2757 5.80018 11.3757 6.00018 11.575L9.55018 15.15Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div class="timeline-header-left">
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 30 30"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="29"
+                        height="29"
+                        rx="5.5"
+                        fill="white"
+                        stroke="#DCDCDC"
+                      />
+                      <path
+                        d="M19.1642 12.5112H19.1709M19.1709 10.8412V8.75449M11.2526 23.3337H8.93256C8.66339 23.3337 8.39256 23.2953 8.14506 23.1895C7.34006 22.8437 6.93089 22.3862 6.74089 22.1003C6.68932 22.0211 6.66399 21.9278 6.66848 21.8334C6.67296 21.739 6.70705 21.6484 6.76589 21.5745C7.69922 20.3345 9.86256 19.5862 11.2526 19.5862M11.2567 23.3337H13.5759C13.8459 23.3337 14.1159 23.2953 14.3634 23.1895C15.1692 22.8437 15.5776 22.3862 15.7684 22.1003C15.82 22.0211 15.8453 21.9278 15.8408 21.8334C15.8363 21.739 15.8022 21.6484 15.7434 21.5745C14.8101 20.3345 12.6467 19.5862 11.2567 19.5862M23.3342 10.6603C23.3342 12.8653 21.4676 14.6537 19.1642 14.6537C18.8931 14.6537 18.6242 14.6287 18.3576 14.5787C18.1659 14.5428 18.0709 14.5253 18.0034 14.5353C17.9367 14.5453 17.8417 14.5953 17.6534 14.697C17.1139 14.9846 16.4931 15.0812 15.8917 14.9712C16.1201 14.6895 16.2751 14.352 16.3442 13.9903C16.3859 13.7695 16.2826 13.5545 16.1276 13.397C15.4038 12.6698 14.9965 11.6863 14.9942 10.6603C14.9942 8.45533 16.8609 6.66699 19.1642 6.66699C21.4676 6.66699 23.3342 8.45533 23.3342 10.6603ZM13.5717 15.2412C13.5708 15.8544 13.3265 16.4422 12.8924 16.8754C12.4583 17.3085 11.87 17.5516 11.2567 17.5512C10.9529 17.5516 10.652 17.4922 10.3712 17.3763C10.0904 17.2605 9.83509 17.0905 9.61997 16.876C9.40485 16.6615 9.23408 16.4067 9.11742 16.1262C9.00076 15.8457 8.94049 15.5449 8.94006 15.2412C8.94038 14.9373 9.00057 14.6365 9.11718 14.3559C9.2338 14.0753 9.40454 13.8204 9.61968 13.6058C9.83481 13.3912 10.0901 13.2211 10.371 13.1052C10.6519 12.9893 10.9529 12.9299 11.2567 12.9303C11.8701 12.9299 12.4586 13.1731 12.8927 13.6064C13.3268 14.0398 13.5711 14.6278 13.5717 15.2412Z"
+                        stroke="#003366"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <h3>Complainant</h3>
+                  </div>
+                  <div class="timeline-header-right">
+    <span class="status">Raised</span>
+   
+  </div>
+                </div>
+                <div class="timeline-body">
+                  <div class="detail-row">
+                    <span class="detail-label">Dispute Type:</span>
+                    <span class="detail-value">Product</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Submitted by:</span>
+                    <span class="detail-value">John Doe</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Description:</span>
+                    <span class="detail-value"
+                      >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus.</span
                     >
                   </div>
-                </div>
-
-                <div class="inner-toggle-wrapper">
-                  <div class="inner-toggle">
-                    <h3 class="accordion-title">Successful Payout</h3>
-                    <div class="step-toggle-notif">
-                      <input type="checkbox" id="switch-one" /><label
-                        class="toggle-notif toggle-item"
-                        for="switch-one"
-                        >Toggle</label
-                      >
-                    </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Related Order ID:</span>
+                    <span class="detail-value">O-20250706-U2648-00015</span>
                   </div>
-
-                  <div class="inner-toggle">
-                    <h3 class="accordion-title">Failed payout</h3>
-                    <div class="step-toggle-notif">
-                      <input type="checkbox" id="switch-two" /><label
-                        class="toggle-notif toggle-item"
-                        for="switch-two"
-                        >Toggle</label
-                      >
-                    </div>
+                  <div class="detail-row">
+                    <span class="detail-label">Preferred Resolution:</span>
+                    <span class="detail-value">Full Refund</span>
+                  </div>
+                  <div class="detail-row">
+  <span class="detail-label">Attachments:</span>
+  <span class="detail-value">
+    <a href="#" download class="attachment-link">receipt.pdf</a>, 
+    <a href="#" download class="attachment-link">product.jpg</a>
+  </span>
+</div>
+                  <div class="detail-row">
+                    <span class="detail-label">Submission Date:</span>
+                    <span class="detail-value">07 August 2024, 14:30</span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="btns-wrapper">
-            <div class="btn-text">Discard</div>
-            <button class="btn-medium">Save Changes</button>
+            <div class="timeline-item">
+              <div class="timeline-icon reject">
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 4L4 12M4 4L12 12"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div class="timeline-header-left">
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 30 30"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="29"
+                        height="29"
+                        rx="5.5"
+                        fill="white"
+                        stroke="#DCDCDC"
+                      />
+                      <path
+                        d="M14.9995 10.417C14.6566 10.4159 14.3169 10.4824 13.9997 10.6128C13.6826 10.7431 13.3942 10.9347 13.1512 11.1765C12.9082 11.4184 12.7152 11.7058 12.5834 12.0224C12.4515 12.3389 12.3834 12.6783 12.3828 13.0212C12.3834 13.3641 12.4515 13.7035 12.5834 14.02C12.7152 14.3365 12.9082 14.6239 13.1512 14.8658C13.3942 15.1077 13.6826 15.2993 13.9997 15.4296C14.3169 15.5599 14.6566 15.6264 14.9995 15.6253C15.3424 15.6264 15.6821 15.5599 15.9992 15.4296C16.3164 15.2993 16.6047 15.1077 16.8478 14.8658C17.0908 14.6239 17.2838 14.3365 17.4156 14.02C17.5475 13.7035 17.6156 13.3641 17.6161 13.0212C17.6156 12.6783 17.5475 12.3389 17.4156 12.0224C17.2838 11.7058 17.0908 11.4184 16.8478 11.1765C16.6047 10.9347 16.3164 10.7431 15.9992 10.6128C15.6821 10.4824 15.3424 10.4159 14.9995 10.417ZM13.2161 13.0212C13.2161 12.0453 14.0128 11.2503 14.9995 11.2503C15.9861 11.2503 16.7828 12.0453 16.7828 13.0212C16.7823 13.2546 16.7357 13.4857 16.6457 13.7011C16.5557 13.9165 16.4242 14.1121 16.2585 14.2765C16.0929 14.441 15.8964 14.5712 15.6803 14.6597C15.4643 14.7481 15.2329 14.7931 14.9995 14.792C14.766 14.7931 14.5347 14.7481 14.3186 14.6597C14.1026 14.5712 13.9061 14.441 13.7404 14.2765C13.5748 14.1121 13.4432 13.9165 13.3532 13.7011C13.2633 13.4857 13.2167 13.2546 13.2161 13.0212Z"
+                        fill="#003366"
+                      />
+                      <path
+                        d="M15.8662 6.29993C15.3026 6.10938 14.692 6.10967 14.1287 6.30076L8.48201 8.21326C8.06687 8.35151 7.70127 8.60824 7.43028 8.95178C7.1593 9.29533 6.99478 9.71067 6.95701 10.1466C6.66284 13.8216 7.15701 16.7099 8.48868 18.9741C9.82451 21.2449 11.9545 22.8058 14.7678 23.9149C14.9151 23.973 15.0789 23.973 15.2262 23.9149C18.042 22.8058 20.1728 21.2449 21.5095 18.9741C22.8428 16.7099 23.3362 13.8208 23.0428 10.1474C23.005 9.7114 22.8404 9.29599 22.5692 8.95244C22.2981 8.60888 21.9323 8.35221 21.517 8.21409L15.8662 6.29993ZM14.5295 7.48493C14.8327 7.38231 15.1613 7.38231 15.4645 7.48493L21.1162 9.39743C21.5012 9.52743 21.7662 9.86493 21.797 10.2466C22.0778 13.7683 21.5903 16.3724 20.432 18.3399C20.367 18.4516 20.2992 18.5613 20.2287 18.6691C20.0774 18.1662 19.8046 17.7083 19.4345 17.3358C18.8012 16.7024 17.9195 16.3633 16.9203 16.2524L16.712 16.2291L16.5703 16.3816L16.567 16.3849L16.5478 16.4041L16.4628 16.4824C16.3862 16.5491 16.2712 16.6399 16.1278 16.7308C15.8362 16.9141 15.4445 17.0833 14.9995 17.0833C14.5545 17.0833 14.1628 16.9141 13.8712 16.7308C13.7134 16.6307 13.5663 16.5148 13.432 16.3849L13.4287 16.3816L13.287 16.2291L13.0787 16.2524C12.0787 16.3633 11.1978 16.7024 10.5645 17.3358C10.1943 17.7085 9.92153 18.1667 9.77034 18.6699C9.69979 18.5616 9.63173 18.4516 9.56618 18.3399C8.40784 16.3733 7.92118 13.7683 8.20201 10.2466C8.22018 10.0539 8.29433 9.8708 8.4153 9.71977C8.53628 9.56873 8.6988 9.45639 8.88284 9.39659L14.5295 7.48493ZM10.4378 19.5633C10.5112 18.8383 10.772 18.3058 11.1537 17.9249C11.5803 17.4983 12.197 17.2208 12.982 17.1049L12.9895 17.1116C13.092 17.2008 13.2403 17.3183 13.4278 17.4366C13.7987 17.6699 14.3445 17.9166 14.9995 17.9166C15.6545 17.9166 16.1995 17.6691 16.5712 17.4358C16.7259 17.3396 16.8725 17.2309 17.0095 17.1108L17.017 17.1049C17.802 17.2208 18.4187 17.4983 18.8453 17.9249C19.2262 18.3058 19.487 18.8374 19.562 19.5624C18.457 20.8566 16.9445 21.8633 14.997 22.6599C13.052 21.8633 11.5412 20.8574 10.4378 19.5633Z"
+                        fill="#003366"
+                      />
+                    </svg>
+                    <h3>Respondent</h3>
+                  </div>
+                  <div class="timeline-header-right">
+    <span class="status no-response">No Response</span>
+  </div>
+                </div>
+                <div class="timeline-body">
+                  <div class="detail-row">
+                    <span class="detail-label">Status:</span>
+                    <span class="detail-value">No Response Submitted</span>
+                  </div>
+                  <div class="detail-row">
+                    <span class="detail-value">Respondent did not submit a response in time.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
@@ -1058,5 +953,6 @@
     </footer>
 
     <script src="./main.js" defer></script>
+    <script src="../main.js" defer></script>
   </body>
 </html>

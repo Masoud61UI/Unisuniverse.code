@@ -11,7 +11,10 @@
       href="../../../../css/components/header-logined.css"
     />
     <link rel="stylesheet" href="../../../../css/components/footer.css" />
-    <link rel="stylesheet" href="../../../../css/pages/Setting/payout.css" />
+    <link
+      rel="stylesheet"
+      href="../../../../css/pages/Dispute/judgement-submit-verdict.css"
+    />
   </head>
   <body>
     <header class="header" id="header">
@@ -135,7 +138,8 @@
           </ul>
         </nav>
         <div class="btn">
-          <a href="#" class="btn-icon-menu"> <svg
+          <a href="#" class="btn-icon-menu">
+            <svg
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="19"
@@ -351,7 +355,7 @@
                 </a>
 
                 <li class="side-menu-item">
-                  <div class="side-menu-item-profile">
+                  <div class="side-menu-item-profile checked-tab">
                     <div class="side-menu-item-profile-icon">
                       <svg
                         width="22"
@@ -392,7 +396,7 @@
                             />
                           </svg>
                         </div>
-                        <h4 class="sub-menu-title">Dispute Submission</h4>
+                        <h4 class="sub-menu-title">Dispute Cases</h4>
                       </a>
                     </li>
 
@@ -416,62 +420,14 @@
                             />
                           </svg>
                         </div>
-                        <h4 class="sub-menu-title">My Disputes</h4>
-                      </a>
-                    </li>
-
-                    <li class="sub-menu-contents">
-                      <a href="#" class="sub-menu">
-                        <div class="sub-menu-icon">
-                          <svg
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="13"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="m9 5 7 7-7 7"
-                            />
-                          </svg>
-                        </div>
-                        <h4 class="sub-menu-title">Respond to Disputes</h4>
-                      </a>
-                    </li>
-
-                    <li class="sub-menu-contents">
-                      <a href="#" class="sub-menu">
-                        <div class="sub-menu-icon">
-                          <svg
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="13"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="m9 5 7 7-7 7"
-                            />
-                          </svg>
-                        </div>
-                        <h4 class="sub-menu-title">Judge Dashboard</h4>
+                        <h4 class="sub-menu-title">Judgement</h4>
                       </a>
                     </li>
                   </ul>
                 </li>
 
                 <li class="side-menu-item">
-                  <div class="side-menu-item-profile checked-tab">
+                  <div class="side-menu-item-profile">
                     <div class="side-menu-item-profile-icon">
                       <svg
                         aria-hidden="true"
@@ -577,248 +533,354 @@
         </aside>
 
         <div class="edit-section-wrapper">
-          <div class="edit-section-title-add">
-            <h2 class="edit-section-title">Payout Setting</h2>
-            <p>
-              To successfully complete your payment request, please pay close
-              attention to all steps and fields in this section.
-            </p>
+          <div class="edit-section-title-top-add">
+            <div class="edit-section-title-add">
+              <h2 class="edit-section-title">Submit Verdict</h2>
+              <p>Review the case details and submit your final ruling.</p>
+            </div>
           </div>
 
-          <div class="steps-warpper">
-            <div class="accordion-item">
-              <button id="accordion-button-1" aria-expanded="false">
-                <span class="accordion-title"
-                  >Step 1: How do you want to payout?</span
-                >
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content">
-                <div class="accordions-wrapper">
-                  <hr />
-
-                  <p class="accordions-description">
-                    Please select one of the payment methods and fill in the
-                    requested information.
-                  </p>
-
-                  <div class="accordions-inner-wrapper">
-                    <div class="accordion-item-inner">
-                      <div
-                        id="accordion-button-3"
-                        aria-expanded="false"
-                        class="accordion-inner"
-                      >
-                        <div class="accordion-item-inner-top">
-                          <span class="accordion-title-inner"
-                            >Bank Transfer</span
-                          >
-
-                          <img
-                            class="accordion-photo-inner"
-                            src="../../../images/Bank Transfr.png"
-                          />
-                        </div>
-                      </div>
-                      <div class="accordion-content-inner">
-                        <hr />
-
-                        <div class="edit-section-forms">
-                          <form>
-                            <div class="user_details">
-                              <div class="input_pox">
-                                <label class="datails">Account Name :</label>
-                                <input
-                                  type="text"
-                                  placeholder="Enter your name"
-                                  required
-                                />
-                              </div>
-                              <div class="input_pox">
-                                <label class="datails">Account Number :</label>
-                                <input
-                                  type="number"
-                                  placeholder="Enter your account number"
-                                  required
-                                />
-                              </div>
-                              <div class="input_pox">
-                                <label class="datails">SWIFT Code</label>
-                                <input
-                                  type="text"
-                                  placeholder="Enter your swift code"
-                                  required
-                                />
-                              </div>
-                              <div class="input_pox">
-                                <label class="datails">IBAN</label>
-                                <input type="text" required />
-                              </div>
-                              <div class="input_pox">
-                                <label class="datails">Bank Name</label>
-                                <input
-                                  type="text"
-                                  placeholder="Enter your bank name"
-                                  required
-                                />
-                              </div>
-                              <div class="input_pox wf">
-                                <label class="datails">Address :</label>
-                                <textarea
-                                  placeholder="Enter your address"
-                                  required
-                                ></textarea>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="accordion-item-inner">
-                      <div
-                        id="accordion-button-4"
-                        aria-expanded="false"
-                        class="accordion-inner"
-                      >
-                        <div class="accordion-item-inner-top">
-                          <span class="accordion-title-inner">Paypal</span>
-
-                          <img
-                            class="accordion-photo-inner"
-                            src="../../../images/Paypal.png"
-                          />
-                        </div>
-                      </div>
-                      <div class="accordion-content-inner">
-                        <hr />
-
-                        <div class="edit-section-forms">
-                          <form>
-                            <div class="user_details">
-                              <div class="input_pox wf">
-                                <label class="datails">PayPal Email :</label>
-                                <input
-                                  type="text"
-                                  placeholder="Enter your paypal email"
-                                  required
-                                />
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <div class="case-content">
+            <div class="case-row">
+              <div class="case-label">Case Status</div>
+              <div class="case-value status-value">Pending Judgment</div>
+            </div>
+            <div class="case-row">
+              <div class="case-label">Time Left</div>
+              <div class="case-value time-value">12:45:09</div>
+            </div>
+            <div class="case-row">
+              <div class="case-label">Dispute Title</div>
+              <div class="case-value">Item Missing from Shipment</div>
+            </div>
+            <div class="case-row">
+              <div class="case-label">Dispute Type</div>
+              <div class="case-value">Service Not Delivered</div>
+            </div>
+            <div class="case-row">
+              <div class="case-label">Transaction Amount</div>
+              <div class="case-value amount-value">100 (USD)</div>
+            </div>
+            <div class="case-row">
+              <div class="case-label">Complainant Name</div>
+              <div class="case-value">John Doe</div>
+            </div>
+            <div class="case-row">
+              <div class="case-label">Respondent Name</div>
+              <div class="case-value">Jane Smith</div>
+            </div>
+            <div class="case-row">
+              <div class="case-label">Case ID</div>
+              <div class="case-value">D-20250807-U2648-4832</div>
+            </div>
+            <div class="case-row">
+              <div class="case-label">Order ID</div>
+              <div class="case-value">O-20250706-U2648-00015</div>
+            </div>
+            <div class="case-row">
+              <div class="case-label">Order Title</div>
+              <div class="case-value">Create Character Illustration</div>
+            </div>
+            <div class="case-row">
+              <div class="case-label">Submission Date</div>
+              <div class="case-value">07 August 2024</div>
+            </div>
+            <div class="case-row">
+              <div class="case-label">Summary of Dispute</div>
+              <div class="case-value">
+                Short version of claim from complainant
               </div>
             </div>
+          </div>
 
-            <div class="accordion-item">
-              <button id="accordion-button-2" aria-expanded="false">
-                <span class="accordion-title"
-                  >Step 2: Withdrawal Configuration</span
-                >
-                <span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="accordion-content">
-                <div class="accordions-wrapper">
-                  <hr />
-
-                  <p class="accordions-description">
-                    Explanations about the minimum payout threshold.
-                  </p>
-
-                  <div class="accordions-inner-wrapper">
-                    <div class="accordion-item-inner">
-                      <div class="edit-section-forms">
-                        <form class="forms-step-two">
-                          <div class="user_details">
-                            <div class="input_pox">
-                              <label class="datails">Payout Interval :</label>
-                              <select
-                                name="payout interval"
-                                class="select-input"
-                                onblur="this.size=0"
-                                onchange="this.size=1; this.blur()"
-                              >
-                                <option value="Weekly">Weekly</option>
-                                <option value="Monthly">Monthly</option>
-                                <option value="Upon Threshold Reached">
-                                  Upon Threshold Reached
-                                </option>
-                                <option value="Automatic or Manual">
-                                  Automatic or Manual
-                                </option>
-                              </select>
-                            </div>
-                            <div class="input_pox dollar">
-                              <label class="datails"
-                                >Minimum Payout Threshold :</label
-                              >
-                              <input
-                                type="number"
-                                placeholder="Minimum amount is 100 USD"
-                                required
-                              />
-                              <span class="dollar-sign">$</span>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <div class="toggle-wrapper">
-                <div class="steps-content">
-                  <h3 class="accordion-title">Toggle Notifications</h3>
-                  <div class="step-toggle-notif">
-                    <input type="checkbox" id="switch" /><label
-                      class="toggle-notif toggle-item"
-                      for="switch"
-                      >Toggle</label
+          <div class="dispute-forms-wrapper">
+            <h3 class="dispute-form-title">Arbitration Decision Form</h3>
+            <div class="edit-section-forms">
+              <form>
+                <div class="user_details">
+                  <div class="input_pox">
+                    <label class="datails">Verdict Decision :</label>
+                    <select
+                      name="Verdict"
+                      id="verdictSelect"
+                      class="select-input"
+                      onblur="this.size=0"
+                      onchange="this.size=1; this.blur();"
+                      required
                     >
+                      <option value="" disabled selected hidden>
+                        Select verdict
+                      </option>
+                      <option value="complainant">
+                        In favor of Complainant
+                      </option>
+                      <option value="respondent">In favor of Respondent</option>
+                      <option value="split">Split Decision</option>
+                      <option value="dismissed">Case Dismissed</option>
+                    </select>
+                  </div>
+                  <div
+                    id="percentageDivision"
+                    class="input_pox percentage-division"
+                  >
+                    <label class="datails">Percentage division :</label>
+                    <input
+                      type="text"
+                      placeholder="e.g, 70% Complainant or 30% Respondent"
+                      required
+                    />
+                    <p class="hint">
+                      Enter the percentage division between parties
+                    </p>
+                  </div>
+                  <div class="input_pox wf">
+                    <label class="datails">Verdict Summary :</label>
+                    <textarea
+                      placeholder="Provide a brief summary of your verdict with detailed explanation of your decision, referencing relevant evidence and statements..."
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="input_pox wf">
+                    <label class="datails">Detailed Reasoning :</label>
+                    <textarea
+                      placeholder="Provide detailed explanation of your decision, referencing evidence and statements…"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="information-edit wf">
+                    <h4 class="information-title">
+                      Attachment Upload <span>(Optional)</span>:
+                    </h4>
+                    <div class="photo-upld">
+                      <svg
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 12V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-4m5-13v4a1 1 0 0 1-1 1H5m0 6h9m0 0-2-2m2 2-2 2"
+                        />
+                      </svg>
+
+                      <p>Browse file to upload</p>
+                      <input
+                        type="file"
+                        class="file-input"
+                        accept=".pdf,.jpg,.png,.jpeg"
+                        hidden
+                        id="file-input-req"
+                      />
+                      <p>Accepted formats: PDF, JPG, PNG (Max 5 MB)</p>
+                    </div>
+                    <section class="progress-area">
+                      <li class="row-upload">
+                        <svg
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="26"
+                          height="26"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke="currentColor"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
+                          />
+                        </svg>
+                        <div class="content">
+                          <div class="details">
+                            <span class="name">File.01 - Uploading</span>
+                            <span class="percent">50%</span>
+                          </div>
+                          <div class="progress-bar">
+                            <div class="progress"></div>
+                          </div>
+                        </div>
+                      </li>
+                    </section>
+                    <section class="uploaded-area">
+                      <li class="row-upload">
+                        <div class="content">
+                          <svg
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="26"
+                            height="26"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
+                            />
+                          </svg>
+                          <div class="details">
+                            <span class="name">File.01 - Uploaded</span>
+                            <span class="img-size">70 KB</span>
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                          />
+                        </svg>
+                      </li>
+                    </section>
+                  </div>
+
+                  <div class="checkbox-warpper">
+                    <div class="checkboxContainer">
+                      <input
+                        type="checkbox"
+                        id="terms"
+                        class="checkbox"
+                        name="terms"
+                        required
+                      />
+                      <label for="terms"
+                        >I hereby certify the accuracy of the submitted
+                        information, accept the arbitrator's final decision, and
+                        agree to the
+                        <a href="../../../../Terms And Conditions/index.html"
+                          >terms and conditions.</a
+                        >
+                      </label>
+                    </div>
                   </div>
                 </div>
+              </form>
 
-                <div class="inner-toggle-wrapper">
-                  <div class="inner-toggle">
-                    <h3 class="accordion-title">Successful Payout</h3>
-                    <div class="step-toggle-notif">
-                      <input type="checkbox" id="switch-one" /><label
-                        class="toggle-notif toggle-item"
-                        for="switch-one"
-                        >Toggle</label
-                      >
-                    </div>
-                  </div>
-
-                  <div class="inner-toggle">
-                    <h3 class="accordion-title">Failed payout</h3>
-                    <div class="step-toggle-notif">
-                      <input type="checkbox" id="switch-two" /><label
-                        class="toggle-notif toggle-item"
-                        for="switch-two"
-                        >Toggle</label
-                      >
-                    </div>
-                  </div>
+              <div class="btns-wrapper">
+                <button class="btn-text-cs">Cancel</button>
+                <div class="right-buttons">
+                  <button class="btn-text">Save as Draft</button>
+                  <button class="btn-medium">Submit</button>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="btns-wrapper">
-            <div class="btn-text">Discard</div>
-            <button class="btn-medium">Save Changes</button>
           </div>
         </div>
       </div>
     </main>
+
+    <div id="success-modal" class="custom-modal">
+      <div class="modal-content">
+        <div class="modal-icon success">
+          <svg
+            width="84"
+            height="84"
+            viewBox="0 0 84 84"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="42" cy="42" r="41.5" fill="#F7F9FB" stroke="#DCDCDC" />
+            <path
+              d="M37.8657 47.3156L52.1673 33.0141C52.5048 32.6766 52.8985 32.5078 53.3485 32.5078C53.7985 32.5078 54.1922 32.6766 54.5297 33.0141C54.8672 33.3516 55.036 33.7526 55.036 34.2172C55.036 34.6819 54.8672 35.0824 54.5297 35.4188L39.0469 50.9437C38.7094 51.2812 38.3157 51.45 37.8657 51.45C37.4157 51.45 37.0219 51.2812 36.6844 50.9437L29.4282 43.6875C29.0907 43.35 28.9287 42.9495 28.9422 42.486C28.9557 42.0225 29.1317 41.6214 29.4704 41.2828C29.809 40.9442 30.2101 40.7754 30.6736 40.7766C31.1371 40.7777 31.5376 40.9464 31.8751 41.2828L37.8657 47.3156Z"
+              fill="#28A745"
+            />
+          </svg>
+        </div>
+        <h3 class="modal-title-successful">Submission Successful!</h3>
+        <div class="modal-message">
+          Your final verdict has been successfully submitted and recorded.
+          <br />
+          <div class="modal-message-id">Case ID : D-20250706-U2649-4831</div>
+        </div>
+        <div class="modal-btns-wrapper">
+          <a class="modal-btn-text">
+            View Case Details
+            <span
+              ><svg
+                width="18"
+                height="19"
+                viewBox="0 0 18 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.5 5.75L11.25 9.5L7.5 13.25"
+                  stroke="#003366"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </a>
+          <div class="modal-btns-or">or</div>
+          <a class="modal-btn-close" id="close-suc-modal">
+            <span
+              ><svg
+                width="16"
+                height="17"
+                viewBox="0 0 16 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4.66602 5.1665L11.3327 11.8332M4.66602 11.8332L11.3327 5.1665"
+                  stroke="#666666"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg> </span
+            >Close
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="error-modal" class="custom-modal">
+      <div class="modal-content">
+        <div class="modal-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#DC3545"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <h3 class="modal-title">Required Fields</h3>
+        <div class="modal-message" id="modal-message">
+          Please fill in all required fields
+        </div>
+        <button class="modal-button">Ok</button>
+      </div>
+    </div>
 
     <footer class="footer-background">
       <div class="container mx">
@@ -1057,6 +1119,8 @@
       </div>
     </footer>
 
-    <script src="./main.js" defer></script>
+    <script src="../judgeTimer.js" defer></script>
+    <script src="../main.js" defer></script>
+    <script src="../form.js" defer></script>
   </body>
 </html>
