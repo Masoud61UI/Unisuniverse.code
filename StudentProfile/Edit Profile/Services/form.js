@@ -212,20 +212,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Other Types Checkbox
   const initOtherTypesCheckbox = () => {
-    const otherTypesCheckbox = document.getElementById("otherTypesCheckbox");
-    const otherCategoryInputFormat = document.getElementById(
-      "otherCategoryInputFormat"
+    const otherCheckboxes = document.querySelectorAll(
+      '.checkbox[value="Other"]'
     );
 
-    if (!otherTypesCheckbox || !otherCategoryInputFormat) return;
+    otherCheckboxes.forEach((checkbox, index) => {
+      const otherInputs = document.querySelectorAll(
+        '.input_pox input[name="other_category"]'
+      );
+      const otherInput = otherInputs[index];
 
-    otherTypesCheckbox.addEventListener("change", function () {
-      otherCategoryInputFormat.style.display = this.checked ? "block" : "none";
+      if (!otherInput) return;
+
+      const otherContainer = otherInput.closest(".input_pox");
+
+      checkbox.addEventListener("change", function () {
+        otherContainer.style.display = this.checked ? "block" : "none";
+
+        if (!this.checked) {
+          otherInput.value = "";
+        }
+      });
+
+      otherContainer.style.display = checkbox.checked ? "block" : "none";
     });
-
-    otherCategoryInputFormat.style.display = otherTypesCheckbox.checked
-      ? "block"
-      : "none";
   };
 
   // Validation
